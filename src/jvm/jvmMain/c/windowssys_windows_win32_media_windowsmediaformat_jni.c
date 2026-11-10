@@ -5,6 +5,7 @@
 #include <stdbool.h>
 #include <stddef.h>
 #include <stdint.h>
+#include <stdlib.h>
 #include <errno.h>
 #ifdef _WIN32
 #ifndef WIN32_LEAN_AND_MEAN
@@ -28,10 +29,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
         HMODULE km_h_mod = LoadLibraryA("wmvcore.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WMCreateBackupRestorer");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pcallback, (void*)(uintptr_t)ppbackup) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pcallback, (void*)(uintptr_t)ppbackup);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pcallback;
     (void)ppbackup;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -47,9 +55,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
         HMODULE km_h_mod = LoadLibraryA("wmvcore.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WMCreateEditor");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ppeditor) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ppeditor);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ppeditor;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -65,9 +80,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
         HMODULE km_h_mod = LoadLibraryA("wmvcore.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WMCreateIndexer");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ppindexer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ppindexer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ppindexer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -83,9 +105,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
         HMODULE km_h_mod = LoadLibraryA("wmvcore.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WMCreateProfileManager");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ppprofilemanager) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ppprofilemanager);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ppprofilemanager;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -101,11 +130,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
         HMODULE km_h_mod = LoadLibraryA("wmvcore.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WMCreateReader");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)punkcert, (uint32_t)dwrights, (void*)(uintptr_t)ppreader) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)punkcert, (uint32_t)dwrights, (void*)(uintptr_t)ppreader);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)punkcert;
     (void)dwrights;
     (void)ppreader;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -121,11 +157,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
         HMODULE km_h_mod = LoadLibraryA("wmvcore.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WMCreateSyncReader");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)punkcert, (uint32_t)dwrights, (void*)(uintptr_t)ppsyncreader) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)punkcert, (uint32_t)dwrights, (void*)(uintptr_t)ppsyncreader);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)punkcert;
     (void)dwrights;
     (void)ppsyncreader;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -141,10 +184,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
         HMODULE km_h_mod = LoadLibraryA("wmvcore.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WMCreateWriter");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)punkcert, (void*)(uintptr_t)ppwriter) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)punkcert, (void*)(uintptr_t)ppwriter);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)punkcert;
     (void)ppwriter;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -160,9 +210,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
         HMODULE km_h_mod = LoadLibraryA("wmvcore.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WMCreateWriterFileSink");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ppsink) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ppsink);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ppsink;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -178,9 +235,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
         HMODULE km_h_mod = LoadLibraryA("wmvcore.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WMCreateWriterNetworkSink");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ppsink) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ppsink);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ppsink;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -196,9 +260,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
         HMODULE km_h_mod = LoadLibraryA("wmvcore.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WMCreateWriterPushSink");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ppsink) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ppsink);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ppsink;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -214,10 +285,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
         HMODULE km_h_mod = LoadLibraryA("wmvcore.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WMIsContentProtected");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pwszfilename, (void*)(uintptr_t)pfisprotected) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pwszfilename, (void*)(uintptr_t)pfisprotected);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pwszfilename;
     (void)pfisprotected;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;

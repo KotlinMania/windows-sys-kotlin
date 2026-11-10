@@ -61,9 +61,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_networkdiagnostics
         HMODULE km_h_mod = LoadLibraryA("ndfapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdfCancelIncident")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(handle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(handle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)handle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -79,9 +86,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_networkdiagnostics
         HMODULE km_h_mod = LoadLibraryA("ndfapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdfCloseIncident")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(handle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(handle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)handle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -97,9 +111,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_networkdiagnostics
         HMODULE km_h_mod = LoadLibraryA("ndfapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdfCreateConnectivityIncident")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(handle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(handle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)handle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -117,11 +138,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_networkdiagnostics
         HMODULE km_h_mod = LoadLibraryA("ndfapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdfCreateDNSIncident")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hostname, querytype, handle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hostname, querytype, handle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hostname;
     (void)querytype;
     (void)handle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -143,7 +171,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_networkdiagnostics
         HMODULE km_h_mod = LoadLibraryA("ndfapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdfCreateGroupingIncident")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(cloudname, groupname, identity, invitation, addresses, appid, handle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(cloudname, groupname, identity, invitation, addresses, appid, handle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)cloudname;
     (void)groupname;
@@ -152,6 +186,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_networkdiagnostics
     (void)addresses;
     (void)appid;
     (void)handle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -170,12 +205,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_networkdiagnostics
         HMODULE km_h_mod = LoadLibraryA("ndfapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdfCreateIncident")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(helperclassname, celt, attributes, handle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(helperclassname, celt, attributes, handle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)helperclassname;
     (void)celt;
     (void)attributes;
     (void)handle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -195,13 +237,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_networkdiagnostics
         HMODULE km_h_mod = LoadLibraryA("ndfapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdfCreatePnrpIncident")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(cloudname, peername, diagnosepublish, appid, handle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(cloudname, peername, diagnosepublish, appid, handle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)cloudname;
     (void)peername;
     (void)diagnosepublish;
     (void)appid;
     (void)handle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -218,10 +267,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_networkdiagnostics
         HMODULE km_h_mod = LoadLibraryA("ndfapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdfCreateSharingIncident")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(uncpath, handle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(uncpath, handle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)uncpath;
     (void)handle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -238,10 +294,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_networkdiagnostics
         HMODULE km_h_mod = LoadLibraryA("ndfapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdfCreateWebIncident")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(url, handle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(url, handle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)url;
     (void)handle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -260,12 +323,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_networkdiagnostics
         HMODULE km_h_mod = LoadLibraryA("ndfapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdfCreateWebIncidentEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(url, usewinhttp, modulename, handle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(url, usewinhttp, modulename, handle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)url;
     (void)usewinhttp;
     (void)modulename;
     (void)handle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -286,7 +356,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_networkdiagnostics
         HMODULE km_h_mod = LoadLibraryA("ndfapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdfCreateWinSockIncident")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sock, host, port, appid, userid, handle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sock, host, port, appid, userid, handle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sock;
     (void)host;
@@ -294,6 +370,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_networkdiagnostics
     (void)appid;
     (void)userid;
     (void)handle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -313,13 +390,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_networkdiagnostics
         HMODULE km_h_mod = LoadLibraryA("ndfapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdfDiagnoseIncident")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(handle, rootcausecount, rootcauses, dwwait, dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(handle, rootcausecount, rootcauses, dwwait, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)handle;
     (void)rootcausecount;
     (void)rootcauses;
     (void)dwwait;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -336,10 +420,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_networkdiagnostics
         HMODULE km_h_mod = LoadLibraryA("ndfapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdfExecuteDiagnosis")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(handle, hwnd) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(handle, hwnd);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)handle;
     (void)hwnd;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -356,10 +447,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_networkdiagnostics
         HMODULE km_h_mod = LoadLibraryA("ndfapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdfGetTraceFile")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(handle, tracefilelocation) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(handle, tracefilelocation);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)handle;
     (void)tracefilelocation;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -377,11 +475,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_networkdiagnostics
         HMODULE km_h_mod = LoadLibraryA("ndfapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdfRepairIncident")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(handle, repairex, dwwait) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(handle, repairex, dwwait);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)handle;
     (void)repairex;
     (void)dwwait;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

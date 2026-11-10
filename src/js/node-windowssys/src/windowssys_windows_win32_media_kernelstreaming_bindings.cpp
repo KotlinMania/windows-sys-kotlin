@@ -63,11 +63,18 @@ static Napi::Value windowssys_windows_win32_media_kernelstreaming_ksCreateAlloca
         HMODULE km_h_mod = LoadLibraryA("ksuser.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "KsCreateAllocator")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(connectionhandle, allocatorframing, allocatorhandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(connectionhandle, allocatorframing, allocatorhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)connectionhandle;
     (void)allocatorframing;
     (void)allocatorhandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -85,11 +92,18 @@ static Napi::Value windowssys_windows_win32_media_kernelstreaming_ksCreateAlloca
         HMODULE km_h_mod = LoadLibraryA("ksuser.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "KsCreateAllocator2")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(connectionhandle, allocatorframing, allocatorhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(connectionhandle, allocatorframing, allocatorhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)connectionhandle;
     (void)allocatorframing;
     (void)allocatorhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -107,11 +121,18 @@ static Napi::Value windowssys_windows_win32_media_kernelstreaming_ksCreateClock_
         HMODULE km_h_mod = LoadLibraryA("ksuser.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "KsCreateClock")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(connectionhandle, clockcreate, clockhandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(connectionhandle, clockcreate, clockhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)connectionhandle;
     (void)clockcreate;
     (void)clockhandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -129,11 +150,18 @@ static Napi::Value windowssys_windows_win32_media_kernelstreaming_ksCreateClock2
         HMODULE km_h_mod = LoadLibraryA("ksuser.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "KsCreateClock2")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(connectionhandle, clockcreate, clockhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(connectionhandle, clockcreate, clockhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)connectionhandle;
     (void)clockcreate;
     (void)clockhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -152,12 +180,19 @@ static Napi::Value windowssys_windows_win32_media_kernelstreaming_ksCreatePin_na
         HMODULE km_h_mod = LoadLibraryA("ksuser.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "KsCreatePin")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(filterhandle, arg_1_connect, desiredaccess, connectionhandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(filterhandle, arg_1_connect, desiredaccess, connectionhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)filterhandle;
     (void)arg_1_connect;
     (void)desiredaccess;
     (void)connectionhandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -176,12 +211,19 @@ static Napi::Value windowssys_windows_win32_media_kernelstreaming_ksCreatePin2_n
         HMODULE km_h_mod = LoadLibraryA("ksuser.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "KsCreatePin2")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(filterhandle, arg_1_connect, desiredaccess, connectionhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(filterhandle, arg_1_connect, desiredaccess, connectionhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)filterhandle;
     (void)arg_1_connect;
     (void)desiredaccess;
     (void)connectionhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -200,12 +242,19 @@ static Napi::Value windowssys_windows_win32_media_kernelstreaming_ksCreateTopolo
         HMODULE km_h_mod = LoadLibraryA("ksuser.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "KsCreateTopologyNode")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(parenthandle, nodecreate, desiredaccess, nodehandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(parenthandle, nodecreate, desiredaccess, nodehandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)parenthandle;
     (void)nodecreate;
     (void)desiredaccess;
     (void)nodehandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -224,12 +273,19 @@ static Napi::Value windowssys_windows_win32_media_kernelstreaming_ksCreateTopolo
         HMODULE km_h_mod = LoadLibraryA("ksuser.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "KsCreateTopologyNode2")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(parenthandle, nodecreate, desiredaccess, nodehandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(parenthandle, nodecreate, desiredaccess, nodehandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)parenthandle;
     (void)nodecreate;
     (void)desiredaccess;
     (void)nodehandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -247,11 +303,18 @@ static Napi::Value windowssys_windows_win32_media_kernelstreaming_ksGetMediaType
         HMODULE km_h_mod = LoadLibraryA("ksproxy.ax");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "KsGetMediaTypeCount")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(filterhandle, pinfactoryid, mediatypecount) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(filterhandle, pinfactoryid, mediatypecount);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)filterhandle;
     (void)pinfactoryid;
     (void)mediatypecount;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -270,12 +333,19 @@ static Napi::Value windowssys_windows_win32_media_kernelstreaming_ksGetMultipleP
         HMODULE km_h_mod = LoadLibraryA("ksproxy.ax");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "KsGetMultiplePinFactoryItems")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(filterhandle, pinfactoryid, propertyid, items) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(filterhandle, pinfactoryid, propertyid, items);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)filterhandle;
     (void)pinfactoryid;
     (void)propertyid;
     (void)items;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -293,11 +363,18 @@ static Napi::Value windowssys_windows_win32_media_kernelstreaming_ksOpenDefaultD
         HMODULE km_h_mod = LoadLibraryA("ksproxy.ax");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "KsOpenDefaultDevice")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(category, access, devicehandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(category, access, devicehandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)category;
     (void)access;
     (void)devicehandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -314,10 +391,17 @@ static Napi::Value windowssys_windows_win32_media_kernelstreaming_ksResolveRequi
         HMODULE km_h_mod = LoadLibraryA("ksproxy.ax");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "KsResolveRequiredAttributes")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(datarange, attributes) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(datarange, attributes);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)datarange;
     (void)attributes;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -339,7 +423,13 @@ static Napi::Value windowssys_windows_win32_media_kernelstreaming_ksSynchronousD
         HMODULE km_h_mod = LoadLibraryA("ksproxy.ax");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "KsSynchronousDeviceControl")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(handle, iocontrol, inbuffer, inlength, outbuffer, outlength, bytesreturned) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(handle, iocontrol, inbuffer, inlength, outbuffer, outlength, bytesreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)handle;
     (void)iocontrol;
@@ -348,6 +438,7 @@ static Napi::Value windowssys_windows_win32_media_kernelstreaming_ksSynchronousD
     (void)outbuffer;
     (void)outlength;
     (void)bytesreturned;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

@@ -62,10 +62,17 @@ static Napi::Value windowssys_windows_win32_system_time_enumDynamicTimeZoneInfor
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EnumDynamicTimeZoneInformation")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwindex, lptimezoneinformation) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwindex, lptimezoneinformation);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dwindex;
     (void)lptimezoneinformation;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -82,10 +89,17 @@ static Napi::Value windowssys_windows_win32_system_time_fileTimeToSystemTime_nap
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FileTimeToSystemTime")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpfiletime, lpsystemtime) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpfiletime, lpsystemtime);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpfiletime;
     (void)lpsystemtime;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -101,9 +115,16 @@ static Napi::Value windowssys_windows_win32_system_time_getDynamicTimeZoneInform
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetDynamicTimeZoneInformation")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ptimezoneinformation) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ptimezoneinformation);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ptimezoneinformation;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -121,11 +142,18 @@ static Napi::Value windowssys_windows_win32_system_time_getDynamicTimeZoneInform
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetDynamicTimeZoneInformationEffectiveYears")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lptimezoneinformation, firstyear, lastyear) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lptimezoneinformation, firstyear, lastyear);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lptimezoneinformation;
     (void)firstyear;
     (void)lastyear;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -141,9 +169,16 @@ static Napi::Value windowssys_windows_win32_system_time_getTimeZoneInformation_n
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetTimeZoneInformation")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lptimezoneinformation) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lptimezoneinformation);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lptimezoneinformation;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -161,11 +196,18 @@ static Napi::Value windowssys_windows_win32_system_time_getTimeZoneInformationFo
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetTimeZoneInformationForYear")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(wyear, pdtzi, ptzi) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(wyear, pdtzi, ptzi);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)wyear;
     (void)pdtzi;
     (void)ptzi;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -183,11 +225,18 @@ static Napi::Value windowssys_windows_win32_system_time_localFileTimeToLocalSyst
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LocalFileTimeToLocalSystemTime")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(timezoneinformation, localfiletime, localsystemtime) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(timezoneinformation, localfiletime, localsystemtime);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)timezoneinformation;
     (void)localfiletime;
     (void)localsystemtime;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -205,11 +254,18 @@ static Napi::Value windowssys_windows_win32_system_time_localSystemTimeToLocalFi
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LocalSystemTimeToLocalFileTime")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(timezoneinformation, localsystemtime, localfiletime) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(timezoneinformation, localsystemtime, localfiletime);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)timezoneinformation;
     (void)localsystemtime;
     (void)localfiletime;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -225,9 +281,16 @@ static Napi::Value windowssys_windows_win32_system_time_setDynamicTimeZoneInform
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetDynamicTimeZoneInformation")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lptimezoneinformation) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lptimezoneinformation);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lptimezoneinformation;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -243,9 +306,16 @@ static Napi::Value windowssys_windows_win32_system_time_setTimeZoneInformation_n
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetTimeZoneInformation")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lptimezoneinformation) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lptimezoneinformation);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lptimezoneinformation;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -262,10 +332,17 @@ static Napi::Value windowssys_windows_win32_system_time_systemTimeToFileTime_nap
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SystemTimeToFileTime")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpsystemtime, lpfiletime) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpsystemtime, lpfiletime);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpsystemtime;
     (void)lpfiletime;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -283,11 +360,18 @@ static Napi::Value windowssys_windows_win32_system_time_systemTimeToTzSpecificLo
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SystemTimeToTzSpecificLocalTime")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lptimezoneinformation, lpuniversaltime, lplocaltime) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lptimezoneinformation, lpuniversaltime, lplocaltime);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lptimezoneinformation;
     (void)lpuniversaltime;
     (void)lplocaltime;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -305,11 +389,18 @@ static Napi::Value windowssys_windows_win32_system_time_systemTimeToTzSpecificLo
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SystemTimeToTzSpecificLocalTimeEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lptimezoneinformation, lpuniversaltime, lplocaltime) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lptimezoneinformation, lpuniversaltime, lplocaltime);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lptimezoneinformation;
     (void)lpuniversaltime;
     (void)lplocaltime;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -327,11 +418,18 @@ static Napi::Value windowssys_windows_win32_system_time_tzSpecificLocalTimeToSys
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TzSpecificLocalTimeToSystemTime")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lptimezoneinformation, lplocaltime, lpuniversaltime) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lptimezoneinformation, lplocaltime, lpuniversaltime);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lptimezoneinformation;
     (void)lplocaltime;
     (void)lpuniversaltime;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -349,11 +447,18 @@ static Napi::Value windowssys_windows_win32_system_time_tzSpecificLocalTimeToSys
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TzSpecificLocalTimeToSystemTimeEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lptimezoneinformation, lplocaltime, lpuniversaltime) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lptimezoneinformation, lplocaltime, lpuniversaltime);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lptimezoneinformation;
     (void)lplocaltime;
     (void)lpuniversaltime;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

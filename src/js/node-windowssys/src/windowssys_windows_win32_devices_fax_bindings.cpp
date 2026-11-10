@@ -60,8 +60,15 @@ static Napi::Value windowssys_windows_win32_devices_fax_canSendToFaxRecipient_na
         HMODULE km_h_mod = LoadLibraryA("fxsutility.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CanSendToFaxRecipient")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -78,10 +85,17 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxAbort_napi(const Napi
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FaxAbort")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(faxhandle, jobid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(faxhandle, jobid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)faxhandle;
     (void)jobid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -98,10 +112,17 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxAccessCheck_napi(cons
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FaxAccessCheck")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(faxhandle, accessmask) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(faxhandle, accessmask);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)faxhandle;
     (void)accessmask;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -117,9 +138,16 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxClose_napi(const Napi
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FaxClose")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(faxhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(faxhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)faxhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -136,10 +164,17 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxCompleteJobParamsA_na
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FaxCompleteJobParamsA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(jobparams, coverpageinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(jobparams, coverpageinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)jobparams;
     (void)coverpageinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -156,10 +191,17 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxCompleteJobParamsW_na
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FaxCompleteJobParamsW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(jobparams, coverpageinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(jobparams, coverpageinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)jobparams;
     (void)coverpageinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -176,10 +218,17 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxConnectFaxServerA_nap
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FaxConnectFaxServerA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(machinename, faxhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(machinename, faxhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)machinename;
     (void)faxhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -196,10 +245,17 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxConnectFaxServerW_nap
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FaxConnectFaxServerW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(machinename, faxhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(machinename, faxhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)machinename;
     (void)faxhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -217,11 +273,18 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxEnableRoutingMethodA_
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FaxEnableRoutingMethodA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(faxporthandle, routingguid, enabled) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(faxporthandle, routingguid, enabled);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)faxporthandle;
     (void)routingguid;
     (void)enabled;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -239,11 +302,18 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxEnableRoutingMethodW_
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FaxEnableRoutingMethodW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(faxporthandle, routingguid, enabled) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(faxporthandle, routingguid, enabled);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)faxporthandle;
     (void)routingguid;
     (void)enabled;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -261,11 +331,18 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxEnumGlobalRoutingInfo
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FaxEnumGlobalRoutingInfoA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(faxhandle, routinginfo, methodsreturned) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(faxhandle, routinginfo, methodsreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)faxhandle;
     (void)routinginfo;
     (void)methodsreturned;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -283,11 +360,18 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxEnumGlobalRoutingInfo
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FaxEnumGlobalRoutingInfoW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(faxhandle, routinginfo, methodsreturned) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(faxhandle, routinginfo, methodsreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)faxhandle;
     (void)routinginfo;
     (void)methodsreturned;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -305,11 +389,18 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxEnumJobsA_napi(const 
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FaxEnumJobsA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(faxhandle, jobentry, jobsreturned) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(faxhandle, jobentry, jobsreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)faxhandle;
     (void)jobentry;
     (void)jobsreturned;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -327,11 +418,18 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxEnumJobsW_napi(const 
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FaxEnumJobsW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(faxhandle, jobentry, jobsreturned) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(faxhandle, jobentry, jobsreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)faxhandle;
     (void)jobentry;
     (void)jobsreturned;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -349,11 +447,18 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxEnumPortsA_napi(const
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FaxEnumPortsA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(faxhandle, portinfo, portsreturned) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(faxhandle, portinfo, portsreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)faxhandle;
     (void)portinfo;
     (void)portsreturned;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -371,11 +476,18 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxEnumPortsW_napi(const
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FaxEnumPortsW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(faxhandle, portinfo, portsreturned) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(faxhandle, portinfo, portsreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)faxhandle;
     (void)portinfo;
     (void)portsreturned;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -393,11 +505,18 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxEnumRoutingMethodsA_n
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FaxEnumRoutingMethodsA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(faxporthandle, routingmethod, methodsreturned) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(faxporthandle, routingmethod, methodsreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)faxporthandle;
     (void)routingmethod;
     (void)methodsreturned;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -415,11 +534,18 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxEnumRoutingMethodsW_n
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FaxEnumRoutingMethodsW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(faxporthandle, routingmethod, methodsreturned) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(faxporthandle, routingmethod, methodsreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)faxporthandle;
     (void)routingmethod;
     (void)methodsreturned;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -435,9 +561,14 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxFreeBuffer_napi(const
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FaxFreeBuffer")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(buffer);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(buffer);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)buffer;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -453,10 +584,17 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxGetConfigurationA_nap
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FaxGetConfigurationA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(faxhandle, faxconfig) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(faxhandle, faxconfig);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)faxhandle;
     (void)faxconfig;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -473,10 +611,17 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxGetConfigurationW_nap
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FaxGetConfigurationW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(faxhandle, faxconfig) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(faxhandle, faxconfig);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)faxhandle;
     (void)faxconfig;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -493,10 +638,17 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxGetDeviceStatusA_napi
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FaxGetDeviceStatusA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(faxporthandle, devicestatus) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(faxporthandle, devicestatus);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)faxporthandle;
     (void)devicestatus;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -513,10 +665,17 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxGetDeviceStatusW_napi
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FaxGetDeviceStatusW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(faxporthandle, devicestatus) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(faxporthandle, devicestatus);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)faxporthandle;
     (void)devicestatus;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -534,11 +693,18 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxGetJobA_napi(const Na
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FaxGetJobA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(faxhandle, jobid, jobentry) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(faxhandle, jobid, jobentry);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)faxhandle;
     (void)jobid;
     (void)jobentry;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -556,11 +722,18 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxGetJobW_napi(const Na
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FaxGetJobW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(faxhandle, jobid, jobentry) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(faxhandle, jobid, jobentry);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)faxhandle;
     (void)jobid;
     (void)jobentry;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -578,11 +751,18 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxGetLoggingCategoriesA
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FaxGetLoggingCategoriesA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(faxhandle, categories, numbercategories) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(faxhandle, categories, numbercategories);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)faxhandle;
     (void)categories;
     (void)numbercategories;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -600,11 +780,18 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxGetLoggingCategoriesW
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FaxGetLoggingCategoriesW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(faxhandle, categories, numbercategories) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(faxhandle, categories, numbercategories);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)faxhandle;
     (void)categories;
     (void)numbercategories;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -625,7 +812,13 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxGetPageData_napi(cons
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FaxGetPageData")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(faxhandle, jobid, buffer, buffersize, imagewidth, imageheight) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(faxhandle, jobid, buffer, buffersize, imagewidth, imageheight);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)faxhandle;
     (void)jobid;
@@ -633,6 +826,7 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxGetPageData_napi(cons
     (void)buffersize;
     (void)imagewidth;
     (void)imageheight;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -649,10 +843,17 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxGetPortA_napi(const N
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FaxGetPortA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(faxporthandle, portinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(faxporthandle, portinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)faxporthandle;
     (void)portinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -669,10 +870,17 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxGetPortW_napi(const N
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FaxGetPortW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(faxporthandle, portinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(faxporthandle, portinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)faxporthandle;
     (void)portinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -691,12 +899,19 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxGetRoutingInfoA_napi(
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FaxGetRoutingInfoA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(faxporthandle, routingguid, routinginfobuffer, routinginfobuffersize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(faxporthandle, routingguid, routinginfobuffer, routinginfobuffersize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)faxporthandle;
     (void)routingguid;
     (void)routinginfobuffer;
     (void)routinginfobuffersize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -715,12 +930,19 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxGetRoutingInfoW_napi(
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FaxGetRoutingInfoW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(faxporthandle, routingguid, routinginfobuffer, routinginfobuffersize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(faxporthandle, routingguid, routinginfobuffer, routinginfobuffersize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)faxporthandle;
     (void)routingguid;
     (void)routinginfobuffer;
     (void)routinginfobuffersize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -740,13 +962,20 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxInitializeEventQueue_
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FaxInitializeEventQueue")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(faxhandle, completionport, completionkey, hwnd, messagestart) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(faxhandle, completionport, completionkey, hwnd, messagestart);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)faxhandle;
     (void)completionport;
     (void)completionkey;
     (void)hwnd;
     (void)messagestart;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -765,12 +994,19 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxOpenPort_napi(const N
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FaxOpenPort")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(faxhandle, deviceid, flags, faxporthandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(faxhandle, deviceid, flags, faxporthandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)faxhandle;
     (void)deviceid;
     (void)flags;
     (void)faxporthandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -787,10 +1023,17 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxPrintCoverPageA_napi(
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FaxPrintCoverPageA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(faxcontextinfo, coverpageinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(faxcontextinfo, coverpageinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)faxcontextinfo;
     (void)coverpageinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -807,10 +1050,17 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxPrintCoverPageW_napi(
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FaxPrintCoverPageW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(faxcontextinfo, coverpageinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(faxcontextinfo, coverpageinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)faxcontextinfo;
     (void)coverpageinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -831,7 +1081,13 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxRegisterRoutingExtens
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FaxRegisterRoutingExtensionW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(faxhandle, extensionname, friendlyname, imagename, callback, context) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(faxhandle, extensionname, friendlyname, imagename, callback, context);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)faxhandle;
     (void)extensionname;
@@ -839,6 +1095,7 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxRegisterRoutingExtens
     (void)imagename;
     (void)callback;
     (void)context;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -857,12 +1114,19 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxRegisterServiceProvid
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FaxRegisterServiceProviderW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(deviceprovider, friendlyname, imagename, tspname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(deviceprovider, friendlyname, imagename, tspname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)deviceprovider;
     (void)friendlyname;
     (void)imagename;
     (void)tspname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -882,13 +1146,20 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxSendDocumentA_napi(co
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FaxSendDocumentA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(faxhandle, filename, jobparams, coverpageinfo, faxjobid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(faxhandle, filename, jobparams, coverpageinfo, faxjobid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)faxhandle;
     (void)filename;
     (void)jobparams;
     (void)coverpageinfo;
     (void)faxjobid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -908,13 +1179,20 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxSendDocumentForBroadc
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FaxSendDocumentForBroadcastA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(faxhandle, filename, faxjobid, faxrecipientcallback, context) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(faxhandle, filename, faxjobid, faxrecipientcallback, context);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)faxhandle;
     (void)filename;
     (void)faxjobid;
     (void)faxrecipientcallback;
     (void)context;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -934,13 +1212,20 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxSendDocumentForBroadc
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FaxSendDocumentForBroadcastW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(faxhandle, filename, faxjobid, faxrecipientcallback, context) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(faxhandle, filename, faxjobid, faxrecipientcallback, context);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)faxhandle;
     (void)filename;
     (void)faxjobid;
     (void)faxrecipientcallback;
     (void)context;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -960,13 +1245,20 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxSendDocumentW_napi(co
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FaxSendDocumentW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(faxhandle, filename, jobparams, coverpageinfo, faxjobid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(faxhandle, filename, jobparams, coverpageinfo, faxjobid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)faxhandle;
     (void)filename;
     (void)jobparams;
     (void)coverpageinfo;
     (void)faxjobid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -983,10 +1275,17 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxSetConfigurationA_nap
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FaxSetConfigurationA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(faxhandle, faxconfig) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(faxhandle, faxconfig);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)faxhandle;
     (void)faxconfig;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1003,10 +1302,17 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxSetConfigurationW_nap
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FaxSetConfigurationW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(faxhandle, faxconfig) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(faxhandle, faxconfig);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)faxhandle;
     (void)faxconfig;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1023,10 +1329,17 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxSetGlobalRoutingInfoA
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FaxSetGlobalRoutingInfoA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(faxhandle, routinginfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(faxhandle, routinginfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)faxhandle;
     (void)routinginfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1043,10 +1356,17 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxSetGlobalRoutingInfoW
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FaxSetGlobalRoutingInfoW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(faxhandle, routinginfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(faxhandle, routinginfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)faxhandle;
     (void)routinginfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1065,12 +1385,19 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxSetJobA_napi(const Na
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FaxSetJobA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(faxhandle, jobid, command, jobentry) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(faxhandle, jobid, command, jobentry);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)faxhandle;
     (void)jobid;
     (void)command;
     (void)jobentry;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1089,12 +1416,19 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxSetJobW_napi(const Na
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FaxSetJobW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(faxhandle, jobid, command, jobentry) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(faxhandle, jobid, command, jobentry);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)faxhandle;
     (void)jobid;
     (void)command;
     (void)jobentry;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1112,11 +1446,18 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxSetLoggingCategoriesA
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FaxSetLoggingCategoriesA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(faxhandle, categories, numbercategories) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(faxhandle, categories, numbercategories);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)faxhandle;
     (void)categories;
     (void)numbercategories;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1134,11 +1475,18 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxSetLoggingCategoriesW
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FaxSetLoggingCategoriesW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(faxhandle, categories, numbercategories) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(faxhandle, categories, numbercategories);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)faxhandle;
     (void)categories;
     (void)numbercategories;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1155,10 +1503,17 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxSetPortA_napi(const N
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FaxSetPortA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(faxporthandle, portinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(faxporthandle, portinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)faxporthandle;
     (void)portinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1175,10 +1530,17 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxSetPortW_napi(const N
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FaxSetPortW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(faxporthandle, portinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(faxporthandle, portinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)faxporthandle;
     (void)portinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1197,12 +1559,19 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxSetRoutingInfoA_napi(
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FaxSetRoutingInfoA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(faxporthandle, routingguid, routinginfobuffer, routinginfobuffersize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(faxporthandle, routingguid, routinginfobuffer, routinginfobuffersize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)faxporthandle;
     (void)routingguid;
     (void)routinginfobuffer;
     (void)routinginfobuffersize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1221,12 +1590,19 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxSetRoutingInfoW_napi(
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FaxSetRoutingInfoW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(faxporthandle, routingguid, routinginfobuffer, routinginfobuffersize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(faxporthandle, routingguid, routinginfobuffer, routinginfobuffersize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)faxporthandle;
     (void)routingguid;
     (void)routinginfobuffer;
     (void)routinginfobuffersize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1245,12 +1621,19 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxStartPrintJobA_napi(c
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FaxStartPrintJobA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(printername, printinfo, faxjobid, faxcontextinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(printername, printinfo, faxjobid, faxcontextinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)printername;
     (void)printinfo;
     (void)faxjobid;
     (void)faxcontextinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1269,12 +1652,19 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxStartPrintJobW_napi(c
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FaxStartPrintJobW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(printername, printinfo, faxjobid, faxcontextinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(printername, printinfo, faxjobid, faxcontextinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)printername;
     (void)printinfo;
     (void)faxjobid;
     (void)faxcontextinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1290,9 +1680,16 @@ static Napi::Value windowssys_windows_win32_devices_fax_faxUnregisterServiceProv
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FaxUnregisterServiceProviderW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(deviceprovider) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(deviceprovider);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)deviceprovider;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1309,10 +1706,17 @@ static Napi::Value windowssys_windows_win32_devices_fax_sendToFaxRecipient_napi(
         HMODULE km_h_mod = LoadLibraryA("fxsutility.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SendToFaxRecipient")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sndmode, lpfilename) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sndmode, lpfilename);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)sndmode;
     (void)lpfilename;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1331,12 +1735,19 @@ static Napi::Value windowssys_windows_win32_devices_fax_stiCreateInstanceW_napi(
         HMODULE km_h_mod = LoadLibraryA("sti.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "StiCreateInstanceW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hinst, dwver, ppsti, punkouter) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hinst, dwver, ppsti, punkouter);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hinst;
     (void)dwver;
     (void)ppsti;
     (void)punkouter;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

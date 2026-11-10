@@ -62,10 +62,17 @@ static Napi::Value windowssys_windows_wdk_system_threading_ntCancelTimer_napi(co
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NtCancelTimer")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(timerhandle, currentstate) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(timerhandle, currentstate);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)timerhandle;
     (void)currentstate;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -84,12 +91,19 @@ static Napi::Value windowssys_windows_wdk_system_threading_ntCreateTimer_napi(co
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NtCreateTimer")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(timerhandle, desiredaccess, objectattributes, timertype) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(timerhandle, desiredaccess, objectattributes, timertype);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)timerhandle;
     (void)desiredaccess;
     (void)objectattributes;
     (void)timertype;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -107,11 +121,18 @@ static Napi::Value windowssys_windows_wdk_system_threading_ntOpenEvent_napi(cons
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NtOpenEvent")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(eventhandle, desiredaccess, objectattributes) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(eventhandle, desiredaccess, objectattributes);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)eventhandle;
     (void)desiredaccess;
     (void)objectattributes;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -130,12 +151,19 @@ static Napi::Value windowssys_windows_wdk_system_threading_ntOpenProcess_napi(co
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NtOpenProcess")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(processhandle, desiredaccess, objectattributes, clientid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(processhandle, desiredaccess, objectattributes, clientid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)processhandle;
     (void)desiredaccess;
     (void)objectattributes;
     (void)clientid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -153,11 +181,18 @@ static Napi::Value windowssys_windows_wdk_system_threading_ntOpenTimer_napi(cons
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NtOpenTimer")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(timerhandle, desiredaccess, objectattributes) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(timerhandle, desiredaccess, objectattributes);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)timerhandle;
     (void)desiredaccess;
     (void)objectattributes;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -177,13 +212,20 @@ static Napi::Value windowssys_windows_wdk_system_threading_ntQueryInformationPro
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NtQueryInformationProcess")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(processhandle, processinformationclass, processinformation, processinformationlength, returnlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(processhandle, processinformationclass, processinformation, processinformationlength, returnlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)processhandle;
     (void)processinformationclass;
     (void)processinformation;
     (void)processinformationlength;
     (void)returnlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -203,13 +245,20 @@ static Napi::Value windowssys_windows_wdk_system_threading_ntQueryInformationThr
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NtQueryInformationThread")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(threadhandle, threadinformationclass, threadinformation, threadinformationlength, returnlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(threadhandle, threadinformationclass, threadinformation, threadinformationlength, returnlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)threadhandle;
     (void)threadinformationclass;
     (void)threadinformation;
     (void)threadinformationlength;
     (void)returnlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -228,12 +277,19 @@ static Napi::Value windowssys_windows_wdk_system_threading_ntSetInformationThrea
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NtSetInformationThread")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(threadhandle, threadinformationclass, threadinformation, threadinformationlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(threadhandle, threadinformationclass, threadinformation, threadinformationlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)threadhandle;
     (void)threadinformationclass;
     (void)threadinformation;
     (void)threadinformationlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -255,7 +311,13 @@ static Napi::Value windowssys_windows_wdk_system_threading_ntSetTimer_napi(const
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NtSetTimer")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(timerhandle, duetime, timerapcroutine, timercontext, resumetimer, period, previousstate) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(timerhandle, duetime, timerapcroutine, timercontext, resumetimer, period, previousstate);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)timerhandle;
     (void)duetime;
@@ -264,6 +326,7 @@ static Napi::Value windowssys_windows_wdk_system_threading_ntSetTimer_napi(const
     (void)resumetimer;
     (void)period;
     (void)previousstate;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -282,12 +345,19 @@ static Napi::Value windowssys_windows_wdk_system_threading_ntSetTimerEx_napi(con
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NtSetTimerEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(timerhandle, timersetinformationclass, timersetinformation, timersetinformationlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(timerhandle, timersetinformationclass, timersetinformation, timersetinformationlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)timerhandle;
     (void)timersetinformationclass;
     (void)timersetinformation;
     (void)timersetinformationlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -304,10 +374,17 @@ static Napi::Value windowssys_windows_wdk_system_threading_ntTerminateProcess_na
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NtTerminateProcess")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(processhandle, exitstatus) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(processhandle, exitstatus);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)processhandle;
     (void)exitstatus;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -325,11 +402,18 @@ static Napi::Value windowssys_windows_wdk_system_threading_ntWaitForSingleObject
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NtWaitForSingleObject")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(handle, alertable, timeout) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(handle, alertable, timeout);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)handle;
     (void)alertable;
     (void)timeout;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -346,10 +430,17 @@ static Napi::Value windowssys_windows_wdk_system_threading_zwCancelTimer_napi(co
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ZwCancelTimer")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(timerhandle, currentstate) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(timerhandle, currentstate);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)timerhandle;
     (void)currentstate;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -368,12 +459,19 @@ static Napi::Value windowssys_windows_wdk_system_threading_zwCreateTimer_napi(co
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ZwCreateTimer")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(timerhandle, desiredaccess, objectattributes, timertype) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(timerhandle, desiredaccess, objectattributes, timertype);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)timerhandle;
     (void)desiredaccess;
     (void)objectattributes;
     (void)timertype;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -391,11 +489,18 @@ static Napi::Value windowssys_windows_wdk_system_threading_zwOpenEvent_napi(cons
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ZwOpenEvent")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(eventhandle, desiredaccess, objectattributes) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(eventhandle, desiredaccess, objectattributes);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)eventhandle;
     (void)desiredaccess;
     (void)objectattributes;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -414,12 +519,19 @@ static Napi::Value windowssys_windows_wdk_system_threading_zwOpenProcess_napi(co
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ZwOpenProcess")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(processhandle, desiredaccess, objectattributes, clientid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(processhandle, desiredaccess, objectattributes, clientid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)processhandle;
     (void)desiredaccess;
     (void)objectattributes;
     (void)clientid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -437,11 +549,18 @@ static Napi::Value windowssys_windows_wdk_system_threading_zwOpenTimer_napi(cons
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ZwOpenTimer")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(timerhandle, desiredaccess, objectattributes) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(timerhandle, desiredaccess, objectattributes);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)timerhandle;
     (void)desiredaccess;
     (void)objectattributes;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -461,13 +580,20 @@ static Napi::Value windowssys_windows_wdk_system_threading_zwQueryInformationPro
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ZwQueryInformationProcess")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(processhandle, processinformationclass, processinformation, processinformationlength, returnlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(processhandle, processinformationclass, processinformation, processinformationlength, returnlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)processhandle;
     (void)processinformationclass;
     (void)processinformation;
     (void)processinformationlength;
     (void)returnlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -487,13 +613,20 @@ static Napi::Value windowssys_windows_wdk_system_threading_zwQueryInformationThr
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ZwQueryInformationThread")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(threadhandle, threadinformationclass, threadinformation, threadinformationlength, returnlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(threadhandle, threadinformationclass, threadinformation, threadinformationlength, returnlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)threadhandle;
     (void)threadinformationclass;
     (void)threadinformation;
     (void)threadinformationlength;
     (void)returnlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -512,12 +645,19 @@ static Napi::Value windowssys_windows_wdk_system_threading_zwSetInformationThrea
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ZwSetInformationThread")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(threadhandle, threadinformationclass, threadinformation, threadinformationlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(threadhandle, threadinformationclass, threadinformation, threadinformationlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)threadhandle;
     (void)threadinformationclass;
     (void)threadinformation;
     (void)threadinformationlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -539,7 +679,13 @@ static Napi::Value windowssys_windows_wdk_system_threading_zwSetTimer_napi(const
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ZwSetTimer")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(timerhandle, duetime, timerapcroutine, timercontext, resumetimer, period, previousstate) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(timerhandle, duetime, timerapcroutine, timercontext, resumetimer, period, previousstate);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)timerhandle;
     (void)duetime;
@@ -548,6 +694,7 @@ static Napi::Value windowssys_windows_wdk_system_threading_zwSetTimer_napi(const
     (void)resumetimer;
     (void)period;
     (void)previousstate;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -566,12 +713,19 @@ static Napi::Value windowssys_windows_wdk_system_threading_zwSetTimerEx_napi(con
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ZwSetTimerEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(timerhandle, timersetinformationclass, timersetinformation, timersetinformationlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(timerhandle, timersetinformationclass, timersetinformation, timersetinformationlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)timerhandle;
     (void)timersetinformationclass;
     (void)timersetinformation;
     (void)timersetinformationlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -588,10 +742,17 @@ static Napi::Value windowssys_windows_wdk_system_threading_zwTerminateProcess_na
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ZwTerminateProcess")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(processhandle, exitstatus) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(processhandle, exitstatus);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)processhandle;
     (void)exitstatus;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -609,11 +770,18 @@ static Napi::Value windowssys_windows_wdk_system_threading_zwWaitForSingleObject
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ZwWaitForSingleObject")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(handle, alertable, timeout) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(handle, alertable, timeout);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)handle;
     (void)alertable;
     (void)timeout;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

@@ -61,9 +61,14 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_drtClose_napi(
         HMODULE km_h_mod = LoadLibraryA("drt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DrtClose")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(hdrt);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(hdrt);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)hdrt;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -78,9 +83,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_drtContinueSea
         HMODULE km_h_mod = LoadLibraryA("drt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DrtContinueSearch")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hsearchcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hsearchcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hsearchcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -97,10 +109,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_drtCreateDeriv
         HMODULE km_h_mod = LoadLibraryA("drtprov.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DrtCreateDerivedKey")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(plocalcert, pkey) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(plocalcert, pkey);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)plocalcert;
     (void)pkey;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -118,11 +137,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_drtCreateDeriv
         HMODULE km_h_mod = LoadLibraryA("drtprov.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DrtCreateDerivedKeySecurityProvider")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(prootcert, plocalcert, ppsecurityprovider) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(prootcert, plocalcert, ppsecurityprovider);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)prootcert;
     (void)plocalcert;
     (void)ppsecurityprovider;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -140,11 +166,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_drtCreateDnsBo
         HMODULE km_h_mod = LoadLibraryA("drtprov.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DrtCreateDnsBootstrapResolver")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(port, pwszaddress, ppmodule) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(port, pwszaddress, ppmodule);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)port;
     (void)pwszaddress;
     (void)ppmodule;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -164,13 +197,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_drtCreateIpv6U
         HMODULE km_h_mod = LoadLibraryA("drttransport.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DrtCreateIpv6UdpTransport")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(scope, dwscopeid, dwlocalitythreshold, pwport, phtransport) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(scope, dwscopeid, dwlocalitythreshold, pwport, phtransport);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)scope;
     (void)dwscopeid;
     (void)dwlocalitythreshold;
     (void)pwport;
     (void)phtransport;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -186,9 +226,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_drtCreateNullS
         HMODULE km_h_mod = LoadLibraryA("drtprov.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DrtCreateNullSecurityProvider")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ppsecurityprovider) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ppsecurityprovider);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ppsecurityprovider;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -208,13 +255,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_drtCreatePnrpB
         HMODULE km_h_mod = LoadLibraryA("drtprov.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DrtCreatePnrpBootstrapResolver")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(fpublish, pwzpeername, pwzcloudname, pwzpublishingidentity, ppresolver) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(fpublish, pwzpeername, pwzcloudname, pwzpublishingidentity, ppresolver);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)fpublish;
     (void)pwzpeername;
     (void)pwzcloudname;
     (void)pwzpublishingidentity;
     (void)ppresolver;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -230,9 +284,14 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_drtDeleteDeriv
         HMODULE km_h_mod = LoadLibraryA("drtprov.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DrtDeleteDerivedKeySecurityProvider")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(psecurityprovider);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(psecurityprovider);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)psecurityprovider;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -247,9 +306,14 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_drtDeleteDnsBo
         HMODULE km_h_mod = LoadLibraryA("drtprov.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DrtDeleteDnsBootstrapResolver")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(presolver);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(presolver);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)presolver;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -264,9 +328,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_drtDeleteIpv6U
         HMODULE km_h_mod = LoadLibraryA("drttransport.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DrtDeleteIpv6UdpTransport")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(htransport) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(htransport);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)htransport;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -282,9 +353,14 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_drtDeleteNullS
         HMODULE km_h_mod = LoadLibraryA("drtprov.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DrtDeleteNullSecurityProvider")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(psecurityprovider);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(psecurityprovider);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)psecurityprovider;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -299,9 +375,14 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_drtDeletePnrpB
         HMODULE km_h_mod = LoadLibraryA("drtprov.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DrtDeletePnrpBootstrapResolver")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(presolver);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(presolver);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)presolver;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -316,9 +397,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_drtEndSearch_n
         HMODULE km_h_mod = LoadLibraryA("drt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DrtEndSearch")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hsearchcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hsearchcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hsearchcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -336,11 +424,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_drtGetEventDat
         HMODULE km_h_mod = LoadLibraryA("drt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DrtGetEventData")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdrt, uleventdatalen, peventdata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdrt, uleventdatalen, peventdata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdrt;
     (void)uleventdatalen;
     (void)peventdata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -357,10 +452,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_drtGetEventDat
         HMODULE km_h_mod = LoadLibraryA("drt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DrtGetEventDataSize")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdrt, puleventdatalen) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdrt, puleventdatalen);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdrt;
     (void)puleventdatalen;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -378,11 +480,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_drtGetInstance
         HMODULE km_h_mod = LoadLibraryA("drt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DrtGetInstanceName")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdrt, ulcbinstancenamesize, pwzdrtinstancename) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdrt, ulcbinstancenamesize, pwzdrtinstancename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdrt;
     (void)ulcbinstancenamesize;
     (void)pwzdrtinstancename;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -399,10 +508,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_drtGetInstance
         HMODULE km_h_mod = LoadLibraryA("drt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DrtGetInstanceNameSize")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdrt, pulcbinstancenamesize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdrt, pulcbinstancenamesize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdrt;
     (void)pulcbinstancenamesize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -420,11 +536,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_drtGetSearchPa
         HMODULE km_h_mod = LoadLibraryA("drt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DrtGetSearchPath")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hsearchcontext, ulsearchpathsize, psearchpath) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hsearchcontext, ulsearchpathsize, psearchpath);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hsearchcontext;
     (void)ulsearchpathsize;
     (void)psearchpath;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -441,10 +564,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_drtGetSearchPa
         HMODULE km_h_mod = LoadLibraryA("drt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DrtGetSearchPathSize")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hsearchcontext, pulsearchpathsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hsearchcontext, pulsearchpathsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hsearchcontext;
     (void)pulsearchpathsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -462,11 +592,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_drtGetSearchRe
         HMODULE km_h_mod = LoadLibraryA("drt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DrtGetSearchResult")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hsearchcontext, ulsearchresultsize, psearchresult) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hsearchcontext, ulsearchresultsize, psearchresult);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hsearchcontext;
     (void)ulsearchresultsize;
     (void)psearchresult;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -483,10 +620,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_drtGetSearchRe
         HMODULE km_h_mod = LoadLibraryA("drt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DrtGetSearchResultSize")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hsearchcontext, pulsearchresultsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hsearchcontext, pulsearchresultsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hsearchcontext;
     (void)pulsearchresultsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -505,12 +649,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_drtOpen_napi(c
         HMODULE km_h_mod = LoadLibraryA("drt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DrtOpen")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(psettings, hevent, pvcontext, phdrt) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(psettings, hevent, pvcontext, phdrt);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)psettings;
     (void)hevent;
     (void)pvcontext;
     (void)phdrt;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -529,12 +680,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_drtRegisterKey
         HMODULE km_h_mod = LoadLibraryA("drt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DrtRegisterKey")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdrt, pregistration, pvkeycontext, phkeyregistration) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdrt, pregistration, pvkeycontext, phkeyregistration);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdrt;
     (void)pregistration;
     (void)pvkeycontext;
     (void)phkeyregistration;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -556,7 +714,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_drtStartSearch
         HMODULE km_h_mod = LoadLibraryA("drt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DrtStartSearch")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdrt, pkey, pinfo, timeout, hevent, pvcontext, hsearchcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdrt, pkey, pinfo, timeout, hevent, pvcontext, hsearchcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdrt;
     (void)pkey;
@@ -565,6 +729,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_drtStartSearch
     (void)hevent;
     (void)pvcontext;
     (void)hsearchcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -580,9 +745,14 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_drtUnregisterK
         HMODULE km_h_mod = LoadLibraryA("drt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DrtUnregisterKey")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(hkeyregistration);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(hkeyregistration);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)hkeyregistration;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -598,10 +768,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_drtUpdateKey_n
         HMODULE km_h_mod = LoadLibraryA("drt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DrtUpdateKey")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkeyregistration, pappdata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkeyregistration, pappdata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hkeyregistration;
     (void)pappdata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -618,10 +795,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerCollabAddC
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerCollabAddContact")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pwzcontactdata, ppcontact) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pwzcontactdata, ppcontact);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pwzcontactdata;
     (void)ppcontact;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -641,13 +825,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerCollabAsyn
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerCollabAsyncInviteContact")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pccontact, pcendpoint, pcinvitation, hevent, phinvitation) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pccontact, pcendpoint, pcinvitation, hevent, phinvitation);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pccontact;
     (void)pcendpoint;
     (void)pcinvitation;
     (void)hevent;
     (void)phinvitation;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -666,12 +857,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerCollabAsyn
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerCollabAsyncInviteEndpoint")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pcendpoint, pcinvitation, hevent, phinvitation) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pcendpoint, pcinvitation, hevent, phinvitation);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pcendpoint;
     (void)pcinvitation;
     (void)hevent;
     (void)phinvitation;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -687,9 +885,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerCollabCanc
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerCollabCancelInvitation")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hinvitation) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hinvitation);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hinvitation;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -705,9 +910,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerCollabClos
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerCollabCloseHandle")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hinvitation) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hinvitation);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hinvitation;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -723,9 +935,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerCollabDele
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerCollabDeleteContact")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pwzpeername) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pwzpeername);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pwzpeername;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -741,9 +960,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerCollabDele
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerCollabDeleteEndpointData")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pcendpoint) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pcendpoint);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pcendpoint;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -759,9 +985,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerCollabDele
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerCollabDeleteObject")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pobjectid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pobjectid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pobjectid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -778,10 +1011,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerCollabEnum
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerCollabEnumApplicationRegistrationInfo")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(registrationtype, phpeerenum) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(registrationtype, phpeerenum);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)registrationtype;
     (void)phpeerenum;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -799,11 +1039,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerCollabEnum
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerCollabEnumApplications")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pcendpoint, papplicationid, phpeerenum) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pcendpoint, papplicationid, phpeerenum);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pcendpoint;
     (void)papplicationid;
     (void)phpeerenum;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -819,9 +1066,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerCollabEnum
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerCollabEnumContacts")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(phpeerenum) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(phpeerenum);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)phpeerenum;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -838,10 +1092,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerCollabEnum
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerCollabEnumEndpoints")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pccontact, phpeerenum) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pccontact, phpeerenum);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pccontact;
     (void)phpeerenum;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -859,11 +1120,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerCollabEnum
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerCollabEnumObjects")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pcendpoint, pobjectid, phpeerenum) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pcendpoint, pobjectid, phpeerenum);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pcendpoint;
     (void)pobjectid;
     (void)phpeerenum;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -879,9 +1147,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerCollabEnum
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerCollabEnumPeopleNearMe")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(phpeerenum) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(phpeerenum);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)phpeerenum;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -898,10 +1173,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerCollabExpo
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerCollabExportContact")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pwzpeername, ppwzcontactdata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pwzpeername, ppwzcontactdata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pwzpeername;
     (void)ppwzcontactdata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -917,9 +1199,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerCollabGetA
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerCollabGetAppLaunchInfo")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pplaunchinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pplaunchinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pplaunchinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -937,11 +1226,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerCollabGetA
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerCollabGetApplicationRegistrationInfo")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(papplicationid, registrationtype, ppapplication) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(papplicationid, registrationtype, ppapplication);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)papplicationid;
     (void)registrationtype;
     (void)ppapplication;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -958,10 +1254,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerCollabGetC
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerCollabGetContact")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pwzpeername, ppcontact) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pwzpeername, ppcontact);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pwzpeername;
     (void)ppcontact;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -977,9 +1280,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerCollabGetE
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerCollabGetEndpointName")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ppwzendpointname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ppwzendpointname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ppwzendpointname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -996,10 +1306,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerCollabGetE
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerCollabGetEventData")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hpeerevent, ppeventdata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hpeerevent, ppeventdata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hpeerevent;
     (void)ppeventdata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1016,10 +1333,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerCollabGetI
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerCollabGetInvitationResponse")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hinvitation, ppinvitationresponse) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hinvitation, ppinvitationresponse);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hinvitation;
     (void)ppinvitationresponse;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1036,10 +1360,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerCollabGetP
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerCollabGetPresenceInfo")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pcendpoint, pppresenceinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pcendpoint, pppresenceinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pcendpoint;
     (void)pppresenceinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1055,9 +1386,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerCollabGetS
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerCollabGetSigninOptions")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pdwsigninoptions) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pdwsigninoptions);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pdwsigninoptions;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1076,12 +1414,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerCollabInvi
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerCollabInviteContact")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pccontact, pcendpoint, pcinvitation, ppresponse) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pccontact, pcendpoint, pcinvitation, ppresponse);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pccontact;
     (void)pcendpoint;
     (void)pcinvitation;
     (void)ppresponse;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1099,11 +1444,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerCollabInvi
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerCollabInviteEndpoint")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pcendpoint, pcinvitation, ppresponse) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pcendpoint, pcinvitation, ppresponse);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pcendpoint;
     (void)pcinvitation;
     (void)ppresponse;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1120,10 +1472,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerCollabPars
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerCollabParseContact")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pwzcontactdata, ppcontact) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pwzcontactdata, ppcontact);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pwzcontactdata;
     (void)ppcontact;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1140,10 +1499,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerCollabQuer
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerCollabQueryContactData")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pcendpoint, ppwzcontactdata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pcendpoint, ppwzcontactdata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pcendpoint;
     (void)ppwzcontactdata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1159,9 +1525,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerCollabRefr
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerCollabRefreshEndpointData")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pcendpoint) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pcendpoint);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pcendpoint;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1178,10 +1551,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerCollabRegi
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerCollabRegisterApplication")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pcapplication, registrationtype) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pcapplication, registrationtype);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pcapplication;
     (void)registrationtype;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1200,12 +1580,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerCollabRegi
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerCollabRegisterEvent")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hevent, ceventregistration, peventregistrations, phpeerevent) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hevent, ceventregistration, peventregistrations, phpeerevent);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hevent;
     (void)ceventregistration;
     (void)peventregistrations;
     (void)phpeerevent;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1221,9 +1608,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerCollabSetE
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerCollabSetEndpointName")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pwzendpointname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pwzendpointname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pwzendpointname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1239,9 +1633,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerCollabSetO
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerCollabSetObject")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pcobject) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pcobject);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pcobject;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1257,9 +1658,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerCollabSetP
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerCollabSetPresenceInfo")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pcpresenceinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pcpresenceinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pcpresenceinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1274,8 +1682,15 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerCollabShut
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerCollabShutdown")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1292,10 +1707,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerCollabSign
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerCollabSignin")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwndparent, dwsigninoptions) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwndparent, dwsigninoptions);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwndparent;
     (void)dwsigninoptions;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1311,9 +1733,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerCollabSign
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerCollabSignout")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwsigninoptions) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwsigninoptions);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwsigninoptions;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1329,9 +1758,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerCollabStar
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerCollabStartup")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(wversionrequested) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(wversionrequested);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)wversionrequested;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1347,9 +1783,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerCollabSubs
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerCollabSubscribeEndpointData")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pcendpoint) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pcendpoint);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pcendpoint;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1366,10 +1809,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerCollabUnre
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerCollabUnregisterApplication")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(papplicationid, registrationtype) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(papplicationid, registrationtype);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)papplicationid;
     (void)registrationtype;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1385,9 +1835,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerCollabUnre
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerCollabUnregisterEvent")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hpeerevent) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hpeerevent);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hpeerevent;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1403,9 +1860,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerCollabUnsu
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerCollabUnsubscribeEndpointData")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pcendpoint) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pcendpoint);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pcendpoint;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1421,9 +1885,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerCollabUpda
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerCollabUpdateContact")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pcontact) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pcontact);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pcontact;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1441,11 +1912,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerCreatePeer
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerCreatePeerName")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pwzidentity, pwzclassifier, ppwzpeername) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pwzidentity, pwzclassifier, ppwzpeername);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pwzidentity;
     (void)pwzclassifier;
     (void)ppwzpeername;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1465,13 +1943,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerDistClient
         HMODULE km_h_mod = LoadLibraryA("peerdist.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerDistClientAddContentInformation")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hpeerdist, hcontenthandle, cbnumberofbytes, pbuffer, lpoverlapped) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hpeerdist, hcontenthandle, cbnumberofbytes, pbuffer, lpoverlapped);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hpeerdist;
     (void)hcontenthandle;
     (void)cbnumberofbytes;
     (void)pbuffer;
     (void)lpoverlapped;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1491,13 +1976,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerDistClient
         HMODULE km_h_mod = LoadLibraryA("peerdist.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerDistClientAddData")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hpeerdist, hcontenthandle, cbnumberofbytes, pbuffer, lpoverlapped) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hpeerdist, hcontenthandle, cbnumberofbytes, pbuffer, lpoverlapped);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hpeerdist;
     (void)hcontenthandle;
     (void)cbnumberofbytes;
     (void)pbuffer;
     (void)lpoverlapped;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1518,7 +2010,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerDistClient
         HMODULE km_h_mod = LoadLibraryA("peerdist.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerDistClientBlockRead")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hpeerdist, hcontenthandle, cbmaxnumberofbytes, pbuffer, dwtimeoutinmilliseconds, lpoverlapped) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hpeerdist, hcontenthandle, cbmaxnumberofbytes, pbuffer, dwtimeoutinmilliseconds, lpoverlapped);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hpeerdist;
     (void)hcontenthandle;
@@ -1526,6 +2024,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerDistClient
     (void)pbuffer;
     (void)dwtimeoutinmilliseconds;
     (void)lpoverlapped;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1543,11 +2042,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerDistClient
         HMODULE km_h_mod = LoadLibraryA("peerdist.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerDistClientCancelAsyncOperation")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hpeerdist, hcontenthandle, poverlapped) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hpeerdist, hcontenthandle, poverlapped);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hpeerdist;
     (void)hcontenthandle;
     (void)poverlapped;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1564,10 +2070,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerDistClient
         HMODULE km_h_mod = LoadLibraryA("peerdist.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerDistClientCloseContent")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hpeerdist, hcontenthandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hpeerdist, hcontenthandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hpeerdist;
     (void)hcontenthandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1585,11 +2098,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerDistClient
         HMODULE km_h_mod = LoadLibraryA("peerdist.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerDistClientCompleteContentInformation")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hpeerdist, hcontenthandle, lpoverlapped) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hpeerdist, hcontenthandle, lpoverlapped);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hpeerdist;
     (void)hcontenthandle;
     (void)lpoverlapped;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1609,13 +2129,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerDistClient
         HMODULE km_h_mod = LoadLibraryA("peerdist.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerDistClientFlushContent")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hpeerdist, pcontenttag, hcompletionport, ulcompletionkey, lpoverlapped) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hpeerdist, pcontenttag, hcompletionport, ulcompletionkey, lpoverlapped);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hpeerdist;
     (void)pcontenttag;
     (void)hcompletionport;
     (void)ulcompletionkey;
     (void)lpoverlapped;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1635,13 +2162,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerDistClient
         HMODULE km_h_mod = LoadLibraryA("peerdist.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerDistClientGetInformationByHandle")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hpeerdist, hcontenthandle, peerdistclientinfoclass, dwbuffersize, lpinformation) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hpeerdist, hcontenthandle, peerdistclientinfoclass, dwbuffersize, lpinformation);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hpeerdist;
     (void)hcontenthandle;
     (void)peerdistclientinfoclass;
     (void)dwbuffersize;
     (void)lpinformation;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1661,13 +2195,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerDistClient
         HMODULE km_h_mod = LoadLibraryA("peerdist.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerDistClientOpenContent")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hpeerdist, pcontenttag, hcompletionport, ulcompletionkey, phcontenthandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hpeerdist, pcontenttag, hcompletionport, ulcompletionkey, phcontenthandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hpeerdist;
     (void)pcontenttag;
     (void)hcompletionport;
     (void)ulcompletionkey;
     (void)phcontenthandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1688,7 +2229,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerDistClient
         HMODULE km_h_mod = LoadLibraryA("peerdist.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerDistClientStreamRead")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hpeerdist, hcontenthandle, cbmaxnumberofbytes, pbuffer, dwtimeoutinmilliseconds, lpoverlapped) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hpeerdist, hcontenthandle, cbmaxnumberofbytes, pbuffer, dwtimeoutinmilliseconds, lpoverlapped);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hpeerdist;
     (void)hcontenthandle;
@@ -1696,6 +2243,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerDistClient
     (void)pbuffer;
     (void)dwtimeoutinmilliseconds;
     (void)lpoverlapped;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1713,11 +2261,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerDistGetOve
         HMODULE km_h_mod = LoadLibraryA("peerdist.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerDistGetOverlappedResult")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpoverlapped, lpnumberofbytestransferred, bwait) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpoverlapped, lpnumberofbytestransferred, bwait);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpoverlapped;
     (void)lpnumberofbytestransferred;
     (void)bwait;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1734,10 +2289,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerDistGetSta
         HMODULE km_h_mod = LoadLibraryA("peerdist.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerDistGetStatus")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hpeerdist, ppeerdiststatus) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hpeerdist, ppeerdiststatus);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hpeerdist;
     (void)ppeerdiststatus;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1754,10 +2316,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerDistGetSta
         HMODULE km_h_mod = LoadLibraryA("peerdist.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerDistGetStatusEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hpeerdist, ppeerdiststatus) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hpeerdist, ppeerdiststatus);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hpeerdist;
     (void)ppeerdiststatus;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1777,13 +2346,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerDistRegist
         HMODULE km_h_mod = LoadLibraryA("peerdist.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerDistRegisterForStatusChangeNotification")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hpeerdist, hcompletionport, ulcompletionkey, lpoverlapped, ppeerdiststatus) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hpeerdist, hcompletionport, ulcompletionkey, lpoverlapped, ppeerdiststatus);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hpeerdist;
     (void)hcompletionport;
     (void)ulcompletionkey;
     (void)lpoverlapped;
     (void)ppeerdiststatus;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1803,13 +2379,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerDistRegist
         HMODULE km_h_mod = LoadLibraryA("peerdist.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerDistRegisterForStatusChangeNotificationEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hpeerdist, hcompletionport, ulcompletionkey, lpoverlapped, ppeerdiststatus) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hpeerdist, hcompletionport, ulcompletionkey, lpoverlapped, ppeerdiststatus);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hpeerdist;
     (void)hcompletionport;
     (void)ulcompletionkey;
     (void)lpoverlapped;
     (void)ppeerdiststatus;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1828,12 +2411,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerDistServer
         HMODULE km_h_mod = LoadLibraryA("peerdist.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerDistServerCancelAsyncOperation")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hpeerdist, cbcontentidentifier, pcontentidentifier, poverlapped) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hpeerdist, cbcontentidentifier, pcontentidentifier, poverlapped);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hpeerdist;
     (void)cbcontentidentifier;
     (void)pcontentidentifier;
     (void)poverlapped;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1850,10 +2440,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerDistServer
         HMODULE km_h_mod = LoadLibraryA("peerdist.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerDistServerCloseContentInformation")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hpeerdist, hcontentinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hpeerdist, hcontentinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hpeerdist;
     (void)hcontentinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1870,10 +2467,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerDistServer
         HMODULE km_h_mod = LoadLibraryA("peerdist.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerDistServerCloseStreamHandle")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hpeerdist, hstream) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hpeerdist, hstream);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hpeerdist;
     (void)hstream;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1896,7 +2500,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerDistServer
         HMODULE km_h_mod = LoadLibraryA("peerdist.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerDistServerOpenContentInformation")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hpeerdist, cbcontentidentifier, pcontentidentifier, ullcontentoffset, cbcontentlength, hcompletionport, ulcompletionkey, phcontentinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hpeerdist, cbcontentidentifier, pcontentidentifier, ullcontentoffset, cbcontentlength, hcompletionport, ulcompletionkey, phcontentinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hpeerdist;
     (void)cbcontentidentifier;
@@ -1906,6 +2516,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerDistServer
     (void)hcompletionport;
     (void)ulcompletionkey;
     (void)phcontentinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1929,7 +2540,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerDistServer
         HMODULE km_h_mod = LoadLibraryA("peerdist.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerDistServerOpenContentInformationEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hpeerdist, cbcontentidentifier, pcontentidentifier, ullcontentoffset, cbcontentlength, pretrievaloptions, hcompletionport, ulcompletionkey, phcontentinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hpeerdist, cbcontentidentifier, pcontentidentifier, ullcontentoffset, cbcontentlength, pretrievaloptions, hcompletionport, ulcompletionkey, phcontentinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hpeerdist;
     (void)cbcontentidentifier;
@@ -1940,6 +2557,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerDistServer
     (void)hcompletionport;
     (void)ulcompletionkey;
     (void)phcontentinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1959,13 +2577,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerDistServer
         HMODULE km_h_mod = LoadLibraryA("peerdist.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerDistServerPublishAddToStream")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hpeerdist, hstream, cbnumberofbytes, pbuffer, lpoverlapped) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hpeerdist, hstream, cbnumberofbytes, pbuffer, lpoverlapped);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hpeerdist;
     (void)hstream;
     (void)cbnumberofbytes;
     (void)pbuffer;
     (void)lpoverlapped;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1983,11 +2608,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerDistServer
         HMODULE km_h_mod = LoadLibraryA("peerdist.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerDistServerPublishCompleteStream")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hpeerdist, hstream, lpoverlapped) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hpeerdist, hstream, lpoverlapped);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hpeerdist;
     (void)hstream;
     (void)lpoverlapped;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2010,7 +2642,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerDistServer
         HMODULE km_h_mod = LoadLibraryA("peerdist.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerDistServerPublishStream")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hpeerdist, cbcontentidentifier, pcontentidentifier, cbcontentlength, ppublishoptions, hcompletionport, ulcompletionkey, phstream) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hpeerdist, cbcontentidentifier, pcontentidentifier, cbcontentlength, ppublishoptions, hcompletionport, ulcompletionkey, phstream);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hpeerdist;
     (void)cbcontentidentifier;
@@ -2020,6 +2658,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerDistServer
     (void)hcompletionport;
     (void)ulcompletionkey;
     (void)phstream;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2039,13 +2678,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerDistServer
         HMODULE km_h_mod = LoadLibraryA("peerdist.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerDistServerRetrieveContentInformation")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hpeerdist, hcontentinfo, cbmaxnumberofbytes, pbuffer, lpoverlapped) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hpeerdist, hcontentinfo, cbmaxnumberofbytes, pbuffer, lpoverlapped);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hpeerdist;
     (void)hcontentinfo;
     (void)cbmaxnumberofbytes;
     (void)pbuffer;
     (void)lpoverlapped;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2063,11 +2709,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerDistServer
         HMODULE km_h_mod = LoadLibraryA("peerdist.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerDistServerUnpublish")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hpeerdist, cbcontentidentifier, pcontentidentifier) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hpeerdist, cbcontentidentifier, pcontentidentifier);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hpeerdist;
     (void)cbcontentidentifier;
     (void)pcontentidentifier;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2083,9 +2736,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerDistShutdo
         HMODULE km_h_mod = LoadLibraryA("peerdist.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerDistShutdown")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hpeerdist) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hpeerdist);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hpeerdist;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2103,11 +2763,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerDistStartu
         HMODULE km_h_mod = LoadLibraryA("peerdist.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerDistStartup")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwversionrequested, phpeerdist, pdwsupportedversion) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwversionrequested, phpeerdist, pdwsupportedversion);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dwversionrequested;
     (void)phpeerdist;
     (void)pdwsupportedversion;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2123,9 +2790,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerDistUnregi
         HMODULE km_h_mod = LoadLibraryA("peerdist.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerDistUnregisterForStatusChangeNotification")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hpeerdist) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hpeerdist);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hpeerdist;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2141,9 +2815,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerEndEnumera
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerEndEnumeration")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hpeerenum) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hpeerenum);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hpeerenum;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2160,10 +2841,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerEnumGroups
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerEnumGroups")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pwzidentity, phpeerenum) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pwzidentity, phpeerenum);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pwzidentity;
     (void)phpeerenum;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2179,9 +2867,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerEnumIdenti
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerEnumIdentities")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(phpeerenum) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(phpeerenum);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)phpeerenum;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2197,9 +2892,14 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerFreeData_n
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerFreeData")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pvdata);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pvdata);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pvdata;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -2215,10 +2915,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGetItemCou
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerGetItemCount")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hpeerenum, pcount) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hpeerenum, pcount);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hpeerenum;
     (void)pcount;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2236,11 +2943,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGetNextIte
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerGetNextItem")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hpeerenum, pcount, pppvitems) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hpeerenum, pcount, pppvitems);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hpeerenum;
     (void)pcount;
     (void)pppvitems;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2258,11 +2972,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGraphAddRe
         HMODULE km_h_mod = LoadLibraryA("p2pgraph.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerGraphAddRecord")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgraph, precord, precordid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgraph, precord, precordid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hgraph;
     (void)precord;
     (void)precordid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2278,9 +2999,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGraphClose
         HMODULE km_h_mod = LoadLibraryA("p2pgraph.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerGraphClose")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgraph) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgraph);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hgraph;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2297,10 +3025,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGraphClose
         HMODULE km_h_mod = LoadLibraryA("p2pgraph.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerGraphCloseDirectConnection")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgraph, ullconnectionid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgraph, ullconnectionid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hgraph;
     (void)ullconnectionid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2319,12 +3054,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGraphConne
         HMODULE km_h_mod = LoadLibraryA("p2pgraph.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerGraphConnect")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgraph, pwzpeerid, paddress, pullconnectionid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgraph, pwzpeerid, paddress, pullconnectionid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hgraph;
     (void)pwzpeerid;
     (void)paddress;
     (void)pullconnectionid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2343,12 +3085,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGraphCreat
         HMODULE km_h_mod = LoadLibraryA("p2pgraph.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerGraphCreate")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pgraphproperties, pwzdatabasename, psecurityinterface, phgraph) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pgraphproperties, pwzdatabasename, psecurityinterface, phgraph);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pgraphproperties;
     (void)pwzdatabasename;
     (void)psecurityinterface;
     (void)phgraph;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2366,11 +3115,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGraphDelet
         HMODULE km_h_mod = LoadLibraryA("p2pgraph.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerGraphDelete")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pwzgraphid, pwzpeerid, pwzdatabasename) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pwzgraphid, pwzpeerid, pwzdatabasename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pwzgraphid;
     (void)pwzpeerid;
     (void)pwzdatabasename;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2388,11 +3144,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGraphDelet
         HMODULE km_h_mod = LoadLibraryA("p2pgraph.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerGraphDeleteRecord")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgraph, precordid, flocal) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgraph, precordid, flocal);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hgraph;
     (void)precordid;
     (void)flocal;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2408,9 +3171,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGraphEndEn
         HMODULE km_h_mod = LoadLibraryA("p2pgraph.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerGraphEndEnumeration")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hpeerenum) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hpeerenum);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hpeerenum;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2428,11 +3198,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGraphEnumC
         HMODULE km_h_mod = LoadLibraryA("p2pgraph.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerGraphEnumConnections")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgraph, dwflags, phpeerenum) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgraph, dwflags, phpeerenum);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hgraph;
     (void)dwflags;
     (void)phpeerenum;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2450,11 +3227,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGraphEnumN
         HMODULE km_h_mod = LoadLibraryA("p2pgraph.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerGraphEnumNodes")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgraph, pwzpeerid, phpeerenum) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgraph, pwzpeerid, phpeerenum);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hgraph;
     (void)pwzpeerid;
     (void)phpeerenum;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2473,12 +3257,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGraphEnumR
         HMODULE km_h_mod = LoadLibraryA("p2pgraph.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerGraphEnumRecords")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgraph, precordtype, pwzpeerid, phpeerenum) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgraph, precordtype, pwzpeerid, phpeerenum);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hgraph;
     (void)precordtype;
     (void)pwzpeerid;
     (void)phpeerenum;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2495,10 +3286,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGraphExpor
         HMODULE km_h_mod = LoadLibraryA("p2pgraph.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerGraphExportDatabase")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgraph, pwzfilepath) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgraph, pwzfilepath);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hgraph;
     (void)pwzfilepath;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2514,9 +3312,14 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGraphFreeD
         HMODULE km_h_mod = LoadLibraryA("p2pgraph.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerGraphFreeData")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pvdata);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pvdata);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pvdata;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -2532,10 +3335,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGraphGetEv
         HMODULE km_h_mod = LoadLibraryA("p2pgraph.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerGraphGetEventData")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hpeerevent, ppeventdata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hpeerevent, ppeventdata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hpeerevent;
     (void)ppeventdata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2552,10 +3362,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGraphGetIt
         HMODULE km_h_mod = LoadLibraryA("p2pgraph.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerGraphGetItemCount")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hpeerenum, pcount) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hpeerenum, pcount);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hpeerenum;
     (void)pcount;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2573,11 +3390,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGraphGetNe
         HMODULE km_h_mod = LoadLibraryA("p2pgraph.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerGraphGetNextItem")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hpeerenum, pcount, pppvitems) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hpeerenum, pcount, pppvitems);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hpeerenum;
     (void)pcount;
     (void)pppvitems;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2595,11 +3419,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGraphGetNo
         HMODULE km_h_mod = LoadLibraryA("p2pgraph.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerGraphGetNodeInfo")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgraph, ullnodeid, ppnodeinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgraph, ullnodeid, ppnodeinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hgraph;
     (void)ullnodeid;
     (void)ppnodeinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2616,10 +3447,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGraphGetPr
         HMODULE km_h_mod = LoadLibraryA("p2pgraph.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerGraphGetProperties")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgraph, ppgraphproperties) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgraph, ppgraphproperties);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hgraph;
     (void)ppgraphproperties;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2637,11 +3475,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGraphGetRe
         HMODULE km_h_mod = LoadLibraryA("p2pgraph.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerGraphGetRecord")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgraph, precordid, pprecord) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgraph, precordid, pprecord);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hgraph;
     (void)precordid;
     (void)pprecord;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2658,10 +3503,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGraphGetSt
         HMODULE km_h_mod = LoadLibraryA("p2pgraph.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerGraphGetStatus")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgraph, pdwstatus) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgraph, pdwstatus);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hgraph;
     (void)pdwstatus;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2678,10 +3530,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGraphImpor
         HMODULE km_h_mod = LoadLibraryA("p2pgraph.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerGraphImportDatabase")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgraph, pwzfilepath) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgraph, pwzfilepath);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hgraph;
     (void)pwzfilepath;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2700,12 +3559,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGraphListe
         HMODULE km_h_mod = LoadLibraryA("p2pgraph.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerGraphListen")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgraph, dwscope, dwscopeid, wport) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgraph, dwscope, dwscopeid, wport);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hgraph;
     (void)dwscope;
     (void)dwscopeid;
     (void)wport;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2727,7 +3593,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGraphOpen_
         HMODULE km_h_mod = LoadLibraryA("p2pgraph.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerGraphOpen")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pwzgraphid, pwzpeerid, pwzdatabasename, psecurityinterface, crecordtypesyncprecedence, precordtypesyncprecedence, phgraph) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pwzgraphid, pwzpeerid, pwzdatabasename, psecurityinterface, crecordtypesyncprecedence, precordtypesyncprecedence, phgraph);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pwzgraphid;
     (void)pwzpeerid;
@@ -2736,6 +3608,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGraphOpen_
     (void)crecordtypesyncprecedence;
     (void)precordtypesyncprecedence;
     (void)phgraph;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2754,12 +3627,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGraphOpenD
         HMODULE km_h_mod = LoadLibraryA("p2pgraph.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerGraphOpenDirectConnection")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgraph, pwzpeerid, paddress, pullconnectionid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgraph, pwzpeerid, paddress, pullconnectionid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hgraph;
     (void)pwzpeerid;
     (void)paddress;
     (void)pullconnectionid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2777,11 +3657,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGraphPeerT
         HMODULE km_h_mod = LoadLibraryA("p2pgraph.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerGraphPeerTimeToUniversalTime")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgraph, pftpeertime, pftuniversaltime) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgraph, pftpeertime, pftuniversaltime);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hgraph;
     (void)pftpeertime;
     (void)pftuniversaltime;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2801,13 +3688,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGraphRegis
         HMODULE km_h_mod = LoadLibraryA("p2pgraph.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerGraphRegisterEvent")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgraph, hevent, ceventregistrations, peventregistrations, phpeerevent) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgraph, hevent, ceventregistrations, peventregistrations, phpeerevent);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hgraph;
     (void)hevent;
     (void)ceventregistrations;
     (void)peventregistrations;
     (void)phpeerevent;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2825,11 +3719,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGraphSearc
         HMODULE km_h_mod = LoadLibraryA("p2pgraph.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerGraphSearchRecords")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgraph, pwzcriteria, phpeerenum) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgraph, pwzcriteria, phpeerenum);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hgraph;
     (void)pwzcriteria;
     (void)phpeerenum;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2849,13 +3750,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGraphSendD
         HMODULE km_h_mod = LoadLibraryA("p2pgraph.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerGraphSendData")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgraph, ullconnectionid, ptype, cbdata, pvdata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgraph, ullconnectionid, ptype, cbdata, pvdata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hgraph;
     (void)ullconnectionid;
     (void)ptype;
     (void)cbdata;
     (void)pvdata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2872,10 +3780,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGraphSetNo
         HMODULE km_h_mod = LoadLibraryA("p2pgraph.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerGraphSetNodeAttributes")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgraph, pwzattributes) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgraph, pwzattributes);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hgraph;
     (void)pwzattributes;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2892,10 +3807,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGraphSetPr
         HMODULE km_h_mod = LoadLibraryA("p2pgraph.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerGraphSetPresence")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgraph, fpresent) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgraph, fpresent);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hgraph;
     (void)fpresent;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2912,10 +3834,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGraphSetPr
         HMODULE km_h_mod = LoadLibraryA("p2pgraph.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerGraphSetProperties")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgraph, pgraphproperties) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgraph, pgraphproperties);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hgraph;
     (void)pgraphproperties;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2930,8 +3859,15 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGraphShutd
         HMODULE km_h_mod = LoadLibraryA("p2pgraph.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerGraphShutdown")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2948,10 +3884,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGraphStart
         HMODULE km_h_mod = LoadLibraryA("p2pgraph.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerGraphStartup")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(wversionrequested, pversiondata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(wversionrequested, pversiondata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)wversionrequested;
     (void)pversiondata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2969,11 +3912,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGraphUnive
         HMODULE km_h_mod = LoadLibraryA("p2pgraph.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerGraphUniversalTimeToPeerTime")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgraph, pftuniversaltime, pftpeertime) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgraph, pftuniversaltime, pftpeertime);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hgraph;
     (void)pftuniversaltime;
     (void)pftpeertime;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2989,9 +3939,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGraphUnreg
         HMODULE km_h_mod = LoadLibraryA("p2pgraph.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerGraphUnregisterEvent")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hpeerevent) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hpeerevent);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hpeerevent;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3008,10 +3965,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGraphUpdat
         HMODULE km_h_mod = LoadLibraryA("p2pgraph.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerGraphUpdateRecord")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgraph, precord) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgraph, precord);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hgraph;
     (void)precord;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3029,11 +3993,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGraphValid
         HMODULE km_h_mod = LoadLibraryA("p2pgraph.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerGraphValidateDeferredRecords")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgraph, crecordids, precordids) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgraph, crecordids, precordids);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hgraph;
     (void)crecordids;
     (void)precordids;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3051,11 +4022,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGroupAddRe
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerGroupAddRecord")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgroup, precord, precordid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgroup, precord, precordid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hgroup;
     (void)precord;
     (void)precordid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3071,9 +4049,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGroupClose
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerGroupClose")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgroup) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgroup);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hgroup;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3090,10 +4075,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGroupClose
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerGroupCloseDirectConnection")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgroup, ullconnectionid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgroup, ullconnectionid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hgroup;
     (void)ullconnectionid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3109,9 +4101,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGroupConne
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerGroupConnect")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgroup) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgroup);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hgroup;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3129,11 +4128,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGroupConne
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerGroupConnectByAddress")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgroup, caddresses, paddresses) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgroup, caddresses, paddresses);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hgroup;
     (void)caddresses;
     (void)paddresses;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3150,10 +4156,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGroupCreat
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerGroupCreate")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pproperties, phgroup) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pproperties, phgroup);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pproperties;
     (void)phgroup;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3174,7 +4187,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGroupCreat
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerGroupCreateInvitation")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgroup, pwzidentityinfo, pftexpiration, croles, proles, ppwzinvitation) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgroup, pwzidentityinfo, pftexpiration, croles, proles, ppwzinvitation);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hgroup;
     (void)pwzidentityinfo;
@@ -3182,6 +4201,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGroupCreat
     (void)croles;
     (void)proles;
     (void)ppwzinvitation;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3198,10 +4218,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGroupCreat
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerGroupCreatePasswordInvitation")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgroup, ppwzinvitation) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgroup, ppwzinvitation);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hgroup;
     (void)ppwzinvitation;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3218,10 +4245,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGroupDelet
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerGroupDelete")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pwzidentity, pwzgrouppeername) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pwzidentity, pwzgrouppeername);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pwzidentity;
     (void)pwzgrouppeername;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3238,10 +4272,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGroupDelet
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerGroupDeleteRecord")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgroup, precordid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgroup, precordid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hgroup;
     (void)precordid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3259,11 +4300,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGroupEnumC
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerGroupEnumConnections")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgroup, dwflags, phpeerenum) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgroup, dwflags, phpeerenum);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hgroup;
     (void)dwflags;
     (void)phpeerenum;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3282,12 +4330,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGroupEnumM
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerGroupEnumMembers")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgroup, dwflags, pwzidentity, phpeerenum) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgroup, dwflags, pwzidentity, phpeerenum);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hgroup;
     (void)dwflags;
     (void)pwzidentity;
     (void)phpeerenum;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3305,11 +4360,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGroupEnumR
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerGroupEnumRecords")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgroup, precordtype, phpeerenum) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgroup, precordtype, phpeerenum);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hgroup;
     (void)precordtype;
     (void)phpeerenum;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3327,11 +4389,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGroupExpor
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerGroupExportConfig")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgroup, pwzpassword, ppwzxml) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgroup, pwzpassword, ppwzxml);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hgroup;
     (void)pwzpassword;
     (void)ppwzxml;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3348,10 +4417,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGroupExpor
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerGroupExportDatabase")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgroup, pwzfilepath) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgroup, pwzfilepath);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hgroup;
     (void)pwzfilepath;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3368,10 +4444,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGroupGetEv
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerGroupGetEventData")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hpeerevent, ppeventdata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hpeerevent, ppeventdata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hpeerevent;
     (void)ppeventdata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3388,10 +4471,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGroupGetPr
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerGroupGetProperties")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgroup, ppproperties) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgroup, ppproperties);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hgroup;
     (void)ppproperties;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3409,11 +4499,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGroupGetRe
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerGroupGetRecord")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgroup, precordid, pprecord) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgroup, precordid, pprecord);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hgroup;
     (void)precordid;
     (void)pprecord;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3430,10 +4527,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGroupGetSt
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerGroupGetStatus")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgroup, pdwstatus) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgroup, pdwstatus);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hgroup;
     (void)pdwstatus;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3453,13 +4557,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGroupImpor
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerGroupImportConfig")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pwzxml, pwzpassword, foverwrite, ppwzidentity, ppwzgroup) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pwzxml, pwzpassword, foverwrite, ppwzidentity, ppwzgroup);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pwzxml;
     (void)pwzpassword;
     (void)foverwrite;
     (void)ppwzidentity;
     (void)ppwzgroup;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3476,10 +4587,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGroupImpor
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerGroupImportDatabase")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgroup, pwzfilepath) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgroup, pwzfilepath);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hgroup;
     (void)pwzfilepath;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3499,13 +4617,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGroupIssue
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerGroupIssueCredentials")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgroup, pwzsubjectidentity, pcredentialinfo, dwflags, ppwzinvitation) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgroup, pwzsubjectidentity, pcredentialinfo, dwflags, ppwzinvitation);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hgroup;
     (void)pwzsubjectidentity;
     (void)pcredentialinfo;
     (void)dwflags;
     (void)ppwzinvitation;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3524,12 +4649,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGroupJoin_
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerGroupJoin")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pwzidentity, pwzinvitation, pwzcloud, phgroup) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pwzidentity, pwzinvitation, pwzcloud, phgroup);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pwzidentity;
     (void)pwzinvitation;
     (void)pwzcloud;
     (void)phgroup;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3548,12 +4680,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGroupOpen_
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerGroupOpen")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pwzidentity, pwzgrouppeername, pwzcloud, phgroup) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pwzidentity, pwzgrouppeername, pwzcloud, phgroup);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pwzidentity;
     (void)pwzgrouppeername;
     (void)pwzcloud;
     (void)phgroup;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3572,12 +4711,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGroupOpenD
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerGroupOpenDirectConnection")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgroup, pwzidentity, paddress, pullconnectionid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgroup, pwzidentity, paddress, pullconnectionid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hgroup;
     (void)pwzidentity;
     (void)paddress;
     (void)pullconnectionid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3594,10 +4740,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGroupParse
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerGroupParseInvitation")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pwzinvitation, ppinvitationinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pwzinvitation, ppinvitationinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pwzinvitation;
     (void)ppinvitationinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3617,13 +4770,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGroupPassw
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerGroupPasswordJoin")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pwzidentity, pwzinvitation, pwzpassword, pwzcloud, phgroup) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pwzidentity, pwzinvitation, pwzpassword, pwzcloud, phgroup);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pwzidentity;
     (void)pwzinvitation;
     (void)pwzpassword;
     (void)pwzcloud;
     (void)phgroup;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3641,11 +4801,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGroupPeerT
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerGroupPeerTimeToUniversalTime")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgroup, pftpeertime, pftuniversaltime) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgroup, pftpeertime, pftuniversaltime);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hgroup;
     (void)pftpeertime;
     (void)pftuniversaltime;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3665,13 +4832,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGroupRegis
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerGroupRegisterEvent")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgroup, hevent, ceventregistration, peventregistrations, phpeerevent) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgroup, hevent, ceventregistration, peventregistrations, phpeerevent);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hgroup;
     (void)hevent;
     (void)ceventregistration;
     (void)peventregistrations;
     (void)phpeerevent;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3688,10 +4862,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGroupResum
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerGroupResumePasswordAuthentication")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgroup, hpeereventhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgroup, hpeereventhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hgroup;
     (void)hpeereventhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3709,11 +4890,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGroupSearc
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerGroupSearchRecords")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgroup, pwzcriteria, phpeerenum) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgroup, pwzcriteria, phpeerenum);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hgroup;
     (void)pwzcriteria;
     (void)phpeerenum;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3733,13 +4921,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGroupSendD
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerGroupSendData")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgroup, ullconnectionid, ptype, cbdata, pvdata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgroup, ullconnectionid, ptype, cbdata, pvdata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hgroup;
     (void)ullconnectionid;
     (void)ptype;
     (void)cbdata;
     (void)pvdata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3756,10 +4951,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGroupSetPr
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerGroupSetProperties")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgroup, pproperties) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgroup, pproperties);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hgroup;
     (void)pproperties;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3774,8 +4976,15 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGroupShutd
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerGroupShutdown")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3792,10 +5001,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGroupStart
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerGroupStartup")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(wversionrequested, pversiondata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(wversionrequested, pversiondata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)wversionrequested;
     (void)pversiondata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3813,11 +5029,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGroupUnive
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerGroupUniversalTimeToPeerTime")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgroup, pftuniversaltime, pftpeertime) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgroup, pftuniversaltime, pftpeertime);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hgroup;
     (void)pftuniversaltime;
     (void)pftpeertime;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3833,9 +5056,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGroupUnreg
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerGroupUnregisterEvent")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hpeerevent) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hpeerevent);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hpeerevent;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3852,10 +5082,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerGroupUpdat
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerGroupUpdateRecord")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgroup, precord) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgroup, precord);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hgroup;
     (void)precord;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3872,10 +5109,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerHostNameTo
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerHostNameToPeerName")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pwzhostname, ppwzpeername) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pwzhostname, ppwzpeername);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pwzhostname;
     (void)ppwzpeername;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3894,12 +5138,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerIdentityCr
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerIdentityCreate")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pwzclassifier, pwzfriendlyname, hcryptprov, ppwzidentity) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pwzclassifier, pwzfriendlyname, hcryptprov, ppwzidentity);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pwzclassifier;
     (void)pwzfriendlyname;
     (void)hcryptprov;
     (void)ppwzidentity;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3915,9 +5166,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerIdentityDe
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerIdentityDelete")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pwzidentity) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pwzidentity);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pwzidentity;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3935,11 +5193,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerIdentityEx
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerIdentityExport")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pwzidentity, pwzpassword, ppwzexportxml) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pwzidentity, pwzpassword, ppwzexportxml);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pwzidentity;
     (void)pwzpassword;
     (void)ppwzexportxml;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3956,10 +5221,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerIdentityGe
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerIdentityGetCryptKey")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pwzidentity, phcryptprov) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pwzidentity, phcryptprov);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pwzidentity;
     (void)phcryptprov;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3975,9 +5247,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerIdentityGe
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerIdentityGetDefault")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ppwzpeername) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ppwzpeername);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ppwzpeername;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3994,10 +5273,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerIdentityGe
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerIdentityGetFriendlyName")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pwzidentity, ppwzfriendlyname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pwzidentity, ppwzfriendlyname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pwzidentity;
     (void)ppwzfriendlyname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4014,10 +5300,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerIdentityGe
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerIdentityGetXML")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pwzidentity, ppwzidentityxml) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pwzidentity, ppwzidentityxml);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pwzidentity;
     (void)ppwzidentityxml;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4035,11 +5328,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerIdentityIm
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerIdentityImport")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pwzimportxml, pwzpassword, ppwzidentity) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pwzimportxml, pwzpassword, ppwzidentity);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pwzimportxml;
     (void)pwzpassword;
     (void)ppwzidentity;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4056,10 +5356,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerIdentitySe
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerIdentitySetFriendlyName")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pwzidentity, pwzfriendlyname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pwzidentity, pwzfriendlyname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pwzidentity;
     (void)pwzfriendlyname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4076,10 +5383,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerNameToPeer
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerNameToPeerHostName")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pwzpeername, ppwzhostname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pwzpeername, ppwzhostname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pwzpeername;
     (void)ppwzhostname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4095,9 +5409,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerPnrpEndRes
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerPnrpEndResolve")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hresolve) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hresolve);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hresolve;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4114,10 +5435,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerPnrpGetClo
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerPnrpGetCloudInfo")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pcnumclouds, ppcloudinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pcnumclouds, ppcloudinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pcnumclouds;
     (void)ppcloudinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4134,10 +5462,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerPnrpGetEnd
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerPnrpGetEndpoint")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hresolve, ppendpoint) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hresolve, ppendpoint);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hresolve;
     (void)ppendpoint;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4155,11 +5490,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerPnrpRegist
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerPnrpRegister")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pcwzpeername, pregistrationinfo, phregistration) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pcwzpeername, pregistrationinfo, phregistration);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pcwzpeername;
     (void)pregistrationinfo;
     (void)phregistration;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4178,12 +5520,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerPnrpResolv
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerPnrpResolve")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pcwzpeername, pcwzcloudname, pcendpoints, ppendpoints) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pcwzpeername, pcwzcloudname, pcendpoints, ppendpoints);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pcwzpeername;
     (void)pcwzcloudname;
     (void)pcendpoints;
     (void)ppendpoints;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4198,8 +5547,15 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerPnrpShutdo
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerPnrpShutdown")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4219,13 +5575,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerPnrpStartR
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerPnrpStartResolve")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pcwzpeername, pcwzcloudname, cmaxendpoints, hevent, phresolve) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pcwzpeername, pcwzcloudname, cmaxendpoints, hevent, phresolve);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pcwzpeername;
     (void)pcwzcloudname;
     (void)cmaxendpoints;
     (void)hevent;
     (void)phresolve;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4241,9 +5604,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerPnrpStartu
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerPnrpStartup")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(wversionrequested) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(wversionrequested);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)wversionrequested;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4259,9 +5629,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerPnrpUnregi
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerPnrpUnregister")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hregistration) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hregistration);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hregistration;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4278,10 +5655,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_p2p_peerPnrpUpdate
         HMODULE km_h_mod = LoadLibraryA("p2p.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeerPnrpUpdateRegistration")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hregistration, pregistrationinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hregistration, pregistrationinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hregistration;
     (void)pregistrationinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

@@ -62,10 +62,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_dceErrorInqTextA_napi(con
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DceErrorInqTextA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rpcstatus, errortext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rpcstatus, errortext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)rpcstatus;
     (void)errortext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -82,10 +89,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_dceErrorInqTextW_napi(con
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DceErrorInqTextW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rpcstatus, errortext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rpcstatus, errortext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)rpcstatus;
     (void)errortext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -101,9 +115,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_iunknownAddRefProxy_napi(
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IUnknown_AddRef_Proxy")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(arg_0_this) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(arg_0_this);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)arg_0_this;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -121,11 +142,18 @@ static Napi::Value windowssys_windows_win32_system_rpc_iunknownQueryInterfacePro
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IUnknown_QueryInterface_Proxy")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(arg_0_this, riid, ppvobject) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(arg_0_this, riid, ppvobject);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)arg_0_this;
     (void)riid;
     (void)ppvobject;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -141,9 +169,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_iunknownReleaseProxy_napi
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IUnknown_Release_Proxy")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(arg_0_this) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(arg_0_this);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)arg_0_this;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -159,10 +194,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_iRpcAllocate_napi(const N
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "I_RpcAllocate")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(size) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(size);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)size;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -178,10 +220,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_iRpcAsyncAbortCall_napi(c
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "I_RpcAsyncAbortCall")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pasync, exceptioncode) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pasync, exceptioncode);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pasync;
     (void)exceptioncode;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -198,10 +247,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_iRpcAsyncSetHandle_napi(c
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "I_RpcAsyncSetHandle")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(message, pasync) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(message, pasync);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)message;
     (void)pasync;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -218,10 +274,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_iRpcBindingCopy_napi(cons
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "I_RpcBindingCopy")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sourcebinding, destinationbinding) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sourcebinding, destinationbinding);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sourcebinding;
     (void)destinationbinding;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -240,12 +303,19 @@ static Napi::Value windowssys_windows_win32_system_rpc_iRpcBindingCreateNp_napi(
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "I_RpcBindingCreateNP")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servername, servicename, networkoptions, binding) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servername, servicename, networkoptions, binding);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)servername;
     (void)servicename;
     (void)networkoptions;
     (void)binding;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -262,10 +332,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_iRpcBindingHandleToAsyncH
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "I_RpcBindingHandleToAsyncHandle")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(binding, asynchandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(binding, asynchandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)binding;
     (void)asynchandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -284,12 +361,19 @@ static Napi::Value windowssys_windows_win32_system_rpc_iRpcBindingInqClientToken
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "I_RpcBindingInqClientTokenAttributes")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(binding, tokenid, authenticationid, modifiedid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(binding, tokenid, authenticationid, modifiedid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)binding;
     (void)tokenid;
     (void)authenticationid;
     (void)modifiedid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -306,10 +390,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_iRpcBindingInqDynamicEndp
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "I_RpcBindingInqDynamicEndpointA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(binding, dynamicendpoint) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(binding, dynamicendpoint);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)binding;
     (void)dynamicendpoint;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -326,10 +417,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_iRpcBindingInqDynamicEndp
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "I_RpcBindingInqDynamicEndpointW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(binding, dynamicendpoint) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(binding, dynamicendpoint);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)binding;
     (void)dynamicendpoint;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -346,10 +444,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_iRpcBindingInqLocalClient
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "I_RpcBindingInqLocalClientPID")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(binding, pid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(binding, pid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)binding;
     (void)pid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -367,11 +472,18 @@ static Napi::Value windowssys_windows_win32_system_rpc_iRpcBindingInqMarshalledT
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "I_RpcBindingInqMarshalledTargetInfo")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(binding, marshalledtargetinfosize, marshalledtargetinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(binding, marshalledtargetinfosize, marshalledtargetinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)binding;
     (void)marshalledtargetinfosize;
     (void)marshalledtargetinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -388,10 +500,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_iRpcBindingInqSecurityCon
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "I_RpcBindingInqSecurityContext")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(binding, securitycontexthandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(binding, securitycontexthandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)binding;
     (void)securitycontexthandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -408,10 +527,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_iRpcBindingInqSecurityCon
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "I_RpcBindingInqSecurityContextKeyInfo")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(binding, keyinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(binding, keyinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)binding;
     (void)keyinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -428,10 +554,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_iRpcBindingInqTransportTy
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "I_RpcBindingInqTransportType")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(binding, type) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(binding, type);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)binding;
     (void)type;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -448,10 +581,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_iRpcBindingInqWireIdForSn
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "I_RpcBindingInqWireIdForSnego")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(binding, wireid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(binding, wireid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)binding;
     (void)wireid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -468,10 +608,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_iRpcBindingIsClientLocal_
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "I_RpcBindingIsClientLocal")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bindinghandle, clientlocalflag) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bindinghandle, clientlocalflag);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bindinghandle;
     (void)clientlocalflag;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -488,10 +635,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_iRpcBindingIsServerLocal_
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "I_RpcBindingIsServerLocal")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(binding, serverlocalflag) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(binding, serverlocalflag);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)binding;
     (void)serverlocalflag;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -509,11 +663,18 @@ static Napi::Value windowssys_windows_win32_system_rpc_iRpcBindingSetPrivateOpti
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "I_RpcBindingSetPrivateOption")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hbinding, option, optionvalue) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hbinding, option, optionvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hbinding;
     (void)option;
     (void)optionvalue;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -530,10 +691,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_iRpcBindingToStaticString
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "I_RpcBindingToStaticStringBindingW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(binding, stringbinding) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(binding, stringbinding);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)binding;
     (void)stringbinding;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -549,9 +717,14 @@ static Napi::Value windowssys_windows_win32_system_rpc_iRpcClearMutex_napi(const
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "I_RpcClearMutex")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(mutex);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(mutex);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)mutex;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -566,9 +739,14 @@ static Napi::Value windowssys_windows_win32_system_rpc_iRpcDeleteMutex_napi(cons
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "I_RpcDeleteMutex")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(mutex);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(mutex);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)mutex;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -583,9 +761,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_iRpcExceptionFilter_napi(
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "I_RpcExceptionFilter")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(exceptioncode) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(exceptioncode);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)exceptioncode;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -601,9 +786,14 @@ static Napi::Value windowssys_windows_win32_system_rpc_iRpcFree_napi(const Napi:
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "I_RpcFree")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(object);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(object);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)object;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -618,9 +808,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_iRpcFreeBuffer_napi(const
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "I_RpcFreeBuffer")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(message) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(message);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)message;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -636,9 +833,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_iRpcFreePipeBuffer_napi(c
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "I_RpcFreePipeBuffer")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(message) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(message);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)message;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -654,9 +858,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_iRpcGetBuffer_napi(const 
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "I_RpcGetBuffer")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(message) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(message);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)message;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -673,10 +884,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_iRpcGetBufferWithObject_n
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "I_RpcGetBufferWithObject")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(message, objectuuid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(message, objectuuid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)message;
     (void)objectuuid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -691,9 +909,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_iRpcGetCurrentCallHandle_
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "I_RpcGetCurrentCallHandle")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -708,9 +933,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_iRpcGetDefaultSd_napi(con
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "I_RpcGetDefaultSD")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ppsecuritydescriptor) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ppsecuritydescriptor);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ppsecuritydescriptor;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -725,8 +957,15 @@ static Napi::Value windowssys_windows_win32_system_rpc_iRpcGetExtendedError_napi
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "I_RpcGetExtendedError")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -745,12 +984,19 @@ static Napi::Value windowssys_windows_win32_system_rpc_iRpcIfInqTransferSyntaxes
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "I_RpcIfInqTransferSyntaxes")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rpcifhandle, transfersyntaxes, transfersyntaxsize, transfersyntaxcount) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rpcifhandle, transfersyntaxes, transfersyntaxsize, transfersyntaxcount);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)rpcifhandle;
     (void)transfersyntaxes;
     (void)transfersyntaxsize;
     (void)transfersyntaxcount;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -766,9 +1012,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_iRpcMapWin32Status_napi(c
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "I_RpcMapWin32Status")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(status) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(status);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)status;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -783,8 +1036,15 @@ static Napi::Value windowssys_windows_win32_system_rpc_iRpcMgmtEnableDedicatedTh
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "I_RpcMgmtEnableDedicatedThreadPool")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -800,9 +1060,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_iRpcNegotiateTransferSynt
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "I_RpcNegotiateTransferSyntax")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(message) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(message);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)message;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -820,11 +1087,18 @@ static Napi::Value windowssys_windows_win32_system_rpc_iRpcNsBindingSetEntryName
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "I_RpcNsBindingSetEntryNameA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(binding, entrynamesyntax, entryname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(binding, entrynamesyntax, entryname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)binding;
     (void)entrynamesyntax;
     (void)entryname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -842,11 +1116,18 @@ static Napi::Value windowssys_windows_win32_system_rpc_iRpcNsBindingSetEntryName
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "I_RpcNsBindingSetEntryNameW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(binding, entrynamesyntax, entryname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(binding, entrynamesyntax, entryname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)binding;
     (void)entrynamesyntax;
     (void)entryname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -862,9 +1143,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_iRpcNsGetBuffer_napi(cons
         HMODULE km_h_mod = LoadLibraryA("rpcns4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "I_RpcNsGetBuffer")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(message) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(message);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)message;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -882,11 +1170,18 @@ static Napi::Value windowssys_windows_win32_system_rpc_iRpcNsInterfaceExported_n
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "I_RpcNsInterfaceExported")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(entrynamesyntax, entryname, rpcinterfaceinformation) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(entrynamesyntax, entryname, rpcinterfaceinformation);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)entrynamesyntax;
     (void)entryname;
     (void)rpcinterfaceinformation;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -904,11 +1199,18 @@ static Napi::Value windowssys_windows_win32_system_rpc_iRpcNsInterfaceUnexported
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "I_RpcNsInterfaceUnexported")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(entrynamesyntax, entryname, rpcinterfaceinformation) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(entrynamesyntax, entryname, rpcinterfaceinformation);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)entrynamesyntax;
     (void)entryname;
     (void)rpcinterfaceinformation;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -925,10 +1227,15 @@ static Napi::Value windowssys_windows_win32_system_rpc_iRpcNsRaiseException_napi
         HMODULE km_h_mod = LoadLibraryA("rpcns4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "I_RpcNsRaiseException")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(message, status);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(message, status);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)message;
     (void)status;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -944,10 +1251,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_iRpcNsSendReceive_napi(co
         HMODULE km_h_mod = LoadLibraryA("rpcns4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "I_RpcNsSendReceive")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(message, handle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(message, handle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)message;
     (void)handle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -965,11 +1279,18 @@ static Napi::Value windowssys_windows_win32_system_rpc_iRpcOpenClientProcess_nap
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "I_RpcOpenClientProcess")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(binding, desiredaccess, clientprocess) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(binding, desiredaccess, clientprocess);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)binding;
     (void)desiredaccess;
     (void)clientprocess;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -985,9 +1306,14 @@ static Napi::Value windowssys_windows_win32_system_rpc_iRpcPauseExecution_napi(c
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "I_RpcPauseExecution")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(milliseconds);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(milliseconds);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)milliseconds;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -1002,9 +1328,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_iRpcReBindBuffer_napi(con
         HMODULE km_h_mod = LoadLibraryA("rpcns4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "I_RpcReBindBuffer")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(message) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(message);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)message;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1021,10 +1354,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_iRpcReallocPipeBuffer_nap
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "I_RpcReallocPipeBuffer")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(message, newsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(message, newsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)message;
     (void)newsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1041,10 +1381,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_iRpcReceive_napi(const Na
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "I_RpcReceive")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(message, size) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(message, size);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)message;
     (void)size;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1062,11 +1409,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_iRpcRecordCalloutFailure_
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "I_RpcRecordCalloutFailure")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(rpcstatus, calloutstate, dllname);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(rpcstatus, calloutstate, dllname);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)rpcstatus;
     (void)calloutstate;
     (void)dllname;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -1081,9 +1433,14 @@ static Napi::Value windowssys_windows_win32_system_rpc_iRpcRequestMutex_napi(con
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "I_RpcRequestMutex")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(mutex);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(mutex);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)mutex;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -1098,9 +1455,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_iRpcSend_napi(const Napi:
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "I_RpcSend")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(message) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(message);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)message;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1116,9 +1480,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_iRpcSendReceive_napi(cons
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "I_RpcSendReceive")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(message) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(message);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)message;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1134,9 +1505,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_iRpcServerCheckClientRest
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "I_RpcServerCheckClientRestriction")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(context) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(context);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)context;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1151,8 +1529,15 @@ static Napi::Value windowssys_windows_win32_system_rpc_iRpcServerDisableExceptio
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "I_RpcServerDisableExceptionFilter")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1169,10 +1554,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_iRpcServerGetAssociationI
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "I_RpcServerGetAssociationID")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(binding, associationid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(binding, associationid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)binding;
     (void)associationid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1187,9 +1579,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_iRpcServerInqAddressChang
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "I_RpcServerInqAddressChangeFn")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1207,12 +1606,19 @@ static Napi::Value windowssys_windows_win32_system_rpc_iRpcServerInqLocalConnAdd
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "I_RpcServerInqLocalConnAddress")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(binding, buffer, buffersize, addressformat) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(binding, buffer, buffersize, addressformat);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)binding;
     (void)buffer;
     (void)buffersize;
     (void)addressformat;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1231,12 +1637,19 @@ static Napi::Value windowssys_windows_win32_system_rpc_iRpcServerInqRemoteConnAd
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "I_RpcServerInqRemoteConnAddress")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(binding, buffer, buffersize, addressformat) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(binding, buffer, buffersize, addressformat);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)binding;
     (void)buffer;
     (void)buffersize;
     (void)addressformat;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1252,9 +1665,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_iRpcServerInqTransportTyp
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "I_RpcServerInqTransportType")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(type) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(type);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)type;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1270,9 +1690,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_iRpcServerRegisterForward
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "I_RpcServerRegisterForwardFunction")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pforwardfunction) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pforwardfunction);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pforwardfunction;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1288,9 +1715,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_iRpcServerSetAddressChang
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "I_RpcServerSetAddressChangeFn")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(paddresschangefn) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(paddresschangefn);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)paddresschangefn;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1308,11 +1742,18 @@ static Napi::Value windowssys_windows_win32_system_rpc_iRpcServerStartService_na
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "I_RpcServerStartService")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(protseq, endpoint, ifspec) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(protseq, endpoint, ifspec);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)protseq;
     (void)endpoint;
     (void)ifspec;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1329,10 +1770,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_iRpcServerSubscribeForDis
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "I_RpcServerSubscribeForDisconnectNotification")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(binding, hevent) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(binding, hevent);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)binding;
     (void)hevent;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1350,11 +1798,18 @@ static Napi::Value windowssys_windows_win32_system_rpc_iRpcServerSubscribeForDis
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "I_RpcServerSubscribeForDisconnectNotification2")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(binding, hevent, subscriptionid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(binding, hevent, subscriptionid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)binding;
     (void)hevent;
     (void)subscriptionid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1374,13 +1829,20 @@ static Napi::Value windowssys_windows_win32_system_rpc_iRpcServerUseProtseq2A_na
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "I_RpcServerUseProtseq2A")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(networkaddress, protseq, maxcalls, securitydescriptor, policy) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(networkaddress, protseq, maxcalls, securitydescriptor, policy);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)networkaddress;
     (void)protseq;
     (void)maxcalls;
     (void)securitydescriptor;
     (void)policy;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1400,13 +1862,20 @@ static Napi::Value windowssys_windows_win32_system_rpc_iRpcServerUseProtseq2W_na
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "I_RpcServerUseProtseq2W")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(networkaddress, protseq, maxcalls, securitydescriptor, policy) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(networkaddress, protseq, maxcalls, securitydescriptor, policy);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)networkaddress;
     (void)protseq;
     (void)maxcalls;
     (void)securitydescriptor;
     (void)policy;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1427,7 +1896,13 @@ static Napi::Value windowssys_windows_win32_system_rpc_iRpcServerUseProtseqEp2A_
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "I_RpcServerUseProtseqEp2A")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(networkaddress, protseq, maxcalls, endpoint, securitydescriptor, policy) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(networkaddress, protseq, maxcalls, endpoint, securitydescriptor, policy);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)networkaddress;
     (void)protseq;
@@ -1435,6 +1910,7 @@ static Napi::Value windowssys_windows_win32_system_rpc_iRpcServerUseProtseqEp2A_
     (void)endpoint;
     (void)securitydescriptor;
     (void)policy;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1455,7 +1931,13 @@ static Napi::Value windowssys_windows_win32_system_rpc_iRpcServerUseProtseqEp2W_
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "I_RpcServerUseProtseqEp2W")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(networkaddress, protseq, maxcalls, endpoint, securitydescriptor, policy) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(networkaddress, protseq, maxcalls, endpoint, securitydescriptor, policy);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)networkaddress;
     (void)protseq;
@@ -1463,6 +1945,7 @@ static Napi::Value windowssys_windows_win32_system_rpc_iRpcServerUseProtseqEp2W_
     (void)endpoint;
     (void)securitydescriptor;
     (void)policy;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1477,8 +1960,13 @@ static Napi::Value windowssys_windows_win32_system_rpc_iRpcSessionStrictContextH
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "I_RpcSessionStrictContextHandle")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr();
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+    }
 #else
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -1492,8 +1980,13 @@ static Napi::Value windowssys_windows_win32_system_rpc_iRpcSsDontSerializeContex
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "I_RpcSsDontSerializeContext")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr();
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+    }
 #else
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -1511,12 +2004,19 @@ static Napi::Value windowssys_windows_win32_system_rpc_iRpcSystemHandleTypeSpeci
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "I_RpcSystemHandleTypeSpecificWork")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(handle, actualtype, idltype, marshaldirection) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(handle, actualtype, idltype, marshaldirection);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)handle;
     (void)actualtype;
     (void)idltype;
     (void)marshaldirection;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1531,8 +2031,15 @@ static Napi::Value windowssys_windows_win32_system_rpc_iRpcTurnOnEeinfoPropagati
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "I_RpcTurnOnEEInfoPropagation")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1548,9 +2055,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_iUuidCreate_napi(const Na
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "I_UuidCreate")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(uuid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(uuid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)uuid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1571,7 +2085,13 @@ static Napi::Value windowssys_windows_win32_system_rpc_mesBufferHandleReset_napi
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MesBufferHandleReset")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(handle, handlestyle, operation, pbuffer, buffersize, pencodedsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(handle, handlestyle, operation, pbuffer, buffersize, pencodedsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)handle;
     (void)handlestyle;
@@ -1579,6 +2099,7 @@ static Napi::Value windowssys_windows_win32_system_rpc_mesBufferHandleReset_napi
     (void)pbuffer;
     (void)buffersize;
     (void)pencodedsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1596,11 +2117,18 @@ static Napi::Value windowssys_windows_win32_system_rpc_mesDecodeBufferHandleCrea
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MesDecodeBufferHandleCreate")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(buffer, buffersize, phandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(buffer, buffersize, phandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)buffer;
     (void)buffersize;
     (void)phandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1618,11 +2146,18 @@ static Napi::Value windowssys_windows_win32_system_rpc_mesDecodeIncrementalHandl
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MesDecodeIncrementalHandleCreate")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(userstate, readfn, phandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(userstate, readfn, phandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)userstate;
     (void)readfn;
     (void)phandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1640,11 +2175,18 @@ static Napi::Value windowssys_windows_win32_system_rpc_mesEncodeDynBufferHandleC
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MesEncodeDynBufferHandleCreate")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pbuffer, pencodedsize, phandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pbuffer, pencodedsize, phandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pbuffer;
     (void)pencodedsize;
     (void)phandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1663,12 +2205,19 @@ static Napi::Value windowssys_windows_win32_system_rpc_mesEncodeFixedBufferHandl
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MesEncodeFixedBufferHandleCreate")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pbuffer, buffersize, pencodedsize, phandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pbuffer, buffersize, pencodedsize, phandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pbuffer;
     (void)buffersize;
     (void)pencodedsize;
     (void)phandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1687,12 +2236,19 @@ static Napi::Value windowssys_windows_win32_system_rpc_mesEncodeIncrementalHandl
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MesEncodeIncrementalHandleCreate")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(userstate, allocfn, writefn, phandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(userstate, allocfn, writefn, phandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)userstate;
     (void)allocfn;
     (void)writefn;
     (void)phandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1708,9 +2264,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_mesHandleFree_napi(const 
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MesHandleFree")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(handle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(handle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)handle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1731,7 +2294,13 @@ static Napi::Value windowssys_windows_win32_system_rpc_mesIncrementalHandleReset
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MesIncrementalHandleReset")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(handle, userstate, allocfn, writefn, readfn, operation) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(handle, userstate, allocfn, writefn, readfn, operation);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)handle;
     (void)userstate;
@@ -1739,6 +2308,7 @@ static Napi::Value windowssys_windows_win32_system_rpc_mesIncrementalHandleReset
     (void)writefn;
     (void)readfn;
     (void)operation;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1756,11 +2326,18 @@ static Napi::Value windowssys_windows_win32_system_rpc_mesInqProcEncodingId_napi
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MesInqProcEncodingId")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(handle, pinterfaceid, pprocnum) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(handle, pinterfaceid, pprocnum);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)handle;
     (void)pinterfaceid;
     (void)pprocnum;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1776,10 +2353,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_nDRCContextBinding_napi(c
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NDRCContextBinding")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ccontext) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ccontext);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)ccontext;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1795,10 +2379,15 @@ static Napi::Value windowssys_windows_win32_system_rpc_nDRCContextMarshall_napi(
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NDRCContextMarshall")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(ccontext, pbuff);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(ccontext, pbuff);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)ccontext;
     (void)pbuff;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -1816,12 +2405,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_nDRCContextUnmarshall_nap
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NDRCContextUnmarshall")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pccontext, hbinding, pbuff, datarepresentation);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pccontext, hbinding, pbuff, datarepresentation);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pccontext;
     (void)hbinding;
     (void)pbuff;
     (void)datarepresentation;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -1838,11 +2432,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_nDRSContextMarshall_napi(
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NDRSContextMarshall")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(ccontext, pbuff, userrundownin);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(ccontext, pbuff, userrundownin);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)ccontext;
     (void)pbuff;
     (void)userrundownin;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -1862,7 +2461,11 @@ static Napi::Value windowssys_windows_win32_system_rpc_nDRSContextMarshall2_napi
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NDRSContextMarshall2")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(bindinghandle, ccontext, pbuff, userrundownin, ctxguard, flags);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(bindinghandle, ccontext, pbuff, userrundownin, ctxguard, flags);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)bindinghandle;
     (void)ccontext;
@@ -1870,6 +2473,7 @@ static Napi::Value windowssys_windows_win32_system_rpc_nDRSContextMarshall2_napi
     (void)userrundownin;
     (void)ctxguard;
     (void)flags;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -1887,12 +2491,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_nDRSContextMarshallEx_nap
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NDRSContextMarshallEx")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(bindinghandle, ccontext, pbuff, userrundownin);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(bindinghandle, ccontext, pbuff, userrundownin);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)bindinghandle;
     (void)ccontext;
     (void)pbuff;
     (void)userrundownin;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -1908,11 +2517,18 @@ static Napi::Value windowssys_windows_win32_system_rpc_nDRSContextUnmarshall_nap
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NDRSContextUnmarshall")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pbuff, datarepresentation) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pbuff, datarepresentation);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pbuff;
     (void)datarepresentation;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1931,14 +2547,21 @@ static Napi::Value windowssys_windows_win32_system_rpc_nDRSContextUnmarshall2_na
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NDRSContextUnmarshall2")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bindinghandle, pbuff, datarepresentation, ctxguard, flags) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bindinghandle, pbuff, datarepresentation, ctxguard, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)bindinghandle;
     (void)pbuff;
     (void)datarepresentation;
     (void)ctxguard;
     (void)flags;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1955,12 +2578,19 @@ static Napi::Value windowssys_windows_win32_system_rpc_nDRSContextUnmarshallEx_n
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NDRSContextUnmarshallEx")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bindinghandle, pbuff, datarepresentation) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bindinghandle, pbuff, datarepresentation);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)bindinghandle;
     (void)pbuff;
     (void)datarepresentation;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1975,9 +2605,14 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndr64AsyncServerCall64_na
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "Ndr64AsyncServerCall64")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(prpcmsg);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(prpcmsg);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)prpcmsg;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -1992,9 +2627,14 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndr64AsyncServerCallAll_n
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "Ndr64AsyncServerCallAll")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(prpcmsg);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(prpcmsg);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)prpcmsg;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -2012,12 +2652,19 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndr64DcomAsyncStubCall_na
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "Ndr64DcomAsyncStubCall")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pthis, pchannel, prpcmsg, pdwstubphase) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pthis, pchannel, prpcmsg, pdwstubphase);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pthis;
     (void)pchannel;
     (void)prpcmsg;
     (void)pdwstubphase;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2034,11 +2681,18 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrAllocate_napi(const Na
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrAllocate")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pstubmsg, len) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pstubmsg, len);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pstubmsg;
     (void)len;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -2053,9 +2707,14 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrAsyncServerCall_napi(c
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrAsyncServerCall")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(prpcmsg);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(prpcmsg);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)prpcmsg;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -2072,11 +2731,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrByteCountPointerBuffer
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrByteCountPointerBufferSize")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pstubmsg, pmemory, pformat);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pstubmsg, pmemory, pformat);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pstubmsg;
     (void)pmemory;
     (void)pformat;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -2093,11 +2757,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrByteCountPointerFree_n
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrByteCountPointerFree")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pstubmsg, pmemory, pformat);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pstubmsg, pmemory, pformat);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pstubmsg;
     (void)pmemory;
     (void)pformat;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -2114,12 +2783,19 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrByteCountPointerMarsha
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrByteCountPointerMarshall")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pstubmsg, pmemory, pformat) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pstubmsg, pmemory, pformat);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pstubmsg;
     (void)pmemory;
     (void)pformat;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -2137,13 +2813,20 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrByteCountPointerUnmars
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrByteCountPointerUnmarshall")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pstubmsg, ppmemory, pformat, fmustalloc) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pstubmsg, ppmemory, pformat, fmustalloc);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pstubmsg;
     (void)ppmemory;
     (void)pformat;
     (void)fmustalloc;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -2160,11 +2843,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrClearOutParameters_nap
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrClearOutParameters")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pstubmsg, pformat, argaddr);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pstubmsg, pformat, argaddr);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pstubmsg;
     (void)pformat;
     (void)argaddr;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -2181,11 +2869,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrClientContextMarshall_
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrClientContextMarshall")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pstubmsg, contexthandle, fcheck);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pstubmsg, contexthandle, fcheck);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pstubmsg;
     (void)contexthandle;
     (void)fcheck;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -2202,11 +2895,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrClientContextUnmarshal
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrClientContextUnmarshall")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pstubmsg, pcontexthandle, bindhandle);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pstubmsg, pcontexthandle, bindhandle);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pstubmsg;
     (void)pcontexthandle;
     (void)bindhandle;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -2224,12 +2922,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrClientInitialize_napi(
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrClientInitialize")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(prpcmsg, pstubmsg, pstubdescriptor, procnum);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(prpcmsg, pstubmsg, pstubdescriptor, procnum);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)prpcmsg;
     (void)pstubmsg;
     (void)pstubdescriptor;
     (void)procnum;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -2247,12 +2950,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrClientInitializeNew_na
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrClientInitializeNew")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(prpcmsg, pstubmsg, pstubdescriptor, procnum);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(prpcmsg, pstubmsg, pstubdescriptor, procnum);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)prpcmsg;
     (void)pstubmsg;
     (void)pstubdescriptor;
     (void)procnum;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -2269,11 +2977,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrComplexArrayBufferSize
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrComplexArrayBufferSize")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pstubmsg, pmemory, pformat);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pstubmsg, pmemory, pformat);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pstubmsg;
     (void)pmemory;
     (void)pformat;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -2290,11 +3003,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrComplexArrayFree_napi(
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrComplexArrayFree")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pstubmsg, pmemory, pformat);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pstubmsg, pmemory, pformat);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pstubmsg;
     (void)pmemory;
     (void)pformat;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -2311,12 +3029,19 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrComplexArrayMarshall_n
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrComplexArrayMarshall")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pstubmsg, pmemory, pformat) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pstubmsg, pmemory, pformat);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pstubmsg;
     (void)pmemory;
     (void)pformat;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -2332,10 +3057,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrComplexArrayMemorySize
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrComplexArrayMemorySize")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pstubmsg, pformat) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pstubmsg, pformat);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pstubmsg;
     (void)pformat;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2354,13 +3086,20 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrComplexArrayUnmarshall
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrComplexArrayUnmarshall")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pstubmsg, ppmemory, pformat, fmustalloc) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pstubmsg, ppmemory, pformat, fmustalloc);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pstubmsg;
     (void)ppmemory;
     (void)pformat;
     (void)fmustalloc;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -2377,11 +3116,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrComplexStructBufferSiz
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrComplexStructBufferSize")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pstubmsg, pmemory, pformat);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pstubmsg, pmemory, pformat);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pstubmsg;
     (void)pmemory;
     (void)pformat;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -2398,11 +3142,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrComplexStructFree_napi
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrComplexStructFree")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pstubmsg, pmemory, pformat);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pstubmsg, pmemory, pformat);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pstubmsg;
     (void)pmemory;
     (void)pformat;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -2419,12 +3168,19 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrComplexStructMarshall_
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrComplexStructMarshall")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pstubmsg, pmemory, pformat) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pstubmsg, pmemory, pformat);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pstubmsg;
     (void)pmemory;
     (void)pformat;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -2440,10 +3196,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrComplexStructMemorySiz
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrComplexStructMemorySize")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pstubmsg, pformat) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pstubmsg, pformat);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pstubmsg;
     (void)pformat;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2462,13 +3225,20 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrComplexStructUnmarshal
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrComplexStructUnmarshall")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pstubmsg, ppmemory, pformat, fmustalloc) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pstubmsg, ppmemory, pformat, fmustalloc);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pstubmsg;
     (void)ppmemory;
     (void)pformat;
     (void)fmustalloc;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -2485,11 +3255,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrConformantArrayBufferS
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrConformantArrayBufferSize")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pstubmsg, pmemory, pformat);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pstubmsg, pmemory, pformat);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pstubmsg;
     (void)pmemory;
     (void)pformat;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -2506,11 +3281,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrConformantArrayFree_na
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrConformantArrayFree")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pstubmsg, pmemory, pformat);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pstubmsg, pmemory, pformat);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pstubmsg;
     (void)pmemory;
     (void)pformat;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -2527,12 +3307,19 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrConformantArrayMarshal
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrConformantArrayMarshall")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pstubmsg, pmemory, pformat) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pstubmsg, pmemory, pformat);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pstubmsg;
     (void)pmemory;
     (void)pformat;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -2548,10 +3335,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrConformantArrayMemoryS
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrConformantArrayMemorySize")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pstubmsg, pformat) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pstubmsg, pformat);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pstubmsg;
     (void)pformat;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2570,13 +3364,20 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrConformantArrayUnmarsh
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrConformantArrayUnmarshall")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pstubmsg, ppmemory, pformat, fmustalloc) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pstubmsg, ppmemory, pformat, fmustalloc);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pstubmsg;
     (void)ppmemory;
     (void)pformat;
     (void)fmustalloc;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -2593,11 +3394,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrConformantStringBuffer
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrConformantStringBufferSize")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pstubmsg, pmemory, pformat);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pstubmsg, pmemory, pformat);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pstubmsg;
     (void)pmemory;
     (void)pformat;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -2614,12 +3420,19 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrConformantStringMarsha
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrConformantStringMarshall")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pstubmsg, pmemory, pformat) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pstubmsg, pmemory, pformat);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pstubmsg;
     (void)pmemory;
     (void)pformat;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -2635,10 +3448,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrConformantStringMemory
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrConformantStringMemorySize")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pstubmsg, pformat) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pstubmsg, pformat);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pstubmsg;
     (void)pformat;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2657,13 +3477,20 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrConformantStringUnmars
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrConformantStringUnmarshall")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pstubmsg, ppmemory, pformat, fmustalloc) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pstubmsg, ppmemory, pformat, fmustalloc);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pstubmsg;
     (void)ppmemory;
     (void)pformat;
     (void)fmustalloc;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -2680,11 +3507,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrConformantStructBuffer
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrConformantStructBufferSize")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pstubmsg, pmemory, pformat);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pstubmsg, pmemory, pformat);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pstubmsg;
     (void)pmemory;
     (void)pformat;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -2701,11 +3533,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrConformantStructFree_n
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrConformantStructFree")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pstubmsg, pmemory, pformat);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pstubmsg, pmemory, pformat);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pstubmsg;
     (void)pmemory;
     (void)pformat;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -2722,12 +3559,19 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrConformantStructMarsha
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrConformantStructMarshall")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pstubmsg, pmemory, pformat) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pstubmsg, pmemory, pformat);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pstubmsg;
     (void)pmemory;
     (void)pformat;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -2743,10 +3587,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrConformantStructMemory
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrConformantStructMemorySize")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pstubmsg, pformat) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pstubmsg, pformat);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pstubmsg;
     (void)pformat;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2765,13 +3616,20 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrConformantStructUnmars
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrConformantStructUnmarshall")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pstubmsg, ppmemory, pformat, fmustalloc) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pstubmsg, ppmemory, pformat, fmustalloc);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pstubmsg;
     (void)ppmemory;
     (void)pformat;
     (void)fmustalloc;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -2788,11 +3646,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrConformantVaryingArray
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrConformantVaryingArrayBufferSize")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pstubmsg, pmemory, pformat);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pstubmsg, pmemory, pformat);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pstubmsg;
     (void)pmemory;
     (void)pformat;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -2809,11 +3672,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrConformantVaryingArray
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrConformantVaryingArrayFree")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pstubmsg, pmemory, pformat);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pstubmsg, pmemory, pformat);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pstubmsg;
     (void)pmemory;
     (void)pformat;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -2830,12 +3698,19 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrConformantVaryingArray
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrConformantVaryingArrayMarshall")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pstubmsg, pmemory, pformat) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pstubmsg, pmemory, pformat);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pstubmsg;
     (void)pmemory;
     (void)pformat;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -2851,10 +3726,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrConformantVaryingArray
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrConformantVaryingArrayMemorySize")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pstubmsg, pformat) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pstubmsg, pformat);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pstubmsg;
     (void)pformat;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2873,13 +3755,20 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrConformantVaryingArray
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrConformantVaryingArrayUnmarshall")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pstubmsg, ppmemory, pformat, fmustalloc) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pstubmsg, ppmemory, pformat, fmustalloc);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pstubmsg;
     (void)ppmemory;
     (void)pformat;
     (void)fmustalloc;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -2896,11 +3785,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrConformantVaryingStruc
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrConformantVaryingStructBufferSize")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pstubmsg, pmemory, pformat);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pstubmsg, pmemory, pformat);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pstubmsg;
     (void)pmemory;
     (void)pformat;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -2917,11 +3811,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrConformantVaryingStruc
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrConformantVaryingStructFree")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pstubmsg, pmemory, pformat);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pstubmsg, pmemory, pformat);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pstubmsg;
     (void)pmemory;
     (void)pformat;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -2938,12 +3837,19 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrConformantVaryingStruc
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrConformantVaryingStructMarshall")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pstubmsg, pmemory, pformat) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pstubmsg, pmemory, pformat);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pstubmsg;
     (void)pmemory;
     (void)pformat;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -2959,10 +3865,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrConformantVaryingStruc
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrConformantVaryingStructMemorySize")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pstubmsg, pformat) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pstubmsg, pformat);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pstubmsg;
     (void)pformat;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2981,13 +3894,20 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrConformantVaryingStruc
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrConformantVaryingStructUnmarshall")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pstubmsg, ppmemory, pformat, fmustalloc) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pstubmsg, ppmemory, pformat, fmustalloc);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pstubmsg;
     (void)ppmemory;
     (void)pformat;
     (void)fmustalloc;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -3003,11 +3923,18 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrContextHandleInitializ
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrContextHandleInitialize")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pstubmsg, pformat) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pstubmsg, pformat);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pstubmsg;
     (void)pformat;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -3024,11 +3951,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrContextHandleSize_napi
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrContextHandleSize")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pstubmsg, pmemory, pformat);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pstubmsg, pmemory, pformat);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pstubmsg;
     (void)pmemory;
     (void)pformat;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -3044,10 +3976,15 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrConvert_napi(const Nap
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrConvert")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pstubmsg, pformat);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pstubmsg, pformat);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pstubmsg;
     (void)pformat;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -3064,11 +4001,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrConvert2_napi(const Na
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrConvert2")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pstubmsg, pformat, numberparams);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pstubmsg, pformat, numberparams);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pstubmsg;
     (void)pformat;
     (void)numberparams;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -3083,9 +4025,14 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrCorrelationFree_napi(c
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrCorrelationFree")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pstubmsg);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pstubmsg);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pstubmsg;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -3103,12 +4050,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrCorrelationInitialize_
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrCorrelationInitialize")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pstubmsg, pmemory, cachesize, flags);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pstubmsg, pmemory, cachesize, flags);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pstubmsg;
     (void)pmemory;
     (void)cachesize;
     (void)flags;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -3123,9 +4075,14 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrCorrelationPass_napi(c
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrCorrelationPass")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pstubmsg);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pstubmsg);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pstubmsg;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -3141,10 +4098,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrCreateServerInterfaceF
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrCreateServerInterfaceFromStub")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pstub, pserverif) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pstub, pserverif);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pstub;
     (void)pserverif;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3163,12 +4127,19 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrDcomAsyncStubCall_napi
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrDcomAsyncStubCall")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pthis, pchannel, prpcmsg, pdwstubphase) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pthis, pchannel, prpcmsg, pdwstubphase);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pthis;
     (void)pchannel;
     (void)prpcmsg;
     (void)pdwstubphase;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3186,11 +4157,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrEncapsulatedUnionBuffe
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrEncapsulatedUnionBufferSize")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pstubmsg, pmemory, pformat);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pstubmsg, pmemory, pformat);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pstubmsg;
     (void)pmemory;
     (void)pformat;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -3207,11 +4183,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrEncapsulatedUnionFree_
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrEncapsulatedUnionFree")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pstubmsg, pmemory, pformat);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pstubmsg, pmemory, pformat);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pstubmsg;
     (void)pmemory;
     (void)pformat;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -3228,12 +4209,19 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrEncapsulatedUnionMarsh
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrEncapsulatedUnionMarshall")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pstubmsg, pmemory, pformat) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pstubmsg, pmemory, pformat);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pstubmsg;
     (void)pmemory;
     (void)pformat;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -3249,10 +4237,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrEncapsulatedUnionMemor
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrEncapsulatedUnionMemorySize")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pstubmsg, pformat) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pstubmsg, pformat);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pstubmsg;
     (void)pformat;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3271,13 +4266,20 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrEncapsulatedUnionUnmar
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrEncapsulatedUnionUnmarshall")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pstubmsg, ppmemory, pformat, fmustalloc) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pstubmsg, ppmemory, pformat, fmustalloc);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pstubmsg;
     (void)ppmemory;
     (void)pformat;
     (void)fmustalloc;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -3294,11 +4296,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrFixedArrayBufferSize_n
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrFixedArrayBufferSize")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pstubmsg, pmemory, pformat);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pstubmsg, pmemory, pformat);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pstubmsg;
     (void)pmemory;
     (void)pformat;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -3315,11 +4322,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrFixedArrayFree_napi(co
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrFixedArrayFree")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pstubmsg, pmemory, pformat);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pstubmsg, pmemory, pformat);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pstubmsg;
     (void)pmemory;
     (void)pformat;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -3336,12 +4348,19 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrFixedArrayMarshall_nap
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrFixedArrayMarshall")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pstubmsg, pmemory, pformat) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pstubmsg, pmemory, pformat);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pstubmsg;
     (void)pmemory;
     (void)pformat;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -3357,10 +4376,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrFixedArrayMemorySize_n
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrFixedArrayMemorySize")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pstubmsg, pformat) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pstubmsg, pformat);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pstubmsg;
     (void)pformat;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3379,13 +4405,20 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrFixedArrayUnmarshall_n
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrFixedArrayUnmarshall")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pstubmsg, ppmemory, pformat, fmustalloc) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pstubmsg, ppmemory, pformat, fmustalloc);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pstubmsg;
     (void)ppmemory;
     (void)pformat;
     (void)fmustalloc;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -3400,9 +4433,14 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrFreeBuffer_napi(const 
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrFreeBuffer")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pstubmsg);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pstubmsg);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pstubmsg;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -3417,9 +4455,14 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrFullPointerXlatFree_na
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrFullPointerXlatFree")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pxlattables);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pxlattables);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pxlattables;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -3435,11 +4478,18 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrFullPointerXlatInit_na
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrFullPointerXlatInit")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(numberofpointers, xlatside) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(numberofpointers, xlatside);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)numberofpointers;
     (void)xlatside;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -3456,12 +4506,19 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrGetBuffer_napi(const N
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrGetBuffer")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pstubmsg, bufferlength, handle) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pstubmsg, bufferlength, handle);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pstubmsg;
     (void)bufferlength;
     (void)handle;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -3477,10 +4534,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrGetDcomProtocolVersion
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrGetDcomProtocolVersion")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pstubmsg, pversion) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pstubmsg, pversion);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pstubmsg;
     (void)pversion;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3498,11 +4562,18 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrGetUserMarshalInfo_nap
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrGetUserMarshalInfo")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pflags, informationlevel, pmarshalinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pflags, informationlevel, pmarshalinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pflags;
     (void)informationlevel;
     (void)pmarshalinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3520,11 +4591,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrInterfacePointerBuffer
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrInterfacePointerBufferSize")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pstubmsg, pmemory, pformat);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pstubmsg, pmemory, pformat);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pstubmsg;
     (void)pmemory;
     (void)pformat;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -3541,11 +4617,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrInterfacePointerFree_n
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrInterfacePointerFree")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pstubmsg, pmemory, pformat);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pstubmsg, pmemory, pformat);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pstubmsg;
     (void)pmemory;
     (void)pformat;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -3562,12 +4643,19 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrInterfacePointerMarsha
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrInterfacePointerMarshall")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pstubmsg, pmemory, pformat) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pstubmsg, pmemory, pformat);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pstubmsg;
     (void)pmemory;
     (void)pformat;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -3583,10 +4671,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrInterfacePointerMemory
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrInterfacePointerMemorySize")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pstubmsg, pformat) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pstubmsg, pformat);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pstubmsg;
     (void)pformat;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3605,13 +4700,20 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrInterfacePointerUnmars
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrInterfacePointerUnmarshall")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pstubmsg, ppmemory, pformat, fmustalloc) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pstubmsg, ppmemory, pformat, fmustalloc);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pstubmsg;
     (void)ppmemory;
     (void)pformat;
     (void)fmustalloc;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -3629,12 +4731,19 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrMapCommAndFaultStatus_
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrMapCommAndFaultStatus")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pstubmsg, pcommstatus, pfaultstatus, status) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pstubmsg, pcommstatus, pfaultstatus, status);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pstubmsg;
     (void)pcommstatus;
     (void)pfaultstatus;
     (void)status;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3665,12 +4774,15 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrMesProcEncodeDecode_na
             case 3: km_fn_ptr(handle, pstubdesc, pformatstring, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2)); break;
             default: km_fn_ptr(handle, pstubdesc, pformatstring, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2), static_cast<intptr_t>(km_va3)); break;
         }
+    } else {
+        errno = ENOSYS;
     }
 #else
     (void)handle;
     (void)pstubdesc;
     (void)pformatstring;
     (void)km_vac; (void)km_va0; (void)km_va1; (void)km_va2; (void)km_va3;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -3685,9 +4797,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrMesSimpleTypeAlignSize
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrMesSimpleTypeAlignSize")));
     }
-    uint64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0) : 0;
+    uint64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)param0;
+    errno = ENOSYS;
     uint64_t km_res = 0;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
@@ -3704,10 +4823,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrMesSimpleTypeAlignSize
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrMesSimpleTypeAlignSizeAll")));
     }
-    uint64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(handle, pproxyinfo) : 0;
+    uint64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(handle, pproxyinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)handle;
     (void)pproxyinfo;
+    errno = ENOSYS;
     uint64_t km_res = 0;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
@@ -3725,11 +4851,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrMesSimpleTypeDecode_na
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrMesSimpleTypeDecode")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(handle, pobject, size);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(handle, pobject, size);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)handle;
     (void)pobject;
     (void)size;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -3747,12 +4878,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrMesSimpleTypeDecodeAll
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrMesSimpleTypeDecodeAll")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(handle, pproxyinfo, pobject, size);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(handle, pproxyinfo, pobject, size);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)handle;
     (void)pproxyinfo;
     (void)pobject;
     (void)size;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -3770,12 +4906,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrMesSimpleTypeEncode_na
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrMesSimpleTypeEncode")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(handle, pstubdesc, pobject, size);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(handle, pstubdesc, pobject, size);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)handle;
     (void)pstubdesc;
     (void)pobject;
     (void)size;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -3793,12 +4934,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrMesSimpleTypeEncodeAll
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrMesSimpleTypeEncodeAll")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(handle, pproxyinfo, pobject, size);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(handle, pproxyinfo, pobject, size);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)handle;
     (void)pproxyinfo;
     (void)pobject;
     (void)size;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -3816,12 +4962,19 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrMesTypeAlignSize_napi(
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrMesTypeAlignSize")));
     }
-    uint64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(handle, pstubdesc, pformatstring, pobject) : 0;
+    uint64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(handle, pstubdesc, pformatstring, pobject);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)handle;
     (void)pstubdesc;
     (void)pformatstring;
     (void)pobject;
+    errno = ENOSYS;
     uint64_t km_res = 0;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
@@ -3841,13 +4994,20 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrMesTypeAlignSize2_napi
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrMesTypeAlignSize2")));
     }
-    uint64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(handle, ppicklinginfo, pstubdesc, pformatstring, pobject) : 0;
+    uint64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(handle, ppicklinginfo, pstubdesc, pformatstring, pobject);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)handle;
     (void)ppicklinginfo;
     (void)pstubdesc;
     (void)pformatstring;
     (void)pobject;
+    errno = ENOSYS;
     uint64_t km_res = 0;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
@@ -3868,7 +5028,13 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrMesTypeAlignSize3_napi
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrMesTypeAlignSize3")));
     }
-    uint64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(handle, ppicklinginfo, pproxyinfo, arrtypeoffset, ntypeindex, pobject) : 0;
+    uint64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(handle, ppicklinginfo, pproxyinfo, arrtypeoffset, ntypeindex, pobject);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)handle;
     (void)ppicklinginfo;
@@ -3876,6 +5042,7 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrMesTypeAlignSize3_napi
     (void)arrtypeoffset;
     (void)ntypeindex;
     (void)pobject;
+    errno = ENOSYS;
     uint64_t km_res = 0;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
@@ -3894,12 +5061,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrMesTypeDecode_napi(con
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrMesTypeDecode")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(handle, pstubdesc, pformatstring, pobject);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(handle, pstubdesc, pformatstring, pobject);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)handle;
     (void)pstubdesc;
     (void)pformatstring;
     (void)pobject;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -3918,13 +5090,18 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrMesTypeDecode2_napi(co
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrMesTypeDecode2")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(handle, ppicklinginfo, pstubdesc, pformatstring, pobject);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(handle, ppicklinginfo, pstubdesc, pformatstring, pobject);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)handle;
     (void)ppicklinginfo;
     (void)pstubdesc;
     (void)pformatstring;
     (void)pobject;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -3944,7 +5121,11 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrMesTypeDecode3_napi(co
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrMesTypeDecode3")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(handle, ppicklinginfo, pproxyinfo, arrtypeoffset, ntypeindex, pobject);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(handle, ppicklinginfo, pproxyinfo, arrtypeoffset, ntypeindex, pobject);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)handle;
     (void)ppicklinginfo;
@@ -3952,6 +5133,7 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrMesTypeDecode3_napi(co
     (void)arrtypeoffset;
     (void)ntypeindex;
     (void)pobject;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -3969,12 +5151,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrMesTypeEncode_napi(con
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrMesTypeEncode")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(handle, pstubdesc, pformatstring, pobject);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(handle, pstubdesc, pformatstring, pobject);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)handle;
     (void)pstubdesc;
     (void)pformatstring;
     (void)pobject;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -3993,13 +5180,18 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrMesTypeEncode2_napi(co
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrMesTypeEncode2")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(handle, ppicklinginfo, pstubdesc, pformatstring, pobject);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(handle, ppicklinginfo, pstubdesc, pformatstring, pobject);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)handle;
     (void)ppicklinginfo;
     (void)pstubdesc;
     (void)pformatstring;
     (void)pobject;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -4019,7 +5211,11 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrMesTypeEncode3_napi(co
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrMesTypeEncode3")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(handle, ppicklinginfo, pproxyinfo, arrtypeoffset, ntypeindex, pobject);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(handle, ppicklinginfo, pproxyinfo, arrtypeoffset, ntypeindex, pobject);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)handle;
     (void)ppicklinginfo;
@@ -4027,6 +5223,7 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrMesTypeEncode3_napi(co
     (void)arrtypeoffset;
     (void)ntypeindex;
     (void)pobject;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -4045,13 +5242,18 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrMesTypeFree2_napi(cons
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrMesTypeFree2")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(handle, ppicklinginfo, pstubdesc, pformatstring, pobject);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(handle, ppicklinginfo, pstubdesc, pformatstring, pobject);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)handle;
     (void)ppicklinginfo;
     (void)pstubdesc;
     (void)pformatstring;
     (void)pobject;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -4071,7 +5273,11 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrMesTypeFree3_napi(cons
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrMesTypeFree3")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(handle, ppicklinginfo, pproxyinfo, arrtypeoffset, ntypeindex, pobject);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(handle, ppicklinginfo, pproxyinfo, arrtypeoffset, ntypeindex, pobject);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)handle;
     (void)ppicklinginfo;
@@ -4079,6 +5285,7 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrMesTypeFree3_napi(cons
     (void)arrtypeoffset;
     (void)ntypeindex;
     (void)pobject;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -4095,11 +5302,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrNonConformantStringBuf
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrNonConformantStringBufferSize")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pstubmsg, pmemory, pformat);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pstubmsg, pmemory, pformat);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pstubmsg;
     (void)pmemory;
     (void)pformat;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -4116,12 +5328,19 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrNonConformantStringMar
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrNonConformantStringMarshall")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pstubmsg, pmemory, pformat) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pstubmsg, pmemory, pformat);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pstubmsg;
     (void)pmemory;
     (void)pformat;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -4137,10 +5356,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrNonConformantStringMem
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrNonConformantStringMemorySize")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pstubmsg, pformat) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pstubmsg, pformat);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pstubmsg;
     (void)pformat;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4159,13 +5385,20 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrNonConformantStringUnm
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrNonConformantStringUnmarshall")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pstubmsg, ppmemory, pformat, fmustalloc) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pstubmsg, ppmemory, pformat, fmustalloc);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pstubmsg;
     (void)ppmemory;
     (void)pformat;
     (void)fmustalloc;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -4182,11 +5415,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrNonEncapsulatedUnionBu
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrNonEncapsulatedUnionBufferSize")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pstubmsg, pmemory, pformat);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pstubmsg, pmemory, pformat);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pstubmsg;
     (void)pmemory;
     (void)pformat;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -4203,11 +5441,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrNonEncapsulatedUnionFr
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrNonEncapsulatedUnionFree")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pstubmsg, pmemory, pformat);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pstubmsg, pmemory, pformat);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pstubmsg;
     (void)pmemory;
     (void)pformat;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -4224,12 +5467,19 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrNonEncapsulatedUnionMa
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrNonEncapsulatedUnionMarshall")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pstubmsg, pmemory, pformat) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pstubmsg, pmemory, pformat);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pstubmsg;
     (void)pmemory;
     (void)pformat;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -4245,10 +5495,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrNonEncapsulatedUnionMe
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrNonEncapsulatedUnionMemorySize")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pstubmsg, pformat) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pstubmsg, pformat);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pstubmsg;
     (void)pformat;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4267,13 +5524,20 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrNonEncapsulatedUnionUn
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrNonEncapsulatedUnionUnmarshall")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pstubmsg, ppmemory, pformat, fmustalloc) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pstubmsg, ppmemory, pformat, fmustalloc);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pstubmsg;
     (void)ppmemory;
     (void)pformat;
     (void)fmustalloc;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -4290,12 +5554,19 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrNsGetBuffer_napi(const
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrNsGetBuffer")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pstubmsg, bufferlength, handle) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pstubmsg, bufferlength, handle);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pstubmsg;
     (void)bufferlength;
     (void)handle;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -4312,12 +5583,19 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrNsSendReceive_napi(con
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrNsSendReceive")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pstubmsg, pbufferend, pautohandle) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pstubmsg, pbufferend, pautohandle);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pstubmsg;
     (void)pbufferend;
     (void)pautohandle;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -4332,10 +5610,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrOleAllocate_napi(const
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrOleAllocate")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(size) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(size);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)size;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -4350,9 +5635,14 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrOleFree_napi(const Nap
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrOleFree")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(nodetofree);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(nodetofree);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)nodetofree;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -4368,10 +5658,15 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrPartialIgnoreClientBuf
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrPartialIgnoreClientBufferSize")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pstubmsg, pmemory);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pstubmsg, pmemory);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pstubmsg;
     (void)pmemory;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -4387,10 +5682,15 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrPartialIgnoreClientMar
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrPartialIgnoreClientMarshall")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pstubmsg, pmemory);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pstubmsg, pmemory);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pstubmsg;
     (void)pmemory;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -4407,11 +5707,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrPartialIgnoreServerIni
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrPartialIgnoreServerInitialize")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pstubmsg, ppmemory, pformat);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pstubmsg, ppmemory, pformat);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pstubmsg;
     (void)ppmemory;
     (void)pformat;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -4427,10 +5732,15 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrPartialIgnoreServerUnm
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrPartialIgnoreServerUnmarshall")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pstubmsg, ppmemory);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pstubmsg, ppmemory);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pstubmsg;
     (void)ppmemory;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -4447,11 +5757,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrPointerBufferSize_napi
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrPointerBufferSize")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pstubmsg, pmemory, pformat);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pstubmsg, pmemory, pformat);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pstubmsg;
     (void)pmemory;
     (void)pformat;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -4468,11 +5783,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrPointerFree_napi(const
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrPointerFree")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pstubmsg, pmemory, pformat);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pstubmsg, pmemory, pformat);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pstubmsg;
     (void)pmemory;
     (void)pformat;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -4489,12 +5809,19 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrPointerMarshall_napi(c
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrPointerMarshall")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pstubmsg, pmemory, pformat) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pstubmsg, pmemory, pformat);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pstubmsg;
     (void)pmemory;
     (void)pformat;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -4510,10 +5837,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrPointerMemorySize_napi
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrPointerMemorySize")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pstubmsg, pformat) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pstubmsg, pformat);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pstubmsg;
     (void)pformat;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4532,13 +5866,20 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrPointerUnmarshall_napi
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrPointerUnmarshall")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pstubmsg, ppmemory, pformat, fmustalloc) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pstubmsg, ppmemory, pformat, fmustalloc);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pstubmsg;
     (void)ppmemory;
     (void)pformat;
     (void)fmustalloc;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -4556,13 +5897,20 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrRangeUnmarshall_napi(c
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrRangeUnmarshall")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pstubmsg, ppmemory, pformat, fmustalloc) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pstubmsg, ppmemory, pformat, fmustalloc);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pstubmsg;
     (void)ppmemory;
     (void)pformat;
     (void)fmustalloc;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -4577,10 +5925,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrRpcSmClientAllocate_na
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrRpcSmClientAllocate")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(size) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(size);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)size;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -4595,9 +5950,14 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrRpcSmClientFree_napi(c
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrRpcSmClientFree")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(nodetofree);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(nodetofree);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)nodetofree;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -4612,9 +5972,14 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrRpcSmSetClientToOsf_na
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrRpcSmSetClientToOsf")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pmessage);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pmessage);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pmessage;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -4629,10 +5994,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrRpcSsDefaultAllocate_n
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrRpcSsDefaultAllocate")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(size) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(size);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)size;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -4647,9 +6019,14 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrRpcSsDefaultFree_napi(
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrRpcSsDefaultFree")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(nodetofree);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(nodetofree);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)nodetofree;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -4664,9 +6041,14 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrRpcSsDisableAllocate_n
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrRpcSsDisableAllocate")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pmessage);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pmessage);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pmessage;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -4681,9 +6063,14 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrRpcSsEnableAllocate_na
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrRpcSsEnableAllocate")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pmessage);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pmessage);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pmessage;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -4699,11 +6086,18 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrSendReceive_napi(const
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrSendReceive")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pstubmsg, pbufferend) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pstubmsg, pbufferend);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pstubmsg;
     (void)pbufferend;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -4718,9 +6112,14 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrServerCall2_napi(const
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrServerCall2")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(prpcmsg);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(prpcmsg);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)prpcmsg;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -4735,9 +6134,14 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrServerCallAll_napi(con
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrServerCallAll")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(prpcmsg);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(prpcmsg);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)prpcmsg;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -4752,9 +6156,14 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrServerCallNdr64_napi(c
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrServerCallNdr64")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(prpcmsg);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(prpcmsg);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)prpcmsg;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -4771,11 +6180,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrServerContextMarshall_
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrServerContextMarshall")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pstubmsg, contexthandle, rundownroutine);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pstubmsg, contexthandle, rundownroutine);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pstubmsg;
     (void)contexthandle;
     (void)rundownroutine;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -4793,12 +6207,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrServerContextNewMarsha
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrServerContextNewMarshall")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pstubmsg, contexthandle, rundownroutine, pformat);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pstubmsg, contexthandle, rundownroutine, pformat);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pstubmsg;
     (void)contexthandle;
     (void)rundownroutine;
     (void)pformat;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -4814,11 +6233,18 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrServerContextNewUnmars
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrServerContextNewUnmarshall")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pstubmsg, pformat) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pstubmsg, pformat);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pstubmsg;
     (void)pformat;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -4833,10 +6259,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrServerContextUnmarshal
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrServerContextUnmarshall")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pstubmsg) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pstubmsg);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pstubmsg;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -4853,12 +6286,19 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrServerInitialize_napi(
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrServerInitialize")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(prpcmsg, pstubmsg, pstubdescriptor) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(prpcmsg, pstubmsg, pstubdescriptor);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)prpcmsg;
     (void)pstubmsg;
     (void)pstubdescriptor;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -4874,10 +6314,15 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrServerInitializeMarsha
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrServerInitializeMarshall")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(prpcmsg, pstubmsg);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(prpcmsg, pstubmsg);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)prpcmsg;
     (void)pstubmsg;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -4894,12 +6339,19 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrServerInitializeNew_na
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrServerInitializeNew")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(prpcmsg, pstubmsg, pstubdescriptor) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(prpcmsg, pstubmsg, pstubdescriptor);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)prpcmsg;
     (void)pstubmsg;
     (void)pstubdescriptor;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -4917,12 +6369,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrServerInitializePartia
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrServerInitializePartial")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(prpcmsg, pstubmsg, pstubdescriptor, requestedbuffersize);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(prpcmsg, pstubmsg, pstubdescriptor, requestedbuffersize);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)prpcmsg;
     (void)pstubmsg;
     (void)pstubdescriptor;
     (void)requestedbuffersize;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -4939,12 +6396,19 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrServerInitializeUnmars
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrServerInitializeUnmarshall")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pstubmsg, pstubdescriptor, prpcmsg) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pstubmsg, pstubdescriptor, prpcmsg);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pstubmsg;
     (void)pstubdescriptor;
     (void)prpcmsg;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -4961,11 +6425,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrSimpleStructBufferSize
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrSimpleStructBufferSize")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pstubmsg, pmemory, pformat);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pstubmsg, pmemory, pformat);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pstubmsg;
     (void)pmemory;
     (void)pformat;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -4982,11 +6451,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrSimpleStructFree_napi(
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrSimpleStructFree")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pstubmsg, pmemory, pformat);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pstubmsg, pmemory, pformat);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pstubmsg;
     (void)pmemory;
     (void)pformat;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -5003,12 +6477,19 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrSimpleStructMarshall_n
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrSimpleStructMarshall")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pstubmsg, pmemory, pformat) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pstubmsg, pmemory, pformat);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pstubmsg;
     (void)pmemory;
     (void)pformat;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -5024,10 +6505,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrSimpleStructMemorySize
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrSimpleStructMemorySize")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pstubmsg, pformat) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pstubmsg, pformat);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pstubmsg;
     (void)pformat;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5046,13 +6534,20 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrSimpleStructUnmarshall
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrSimpleStructUnmarshall")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pstubmsg, ppmemory, pformat, fmustalloc) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pstubmsg, ppmemory, pformat, fmustalloc);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pstubmsg;
     (void)ppmemory;
     (void)pformat;
     (void)fmustalloc;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -5069,11 +6564,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrSimpleTypeMarshall_nap
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrSimpleTypeMarshall")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pstubmsg, pmemory, formatchar);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pstubmsg, pmemory, formatchar);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pstubmsg;
     (void)pmemory;
     (void)formatchar;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -5090,11 +6590,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrSimpleTypeUnmarshall_n
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrSimpleTypeUnmarshall")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pstubmsg, pmemory, formatchar);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pstubmsg, pmemory, formatchar);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pstubmsg;
     (void)pmemory;
     (void)formatchar;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -5112,12 +6617,19 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrStubCall2_napi(const N
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrStubCall2")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pthis, pchannel, prpcmsg, pdwstubphase) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pthis, pchannel, prpcmsg, pdwstubphase);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pthis;
     (void)pchannel;
     (void)prpcmsg;
     (void)pdwstubphase;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5136,12 +6648,19 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrStubCall3_napi(const N
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrStubCall3")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pthis, pchannel, prpcmsg, pdwstubphase) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pthis, pchannel, prpcmsg, pdwstubphase);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pthis;
     (void)pchannel;
     (void)prpcmsg;
     (void)pdwstubphase;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5159,11 +6678,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrUserMarshalBufferSize_
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrUserMarshalBufferSize")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pstubmsg, pmemory, pformat);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pstubmsg, pmemory, pformat);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pstubmsg;
     (void)pmemory;
     (void)pformat;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -5180,11 +6704,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrUserMarshalFree_napi(c
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrUserMarshalFree")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pstubmsg, pmemory, pformat);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pstubmsg, pmemory, pformat);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pstubmsg;
     (void)pmemory;
     (void)pformat;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -5201,12 +6730,19 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrUserMarshalMarshall_na
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrUserMarshalMarshall")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pstubmsg, pmemory, pformat) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pstubmsg, pmemory, pformat);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pstubmsg;
     (void)pmemory;
     (void)pformat;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -5222,10 +6758,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrUserMarshalMemorySize_
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrUserMarshalMemorySize")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pstubmsg, pformat) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pstubmsg, pformat);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pstubmsg;
     (void)pformat;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5243,12 +6786,19 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrUserMarshalSimpleTypeC
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrUserMarshalSimpleTypeConvert")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pflags, pbuffer, formatchar) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pflags, pbuffer, formatchar);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pflags;
     (void)pbuffer;
     (void)formatchar;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -5266,13 +6816,20 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrUserMarshalUnmarshall_
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrUserMarshalUnmarshall")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pstubmsg, ppmemory, pformat, fmustalloc) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pstubmsg, ppmemory, pformat, fmustalloc);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pstubmsg;
     (void)ppmemory;
     (void)pformat;
     (void)fmustalloc;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -5289,11 +6846,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrVaryingArrayBufferSize
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrVaryingArrayBufferSize")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pstubmsg, pmemory, pformat);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pstubmsg, pmemory, pformat);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pstubmsg;
     (void)pmemory;
     (void)pformat;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -5310,11 +6872,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrVaryingArrayFree_napi(
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrVaryingArrayFree")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pstubmsg, pmemory, pformat);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pstubmsg, pmemory, pformat);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pstubmsg;
     (void)pmemory;
     (void)pformat;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -5331,12 +6898,19 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrVaryingArrayMarshall_n
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrVaryingArrayMarshall")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pstubmsg, pmemory, pformat) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pstubmsg, pmemory, pformat);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pstubmsg;
     (void)pmemory;
     (void)pformat;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -5352,10 +6926,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrVaryingArrayMemorySize
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrVaryingArrayMemorySize")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pstubmsg, pformat) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pstubmsg, pformat);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pstubmsg;
     (void)pformat;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5374,13 +6955,20 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrVaryingArrayUnmarshall
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrVaryingArrayUnmarshall")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pstubmsg, ppmemory, pformat, fmustalloc) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pstubmsg, ppmemory, pformat, fmustalloc);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pstubmsg;
     (void)ppmemory;
     (void)pformat;
     (void)fmustalloc;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -5397,11 +6985,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrXmitOrRepAsBufferSize_
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrXmitOrRepAsBufferSize")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pstubmsg, pmemory, pformat);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pstubmsg, pmemory, pformat);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pstubmsg;
     (void)pmemory;
     (void)pformat;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -5418,11 +7011,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrXmitOrRepAsFree_napi(c
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrXmitOrRepAsFree")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pstubmsg, pmemory, pformat);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pstubmsg, pmemory, pformat);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pstubmsg;
     (void)pmemory;
     (void)pformat;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -5439,12 +7037,19 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrXmitOrRepAsMarshall_na
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrXmitOrRepAsMarshall")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pstubmsg, pmemory, pformat) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pstubmsg, pmemory, pformat);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pstubmsg;
     (void)pmemory;
     (void)pformat;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -5460,10 +7065,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrXmitOrRepAsMemorySize_
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrXmitOrRepAsMemorySize")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pstubmsg, pformat) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pstubmsg, pformat);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pstubmsg;
     (void)pformat;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5482,13 +7094,20 @@ static Napi::Value windowssys_windows_win32_system_rpc_ndrXmitOrRepAsUnmarshall_
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdrXmitOrRepAsUnmarshall")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pstubmsg, ppmemory, pformat, fmustalloc) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pstubmsg, ppmemory, pformat, fmustalloc);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pstubmsg;
     (void)ppmemory;
     (void)pformat;
     (void)fmustalloc;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -5504,10 +7123,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcAsyncAbortCall_napi(co
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcAsyncAbortCall")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pasync, exceptioncode) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pasync, exceptioncode);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pasync;
     (void)exceptioncode;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5524,10 +7150,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcAsyncCancelCall_napi(c
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcAsyncCancelCall")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pasync, fabort) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pasync, fabort);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pasync;
     (void)fabort;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5544,10 +7177,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcAsyncCompleteCall_napi
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcAsyncCompleteCall")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pasync, reply) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pasync, reply);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pasync;
     (void)reply;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5563,9 +7203,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcAsyncGetCallStatus_nap
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcAsyncGetCallStatus")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pasync) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pasync);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pasync;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5582,10 +7229,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcAsyncInitializeHandle_
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcAsyncInitializeHandle")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pasync, size) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pasync, size);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pasync;
     (void)size;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5601,9 +7255,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcAsyncRegisterInfo_napi
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcAsyncRegisterInfo")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pasync) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pasync);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pasync;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5621,11 +7282,18 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcBindingBind_napi(const
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcBindingBind")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pasync, binding, ifspec) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pasync, binding, ifspec);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pasync;
     (void)binding;
     (void)ifspec;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5642,10 +7310,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcBindingCopy_napi(const
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcBindingCopy")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sourcebinding, destinationbinding) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sourcebinding, destinationbinding);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sourcebinding;
     (void)destinationbinding;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5664,12 +7339,19 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcBindingCreateA_napi(co
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcBindingCreateA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(arg_0_template, security, options, binding) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(arg_0_template, security, options, binding);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)arg_0_template;
     (void)security;
     (void)options;
     (void)binding;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5688,12 +7370,19 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcBindingCreateW_napi(co
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcBindingCreateW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(arg_0_template, security, options, binding) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(arg_0_template, security, options, binding);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)arg_0_template;
     (void)security;
     (void)options;
     (void)binding;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5709,9 +7398,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcBindingFree_napi(const
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcBindingFree")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(binding) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(binding);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)binding;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5728,10 +7424,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcBindingFromStringBindi
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcBindingFromStringBindingA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(stringbinding, binding) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(stringbinding, binding);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)stringbinding;
     (void)binding;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5748,10 +7451,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcBindingFromStringBindi
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcBindingFromStringBindingW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(stringbinding, binding) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(stringbinding, binding);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)stringbinding;
     (void)binding;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5772,7 +7482,13 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcBindingInqAuthClientA_
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcBindingInqAuthClientA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(clientbinding, privs, serverprincname, authnlevel, authnsvc, authzsvc) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(clientbinding, privs, serverprincname, authnlevel, authnsvc, authzsvc);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)clientbinding;
     (void)privs;
@@ -5780,6 +7496,7 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcBindingInqAuthClientA_
     (void)authnlevel;
     (void)authnsvc;
     (void)authzsvc;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5801,7 +7518,13 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcBindingInqAuthClientEx
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcBindingInqAuthClientExA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(clientbinding, privs, serverprincname, authnlevel, authnsvc, authzsvc, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(clientbinding, privs, serverprincname, authnlevel, authnsvc, authzsvc, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)clientbinding;
     (void)privs;
@@ -5810,6 +7533,7 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcBindingInqAuthClientEx
     (void)authnsvc;
     (void)authzsvc;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5831,7 +7555,13 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcBindingInqAuthClientEx
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcBindingInqAuthClientExW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(clientbinding, privs, serverprincname, authnlevel, authnsvc, authzsvc, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(clientbinding, privs, serverprincname, authnlevel, authnsvc, authzsvc, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)clientbinding;
     (void)privs;
@@ -5840,6 +7570,7 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcBindingInqAuthClientEx
     (void)authnsvc;
     (void)authzsvc;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5860,7 +7591,13 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcBindingInqAuthClientW_
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcBindingInqAuthClientW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(clientbinding, privs, serverprincname, authnlevel, authnsvc, authzsvc) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(clientbinding, privs, serverprincname, authnlevel, authnsvc, authzsvc);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)clientbinding;
     (void)privs;
@@ -5868,6 +7605,7 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcBindingInqAuthClientW_
     (void)authnlevel;
     (void)authnsvc;
     (void)authzsvc;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5888,7 +7626,13 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcBindingInqAuthInfoA_na
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcBindingInqAuthInfoA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(binding, serverprincname, authnlevel, authnsvc, authidentity, authzsvc) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(binding, serverprincname, authnlevel, authnsvc, authidentity, authzsvc);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)binding;
     (void)serverprincname;
@@ -5896,6 +7640,7 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcBindingInqAuthInfoA_na
     (void)authnsvc;
     (void)authidentity;
     (void)authzsvc;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5918,7 +7663,13 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcBindingInqAuthInfoExA_
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcBindingInqAuthInfoExA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(binding, serverprincname, authnlevel, authnsvc, authidentity, authzsvc, rpcqosversion, securityqos) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(binding, serverprincname, authnlevel, authnsvc, authidentity, authzsvc, rpcqosversion, securityqos);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)binding;
     (void)serverprincname;
@@ -5928,6 +7679,7 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcBindingInqAuthInfoExA_
     (void)authzsvc;
     (void)rpcqosversion;
     (void)securityqos;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5950,7 +7702,13 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcBindingInqAuthInfoExW_
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcBindingInqAuthInfoExW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(binding, serverprincname, authnlevel, authnsvc, authidentity, authzsvc, rpcqosversion, securityqos) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(binding, serverprincname, authnlevel, authnsvc, authidentity, authzsvc, rpcqosversion, securityqos);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)binding;
     (void)serverprincname;
@@ -5960,6 +7718,7 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcBindingInqAuthInfoExW_
     (void)authzsvc;
     (void)rpcqosversion;
     (void)securityqos;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5980,7 +7739,13 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcBindingInqAuthInfoW_na
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcBindingInqAuthInfoW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(binding, serverprincname, authnlevel, authnsvc, authidentity, authzsvc) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(binding, serverprincname, authnlevel, authnsvc, authidentity, authzsvc);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)binding;
     (void)serverprincname;
@@ -5988,6 +7753,7 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcBindingInqAuthInfoW_na
     (void)authnsvc;
     (void)authidentity;
     (void)authzsvc;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6004,10 +7770,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcBindingInqMaxCalls_nap
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcBindingInqMaxCalls")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(binding, maxcalls) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(binding, maxcalls);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)binding;
     (void)maxcalls;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6024,10 +7797,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcBindingInqObject_napi(
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcBindingInqObject")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(binding, objectuuid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(binding, objectuuid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)binding;
     (void)objectuuid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6045,11 +7825,18 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcBindingInqOption_napi(
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcBindingInqOption")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hbinding, option, poptionvalue) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hbinding, option, poptionvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hbinding;
     (void)option;
     (void)poptionvalue;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6065,9 +7852,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcBindingReset_napi(cons
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcBindingReset")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(binding) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(binding);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)binding;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6084,10 +7878,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcBindingServerFromClien
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcBindingServerFromClient")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(clientbinding, serverbinding) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(clientbinding, serverbinding);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)clientbinding;
     (void)serverbinding;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6108,7 +7909,13 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcBindingSetAuthInfoA_na
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcBindingSetAuthInfoA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(binding, serverprincname, authnlevel, authnsvc, authidentity, authzsvc) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(binding, serverprincname, authnlevel, authnsvc, authidentity, authzsvc);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)binding;
     (void)serverprincname;
@@ -6116,6 +7923,7 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcBindingSetAuthInfoA_na
     (void)authnsvc;
     (void)authidentity;
     (void)authzsvc;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6137,7 +7945,13 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcBindingSetAuthInfoExA_
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcBindingSetAuthInfoExA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(binding, serverprincname, authnlevel, authnsvc, authidentity, authzsvc, securityqos) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(binding, serverprincname, authnlevel, authnsvc, authidentity, authzsvc, securityqos);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)binding;
     (void)serverprincname;
@@ -6146,6 +7960,7 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcBindingSetAuthInfoExA_
     (void)authidentity;
     (void)authzsvc;
     (void)securityqos;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6167,7 +7982,13 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcBindingSetAuthInfoExW_
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcBindingSetAuthInfoExW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(binding, serverprincname, authnlevel, authnsvc, authidentity, authzsvc, securityqos) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(binding, serverprincname, authnlevel, authnsvc, authidentity, authzsvc, securityqos);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)binding;
     (void)serverprincname;
@@ -6176,6 +7997,7 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcBindingSetAuthInfoExW_
     (void)authidentity;
     (void)authzsvc;
     (void)securityqos;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6196,7 +8018,13 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcBindingSetAuthInfoW_na
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcBindingSetAuthInfoW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(binding, serverprincname, authnlevel, authnsvc, authidentity, authzsvc) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(binding, serverprincname, authnlevel, authnsvc, authidentity, authzsvc);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)binding;
     (void)serverprincname;
@@ -6204,6 +8032,7 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcBindingSetAuthInfoW_na
     (void)authnsvc;
     (void)authidentity;
     (void)authzsvc;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6220,10 +8049,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcBindingSetObject_napi(
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcBindingSetObject")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(binding, objectuuid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(binding, objectuuid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)binding;
     (void)objectuuid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6241,11 +8077,18 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcBindingSetOption_napi(
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcBindingSetOption")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hbinding, option, optionvalue) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hbinding, option, optionvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hbinding;
     (void)option;
     (void)optionvalue;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6262,10 +8105,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcBindingToStringBinding
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcBindingToStringBindingA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(binding, stringbinding) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(binding, stringbinding);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)binding;
     (void)stringbinding;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6282,10 +8132,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcBindingToStringBinding
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcBindingToStringBindingW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(binding, stringbinding) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(binding, stringbinding);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)binding;
     (void)stringbinding;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6301,9 +8158,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcBindingUnbind_napi(con
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcBindingUnbind")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(binding) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(binding);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)binding;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6319,9 +8183,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcBindingVectorFree_napi
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcBindingVectorFree")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bindingvector) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bindingvector);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bindingvector;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6337,9 +8208,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcCancelThread_napi(cons
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcCancelThread")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(thread) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(thread);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)thread;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6356,10 +8234,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcCancelThreadEx_napi(co
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcCancelThreadEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(thread, timeout) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(thread, timeout);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)thread;
     (void)timeout;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6377,11 +8262,18 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcCertGeneratePrincipalN
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcCertGeneratePrincipalNameA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(context, flags, pbuffer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(context, flags, pbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)context;
     (void)flags;
     (void)pbuffer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6399,11 +8291,18 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcCertGeneratePrincipalN
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcCertGeneratePrincipalNameW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(context, flags, pbuffer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(context, flags, pbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)context;
     (void)flags;
     (void)pbuffer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6422,12 +8321,19 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcEpRegisterA_napi(const
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcEpRegisterA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ifspec, bindingvector, uuidvector, annotation) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ifspec, bindingvector, uuidvector, annotation);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ifspec;
     (void)bindingvector;
     (void)uuidvector;
     (void)annotation;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6446,12 +8352,19 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcEpRegisterNoReplaceA_n
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcEpRegisterNoReplaceA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ifspec, bindingvector, uuidvector, annotation) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ifspec, bindingvector, uuidvector, annotation);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ifspec;
     (void)bindingvector;
     (void)uuidvector;
     (void)annotation;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6470,12 +8383,19 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcEpRegisterNoReplaceW_n
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcEpRegisterNoReplaceW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ifspec, bindingvector, uuidvector, annotation) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ifspec, bindingvector, uuidvector, annotation);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ifspec;
     (void)bindingvector;
     (void)uuidvector;
     (void)annotation;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6494,12 +8414,19 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcEpRegisterW_napi(const
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcEpRegisterW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ifspec, bindingvector, uuidvector, annotation) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ifspec, bindingvector, uuidvector, annotation);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ifspec;
     (void)bindingvector;
     (void)uuidvector;
     (void)annotation;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6516,10 +8443,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcEpResolveBinding_napi(
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcEpResolveBinding")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(binding, ifspec) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(binding, ifspec);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)binding;
     (void)ifspec;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6537,11 +8471,18 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcEpUnregister_napi(cons
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcEpUnregister")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ifspec, bindingvector, uuidvector) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ifspec, bindingvector, uuidvector);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ifspec;
     (void)bindingvector;
     (void)uuidvector;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6557,9 +8498,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcErrorAddRecord_napi(co
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcErrorAddRecord")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(errorinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(errorinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)errorinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6574,8 +8522,13 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcErrorClearInformation_
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcErrorClearInformation")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr();
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+    }
 #else
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -6590,9 +8543,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcErrorEndEnumeration_na
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcErrorEndEnumeration")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enumhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enumhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enumhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6610,11 +8570,18 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcErrorGetNextRecord_nap
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcErrorGetNextRecord")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enumhandle, copystrings, errorinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enumhandle, copystrings, errorinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enumhandle;
     (void)copystrings;
     (void)errorinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6631,10 +8598,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcErrorGetNumberOfRecord
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcErrorGetNumberOfRecords")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enumhandle, records) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enumhandle, records);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enumhandle;
     (void)records;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6652,11 +8626,18 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcErrorLoadErrorInfo_nap
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcErrorLoadErrorInfo")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(errorblob, blobsize, enumhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(errorblob, blobsize, enumhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)errorblob;
     (void)blobsize;
     (void)enumhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6672,9 +8653,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcErrorResetEnumeration_
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcErrorResetEnumeration")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enumhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enumhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enumhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6692,11 +8680,18 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcErrorSaveErrorInfo_nap
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcErrorSaveErrorInfo")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enumhandle, errorblob, blobsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enumhandle, errorblob, blobsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enumhandle;
     (void)errorblob;
     (void)blobsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6712,9 +8707,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcErrorStartEnumeration_
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcErrorStartEnumeration")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enumhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enumhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enumhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6730,9 +8732,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcExceptionFilter_napi(c
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcExceptionFilter")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(exceptioncode) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(exceptioncode);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)exceptioncode;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6748,9 +8757,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcFreeAuthorizationConte
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcFreeAuthorizationContext")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pauthzclientcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pauthzclientcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pauthzclientcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6766,9 +8782,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcIfIdVectorFree_napi(co
         HMODULE km_h_mod = LoadLibraryA("rpcns4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcIfIdVectorFree")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ifidvector) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ifidvector);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ifidvector;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6785,10 +8808,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcIfInqId_napi(const Nap
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcIfInqId")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rpcifhandle, rpcifid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rpcifhandle, rpcifid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)rpcifhandle;
     (void)rpcifid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6804,9 +8834,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcImpersonateClient_napi
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcImpersonateClient")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bindinghandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bindinghandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bindinghandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6822,9 +8859,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcImpersonateClient2_nap
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcImpersonateClient2")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bindinghandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bindinghandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bindinghandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6840,9 +8884,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcImpersonateClientConta
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcImpersonateClientContainer")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bindinghandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bindinghandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bindinghandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6857,8 +8908,15 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcMgmtEnableIdleCleanup_
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcMgmtEnableIdleCleanup")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6879,7 +8937,13 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcMgmtEpEltInqBegin_napi
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcMgmtEpEltInqBegin")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(epbinding, inquirytype, ifid, versoption, objectuuid, inquirycontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(epbinding, inquirytype, ifid, versoption, objectuuid, inquirycontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)epbinding;
     (void)inquirytype;
@@ -6887,6 +8951,7 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcMgmtEpEltInqBegin_napi
     (void)versoption;
     (void)objectuuid;
     (void)inquirycontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6902,9 +8967,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcMgmtEpEltInqDone_napi(
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcMgmtEpEltInqDone")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(inquirycontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(inquirycontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)inquirycontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6924,13 +8996,20 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcMgmtEpEltInqNextA_napi
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcMgmtEpEltInqNextA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(inquirycontext, ifid, binding, objectuuid, annotation) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(inquirycontext, ifid, binding, objectuuid, annotation);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)inquirycontext;
     (void)ifid;
     (void)binding;
     (void)objectuuid;
     (void)annotation;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6950,13 +9029,20 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcMgmtEpEltInqNextW_napi
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcMgmtEpEltInqNextW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(inquirycontext, ifid, binding, objectuuid, annotation) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(inquirycontext, ifid, binding, objectuuid, annotation);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)inquirycontext;
     (void)ifid;
     (void)binding;
     (void)objectuuid;
     (void)annotation;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6975,12 +9061,19 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcMgmtEpUnregister_napi(
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcMgmtEpUnregister")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(epbinding, ifid, binding, objectuuid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(epbinding, ifid, binding, objectuuid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)epbinding;
     (void)ifid;
     (void)binding;
     (void)objectuuid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6997,10 +9090,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcMgmtInqComTimeout_napi
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcMgmtInqComTimeout")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(binding, timeout) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(binding, timeout);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)binding;
     (void)timeout;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7017,10 +9117,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcMgmtInqDefaultProtectL
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcMgmtInqDefaultProtectLevel")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(authnsvc, authnlevel) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(authnsvc, authnlevel);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)authnsvc;
     (void)authnlevel;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7037,10 +9144,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcMgmtInqIfIds_napi(cons
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcMgmtInqIfIds")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(binding, ifidvector) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(binding, ifidvector);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)binding;
     (void)ifidvector;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7058,11 +9172,18 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcMgmtInqServerPrincName
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcMgmtInqServerPrincNameA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(binding, authnsvc, serverprincname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(binding, authnsvc, serverprincname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)binding;
     (void)authnsvc;
     (void)serverprincname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7080,11 +9201,18 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcMgmtInqServerPrincName
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcMgmtInqServerPrincNameW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(binding, authnsvc, serverprincname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(binding, authnsvc, serverprincname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)binding;
     (void)authnsvc;
     (void)serverprincname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7101,10 +9229,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcMgmtInqStats_napi(cons
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcMgmtInqStats")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(binding, statistics) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(binding, statistics);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)binding;
     (void)statistics;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7120,9 +9255,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcMgmtIsServerListening_
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcMgmtIsServerListening")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(binding) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(binding);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)binding;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7138,9 +9280,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcMgmtSetAuthorizationFn
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcMgmtSetAuthorizationFn")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(authorizationfn) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(authorizationfn);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)authorizationfn;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7156,9 +9305,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcMgmtSetCancelTimeout_n
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcMgmtSetCancelTimeout")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(timeout) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(timeout);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)timeout;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7175,10 +9331,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcMgmtSetComTimeout_napi
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcMgmtSetComTimeout")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(binding, timeout) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(binding, timeout);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)binding;
     (void)timeout;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7194,9 +9357,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcMgmtSetServerStackSize
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcMgmtSetServerStackSize")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(threadstacksize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(threadstacksize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)threadstacksize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7212,9 +9382,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcMgmtStatsVectorFree_na
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcMgmtStatsVectorFree")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(statsvector) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(statsvector);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)statsvector;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7230,9 +9407,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcMgmtStopServerListenin
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcMgmtStopServerListening")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(binding) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(binding);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)binding;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7247,8 +9431,15 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcMgmtWaitServerListen_n
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcMgmtWaitServerListen")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7264,9 +9455,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcNetworkInqProtseqsA_na
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcNetworkInqProtseqsA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(protseqvector) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(protseqvector);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)protseqvector;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7282,9 +9480,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcNetworkInqProtseqsW_na
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcNetworkInqProtseqsW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(protseqvector) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(protseqvector);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)protseqvector;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7300,9 +9505,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcNetworkIsProtseqValidA
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcNetworkIsProtseqValidA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(protseq) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(protseq);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)protseq;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7318,9 +9530,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcNetworkIsProtseqValidW
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcNetworkIsProtseqValidW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(protseq) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(protseq);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)protseq;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7340,13 +9559,20 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcNsBindingExportA_napi(
         HMODULE km_h_mod = LoadLibraryA("rpcns4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcNsBindingExportA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(entrynamesyntax, entryname, ifspec, bindingvec, objectuuidvec) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(entrynamesyntax, entryname, ifspec, bindingvec, objectuuidvec);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)entrynamesyntax;
     (void)entryname;
     (void)ifspec;
     (void)bindingvec;
     (void)objectuuidvec;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7365,12 +9591,19 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcNsBindingExportPnPA_na
         HMODULE km_h_mod = LoadLibraryA("rpcns4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcNsBindingExportPnPA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(entrynamesyntax, entryname, ifspec, objectvector) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(entrynamesyntax, entryname, ifspec, objectvector);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)entrynamesyntax;
     (void)entryname;
     (void)ifspec;
     (void)objectvector;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7389,12 +9622,19 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcNsBindingExportPnPW_na
         HMODULE km_h_mod = LoadLibraryA("rpcns4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcNsBindingExportPnPW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(entrynamesyntax, entryname, ifspec, objectvector) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(entrynamesyntax, entryname, ifspec, objectvector);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)entrynamesyntax;
     (void)entryname;
     (void)ifspec;
     (void)objectvector;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7414,13 +9654,20 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcNsBindingExportW_napi(
         HMODULE km_h_mod = LoadLibraryA("rpcns4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcNsBindingExportW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(entrynamesyntax, entryname, ifspec, bindingvec, objectuuidvec) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(entrynamesyntax, entryname, ifspec, bindingvec, objectuuidvec);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)entrynamesyntax;
     (void)entryname;
     (void)ifspec;
     (void)bindingvec;
     (void)objectuuidvec;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7440,13 +9687,20 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcNsBindingImportBeginA_
         HMODULE km_h_mod = LoadLibraryA("rpcns4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcNsBindingImportBeginA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(entrynamesyntax, entryname, ifspec, objuuid, importcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(entrynamesyntax, entryname, ifspec, objuuid, importcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)entrynamesyntax;
     (void)entryname;
     (void)ifspec;
     (void)objuuid;
     (void)importcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7466,13 +9720,20 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcNsBindingImportBeginW_
         HMODULE km_h_mod = LoadLibraryA("rpcns4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcNsBindingImportBeginW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(entrynamesyntax, entryname, ifspec, objuuid, importcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(entrynamesyntax, entryname, ifspec, objuuid, importcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)entrynamesyntax;
     (void)entryname;
     (void)ifspec;
     (void)objuuid;
     (void)importcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7488,9 +9749,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcNsBindingImportDone_na
         HMODULE km_h_mod = LoadLibraryA("rpcns4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcNsBindingImportDone")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(importcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(importcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)importcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7507,10 +9775,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcNsBindingImportNext_na
         HMODULE km_h_mod = LoadLibraryA("rpcns4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcNsBindingImportNext")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(importcontext, binding) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(importcontext, binding);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)importcontext;
     (void)binding;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7528,11 +9803,18 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcNsBindingInqEntryNameA
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcNsBindingInqEntryNameA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(binding, entrynamesyntax, entryname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(binding, entrynamesyntax, entryname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)binding;
     (void)entrynamesyntax;
     (void)entryname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7550,11 +9832,18 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcNsBindingInqEntryNameW
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcNsBindingInqEntryNameW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(binding, entrynamesyntax, entryname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(binding, entrynamesyntax, entryname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)binding;
     (void)entrynamesyntax;
     (void)entryname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7575,7 +9864,13 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcNsBindingLookupBeginA_
         HMODULE km_h_mod = LoadLibraryA("rpcns4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcNsBindingLookupBeginA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(entrynamesyntax, entryname, ifspec, objuuid, bindingmaxcount, lookupcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(entrynamesyntax, entryname, ifspec, objuuid, bindingmaxcount, lookupcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)entrynamesyntax;
     (void)entryname;
@@ -7583,6 +9878,7 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcNsBindingLookupBeginA_
     (void)objuuid;
     (void)bindingmaxcount;
     (void)lookupcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7603,7 +9899,13 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcNsBindingLookupBeginW_
         HMODULE km_h_mod = LoadLibraryA("rpcns4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcNsBindingLookupBeginW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(entrynamesyntax, entryname, ifspec, objuuid, bindingmaxcount, lookupcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(entrynamesyntax, entryname, ifspec, objuuid, bindingmaxcount, lookupcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)entrynamesyntax;
     (void)entryname;
@@ -7611,6 +9913,7 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcNsBindingLookupBeginW_
     (void)objuuid;
     (void)bindingmaxcount;
     (void)lookupcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7626,9 +9929,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcNsBindingLookupDone_na
         HMODULE km_h_mod = LoadLibraryA("rpcns4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcNsBindingLookupDone")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lookupcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lookupcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lookupcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7645,10 +9955,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcNsBindingLookupNext_na
         HMODULE km_h_mod = LoadLibraryA("rpcns4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcNsBindingLookupNext")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lookupcontext, bindingvec) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lookupcontext, bindingvec);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lookupcontext;
     (void)bindingvec;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7665,10 +9982,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcNsBindingSelect_napi(c
         HMODULE km_h_mod = LoadLibraryA("rpcns4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcNsBindingSelect")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bindingvec, binding) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bindingvec, binding);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bindingvec;
     (void)binding;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7687,12 +10011,19 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcNsBindingUnexportA_nap
         HMODULE km_h_mod = LoadLibraryA("rpcns4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcNsBindingUnexportA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(entrynamesyntax, entryname, ifspec, objectuuidvec) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(entrynamesyntax, entryname, ifspec, objectuuidvec);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)entrynamesyntax;
     (void)entryname;
     (void)ifspec;
     (void)objectuuidvec;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7711,12 +10042,19 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcNsBindingUnexportPnPA_
         HMODULE km_h_mod = LoadLibraryA("rpcns4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcNsBindingUnexportPnPA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(entrynamesyntax, entryname, ifspec, objectvector) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(entrynamesyntax, entryname, ifspec, objectvector);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)entrynamesyntax;
     (void)entryname;
     (void)ifspec;
     (void)objectvector;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7735,12 +10073,19 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcNsBindingUnexportPnPW_
         HMODULE km_h_mod = LoadLibraryA("rpcns4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcNsBindingUnexportPnPW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(entrynamesyntax, entryname, ifspec, objectvector) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(entrynamesyntax, entryname, ifspec, objectvector);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)entrynamesyntax;
     (void)entryname;
     (void)ifspec;
     (void)objectvector;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7759,12 +10104,19 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcNsBindingUnexportW_nap
         HMODULE km_h_mod = LoadLibraryA("rpcns4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcNsBindingUnexportW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(entrynamesyntax, entryname, ifspec, objectuuidvec) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(entrynamesyntax, entryname, ifspec, objectuuidvec);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)entrynamesyntax;
     (void)entryname;
     (void)ifspec;
     (void)objectuuidvec;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7782,11 +10134,18 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcNsEntryExpandNameA_nap
         HMODULE km_h_mod = LoadLibraryA("rpcns4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcNsEntryExpandNameA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(entrynamesyntax, entryname, expandedname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(entrynamesyntax, entryname, expandedname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)entrynamesyntax;
     (void)entryname;
     (void)expandedname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7804,11 +10163,18 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcNsEntryExpandNameW_nap
         HMODULE km_h_mod = LoadLibraryA("rpcns4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcNsEntryExpandNameW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(entrynamesyntax, entryname, expandedname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(entrynamesyntax, entryname, expandedname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)entrynamesyntax;
     (void)entryname;
     (void)expandedname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7826,11 +10192,18 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcNsEntryObjectInqBeginA
         HMODULE km_h_mod = LoadLibraryA("rpcns4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcNsEntryObjectInqBeginA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(entrynamesyntax, entryname, inquirycontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(entrynamesyntax, entryname, inquirycontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)entrynamesyntax;
     (void)entryname;
     (void)inquirycontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7848,11 +10221,18 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcNsEntryObjectInqBeginW
         HMODULE km_h_mod = LoadLibraryA("rpcns4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcNsEntryObjectInqBeginW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(entrynamesyntax, entryname, inquirycontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(entrynamesyntax, entryname, inquirycontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)entrynamesyntax;
     (void)entryname;
     (void)inquirycontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7868,9 +10248,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcNsEntryObjectInqDone_n
         HMODULE km_h_mod = LoadLibraryA("rpcns4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcNsEntryObjectInqDone")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(inquirycontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(inquirycontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)inquirycontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7887,10 +10274,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcNsEntryObjectInqNext_n
         HMODULE km_h_mod = LoadLibraryA("rpcns4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcNsEntryObjectInqNext")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(inquirycontext, objuuid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(inquirycontext, objuuid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)inquirycontext;
     (void)objuuid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7907,10 +10301,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcNsGroupDeleteA_napi(co
         HMODULE km_h_mod = LoadLibraryA("rpcns4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcNsGroupDeleteA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(groupnamesyntax, groupname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(groupnamesyntax, groupname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)groupnamesyntax;
     (void)groupname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7927,10 +10328,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcNsGroupDeleteW_napi(co
         HMODULE km_h_mod = LoadLibraryA("rpcns4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcNsGroupDeleteW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(groupnamesyntax, groupname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(groupnamesyntax, groupname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)groupnamesyntax;
     (void)groupname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7949,12 +10357,19 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcNsGroupMbrAddA_napi(co
         HMODULE km_h_mod = LoadLibraryA("rpcns4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcNsGroupMbrAddA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(groupnamesyntax, groupname, membernamesyntax, membername) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(groupnamesyntax, groupname, membernamesyntax, membername);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)groupnamesyntax;
     (void)groupname;
     (void)membernamesyntax;
     (void)membername;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7973,12 +10388,19 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcNsGroupMbrAddW_napi(co
         HMODULE km_h_mod = LoadLibraryA("rpcns4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcNsGroupMbrAddW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(groupnamesyntax, groupname, membernamesyntax, membername) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(groupnamesyntax, groupname, membernamesyntax, membername);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)groupnamesyntax;
     (void)groupname;
     (void)membernamesyntax;
     (void)membername;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7997,12 +10419,19 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcNsGroupMbrInqBeginA_na
         HMODULE km_h_mod = LoadLibraryA("rpcns4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcNsGroupMbrInqBeginA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(groupnamesyntax, groupname, membernamesyntax, inquirycontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(groupnamesyntax, groupname, membernamesyntax, inquirycontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)groupnamesyntax;
     (void)groupname;
     (void)membernamesyntax;
     (void)inquirycontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8021,12 +10450,19 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcNsGroupMbrInqBeginW_na
         HMODULE km_h_mod = LoadLibraryA("rpcns4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcNsGroupMbrInqBeginW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(groupnamesyntax, groupname, membernamesyntax, inquirycontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(groupnamesyntax, groupname, membernamesyntax, inquirycontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)groupnamesyntax;
     (void)groupname;
     (void)membernamesyntax;
     (void)inquirycontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8042,9 +10478,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcNsGroupMbrInqDone_napi
         HMODULE km_h_mod = LoadLibraryA("rpcns4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcNsGroupMbrInqDone")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(inquirycontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(inquirycontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)inquirycontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8061,10 +10504,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcNsGroupMbrInqNextA_nap
         HMODULE km_h_mod = LoadLibraryA("rpcns4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcNsGroupMbrInqNextA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(inquirycontext, membername) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(inquirycontext, membername);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)inquirycontext;
     (void)membername;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8081,10 +10531,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcNsGroupMbrInqNextW_nap
         HMODULE km_h_mod = LoadLibraryA("rpcns4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcNsGroupMbrInqNextW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(inquirycontext, membername) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(inquirycontext, membername);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)inquirycontext;
     (void)membername;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8103,12 +10560,19 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcNsGroupMbrRemoveA_napi
         HMODULE km_h_mod = LoadLibraryA("rpcns4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcNsGroupMbrRemoveA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(groupnamesyntax, groupname, membernamesyntax, membername) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(groupnamesyntax, groupname, membernamesyntax, membername);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)groupnamesyntax;
     (void)groupname;
     (void)membernamesyntax;
     (void)membername;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8127,12 +10591,19 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcNsGroupMbrRemoveW_napi
         HMODULE km_h_mod = LoadLibraryA("rpcns4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcNsGroupMbrRemoveW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(groupnamesyntax, groupname, membernamesyntax, membername) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(groupnamesyntax, groupname, membernamesyntax, membername);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)groupnamesyntax;
     (void)groupname;
     (void)membernamesyntax;
     (void)membername;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8152,13 +10623,20 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcNsMgmtBindingUnexportA
         HMODULE km_h_mod = LoadLibraryA("rpcns4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcNsMgmtBindingUnexportA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(entrynamesyntax, entryname, ifid, versoption, objectuuidvec) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(entrynamesyntax, entryname, ifid, versoption, objectuuidvec);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)entrynamesyntax;
     (void)entryname;
     (void)ifid;
     (void)versoption;
     (void)objectuuidvec;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8178,13 +10656,20 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcNsMgmtBindingUnexportW
         HMODULE km_h_mod = LoadLibraryA("rpcns4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcNsMgmtBindingUnexportW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(entrynamesyntax, entryname, ifid, versoption, objectuuidvec) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(entrynamesyntax, entryname, ifid, versoption, objectuuidvec);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)entrynamesyntax;
     (void)entryname;
     (void)ifid;
     (void)versoption;
     (void)objectuuidvec;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8201,10 +10686,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcNsMgmtEntryCreateA_nap
         HMODULE km_h_mod = LoadLibraryA("rpcns4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcNsMgmtEntryCreateA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(entrynamesyntax, entryname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(entrynamesyntax, entryname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)entrynamesyntax;
     (void)entryname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8221,10 +10713,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcNsMgmtEntryCreateW_nap
         HMODULE km_h_mod = LoadLibraryA("rpcns4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcNsMgmtEntryCreateW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(entrynamesyntax, entryname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(entrynamesyntax, entryname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)entrynamesyntax;
     (void)entryname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8241,10 +10740,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcNsMgmtEntryDeleteA_nap
         HMODULE km_h_mod = LoadLibraryA("rpcns4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcNsMgmtEntryDeleteA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(entrynamesyntax, entryname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(entrynamesyntax, entryname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)entrynamesyntax;
     (void)entryname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8261,10 +10767,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcNsMgmtEntryDeleteW_nap
         HMODULE km_h_mod = LoadLibraryA("rpcns4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcNsMgmtEntryDeleteW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(entrynamesyntax, entryname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(entrynamesyntax, entryname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)entrynamesyntax;
     (void)entryname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8282,11 +10795,18 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcNsMgmtEntryInqIfIdsA_n
         HMODULE km_h_mod = LoadLibraryA("rpcns4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcNsMgmtEntryInqIfIdsA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(entrynamesyntax, entryname, ifidvec) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(entrynamesyntax, entryname, ifidvec);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)entrynamesyntax;
     (void)entryname;
     (void)ifidvec;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8304,11 +10824,18 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcNsMgmtEntryInqIfIdsW_n
         HMODULE km_h_mod = LoadLibraryA("rpcns4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcNsMgmtEntryInqIfIdsW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(entrynamesyntax, entryname, ifidvec) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(entrynamesyntax, entryname, ifidvec);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)entrynamesyntax;
     (void)entryname;
     (void)ifidvec;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8325,10 +10852,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcNsMgmtHandleSetExpAge_
         HMODULE km_h_mod = LoadLibraryA("rpcns4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcNsMgmtHandleSetExpAge")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(nshandle, expirationage) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(nshandle, expirationage);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)nshandle;
     (void)expirationage;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8344,9 +10878,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcNsMgmtInqExpAge_napi(c
         HMODULE km_h_mod = LoadLibraryA("rpcns4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcNsMgmtInqExpAge")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(expirationage) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(expirationage);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)expirationage;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8362,9 +10903,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcNsMgmtSetExpAge_napi(c
         HMODULE km_h_mod = LoadLibraryA("rpcns4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcNsMgmtSetExpAge")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(expirationage) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(expirationage);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)expirationage;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8381,10 +10929,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcNsProfileDeleteA_napi(
         HMODULE km_h_mod = LoadLibraryA("rpcns4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcNsProfileDeleteA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(profilenamesyntax, profilename) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(profilenamesyntax, profilename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)profilenamesyntax;
     (void)profilename;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8401,10 +10956,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcNsProfileDeleteW_napi(
         HMODULE km_h_mod = LoadLibraryA("rpcns4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcNsProfileDeleteW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(profilenamesyntax, profilename) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(profilenamesyntax, profilename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)profilenamesyntax;
     (void)profilename;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8426,7 +10988,13 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcNsProfileEltAddA_napi(
         HMODULE km_h_mod = LoadLibraryA("rpcns4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcNsProfileEltAddA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(profilenamesyntax, profilename, ifid, membernamesyntax, membername, priority, annotation) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(profilenamesyntax, profilename, ifid, membernamesyntax, membername, priority, annotation);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)profilenamesyntax;
     (void)profilename;
@@ -8435,6 +11003,7 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcNsProfileEltAddA_napi(
     (void)membername;
     (void)priority;
     (void)annotation;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8456,7 +11025,13 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcNsProfileEltAddW_napi(
         HMODULE km_h_mod = LoadLibraryA("rpcns4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcNsProfileEltAddW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(profilenamesyntax, profilename, ifid, membernamesyntax, membername, priority, annotation) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(profilenamesyntax, profilename, ifid, membernamesyntax, membername, priority, annotation);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)profilenamesyntax;
     (void)profilename;
@@ -8465,6 +11040,7 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcNsProfileEltAddW_napi(
     (void)membername;
     (void)priority;
     (void)annotation;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8487,7 +11063,13 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcNsProfileEltInqBeginA_
         HMODULE km_h_mod = LoadLibraryA("rpcns4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcNsProfileEltInqBeginA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(profilenamesyntax, profilename, inquirytype, ifid, versoption, membernamesyntax, membername, inquirycontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(profilenamesyntax, profilename, inquirytype, ifid, versoption, membernamesyntax, membername, inquirycontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)profilenamesyntax;
     (void)profilename;
@@ -8497,6 +11079,7 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcNsProfileEltInqBeginA_
     (void)membernamesyntax;
     (void)membername;
     (void)inquirycontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8519,7 +11102,13 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcNsProfileEltInqBeginW_
         HMODULE km_h_mod = LoadLibraryA("rpcns4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcNsProfileEltInqBeginW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(profilenamesyntax, profilename, inquirytype, ifid, versoption, membernamesyntax, membername, inquirycontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(profilenamesyntax, profilename, inquirytype, ifid, versoption, membernamesyntax, membername, inquirycontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)profilenamesyntax;
     (void)profilename;
@@ -8529,6 +11118,7 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcNsProfileEltInqBeginW_
     (void)membernamesyntax;
     (void)membername;
     (void)inquirycontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8544,9 +11134,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcNsProfileEltInqDone_na
         HMODULE km_h_mod = LoadLibraryA("rpcns4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcNsProfileEltInqDone")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(inquirycontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(inquirycontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)inquirycontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8566,13 +11163,20 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcNsProfileEltInqNextA_n
         HMODULE km_h_mod = LoadLibraryA("rpcns4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcNsProfileEltInqNextA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(inquirycontext, ifid, membername, priority, annotation) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(inquirycontext, ifid, membername, priority, annotation);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)inquirycontext;
     (void)ifid;
     (void)membername;
     (void)priority;
     (void)annotation;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8592,13 +11196,20 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcNsProfileEltInqNextW_n
         HMODULE km_h_mod = LoadLibraryA("rpcns4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcNsProfileEltInqNextW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(inquirycontext, ifid, membername, priority, annotation) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(inquirycontext, ifid, membername, priority, annotation);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)inquirycontext;
     (void)ifid;
     (void)membername;
     (void)priority;
     (void)annotation;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8618,13 +11229,20 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcNsProfileEltRemoveA_na
         HMODULE km_h_mod = LoadLibraryA("rpcns4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcNsProfileEltRemoveA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(profilenamesyntax, profilename, ifid, membernamesyntax, membername) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(profilenamesyntax, profilename, ifid, membernamesyntax, membername);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)profilenamesyntax;
     (void)profilename;
     (void)ifid;
     (void)membernamesyntax;
     (void)membername;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8644,13 +11262,20 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcNsProfileEltRemoveW_na
         HMODULE km_h_mod = LoadLibraryA("rpcns4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcNsProfileEltRemoveW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(profilenamesyntax, profilename, ifid, membernamesyntax, membername) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(profilenamesyntax, profilename, ifid, membernamesyntax, membername);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)profilenamesyntax;
     (void)profilename;
     (void)ifid;
     (void)membernamesyntax;
     (void)membername;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8667,10 +11292,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcObjectInqType_napi(con
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcObjectInqType")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(objuuid, typeuuid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(objuuid, typeuuid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)objuuid;
     (void)typeuuid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8686,9 +11318,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcObjectSetInqFn_napi(co
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcObjectSetInqFn")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(inquiryfn) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(inquiryfn);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)inquiryfn;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8705,10 +11344,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcObjectSetType_napi(con
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcObjectSetType")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(objuuid, typeuuid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(objuuid, typeuuid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)objuuid;
     (void)typeuuid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8724,9 +11370,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcProtseqVectorFreeA_nap
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcProtseqVectorFreeA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(protseqvector) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(protseqvector);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)protseqvector;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8742,9 +11395,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcProtseqVectorFreeW_nap
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcProtseqVectorFreeW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(protseqvector) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(protseqvector);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)protseqvector;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8760,9 +11420,14 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcRaiseException_napi(co
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcRaiseException")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(exception);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(exception);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)exception;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -8776,8 +11441,15 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcRevertContainerImperso
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcRevertContainerImpersonation")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8792,8 +11464,15 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcRevertToSelf_napi(cons
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcRevertToSelf")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8809,9 +11488,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcRevertToSelfEx_napi(co
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcRevertToSelfEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bindinghandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bindinghandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bindinghandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8828,10 +11514,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcServerCompleteSecurity
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcServerCompleteSecurityCallback")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bindinghandle, status) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bindinghandle, status);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bindinghandle;
     (void)status;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8847,9 +11540,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcServerInqBindingHandle
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcServerInqBindingHandle")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(binding) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(binding);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)binding;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8865,9 +11565,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcServerInqBindings_napi
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcServerInqBindings")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bindingvector) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bindingvector);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bindingvector;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8884,10 +11591,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcServerInqBindingsEx_na
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcServerInqBindingsEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(securitydescriptor, bindingvector) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(securitydescriptor, bindingvector);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)securitydescriptor;
     (void)bindingvector;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8904,10 +11618,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcServerInqCallAttribute
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcServerInqCallAttributesA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(clientbinding, rpccallattributes) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(clientbinding, rpccallattributes);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)clientbinding;
     (void)rpccallattributes;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8924,10 +11645,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcServerInqCallAttribute
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcServerInqCallAttributesW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(clientbinding, rpccallattributes) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(clientbinding, rpccallattributes);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)clientbinding;
     (void)rpccallattributes;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8944,10 +11672,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcServerInqDefaultPrincN
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcServerInqDefaultPrincNameA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(authnsvc, princname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(authnsvc, princname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)authnsvc;
     (void)princname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8964,10 +11699,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcServerInqDefaultPrincN
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcServerInqDefaultPrincNameW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(authnsvc, princname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(authnsvc, princname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)authnsvc;
     (void)princname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8985,11 +11727,18 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcServerInqIf_napi(const
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcServerInqIf")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ifspec, mgrtypeuuid, mgrepv) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ifspec, mgrtypeuuid, mgrepv);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ifspec;
     (void)mgrtypeuuid;
     (void)mgrepv;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9005,9 +11754,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcServerInterfaceGroupAc
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcServerInterfaceGroupActivate")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ifgroup) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ifgroup);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ifgroup;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9023,9 +11779,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcServerInterfaceGroupCl
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcServerInterfaceGroupClose")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ifgroup) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ifgroup);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ifgroup;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9048,7 +11811,13 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcServerInterfaceGroupCr
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcServerInterfaceGroupCreateA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(interfaces, numifs, endpoints, numendpoints, idleperiod, idlecallbackfn, idlecallbackcontext, ifgroup) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(interfaces, numifs, endpoints, numendpoints, idleperiod, idlecallbackfn, idlecallbackcontext, ifgroup);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)interfaces;
     (void)numifs;
@@ -9058,6 +11827,7 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcServerInterfaceGroupCr
     (void)idlecallbackfn;
     (void)idlecallbackcontext;
     (void)ifgroup;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9080,7 +11850,13 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcServerInterfaceGroupCr
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcServerInterfaceGroupCreateW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(interfaces, numifs, endpoints, numendpoints, idleperiod, idlecallbackfn, idlecallbackcontext, ifgroup) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(interfaces, numifs, endpoints, numendpoints, idleperiod, idlecallbackfn, idlecallbackcontext, ifgroup);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)interfaces;
     (void)numifs;
@@ -9090,6 +11866,7 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcServerInterfaceGroupCr
     (void)idlecallbackfn;
     (void)idlecallbackcontext;
     (void)ifgroup;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9106,10 +11883,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcServerInterfaceGroupDe
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcServerInterfaceGroupDeactivate")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ifgroup, forcedeactivation) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ifgroup, forcedeactivation);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ifgroup;
     (void)forcedeactivation;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9126,10 +11910,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcServerInterfaceGroupIn
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcServerInterfaceGroupInqBindings")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ifgroup, bindingvector) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ifgroup, bindingvector);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ifgroup;
     (void)bindingvector;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9147,11 +11938,18 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcServerListen_napi(cons
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcServerListen")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(minimumcallthreads, maxcalls, dontwait) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(minimumcallthreads, maxcalls, dontwait);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)minimumcallthreads;
     (void)maxcalls;
     (void)dontwait;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9170,12 +11968,19 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcServerRegisterAuthInfo
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcServerRegisterAuthInfoA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serverprincname, authnsvc, getkeyfn, arg) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serverprincname, authnsvc, getkeyfn, arg);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)serverprincname;
     (void)authnsvc;
     (void)getkeyfn;
     (void)arg;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9194,12 +11999,19 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcServerRegisterAuthInfo
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcServerRegisterAuthInfoW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serverprincname, authnsvc, getkeyfn, arg) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serverprincname, authnsvc, getkeyfn, arg);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)serverprincname;
     (void)authnsvc;
     (void)getkeyfn;
     (void)arg;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9217,11 +12029,18 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcServerRegisterIf_napi(
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcServerRegisterIf")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ifspec, mgrtypeuuid, mgrepv) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ifspec, mgrtypeuuid, mgrepv);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ifspec;
     (void)mgrtypeuuid;
     (void)mgrepv;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9243,7 +12062,13 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcServerRegisterIf2_napi
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcServerRegisterIf2")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ifspec, mgrtypeuuid, mgrepv, flags, maxcalls, maxrpcsize, ifcallbackfn) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ifspec, mgrtypeuuid, mgrepv, flags, maxcalls, maxrpcsize, ifcallbackfn);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ifspec;
     (void)mgrtypeuuid;
@@ -9252,6 +12077,7 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcServerRegisterIf2_napi
     (void)maxcalls;
     (void)maxrpcsize;
     (void)ifcallbackfn;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9274,7 +12100,13 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcServerRegisterIf3_napi
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcServerRegisterIf3")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ifspec, mgrtypeuuid, mgrepv, flags, maxcalls, maxrpcsize, ifcallback, securitydescriptor) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ifspec, mgrtypeuuid, mgrepv, flags, maxcalls, maxrpcsize, ifcallback, securitydescriptor);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ifspec;
     (void)mgrtypeuuid;
@@ -9284,6 +12116,7 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcServerRegisterIf3_napi
     (void)maxrpcsize;
     (void)ifcallback;
     (void)securitydescriptor;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9304,7 +12137,13 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcServerRegisterIfEx_nap
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcServerRegisterIfEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ifspec, mgrtypeuuid, mgrepv, flags, maxcalls, ifcallback) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ifspec, mgrtypeuuid, mgrepv, flags, maxcalls, ifcallback);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ifspec;
     (void)mgrtypeuuid;
@@ -9312,6 +12151,7 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcServerRegisterIfEx_nap
     (void)flags;
     (void)maxcalls;
     (void)ifcallback;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9330,12 +12170,19 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcServerSubscribeForNoti
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcServerSubscribeForNotification")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(binding, notification, notificationtype, notificationinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(binding, notification, notificationtype, notificationinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)binding;
     (void)notification;
     (void)notificationtype;
     (void)notificationinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9351,9 +12198,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcServerTestCancel_napi(
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcServerTestCancel")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bindinghandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bindinghandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bindinghandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9371,11 +12225,18 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcServerUnregisterIf_nap
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcServerUnregisterIf")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ifspec, mgrtypeuuid, waitforcallstocomplete) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ifspec, mgrtypeuuid, waitforcallstocomplete);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ifspec;
     (void)mgrtypeuuid;
     (void)waitforcallstocomplete;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9393,11 +12254,18 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcServerUnregisterIfEx_n
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcServerUnregisterIfEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ifspec, mgrtypeuuid, rundowncontexthandles) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ifspec, mgrtypeuuid, rundowncontexthandles);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ifspec;
     (void)mgrtypeuuid;
     (void)rundowncontexthandles;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9415,11 +12283,18 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcServerUnsubscribeForNo
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcServerUnsubscribeForNotification")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(binding, notification, notificationsqueued) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(binding, notification, notificationsqueued);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)binding;
     (void)notification;
     (void)notificationsqueued;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9436,10 +12311,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcServerUseAllProtseqs_n
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcServerUseAllProtseqs")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(maxcalls, securitydescriptor) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(maxcalls, securitydescriptor);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)maxcalls;
     (void)securitydescriptor;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9457,11 +12339,18 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcServerUseAllProtseqsEx
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcServerUseAllProtseqsEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(maxcalls, securitydescriptor, policy) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(maxcalls, securitydescriptor, policy);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)maxcalls;
     (void)securitydescriptor;
     (void)policy;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9479,11 +12368,18 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcServerUseAllProtseqsIf
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcServerUseAllProtseqsIf")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(maxcalls, ifspec, securitydescriptor) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(maxcalls, ifspec, securitydescriptor);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)maxcalls;
     (void)ifspec;
     (void)securitydescriptor;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9502,12 +12398,19 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcServerUseAllProtseqsIf
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcServerUseAllProtseqsIfEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(maxcalls, ifspec, securitydescriptor, policy) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(maxcalls, ifspec, securitydescriptor, policy);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)maxcalls;
     (void)ifspec;
     (void)securitydescriptor;
     (void)policy;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9525,11 +12428,18 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcServerUseProtseqA_napi
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcServerUseProtseqA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(protseq, maxcalls, securitydescriptor) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(protseq, maxcalls, securitydescriptor);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)protseq;
     (void)maxcalls;
     (void)securitydescriptor;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9548,12 +12458,19 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcServerUseProtseqEpA_na
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcServerUseProtseqEpA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(protseq, maxcalls, endpoint, securitydescriptor) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(protseq, maxcalls, endpoint, securitydescriptor);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)protseq;
     (void)maxcalls;
     (void)endpoint;
     (void)securitydescriptor;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9573,13 +12490,20 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcServerUseProtseqEpExA_
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcServerUseProtseqEpExA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(protseq, maxcalls, endpoint, securitydescriptor, policy) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(protseq, maxcalls, endpoint, securitydescriptor, policy);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)protseq;
     (void)maxcalls;
     (void)endpoint;
     (void)securitydescriptor;
     (void)policy;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9599,13 +12523,20 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcServerUseProtseqEpExW_
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcServerUseProtseqEpExW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(protseq, maxcalls, endpoint, securitydescriptor, policy) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(protseq, maxcalls, endpoint, securitydescriptor, policy);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)protseq;
     (void)maxcalls;
     (void)endpoint;
     (void)securitydescriptor;
     (void)policy;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9624,12 +12555,19 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcServerUseProtseqEpW_na
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcServerUseProtseqEpW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(protseq, maxcalls, endpoint, securitydescriptor) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(protseq, maxcalls, endpoint, securitydescriptor);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)protseq;
     (void)maxcalls;
     (void)endpoint;
     (void)securitydescriptor;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9648,12 +12586,19 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcServerUseProtseqExA_na
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcServerUseProtseqExA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(protseq, maxcalls, securitydescriptor, policy) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(protseq, maxcalls, securitydescriptor, policy);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)protseq;
     (void)maxcalls;
     (void)securitydescriptor;
     (void)policy;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9672,12 +12617,19 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcServerUseProtseqExW_na
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcServerUseProtseqExW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(protseq, maxcalls, securitydescriptor, policy) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(protseq, maxcalls, securitydescriptor, policy);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)protseq;
     (void)maxcalls;
     (void)securitydescriptor;
     (void)policy;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9696,12 +12648,19 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcServerUseProtseqIfA_na
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcServerUseProtseqIfA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(protseq, maxcalls, ifspec, securitydescriptor) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(protseq, maxcalls, ifspec, securitydescriptor);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)protseq;
     (void)maxcalls;
     (void)ifspec;
     (void)securitydescriptor;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9721,13 +12680,20 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcServerUseProtseqIfExA_
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcServerUseProtseqIfExA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(protseq, maxcalls, ifspec, securitydescriptor, policy) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(protseq, maxcalls, ifspec, securitydescriptor, policy);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)protseq;
     (void)maxcalls;
     (void)ifspec;
     (void)securitydescriptor;
     (void)policy;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9747,13 +12713,20 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcServerUseProtseqIfExW_
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcServerUseProtseqIfExW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(protseq, maxcalls, ifspec, securitydescriptor, policy) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(protseq, maxcalls, ifspec, securitydescriptor, policy);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)protseq;
     (void)maxcalls;
     (void)ifspec;
     (void)securitydescriptor;
     (void)policy;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9772,12 +12745,19 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcServerUseProtseqIfW_na
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcServerUseProtseqIfW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(protseq, maxcalls, ifspec, securitydescriptor) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(protseq, maxcalls, ifspec, securitydescriptor);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)protseq;
     (void)maxcalls;
     (void)ifspec;
     (void)securitydescriptor;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9795,11 +12775,18 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcServerUseProtseqW_napi
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcServerUseProtseqW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(protseq, maxcalls, securitydescriptor) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(protseq, maxcalls, securitydescriptor);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)protseq;
     (void)maxcalls;
     (void)securitydescriptor;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9814,8 +12801,13 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcServerYield_napi(const
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcServerYield")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr();
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+    }
 #else
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -9831,11 +12823,18 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcSmAllocate_napi(const 
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcSmAllocate")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(size, pstatus) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(size, pstatus);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)size;
     (void)pstatus;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -9850,9 +12849,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcSmClientFree_napi(cons
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcSmClientFree")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pnodetofree) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pnodetofree);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pnodetofree;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9868,9 +12874,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcSmDestroyClientContext
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcSmDestroyClientContext")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(contexthandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(contexthandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)contexthandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9885,8 +12898,15 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcSmDisableAllocate_napi
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcSmDisableAllocate")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9901,8 +12921,15 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcSmEnableAllocate_napi(
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcSmEnableAllocate")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9918,9 +12945,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcSmFree_napi(const Napi
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcSmFree")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(nodetofree) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(nodetofree);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)nodetofree;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9936,10 +12970,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcSmGetThreadHandle_napi
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcSmGetThreadHandle")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pstatus) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pstatus);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pstatus;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -9955,10 +12996,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcSmSetClientAllocFree_n
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcSmSetClientAllocFree")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(clientalloc, clientfree) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(clientalloc, clientfree);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)clientalloc;
     (void)clientfree;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9974,9 +13022,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcSmSetThreadHandle_napi
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcSmSetThreadHandle")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(id) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(id);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)id;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9995,12 +13050,19 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcSmSwapClientAllocFree_
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcSmSwapClientAllocFree")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(clientalloc, clientfree, oldclientalloc, oldclientfree) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(clientalloc, clientfree, oldclientalloc, oldclientfree);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)clientalloc;
     (void)clientfree;
     (void)oldclientalloc;
     (void)oldclientfree;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -10016,10 +13078,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcSsAllocate_napi(const 
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcSsAllocate")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(size) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(size);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)size;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -10035,10 +13104,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcSsContextLockExclusive
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcSsContextLockExclusive")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serverbindinghandle, usercontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serverbindinghandle, usercontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)serverbindinghandle;
     (void)usercontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -10055,10 +13131,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcSsContextLockShared_na
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcSsContextLockShared")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serverbindinghandle, usercontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serverbindinghandle, usercontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)serverbindinghandle;
     (void)usercontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -10074,9 +13157,14 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcSsDestroyClientContext
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcSsDestroyClientContext")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(contexthandle);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(contexthandle);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)contexthandle;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -10090,8 +13178,13 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcSsDisableAllocate_napi
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcSsDisableAllocate")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr();
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+    }
 #else
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -10105,8 +13198,13 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcSsDontSerializeContext
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcSsDontSerializeContext")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr();
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+    }
 #else
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -10120,8 +13218,13 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcSsEnableAllocate_napi(
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcSsEnableAllocate")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr();
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+    }
 #else
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -10136,9 +13239,14 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcSsFree_napi(const Napi
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcSsFree")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(nodetofree);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(nodetofree);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)nodetofree;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -10154,10 +13262,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcSsGetContextBinding_na
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcSsGetContextBinding")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(contexthandle, binding) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(contexthandle, binding);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)contexthandle;
     (void)binding;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -10172,9 +13287,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcSsGetThreadHandle_napi
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcSsGetThreadHandle")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -10190,10 +13312,15 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcSsSetClientAllocFree_n
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcSsSetClientAllocFree")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(clientalloc, clientfree);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(clientalloc, clientfree);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)clientalloc;
     (void)clientfree;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -10208,9 +13335,14 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcSsSetThreadHandle_napi
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcSsSetThreadHandle")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(id);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(id);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)id;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -10228,12 +13360,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcSsSwapClientAllocFree_
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcSsSwapClientAllocFree")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(clientalloc, clientfree, oldclientalloc, oldclientfree);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(clientalloc, clientfree, oldclientalloc, oldclientfree);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)clientalloc;
     (void)clientfree;
     (void)oldclientalloc;
     (void)oldclientfree;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -10253,7 +13390,13 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcStringBindingComposeA_
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcStringBindingComposeA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(objuuid, protseq, networkaddr, endpoint, options, stringbinding) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(objuuid, protseq, networkaddr, endpoint, options, stringbinding);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)objuuid;
     (void)protseq;
@@ -10261,6 +13404,7 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcStringBindingComposeA_
     (void)endpoint;
     (void)options;
     (void)stringbinding;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -10281,7 +13425,13 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcStringBindingComposeW_
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcStringBindingComposeW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(objuuid, protseq, networkaddr, endpoint, options, stringbinding) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(objuuid, protseq, networkaddr, endpoint, options, stringbinding);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)objuuid;
     (void)protseq;
@@ -10289,6 +13439,7 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcStringBindingComposeW_
     (void)endpoint;
     (void)options;
     (void)stringbinding;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -10309,7 +13460,13 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcStringBindingParseA_na
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcStringBindingParseA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(stringbinding, objuuid, protseq, networkaddr, endpoint, networkoptions) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(stringbinding, objuuid, protseq, networkaddr, endpoint, networkoptions);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)stringbinding;
     (void)objuuid;
@@ -10317,6 +13474,7 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcStringBindingParseA_na
     (void)networkaddr;
     (void)endpoint;
     (void)networkoptions;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -10337,7 +13495,13 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcStringBindingParseW_na
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcStringBindingParseW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(stringbinding, objuuid, protseq, networkaddr, endpoint, networkoptions) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(stringbinding, objuuid, protseq, networkaddr, endpoint, networkoptions);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)stringbinding;
     (void)objuuid;
@@ -10345,6 +13509,7 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcStringBindingParseW_na
     (void)networkaddr;
     (void)endpoint;
     (void)networkoptions;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -10360,9 +13525,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcStringFreeA_napi(const
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcStringFreeA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(string) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(string);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)string;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -10378,9 +13550,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcStringFreeW_napi(const
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcStringFreeW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(string) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(string);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)string;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -10395,8 +13574,15 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcTestCancel_napi(const 
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcTestCancel")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -10413,10 +13599,15 @@ static Napi::Value windowssys_windows_win32_system_rpc_rpcUserFree_napi(const Na
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RpcUserFree")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(asynchandle, pbuffer);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(asynchandle, pbuffer);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)asynchandle;
     (void)pbuffer;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -10433,11 +13624,18 @@ static Napi::Value windowssys_windows_win32_system_rpc_uuidCompare_napi(const Na
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UuidCompare")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(uuid1, uuid2, status) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(uuid1, uuid2, status);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)uuid1;
     (void)uuid2;
     (void)status;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -10453,9 +13651,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_uuidCreate_napi(const Nap
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UuidCreate")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(uuid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(uuid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)uuid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -10471,9 +13676,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_uuidCreateNil_napi(const 
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UuidCreateNil")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(niluuid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(niluuid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)niluuid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -10489,9 +13701,16 @@ static Napi::Value windowssys_windows_win32_system_rpc_uuidCreateSequential_napi
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UuidCreateSequential")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(uuid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(uuid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)uuid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -10509,11 +13728,18 @@ static Napi::Value windowssys_windows_win32_system_rpc_uuidEqual_napi(const Napi
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UuidEqual")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(uuid1, uuid2, status) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(uuid1, uuid2, status);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)uuid1;
     (void)uuid2;
     (void)status;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -10530,10 +13756,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_uuidFromStringA_napi(cons
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UuidFromStringA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(stringuuid, uuid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(stringuuid, uuid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)stringuuid;
     (void)uuid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -10550,10 +13783,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_uuidFromStringW_napi(cons
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UuidFromStringW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(stringuuid, uuid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(stringuuid, uuid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)stringuuid;
     (void)uuid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -10570,10 +13810,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_uuidHash_napi(const Napi:
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UuidHash")));
     }
-    uint16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(uuid, status) : 0;
+    uint16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(uuid, status);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)uuid;
     (void)status;
+    errno = ENOSYS;
     uint16_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -10590,10 +13837,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_uuidIsNil_napi(const Napi
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UuidIsNil")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(uuid, status) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(uuid, status);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)uuid;
     (void)status;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -10610,10 +13864,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_uuidToStringA_napi(const 
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UuidToStringA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(uuid, stringuuid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(uuid, stringuuid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)uuid;
     (void)stringuuid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -10630,10 +13891,17 @@ static Napi::Value windowssys_windows_win32_system_rpc_uuidToStringW_napi(const 
         HMODULE km_h_mod = LoadLibraryA("rpcrt4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UuidToStringW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(uuid, stringuuid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(uuid, stringuuid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)uuid;
     (void)stringuuid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

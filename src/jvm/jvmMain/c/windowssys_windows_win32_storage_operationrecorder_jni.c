@@ -5,6 +5,7 @@
 #include <stdbool.h>
 #include <stddef.h>
 #include <stdint.h>
+#include <stdlib.h>
 #include <errno.h>
 #ifdef _WIN32
 #ifndef WIN32_LEAN_AND_MEAN
@@ -28,9 +29,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OperationEnd");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)operationendparams) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)operationendparams);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)operationendparams;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -46,9 +54,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OperationStart");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)operationstartparams) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)operationstartparams);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)operationstartparams;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;

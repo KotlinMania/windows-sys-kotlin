@@ -61,9 +61,16 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_abortPath_napi(const Na
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AbortPath")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -82,13 +89,20 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_addFontMemResourceEx_na
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AddFontMemResourceEx")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pfileview, cjsize, pvresrved, pnumfonts) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pfileview, cjsize, pvresrved, pnumfonts);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pfileview;
     (void)cjsize;
     (void)pvresrved;
     (void)pnumfonts;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -103,9 +117,16 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_addFontResourceA_napi(c
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AddFontResourceA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)param0;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -123,11 +144,18 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_addFontResourceExA_napi
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AddFontResourceExA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(name, fl, res) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(name, fl, res);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)name;
     (void)fl;
     (void)res;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -145,11 +173,18 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_addFontResourceExW_napi
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AddFontResourceExW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(name, fl, res) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(name, fl, res);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)name;
     (void)fl;
     (void)res;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -165,9 +200,16 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_addFontResourceW_napi(c
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AddFontResourceW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)param0;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -188,7 +230,13 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_angleArc_napi(const Nap
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AngleArc")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, x, y, r, startangle, sweepangle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, x, y, r, startangle, sweepangle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)x;
@@ -196,6 +244,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_angleArc_napi(const Nap
     (void)r;
     (void)startangle;
     (void)sweepangle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -214,12 +263,19 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_animatePalette_napi(con
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AnimatePalette")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hpal, istartindex, centries, ppe) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hpal, istartindex, centries, ppe);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hpal;
     (void)istartindex;
     (void)centries;
     (void)ppe;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -243,7 +299,13 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_arc_napi(const Napi::Ca
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "Arc")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, x1, y1, x2, y2, x3, y3, x4, y4) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, x1, y1, x2, y2, x3, y3, x4, y4);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)x1;
@@ -254,6 +316,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_arc_napi(const Napi::Ca
     (void)y3;
     (void)x4;
     (void)y4;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -277,7 +340,13 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_arcTo_napi(const Napi::
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ArcTo")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, left, top, right, bottom, xr1, yr1, xr2, yr2) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, left, top, right, bottom, xr1, yr1, xr2, yr2);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)left;
@@ -288,6 +357,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_arcTo_napi(const Napi::
     (void)yr1;
     (void)xr2;
     (void)yr2;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -304,11 +374,18 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_beginPaint_napi(const N
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "BeginPaint")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, lppaint) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, lppaint);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hwnd;
     (void)lppaint;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -323,9 +400,16 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_beginPath_napi(const Na
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "BeginPath")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -349,7 +433,13 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_bitBlt_napi(const Napi:
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "BitBlt")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, x, y, cx, cy, hdcsrc, x1, y1, rop) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, x, y, cx, cy, hdcsrc, x1, y1, rop);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)x;
@@ -360,6 +450,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_bitBlt_napi(const Napi:
     (void)x1;
     (void)y1;
     (void)rop;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -375,9 +466,16 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_cancelDC_napi(const Nap
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CancelDC")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -394,10 +492,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_changeDisplaySettingsA_
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ChangeDisplaySettingsA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpdevmode, dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpdevmode, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpdevmode;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -417,13 +522,20 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_changeDisplaySettingsEx
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ChangeDisplaySettingsExA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszdevicename, lpdevmode, hwnd, dwflags, lparam) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszdevicename, lpdevmode, hwnd, dwflags, lparam);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszdevicename;
     (void)lpdevmode;
     (void)hwnd;
     (void)dwflags;
     (void)lparam;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -443,13 +555,20 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_changeDisplaySettingsEx
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ChangeDisplaySettingsExW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszdevicename, lpdevmode, hwnd, dwflags, lparam) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszdevicename, lpdevmode, hwnd, dwflags, lparam);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszdevicename;
     (void)lpdevmode;
     (void)hwnd;
     (void)dwflags;
     (void)lparam;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -466,10 +585,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_changeDisplaySettingsW_
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ChangeDisplaySettingsW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpdevmode, dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpdevmode, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpdevmode;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -493,7 +619,13 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_chord_napi(const Napi::
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "Chord")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, x1, y1, x2, y2, x3, y3, x4, y4) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, x1, y1, x2, y2, x3, y3, x4, y4);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)x1;
@@ -504,6 +636,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_chord_napi(const Napi::
     (void)y3;
     (void)x4;
     (void)y4;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -520,10 +653,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_clientToScreen_napi(con
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClientToScreen")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, lppoint) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, lppoint);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)lppoint;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -539,10 +679,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_closeEnhMetaFile_napi(c
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CloseEnhMetaFile")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hdc;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -557,9 +704,16 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_closeFigure_napi(const 
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CloseFigure")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -575,10 +729,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_closeMetaFile_napi(cons
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CloseMetaFile")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hdc;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -596,12 +757,19 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_combineRgn_napi(const N
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CombineRgn")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hrgndst, hrgnsrc1, hrgnsrc2, imode) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hrgndst, hrgnsrc1, hrgnsrc2, imode);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hrgndst;
     (void)hrgnsrc1;
     (void)hrgnsrc2;
     (void)imode;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -619,11 +787,18 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_combineTransform_napi(c
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CombineTransform")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpxfout, lpxf1, lpxf2) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpxfout, lpxf1, lpxf2);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpxfout;
     (void)lpxf1;
     (void)lpxf2;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -640,11 +815,18 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_copyEnhMetaFileA_napi(c
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CopyEnhMetaFileA")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(henh, lpfilename) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(henh, lpfilename);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)henh;
     (void)lpfilename;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -660,11 +842,18 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_copyEnhMetaFileW_napi(c
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CopyEnhMetaFileW")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(henh, lpfilename) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(henh, lpfilename);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)henh;
     (void)lpfilename;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -680,11 +869,18 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_copyMetaFileA_napi(cons
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CopyMetaFileA")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)param0;
     (void)param1;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -700,11 +896,18 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_copyMetaFileW_napi(cons
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CopyMetaFileW")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)param0;
     (void)param1;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -720,10 +923,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_copyRect_napi(const Nap
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CopyRect")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lprcdst, lprcsrc) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lprcdst, lprcsrc);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lprcdst;
     (void)lprcsrc;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -743,14 +953,21 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_createBitmap_napi(const
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateBitmap")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(nwidth, nheight, nplanes, nbitcount, lpbits) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(nwidth, nheight, nplanes, nbitcount, lpbits);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)nwidth;
     (void)nheight;
     (void)nplanes;
     (void)nbitcount;
     (void)lpbits;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -765,10 +982,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_createBitmapIndirect_na
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateBitmapIndirect")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pbm) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pbm);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pbm;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -783,10 +1007,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_createBrushIndirect_nap
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateBrushIndirect")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(plbrush) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(plbrush);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)plbrush;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -803,12 +1034,19 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_createCompatibleBitmap_
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateCompatibleBitmap")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, cx, cy) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, cx, cy);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hdc;
     (void)cx;
     (void)cy;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -823,10 +1061,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_createCompatibleDC_napi
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateCompatibleDC")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hdc;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -844,13 +1089,20 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_createDCA_napi(const Na
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateDCA")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pwszdriver, pwszdevice, pszport, pdm) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pwszdriver, pwszdevice, pszport, pdm);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pwszdriver;
     (void)pwszdevice;
     (void)pszport;
     (void)pdm;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -868,13 +1120,20 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_createDCW_napi(const Na
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateDCW")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pwszdriver, pwszdevice, pszport, pdm) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pwszdriver, pwszdevice, pszport, pdm);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pwszdriver;
     (void)pwszdevice;
     (void)pszport;
     (void)pdm;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -890,11 +1149,18 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_createDIBPatternBrush_n
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateDIBPatternBrush")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(h, iusage) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(h, iusage);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)h;
     (void)iusage;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -910,11 +1176,18 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_createDIBPatternBrushPt
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateDIBPatternBrushPt")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lppackeddib, iusage) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lppackeddib, iusage);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)lppackeddib;
     (void)iusage;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -934,7 +1207,13 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_createDIBSection_napi(c
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateDIBSection")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, pbmi, usage, ppvbits, hsection, offset) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, pbmi, usage, ppvbits, hsection, offset);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hdc;
     (void)pbmi;
@@ -942,7 +1221,8 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_createDIBSection_napi(c
     (void)ppvbits;
     (void)hsection;
     (void)offset;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -962,7 +1242,13 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_createDIBitmap_napi(con
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateDIBitmap")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, pbmih, flinit, pjbits, pbmi, iusage) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, pbmih, flinit, pjbits, pbmi, iusage);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hdc;
     (void)pbmih;
@@ -970,7 +1256,8 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_createDIBitmap_napi(con
     (void)pjbits;
     (void)pbmi;
     (void)iusage;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -987,12 +1274,19 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_createDiscardableBitmap
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateDiscardableBitmap")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, cx, cy) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, cx, cy);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hdc;
     (void)cx;
     (void)cy;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1010,13 +1304,20 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_createEllipticRgn_napi(
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateEllipticRgn")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(x1, y1, x2, y2) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(x1, y1, x2, y2);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)x1;
     (void)y1;
     (void)x2;
     (void)y2;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1031,10 +1332,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_createEllipticRgnIndire
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateEllipticRgnIndirect")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lprect) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lprect);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)lprect;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1052,13 +1360,20 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_createEnhMetaFileA_napi
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateEnhMetaFileA")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, lpfilename, lprc, lpdesc) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, lpfilename, lprc, lpdesc);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hdc;
     (void)lpfilename;
     (void)lprc;
     (void)lpdesc;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1076,13 +1391,20 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_createEnhMetaFileW_napi
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateEnhMetaFileW")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, lpfilename, lprc, lpdesc) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, lpfilename, lprc, lpdesc);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hdc;
     (void)lpfilename;
     (void)lprc;
     (void)lpdesc;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1110,7 +1432,13 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_createFontA_napi(const 
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateFontA")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(cheight, cwidth, cescapement, corientation, cweight, bitalic, bunderline, bstrikeout, icharset, ioutprecision, iclipprecision, iquality, ipitchandfamily, pszfacename) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(cheight, cwidth, cescapement, corientation, cweight, bitalic, bunderline, bstrikeout, icharset, ioutprecision, iclipprecision, iquality, ipitchandfamily, pszfacename);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)cheight;
     (void)cwidth;
@@ -1126,7 +1454,8 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_createFontA_napi(const 
     (void)iquality;
     (void)ipitchandfamily;
     (void)pszfacename;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1141,10 +1470,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_createFontIndirectA_nap
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateFontIndirectA")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lplf) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lplf);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)lplf;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1159,10 +1495,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_createFontIndirectExA_n
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateFontIndirectExA")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)param0;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1177,10 +1520,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_createFontIndirectExW_n
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateFontIndirectExW")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)param0;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1195,10 +1545,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_createFontIndirectW_nap
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateFontIndirectW")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lplf) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lplf);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)lplf;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1229,7 +1586,13 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_createFontPackage_napi(
         HMODULE km_h_mod = LoadLibraryA("fontsub.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateFontPackage")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(puchsrcbuffer, ulsrcbuffersize, ppuchfontpackagebuffer, pulfontpackagebuffersize, pulbyteswritten, usflag, usttcindex, ussubsetformat, ussubsetlanguage, ussubsetplatform, ussubsetencoding, pussubsetkeeplist, ussubsetlistcount, lpfnallocate, lpfnreallocate, lpfnfree, lpvreserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(puchsrcbuffer, ulsrcbuffersize, ppuchfontpackagebuffer, pulfontpackagebuffersize, pulbyteswritten, usflag, usttcindex, ussubsetformat, ussubsetlanguage, ussubsetplatform, ussubsetencoding, pussubsetkeeplist, ussubsetlistcount, lpfnallocate, lpfnreallocate, lpfnfree, lpvreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)puchsrcbuffer;
     (void)ulsrcbuffersize;
@@ -1248,6 +1611,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_createFontPackage_napi(
     (void)lpfnreallocate;
     (void)lpfnfree;
     (void)lpvreserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1276,7 +1640,13 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_createFontW_napi(const 
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateFontW")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(cheight, cwidth, cescapement, corientation, cweight, bitalic, bunderline, bstrikeout, icharset, ioutprecision, iclipprecision, iquality, ipitchandfamily, pszfacename) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(cheight, cwidth, cescapement, corientation, cweight, bitalic, bunderline, bstrikeout, icharset, ioutprecision, iclipprecision, iquality, ipitchandfamily, pszfacename);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)cheight;
     (void)cwidth;
@@ -1292,7 +1662,8 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_createFontW_napi(const 
     (void)iquality;
     (void)ipitchandfamily;
     (void)pszfacename;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1307,10 +1678,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_createHalftonePalette_n
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateHalftonePalette")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hdc;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1326,11 +1704,18 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_createHatchBrush_napi(c
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateHatchBrush")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ihatch, color) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ihatch, color);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)ihatch;
     (void)color;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1348,13 +1733,20 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_createICA_napi(const Na
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateICA")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszdriver, pszdevice, pszport, pdm) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszdriver, pszdevice, pszport, pdm);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pszdriver;
     (void)pszdevice;
     (void)pszport;
     (void)pdm;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1372,13 +1764,20 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_createICW_napi(const Na
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateICW")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszdriver, pszdevice, pszport, pdm) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszdriver, pszdevice, pszport, pdm);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pszdriver;
     (void)pszdevice;
     (void)pszport;
     (void)pdm;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1393,10 +1792,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_createMetaFileA_napi(co
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateMetaFileA")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszfile) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszfile);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pszfile;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1411,10 +1817,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_createMetaFileW_napi(co
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateMetaFileW")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszfile) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszfile);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pszfile;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1429,10 +1842,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_createPalette_napi(cons
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreatePalette")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(plpal) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(plpal);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)plpal;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1447,10 +1867,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_createPatternBrush_napi
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreatePatternBrush")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hbm) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hbm);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hbm;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1467,12 +1894,19 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_createPen_napi(const Na
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreatePen")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(istyle, cwidth, color) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(istyle, cwidth, color);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)istyle;
     (void)cwidth;
     (void)color;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1487,10 +1921,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_createPenIndirect_napi(
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreatePenIndirect")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(plpen) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(plpen);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)plpen;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1508,13 +1949,20 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_createPolyPolygonRgn_na
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreatePolyPolygonRgn")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pptl, pc, cpoly, imode) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pptl, pc, cpoly, imode);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pptl;
     (void)pc;
     (void)cpoly;
     (void)imode;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1531,12 +1979,19 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_createPolygonRgn_napi(c
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreatePolygonRgn")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pptl, cpoint, imode) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pptl, cpoint, imode);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pptl;
     (void)cpoint;
     (void)imode;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1554,13 +2009,20 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_createRectRgn_napi(cons
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateRectRgn")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(x1, y1, x2, y2) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(x1, y1, x2, y2);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)x1;
     (void)y1;
     (void)x2;
     (void)y2;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1575,10 +2037,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_createRectRgnIndirect_n
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateRectRgnIndirect")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lprect) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lprect);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)lprect;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1598,7 +2067,13 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_createRoundRectRgn_napi
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateRoundRectRgn")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(x1, y1, x2, y2, w, h) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(x1, y1, x2, y2, w, h);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)x1;
     (void)y1;
@@ -1606,7 +2081,8 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_createRoundRectRgn_napi
     (void)y2;
     (void)w;
     (void)h;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1624,12 +2100,19 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_createScalableFontResou
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateScalableFontResourceA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(fdwhidden, lpszfont, lpszfile, lpszpath) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(fdwhidden, lpszfont, lpszfile, lpszpath);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)fdwhidden;
     (void)lpszfont;
     (void)lpszfile;
     (void)lpszpath;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1648,12 +2131,19 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_createScalableFontResou
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateScalableFontResourceW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(fdwhidden, lpszfont, lpszfile, lpszpath) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(fdwhidden, lpszfont, lpszfile, lpszpath);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)fdwhidden;
     (void)lpszfont;
     (void)lpszfile;
     (void)lpszpath;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1669,10 +2159,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_createSolidBrush_napi(c
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateSolidBrush")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(color) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(color);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)color;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1689,11 +2186,18 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_dPtoLP_napi(const Napi:
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DPtoLP")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, lppt, c) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, lppt, c);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)lppt;
     (void)c;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1709,9 +2213,16 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_deleteDC_napi(const Nap
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DeleteDC")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1727,9 +2238,16 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_deleteEnhMetaFile_napi(
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DeleteEnhMetaFile")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmf) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmf);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hmf;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1745,9 +2263,16 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_deleteMetaFile_napi(con
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DeleteMetaFile")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmf) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmf);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hmf;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1763,9 +2288,16 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_deleteObject_napi(const
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DeleteObject")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ho) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ho);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ho;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1784,12 +2316,19 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_drawAnimatedRects_napi(
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DrawAnimatedRects")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, idani, lprcfrom, lprcto) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, idani, lprcfrom, lprcto);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)idani;
     (void)lprcfrom;
     (void)lprcto;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1808,12 +2347,19 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_drawCaption_napi(const 
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DrawCaption")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, hdc, lprect, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, hdc, lprect, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)hdc;
     (void)lprect;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1832,12 +2378,19 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_drawEdge_napi(const Nap
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DrawEdge")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, qrc, edge, grfflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, qrc, edge, grfflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)qrc;
     (void)edge;
     (void)grfflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1856,12 +2409,19 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_drawEscape_napi(const N
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DrawEscape")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, iescape, cjin, lpin) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, iescape, cjin, lpin);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)iescape;
     (void)cjin;
     (void)lpin;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1878,10 +2438,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_drawFocusRect_napi(cons
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DrawFocusRect")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, lprc) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, lprc);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)lprc;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1900,12 +2467,19 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_drawFrameControl_napi(c
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DrawFrameControl")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2, param3) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2, param3);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
     (void)param3;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1930,7 +2504,13 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_drawStateA_napi(const N
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DrawStateA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, hbrfore, qfncallback, ldata, wdata, x, y, cx, cy, uflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, hbrfore, qfncallback, ldata, wdata, x, y, cx, cy, uflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)hbrfore;
@@ -1942,6 +2522,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_drawStateA_napi(const N
     (void)cx;
     (void)cy;
     (void)uflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1966,7 +2547,13 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_drawStateW_napi(const N
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DrawStateW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, hbrfore, qfncallback, ldata, wdata, x, y, cx, cy, uflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, hbrfore, qfncallback, ldata, wdata, x, y, cx, cy, uflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)hbrfore;
@@ -1978,6 +2565,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_drawStateW_napi(const N
     (void)cx;
     (void)cy;
     (void)uflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1997,13 +2585,20 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_drawTextA_napi(const Na
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DrawTextA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, lpchtext, cchtext, lprc, format) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, lpchtext, cchtext, lprc, format);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)lpchtext;
     (void)cchtext;
     (void)lprc;
     (void)format;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2024,7 +2619,13 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_drawTextExA_napi(const 
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DrawTextExA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, lpchtext, cchtext, lprc, format, lpdtp) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, lpchtext, cchtext, lprc, format, lpdtp);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)lpchtext;
@@ -2032,6 +2633,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_drawTextExA_napi(const 
     (void)lprc;
     (void)format;
     (void)lpdtp;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2052,7 +2654,13 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_drawTextExW_napi(const 
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DrawTextExW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, lpchtext, cchtext, lprc, format, lpdtp) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, lpchtext, cchtext, lprc, format, lpdtp);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)lpchtext;
@@ -2060,6 +2668,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_drawTextExW_napi(const 
     (void)lprc;
     (void)format;
     (void)lpdtp;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2079,13 +2688,20 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_drawTextW_napi(const Na
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DrawTextW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, lpchtext, cchtext, lprc, format) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, lpchtext, cchtext, lprc, format);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)lpchtext;
     (void)cchtext;
     (void)lprc;
     (void)format;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2105,13 +2721,20 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_ellipse_napi(const Napi
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "Ellipse")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, left, top, right, bottom) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, left, top, right, bottom);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)left;
     (void)top;
     (void)right;
     (void)bottom;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2128,10 +2751,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_endPaint_napi(const Nap
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EndPaint")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, lppaint) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, lppaint);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)lppaint;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2147,9 +2777,16 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_endPath_napi(const Napi
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EndPath")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2168,12 +2805,19 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_enumDisplayDevicesA_nap
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EnumDisplayDevicesA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpdevice, idevnum, lpdisplaydevice, dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpdevice, idevnum, lpdisplaydevice, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpdevice;
     (void)idevnum;
     (void)lpdisplaydevice;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2192,12 +2836,19 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_enumDisplayDevicesW_nap
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EnumDisplayDevicesW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpdevice, idevnum, lpdisplaydevice, dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpdevice, idevnum, lpdisplaydevice, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpdevice;
     (void)idevnum;
     (void)lpdisplaydevice;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2216,12 +2867,19 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_enumDisplayMonitors_nap
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EnumDisplayMonitors")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, lprcclip, lpfnenum, dwdata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, lprcclip, lpfnenum, dwdata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)lprcclip;
     (void)lpfnenum;
     (void)dwdata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2239,11 +2897,18 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_enumDisplaySettingsA_na
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EnumDisplaySettingsA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszdevicename, imodenum, lpdevmode) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszdevicename, imodenum, lpdevmode);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszdevicename;
     (void)imodenum;
     (void)lpdevmode;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2262,12 +2927,19 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_enumDisplaySettingsExA_
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EnumDisplaySettingsExA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszdevicename, imodenum, lpdevmode, dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszdevicename, imodenum, lpdevmode, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszdevicename;
     (void)imodenum;
     (void)lpdevmode;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2286,12 +2958,19 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_enumDisplaySettingsExW_
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EnumDisplaySettingsExW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszdevicename, imodenum, lpdevmode, dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszdevicename, imodenum, lpdevmode, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszdevicename;
     (void)imodenum;
     (void)lpdevmode;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2309,11 +2988,18 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_enumDisplaySettingsW_na
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EnumDisplaySettingsW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszdevicename, imodenum, lpdevmode) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszdevicename, imodenum, lpdevmode);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszdevicename;
     (void)imodenum;
     (void)lpdevmode;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2333,13 +3019,20 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_enumEnhMetaFile_napi(co
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EnumEnhMetaFile")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, hmf, proc, param3, lprect) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, hmf, proc, param3, lprect);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)hmf;
     (void)proc;
     (void)param3;
     (void)lprect;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2358,12 +3051,19 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_enumFontFamiliesA_napi(
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EnumFontFamiliesA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, lplogfont, lpproc, lparam) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, lplogfont, lpproc, lparam);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)lplogfont;
     (void)lpproc;
     (void)lparam;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2383,13 +3083,20 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_enumFontFamiliesExA_nap
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EnumFontFamiliesExA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, lplogfont, lpproc, lparam, dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, lplogfont, lpproc, lparam, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)lplogfont;
     (void)lpproc;
     (void)lparam;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2409,13 +3116,20 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_enumFontFamiliesExW_nap
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EnumFontFamiliesExW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, lplogfont, lpproc, lparam, dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, lplogfont, lpproc, lparam, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)lplogfont;
     (void)lpproc;
     (void)lparam;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2434,12 +3148,19 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_enumFontFamiliesW_napi(
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EnumFontFamiliesW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, lplogfont, lpproc, lparam) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, lplogfont, lpproc, lparam);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)lplogfont;
     (void)lpproc;
     (void)lparam;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2458,12 +3179,19 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_enumFontsA_napi(const N
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EnumFontsA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, lplogfont, lpproc, lparam) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, lplogfont, lpproc, lparam);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)lplogfont;
     (void)lpproc;
     (void)lparam;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2482,12 +3210,19 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_enumFontsW_napi(const N
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EnumFontsW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, lplogfont, lpproc, lparam) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, lplogfont, lpproc, lparam);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)lplogfont;
     (void)lpproc;
     (void)lparam;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2506,12 +3241,19 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_enumMetaFile_napi(const
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EnumMetaFile")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, hmf, proc, param3) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, hmf, proc, param3);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)hmf;
     (void)proc;
     (void)param3;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2530,12 +3272,19 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_enumObjects_napi(const 
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EnumObjects")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, ntype, lpfunc, lparam) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, ntype, lpfunc, lparam);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)ntype;
     (void)lpfunc;
     (void)lparam;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2552,10 +3301,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_equalRect_napi(const Na
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EqualRect")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lprc1, lprc2) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lprc1, lprc2);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lprc1;
     (void)lprc2;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2572,10 +3328,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_equalRgn_napi(const Nap
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EqualRgn")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hrgn1, hrgn2) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hrgn1, hrgn2);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hrgn1;
     (void)hrgn2;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2595,13 +3358,20 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_excludeClipRect_napi(co
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ExcludeClipRect")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, left, top, right, bottom) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, left, top, right, bottom);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)left;
     (void)top;
     (void)right;
     (void)bottom;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2618,10 +3388,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_excludeUpdateRgn_napi(c
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ExcludeUpdateRgn")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, hwnd) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, hwnd);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)hwnd;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2641,14 +3418,21 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_extCreatePen_napi(const
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ExtCreatePen")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ipenstyle, cwidth, plbrush, cstyle, pstyle) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ipenstyle, cwidth, plbrush, cstyle, pstyle);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)ipenstyle;
     (void)cwidth;
     (void)plbrush;
     (void)cstyle;
     (void)pstyle;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -2665,12 +3449,19 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_extCreateRegion_napi(co
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ExtCreateRegion")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpx, ncount, lpdata) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpx, ncount, lpdata);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)lpx;
     (void)ncount;
     (void)lpdata;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -2689,13 +3480,20 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_extFloodFill_napi(const
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ExtFloodFill")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, x, y, color, type) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, x, y, color, type);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)x;
     (void)y;
     (void)color;
     (void)type;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2713,11 +3511,18 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_extSelectClipRgn_napi(c
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ExtSelectClipRgn")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, hrgn, mode) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, hrgn, mode);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)hrgn;
     (void)mode;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2740,7 +3545,13 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_extTextOutA_napi(const 
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ExtTextOutA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, x, y, options, lprect, lpstring, c, lpdx) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, x, y, options, lprect, lpstring, c, lpdx);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)x;
@@ -2750,6 +3561,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_extTextOutA_napi(const 
     (void)lpstring;
     (void)c;
     (void)lpdx;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2772,7 +3584,13 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_extTextOutW_napi(const 
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ExtTextOutW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, x, y, options, lprect, lpstring, c, lpdx) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, x, y, options, lprect, lpstring, c, lpdx);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)x;
@@ -2782,6 +3600,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_extTextOutW_napi(const 
     (void)lpstring;
     (void)c;
     (void)lpdx;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2797,9 +3616,16 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_fillPath_napi(const Nap
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FillPath")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2817,11 +3643,18 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_fillRect_napi(const Nap
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FillRect")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, lprc, hbr) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, lprc, hbr);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)lprc;
     (void)hbr;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2839,11 +3672,18 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_fillRgn_napi(const Napi
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FillRgn")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, hrgn, hbr) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, hrgn, hbr);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)hrgn;
     (void)hbr;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2862,12 +3702,19 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_fixBrushOrgEx_napi(cons
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FixBrushOrgEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, x, y, ptl) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, x, y, ptl);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)x;
     (void)y;
     (void)ptl;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2883,9 +3730,16 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_flattenPath_napi(const 
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FlattenPath")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2904,12 +3758,19 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_floodFill_napi(const Na
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FloodFill")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, x, y, color) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, x, y, color);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)x;
     (void)y;
     (void)color;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2927,11 +3788,18 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_frameRect_napi(const Na
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FrameRect")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, lprc, hbr) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, lprc, hbr);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)lprc;
     (void)hbr;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2951,13 +3819,20 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_frameRgn_napi(const Nap
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FrameRgn")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, hrgn, hbr, w, h) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, hrgn, hbr, w, h);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)hrgn;
     (void)hbr;
     (void)w;
     (void)h;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2975,11 +3850,18 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_gdiComment_napi(const N
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GdiComment")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, nsize, lpdata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, nsize, lpdata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)nsize;
     (void)lpdata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2994,8 +3876,15 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_gdiFlush_napi(const Nap
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GdiFlush")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3010,8 +3899,15 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_gdiGetBatchLimit_napi(c
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GdiGetBatchLimit")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3032,7 +3928,13 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_gdiGradientFill_napi(co
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GdiGradientFill")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, pvertex, nvertex, pmesh, ncount, ulmode) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, pvertex, nvertex, pmesh, ncount, ulmode);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)pvertex;
@@ -3040,6 +3942,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_gdiGradientFill_napi(co
     (void)pmesh;
     (void)ncount;
     (void)ulmode;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3055,9 +3958,16 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_gdiSetBatchLimit_napi(c
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GdiSetBatchLimit")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dw) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dw);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dw;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3083,7 +3993,13 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_gdiTransparentBlt_napi(
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GdiTransparentBlt")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdcdest, xorigindest, yorigindest, wdest, hdest, hdcsrc, xoriginsrc, yoriginsrc, wsrc, hsrc, crtransparent) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdcdest, xorigindest, yorigindest, wdest, hdest, hdcsrc, xoriginsrc, yoriginsrc, wsrc, hsrc, crtransparent);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdcdest;
     (void)xorigindest;
@@ -3096,6 +4012,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_gdiTransparentBlt_napi(
     (void)wsrc;
     (void)hsrc;
     (void)crtransparent;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3111,9 +4028,16 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getArcDirection_napi(co
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetArcDirection")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3130,10 +4054,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getAspectRatioFilterEx_
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetAspectRatioFilterEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, lpsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, lpsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)lpsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3151,11 +4082,18 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getBitmapBits_napi(cons
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetBitmapBits")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hbit, cb, lpvbits) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hbit, cb, lpvbits);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hbit;
     (void)cb;
     (void)lpvbits;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3172,10 +4110,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getBitmapDimensionEx_na
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetBitmapDimensionEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hbit, lpsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hbit, lpsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hbit;
     (void)lpsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3191,9 +4136,16 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getBkColor_napi(const N
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetBkColor")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hdc;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3209,9 +4161,16 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getBkMode_napi(const Na
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetBkMode")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3229,11 +4188,18 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getBoundsRect_napi(cons
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetBoundsRect")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, lprect, flags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, lprect, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hdc;
     (void)lprect;
     (void)flags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3250,10 +4216,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getBrushOrgEx_napi(cons
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetBrushOrgEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, lppt) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, lppt);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)lppt;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3272,12 +4245,19 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getCharABCWidthsA_napi(
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetCharABCWidthsA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, wfirst, wlast, lpabc) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, wfirst, wlast, lpabc);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)wfirst;
     (void)wlast;
     (void)lpabc;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3296,12 +4276,19 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getCharABCWidthsFloatA_
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetCharABCWidthsFloatA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, ifirst, ilast, lpabc) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, ifirst, ilast, lpabc);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)ifirst;
     (void)ilast;
     (void)lpabc;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3320,12 +4307,19 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getCharABCWidthsFloatW_
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetCharABCWidthsFloatW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, ifirst, ilast, lpabc) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, ifirst, ilast, lpabc);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)ifirst;
     (void)ilast;
     (void)lpabc;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3345,13 +4339,20 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getCharABCWidthsI_napi(
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetCharABCWidthsI")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, gifirst, cgi, pgi, pabc) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, gifirst, cgi, pgi, pabc);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)gifirst;
     (void)cgi;
     (void)pgi;
     (void)pabc;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3370,12 +4371,19 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getCharABCWidthsW_napi(
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetCharABCWidthsW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, wfirst, wlast, lpabc) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, wfirst, wlast, lpabc);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)wfirst;
     (void)wlast;
     (void)lpabc;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3394,12 +4402,19 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getCharWidth32A_napi(co
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetCharWidth32A")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, ifirst, ilast, lpbuffer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, ifirst, ilast, lpbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)ifirst;
     (void)ilast;
     (void)lpbuffer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3418,12 +4433,19 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getCharWidth32W_napi(co
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetCharWidth32W")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, ifirst, ilast, lpbuffer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, ifirst, ilast, lpbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)ifirst;
     (void)ilast;
     (void)lpbuffer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3442,12 +4464,19 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getCharWidthA_napi(cons
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetCharWidthA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, ifirst, ilast, lpbuffer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, ifirst, ilast, lpbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)ifirst;
     (void)ilast;
     (void)lpbuffer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3466,12 +4495,19 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getCharWidthFloatA_napi
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetCharWidthFloatA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, ifirst, ilast, lpbuffer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, ifirst, ilast, lpbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)ifirst;
     (void)ilast;
     (void)lpbuffer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3490,12 +4526,19 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getCharWidthFloatW_napi
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetCharWidthFloatW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, ifirst, ilast, lpbuffer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, ifirst, ilast, lpbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)ifirst;
     (void)ilast;
     (void)lpbuffer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3515,13 +4558,20 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getCharWidthI_napi(cons
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetCharWidthI")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, gifirst, cgi, pgi, piwidths) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, gifirst, cgi, pgi, piwidths);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)gifirst;
     (void)cgi;
     (void)pgi;
     (void)piwidths;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3540,12 +4590,19 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getCharWidthW_napi(cons
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetCharWidthW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, ifirst, ilast, lpbuffer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, ifirst, ilast, lpbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)ifirst;
     (void)ilast;
     (void)lpbuffer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3566,7 +4623,13 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getCharacterPlacementA_
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetCharacterPlacementA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, lpstring, ncount, nmexextent, lpresults, dwflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, lpstring, ncount, nmexextent, lpresults, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hdc;
     (void)lpstring;
@@ -3574,6 +4637,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getCharacterPlacementA_
     (void)nmexextent;
     (void)lpresults;
     (void)dwflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3594,7 +4658,13 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getCharacterPlacementW_
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetCharacterPlacementW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, lpstring, ncount, nmexextent, lpresults, dwflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, lpstring, ncount, nmexextent, lpresults, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hdc;
     (void)lpstring;
@@ -3602,6 +4672,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getCharacterPlacementW_
     (void)nmexextent;
     (void)lpresults;
     (void)dwflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3618,10 +4689,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getClipBox_napi(const N
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetClipBox")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, lprect) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, lprect);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)lprect;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3638,10 +4716,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getClipRgn_napi(const N
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetClipRgn")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, hrgn) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, hrgn);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)hrgn;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3658,10 +4743,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getColorAdjustment_napi
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetColorAdjustment")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, lpca) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, lpca);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)lpca;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3678,11 +4770,18 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getCurrentObject_napi(c
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetCurrentObject")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, type) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, type);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hdc;
     (void)type;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -3698,10 +4797,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getCurrentPositionEx_na
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetCurrentPositionEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, lppt) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, lppt);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)lppt;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3717,10 +4823,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getDC_napi(const Napi::
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetDC")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hwnd;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -3735,9 +4848,16 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getDCBrushColor_napi(co
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetDCBrushColor")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hdc;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3755,12 +4875,19 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getDCEx_napi(const Napi
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetDCEx")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, hrgnclip, flags) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, hrgnclip, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hwnd;
     (void)hrgnclip;
     (void)flags;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -3776,10 +4903,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getDCOrgEx_napi(const N
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetDCOrgEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, lppt) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, lppt);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)lppt;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3795,9 +4929,16 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getDCPenColor_napi(cons
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetDCPenColor")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hdc;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3816,12 +4957,19 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getDIBColorTable_napi(c
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetDIBColorTable")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, istart, centries, prgbq) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, istart, centries, prgbq);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hdc;
     (void)istart;
     (void)centries;
     (void)prgbq;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3843,7 +4991,13 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getDIBits_napi(const Na
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetDIBits")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, hbm, start, clines, lpvbits, lpbmi, usage) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, hbm, start, clines, lpvbits, lpbmi, usage);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)hbm;
@@ -3852,6 +5006,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getDIBits_napi(const Na
     (void)lpvbits;
     (void)lpbmi;
     (void)usage;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3868,10 +5023,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getDeviceCaps_napi(cons
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetDeviceCaps")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, arg_1_index) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, arg_1_index);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)arg_1_index;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3887,10 +5049,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getEnhMetaFileA_napi(co
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetEnhMetaFileA")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpname) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpname);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)lpname;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -3907,11 +5076,18 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getEnhMetaFileBits_napi
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetEnhMetaFileBits")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hemf, nsize, lpdata) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hemf, nsize, lpdata);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hemf;
     (void)nsize;
     (void)lpdata;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3929,11 +5105,18 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getEnhMetaFileDescripti
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetEnhMetaFileDescriptionA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hemf, cchbuffer, lpdescription) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hemf, cchbuffer, lpdescription);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hemf;
     (void)cchbuffer;
     (void)lpdescription;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3951,11 +5134,18 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getEnhMetaFileDescripti
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetEnhMetaFileDescriptionW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hemf, cchbuffer, lpdescription) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hemf, cchbuffer, lpdescription);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hemf;
     (void)cchbuffer;
     (void)lpdescription;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3973,11 +5163,18 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getEnhMetaFileHeader_na
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetEnhMetaFileHeader")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hemf, nsize, lpenhmetaheader) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hemf, nsize, lpenhmetaheader);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hemf;
     (void)nsize;
     (void)lpenhmetaheader;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3995,11 +5192,18 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getEnhMetaFilePaletteEn
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetEnhMetaFilePaletteEntries")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hemf, nnumentries, lppaletteentries) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hemf, nnumentries, lppaletteentries);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hemf;
     (void)nnumentries;
     (void)lppaletteentries;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4015,10 +5219,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getEnhMetaFileW_napi(co
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetEnhMetaFileW")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpname) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpname);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)lpname;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -4037,13 +5248,20 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getFontData_napi(const 
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetFontData")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, dwtable, dwoffset, pvbuffer, cjbuffer) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, dwtable, dwoffset, pvbuffer, cjbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hdc;
     (void)dwtable;
     (void)dwoffset;
     (void)pvbuffer;
     (void)cjbuffer;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4059,9 +5277,16 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getFontLanguageInfo_nap
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetFontLanguageInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hdc;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4078,10 +5303,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getFontUnicodeRanges_na
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetFontUnicodeRanges")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, lpgs) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, lpgs);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hdc;
     (void)lpgs;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4101,13 +5333,20 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getGlyphIndicesA_napi(c
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetGlyphIndicesA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, lpstr, c, pgi, fl) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, lpstr, c, pgi, fl);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hdc;
     (void)lpstr;
     (void)c;
     (void)pgi;
     (void)fl;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4127,13 +5366,20 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getGlyphIndicesW_napi(c
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetGlyphIndicesW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, lpstr, c, pgi, fl) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, lpstr, c, pgi, fl);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hdc;
     (void)lpstr;
     (void)c;
     (void)pgi;
     (void)fl;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4155,7 +5401,13 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getGlyphOutlineA_napi(c
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetGlyphOutlineA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, uchar, fuformat, lpgm, cjbuffer, pvbuffer, lpmat2) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, uchar, fuformat, lpgm, cjbuffer, pvbuffer, lpmat2);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hdc;
     (void)uchar;
@@ -4164,6 +5416,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getGlyphOutlineA_napi(c
     (void)cjbuffer;
     (void)pvbuffer;
     (void)lpmat2;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4185,7 +5438,13 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getGlyphOutlineW_napi(c
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetGlyphOutlineW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, uchar, fuformat, lpgm, cjbuffer, pvbuffer, lpmat2) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, uchar, fuformat, lpgm, cjbuffer, pvbuffer, lpmat2);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hdc;
     (void)uchar;
@@ -4194,6 +5453,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getGlyphOutlineW_napi(c
     (void)cjbuffer;
     (void)pvbuffer;
     (void)lpmat2;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4209,9 +5469,16 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getGraphicsMode_napi(co
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetGraphicsMode")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4229,11 +5496,18 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getKerningPairsA_napi(c
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetKerningPairsA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, npairs, lpkernpair) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, npairs, lpkernpair);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hdc;
     (void)npairs;
     (void)lpkernpair;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4251,11 +5525,18 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getKerningPairsW_napi(c
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetKerningPairsW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, npairs, lpkernpair) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, npairs, lpkernpair);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hdc;
     (void)npairs;
     (void)lpkernpair;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4271,9 +5552,16 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getLayout_napi(const Na
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetLayout")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hdc;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4289,9 +5577,16 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getMapMode_napi(const N
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetMapMode")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4307,10 +5602,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getMetaFileA_napi(const
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetMetaFileA")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpname) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpname);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)lpname;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -4327,11 +5629,18 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getMetaFileBitsEx_napi(
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetMetaFileBitsEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmf, cbbuffer, lpdata) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmf, cbbuffer, lpdata);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmf;
     (void)cbbuffer;
     (void)lpdata;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4347,10 +5656,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getMetaFileW_napi(const
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetMetaFileW")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpname) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpname);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)lpname;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -4366,10 +5682,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getMetaRgn_napi(const N
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetMetaRgn")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, hrgn) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, hrgn);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)hrgn;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4386,10 +5709,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getMiterLimit_napi(cons
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetMiterLimit")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, plimit) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, plimit);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)plimit;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4406,10 +5736,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getMonitorInfoA_napi(co
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetMonitorInfoA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmonitor, lpmi) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmonitor, lpmi);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hmonitor;
     (void)lpmi;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4426,10 +5763,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getMonitorInfoW_napi(co
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetMonitorInfoW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmonitor, lpmi) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmonitor, lpmi);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hmonitor;
     (void)lpmi;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4446,10 +5790,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getNearestColor_napi(co
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetNearestColor")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, color) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, color);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hdc;
     (void)color;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4466,10 +5817,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getNearestPaletteIndex_
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetNearestPaletteIndex")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(h, color) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(h, color);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)h;
     (void)color;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4487,11 +5845,18 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getObjectA_napi(const N
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetObjectA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(h, c, pv) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(h, c, pv);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)h;
     (void)c;
     (void)pv;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4507,9 +5872,16 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getObjectType_napi(cons
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetObjectType")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(h) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(h);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)h;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4527,11 +5899,18 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getObjectW_napi(const N
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetObjectW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(h, c, pv) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(h, c, pv);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)h;
     (void)c;
     (void)pv;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4549,11 +5928,18 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getOutlineTextMetricsA_
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetOutlineTextMetricsA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, cjcopy, potm) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, cjcopy, potm);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hdc;
     (void)cjcopy;
     (void)potm;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4571,11 +5957,18 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getOutlineTextMetricsW_
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetOutlineTextMetricsW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, cjcopy, potm) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, cjcopy, potm);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hdc;
     (void)cjcopy;
     (void)potm;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4594,12 +5987,19 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getPaletteEntries_napi(
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetPaletteEntries")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hpal, istart, centries, ppalentries) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hpal, istart, centries, ppalentries);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hpal;
     (void)istart;
     (void)centries;
     (void)ppalentries;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4618,12 +6018,19 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getPath_napi(const Napi
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetPath")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, apt, aj, cpt) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, apt, aj, cpt);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)apt;
     (void)aj;
     (void)cpt;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4641,11 +6048,18 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getPixel_napi(const Nap
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetPixel")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, x, y) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, x, y);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hdc;
     (void)x;
     (void)y;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4661,9 +6075,16 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getPolyFillMode_napi(co
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetPolyFillMode")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4679,9 +6100,16 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getROP2_napi(const Napi
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetROP2")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4699,11 +6127,18 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getRandomRgn_napi(const
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetRandomRgn")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, hrgn, i) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, hrgn, i);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)hrgn;
     (void)i;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4720,10 +6155,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getRasterizerCaps_napi(
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetRasterizerCaps")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpraststat, cjbytes) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpraststat, cjbytes);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpraststat;
     (void)cjbytes;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4741,11 +6183,18 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getRegionData_napi(cons
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetRegionData")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hrgn, ncount, lprgndata) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hrgn, ncount, lprgndata);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hrgn;
     (void)ncount;
     (void)lprgndata;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4762,10 +6211,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getRgnBox_napi(const Na
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetRgnBox")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hrgn, lprc) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hrgn, lprc);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hrgn;
     (void)lprc;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4781,10 +6237,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getStockObject_napi(con
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetStockObject")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(i) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(i);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)i;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -4799,9 +6262,16 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getStretchBltMode_napi(
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetStretchBltMode")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4817,9 +6287,16 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getSysColor_napi(const 
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetSysColor")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(nindex) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(nindex);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)nindex;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4835,10 +6312,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getSysColorBrush_napi(c
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetSysColorBrush")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(nindex) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(nindex);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)nindex;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -4856,12 +6340,19 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getSystemPaletteEntries
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetSystemPaletteEntries")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, istart, centries, ppalentries) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, istart, centries, ppalentries);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hdc;
     (void)istart;
     (void)centries;
     (void)ppalentries;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4877,9 +6368,16 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getSystemPaletteUse_nap
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetSystemPaletteUse")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hdc;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4899,13 +6397,20 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getTabbedTextExtentA_na
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetTabbedTextExtentA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, lpstring, chcount, ntabpositions, lpntabstoppositions) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, lpstring, chcount, ntabpositions, lpntabstoppositions);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hdc;
     (void)lpstring;
     (void)chcount;
     (void)ntabpositions;
     (void)lpntabstoppositions;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4925,13 +6430,20 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getTabbedTextExtentW_na
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetTabbedTextExtentW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, lpstring, chcount, ntabpositions, lpntabstoppositions) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, lpstring, chcount, ntabpositions, lpntabstoppositions);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hdc;
     (void)lpstring;
     (void)chcount;
     (void)ntabpositions;
     (void)lpntabstoppositions;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4947,9 +6459,16 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getTextAlign_napi(const
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetTextAlign")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hdc;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4965,9 +6484,16 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getTextCharacterExtra_n
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetTextCharacterExtra")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4983,9 +6509,16 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getTextColor_napi(const
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetTextColor")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hdc;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5007,7 +6540,13 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getTextExtentExPointA_n
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetTextExtentExPointA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, lpszstring, cchstring, nmaxextent, lpnfit, lpndx, lpsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, lpszstring, cchstring, nmaxextent, lpnfit, lpndx, lpsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)lpszstring;
@@ -5016,6 +6555,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getTextExtentExPointA_n
     (void)lpnfit;
     (void)lpndx;
     (void)lpsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5037,7 +6577,13 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getTextExtentExPointI_n
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetTextExtentExPointI")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, lpwszstring, cwchstring, nmaxextent, lpnfit, lpndx, lpsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, lpwszstring, cwchstring, nmaxextent, lpnfit, lpndx, lpsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)lpwszstring;
@@ -5046,6 +6592,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getTextExtentExPointI_n
     (void)lpnfit;
     (void)lpndx;
     (void)lpsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5067,7 +6614,13 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getTextExtentExPointW_n
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetTextExtentExPointW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, lpszstring, cchstring, nmaxextent, lpnfit, lpndx, lpsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, lpszstring, cchstring, nmaxextent, lpnfit, lpndx, lpsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)lpszstring;
@@ -5076,6 +6629,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getTextExtentExPointW_n
     (void)lpnfit;
     (void)lpndx;
     (void)lpsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5094,12 +6648,19 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getTextExtentPoint32A_n
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetTextExtentPoint32A")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, lpstring, c, psizl) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, lpstring, c, psizl);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)lpstring;
     (void)c;
     (void)psizl;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5118,12 +6679,19 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getTextExtentPoint32W_n
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetTextExtentPoint32W")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, lpstring, c, psizl) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, lpstring, c, psizl);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)lpstring;
     (void)c;
     (void)psizl;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5142,12 +6710,19 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getTextExtentPointA_nap
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetTextExtentPointA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, lpstring, c, lpsz) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, lpstring, c, lpsz);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)lpstring;
     (void)c;
     (void)lpsz;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5166,12 +6741,19 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getTextExtentPointI_nap
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetTextExtentPointI")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, pgiin, cgi, psize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, pgiin, cgi, psize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)pgiin;
     (void)cgi;
     (void)psize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5190,12 +6772,19 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getTextExtentPointW_nap
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetTextExtentPointW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, lpstring, c, lpsz) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, lpstring, c, lpsz);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)lpstring;
     (void)c;
     (void)lpsz;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5213,11 +6802,18 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getTextFaceA_napi(const
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetTextFaceA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, c, lpname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, c, lpname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)c;
     (void)lpname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5235,11 +6831,18 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getTextFaceW_napi(const
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetTextFaceW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, c, lpname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, c, lpname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)c;
     (void)lpname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5256,10 +6859,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getTextMetricsA_napi(co
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetTextMetricsA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, lptm) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, lptm);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)lptm;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5276,10 +6886,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getTextMetricsW_napi(co
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetTextMetricsW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, lptm) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, lptm);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)lptm;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5297,11 +6914,18 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getUpdateRect_napi(cons
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetUpdateRect")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, lprect, berase) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, lprect, berase);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)lprect;
     (void)berase;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5319,11 +6943,18 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getUpdateRgn_napi(const
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetUpdateRgn")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, hrgn, berase) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, hrgn, berase);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)hrgn;
     (void)berase;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5340,10 +6971,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getViewportExtEx_napi(c
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetViewportExtEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, lpsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, lpsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)lpsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5360,10 +6998,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getViewportOrgEx_napi(c
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetViewportOrgEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, lppoint) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, lppoint);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)lppoint;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5383,13 +7028,20 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getWinMetaFileBits_napi
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetWinMetaFileBits")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hemf, cbdata16, pdata16, imapmode, hdcref) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hemf, cbdata16, pdata16, imapmode, hdcref);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hemf;
     (void)cbdata16;
     (void)pdata16;
     (void)imapmode;
     (void)hdcref;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5405,10 +7057,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getWindowDC_napi(const 
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetWindowDC")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hwnd;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -5424,10 +7083,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getWindowExtEx_napi(con
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetWindowExtEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, lpsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, lpsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)lpsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5444,10 +7110,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getWindowOrgEx_napi(con
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetWindowOrgEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, lppoint) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, lppoint);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)lppoint;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5464,10 +7137,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getWindowRgn_napi(const
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetWindowRgn")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, hrgn) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, hrgn);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)hrgn;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5484,10 +7164,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getWindowRgnBox_napi(co
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetWindowRgnBox")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, lprc) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, lprc);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)lprc;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5504,10 +7191,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_getWorldTransform_napi(
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetWorldTransform")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, lpxf) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, lpxf);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)lpxf;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5528,7 +7222,13 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_gradientFill_napi(const
         HMODULE km_h_mod = LoadLibraryA("msimg32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GradientFill")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, pvertex, nvertex, pmesh, nmesh, ulmode) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, pvertex, nvertex, pmesh, nmesh, ulmode);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)pvertex;
@@ -5536,6 +7236,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_gradientFill_napi(const
     (void)pmesh;
     (void)nmesh;
     (void)ulmode;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5559,7 +7260,13 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_grayStringA_napi(const 
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GrayStringA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, hbrush, lpoutputfunc, lpdata, ncount, x, y, nwidth, nheight) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, hbrush, lpoutputfunc, lpdata, ncount, x, y, nwidth, nheight);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)hbrush;
@@ -5570,6 +7277,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_grayStringA_napi(const 
     (void)y;
     (void)nwidth;
     (void)nheight;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5593,7 +7301,13 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_grayStringW_napi(const 
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GrayStringW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, hbrush, lpoutputfunc, lpdata, ncount, x, y, nwidth, nheight) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, hbrush, lpoutputfunc, lpdata, ncount, x, y, nwidth, nheight);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)hbrush;
@@ -5604,6 +7318,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_grayStringW_napi(const 
     (void)y;
     (void)nwidth;
     (void)nheight;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5621,11 +7336,18 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_inflateRect_napi(const 
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InflateRect")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lprc, dx, dy) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lprc, dx, dy);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lprc;
     (void)dx;
     (void)dy;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5645,13 +7367,20 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_intersectClipRect_napi(
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IntersectClipRect")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, left, top, right, bottom) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, left, top, right, bottom);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)left;
     (void)top;
     (void)right;
     (void)bottom;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5669,11 +7398,18 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_intersectRect_napi(cons
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IntersectRect")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lprcdst, lprcsrc1, lprcsrc2) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lprcdst, lprcsrc1, lprcsrc2);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lprcdst;
     (void)lprcsrc1;
     (void)lprcsrc2;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5691,11 +7427,18 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_invalidateRect_napi(con
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InvalidateRect")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, lprect, berase) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, lprect, berase);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)lprect;
     (void)berase;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5713,11 +7456,18 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_invalidateRgn_napi(cons
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InvalidateRgn")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, hrgn, berase) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, hrgn, berase);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)hrgn;
     (void)berase;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5734,10 +7484,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_invertRect_napi(const N
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InvertRect")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, lprc) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, lprc);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)lprc;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5754,10 +7511,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_invertRgn_napi(const Na
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InvertRgn")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, hrgn) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, hrgn);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)hrgn;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5773,9 +7537,16 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_isRectEmpty_napi(const 
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IsRectEmpty")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lprc) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lprc);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lprc;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5793,11 +7564,18 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_lPtoDP_napi(const Napi:
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LPtoDP")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, lppt, c) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, lppt, c);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)lppt;
     (void)c;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5818,7 +7596,13 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_lineDDA_napi(const Napi
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LineDDA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(xstart, ystart, xend, yend, lpproc, data) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(xstart, ystart, xend, yend, lpproc, data);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)xstart;
     (void)ystart;
@@ -5826,6 +7610,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_lineDDA_napi(const Napi
     (void)yend;
     (void)lpproc;
     (void)data;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5843,11 +7628,18 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_lineTo_napi(const Napi:
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LineTo")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, x, y) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, x, y);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)x;
     (void)y;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5864,11 +7656,18 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_loadBitmapA_napi(const 
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LoadBitmapA")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hinstance, lpbitmapname) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hinstance, lpbitmapname);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hinstance;
     (void)lpbitmapname;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -5884,11 +7683,18 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_loadBitmapW_napi(const 
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LoadBitmapW")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hinstance, lpbitmapname) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hinstance, lpbitmapname);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hinstance;
     (void)lpbitmapname;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -5903,9 +7709,16 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_lockWindowUpdate_napi(c
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LockWindowUpdate")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwndlock) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwndlock);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwndlock;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5924,12 +7737,19 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_mapWindowPoints_napi(co
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MapWindowPoints")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwndfrom, hwndto, lppoints, cpoints) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwndfrom, hwndto, lppoints, cpoints);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwndfrom;
     (void)hwndto;
     (void)lppoints;
     (void)cpoints;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5956,7 +7776,13 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_maskBlt_napi(const Napi
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MaskBlt")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdcdest, xdest, ydest, width, height, hdcsrc, xsrc, ysrc, hbmmask, xmask, ymask, rop) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdcdest, xdest, ydest, width, height, hdcsrc, xsrc, ysrc, hbmmask, xmask, ymask, rop);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdcdest;
     (void)xdest;
@@ -5970,6 +7796,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_maskBlt_napi(const Napi
     (void)xmask;
     (void)ymask;
     (void)rop;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5996,7 +7823,13 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_mergeFontPackage_napi(c
         HMODULE km_h_mod = LoadLibraryA("fontsub.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MergeFontPackage")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(puchmergefontbuffer, ulmergefontbuffersize, puchfontpackagebuffer, ulfontpackagebuffersize, ppuchdestbuffer, puldestbuffersize, pulbyteswritten, usmode, lpfnallocate, lpfnreallocate, lpfnfree, lpvreserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(puchmergefontbuffer, ulmergefontbuffersize, puchfontpackagebuffer, ulfontpackagebuffersize, ppuchdestbuffer, puldestbuffersize, pulbyteswritten, usmode, lpfnallocate, lpfnreallocate, lpfnfree, lpvreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)puchmergefontbuffer;
     (void)ulmergefontbuffersize;
@@ -6010,6 +7843,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_mergeFontPackage_napi(c
     (void)lpfnreallocate;
     (void)lpfnfree;
     (void)lpvreserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6027,11 +7861,18 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_modifyWorldTransform_na
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ModifyWorldTransform")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, lpxf, mode) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, lpxf, mode);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)lpxf;
     (void)mode;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6048,11 +7889,18 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_monitorFromRect_napi(co
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MonitorFromRect")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lprc, dwflags) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lprc, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)lprc;
     (void)dwflags;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -6068,11 +7916,18 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_monitorFromWindow_napi(
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MonitorFromWindow")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, dwflags) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hwnd;
     (void)dwflags;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -6090,12 +7945,19 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_moveToEx_napi(const Nap
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MoveToEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, x, y, lppt) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, x, y, lppt);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)x;
     (void)y;
     (void)lppt;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6113,11 +7975,18 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_offsetClipRgn_napi(cons
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OffsetClipRgn")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, x, y) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, x, y);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)x;
     (void)y;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6135,11 +8004,18 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_offsetRect_napi(const N
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OffsetRect")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lprc, dx, dy) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lprc, dx, dy);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lprc;
     (void)dx;
     (void)dy;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6157,11 +8033,18 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_offsetRgn_napi(const Na
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OffsetRgn")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hrgn, x, y) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hrgn, x, y);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hrgn;
     (void)x;
     (void)y;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6180,12 +8063,19 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_offsetViewportOrgEx_nap
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OffsetViewportOrgEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, x, y, lppt) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, x, y, lppt);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)x;
     (void)y;
     (void)lppt;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6204,12 +8094,19 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_offsetWindowOrgEx_napi(
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OffsetWindowOrgEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, x, y, lppt) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, x, y, lppt);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)x;
     (void)y;
     (void)lppt;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6225,9 +8122,16 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_paintDesktop_napi(const
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PaintDesktop")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6244,10 +8148,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_paintRgn_napi(const Nap
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PaintRgn")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, hrgn) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, hrgn);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)hrgn;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6268,7 +8179,13 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_patBlt_napi(const Napi:
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PatBlt")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, x, y, w, h, rop) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, x, y, w, h, rop);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)x;
@@ -6276,6 +8193,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_patBlt_napi(const Napi:
     (void)w;
     (void)h;
     (void)rop;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6291,10 +8209,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_pathToRegion_napi(const
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PathToRegion")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hdc;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -6317,7 +8242,13 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_pie_napi(const Napi::Ca
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "Pie")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, left, top, right, bottom, xr1, yr1, xr2, yr2) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, left, top, right, bottom, xr1, yr1, xr2, yr2);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)left;
@@ -6328,6 +8259,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_pie_napi(const Napi::Ca
     (void)yr1;
     (void)xr2;
     (void)yr2;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6345,11 +8277,18 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_playEnhMetaFile_napi(co
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PlayEnhMetaFile")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, hmf, lprect) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, hmf, lprect);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)hmf;
     (void)lprect;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6368,12 +8307,19 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_playEnhMetaFileRecord_n
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PlayEnhMetaFileRecord")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, pht, pmr, cht) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, pht, pmr, cht);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)pht;
     (void)pmr;
     (void)cht;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6390,10 +8336,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_playMetaFile_napi(const
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PlayMetaFile")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, hmf) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, hmf);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)hmf;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6412,12 +8365,19 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_playMetaFileRecord_napi
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PlayMetaFileRecord")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, lphandletable, lpmr, noobjs) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, lphandletable, lpmr, noobjs);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)lphandletable;
     (void)lpmr;
     (void)noobjs;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6442,7 +8402,13 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_plgBlt_napi(const Napi:
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PlgBlt")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdcdest, lppoint, hdcsrc, xsrc, ysrc, width, height, hbmmask, xmask, ymask) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdcdest, lppoint, hdcsrc, xsrc, ysrc, width, height, hbmmask, xmask, ymask);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdcdest;
     (void)lppoint;
@@ -6454,6 +8420,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_plgBlt_napi(const Napi:
     (void)hbmmask;
     (void)xmask;
     (void)ymask;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6471,11 +8438,18 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_polyBezier_napi(const N
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PolyBezier")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, apt, cpt) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, apt, cpt);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)apt;
     (void)cpt;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6493,11 +8467,18 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_polyBezierTo_napi(const
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PolyBezierTo")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, apt, cpt) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, apt, cpt);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)apt;
     (void)cpt;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6516,12 +8497,19 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_polyDraw_napi(const Nap
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PolyDraw")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, apt, aj, cpt) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, apt, aj, cpt);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)apt;
     (void)aj;
     (void)cpt;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6540,12 +8528,19 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_polyPolygon_napi(const 
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PolyPolygon")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, apt, asz, csz) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, apt, asz, csz);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)apt;
     (void)asz;
     (void)csz;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6564,12 +8559,19 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_polyPolyline_napi(const
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PolyPolyline")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, apt, asz, csz) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, apt, asz, csz);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)apt;
     (void)asz;
     (void)csz;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6587,11 +8589,18 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_polyTextOutA_napi(const
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PolyTextOutA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, ppt, nstrings) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, ppt, nstrings);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)ppt;
     (void)nstrings;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6609,11 +8618,18 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_polyTextOutW_napi(const
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PolyTextOutW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, ppt, nstrings) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, ppt, nstrings);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)ppt;
     (void)nstrings;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6631,11 +8647,18 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_polygon_napi(const Napi
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "Polygon")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, apt, cpt) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, apt, cpt);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)apt;
     (void)cpt;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6653,11 +8676,18 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_polyline_napi(const Nap
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "Polyline")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, apt, cpt) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, apt, cpt);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)apt;
     (void)cpt;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6675,11 +8705,18 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_polylineTo_napi(const N
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PolylineTo")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, apt, cpt) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, apt, cpt);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)apt;
     (void)cpt;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6697,11 +8734,18 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_ptInRegion_napi(const N
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PtInRegion")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hrgn, x, y) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hrgn, x, y);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hrgn;
     (void)x;
     (void)y;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6719,11 +8763,18 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_ptVisible_napi(const Na
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PtVisible")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, x, y) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, x, y);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)x;
     (void)y;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6739,9 +8790,16 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_realizePalette_napi(con
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RealizePalette")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hdc;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6758,10 +8816,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_rectInRegion_napi(const
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RectInRegion")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hrgn, lprect) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hrgn, lprect);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hrgn;
     (void)lprect;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6778,10 +8843,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_rectVisible_napi(const 
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RectVisible")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, lprect) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, lprect);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)lprect;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6801,13 +8873,20 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_rectangle_napi(const Na
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "Rectangle")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, left, top, right, bottom) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, left, top, right, bottom);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)left;
     (void)top;
     (void)right;
     (void)bottom;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6826,12 +8905,19 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_redrawWindow_napi(const
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RedrawWindow")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, lprcupdate, hrgnupdate, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, lprcupdate, hrgnupdate, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)lprcupdate;
     (void)hrgnupdate;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6848,10 +8934,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_releaseDC_napi(const Na
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ReleaseDC")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, hdc) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, hdc);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)hdc;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6867,9 +8960,16 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_removeFontMemResourceEx
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RemoveFontMemResourceEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(h) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(h);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)h;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6885,9 +8985,16 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_removeFontResourceA_nap
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RemoveFontResourceA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpfilename) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpfilename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpfilename;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6905,11 +9012,18 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_removeFontResourceExA_n
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RemoveFontResourceExA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(name, fl, pdv) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(name, fl, pdv);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)name;
     (void)fl;
     (void)pdv;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6927,11 +9041,18 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_removeFontResourceExW_n
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RemoveFontResourceExW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(name, fl, pdv) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(name, fl, pdv);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)name;
     (void)fl;
     (void)pdv;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6947,9 +9068,16 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_removeFontResourceW_nap
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RemoveFontResourceW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpfilename) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpfilename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpfilename;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6966,11 +9094,18 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_resetDCA_napi(const Nap
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResetDCA")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, lpdm) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, lpdm);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hdc;
     (void)lpdm;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -6986,11 +9121,18 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_resetDCW_napi(const Nap
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResetDCW")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, lpdm) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, lpdm);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hdc;
     (void)lpdm;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -7006,10 +9148,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_resizePalette_napi(cons
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResizePalette")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hpal, n) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hpal, n);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hpal;
     (void)n;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7026,10 +9175,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_restoreDC_napi(const Na
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RestoreDC")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, nsaveddc) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, nsaveddc);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)nsaveddc;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7051,7 +9207,13 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_roundRect_napi(const Na
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RoundRect")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, left, top, right, bottom, width, height) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, left, top, right, bottom, width, height);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)left;
@@ -7060,6 +9222,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_roundRect_napi(const Na
     (void)bottom;
     (void)width;
     (void)height;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7075,9 +9238,16 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_saveDC_napi(const Napi:
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SaveDC")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7098,7 +9268,13 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_scaleViewportExtEx_napi
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ScaleViewportExtEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, xn, dx, yn, yd, lpsz) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, xn, dx, yn, yd, lpsz);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)xn;
@@ -7106,6 +9282,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_scaleViewportExtEx_napi
     (void)yn;
     (void)yd;
     (void)lpsz;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7126,7 +9303,13 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_scaleWindowExtEx_napi(c
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ScaleWindowExtEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, xn, xd, yn, yd, lpsz) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, xn, xd, yn, yd, lpsz);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)xn;
@@ -7134,6 +9317,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_scaleWindowExtEx_napi(c
     (void)yn;
     (void)yd;
     (void)lpsz;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7150,10 +9334,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_screenToClient_napi(con
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ScreenToClient")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, lppoint) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, lppoint);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)lppoint;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7170,10 +9361,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_selectClipPath_napi(con
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SelectClipPath")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, mode) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, mode);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)mode;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7190,10 +9388,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_selectClipRgn_napi(cons
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SelectClipRgn")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, hrgn) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, hrgn);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)hrgn;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7210,11 +9415,18 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_selectObject_napi(const
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SelectObject")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, h) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, h);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hdc;
     (void)h;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -7231,12 +9443,19 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_selectPalette_napi(cons
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SelectPalette")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, hpal, bforcebkgd) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, hpal, bforcebkgd);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hdc;
     (void)hpal;
     (void)bforcebkgd;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -7252,10 +9471,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_setArcDirection_napi(co
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetArcDirection")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, dir) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, dir);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)dir;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7273,11 +9499,18 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_setBitmapBits_napi(cons
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetBitmapBits")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hbm, cb, pvbits) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hbm, cb, pvbits);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hbm;
     (void)cb;
     (void)pvbits;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7296,12 +9529,19 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_setBitmapDimensionEx_na
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetBitmapDimensionEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hbm, w, h, lpsz) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hbm, w, h, lpsz);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hbm;
     (void)w;
     (void)h;
     (void)lpsz;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7318,10 +9558,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_setBkColor_napi(const N
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetBkColor")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, color) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, color);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hdc;
     (void)color;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7338,10 +9585,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_setBkMode_napi(const Na
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetBkMode")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, mode) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, mode);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)mode;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7359,11 +9613,18 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_setBoundsRect_napi(cons
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetBoundsRect")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, lprect, flags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, lprect, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hdc;
     (void)lprect;
     (void)flags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7382,12 +9643,19 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_setBrushOrgEx_napi(cons
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetBrushOrgEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, x, y, lppt) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, x, y, lppt);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)x;
     (void)y;
     (void)lppt;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7404,10 +9672,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_setColorAdjustment_napi
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetColorAdjustment")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, lpca) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, lpca);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)lpca;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7424,10 +9699,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_setDCBrushColor_napi(co
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetDCBrushColor")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, color) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, color);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hdc;
     (void)color;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7444,10 +9726,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_setDCPenColor_napi(cons
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetDCPenColor")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, color) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, color);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hdc;
     (void)color;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7466,12 +9755,19 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_setDIBColorTable_napi(c
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetDIBColorTable")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, istart, centries, prgbq) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, istart, centries, prgbq);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hdc;
     (void)istart;
     (void)centries;
     (void)prgbq;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7493,7 +9789,13 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_setDIBits_napi(const Na
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetDIBits")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, hbm, start, clines, lpbits, lpbmi, coloruse) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, hbm, start, clines, lpbits, lpbmi, coloruse);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)hbm;
@@ -7502,6 +9804,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_setDIBits_napi(const Na
     (void)lpbits;
     (void)lpbmi;
     (void)coloruse;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7528,7 +9831,13 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_setDIBitsToDevice_napi(
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetDIBitsToDevice")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, xdest, ydest, w, h, xsrc, ysrc, startscan, clines, lpvbits, lpbmi, coloruse) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, xdest, ydest, w, h, xsrc, ysrc, startscan, clines, lpvbits, lpbmi, coloruse);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)xdest;
@@ -7542,6 +9851,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_setDIBitsToDevice_napi(
     (void)lpvbits;
     (void)lpbmi;
     (void)coloruse;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7558,11 +9868,18 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_setEnhMetaFileBits_napi
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetEnhMetaFileBits")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(nsize, pb) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(nsize, pb);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)nsize;
     (void)pb;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -7578,10 +9895,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_setGraphicsMode_napi(co
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetGraphicsMode")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, imode) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, imode);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)imode;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7598,10 +9922,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_setLayout_napi(const Na
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetLayout")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, l) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, l);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hdc;
     (void)l;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7618,10 +9949,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_setMapMode_napi(const N
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetMapMode")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, imode) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, imode);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)imode;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7638,10 +9976,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_setMapperFlags_napi(con
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetMapperFlags")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, flags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hdc;
     (void)flags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7658,11 +10003,18 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_setMetaFileBitsEx_napi(
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetMetaFileBitsEx")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(cbbuffer, lpdata) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(cbbuffer, lpdata);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)cbbuffer;
     (void)lpdata;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -7677,9 +10029,16 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_setMetaRgn_napi(const N
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetMetaRgn")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7697,11 +10056,18 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_setMiterLimit_napi(cons
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetMiterLimit")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, limit, old) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, limit, old);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)limit;
     (void)old;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7720,12 +10086,19 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_setPaletteEntries_napi(
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetPaletteEntries")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hpal, istart, centries, ppalentries) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hpal, istart, centries, ppalentries);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hpal;
     (void)istart;
     (void)centries;
     (void)ppalentries;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7744,12 +10117,19 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_setPixel_napi(const Nap
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetPixel")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, x, y, color) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, x, y, color);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hdc;
     (void)x;
     (void)y;
     (void)color;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7768,12 +10148,19 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_setPixelV_napi(const Na
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetPixelV")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, x, y, color) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, x, y, color);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)x;
     (void)y;
     (void)color;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7790,10 +10177,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_setPolyFillMode_napi(co
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetPolyFillMode")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, mode) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, mode);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)mode;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7810,10 +10204,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_setROP2_napi(const Napi
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetROP2")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, rop2) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, rop2);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)rop2;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7833,13 +10234,20 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_setRect_napi(const Napi
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetRect")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lprc, xleft, ytop, xright, ybottom) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lprc, xleft, ytop, xright, ybottom);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lprc;
     (void)xleft;
     (void)ytop;
     (void)xright;
     (void)ybottom;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7855,9 +10263,16 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_setRectEmpty_napi(const
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetRectEmpty")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lprc) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lprc);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lprc;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7877,13 +10292,20 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_setRectRgn_napi(const N
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetRectRgn")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hrgn, left, top, right, bottom) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hrgn, left, top, right, bottom);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hrgn;
     (void)left;
     (void)top;
     (void)right;
     (void)bottom;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7900,10 +10322,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_setStretchBltMode_napi(
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetStretchBltMode")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, mode) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, mode);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)mode;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7921,11 +10350,18 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_setSysColors_napi(const
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetSysColors")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(celements, lpaelements, lpargbvalues) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(celements, lpaelements, lpargbvalues);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)celements;
     (void)lpaelements;
     (void)lpargbvalues;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7942,10 +10378,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_setSystemPaletteUse_nap
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetSystemPaletteUse")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, use) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, use);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hdc;
     (void)use;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7962,10 +10405,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_setTextAlign_napi(const
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetTextAlign")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, align) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, align);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hdc;
     (void)align;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7982,10 +10432,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_setTextCharacterExtra_n
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetTextCharacterExtra")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, extra) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, extra);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)extra;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8002,10 +10459,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_setTextColor_napi(const
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetTextColor")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, color) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, color);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hdc;
     (void)color;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8023,11 +10487,18 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_setTextJustification_na
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetTextJustification")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, extra, count) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, extra, count);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)extra;
     (void)count;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8046,12 +10517,19 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_setViewportExtEx_napi(c
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetViewportExtEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, x, y, lpsz) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, x, y, lpsz);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)x;
     (void)y;
     (void)lpsz;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8070,12 +10548,19 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_setViewportOrgEx_napi(c
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetViewportOrgEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, x, y, lppt) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, x, y, lppt);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)x;
     (void)y;
     (void)lppt;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8094,12 +10579,19 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_setWindowExtEx_napi(con
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetWindowExtEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, x, y, lpsz) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, x, y, lpsz);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)x;
     (void)y;
     (void)lpsz;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8118,12 +10610,19 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_setWindowOrgEx_napi(con
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetWindowOrgEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, x, y, lppt) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, x, y, lppt);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)x;
     (void)y;
     (void)lppt;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8141,11 +10640,18 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_setWindowRgn_napi(const
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetWindowRgn")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, hrgn, bredraw) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, hrgn, bredraw);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)hrgn;
     (void)bredraw;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8162,10 +10668,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_setWorldTransform_napi(
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetWorldTransform")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, lpxf) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, lpxf);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)lpxf;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8191,7 +10704,13 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_stretchBlt_napi(const N
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "StretchBlt")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdcdest, xdest, ydest, wdest, hdest, hdcsrc, xsrc, ysrc, wsrc, hsrc, rop) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdcdest, xdest, ydest, wdest, hdest, hdcsrc, xsrc, ysrc, wsrc, hsrc, rop);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdcdest;
     (void)xdest;
@@ -8204,6 +10723,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_stretchBlt_napi(const N
     (void)wsrc;
     (void)hsrc;
     (void)rop;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8231,7 +10751,13 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_stretchDIBits_napi(cons
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "StretchDIBits")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, xdest, ydest, destwidth, destheight, xsrc, ysrc, srcwidth, srcheight, lpbits, lpbmi, iusage, rop) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, xdest, ydest, destwidth, destheight, xsrc, ysrc, srcwidth, srcheight, lpbits, lpbmi, iusage, rop);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)xdest;
@@ -8246,6 +10772,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_stretchDIBits_napi(cons
     (void)lpbmi;
     (void)iusage;
     (void)rop;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8261,9 +10788,16 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_strokeAndFillPath_napi(
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "StrokeAndFillPath")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8279,9 +10813,16 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_strokePath_napi(const N
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "StrokePath")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8299,11 +10840,18 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_subtractRect_napi(const
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SubtractRect")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lprcdst, lprcsrc1, lprcsrc2) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lprcdst, lprcsrc1, lprcsrc2);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lprcdst;
     (void)lprcsrc1;
     (void)lprcsrc2;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8324,7 +10872,13 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_tTCharToUnicode_napi(co
         HMODULE km_h_mod = LoadLibraryA("t2embed.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TTCharToUnicode")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, puccharcodes, ulcharcodesize, pusshortcodes, ulshortcodesize, ulflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, puccharcodes, ulcharcodesize, pusshortcodes, ulshortcodesize, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)puccharcodes;
@@ -8332,6 +10886,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_tTCharToUnicode_napi(co
     (void)pusshortcodes;
     (void)ulshortcodesize;
     (void)ulflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8349,11 +10904,18 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_tTDeleteEmbeddedFont_na
         HMODULE km_h_mod = LoadLibraryA("t2embed.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TTDeleteEmbeddedFont")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hfontreference, ulflags, pulstatus) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hfontreference, ulflags, pulstatus);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hfontreference;
     (void)ulflags;
     (void)pulstatus;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8379,7 +10941,13 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_tTEmbedFont_napi(const 
         HMODULE km_h_mod = LoadLibraryA("t2embed.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TTEmbedFont")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, ulflags, ulcharset, pulprivstatus, pulstatus, lpfnwritetostream, lpvwritestream, puscharcodeset, uscharcodecount, uslanguage, pttembedinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, ulflags, ulcharset, pulprivstatus, pulstatus, lpfnwritetostream, lpvwritestream, puscharcodeset, uscharcodecount, uslanguage, pttembedinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)ulflags;
@@ -8392,6 +10960,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_tTEmbedFont_napi(const 
     (void)uscharcodecount;
     (void)uslanguage;
     (void)pttembedinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8417,7 +10986,13 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_tTEmbedFontEx_napi(cons
         HMODULE km_h_mod = LoadLibraryA("t2embed.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TTEmbedFontEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, ulflags, ulcharset, pulprivstatus, pulstatus, lpfnwritetostream, lpvwritestream, pulcharcodeset, uscharcodecount, uslanguage, pttembedinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, ulflags, ulcharset, pulprivstatus, pulstatus, lpfnwritetostream, lpvwritestream, pulcharcodeset, uscharcodecount, uslanguage, pttembedinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)ulflags;
@@ -8430,6 +11005,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_tTEmbedFontEx_napi(cons
     (void)uscharcodecount;
     (void)uslanguage;
     (void)pttembedinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8457,7 +11033,13 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_tTEmbedFontFromFileA_na
         HMODULE km_h_mod = LoadLibraryA("t2embed.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TTEmbedFontFromFileA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, szfontfilename, usttcindex, ulflags, ulcharset, pulprivstatus, pulstatus, lpfnwritetostream, lpvwritestream, puscharcodeset, uscharcodecount, uslanguage, pttembedinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, szfontfilename, usttcindex, ulflags, ulcharset, pulprivstatus, pulstatus, lpfnwritetostream, lpvwritestream, puscharcodeset, uscharcodecount, uslanguage, pttembedinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)szfontfilename;
@@ -8472,6 +11054,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_tTEmbedFontFromFileA_na
     (void)uscharcodecount;
     (void)uslanguage;
     (void)pttembedinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8488,10 +11071,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_tTEnableEmbeddingForFac
         HMODULE km_h_mod = LoadLibraryA("t2embed.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TTEnableEmbeddingForFacename")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszfacename, benable) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszfacename, benable);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszfacename;
     (void)benable;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8513,7 +11103,13 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_tTGetEmbeddedFontInfo_n
         HMODULE km_h_mod = LoadLibraryA("t2embed.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TTGetEmbeddedFontInfo")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ulflags, pulprivstatus, ulprivs, pulstatus, lpfnreadfromstream, lpvreadstream, pttloadinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ulflags, pulprivstatus, ulprivs, pulstatus, lpfnreadfromstream, lpvreadstream, pttloadinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ulflags;
     (void)pulprivstatus;
@@ -8522,6 +11118,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_tTGetEmbeddedFontInfo_n
     (void)lpfnreadfromstream;
     (void)lpvreadstream;
     (void)pttloadinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8538,10 +11135,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_tTGetEmbeddingType_napi
         HMODULE km_h_mod = LoadLibraryA("t2embed.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TTGetEmbeddingType")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, pulembedtype) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, pulembedtype);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)pulembedtype;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8561,13 +11165,20 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_tTGetNewFontName_napi(c
         HMODULE km_h_mod = LoadLibraryA("t2embed.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TTGetNewFontName")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(phfontreference, wzwinfamilyname, cchmaxwinname, szmacfamilyname, cchmaxmacname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(phfontreference, wzwinfamilyname, cchmaxwinname, szmacfamilyname, cchmaxmacname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)phfontreference;
     (void)wzwinfamilyname;
     (void)cchmaxwinname;
     (void)szmacfamilyname;
     (void)cchmaxmacname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8584,10 +11195,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_tTIsEmbeddingEnabled_na
         HMODULE km_h_mod = LoadLibraryA("t2embed.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TTIsEmbeddingEnabled")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, pbenabled) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, pbenabled);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)pbenabled;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8604,10 +11222,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_tTIsEmbeddingEnabledFor
         HMODULE km_h_mod = LoadLibraryA("t2embed.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TTIsEmbeddingEnabledForFacename")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszfacename, pbenabled) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszfacename, pbenabled);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszfacename;
     (void)pbenabled;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8632,7 +11257,13 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_tTLoadEmbeddedFont_napi
         HMODULE km_h_mod = LoadLibraryA("t2embed.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TTLoadEmbeddedFont")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(phfontreference, ulflags, pulprivstatus, ulprivs, pulstatus, lpfnreadfromstream, lpvreadstream, szwinfamilyname, szmacfamilyname, pttloadinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(phfontreference, ulflags, pulprivstatus, ulprivs, pulstatus, lpfnreadfromstream, lpvreadstream, szwinfamilyname, szmacfamilyname, pttloadinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)phfontreference;
     (void)ulflags;
@@ -8644,6 +11275,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_tTLoadEmbeddedFont_napi
     (void)szwinfamilyname;
     (void)szmacfamilyname;
     (void)pttloadinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8660,10 +11292,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_tTRunValidationTests_na
         HMODULE km_h_mod = LoadLibraryA("t2embed.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TTRunValidationTests")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, ptestparam) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, ptestparam);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)ptestparam;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8680,10 +11319,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_tTRunValidationTestsEx_
         HMODULE km_h_mod = LoadLibraryA("t2embed.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TTRunValidationTestsEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, ptestparam) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, ptestparam);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)ptestparam;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8706,7 +11352,13 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_tabbedTextOutA_napi(con
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TabbedTextOutA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, x, y, lpstring, chcount, ntabpositions, lpntabstoppositions, ntaborigin) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, x, y, lpstring, chcount, ntabpositions, lpntabstoppositions, ntaborigin);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)x;
@@ -8716,6 +11368,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_tabbedTextOutA_napi(con
     (void)ntabpositions;
     (void)lpntabstoppositions;
     (void)ntaborigin;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8738,7 +11391,13 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_tabbedTextOutW_napi(con
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TabbedTextOutW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, x, y, lpstring, chcount, ntabpositions, lpntabstoppositions, ntaborigin) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, x, y, lpstring, chcount, ntabpositions, lpntabstoppositions, ntaborigin);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)x;
@@ -8748,6 +11407,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_tabbedTextOutW_napi(con
     (void)ntabpositions;
     (void)lpntabstoppositions;
     (void)ntaborigin;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8767,13 +11427,20 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_textOutA_napi(const Nap
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TextOutA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, x, y, lpstring, c) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, x, y, lpstring, c);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)x;
     (void)y;
     (void)lpstring;
     (void)c;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8793,13 +11460,20 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_textOutW_napi(const Nap
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TextOutW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, x, y, lpstring, c) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, x, y, lpstring, c);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)x;
     (void)y;
     (void)lpstring;
     (void)c;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8825,7 +11499,13 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_transparentBlt_napi(con
         HMODULE km_h_mod = LoadLibraryA("msimg32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TransparentBlt")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdcdest, xorigindest, yorigindest, wdest, hdest, hdcsrc, xoriginsrc, yoriginsrc, wsrc, hsrc, crtransparent) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdcdest, xorigindest, yorigindest, wdest, hdest, hdcsrc, xoriginsrc, yoriginsrc, wsrc, hsrc, crtransparent);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdcdest;
     (void)xorigindest;
@@ -8838,6 +11518,7 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_transparentBlt_napi(con
     (void)wsrc;
     (void)hsrc;
     (void)crtransparent;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8855,11 +11536,18 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_unionRect_napi(const Na
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UnionRect")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lprcdst, lprcsrc1, lprcsrc2) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lprcdst, lprcsrc1, lprcsrc2);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lprcdst;
     (void)lprcsrc1;
     (void)lprcsrc2;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8875,9 +11563,16 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_unrealizeObject_napi(co
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UnrealizeObject")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(h) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(h);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)h;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8893,9 +11588,16 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_updateColors_napi(const
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UpdateColors")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8911,9 +11613,16 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_updateWindow_napi(const
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UpdateWindow")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8930,10 +11639,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_validateRect_napi(const
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ValidateRect")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, lprect) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, lprect);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)lprect;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8950,10 +11666,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_validateRgn_napi(const 
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ValidateRgn")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, hrgn) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, hrgn);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)hrgn;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8969,9 +11692,16 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_widenPath_napi(const Na
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WidenPath")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8987,10 +11717,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_windowFromDC_napi(const
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WindowFromDC")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hdc;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -9006,10 +11743,17 @@ static Napi::Value windowssys_windows_win32_graphics_gdi_wglSwapMultipleBuffers_
         HMODULE km_h_mod = LoadLibraryA("opengl32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "wglSwapMultipleBuffers")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)param0;
     (void)param1;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

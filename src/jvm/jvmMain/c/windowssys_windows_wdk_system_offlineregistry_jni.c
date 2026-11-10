@@ -5,6 +5,7 @@
 #include <stdbool.h>
 #include <stddef.h>
 #include <stdint.h>
+#include <stdlib.h>
 #include <errno.h>
 #ifdef _WIN32
 #ifndef WIN32_LEAN_AND_MEAN
@@ -28,9 +29,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
         HMODULE km_h_mod = LoadLibraryA("offreg.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ORCloseHive");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)handle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)handle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)handle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -46,9 +54,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
         HMODULE km_h_mod = LoadLibraryA("offreg.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ORCloseKey");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)keyhandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)keyhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)keyhandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -64,9 +79,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
         HMODULE km_h_mod = LoadLibraryA("offreg.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ORCreateHive");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)horkey) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)horkey);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)horkey;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -82,7 +104,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
         HMODULE km_h_mod = LoadLibraryA("offreg.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ORCreateKey");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)keyhandle, (void*)(uintptr_t)lpsubkey, (void*)(uintptr_t)lpclass, (uint32_t)dwoptions, (void*)(uintptr_t)psecuritydescriptor, (void*)(uintptr_t)phkresult, (void*)(uintptr_t)pdwdisposition) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)keyhandle, (void*)(uintptr_t)lpsubkey, (void*)(uintptr_t)lpclass, (uint32_t)dwoptions, (void*)(uintptr_t)psecuritydescriptor, (void*)(uintptr_t)phkresult, (void*)(uintptr_t)pdwdisposition);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)keyhandle;
     (void)lpsubkey;
@@ -91,6 +119,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     (void)psecuritydescriptor;
     (void)phkresult;
     (void)pdwdisposition;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -106,10 +135,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
         HMODULE km_h_mod = LoadLibraryA("offreg.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ORDeleteKey");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)handle, (void*)(uintptr_t)lpsubkey) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)handle, (void*)(uintptr_t)lpsubkey);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)handle;
     (void)lpsubkey;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -125,10 +161,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
         HMODULE km_h_mod = LoadLibraryA("offreg.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ORDeleteValue");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)handle, (void*)(uintptr_t)lpvaluename) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)handle, (void*)(uintptr_t)lpvaluename);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)handle;
     (void)lpvaluename;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -144,7 +187,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
         HMODULE km_h_mod = LoadLibraryA("offreg.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OREnumKey");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)handle, (uint32_t)dwindex, (void*)(uintptr_t)lpname, (void*)(uintptr_t)lpcname, (void*)(uintptr_t)lpclass, (void*)(uintptr_t)lpcclass, (void*)(uintptr_t)lpftlastwritetime) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)handle, (uint32_t)dwindex, (void*)(uintptr_t)lpname, (void*)(uintptr_t)lpcname, (void*)(uintptr_t)lpclass, (void*)(uintptr_t)lpcclass, (void*)(uintptr_t)lpftlastwritetime);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)handle;
     (void)dwindex;
@@ -153,6 +202,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     (void)lpclass;
     (void)lpcclass;
     (void)lpftlastwritetime;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -168,7 +218,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
         HMODULE km_h_mod = LoadLibraryA("offreg.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OREnumValue");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)handle, (uint32_t)dwindex, (void*)(uintptr_t)lpvaluename, (void*)(uintptr_t)lpcvaluename, (void*)(uintptr_t)lptype, (void*)(uintptr_t)lpdata, (void*)(uintptr_t)lpcbdata) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)handle, (uint32_t)dwindex, (void*)(uintptr_t)lpvaluename, (void*)(uintptr_t)lpcvaluename, (void*)(uintptr_t)lptype, (void*)(uintptr_t)lpdata, (void*)(uintptr_t)lpcbdata);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)handle;
     (void)dwindex;
@@ -177,6 +233,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     (void)lptype;
     (void)lpdata;
     (void)lpcbdata;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -192,12 +249,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
         HMODULE km_h_mod = LoadLibraryA("offreg.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ORGetKeySecurity");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)handle, (uint32_t)securityinformation, (void*)(uintptr_t)psecuritydescriptor, (void*)(uintptr_t)lpcbsecuritydescriptor) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)handle, (uint32_t)securityinformation, (void*)(uintptr_t)psecuritydescriptor, (void*)(uintptr_t)lpcbsecuritydescriptor);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)handle;
     (void)securityinformation;
     (void)psecuritydescriptor;
     (void)lpcbsecuritydescriptor;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -213,7 +277,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
         HMODULE km_h_mod = LoadLibraryA("offreg.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ORGetValue");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)handle, (void*)(uintptr_t)lpsubkey, (void*)(uintptr_t)lpvalue, (void*)(uintptr_t)pdwtype, (void*)(uintptr_t)pvdata, (void*)(uintptr_t)pcbdata) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)handle, (void*)(uintptr_t)lpsubkey, (void*)(uintptr_t)lpvalue, (void*)(uintptr_t)pdwtype, (void*)(uintptr_t)pvdata, (void*)(uintptr_t)pcbdata);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)handle;
     (void)lpsubkey;
@@ -221,6 +291,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     (void)pdwtype;
     (void)pvdata;
     (void)pcbdata;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -236,10 +307,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
         HMODULE km_h_mod = LoadLibraryA("offreg.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ORGetVersion");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pdwmajorversion, (void*)(uintptr_t)pdwminorversion) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pdwmajorversion, (void*)(uintptr_t)pdwminorversion);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pdwmajorversion;
     (void)pdwminorversion;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -255,10 +333,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
         HMODULE km_h_mod = LoadLibraryA("offreg.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ORGetVirtualFlags");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)handle, (void*)(uintptr_t)pdwflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)handle, (void*)(uintptr_t)pdwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)handle;
     (void)pdwflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -274,11 +359,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
         HMODULE km_h_mod = LoadLibraryA("offreg.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ORMergeHives");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hivehandles, (uint32_t)hivecount, (void*)(uintptr_t)phkresult) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hivehandles, (uint32_t)hivecount, (void*)(uintptr_t)phkresult);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hivehandles;
     (void)hivecount;
     (void)phkresult;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -294,10 +386,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
         HMODULE km_h_mod = LoadLibraryA("offreg.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OROpenHive");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)filepath, (void*)(uintptr_t)horkey) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)filepath, (void*)(uintptr_t)horkey);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)filepath;
     (void)horkey;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -313,10 +412,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
         HMODULE km_h_mod = LoadLibraryA("offreg.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OROpenHiveByHandle");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)filehandle, (void*)(uintptr_t)horkey) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)filehandle, (void*)(uintptr_t)horkey);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)filehandle;
     (void)horkey;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -332,11 +438,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
         HMODULE km_h_mod = LoadLibraryA("offreg.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OROpenKey");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)handle, (void*)(uintptr_t)lpsubkey, (void*)(uintptr_t)phkresult) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)handle, (void*)(uintptr_t)lpsubkey, (void*)(uintptr_t)phkresult);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)handle;
     (void)lpsubkey;
     (void)phkresult;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -352,7 +465,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
         HMODULE km_h_mod = LoadLibraryA("offreg.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ORQueryInfoKey");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)handle, (void*)(uintptr_t)lpclass, (void*)(uintptr_t)lpcclass, (void*)(uintptr_t)lpcsubkeys, (void*)(uintptr_t)lpcmaxsubkeylen, (void*)(uintptr_t)lpcmaxclasslen, (void*)(uintptr_t)lpcvalues, (void*)(uintptr_t)lpcmaxvaluenamelen, (void*)(uintptr_t)lpcmaxvaluelen, (void*)(uintptr_t)lpcbsecuritydescriptor, (void*)(uintptr_t)lpftlastwritetime) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)handle, (void*)(uintptr_t)lpclass, (void*)(uintptr_t)lpcclass, (void*)(uintptr_t)lpcsubkeys, (void*)(uintptr_t)lpcmaxsubkeylen, (void*)(uintptr_t)lpcmaxclasslen, (void*)(uintptr_t)lpcvalues, (void*)(uintptr_t)lpcmaxvaluenamelen, (void*)(uintptr_t)lpcmaxvaluelen, (void*)(uintptr_t)lpcbsecuritydescriptor, (void*)(uintptr_t)lpftlastwritetime);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)handle;
     (void)lpclass;
@@ -365,6 +484,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
     (void)lpcmaxvaluelen;
     (void)lpcbsecuritydescriptor;
     (void)lpftlastwritetime;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -380,10 +500,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
         HMODULE km_h_mod = LoadLibraryA("offreg.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ORRenameKey");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)handle, (void*)(uintptr_t)lpnewname) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)handle, (void*)(uintptr_t)lpnewname);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)handle;
     (void)lpnewname;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -399,12 +526,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
         HMODULE km_h_mod = LoadLibraryA("offreg.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ORSaveHive");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)horkey, (void*)(uintptr_t)hivepath, (uint32_t)osmajorversion, (uint32_t)osminorversion) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)horkey, (void*)(uintptr_t)hivepath, (uint32_t)osmajorversion, (uint32_t)osminorversion);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)horkey;
     (void)hivepath;
     (void)osmajorversion;
     (void)osminorversion;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -420,11 +554,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
         HMODULE km_h_mod = LoadLibraryA("offreg.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ORSetKeySecurity");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)handle, (uint32_t)securityinformation, (void*)(uintptr_t)psecuritydescriptor) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)handle, (uint32_t)securityinformation, (void*)(uintptr_t)psecuritydescriptor);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)handle;
     (void)securityinformation;
     (void)psecuritydescriptor;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -440,13 +581,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
         HMODULE km_h_mod = LoadLibraryA("offreg.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ORSetValue");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)handle, (void*)(uintptr_t)lpvaluename, (uint32_t)dwtype, (void*)(uintptr_t)lpdata, (uint32_t)cbdata) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)handle, (void*)(uintptr_t)lpvaluename, (uint32_t)dwtype, (void*)(uintptr_t)lpdata, (uint32_t)cbdata);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)handle;
     (void)lpvaluename;
     (void)dwtype;
     (void)lpdata;
     (void)cbdata;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -462,10 +610,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
         HMODULE km_h_mod = LoadLibraryA("offreg.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ORSetVirtualFlags");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)handle, (uint32_t)dwflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)handle, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)handle;
     (void)dwflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -481,8 +636,15 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
         HMODULE km_h_mod = LoadLibraryA("offreg.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ORShutdown");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr() : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -498,8 +660,15 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_system_
         HMODULE km_h_mod = LoadLibraryA("offreg.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ORStart");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr() : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;

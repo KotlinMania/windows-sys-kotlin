@@ -62,10 +62,17 @@ static Napi::Value windowssys_windows_win32_devices_serialcommunication_comDBCla
         HMODULE km_h_mod = LoadLibraryA("msports.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ComDBClaimNextFreePort")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcomdb, comnumber) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcomdb, comnumber);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcomdb;
     (void)comnumber;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -84,12 +91,19 @@ static Napi::Value windowssys_windows_win32_devices_serialcommunication_comDBCla
         HMODULE km_h_mod = LoadLibraryA("msports.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ComDBClaimPort")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcomdb, comnumber, forceclaim, forced) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcomdb, comnumber, forceclaim, forced);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcomdb;
     (void)comnumber;
     (void)forceclaim;
     (void)forced;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -105,9 +119,16 @@ static Napi::Value windowssys_windows_win32_devices_serialcommunication_comDBClo
         HMODULE km_h_mod = LoadLibraryA("msports.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ComDBClose")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcomdb) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcomdb);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcomdb;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -127,13 +148,20 @@ static Napi::Value windowssys_windows_win32_devices_serialcommunication_comDBGet
         HMODULE km_h_mod = LoadLibraryA("msports.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ComDBGetCurrentPortUsage")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcomdb, buffer, buffersize, reporttype, maxportsreported) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcomdb, buffer, buffersize, reporttype, maxportsreported);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcomdb;
     (void)buffer;
     (void)buffersize;
     (void)reporttype;
     (void)maxportsreported;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -149,9 +177,16 @@ static Napi::Value windowssys_windows_win32_devices_serialcommunication_comDBOpe
         HMODULE km_h_mod = LoadLibraryA("msports.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ComDBOpen")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(phcomdb) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(phcomdb);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)phcomdb;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -168,10 +203,17 @@ static Napi::Value windowssys_windows_win32_devices_serialcommunication_comDBRel
         HMODULE km_h_mod = LoadLibraryA("msports.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ComDBReleasePort")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcomdb, comnumber) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcomdb, comnumber);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcomdb;
     (void)comnumber;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -188,10 +230,17 @@ static Napi::Value windowssys_windows_win32_devices_serialcommunication_comDBRes
         HMODULE km_h_mod = LoadLibraryA("msports.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ComDBResizeDatabase")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcomdb, newsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcomdb, newsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcomdb;
     (void)newsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

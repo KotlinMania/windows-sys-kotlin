@@ -5,6 +5,7 @@
 #include <stdbool.h>
 #include <stddef.h>
 #include <stdint.h>
+#include <stdlib.h>
 #include <errno.h>
 #ifdef _WIN32
 #ifndef WIN32_LEAN_AND_MEAN
@@ -28,13 +29,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("netsh.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "MatchEnumTag");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hmodule, (void*)(uintptr_t)pwcarg, (uint32_t)dwnumarg, (void*)(uintptr_t)penumtable, (void*)(uintptr_t)pdwvalue) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hmodule, (void*)(uintptr_t)pwcarg, (uint32_t)dwnumarg, (void*)(uintptr_t)penumtable, (void*)(uintptr_t)pdwvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmodule;
     (void)pwcarg;
     (void)dwnumarg;
     (void)penumtable;
     (void)pdwvalue;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -50,10 +58,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("netsh.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "MatchToken");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pwszusertoken, (void*)(uintptr_t)pwszcmdtoken) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pwszusertoken, (void*)(uintptr_t)pwszcmdtoken);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pwszusertoken;
     (void)pwszcmdtoken;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -69,7 +84,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("netsh.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PreprocessCommand");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hmodule, (void*)(uintptr_t)ppwcarguments, (uint32_t)dwcurrentindex, (uint32_t)dwargcount, (void*)(uintptr_t)ptttags, (uint32_t)dwtagcount, (uint32_t)dwminargs, (uint32_t)dwmaxargs, (void*)(uintptr_t)pdwtagtype) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hmodule, (void*)(uintptr_t)ppwcarguments, (uint32_t)dwcurrentindex, (uint32_t)dwargcount, (void*)(uintptr_t)ptttags, (uint32_t)dwtagcount, (uint32_t)dwminargs, (uint32_t)dwmaxargs, (void*)(uintptr_t)pdwtagtype);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmodule;
     (void)ppwcarguments;
@@ -80,6 +101,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)dwminargs;
     (void)dwmaxargs;
     (void)pdwtagtype;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -104,11 +126,14 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
             case 3: km_res = km_fn_ptr((void*)(uintptr_t)hmodule, (uint32_t)dwerrid, (intptr_t)km_va0, (intptr_t)km_va1, (intptr_t)km_va2); break;
             default: km_res = km_fn_ptr((void*)(uintptr_t)hmodule, (uint32_t)dwerrid, (intptr_t)km_va0, (intptr_t)km_va1, (intptr_t)km_va2, (intptr_t)km_va3); break;
         }
+    } else {
+        errno = ENOSYS;
     }
 #else
     (void)hmodule;
     (void)dwerrid;
     (void)km_vac; (void)km_va0; (void)km_va1; (void)km_va2; (void)km_va3;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -133,10 +158,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
             case 3: km_res = km_fn_ptr((void*)(uintptr_t)pwszformat, (intptr_t)km_va0, (intptr_t)km_va1, (intptr_t)km_va2); break;
             default: km_res = km_fn_ptr((void*)(uintptr_t)pwszformat, (intptr_t)km_va0, (intptr_t)km_va1, (intptr_t)km_va2, (intptr_t)km_va3); break;
         }
+    } else {
+        errno = ENOSYS;
     }
 #else
     (void)pwszformat;
     (void)km_vac; (void)km_va0; (void)km_va1; (void)km_va2; (void)km_va3;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -161,11 +189,14 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
             case 3: km_res = km_fn_ptr((void*)(uintptr_t)hmodule, (uint32_t)dwmsgid, (intptr_t)km_va0, (intptr_t)km_va1, (intptr_t)km_va2); break;
             default: km_res = km_fn_ptr((void*)(uintptr_t)hmodule, (uint32_t)dwmsgid, (intptr_t)km_va0, (intptr_t)km_va1, (intptr_t)km_va2, (intptr_t)km_va3); break;
         }
+    } else {
+        errno = ENOSYS;
     }
 #else
     (void)hmodule;
     (void)dwmsgid;
     (void)km_vac; (void)km_va0; (void)km_va1; (void)km_va2; (void)km_va3;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -181,9 +212,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("netsh.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "RegisterContext");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pchildcontext) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pchildcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pchildcontext;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -199,10 +237,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("netsh.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "RegisterHelper");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pguidparentcontext, (void*)(uintptr_t)pfnregistersubcontext) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pguidparentcontext, (void*)(uintptr_t)pfnregistersubcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pguidparentcontext;
     (void)pfnregistersubcontext;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;

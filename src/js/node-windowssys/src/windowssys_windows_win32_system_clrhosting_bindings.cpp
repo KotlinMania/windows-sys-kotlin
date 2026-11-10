@@ -63,11 +63,18 @@ static Napi::Value windowssys_windows_win32_system_clrhosting_cLRCreateInstance_
         HMODULE km_h_mod = LoadLibraryA("mscoree.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CLRCreateInstance")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(clsid, riid, ppinterface) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(clsid, riid, ppinterface);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)clsid;
     (void)riid;
     (void)ppinterface;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -88,7 +95,13 @@ static Napi::Value windowssys_windows_win32_system_clrhosting_callFunctionShim_n
         HMODULE km_h_mod = LoadLibraryA("mscoree.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CallFunctionShim")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szdllname, szfunctionname, lpvargument1, lpvargument2, szversion, pvreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szdllname, szfunctionname, lpvargument1, lpvargument2, szversion, pvreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)szdllname;
     (void)szfunctionname;
@@ -96,6 +109,7 @@ static Napi::Value windowssys_windows_win32_system_clrhosting_callFunctionShim_n
     (void)lpvargument2;
     (void)szversion;
     (void)pvreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -113,11 +127,18 @@ static Napi::Value windowssys_windows_win32_system_clrhosting_clrCreateManagedIn
         HMODULE km_h_mod = LoadLibraryA("mscoree.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClrCreateManagedInstance")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ptypename, riid, ppobject) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ptypename, riid, ppobject);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ptypename;
     (void)riid;
     (void)ppobject;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -136,12 +157,19 @@ static Napi::Value windowssys_windows_win32_system_clrhosting_corBindToCurrentRu
         HMODULE km_h_mod = LoadLibraryA("mscoree.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CorBindToCurrentRuntime")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pwszfilename, rclsid, riid, ppv) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pwszfilename, rclsid, riid, ppv);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pwszfilename;
     (void)rclsid;
     (void)riid;
     (void)ppv;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -161,13 +189,20 @@ static Napi::Value windowssys_windows_win32_system_clrhosting_corBindToRuntime_n
         HMODULE km_h_mod = LoadLibraryA("mscoree.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CorBindToRuntime")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pwszversion, pwszbuildflavor, rclsid, riid, ppv) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pwszversion, pwszbuildflavor, rclsid, riid, ppv);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pwszversion;
     (void)pwszbuildflavor;
     (void)rclsid;
     (void)riid;
     (void)ppv;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -188,7 +223,13 @@ static Napi::Value windowssys_windows_win32_system_clrhosting_corBindToRuntimeBy
         HMODULE km_h_mod = LoadLibraryA("mscoree.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CorBindToRuntimeByCfg")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pcfgstream, reserved, startupflags, rclsid, riid, ppv) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pcfgstream, reserved, startupflags, rclsid, riid, ppv);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pcfgstream;
     (void)reserved;
@@ -196,6 +237,7 @@ static Napi::Value windowssys_windows_win32_system_clrhosting_corBindToRuntimeBy
     (void)rclsid;
     (void)riid;
     (void)ppv;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -216,7 +258,13 @@ static Napi::Value windowssys_windows_win32_system_clrhosting_corBindToRuntimeEx
         HMODULE km_h_mod = LoadLibraryA("mscoree.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CorBindToRuntimeEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pwszversion, pwszbuildflavor, startupflags, rclsid, riid, ppv) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pwszversion, pwszbuildflavor, startupflags, rclsid, riid, ppv);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pwszversion;
     (void)pwszbuildflavor;
@@ -224,6 +272,7 @@ static Napi::Value windowssys_windows_win32_system_clrhosting_corBindToRuntimeEx
     (void)rclsid;
     (void)riid;
     (void)ppv;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -246,7 +295,13 @@ static Napi::Value windowssys_windows_win32_system_clrhosting_corBindToRuntimeHo
         HMODULE km_h_mod = LoadLibraryA("mscoree.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CorBindToRuntimeHost")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pwszversion, pwszbuildflavor, pwszhostconfigfile, preserved, startupflags, rclsid, riid, ppv) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pwszversion, pwszbuildflavor, pwszhostconfigfile, preserved, startupflags, rclsid, riid, ppv);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pwszversion;
     (void)pwszbuildflavor;
@@ -256,6 +311,7 @@ static Napi::Value windowssys_windows_win32_system_clrhosting_corBindToRuntimeHo
     (void)rclsid;
     (void)riid;
     (void)ppv;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -271,9 +327,14 @@ static Napi::Value windowssys_windows_win32_system_clrhosting_corExitProcess_nap
         HMODULE km_h_mod = LoadLibraryA("mscoree.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CorExitProcess")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(exitcode);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(exitcode);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)exitcode;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -294,7 +355,13 @@ static Napi::Value windowssys_windows_win32_system_clrhosting_corLaunchApplicati
         HMODULE km_h_mod = LoadLibraryA("mscoree.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CorLaunchApplication")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwclickoncehost, pwzappfullname, dwmanifestpaths, ppwzmanifestpaths, dwactivationdata, ppwzactivationdata, lpprocessinformation) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwclickoncehost, pwzappfullname, dwmanifestpaths, ppwzmanifestpaths, dwactivationdata, ppwzactivationdata, lpprocessinformation);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwclickoncehost;
     (void)pwzappfullname;
@@ -303,6 +370,7 @@ static Napi::Value windowssys_windows_win32_system_clrhosting_corLaunchApplicati
     (void)dwactivationdata;
     (void)ppwzactivationdata;
     (void)lpprocessinformation;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -317,8 +385,13 @@ static Napi::Value windowssys_windows_win32_system_clrhosting_corMarkThreadInThr
         HMODULE km_h_mod = LoadLibraryA("mscoree.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CorMarkThreadInThreadPool")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr();
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+    }
 #else
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -335,11 +408,18 @@ static Napi::Value windowssys_windows_win32_system_clrhosting_createDebuggingInt
         HMODULE km_h_mod = LoadLibraryA("mscoree.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateDebuggingInterfaceFromVersion")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(idebuggerversion, szdebuggeeversion, ppcordb) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(idebuggerversion, szdebuggeeversion, ppcordb);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)idebuggerversion;
     (void)szdebuggeeversion;
     (void)ppcordb;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -356,10 +436,17 @@ static Napi::Value windowssys_windows_win32_system_clrhosting_getCLRIdentityMana
         HMODULE km_h_mod = LoadLibraryA("mscoree.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetCLRIdentityManager")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(riid, ppmanager) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(riid, ppmanager);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)riid;
     (void)ppmanager;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -377,11 +464,18 @@ static Napi::Value windowssys_windows_win32_system_clrhosting_getCORRequiredVers
         HMODULE km_h_mod = LoadLibraryA("mscoree.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetCORRequiredVersion")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pbuffer, cchbuffer, dwlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pbuffer, cchbuffer, dwlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pbuffer;
     (void)cchbuffer;
     (void)dwlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -399,11 +493,18 @@ static Napi::Value windowssys_windows_win32_system_clrhosting_getCORSystemDirect
         HMODULE km_h_mod = LoadLibraryA("mscoree.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetCORSystemDirectory")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pbuffer, cchbuffer, dwlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pbuffer, cchbuffer, dwlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pbuffer;
     (void)cchbuffer;
     (void)dwlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -421,11 +522,18 @@ static Napi::Value windowssys_windows_win32_system_clrhosting_getCORVersion_napi
         HMODULE km_h_mod = LoadLibraryA("mscoree.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetCORVersion")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pbbuffer, cchbuffer, dwlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pbbuffer, cchbuffer, dwlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pbbuffer;
     (void)cchbuffer;
     (void)dwlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -444,12 +552,19 @@ static Napi::Value windowssys_windows_win32_system_clrhosting_getFileVersion_nap
         HMODULE km_h_mod = LoadLibraryA("mscoree.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetFileVersion")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szfilename, szbuffer, cchbuffer, dwlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szfilename, szbuffer, cchbuffer, dwlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)szfilename;
     (void)szbuffer;
     (void)cchbuffer;
     (void)dwlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -466,10 +581,17 @@ static Napi::Value windowssys_windows_win32_system_clrhosting_getRealProcAddress
         HMODULE km_h_mod = LoadLibraryA("mscoree.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetRealProcAddress")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pwszprocname, ppv) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pwszprocname, ppv);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pwszprocname;
     (void)ppv;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -495,7 +617,13 @@ static Napi::Value windowssys_windows_win32_system_clrhosting_getRequestedRuntim
         HMODULE km_h_mod = LoadLibraryA("mscoree.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetRequestedRuntimeInfo")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pexe, pwszversion, pconfigurationfile, startupflags, runtimeinfoflags, pdirectory, dwdirectory, dwdirectorylength, pversion, cchbuffer, dwlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pexe, pwszversion, pconfigurationfile, startupflags, runtimeinfoflags, pdirectory, dwdirectory, dwdirectorylength, pversion, cchbuffer, dwlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pexe;
     (void)pwszversion;
@@ -508,6 +636,7 @@ static Napi::Value windowssys_windows_win32_system_clrhosting_getRequestedRuntim
     (void)pversion;
     (void)cchbuffer;
     (void)dwlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -526,12 +655,19 @@ static Napi::Value windowssys_windows_win32_system_clrhosting_getRequestedRuntim
         HMODULE km_h_mod = LoadLibraryA("mscoree.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetRequestedRuntimeVersion")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pexe, pversion, cchbuffer, dwlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pexe, pversion, cchbuffer, dwlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pexe;
     (void)pversion;
     (void)cchbuffer;
     (void)dwlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -551,13 +687,20 @@ static Napi::Value windowssys_windows_win32_system_clrhosting_getRequestedRuntim
         HMODULE km_h_mod = LoadLibraryA("mscoree.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetRequestedRuntimeVersionForCLSID")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rclsid, pversion, cchbuffer, dwlength, dwresolutionflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rclsid, pversion, cchbuffer, dwlength, dwresolutionflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)rclsid;
     (void)pversion;
     (void)cchbuffer;
     (void)dwlength;
     (void)dwresolutionflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -576,12 +719,19 @@ static Napi::Value windowssys_windows_win32_system_clrhosting_getVersionFromProc
         HMODULE km_h_mod = LoadLibraryA("mscoree.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetVersionFromProcess")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, pversion, cchbuffer, dwlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, pversion, cchbuffer, dwlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)pversion;
     (void)cchbuffer;
     (void)dwlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -600,12 +750,19 @@ static Napi::Value windowssys_windows_win32_system_clrhosting_loadLibraryShim_na
         HMODULE km_h_mod = LoadLibraryA("mscoree.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LoadLibraryShim")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szdllname, szversion, pvreserved, phmoddll) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szdllname, szversion, pvreserved, phmoddll);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)szdllname;
     (void)szversion;
     (void)pvreserved;
     (void)phmoddll;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -624,12 +781,19 @@ static Napi::Value windowssys_windows_win32_system_clrhosting_loadStringRC_napi(
         HMODULE km_h_mod = LoadLibraryA("mscoree.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LoadStringRC")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(iresouceid, szbuffer, imax, bquiet) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(iresouceid, szbuffer, imax, bquiet);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)iresouceid;
     (void)szbuffer;
     (void)imax;
     (void)bquiet;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -650,7 +814,13 @@ static Napi::Value windowssys_windows_win32_system_clrhosting_loadStringRCEx_nap
         HMODULE km_h_mod = LoadLibraryA("mscoree.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LoadStringRCEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lcid, iresouceid, szbuffer, imax, bquiet, pcwchused) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lcid, iresouceid, szbuffer, imax, bquiet, pcwchused);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lcid;
     (void)iresouceid;
@@ -658,6 +828,7 @@ static Napi::Value windowssys_windows_win32_system_clrhosting_loadStringRCEx_nap
     (void)imax;
     (void)bquiet;
     (void)pcwchused;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -675,11 +846,18 @@ static Napi::Value windowssys_windows_win32_system_clrhosting_lockClrVersion_nap
         HMODULE km_h_mod = LoadLibraryA("mscoree.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LockClrVersion")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hostcallback, pbeginhostsetup, pendhostsetup) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hostcallback, pbeginhostsetup, pendhostsetup);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hostcallback;
     (void)pbeginhostsetup;
     (void)pendhostsetup;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -698,12 +876,19 @@ static Napi::Value windowssys_windows_win32_system_clrhosting_runDll32ShimW_napi
         HMODULE km_h_mod = LoadLibraryA("mscoree.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RunDll32ShimW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, hinst, lpszcmdline, ncmdshow) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, hinst, lpszcmdline, ncmdshow);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)hinst;
     (void)lpszcmdline;
     (void)ncmdshow;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

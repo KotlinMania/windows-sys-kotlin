@@ -63,11 +63,18 @@ static Napi::Value windowssys_windows_win32_system_io_bindIoCompletionCallback_n
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "BindIoCompletionCallback")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(filehandle, function, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(filehandle, function, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)filehandle;
     (void)function;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -83,9 +90,16 @@ static Napi::Value windowssys_windows_win32_system_io_cancelIo_napi(const Napi::
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CancelIo")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hfile) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hfile);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hfile;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -102,10 +116,17 @@ static Napi::Value windowssys_windows_win32_system_io_cancelIoEx_napi(const Napi
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CancelIoEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hfile, lpoverlapped) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hfile, lpoverlapped);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hfile;
     (void)lpoverlapped;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -121,9 +142,16 @@ static Napi::Value windowssys_windows_win32_system_io_cancelSynchronousIo_napi(c
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CancelSynchronousIo")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hthread) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hthread);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hthread;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -142,13 +170,20 @@ static Napi::Value windowssys_windows_win32_system_io_createIoCompletionPort_nap
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateIoCompletionPort")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(filehandle, existingcompletionport, completionkey, numberofconcurrentthreads) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(filehandle, existingcompletionport, completionkey, numberofconcurrentthreads);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)filehandle;
     (void)existingcompletionport;
     (void)completionkey;
     (void)numberofconcurrentthreads;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -170,7 +205,13 @@ static Napi::Value windowssys_windows_win32_system_io_deviceIoControl_napi(const
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DeviceIoControl")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdevice, dwiocontrolcode, lpinbuffer, ninbuffersize, lpoutbuffer, noutbuffersize, lpbytesreturned, lpoverlapped) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdevice, dwiocontrolcode, lpinbuffer, ninbuffersize, lpoutbuffer, noutbuffersize, lpbytesreturned, lpoverlapped);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdevice;
     (void)dwiocontrolcode;
@@ -180,6 +221,7 @@ static Napi::Value windowssys_windows_win32_system_io_deviceIoControl_napi(const
     (void)noutbuffersize;
     (void)lpbytesreturned;
     (void)lpoverlapped;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -198,12 +240,19 @@ static Napi::Value windowssys_windows_win32_system_io_getOverlappedResult_napi(c
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetOverlappedResult")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hfile, lpoverlapped, lpnumberofbytestransferred, bwait) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hfile, lpoverlapped, lpnumberofbytestransferred, bwait);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hfile;
     (void)lpoverlapped;
     (void)lpnumberofbytestransferred;
     (void)bwait;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -223,13 +272,20 @@ static Napi::Value windowssys_windows_win32_system_io_getOverlappedResultEx_napi
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetOverlappedResultEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hfile, lpoverlapped, lpnumberofbytestransferred, dwmilliseconds, balertable) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hfile, lpoverlapped, lpnumberofbytestransferred, dwmilliseconds, balertable);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hfile;
     (void)lpoverlapped;
     (void)lpnumberofbytestransferred;
     (void)dwmilliseconds;
     (void)balertable;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -249,13 +305,20 @@ static Napi::Value windowssys_windows_win32_system_io_getQueuedCompletionStatus_
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetQueuedCompletionStatus")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(completionport, lpnumberofbytestransferred, lpcompletionkey, lpoverlapped, dwmilliseconds) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(completionport, lpnumberofbytestransferred, lpcompletionkey, lpoverlapped, dwmilliseconds);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)completionport;
     (void)lpnumberofbytestransferred;
     (void)lpcompletionkey;
     (void)lpoverlapped;
     (void)dwmilliseconds;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -276,7 +339,13 @@ static Napi::Value windowssys_windows_win32_system_io_getQueuedCompletionStatusE
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetQueuedCompletionStatusEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(completionport, lpcompletionportentries, ulcount, ulnumentriesremoved, dwmilliseconds, falertable) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(completionport, lpcompletionportentries, ulcount, ulnumentriesremoved, dwmilliseconds, falertable);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)completionport;
     (void)lpcompletionportentries;
@@ -284,6 +353,7 @@ static Napi::Value windowssys_windows_win32_system_io_getQueuedCompletionStatusE
     (void)ulnumentriesremoved;
     (void)dwmilliseconds;
     (void)falertable;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -302,12 +372,19 @@ static Napi::Value windowssys_windows_win32_system_io_postQueuedCompletionStatus
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PostQueuedCompletionStatus")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(completionport, dwnumberofbytestransferred, dwcompletionkey, lpoverlapped) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(completionport, dwnumberofbytestransferred, dwcompletionkey, lpoverlapped);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)completionport;
     (void)dwnumberofbytestransferred;
     (void)dwcompletionkey;
     (void)lpoverlapped;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

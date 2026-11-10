@@ -5,6 +5,7 @@
 #include <stdbool.h>
 #include <stddef.h>
 #include <stdint.h>
+#include <stdlib.h>
 #include <errno.h>
 #ifdef _WIN32
 #ifndef WIN32_LEAN_AND_MEAN
@@ -28,9 +29,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("computenetwork.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HcnCloseEndpoint");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)endpoint) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)endpoint);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)endpoint;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -46,9 +54,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("computenetwork.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HcnCloseGuestNetworkService");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)guestnetworkservice) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)guestnetworkservice);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)guestnetworkservice;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -64,9 +79,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("computenetwork.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HcnCloseLoadBalancer");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)loadbalancer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)loadbalancer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)loadbalancer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -82,9 +104,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("computenetwork.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HcnCloseNamespace");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)arg_0_namespace) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)arg_0_namespace);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)arg_0_namespace;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -100,9 +129,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("computenetwork.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HcnCloseNetwork");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)network) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)network);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)network;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -118,13 +154,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("computenetwork.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HcnCreateEndpoint");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)network, (void*)(uintptr_t)id, (void*)(uintptr_t)settings, (void*)(uintptr_t)endpoint, (void*)(uintptr_t)errorrecord) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)network, (void*)(uintptr_t)id, (void*)(uintptr_t)settings, (void*)(uintptr_t)endpoint, (void*)(uintptr_t)errorrecord);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)network;
     (void)id;
     (void)settings;
     (void)endpoint;
     (void)errorrecord;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -140,12 +183,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("computenetwork.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HcnCreateGuestNetworkService");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)id, (void*)(uintptr_t)settings, (void*)(uintptr_t)guestnetworkservice, (void*)(uintptr_t)errorrecord) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)id, (void*)(uintptr_t)settings, (void*)(uintptr_t)guestnetworkservice, (void*)(uintptr_t)errorrecord);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)id;
     (void)settings;
     (void)guestnetworkservice;
     (void)errorrecord;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -161,12 +211,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("computenetwork.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HcnCreateLoadBalancer");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)id, (void*)(uintptr_t)settings, (void*)(uintptr_t)loadbalancer, (void*)(uintptr_t)errorrecord) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)id, (void*)(uintptr_t)settings, (void*)(uintptr_t)loadbalancer, (void*)(uintptr_t)errorrecord);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)id;
     (void)settings;
     (void)loadbalancer;
     (void)errorrecord;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -182,12 +239,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("computenetwork.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HcnCreateNamespace");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)id, (void*)(uintptr_t)settings, (void*)(uintptr_t)arg_2_namespace, (void*)(uintptr_t)errorrecord) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)id, (void*)(uintptr_t)settings, (void*)(uintptr_t)arg_2_namespace, (void*)(uintptr_t)errorrecord);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)id;
     (void)settings;
     (void)arg_2_namespace;
     (void)errorrecord;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -203,12 +267,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("computenetwork.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HcnCreateNetwork");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)id, (void*)(uintptr_t)settings, (void*)(uintptr_t)network, (void*)(uintptr_t)errorrecord) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)id, (void*)(uintptr_t)settings, (void*)(uintptr_t)network, (void*)(uintptr_t)errorrecord);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)id;
     (void)settings;
     (void)network;
     (void)errorrecord;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -224,10 +295,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("computenetwork.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HcnDeleteEndpoint");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)id, (void*)(uintptr_t)errorrecord) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)id, (void*)(uintptr_t)errorrecord);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)id;
     (void)errorrecord;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -243,10 +321,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("computenetwork.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HcnDeleteGuestNetworkService");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)id, (void*)(uintptr_t)errorrecord) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)id, (void*)(uintptr_t)errorrecord);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)id;
     (void)errorrecord;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -262,10 +347,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("computenetwork.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HcnDeleteLoadBalancer");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)id, (void*)(uintptr_t)errorrecord) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)id, (void*)(uintptr_t)errorrecord);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)id;
     (void)errorrecord;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -281,10 +373,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("computenetwork.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HcnDeleteNamespace");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)id, (void*)(uintptr_t)errorrecord) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)id, (void*)(uintptr_t)errorrecord);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)id;
     (void)errorrecord;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -300,10 +399,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("computenetwork.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HcnDeleteNetwork");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)id, (void*)(uintptr_t)errorrecord) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)id, (void*)(uintptr_t)errorrecord);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)id;
     (void)errorrecord;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -319,11 +425,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("computenetwork.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HcnEnumerateEndpoints");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)query, (void*)(uintptr_t)endpoints, (void*)(uintptr_t)errorrecord) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)query, (void*)(uintptr_t)endpoints, (void*)(uintptr_t)errorrecord);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)query;
     (void)endpoints;
     (void)errorrecord;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -339,10 +452,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("computenetwork.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HcnEnumerateGuestNetworkPortReservations");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)returncount, (void*)(uintptr_t)portentries) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)returncount, (void*)(uintptr_t)portentries);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)returncount;
     (void)portentries;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -358,11 +478,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("computenetwork.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HcnEnumerateLoadBalancers");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)query, (void*)(uintptr_t)loadbalancer, (void*)(uintptr_t)errorrecord) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)query, (void*)(uintptr_t)loadbalancer, (void*)(uintptr_t)errorrecord);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)query;
     (void)loadbalancer;
     (void)errorrecord;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -378,11 +505,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("computenetwork.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HcnEnumerateNamespaces");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)query, (void*)(uintptr_t)namespaces, (void*)(uintptr_t)errorrecord) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)query, (void*)(uintptr_t)namespaces, (void*)(uintptr_t)errorrecord);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)query;
     (void)namespaces;
     (void)errorrecord;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -398,11 +532,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("computenetwork.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HcnEnumerateNetworks");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)query, (void*)(uintptr_t)networks, (void*)(uintptr_t)errorrecord) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)query, (void*)(uintptr_t)networks, (void*)(uintptr_t)errorrecord);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)query;
     (void)networks;
     (void)errorrecord;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -418,9 +559,14 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("computenetwork.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HcnFreeGuestNetworkPortReservations");
     }
-    if (km_fn_ptr != NULL) km_fn_ptr((void*)(uintptr_t)portentries);
+    if (km_fn_ptr != NULL) {
+        km_fn_ptr((void*)(uintptr_t)portentries);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)portentries;
+    errno = ENOSYS;
 #endif
 }
 
@@ -434,11 +580,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("computenetwork.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HcnModifyEndpoint");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)endpoint, (void*)(uintptr_t)settings, (void*)(uintptr_t)errorrecord) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)endpoint, (void*)(uintptr_t)settings, (void*)(uintptr_t)errorrecord);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)endpoint;
     (void)settings;
     (void)errorrecord;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -454,11 +607,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("computenetwork.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HcnModifyGuestNetworkService");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)guestnetworkservice, (void*)(uintptr_t)settings, (void*)(uintptr_t)errorrecord) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)guestnetworkservice, (void*)(uintptr_t)settings, (void*)(uintptr_t)errorrecord);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)guestnetworkservice;
     (void)settings;
     (void)errorrecord;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -474,11 +634,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("computenetwork.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HcnModifyLoadBalancer");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)loadbalancer, (void*)(uintptr_t)settings, (void*)(uintptr_t)errorrecord) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)loadbalancer, (void*)(uintptr_t)settings, (void*)(uintptr_t)errorrecord);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)loadbalancer;
     (void)settings;
     (void)errorrecord;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -494,11 +661,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("computenetwork.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HcnModifyNamespace");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)arg_0_namespace, (void*)(uintptr_t)settings, (void*)(uintptr_t)errorrecord) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)arg_0_namespace, (void*)(uintptr_t)settings, (void*)(uintptr_t)errorrecord);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)arg_0_namespace;
     (void)settings;
     (void)errorrecord;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -514,11 +688,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("computenetwork.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HcnModifyNetwork");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)network, (void*)(uintptr_t)settings, (void*)(uintptr_t)errorrecord) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)network, (void*)(uintptr_t)settings, (void*)(uintptr_t)errorrecord);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)network;
     (void)settings;
     (void)errorrecord;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -534,11 +715,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("computenetwork.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HcnOpenEndpoint");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)id, (void*)(uintptr_t)endpoint, (void*)(uintptr_t)errorrecord) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)id, (void*)(uintptr_t)endpoint, (void*)(uintptr_t)errorrecord);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)id;
     (void)endpoint;
     (void)errorrecord;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -554,11 +742,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("computenetwork.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HcnOpenLoadBalancer");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)id, (void*)(uintptr_t)loadbalancer, (void*)(uintptr_t)errorrecord) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)id, (void*)(uintptr_t)loadbalancer, (void*)(uintptr_t)errorrecord);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)id;
     (void)loadbalancer;
     (void)errorrecord;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -574,11 +769,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("computenetwork.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HcnOpenNamespace");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)id, (void*)(uintptr_t)arg_1_namespace, (void*)(uintptr_t)errorrecord) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)id, (void*)(uintptr_t)arg_1_namespace, (void*)(uintptr_t)errorrecord);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)id;
     (void)arg_1_namespace;
     (void)errorrecord;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -594,11 +796,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("computenetwork.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HcnOpenNetwork");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)id, (void*)(uintptr_t)network, (void*)(uintptr_t)errorrecord) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)id, (void*)(uintptr_t)network, (void*)(uintptr_t)errorrecord);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)id;
     (void)network;
     (void)errorrecord;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -614,12 +823,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("computenetwork.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HcnQueryEndpointAddresses");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)endpoint, (void*)(uintptr_t)query, (void*)(uintptr_t)addresses, (void*)(uintptr_t)errorrecord) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)endpoint, (void*)(uintptr_t)query, (void*)(uintptr_t)addresses, (void*)(uintptr_t)errorrecord);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)endpoint;
     (void)query;
     (void)addresses;
     (void)errorrecord;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -635,12 +851,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("computenetwork.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HcnQueryEndpointProperties");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)endpoint, (void*)(uintptr_t)query, (void*)(uintptr_t)properties, (void*)(uintptr_t)errorrecord) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)endpoint, (void*)(uintptr_t)query, (void*)(uintptr_t)properties, (void*)(uintptr_t)errorrecord);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)endpoint;
     (void)query;
     (void)properties;
     (void)errorrecord;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -656,12 +879,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("computenetwork.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HcnQueryEndpointStats");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)endpoint, (void*)(uintptr_t)query, (void*)(uintptr_t)stats, (void*)(uintptr_t)errorrecord) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)endpoint, (void*)(uintptr_t)query, (void*)(uintptr_t)stats, (void*)(uintptr_t)errorrecord);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)endpoint;
     (void)query;
     (void)stats;
     (void)errorrecord;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -677,12 +907,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("computenetwork.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HcnQueryLoadBalancerProperties");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)loadbalancer, (void*)(uintptr_t)query, (void*)(uintptr_t)properties, (void*)(uintptr_t)errorrecord) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)loadbalancer, (void*)(uintptr_t)query, (void*)(uintptr_t)properties, (void*)(uintptr_t)errorrecord);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)loadbalancer;
     (void)query;
     (void)properties;
     (void)errorrecord;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -698,12 +935,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("computenetwork.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HcnQueryNamespaceProperties");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)arg_0_namespace, (void*)(uintptr_t)query, (void*)(uintptr_t)properties, (void*)(uintptr_t)errorrecord) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)arg_0_namespace, (void*)(uintptr_t)query, (void*)(uintptr_t)properties, (void*)(uintptr_t)errorrecord);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)arg_0_namespace;
     (void)query;
     (void)properties;
     (void)errorrecord;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -719,12 +963,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("computenetwork.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HcnQueryNetworkProperties");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)network, (void*)(uintptr_t)query, (void*)(uintptr_t)properties, (void*)(uintptr_t)errorrecord) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)network, (void*)(uintptr_t)query, (void*)(uintptr_t)properties, (void*)(uintptr_t)errorrecord);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)network;
     (void)query;
     (void)properties;
     (void)errorrecord;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -740,12 +991,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("computenetwork.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HcnRegisterGuestNetworkServiceCallback");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)guestnetworkservice, (void*)(uintptr_t)callback, (void*)(uintptr_t)context, (void*)(uintptr_t)callbackhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)guestnetworkservice, (void*)(uintptr_t)callback, (void*)(uintptr_t)context, (void*)(uintptr_t)callbackhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)guestnetworkservice;
     (void)callback;
     (void)context;
     (void)callbackhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -761,11 +1019,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("computenetwork.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HcnRegisterServiceCallback");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)callback, (void*)(uintptr_t)context, (void*)(uintptr_t)callbackhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)callback, (void*)(uintptr_t)context, (void*)(uintptr_t)callbackhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)callback;
     (void)context;
     (void)callbackhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -781,9 +1046,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("computenetwork.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HcnReleaseGuestNetworkServicePortReservationHandle");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)portreservationhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)portreservationhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)portreservationhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -799,13 +1071,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("computenetwork.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HcnReserveGuestNetworkServicePort");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)guestnetworkservice, (int32_t)protocol, (int32_t)access, (uint16_t)port, (void*)(uintptr_t)portreservationhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)guestnetworkservice, (int32_t)protocol, (int32_t)access, (uint16_t)port, (void*)(uintptr_t)portreservationhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)guestnetworkservice;
     (void)protocol;
     (void)access;
     (void)port;
     (void)portreservationhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -821,12 +1100,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("computenetwork.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HcnReserveGuestNetworkServicePortRange");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)guestnetworkservice, (uint16_t)portcount, (void*)(uintptr_t)portrangereservation, (void*)(uintptr_t)portreservationhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)guestnetworkservice, (uint16_t)portcount, (void*)(uintptr_t)portrangereservation, (void*)(uintptr_t)portreservationhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)guestnetworkservice;
     (void)portcount;
     (void)portrangereservation;
     (void)portreservationhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -842,9 +1128,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("computenetwork.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HcnUnregisterGuestNetworkServiceCallback");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)callbackhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)callbackhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)callbackhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -860,9 +1153,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("computenetwork.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HcnUnregisterServiceCallback");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)callbackhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)callbackhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)callbackhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;

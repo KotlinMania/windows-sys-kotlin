@@ -5,6 +5,7 @@
 #include <stdbool.h>
 #include <stddef.h>
 #include <stdint.h>
+#include <stdlib.h>
 #include <errno.h>
 #ifdef _WIN32
 #ifndef WIN32_LEAN_AND_MEAN
@@ -28,9 +29,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SaferCloseLevel");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hlevelhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hlevelhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hlevelhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -46,13 +54,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SaferComputeTokenFromLevel");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)levelhandle, (void*)(uintptr_t)inaccesstoken, (void*)(uintptr_t)outaccesstoken, (uint32_t)dwflags, (void*)(uintptr_t)lpreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)levelhandle, (void*)(uintptr_t)inaccesstoken, (void*)(uintptr_t)outaccesstoken, (uint32_t)dwflags, (void*)(uintptr_t)lpreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)levelhandle;
     (void)inaccesstoken;
     (void)outaccesstoken;
     (void)dwflags;
     (void)lpreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -68,13 +83,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SaferCreateLevel");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwscopeid, (uint32_t)dwlevelid, (uint32_t)openflags, (void*)(uintptr_t)plevelhandle, (void*)(uintptr_t)lpreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwscopeid, (uint32_t)dwlevelid, (uint32_t)openflags, (void*)(uintptr_t)plevelhandle, (void*)(uintptr_t)lpreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwscopeid;
     (void)dwlevelid;
     (void)openflags;
     (void)plevelhandle;
     (void)lpreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -90,13 +112,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SaferGetLevelInformation");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)levelhandle, (int32_t)dwinfotype, (void*)(uintptr_t)lpquerybuffer, (uint32_t)dwinbuffersize, (void*)(uintptr_t)lpdwoutbuffersize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)levelhandle, (int32_t)dwinfotype, (void*)(uintptr_t)lpquerybuffer, (uint32_t)dwinbuffersize, (void*)(uintptr_t)lpdwoutbuffersize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)levelhandle;
     (void)dwinfotype;
     (void)lpquerybuffer;
     (void)dwinbuffersize;
     (void)lpdwoutbuffersize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -112,7 +141,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SaferGetPolicyInformation");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwscopeid, (int32_t)saferpolicyinfoclass, (uint32_t)infobuffersize, (void*)(uintptr_t)infobuffer, (void*)(uintptr_t)infobufferretsize, (void*)(uintptr_t)lpreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwscopeid, (int32_t)saferpolicyinfoclass, (uint32_t)infobuffersize, (void*)(uintptr_t)infobuffer, (void*)(uintptr_t)infobufferretsize, (void*)(uintptr_t)lpreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwscopeid;
     (void)saferpolicyinfoclass;
@@ -120,6 +155,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)infobuffer;
     (void)infobufferretsize;
     (void)lpreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -135,12 +171,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SaferIdentifyLevel");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwnumproperties, (void*)(uintptr_t)pcodeproperties, (void*)(uintptr_t)plevelhandle, (void*)(uintptr_t)lpreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwnumproperties, (void*)(uintptr_t)pcodeproperties, (void*)(uintptr_t)plevelhandle, (void*)(uintptr_t)lpreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwnumproperties;
     (void)pcodeproperties;
     (void)plevelhandle;
     (void)lpreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -156,11 +199,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SaferRecordEventLogEntry");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hlevel, (void*)(uintptr_t)sztargetpath, (void*)(uintptr_t)lpreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hlevel, (void*)(uintptr_t)sztargetpath, (void*)(uintptr_t)lpreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hlevel;
     (void)sztargetpath;
     (void)lpreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -176,12 +226,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SaferSetLevelInformation");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)levelhandle, (int32_t)dwinfotype, (void*)(uintptr_t)lpquerybuffer, (uint32_t)dwinbuffersize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)levelhandle, (int32_t)dwinfotype, (void*)(uintptr_t)lpquerybuffer, (uint32_t)dwinbuffersize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)levelhandle;
     (void)dwinfotype;
     (void)lpquerybuffer;
     (void)dwinbuffersize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -197,13 +254,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SaferSetPolicyInformation");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwscopeid, (int32_t)saferpolicyinfoclass, (uint32_t)infobuffersize, (void*)(uintptr_t)infobuffer, (void*)(uintptr_t)lpreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwscopeid, (int32_t)saferpolicyinfoclass, (uint32_t)infobuffersize, (void*)(uintptr_t)infobuffer, (void*)(uintptr_t)lpreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwscopeid;
     (void)saferpolicyinfoclass;
     (void)infobuffersize;
     (void)infobuffer;
     (void)lpreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -219,10 +283,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SaferiIsExecutableFileType");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)szfullpathname, (bool)bfromshellexecute) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)szfullpathname, (bool)bfromshellexecute);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)szfullpathname;
     (void)bfromshellexecute;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;

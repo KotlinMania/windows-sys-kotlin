@@ -63,11 +63,18 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_associateColorProfile
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AssociateColorProfileWithDeviceA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pmachinename, pprofilename, pdevicename) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pmachinename, pprofilename, pdevicename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pmachinename;
     (void)pprofilename;
     (void)pdevicename;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -85,11 +92,18 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_associateColorProfile
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AssociateColorProfileWithDeviceW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pmachinename, pprofilename, pdevicename) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pmachinename, pprofilename, pdevicename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pmachinename;
     (void)pprofilename;
     (void)pdevicename;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -109,13 +123,20 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_cMCheckColors_napi(co
         HMODULE km_h_mod = LoadLibraryA("icm32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CMCheckColors")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcmtransform, lpainputcolors, ncolors, ctinput, lparesult) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcmtransform, lpainputcolors, ncolors, ctinput, lparesult);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcmtransform;
     (void)lpainputcolors;
     (void)ncolors;
     (void)ctinput;
     (void)lparesult;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -134,12 +155,19 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_cMCheckColorsInGamut_
         HMODULE km_h_mod = LoadLibraryA("icm32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CMCheckColorsInGamut")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcmtransform, lpargbtriple, lparesult, ncount) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcmtransform, lpargbtriple, lparesult, ncount);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcmtransform;
     (void)lpargbtriple;
     (void)lparesult;
     (void)ncount;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -163,7 +191,13 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_cMCheckRGBs_napi(cons
         HMODULE km_h_mod = LoadLibraryA("icm32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CMCheckRGBs")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcmtransform, lpsrcbits, bminput, dwwidth, dwheight, dwstride, lparesult, pfncallback, ulcallbackdata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcmtransform, lpsrcbits, bminput, dwwidth, dwheight, dwstride, lparesult, pfncallback, ulcallbackdata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcmtransform;
     (void)lpsrcbits;
@@ -174,6 +208,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_cMCheckRGBs_napi(cons
     (void)lparesult;
     (void)pfncallback;
     (void)ulcallbackdata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -192,12 +227,19 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_cMConvertColorNameToI
         HMODULE km_h_mod = LoadLibraryA("icm32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CMConvertColorNameToIndex")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprofile, pacolorname, paindex, dwcount) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprofile, pacolorname, paindex, dwcount);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprofile;
     (void)pacolorname;
     (void)paindex;
     (void)dwcount;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -216,12 +258,19 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_cMConvertIndexToColor
         HMODULE km_h_mod = LoadLibraryA("icm32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CMConvertIndexToColorName")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprofile, paindex, pacolorname, dwcount) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprofile, paindex, pacolorname, dwcount);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprofile;
     (void)paindex;
     (void)pacolorname;
     (void)dwcount;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -242,7 +291,13 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_cMCreateDeviceLinkPro
         HMODULE km_h_mod = LoadLibraryA("icm32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CMCreateDeviceLinkProfile")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pahprofiles, nprofiles, padwintents, nintents, dwflags, lpprofiledata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pahprofiles, nprofiles, padwintents, nintents, dwflags, lpprofiledata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pahprofiles;
     (void)nprofiles;
@@ -250,6 +305,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_cMCreateDeviceLinkPro
     (void)nintents;
     (void)dwflags;
     (void)lpprofiledata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -269,13 +325,20 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_cMCreateMultiProfileT
         HMODULE km_h_mod = LoadLibraryA("icm32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CMCreateMultiProfileTransform")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pahprofiles, nprofiles, padwintents, nintents, dwflags) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pahprofiles, nprofiles, padwintents, nintents, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pahprofiles;
     (void)nprofiles;
     (void)padwintents;
     (void)nintents;
     (void)dwflags;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -292,10 +355,17 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_cMCreateProfile_napi(
         HMODULE km_h_mod = LoadLibraryA("icm32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CMCreateProfile")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpcolorspace, lpprofiledata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpcolorspace, lpprofiledata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpcolorspace;
     (void)lpprofiledata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -312,10 +382,17 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_cMCreateProfileW_napi
         HMODULE km_h_mod = LoadLibraryA("icm32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CMCreateProfileW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpcolorspace, lpprofiledata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpcolorspace, lpprofiledata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpcolorspace;
     (void)lpprofiledata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -333,11 +410,18 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_cMCreateTransform_nap
         HMODULE km_h_mod = LoadLibraryA("icm32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CMCreateTransform")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpcolorspace, lpdevcharacter, lptargetdevcharacter) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpcolorspace, lpdevcharacter, lptargetdevcharacter);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpcolorspace;
     (void)lpdevcharacter;
     (void)lptargetdevcharacter;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -356,12 +440,19 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_cMCreateTransformExt_
         HMODULE km_h_mod = LoadLibraryA("icm32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CMCreateTransformExt")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpcolorspace, lpdevcharacter, lptargetdevcharacter, dwflags) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpcolorspace, lpdevcharacter, lptargetdevcharacter, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpcolorspace;
     (void)lpdevcharacter;
     (void)lptargetdevcharacter;
     (void)dwflags;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -380,12 +471,19 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_cMCreateTransformExtW
         HMODULE km_h_mod = LoadLibraryA("icm32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CMCreateTransformExtW")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpcolorspace, lpdevcharacter, lptargetdevcharacter, dwflags) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpcolorspace, lpdevcharacter, lptargetdevcharacter, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpcolorspace;
     (void)lpdevcharacter;
     (void)lptargetdevcharacter;
     (void)dwflags;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -403,11 +501,18 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_cMCreateTransformW_na
         HMODULE km_h_mod = LoadLibraryA("icm32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CMCreateTransformW")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpcolorspace, lpdevcharacter, lptargetdevcharacter) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpcolorspace, lpdevcharacter, lptargetdevcharacter);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpcolorspace;
     (void)lpdevcharacter;
     (void)lptargetdevcharacter;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -423,9 +528,16 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_cMDeleteTransform_nap
         HMODULE km_h_mod = LoadLibraryA("icm32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CMDeleteTransform")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcmtransform) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcmtransform);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcmtransform;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -441,9 +553,16 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_cMGetInfo_napi(const 
         HMODULE km_h_mod = LoadLibraryA("icm32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CMGetInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dwinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -460,10 +579,17 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_cMGetNamedProfileInfo
         HMODULE km_h_mod = LoadLibraryA("icm32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CMGetNamedProfileInfo")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprofile, pnamedprofileinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprofile, pnamedprofileinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprofile;
     (void)pnamedprofileinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -480,10 +606,17 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_cMIsProfileValid_napi
         HMODULE km_h_mod = LoadLibraryA("icm32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CMIsProfileValid")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprofile, lpbvalid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprofile, lpbvalid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprofile;
     (void)lpbvalid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -504,7 +637,13 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_cMTranslateColors_nap
         HMODULE km_h_mod = LoadLibraryA("icm32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CMTranslateColors")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcmtransform, lpainputcolors, ncolors, ctinput, lpaoutputcolors, ctoutput) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcmtransform, lpainputcolors, ncolors, ctinput, lpaoutputcolors, ctoutput);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcmtransform;
     (void)lpainputcolors;
@@ -512,6 +651,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_cMTranslateColors_nap
     (void)ctinput;
     (void)lpaoutputcolors;
     (void)ctoutput;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -530,12 +670,19 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_cMTranslateRGB_napi(c
         HMODULE km_h_mod = LoadLibraryA("icm32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CMTranslateRGB")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcmtransform, colorref, lpcolorref, dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcmtransform, colorref, lpcolorref, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcmtransform;
     (void)colorref;
     (void)lpcolorref;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -559,7 +706,13 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_cMTranslateRGBs_napi(
         HMODULE km_h_mod = LoadLibraryA("icm32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CMTranslateRGBs")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcmtransform, lpsrcbits, bminput, dwwidth, dwheight, dwstride, lpdestbits, bmoutput, dwtranslatedirection) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcmtransform, lpsrcbits, bminput, dwwidth, dwheight, dwstride, lpdestbits, bmoutput, dwtranslatedirection);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcmtransform;
     (void)lpsrcbits;
@@ -570,6 +723,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_cMTranslateRGBs_napi(
     (void)lpdestbits;
     (void)bmoutput;
     (void)dwtranslatedirection;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -595,7 +749,13 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_cMTranslateRGBsExt_na
         HMODULE km_h_mod = LoadLibraryA("icm32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CMTranslateRGBsExt")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcmtransform, lpsrcbits, bminput, dwwidth, dwheight, dwinputstride, lpdestbits, bmoutput, dwoutputstride, lpfncallback, ulcallbackdata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcmtransform, lpsrcbits, bminput, dwwidth, dwheight, dwinputstride, lpdestbits, bmoutput, dwoutputstride, lpfncallback, ulcallbackdata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcmtransform;
     (void)lpsrcbits;
@@ -608,6 +768,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_cMTranslateRGBsExt_na
     (void)dwoutputstride;
     (void)lpfncallback;
     (void)ulcallbackdata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -631,7 +792,13 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_checkBitmapBits_napi(
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CheckBitmapBits")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcolortransform, psrcbits, bminput, dwwidth, dwheight, dwstride, paresult, pfncallback, lpcallbackdata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcolortransform, psrcbits, bminput, dwwidth, dwheight, dwstride, paresult, pfncallback, lpcallbackdata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcolortransform;
     (void)psrcbits;
@@ -642,6 +809,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_checkBitmapBits_napi(
     (void)paresult;
     (void)pfncallback;
     (void)lpcallbackdata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -661,13 +829,20 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_checkColors_napi(cons
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CheckColors")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcolortransform, painputcolors, ncolors, ctinput, paresult) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcolortransform, painputcolors, ncolors, ctinput, paresult);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcolortransform;
     (void)painputcolors;
     (void)ncolors;
     (void)ctinput;
     (void)paresult;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -686,12 +861,19 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_checkColorsInGamut_na
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CheckColorsInGamut")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, lprgbtriple, dlpbuffer, ncount) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, lprgbtriple, dlpbuffer, ncount);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)lprgbtriple;
     (void)dlpbuffer;
     (void)ncount;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -707,9 +889,16 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_closeColorProfile_nap
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CloseColorProfile")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprofile) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprofile);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprofile;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -728,12 +917,19 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_colorCorrectPalette_n
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ColorCorrectPalette")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, hpal, defirst, num) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, hpal, defirst, num);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)hpal;
     (void)defirst;
     (void)num;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -751,11 +947,18 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_colorMatchToTarget_na
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ColorMatchToTarget")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, hdctarget, action) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, hdctarget, action);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)hdctarget;
     (void)action;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -774,12 +977,19 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_convertColorNameToInd
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ConvertColorNameToIndex")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprofile, pacolorname, paindex, dwcount) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprofile, pacolorname, paindex, dwcount);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprofile;
     (void)pacolorname;
     (void)paindex;
     (void)dwcount;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -798,12 +1008,19 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_convertIndexToColorNa
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ConvertIndexToColorName")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprofile, paindex, pacolorname, dwcount) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprofile, paindex, pacolorname, dwcount);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprofile;
     (void)paindex;
     (void)pacolorname;
     (void)dwcount;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -819,10 +1036,17 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_createColorSpaceA_nap
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateColorSpaceA")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lplcs) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lplcs);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)lplcs;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -837,10 +1061,17 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_createColorSpaceW_nap
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateColorSpaceW")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lplcs) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lplcs);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)lplcs;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -858,12 +1089,19 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_createColorTransformA
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateColorTransformA")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(plogcolorspace, hdestprofile, htargetprofile, dwflags) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(plogcolorspace, hdestprofile, htargetprofile, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)plogcolorspace;
     (void)hdestprofile;
     (void)htargetprofile;
     (void)dwflags;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -882,12 +1120,19 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_createColorTransformW
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateColorTransformW")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(plogcolorspace, hdestprofile, htargetprofile, dwflags) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(plogcolorspace, hdestprofile, htargetprofile, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)plogcolorspace;
     (void)hdestprofile;
     (void)htargetprofile;
     (void)dwflags;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -909,7 +1154,13 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_createDeviceLinkProfi
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateDeviceLinkProfile")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprofile, nprofiles, padwintent, nintents, dwflags, pprofiledata, indexpreferredcmm) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprofile, nprofiles, padwintent, nintents, dwflags, pprofiledata, indexpreferredcmm);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprofile;
     (void)nprofiles;
@@ -918,6 +1169,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_createDeviceLinkProfi
     (void)dwflags;
     (void)pprofiledata;
     (void)indexpreferredcmm;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -938,7 +1190,13 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_createMultiProfileTra
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateMultiProfileTransform")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pahprofiles, nprofiles, padwintent, nintents, dwflags, indexpreferredcmm) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pahprofiles, nprofiles, padwintent, nintents, dwflags, indexpreferredcmm);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pahprofiles;
     (void)nprofiles;
@@ -946,6 +1204,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_createMultiProfileTra
     (void)nintents;
     (void)dwflags;
     (void)indexpreferredcmm;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -962,10 +1221,17 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_createProfileFromLogC
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateProfileFromLogColorSpaceA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(plogcolorspace, pprofile) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(plogcolorspace, pprofile);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)plogcolorspace;
     (void)pprofile;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -982,10 +1248,17 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_createProfileFromLogC
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateProfileFromLogColorSpaceW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(plogcolorspace, pprofile) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(plogcolorspace, pprofile);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)plogcolorspace;
     (void)pprofile;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1001,9 +1274,16 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_deleteColorSpace_napi
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DeleteColorSpace")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcs) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcs);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcs;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1019,9 +1299,16 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_deleteColorTransform_
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DeleteColorTransform")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hxform) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hxform);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hxform;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1039,11 +1326,18 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_disassociateColorProf
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DisassociateColorProfileFromDeviceA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pmachinename, pprofilename, pdevicename) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pmachinename, pprofilename, pdevicename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pmachinename;
     (void)pprofilename;
     (void)pdevicename;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1061,11 +1355,18 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_disassociateColorProf
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DisassociateColorProfileFromDeviceW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pmachinename, pprofilename, pdevicename) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pmachinename, pprofilename, pdevicename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pmachinename;
     (void)pprofilename;
     (void)pdevicename;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1085,13 +1386,20 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_enumColorProfilesA_na
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EnumColorProfilesA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pmachinename, penumrecord, penumerationbuffer, pdwsizeofenumerationbuffer, pnprofiles) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pmachinename, penumrecord, penumerationbuffer, pdwsizeofenumerationbuffer, pnprofiles);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pmachinename;
     (void)penumrecord;
     (void)penumerationbuffer;
     (void)pdwsizeofenumerationbuffer;
     (void)pnprofiles;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1111,13 +1419,20 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_enumColorProfilesW_na
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EnumColorProfilesW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pmachinename, penumrecord, penumerationbuffer, pdwsizeofenumerationbuffer, pnprofiles) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pmachinename, penumrecord, penumerationbuffer, pdwsizeofenumerationbuffer, pnprofiles);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pmachinename;
     (void)penumrecord;
     (void)penumerationbuffer;
     (void)pdwsizeofenumerationbuffer;
     (void)pnprofiles;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1135,11 +1450,18 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_enumICMProfilesA_napi
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EnumICMProfilesA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, proc, param2) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, proc, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)proc;
     (void)param2;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1157,11 +1479,18 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_enumICMProfilesW_napi
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EnumICMProfilesW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, proc, param2) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, proc, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)proc;
     (void)param2;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1178,10 +1507,17 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_getCMMInfo_napi(const
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetCMMInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcolortransform, param1) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcolortransform, param1);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hcolortransform;
     (void)param1;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1199,11 +1535,18 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_getColorDirectoryA_na
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetColorDirectoryA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pmachinename, pbuffer, pdwsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pmachinename, pbuffer, pdwsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pmachinename;
     (void)pbuffer;
     (void)pdwsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1221,11 +1564,18 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_getColorDirectoryW_na
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetColorDirectoryW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pmachinename, pbuffer, pdwsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pmachinename, pbuffer, pdwsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pmachinename;
     (void)pbuffer;
     (void)pdwsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1246,7 +1596,13 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_getColorProfileElemen
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetColorProfileElement")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprofile, tag, dwoffset, pcbelement, pelement, pbreference) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprofile, tag, dwoffset, pcbelement, pelement, pbreference);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprofile;
     (void)tag;
@@ -1254,6 +1610,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_getColorProfileElemen
     (void)pcbelement;
     (void)pelement;
     (void)pbreference;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1271,11 +1628,18 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_getColorProfileElemen
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetColorProfileElementTag")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprofile, dwindex, ptag) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprofile, dwindex, ptag);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprofile;
     (void)dwindex;
     (void)ptag;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1293,11 +1657,18 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_getColorProfileFromHa
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetColorProfileFromHandle")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprofile, pprofile, pcbprofile) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprofile, pprofile, pcbprofile);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprofile;
     (void)pprofile;
     (void)pcbprofile;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1314,10 +1685,17 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_getColorProfileHeader
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetColorProfileHeader")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprofile, pheader) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprofile, pheader);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprofile;
     (void)pheader;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1333,10 +1711,17 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_getColorSpace_napi(co
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetColorSpace")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hdc;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1352,10 +1737,17 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_getCountColorProfileE
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetCountColorProfileElements")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprofile, pnelementcount) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprofile, pnelementcount);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprofile;
     (void)pnelementcount;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1372,10 +1764,17 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_getDeviceGammaRamp_na
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetDeviceGammaRamp")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, lpramp) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, lpramp);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)lpramp;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1393,11 +1792,18 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_getICMProfileA_napi(c
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetICMProfileA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, pbufsize, pszfilename) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, pbufsize, pszfilename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)pbufsize;
     (void)pszfilename;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1415,11 +1821,18 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_getICMProfileW_napi(c
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetICMProfileW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, pbufsize, pszfilename) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, pbufsize, pszfilename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)pbufsize;
     (void)pszfilename;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1437,11 +1850,18 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_getLogColorSpaceA_nap
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetLogColorSpaceA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcolorspace, lpbuffer, nsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcolorspace, lpbuffer, nsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcolorspace;
     (void)lpbuffer;
     (void)nsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1459,11 +1879,18 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_getLogColorSpaceW_nap
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetLogColorSpaceW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcolorspace, lpbuffer, nsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcolorspace, lpbuffer, nsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcolorspace;
     (void)lpbuffer;
     (void)nsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1480,10 +1907,17 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_getNamedProfileInfo_n
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetNamedProfileInfo")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprofile, pnamedprofileinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprofile, pnamedprofileinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprofile;
     (void)pnamedprofileinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1503,13 +1937,20 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_getPS2ColorRenderingD
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetPS2ColorRenderingDictionary")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprofile, dwintent, pps2colorrenderingdictionary, pcbps2colorrenderingdictionary, pbbinary) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprofile, dwintent, pps2colorrenderingdictionary, pcbps2colorrenderingdictionary, pbbinary);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprofile;
     (void)dwintent;
     (void)pps2colorrenderingdictionary;
     (void)pcbps2colorrenderingdictionary;
     (void)pbbinary;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1528,12 +1969,19 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_getPS2ColorRenderingI
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetPS2ColorRenderingIntent")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprofile, dwintent, pbuffer, pcbps2colorrenderingintent) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprofile, dwintent, pbuffer, pcbps2colorrenderingintent);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprofile;
     (void)dwintent;
     (void)pbuffer;
     (void)pcbps2colorrenderingintent;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1554,7 +2002,13 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_getPS2ColorSpaceArray
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetPS2ColorSpaceArray")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprofile, dwintent, dwcsatype, pps2colorspacearray, pcbps2colorspacearray, pbbinary) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprofile, dwintent, dwcsatype, pps2colorspacearray, pcbps2colorspacearray, pbbinary);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprofile;
     (void)dwintent;
@@ -1562,6 +2016,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_getPS2ColorSpaceArray
     (void)pps2colorspacearray;
     (void)pcbps2colorspacearray;
     (void)pbbinary;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1580,12 +2035,19 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_getStandardColorSpace
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetStandardColorSpaceProfileA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pmachinename, dwscs, pbuffer, pcbsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pmachinename, dwscs, pbuffer, pcbsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pmachinename;
     (void)dwscs;
     (void)pbuffer;
     (void)pcbsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1604,12 +2066,19 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_getStandardColorSpace
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetStandardColorSpaceProfileW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pmachinename, dwscs, pbuffer, pcbsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pmachinename, dwscs, pbuffer, pcbsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pmachinename;
     (void)dwscs;
     (void)pbuffer;
     (void)pcbsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1626,10 +2095,17 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_installColorProfileA_
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InstallColorProfileA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pmachinename, pprofilename) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pmachinename, pprofilename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pmachinename;
     (void)pprofilename;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1646,10 +2122,17 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_installColorProfileW_
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InstallColorProfileW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pmachinename, pprofilename) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pmachinename, pprofilename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pmachinename;
     (void)pprofilename;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1667,11 +2150,18 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_isColorProfileTagPres
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IsColorProfileTagPresent")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprofile, tag, pbpresent) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprofile, tag, pbpresent);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprofile;
     (void)tag;
     (void)pbpresent;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1688,10 +2178,17 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_isColorProfileValid_n
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IsColorProfileValid")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprofile, pbvalid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprofile, pbvalid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprofile;
     (void)pbvalid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1710,12 +2207,19 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_openColorProfileA_nap
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OpenColorProfileA")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pprofile, dwdesiredaccess, dwsharemode, dwcreationmode) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pprofile, dwdesiredaccess, dwsharemode, dwcreationmode);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pprofile;
     (void)dwdesiredaccess;
     (void)dwsharemode;
     (void)dwcreationmode;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -1734,12 +2238,19 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_openColorProfileW_nap
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OpenColorProfileW")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pprofile, dwdesiredaccess, dwsharemode, dwcreationmode) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pprofile, dwdesiredaccess, dwsharemode, dwcreationmode);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pprofile;
     (void)dwdesiredaccess;
     (void)dwsharemode;
     (void)dwcreationmode;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -1757,11 +2268,18 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_registerCMMA_napi(con
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegisterCMMA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pmachinename, cmmid, pcmmdll) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pmachinename, cmmid, pcmmdll);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pmachinename;
     (void)cmmid;
     (void)pcmmdll;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1779,11 +2297,18 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_registerCMMW_napi(con
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegisterCMMW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pmachinename, cmmid, pcmmdll) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pmachinename, cmmid, pcmmdll);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pmachinename;
     (void)cmmid;
     (void)pcmmdll;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1799,9 +2324,16 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_selectCMM_napi(const 
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SelectCMM")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwcmmtype) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwcmmtype);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwcmmtype;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1821,13 +2353,20 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_setColorProfileElemen
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetColorProfileElement")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprofile, tag, dwoffset, pcbelement, pelement) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprofile, tag, dwoffset, pcbelement, pelement);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprofile;
     (void)tag;
     (void)dwoffset;
     (void)pcbelement;
     (void)pelement;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1845,11 +2384,18 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_setColorProfileElemen
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetColorProfileElementReference")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprofile, newtag, reftag) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprofile, newtag, reftag);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprofile;
     (void)newtag;
     (void)reftag;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1867,11 +2413,18 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_setColorProfileElemen
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetColorProfileElementSize")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprofile, tagtype, pcbelement) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprofile, tagtype, pcbelement);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprofile;
     (void)tagtype;
     (void)pcbelement;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1888,10 +2441,17 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_setColorProfileHeader
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetColorProfileHeader")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprofile, pheader) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprofile, pheader);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprofile;
     (void)pheader;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1908,11 +2468,18 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_setColorSpace_napi(co
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetColorSpace")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, hcs) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, hcs);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hdc;
     (void)hcs;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1928,10 +2495,17 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_setDeviceGammaRamp_na
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetDeviceGammaRamp")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, lpramp) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, lpramp);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)lpramp;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1948,10 +2522,17 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_setICMMode_napi(const
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetICMMode")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, mode) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, mode);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)mode;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1968,10 +2549,17 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_setICMProfileA_napi(c
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetICMProfileA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, lpfilename) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, lpfilename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)lpfilename;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1988,10 +2576,17 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_setICMProfileW_napi(c
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetICMProfileW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, lpfilename) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, lpfilename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)lpfilename;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2009,11 +2604,18 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_setStandardColorSpace
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetStandardColorSpaceProfileA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pmachinename, dwprofileid, pprofilename) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pmachinename, dwprofileid, pprofilename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pmachinename;
     (void)dwprofileid;
     (void)pprofilename;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2031,11 +2633,18 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_setStandardColorSpace
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetStandardColorSpaceProfileW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pmachinename, dwprofileid, pprofilename) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pmachinename, dwprofileid, pprofilename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pmachinename;
     (void)dwprofileid;
     (void)pprofilename;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2051,9 +2660,16 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_setupColorMatchingA_n
         HMODULE km_h_mod = LoadLibraryA("icmui.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupColorMatchingA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pcms) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pcms);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pcms;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2069,9 +2685,16 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_setupColorMatchingW_n
         HMODULE km_h_mod = LoadLibraryA("icmui.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupColorMatchingW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pcms) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pcms);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pcms;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2097,7 +2720,13 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_translateBitmapBits_n
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TranslateBitmapBits")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcolortransform, psrcbits, bminput, dwwidth, dwheight, dwinputstride, pdestbits, bmoutput, dwoutputstride, pfncallback, ulcallbackdata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcolortransform, psrcbits, bminput, dwwidth, dwheight, dwinputstride, pdestbits, bmoutput, dwoutputstride, pfncallback, ulcallbackdata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcolortransform;
     (void)psrcbits;
@@ -2110,6 +2739,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_translateBitmapBits_n
     (void)dwoutputstride;
     (void)pfncallback;
     (void)ulcallbackdata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2130,7 +2760,13 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_translateColors_napi(
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TranslateColors")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcolortransform, painputcolors, ncolors, ctinput, paoutputcolors, ctoutput) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcolortransform, painputcolors, ncolors, ctinput, paoutputcolors, ctoutput);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcolortransform;
     (void)painputcolors;
@@ -2138,6 +2774,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_translateColors_napi(
     (void)ctinput;
     (void)paoutputcolors;
     (void)ctoutput;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2155,11 +2792,18 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_uninstallColorProfile
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UninstallColorProfileA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pmachinename, pprofilename, bdelete) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pmachinename, pprofilename, bdelete);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pmachinename;
     (void)pprofilename;
     (void)bdelete;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2177,11 +2821,18 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_uninstallColorProfile
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UninstallColorProfileW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pmachinename, pprofilename, bdelete) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pmachinename, pprofilename, bdelete);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pmachinename;
     (void)pprofilename;
     (void)bdelete;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2198,10 +2849,17 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_unregisterCMMA_napi(c
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UnregisterCMMA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pmachinename, cmmid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pmachinename, cmmid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pmachinename;
     (void)cmmid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2218,10 +2876,17 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_unregisterCMMW_napi(c
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UnregisterCMMW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pmachinename, cmmid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pmachinename, cmmid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pmachinename;
     (void)cmmid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2240,12 +2905,19 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_updateICMRegKeyA_napi
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UpdateICMRegKeyA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(reserved, lpszcmid, lpszfilename, command) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(reserved, lpszcmid, lpszfilename, command);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)reserved;
     (void)lpszcmid;
     (void)lpszfilename;
     (void)command;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2264,12 +2936,19 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_updateICMRegKeyW_napi
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UpdateICMRegKeyW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(reserved, lpszcmid, lpszfilename, command) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(reserved, lpszcmid, lpszfilename, command);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)reserved;
     (void)lpszcmid;
     (void)lpszfilename;
     (void)command;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2287,11 +2966,18 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_wcsAssociateColorProf
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WcsAssociateColorProfileWithDevice")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(scope, pprofilename, pdevicename) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(scope, pprofilename, pdevicename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)scope;
     (void)pprofilename;
     (void)pdevicename;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2313,7 +2999,13 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_wcsCheckColors_napi(c
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WcsCheckColors")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcolortransform, ncolors, ninputchannels, cdtinput, cbinput, pinputdata, paresult) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcolortransform, ncolors, ninputchannels, cdtinput, cbinput, pinputdata, paresult);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcolortransform;
     (void)ncolors;
@@ -2322,6 +3014,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_wcsCheckColors_napi(c
     (void)cbinput;
     (void)pinputdata;
     (void)paresult;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2338,10 +3031,17 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_wcsCreateIccProfile_n
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WcsCreateIccProfile")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwcsprofile, dwoptions) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwcsprofile, dwoptions);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwcsprofile;
     (void)dwoptions;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -2359,11 +3059,18 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_wcsDisassociateColorP
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WcsDisassociateColorProfileFromDevice")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(scope, pprofilename, pdevicename) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(scope, pprofilename, pdevicename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)scope;
     (void)pprofilename;
     (void)pdevicename;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2383,13 +3090,20 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_wcsEnumColorProfiles_
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WcsEnumColorProfiles")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(scope, penumrecord, pbuffer, dwsize, pnprofiles) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(scope, penumrecord, pbuffer, dwsize, pnprofiles);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)scope;
     (void)penumrecord;
     (void)pbuffer;
     (void)dwsize;
     (void)pnprofiles;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2407,11 +3121,18 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_wcsEnumColorProfilesS
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WcsEnumColorProfilesSize")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(scope, penumrecord, pdwsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(scope, penumrecord, pdwsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)scope;
     (void)penumrecord;
     (void)pdwsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2427,9 +3148,16 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_wcsGetCalibrationMana
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WcsGetCalibrationManagementState")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pbisenabled) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pbisenabled);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pbisenabled;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2451,7 +3179,13 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_wcsGetDefaultColorPro
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WcsGetDefaultColorProfile")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(scope, pdevicename, cptcolorprofiletype, cpstcolorprofilesubtype, dwprofileid, cbprofilename, pprofilename) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(scope, pdevicename, cptcolorprofiletype, cpstcolorprofilesubtype, dwprofileid, cbprofilename, pprofilename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)scope;
     (void)pdevicename;
@@ -2460,6 +3194,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_wcsGetDefaultColorPro
     (void)dwprofileid;
     (void)cbprofilename;
     (void)pprofilename;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2480,7 +3215,13 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_wcsGetDefaultColorPro
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WcsGetDefaultColorProfileSize")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(scope, pdevicename, cptcolorprofiletype, cpstcolorprofilesubtype, dwprofileid, pcbprofilename) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(scope, pdevicename, cptcolorprofiletype, cpstcolorprofilesubtype, dwprofileid, pcbprofilename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)scope;
     (void)pdevicename;
@@ -2488,6 +3229,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_wcsGetDefaultColorPro
     (void)cpstcolorprofilesubtype;
     (void)dwprofileid;
     (void)pcbprofilename;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2504,10 +3246,17 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_wcsGetDefaultRenderin
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WcsGetDefaultRenderingIntent")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(scope, pdwrenderingintent) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(scope, pdwrenderingintent);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)scope;
     (void)pdwrenderingintent;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2525,11 +3274,18 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_wcsGetUsePerUserProfi
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WcsGetUsePerUserProfiles")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pdevicename, dwdeviceclass, puseperuserprofiles) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pdevicename, dwdeviceclass, puseperuserprofiles);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pdevicename;
     (void)dwdeviceclass;
     (void)puseperuserprofiles;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2551,7 +3307,13 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_wcsOpenColorProfileA_
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WcsOpenColorProfileA")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pcdmpprofile, pcampprofile, pgmmpprofile, dwdesireaccess, dwsharemode, dwcreationmode, dwflags) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pcdmpprofile, pcampprofile, pgmmpprofile, dwdesireaccess, dwsharemode, dwcreationmode, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pcdmpprofile;
     (void)pcampprofile;
@@ -2560,6 +3322,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_wcsOpenColorProfileA_
     (void)dwsharemode;
     (void)dwcreationmode;
     (void)dwflags;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -2581,7 +3344,13 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_wcsOpenColorProfileW_
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WcsOpenColorProfileW")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pcdmpprofile, pcampprofile, pgmmpprofile, dwdesireaccess, dwsharemode, dwcreationmode, dwflags) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pcdmpprofile, pcampprofile, pgmmpprofile, dwdesireaccess, dwsharemode, dwcreationmode, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pcdmpprofile;
     (void)pcampprofile;
@@ -2590,6 +3359,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_wcsOpenColorProfileW_
     (void)dwsharemode;
     (void)dwcreationmode;
     (void)dwflags;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -2605,9 +3375,16 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_wcsSetCalibrationMana
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WcsSetCalibrationManagementState")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bisenabled) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bisenabled);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bisenabled;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2628,7 +3405,13 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_wcsSetDefaultColorPro
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WcsSetDefaultColorProfile")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(scope, pdevicename, cptcolorprofiletype, cpstcolorprofilesubtype, dwprofileid, pprofilename) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(scope, pdevicename, cptcolorprofiletype, cpstcolorprofilesubtype, dwprofileid, pprofilename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)scope;
     (void)pdevicename;
@@ -2636,6 +3419,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_wcsSetDefaultColorPro
     (void)cpstcolorprofilesubtype;
     (void)dwprofileid;
     (void)pprofilename;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2652,10 +3436,17 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_wcsSetDefaultRenderin
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WcsSetDefaultRenderingIntent")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(scope, dwrenderingintent) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(scope, dwrenderingintent);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)scope;
     (void)dwrenderingintent;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2673,11 +3464,18 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_wcsSetUsePerUserProfi
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WcsSetUsePerUserProfiles")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pdevicename, dwdeviceclass, useperuserprofiles) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pdevicename, dwdeviceclass, useperuserprofiles);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pdevicename;
     (void)dwdeviceclass;
     (void)useperuserprofiles;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2702,7 +3500,13 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_wcsTranslateColors_na
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WcsTranslateColors")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcolortransform, ncolors, ninputchannels, cdtinput, cbinput, pinputdata, noutputchannels, cdtoutput, cboutput, poutputdata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcolortransform, ncolors, ninputchannels, cdtinput, cbinput, pinputdata, noutputchannels, cdtoutput, cboutput, poutputdata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcolortransform;
     (void)ncolors;
@@ -2714,6 +3518,7 @@ static Napi::Value windowssys_windows_win32_ui_colorsystem_wcsTranslateColors_na
     (void)cdtoutput;
     (void)cboutput;
     (void)poutputdata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

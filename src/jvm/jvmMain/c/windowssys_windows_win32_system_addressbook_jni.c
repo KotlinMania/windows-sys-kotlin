@@ -5,6 +5,7 @@
 #include <stdbool.h>
 #include <stddef.h>
 #include <stdint.h>
+#include <stdlib.h>
 #include <errno.h>
 #ifdef _WIN32
 #ifndef WIN32_LEAN_AND_MEAN
@@ -28,7 +29,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BuildDisplayTable");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)lpallocatebuffer, (void*)(uintptr_t)lpallocatemore, (void*)(uintptr_t)lpfreebuffer, (void*)(uintptr_t)lpmalloc, (void*)(uintptr_t)hinstance, (uint32_t)cpages, (void*)(uintptr_t)lppage, (uint32_t)ulflags, (void*)(uintptr_t)lpptable, (void*)(uintptr_t)lpptbldata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)lpallocatebuffer, (void*)(uintptr_t)lpallocatemore, (void*)(uintptr_t)lpfreebuffer, (void*)(uintptr_t)lpmalloc, (void*)(uintptr_t)hinstance, (uint32_t)cpages, (void*)(uintptr_t)lppage, (uint32_t)ulflags, (void*)(uintptr_t)lpptable, (void*)(uintptr_t)lpptbldata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpallocatebuffer;
     (void)lpallocatemore;
@@ -40,6 +47,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     (void)ulflags;
     (void)lpptable;
     (void)lpptbldata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -55,7 +63,11 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ChangeIdleRoutine");
     }
-    if (km_fn_ptr != NULL) km_fn_ptr((void*)(uintptr_t)ftg, (void*)(uintptr_t)lpfnidle, (void*)(uintptr_t)lpvidleparam, (int16_t)priidle, (uint32_t)csecidle, (uint16_t)iroidle, (uint16_t)ircidle);
+    if (km_fn_ptr != NULL) {
+        km_fn_ptr((void*)(uintptr_t)ftg, (void*)(uintptr_t)lpfnidle, (void*)(uintptr_t)lpvidleparam, (int16_t)priidle, (uint32_t)csecidle, (uint16_t)iroidle, (uint16_t)ircidle);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)ftg;
     (void)lpfnidle;
@@ -64,6 +76,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     (void)csecidle;
     (void)iroidle;
     (void)ircidle;
+    errno = ENOSYS;
 #endif
 }
 
@@ -77,7 +90,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CreateIProp");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)lpinterface, (void*)(uintptr_t)lpallocatebuffer, (void*)(uintptr_t)lpallocatemore, (void*)(uintptr_t)lpfreebuffer, (void*)(uintptr_t)lpvreserved, (void*)(uintptr_t)lpppropdata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)lpinterface, (void*)(uintptr_t)lpallocatebuffer, (void*)(uintptr_t)lpallocatemore, (void*)(uintptr_t)lpfreebuffer, (void*)(uintptr_t)lpvreserved, (void*)(uintptr_t)lpppropdata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpinterface;
     (void)lpallocatebuffer;
@@ -85,6 +104,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     (void)lpfreebuffer;
     (void)lpvreserved;
     (void)lpppropdata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -100,7 +120,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("rtm.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CreateTable");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)lpinterface, (void*)(uintptr_t)lpallocatebuffer, (void*)(uintptr_t)lpallocatemore, (void*)(uintptr_t)lpfreebuffer, (void*)(uintptr_t)lpvreserved, (uint32_t)ultabletype, (uint32_t)ulproptagindexcolumn, (void*)(uintptr_t)lpsproptagarraycolumns, (void*)(uintptr_t)lpptabledata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)lpinterface, (void*)(uintptr_t)lpallocatebuffer, (void*)(uintptr_t)lpallocatemore, (void*)(uintptr_t)lpfreebuffer, (void*)(uintptr_t)lpvreserved, (uint32_t)ultabletype, (uint32_t)ulproptagindexcolumn, (void*)(uintptr_t)lpsproptagarraycolumns, (void*)(uintptr_t)lpptabledata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpinterface;
     (void)lpallocatebuffer;
@@ -111,6 +137,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     (void)ulproptagindexcolumn;
     (void)lpsproptagarraycolumns;
     (void)lpptabledata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -126,8 +153,13 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DeinitMapiUtil");
     }
-    if (km_fn_ptr != NULL) km_fn_ptr();
+    if (km_fn_ptr != NULL) {
+        km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+    }
 #else
+    errno = ENOSYS;
 #endif
 }
 
@@ -141,9 +173,14 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DeregisterIdleRoutine");
     }
-    if (km_fn_ptr != NULL) km_fn_ptr((void*)(uintptr_t)ftg);
+    if (km_fn_ptr != NULL) {
+        km_fn_ptr((void*)(uintptr_t)ftg);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)ftg;
+    errno = ENOSYS;
 #endif
 }
 
@@ -157,10 +194,15 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "EnableIdleRoutine");
     }
-    if (km_fn_ptr != NULL) km_fn_ptr((void*)(uintptr_t)ftg, (int32_t)fenable);
+    if (km_fn_ptr != NULL) {
+        km_fn_ptr((void*)(uintptr_t)ftg, (int32_t)fenable);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)ftg;
     (void)fenable;
+    errno = ENOSYS;
 #endif
 }
 
@@ -174,10 +216,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "FEqualNames");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)lpname1, (void*)(uintptr_t)lpname2) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)lpname1, (void*)(uintptr_t)lpname2);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpname1;
     (void)lpname2;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -193,11 +242,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "FPropCompareProp");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)lpspropvalue1, (uint32_t)ulrelop, (void*)(uintptr_t)lpspropvalue2) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)lpspropvalue1, (uint32_t)ulrelop, (void*)(uintptr_t)lpspropvalue2);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpspropvalue1;
     (void)ulrelop;
     (void)lpspropvalue2;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -213,11 +269,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "FPropContainsProp");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)lpspropvaluedst, (void*)(uintptr_t)lpspropvaluesrc, (uint32_t)ulfuzzylevel) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)lpspropvaluedst, (void*)(uintptr_t)lpspropvaluesrc, (uint32_t)ulfuzzylevel);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpspropvaluedst;
     (void)lpspropvaluesrc;
     (void)ulfuzzylevel;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -233,10 +296,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "FPropExists");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)lpmapiprop, (uint32_t)ulproptag) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)lpmapiprop, (uint32_t)ulproptag);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpmapiprop;
     (void)ulproptag;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -252,9 +322,14 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "FreePadrlist");
     }
-    if (km_fn_ptr != NULL) km_fn_ptr((void*)(uintptr_t)lpadrlist);
+    if (km_fn_ptr != NULL) {
+        km_fn_ptr((void*)(uintptr_t)lpadrlist);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)lpadrlist;
+    errno = ENOSYS;
 #endif
 }
 
@@ -268,9 +343,14 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "FreeProws");
     }
-    if (km_fn_ptr != NULL) km_fn_ptr((void*)(uintptr_t)lprows);
+    if (km_fn_ptr != NULL) {
+        km_fn_ptr((void*)(uintptr_t)lprows);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)lprows;
+    errno = ENOSYS;
 #endif
 }
 
@@ -284,13 +364,20 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "FtgRegisterIdleRoutine");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)lpfnidle, (void*)(uintptr_t)lpvidleparam, (int16_t)priidle, (uint32_t)csecidle, (uint16_t)iroidle) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)lpfnidle, (void*)(uintptr_t)lpvidleparam, (int16_t)priidle, (uint32_t)csecidle, (uint16_t)iroidle);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)lpfnidle;
     (void)lpvidleparam;
     (void)priidle;
     (void)csecidle;
     (void)iroidle;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -306,12 +393,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HrAddColumns");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)lptbl, (void*)(uintptr_t)lpproptagcolumnsnew, (void*)(uintptr_t)lpallocatebuffer, (void*)(uintptr_t)lpfreebuffer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)lptbl, (void*)(uintptr_t)lpproptagcolumnsnew, (void*)(uintptr_t)lpallocatebuffer, (void*)(uintptr_t)lpfreebuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lptbl;
     (void)lpproptagcolumnsnew;
     (void)lpallocatebuffer;
     (void)lpfreebuffer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -327,13 +421,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HrAddColumnsEx");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)lptbl, (void*)(uintptr_t)lpproptagcolumnsnew, (void*)(uintptr_t)lpallocatebuffer, (void*)(uintptr_t)lpfreebuffer, (int64_t)lpfnfiltercolumns) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)lptbl, (void*)(uintptr_t)lpproptagcolumnsnew, (void*)(uintptr_t)lpallocatebuffer, (void*)(uintptr_t)lpfreebuffer, (int64_t)lpfnfiltercolumns);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lptbl;
     (void)lpproptagcolumnsnew;
     (void)lpallocatebuffer;
     (void)lpfreebuffer;
     (void)lpfnfiltercolumns;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -349,11 +450,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HrAllocAdviseSink");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)lpfncallback, (void*)(uintptr_t)lpvcontext, (void*)(uintptr_t)lppadvisesink) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)lpfncallback, (void*)(uintptr_t)lpvcontext, (void*)(uintptr_t)lppadvisesink);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpfncallback;
     (void)lpvcontext;
     (void)lppadvisesink;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -369,9 +477,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HrDispatchNotifications");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)ulflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ulflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -387,11 +502,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HrGetOneProp");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)lpmapiprop, (uint32_t)ulproptag, (void*)(uintptr_t)lppprop) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)lpmapiprop, (uint32_t)ulproptag, (void*)(uintptr_t)lppprop);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpmapiprop;
     (void)ulproptag;
     (void)lppprop;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -407,12 +529,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HrIStorageFromStream");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)lpunkin, (void*)(uintptr_t)lpinterface, (uint32_t)ulflags, (void*)(uintptr_t)lppstorageout) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)lpunkin, (void*)(uintptr_t)lpinterface, (uint32_t)ulflags, (void*)(uintptr_t)lppstorageout);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpunkin;
     (void)lpinterface;
     (void)ulflags;
     (void)lppstorageout;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -428,7 +557,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HrQueryAllRows");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)lptable, (void*)(uintptr_t)lpproptags, (void*)(uintptr_t)lprestriction, (void*)(uintptr_t)lpsortorderset, (int32_t)crowsmax, (void*)(uintptr_t)lpprows) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)lptable, (void*)(uintptr_t)lpproptags, (void*)(uintptr_t)lprestriction, (void*)(uintptr_t)lpsortorderset, (int32_t)crowsmax, (void*)(uintptr_t)lpprows);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lptable;
     (void)lpproptags;
@@ -436,6 +571,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     (void)lpsortorderset;
     (void)crowsmax;
     (void)lpprows;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -451,10 +587,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HrSetOneProp");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)lpmapiprop, (void*)(uintptr_t)lpprop) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)lpmapiprop, (void*)(uintptr_t)lpprop);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpmapiprop;
     (void)lpprop;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -470,10 +613,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HrThisThreadAdviseSink");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)lpadvisesink, (void*)(uintptr_t)lppadvisesink) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)lpadvisesink, (void*)(uintptr_t)lppadvisesink);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpadvisesink;
     (void)lppadvisesink;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -489,10 +639,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "LPropCompareProp");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)lpspropvaluea, (void*)(uintptr_t)lpspropvalueb) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)lpspropvaluea, (void*)(uintptr_t)lpspropvalueb);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpspropvaluea;
     (void)lpspropvalueb;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -508,11 +665,18 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "LpValFindProp");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)ulproptag, (uint32_t)cvalues, (void*)(uintptr_t)lpproparray) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)ulproptag, (uint32_t)cvalues, (void*)(uintptr_t)lpproparray);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)ulproptag;
     (void)cvalues;
     (void)lpproparray;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -528,8 +692,13 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "MAPIDeinitIdle");
     }
-    if (km_fn_ptr != NULL) km_fn_ptr();
+    if (km_fn_ptr != NULL) {
+        km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+    }
 #else
+    errno = ENOSYS;
 #endif
 }
 
@@ -543,8 +712,15 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "MAPIGetDefaultMalloc");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr() : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -560,9 +736,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "MAPIInitIdle");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)lpvreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)lpvreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpvreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -578,7 +761,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OpenStreamOnFile");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)lpallocatebuffer, (void*)(uintptr_t)lpfreebuffer, (uint32_t)ulflags, (void*)(uintptr_t)lpszfilename, (void*)(uintptr_t)lpszprefix, (void*)(uintptr_t)lppstream) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)lpallocatebuffer, (void*)(uintptr_t)lpfreebuffer, (uint32_t)ulflags, (void*)(uintptr_t)lpszfilename, (void*)(uintptr_t)lpszprefix, (void*)(uintptr_t)lppstream);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpallocatebuffer;
     (void)lpfreebuffer;
@@ -586,6 +775,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     (void)lpszfilename;
     (void)lpszprefix;
     (void)lppstream;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -601,11 +791,18 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PpropFindProp");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)lpproparray, (uint32_t)cvalues, (uint32_t)ulproptag) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)lpproparray, (uint32_t)cvalues, (uint32_t)ulproptag);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)lpproparray;
     (void)cvalues;
     (void)ulproptag;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -621,12 +818,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PropCopyMore");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)lpspropvaluedest, (void*)(uintptr_t)lpspropvaluesrc, (void*)(uintptr_t)lpfallocmore, (void*)(uintptr_t)lpvobject) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)lpspropvaluedest, (void*)(uintptr_t)lpspropvaluesrc, (void*)(uintptr_t)lpfallocmore, (void*)(uintptr_t)lpvobject);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpspropvaluedest;
     (void)lpspropvaluesrc;
     (void)lpfallocmore;
     (void)lpvobject;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -642,11 +846,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "RTFSync");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)lpmessage, (uint32_t)ulflags, (void*)(uintptr_t)lpfmessageupdated) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)lpmessage, (uint32_t)ulflags, (void*)(uintptr_t)lpfmessageupdated);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpmessage;
     (void)ulflags;
     (void)lpfmessageupdated;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -662,12 +873,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ScCopyNotifications");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int32_t)cnotification, (void*)(uintptr_t)lpnotifications, (void*)(uintptr_t)lpvdst, (void*)(uintptr_t)lpcb) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int32_t)cnotification, (void*)(uintptr_t)lpnotifications, (void*)(uintptr_t)lpvdst, (void*)(uintptr_t)lpcb);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)cnotification;
     (void)lpnotifications;
     (void)lpvdst;
     (void)lpcb;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -683,12 +901,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ScCopyProps");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int32_t)cvalues, (void*)(uintptr_t)lpproparray, (void*)(uintptr_t)lpvdst, (void*)(uintptr_t)lpcb) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int32_t)cvalues, (void*)(uintptr_t)lpproparray, (void*)(uintptr_t)lpvdst, (void*)(uintptr_t)lpcb);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)cvalues;
     (void)lpproparray;
     (void)lpvdst;
     (void)lpcb;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -704,11 +929,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ScCountNotifications");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int32_t)cnotifications, (void*)(uintptr_t)lpnotifications, (void*)(uintptr_t)lpcb) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int32_t)cnotifications, (void*)(uintptr_t)lpnotifications, (void*)(uintptr_t)lpcb);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)cnotifications;
     (void)lpnotifications;
     (void)lpcb;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -724,11 +956,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ScCountProps");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int32_t)cvalues, (void*)(uintptr_t)lpproparray, (void*)(uintptr_t)lpcb) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int32_t)cvalues, (void*)(uintptr_t)lpproparray, (void*)(uintptr_t)lpcb);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)cvalues;
     (void)lpproparray;
     (void)lpcb;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -744,12 +983,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ScCreateConversationIndex");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)cbparent, (void*)(uintptr_t)lpbparent, (void*)(uintptr_t)lpcbconvindex, (void*)(uintptr_t)lppbconvindex) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)cbparent, (void*)(uintptr_t)lpbparent, (void*)(uintptr_t)lpcbconvindex, (void*)(uintptr_t)lppbconvindex);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)cbparent;
     (void)lpbparent;
     (void)lpcbconvindex;
     (void)lppbconvindex;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -765,12 +1011,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ScDupPropset");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int32_t)cvalues, (void*)(uintptr_t)lpproparray, (void*)(uintptr_t)lpallocatebuffer, (void*)(uintptr_t)lppproparray) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int32_t)cvalues, (void*)(uintptr_t)lpproparray, (void*)(uintptr_t)lpallocatebuffer, (void*)(uintptr_t)lppproparray);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)cvalues;
     (void)lpproparray;
     (void)lpallocatebuffer;
     (void)lppproparray;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -786,9 +1039,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ScInitMapiUtil");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)ulflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ulflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -804,11 +1064,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ScLocalPathFromUNC");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)lpszunc, (void*)(uintptr_t)lpszlocal, (uint32_t)cchlocal) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)lpszunc, (void*)(uintptr_t)lpszlocal, (uint32_t)cchlocal);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszunc;
     (void)lpszlocal;
     (void)cchlocal;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -824,13 +1091,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ScRelocNotifications");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int32_t)cnotification, (void*)(uintptr_t)lpnotifications, (void*)(uintptr_t)lpvbaseold, (void*)(uintptr_t)lpvbasenew, (void*)(uintptr_t)lpcb) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int32_t)cnotification, (void*)(uintptr_t)lpnotifications, (void*)(uintptr_t)lpvbaseold, (void*)(uintptr_t)lpvbasenew, (void*)(uintptr_t)lpcb);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)cnotification;
     (void)lpnotifications;
     (void)lpvbaseold;
     (void)lpvbasenew;
     (void)lpcb;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -846,13 +1120,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ScRelocProps");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int32_t)cvalues, (void*)(uintptr_t)lpproparray, (void*)(uintptr_t)lpvbaseold, (void*)(uintptr_t)lpvbasenew, (void*)(uintptr_t)lpcb) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int32_t)cvalues, (void*)(uintptr_t)lpproparray, (void*)(uintptr_t)lpvbaseold, (void*)(uintptr_t)lpvbasenew, (void*)(uintptr_t)lpcb);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)cvalues;
     (void)lpproparray;
     (void)lpvbaseold;
     (void)lpvbasenew;
     (void)lpcb;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -868,11 +1149,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ScUNCFromLocalPath");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)lpszlocal, (void*)(uintptr_t)lpszunc, (uint32_t)cchunc) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)lpszlocal, (void*)(uintptr_t)lpszunc, (uint32_t)cchunc);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszlocal;
     (void)lpszunc;
     (void)cchunc;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -888,10 +1176,17 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SzFindCh");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)lpsz, (uint16_t)ch) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)lpsz, (uint16_t)ch);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)lpsz;
     (void)ch;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -907,10 +1202,17 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SzFindLastCh");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)lpsz, (uint16_t)ch) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)lpsz, (uint16_t)ch);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)lpsz;
     (void)ch;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -926,10 +1228,17 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SzFindSz");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)lpsz, (void*)(uintptr_t)lpszkey) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)lpsz, (void*)(uintptr_t)lpszkey);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)lpsz;
     (void)lpszkey;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -945,9 +1254,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "UFromSz");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)lpsz) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)lpsz);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpsz;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -963,9 +1279,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "UlAddRef");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)lpunk) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)lpunk);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpunk;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -981,9 +1304,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "UlPropSize");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)lpspropvalue) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)lpspropvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpspropvalue;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -999,9 +1329,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "UlRelease");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)lpunk) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)lpunk);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpunk;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -1017,11 +1354,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WrapCompressedRTFStream");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)lpcompressedrtfstream, (uint32_t)ulflags, (void*)(uintptr_t)lpuncompressedrtfstream) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)lpcompressedrtfstream, (uint32_t)ulflags, (void*)(uintptr_t)lpuncompressedrtfstream);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpcompressedrtfstream;
     (void)ulflags;
     (void)lpuncompressedrtfstream;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1037,7 +1381,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WrapStoreEntryID");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)ulflags, (void*)(uintptr_t)lpszdllname, (uint32_t)cborigentry, (void*)(uintptr_t)lporigentry, (void*)(uintptr_t)lpcbwrappedentry, (void*)(uintptr_t)lppwrappedentry) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)ulflags, (void*)(uintptr_t)lpszdllname, (uint32_t)cborigentry, (void*)(uintptr_t)lporigentry, (void*)(uintptr_t)lpcbwrappedentry, (void*)(uintptr_t)lppwrappedentry);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ulflags;
     (void)lpszdllname;
@@ -1045,6 +1395,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     (void)lporigentry;
     (void)lpcbwrappedentry;
     (void)lppwrappedentry;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;

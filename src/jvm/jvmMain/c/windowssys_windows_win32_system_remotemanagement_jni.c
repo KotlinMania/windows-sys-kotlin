@@ -5,6 +5,7 @@
 #include <stdbool.h>
 #include <stddef.h>
 #include <stdint.h>
+#include <stdlib.h>
 #include <errno.h>
 #ifdef _WIN32
 #ifndef WIN32_LEAN_AND_MEAN
@@ -28,11 +29,16 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("wsmsvc.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WSManCloseCommand");
     }
-    if (km_fn_ptr != NULL) km_fn_ptr((int64_t)commandhandle, (uint32_t)flags, (void*)(uintptr_t)async);
+    if (km_fn_ptr != NULL) {
+        km_fn_ptr((int64_t)commandhandle, (uint32_t)flags, (void*)(uintptr_t)async);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)commandhandle;
     (void)flags;
     (void)async;
+    errno = ENOSYS;
 #endif
 }
 
@@ -46,10 +52,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("wsmsvc.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WSManCloseOperation");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)operationhandle, (uint32_t)flags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int64_t)operationhandle, (uint32_t)flags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)operationhandle;
     (void)flags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -65,10 +78,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("wsmsvc.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WSManCloseSession");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)session, (uint32_t)flags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int64_t)session, (uint32_t)flags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)session;
     (void)flags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -84,11 +104,16 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("wsmsvc.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WSManCloseShell");
     }
-    if (km_fn_ptr != NULL) km_fn_ptr((int64_t)shellhandle, (uint32_t)flags, (void*)(uintptr_t)async);
+    if (km_fn_ptr != NULL) {
+        km_fn_ptr((int64_t)shellhandle, (uint32_t)flags, (void*)(uintptr_t)async);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)shellhandle;
     (void)flags;
     (void)async;
+    errno = ENOSYS;
 #endif
 }
 
@@ -102,7 +127,11 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("wsmsvc.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WSManConnectShell");
     }
-    if (km_fn_ptr != NULL) km_fn_ptr((int64_t)session, (uint32_t)flags, (void*)(uintptr_t)resourceuri, (void*)(uintptr_t)shellid, (void*)(uintptr_t)options, (void*)(uintptr_t)connectxml, (void*)(uintptr_t)async, (void*)(uintptr_t)shell);
+    if (km_fn_ptr != NULL) {
+        km_fn_ptr((int64_t)session, (uint32_t)flags, (void*)(uintptr_t)resourceuri, (void*)(uintptr_t)shellid, (void*)(uintptr_t)options, (void*)(uintptr_t)connectxml, (void*)(uintptr_t)async, (void*)(uintptr_t)shell);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)session;
     (void)flags;
@@ -112,6 +141,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     (void)connectxml;
     (void)async;
     (void)shell;
+    errno = ENOSYS;
 #endif
 }
 
@@ -125,7 +155,11 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("wsmsvc.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WSManConnectShellCommand");
     }
-    if (km_fn_ptr != NULL) km_fn_ptr((int64_t)shell, (uint32_t)flags, (void*)(uintptr_t)commandid, (void*)(uintptr_t)options, (void*)(uintptr_t)connectxml, (void*)(uintptr_t)async, (void*)(uintptr_t)command);
+    if (km_fn_ptr != NULL) {
+        km_fn_ptr((int64_t)shell, (uint32_t)flags, (void*)(uintptr_t)commandid, (void*)(uintptr_t)options, (void*)(uintptr_t)connectxml, (void*)(uintptr_t)async, (void*)(uintptr_t)command);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)shell;
     (void)flags;
@@ -134,6 +168,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     (void)connectxml;
     (void)async;
     (void)command;
+    errno = ENOSYS;
 #endif
 }
 
@@ -147,7 +182,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("wsmsvc.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WSManCreateSession");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)apihandle, (void*)(uintptr_t)connection, (uint32_t)flags, (void*)(uintptr_t)serverauthenticationcredentials, (void*)(uintptr_t)proxyinfo, (void*)(uintptr_t)session) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int64_t)apihandle, (void*)(uintptr_t)connection, (uint32_t)flags, (void*)(uintptr_t)serverauthenticationcredentials, (void*)(uintptr_t)proxyinfo, (void*)(uintptr_t)session);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)apihandle;
     (void)connection;
@@ -155,6 +196,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     (void)serverauthenticationcredentials;
     (void)proxyinfo;
     (void)session;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -170,7 +212,11 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("wsmsvc.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WSManCreateShell");
     }
-    if (km_fn_ptr != NULL) km_fn_ptr((int64_t)session, (uint32_t)flags, (void*)(uintptr_t)resourceuri, (void*)(uintptr_t)startupinfo, (void*)(uintptr_t)options, (void*)(uintptr_t)createxml, (void*)(uintptr_t)async, (void*)(uintptr_t)shell);
+    if (km_fn_ptr != NULL) {
+        km_fn_ptr((int64_t)session, (uint32_t)flags, (void*)(uintptr_t)resourceuri, (void*)(uintptr_t)startupinfo, (void*)(uintptr_t)options, (void*)(uintptr_t)createxml, (void*)(uintptr_t)async, (void*)(uintptr_t)shell);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)session;
     (void)flags;
@@ -180,6 +226,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     (void)createxml;
     (void)async;
     (void)shell;
+    errno = ENOSYS;
 #endif
 }
 
@@ -193,7 +240,11 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("wsmsvc.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WSManCreateShellEx");
     }
-    if (km_fn_ptr != NULL) km_fn_ptr((int64_t)session, (uint32_t)flags, (void*)(uintptr_t)resourceuri, (void*)(uintptr_t)shellid, (void*)(uintptr_t)startupinfo, (void*)(uintptr_t)options, (void*)(uintptr_t)createxml, (void*)(uintptr_t)async, (void*)(uintptr_t)shell);
+    if (km_fn_ptr != NULL) {
+        km_fn_ptr((int64_t)session, (uint32_t)flags, (void*)(uintptr_t)resourceuri, (void*)(uintptr_t)shellid, (void*)(uintptr_t)startupinfo, (void*)(uintptr_t)options, (void*)(uintptr_t)createxml, (void*)(uintptr_t)async, (void*)(uintptr_t)shell);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)session;
     (void)flags;
@@ -204,6 +255,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     (void)createxml;
     (void)async;
     (void)shell;
+    errno = ENOSYS;
 #endif
 }
 
@@ -217,10 +269,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("wsmsvc.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WSManDeinitialize");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)apihandle, (uint32_t)flags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int64_t)apihandle, (uint32_t)flags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)apihandle;
     (void)flags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -236,12 +295,17 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("wsmsvc.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WSManDisconnectShell");
     }
-    if (km_fn_ptr != NULL) km_fn_ptr((int64_t)shell, (uint32_t)flags, (void*)(uintptr_t)disconnectinfo, (void*)(uintptr_t)async);
+    if (km_fn_ptr != NULL) {
+        km_fn_ptr((int64_t)shell, (uint32_t)flags, (void*)(uintptr_t)disconnectinfo, (void*)(uintptr_t)async);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)shell;
     (void)flags;
     (void)disconnectinfo;
     (void)async;
+    errno = ENOSYS;
 #endif
 }
 
@@ -255,7 +319,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("wsmsvc.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WSManGetErrorMessage");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)apihandle, (uint32_t)flags, (void*)(uintptr_t)languagecode, (uint32_t)errorcode, (uint32_t)messagelength, (void*)(uintptr_t)message, (void*)(uintptr_t)messagelengthused) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int64_t)apihandle, (uint32_t)flags, (void*)(uintptr_t)languagecode, (uint32_t)errorcode, (uint32_t)messagelength, (void*)(uintptr_t)message, (void*)(uintptr_t)messagelengthused);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)apihandle;
     (void)flags;
@@ -264,6 +334,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     (void)messagelength;
     (void)message;
     (void)messagelengthused;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -279,11 +350,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("wsmsvc.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WSManGetSessionOptionAsDword");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)session, (int32_t)option, (void*)(uintptr_t)value) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int64_t)session, (int32_t)option, (void*)(uintptr_t)value);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)session;
     (void)option;
     (void)value;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -299,13 +377,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("wsmsvc.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WSManGetSessionOptionAsString");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)session, (int32_t)option, (uint32_t)stringlength, (void*)(uintptr_t)string, (void*)(uintptr_t)stringlengthused) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int64_t)session, (int32_t)option, (uint32_t)stringlength, (void*)(uintptr_t)string, (void*)(uintptr_t)stringlengthused);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)session;
     (void)option;
     (void)stringlength;
     (void)string;
     (void)stringlengthused;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -321,10 +406,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("wsmsvc.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WSManInitialize");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)flags, (void*)(uintptr_t)apihandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)flags, (void*)(uintptr_t)apihandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)flags;
     (void)apihandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -340,13 +432,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("wsmsvc.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WSManPluginAuthzOperationComplete");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)senderdetails, (uint32_t)flags, (void*)(uintptr_t)userauthorizationcontext, (uint32_t)errorcode, (void*)(uintptr_t)extendederrorinformation) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)senderdetails, (uint32_t)flags, (void*)(uintptr_t)userauthorizationcontext, (uint32_t)errorcode, (void*)(uintptr_t)extendederrorinformation);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)senderdetails;
     (void)flags;
     (void)userauthorizationcontext;
     (void)errorcode;
     (void)extendederrorinformation;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -362,13 +461,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("wsmsvc.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WSManPluginAuthzQueryQuotaComplete");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)senderdetails, (uint32_t)flags, (void*)(uintptr_t)quota, (uint32_t)errorcode, (void*)(uintptr_t)extendederrorinformation) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)senderdetails, (uint32_t)flags, (void*)(uintptr_t)quota, (uint32_t)errorcode, (void*)(uintptr_t)extendederrorinformation);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)senderdetails;
     (void)flags;
     (void)quota;
     (void)errorcode;
     (void)extendederrorinformation;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -384,7 +490,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("wsmsvc.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WSManPluginAuthzUserComplete");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)senderdetails, (uint32_t)flags, (void*)(uintptr_t)userauthorizationcontext, (void*)(uintptr_t)impersonationtoken, (int32_t)userisadministrator, (uint32_t)errorcode, (void*)(uintptr_t)extendederrorinformation) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)senderdetails, (uint32_t)flags, (void*)(uintptr_t)userauthorizationcontext, (void*)(uintptr_t)impersonationtoken, (int32_t)userisadministrator, (uint32_t)errorcode, (void*)(uintptr_t)extendederrorinformation);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)senderdetails;
     (void)flags;
@@ -393,6 +505,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     (void)userisadministrator;
     (void)errorcode;
     (void)extendederrorinformation;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -408,9 +521,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("wsmsvc.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WSManPluginFreeRequestDetails");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)requestdetails) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)requestdetails);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)requestdetails;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -426,11 +546,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("wsmsvc.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WSManPluginGetConfiguration");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)plugincontext, (uint32_t)flags, (void*)(uintptr_t)data) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)plugincontext, (uint32_t)flags, (void*)(uintptr_t)data);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)plugincontext;
     (void)flags;
     (void)data;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -446,11 +573,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("wsmsvc.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WSManPluginGetOperationParameters");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)requestdetails, (uint32_t)flags, (void*)(uintptr_t)data) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)requestdetails, (uint32_t)flags, (void*)(uintptr_t)data);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)requestdetails;
     (void)flags;
     (void)data;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -466,12 +600,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("wsmsvc.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WSManPluginOperationComplete");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)requestdetails, (uint32_t)flags, (uint32_t)errorcode, (void*)(uintptr_t)extendedinformation) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)requestdetails, (uint32_t)flags, (uint32_t)errorcode, (void*)(uintptr_t)extendedinformation);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)requestdetails;
     (void)flags;
     (void)errorcode;
     (void)extendedinformation;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -487,7 +628,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("wsmsvc.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WSManPluginReceiveResult");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)requestdetails, (uint32_t)flags, (void*)(uintptr_t)stream, (void*)(uintptr_t)streamresult, (void*)(uintptr_t)commandstate, (uint32_t)exitcode) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)requestdetails, (uint32_t)flags, (void*)(uintptr_t)stream, (void*)(uintptr_t)streamresult, (void*)(uintptr_t)commandstate, (uint32_t)exitcode);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)requestdetails;
     (void)flags;
@@ -495,6 +642,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     (void)streamresult;
     (void)commandstate;
     (void)exitcode;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -510,10 +658,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("wsmsvc.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WSManPluginReportCompletion");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)plugincontext, (uint32_t)flags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)plugincontext, (uint32_t)flags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)plugincontext;
     (void)flags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -529,11 +684,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("wsmsvc.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WSManPluginReportContext");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)requestdetails, (uint32_t)flags, (void*)(uintptr_t)context) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)requestdetails, (uint32_t)flags, (void*)(uintptr_t)context);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)requestdetails;
     (void)flags;
     (void)context;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -549,7 +711,11 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("wsmsvc.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WSManReceiveShellOutput");
     }
-    if (km_fn_ptr != NULL) km_fn_ptr((int64_t)shell, (int64_t)command, (uint32_t)flags, (void*)(uintptr_t)desiredstreamset, (void*)(uintptr_t)async, (void*)(uintptr_t)receiveoperation);
+    if (km_fn_ptr != NULL) {
+        km_fn_ptr((int64_t)shell, (int64_t)command, (uint32_t)flags, (void*)(uintptr_t)desiredstreamset, (void*)(uintptr_t)async, (void*)(uintptr_t)receiveoperation);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)shell;
     (void)command;
@@ -557,6 +723,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     (void)desiredstreamset;
     (void)async;
     (void)receiveoperation;
+    errno = ENOSYS;
 #endif
 }
 
@@ -570,11 +737,16 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("wsmsvc.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WSManReconnectShell");
     }
-    if (km_fn_ptr != NULL) km_fn_ptr((int64_t)shell, (uint32_t)flags, (void*)(uintptr_t)async);
+    if (km_fn_ptr != NULL) {
+        km_fn_ptr((int64_t)shell, (uint32_t)flags, (void*)(uintptr_t)async);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)shell;
     (void)flags;
     (void)async;
+    errno = ENOSYS;
 #endif
 }
 
@@ -588,11 +760,16 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("wsmsvc.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WSManReconnectShellCommand");
     }
-    if (km_fn_ptr != NULL) km_fn_ptr((int64_t)commandhandle, (uint32_t)flags, (void*)(uintptr_t)async);
+    if (km_fn_ptr != NULL) {
+        km_fn_ptr((int64_t)commandhandle, (uint32_t)flags, (void*)(uintptr_t)async);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)commandhandle;
     (void)flags;
     (void)async;
+    errno = ENOSYS;
 #endif
 }
 
@@ -606,7 +783,11 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("wsmsvc.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WSManRunShellCommand");
     }
-    if (km_fn_ptr != NULL) km_fn_ptr((int64_t)shell, (uint32_t)flags, (void*)(uintptr_t)commandline, (void*)(uintptr_t)args, (void*)(uintptr_t)options, (void*)(uintptr_t)async, (void*)(uintptr_t)command);
+    if (km_fn_ptr != NULL) {
+        km_fn_ptr((int64_t)shell, (uint32_t)flags, (void*)(uintptr_t)commandline, (void*)(uintptr_t)args, (void*)(uintptr_t)options, (void*)(uintptr_t)async, (void*)(uintptr_t)command);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)shell;
     (void)flags;
@@ -615,6 +796,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     (void)options;
     (void)async;
     (void)command;
+    errno = ENOSYS;
 #endif
 }
 
@@ -628,7 +810,11 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("wsmsvc.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WSManRunShellCommandEx");
     }
-    if (km_fn_ptr != NULL) km_fn_ptr((int64_t)shell, (uint32_t)flags, (void*)(uintptr_t)commandid, (void*)(uintptr_t)commandline, (void*)(uintptr_t)args, (void*)(uintptr_t)options, (void*)(uintptr_t)async, (void*)(uintptr_t)command);
+    if (km_fn_ptr != NULL) {
+        km_fn_ptr((int64_t)shell, (uint32_t)flags, (void*)(uintptr_t)commandid, (void*)(uintptr_t)commandline, (void*)(uintptr_t)args, (void*)(uintptr_t)options, (void*)(uintptr_t)async, (void*)(uintptr_t)command);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)shell;
     (void)flags;
@@ -638,6 +824,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     (void)options;
     (void)async;
     (void)command;
+    errno = ENOSYS;
 #endif
 }
 
@@ -651,7 +838,11 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("wsmsvc.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WSManSendShellInput");
     }
-    if (km_fn_ptr != NULL) km_fn_ptr((int64_t)shell, (int64_t)command, (uint32_t)flags, (void*)(uintptr_t)streamid, (void*)(uintptr_t)streamdata, (int32_t)endofstream, (void*)(uintptr_t)async, (void*)(uintptr_t)sendoperation);
+    if (km_fn_ptr != NULL) {
+        km_fn_ptr((int64_t)shell, (int64_t)command, (uint32_t)flags, (void*)(uintptr_t)streamid, (void*)(uintptr_t)streamdata, (int32_t)endofstream, (void*)(uintptr_t)async, (void*)(uintptr_t)sendoperation);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)shell;
     (void)command;
@@ -661,6 +852,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     (void)endofstream;
     (void)async;
     (void)sendoperation;
+    errno = ENOSYS;
 #endif
 }
 
@@ -674,11 +866,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("wsmsvc.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WSManSetSessionOption");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)session, (int32_t)option, (void*)(uintptr_t)data) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int64_t)session, (int32_t)option, (void*)(uintptr_t)data);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)session;
     (void)option;
     (void)data;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -694,7 +893,11 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("wsmsvc.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WSManSignalShell");
     }
-    if (km_fn_ptr != NULL) km_fn_ptr((int64_t)shell, (int64_t)command, (uint32_t)flags, (void*)(uintptr_t)code, (void*)(uintptr_t)async, (void*)(uintptr_t)signaloperation);
+    if (km_fn_ptr != NULL) {
+        km_fn_ptr((int64_t)shell, (int64_t)command, (uint32_t)flags, (void*)(uintptr_t)code, (void*)(uintptr_t)async, (void*)(uintptr_t)signaloperation);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)shell;
     (void)command;
@@ -702,6 +905,7 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     (void)code;
     (void)async;
     (void)signaloperation;
+    errno = ENOSYS;
 #endif
 }
 

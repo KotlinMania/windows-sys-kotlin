@@ -5,6 +5,7 @@
 #include <stdbool.h>
 #include <stddef.h>
 #include <stdint.h>
+#include <stdlib.h>
 #include <errno.h>
 #ifdef _WIN32
 #ifndef WIN32_LEAN_AND_MEAN
@@ -28,9 +29,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("psapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "EmptyWorkingSet");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hprocess) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hprocess);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -46,11 +54,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("psapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "EnumDeviceDrivers");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)lpimagebase, (uint32_t)cb, (void*)(uintptr_t)lpcbneeded) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)lpimagebase, (uint32_t)cb, (void*)(uintptr_t)lpcbneeded);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpimagebase;
     (void)cb;
     (void)lpcbneeded;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -66,10 +81,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("psapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "EnumPageFilesA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pcallbackroutine, (void*)(uintptr_t)pcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pcallbackroutine, (void*)(uintptr_t)pcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pcallbackroutine;
     (void)pcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -85,10 +107,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("psapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "EnumPageFilesW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pcallbackroutine, (void*)(uintptr_t)pcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pcallbackroutine, (void*)(uintptr_t)pcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pcallbackroutine;
     (void)pcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -104,12 +133,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("psapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "EnumProcessModules");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hprocess, (void*)(uintptr_t)lphmodule, (uint32_t)cb, (void*)(uintptr_t)lpcbneeded) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hprocess, (void*)(uintptr_t)lphmodule, (uint32_t)cb, (void*)(uintptr_t)lpcbneeded);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)lphmodule;
     (void)cb;
     (void)lpcbneeded;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -125,13 +161,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("psapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "EnumProcessModulesEx");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hprocess, (void*)(uintptr_t)lphmodule, (uint32_t)cb, (void*)(uintptr_t)lpcbneeded, (uint32_t)dwfilterflag) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hprocess, (void*)(uintptr_t)lphmodule, (uint32_t)cb, (void*)(uintptr_t)lpcbneeded, (uint32_t)dwfilterflag);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)lphmodule;
     (void)cb;
     (void)lpcbneeded;
     (void)dwfilterflag;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -147,11 +190,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("psapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "EnumProcesses");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)lpidprocess, (uint32_t)cb, (void*)(uintptr_t)lpcbneeded) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)lpidprocess, (uint32_t)cb, (void*)(uintptr_t)lpcbneeded);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpidprocess;
     (void)cb;
     (void)lpcbneeded;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -167,11 +217,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("psapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetDeviceDriverBaseNameA");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)imagebase, (void*)(uintptr_t)lpfilename, (uint32_t)nsize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)imagebase, (void*)(uintptr_t)lpfilename, (uint32_t)nsize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)imagebase;
     (void)lpfilename;
     (void)nsize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -187,11 +244,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("psapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetDeviceDriverBaseNameW");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)imagebase, (void*)(uintptr_t)lpbasename, (uint32_t)nsize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)imagebase, (void*)(uintptr_t)lpbasename, (uint32_t)nsize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)imagebase;
     (void)lpbasename;
     (void)nsize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -207,11 +271,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("psapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetDeviceDriverFileNameA");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)imagebase, (void*)(uintptr_t)lpfilename, (uint32_t)nsize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)imagebase, (void*)(uintptr_t)lpfilename, (uint32_t)nsize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)imagebase;
     (void)lpfilename;
     (void)nsize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -227,11 +298,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("psapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetDeviceDriverFileNameW");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)imagebase, (void*)(uintptr_t)lpfilename, (uint32_t)nsize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)imagebase, (void*)(uintptr_t)lpfilename, (uint32_t)nsize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)imagebase;
     (void)lpfilename;
     (void)nsize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -247,12 +325,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("psapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetMappedFileNameA");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hprocess, (void*)(uintptr_t)lpv, (void*)(uintptr_t)lpfilename, (uint32_t)nsize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hprocess, (void*)(uintptr_t)lpv, (void*)(uintptr_t)lpfilename, (uint32_t)nsize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hprocess;
     (void)lpv;
     (void)lpfilename;
     (void)nsize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -268,12 +353,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("psapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetMappedFileNameW");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hprocess, (void*)(uintptr_t)lpv, (void*)(uintptr_t)lpfilename, (uint32_t)nsize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hprocess, (void*)(uintptr_t)lpv, (void*)(uintptr_t)lpfilename, (uint32_t)nsize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hprocess;
     (void)lpv;
     (void)lpfilename;
     (void)nsize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -289,12 +381,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("psapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetModuleBaseNameA");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hprocess, (void*)(uintptr_t)hmodule, (void*)(uintptr_t)lpbasename, (uint32_t)nsize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hprocess, (void*)(uintptr_t)hmodule, (void*)(uintptr_t)lpbasename, (uint32_t)nsize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hprocess;
     (void)hmodule;
     (void)lpbasename;
     (void)nsize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -310,12 +409,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("psapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetModuleBaseNameW");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hprocess, (void*)(uintptr_t)hmodule, (void*)(uintptr_t)lpbasename, (uint32_t)nsize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hprocess, (void*)(uintptr_t)hmodule, (void*)(uintptr_t)lpbasename, (uint32_t)nsize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hprocess;
     (void)hmodule;
     (void)lpbasename;
     (void)nsize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -331,12 +437,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("psapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetModuleFileNameExA");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hprocess, (void*)(uintptr_t)hmodule, (void*)(uintptr_t)lpfilename, (uint32_t)nsize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hprocess, (void*)(uintptr_t)hmodule, (void*)(uintptr_t)lpfilename, (uint32_t)nsize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hprocess;
     (void)hmodule;
     (void)lpfilename;
     (void)nsize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -352,12 +465,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("psapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetModuleFileNameExW");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hprocess, (void*)(uintptr_t)hmodule, (void*)(uintptr_t)lpfilename, (uint32_t)nsize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hprocess, (void*)(uintptr_t)hmodule, (void*)(uintptr_t)lpfilename, (uint32_t)nsize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hprocess;
     (void)hmodule;
     (void)lpfilename;
     (void)nsize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -373,12 +493,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("psapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetModuleInformation");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hprocess, (void*)(uintptr_t)hmodule, (void*)(uintptr_t)lpmodinfo, (uint32_t)cb) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hprocess, (void*)(uintptr_t)hmodule, (void*)(uintptr_t)lpmodinfo, (uint32_t)cb);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)hmodule;
     (void)lpmodinfo;
     (void)cb;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -394,10 +521,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("psapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetPerformanceInfo");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pperformanceinformation, (uint32_t)cb) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pperformanceinformation, (uint32_t)cb);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pperformanceinformation;
     (void)cb;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -413,11 +547,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("psapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetProcessImageFileNameA");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hprocess, (void*)(uintptr_t)lpimagefilename, (uint32_t)nsize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hprocess, (void*)(uintptr_t)lpimagefilename, (uint32_t)nsize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hprocess;
     (void)lpimagefilename;
     (void)nsize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -433,11 +574,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("psapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetProcessImageFileNameW");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hprocess, (void*)(uintptr_t)lpimagefilename, (uint32_t)nsize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hprocess, (void*)(uintptr_t)lpimagefilename, (uint32_t)nsize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hprocess;
     (void)lpimagefilename;
     (void)nsize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -453,11 +601,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("psapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetProcessMemoryInfo");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)process, (void*)(uintptr_t)ppsmemcounters, (uint32_t)cb) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)process, (void*)(uintptr_t)ppsmemcounters, (uint32_t)cb);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)process;
     (void)ppsmemcounters;
     (void)cb;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -473,11 +628,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("psapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetWsChanges");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hprocess, (void*)(uintptr_t)lpwatchinfo, (uint32_t)cb) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hprocess, (void*)(uintptr_t)lpwatchinfo, (uint32_t)cb);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)lpwatchinfo;
     (void)cb;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -493,11 +655,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("psapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetWsChangesEx");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hprocess, (void*)(uintptr_t)lpwatchinfoex, (void*)(uintptr_t)cb) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hprocess, (void*)(uintptr_t)lpwatchinfoex, (void*)(uintptr_t)cb);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)lpwatchinfoex;
     (void)cb;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -513,9 +682,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("psapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "InitializeProcessForWsWatch");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hprocess) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hprocess);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -531,9 +707,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "K32EmptyWorkingSet");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hprocess) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hprocess);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -549,11 +732,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "K32EnumDeviceDrivers");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)lpimagebase, (uint32_t)cb, (void*)(uintptr_t)lpcbneeded) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)lpimagebase, (uint32_t)cb, (void*)(uintptr_t)lpcbneeded);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpimagebase;
     (void)cb;
     (void)lpcbneeded;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -569,10 +759,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "K32EnumPageFilesA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pcallbackroutine, (void*)(uintptr_t)pcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pcallbackroutine, (void*)(uintptr_t)pcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pcallbackroutine;
     (void)pcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -588,10 +785,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "K32EnumPageFilesW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pcallbackroutine, (void*)(uintptr_t)pcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pcallbackroutine, (void*)(uintptr_t)pcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pcallbackroutine;
     (void)pcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -607,12 +811,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "K32EnumProcessModules");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hprocess, (void*)(uintptr_t)lphmodule, (uint32_t)cb, (void*)(uintptr_t)lpcbneeded) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hprocess, (void*)(uintptr_t)lphmodule, (uint32_t)cb, (void*)(uintptr_t)lpcbneeded);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)lphmodule;
     (void)cb;
     (void)lpcbneeded;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -628,13 +839,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "K32EnumProcessModulesEx");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hprocess, (void*)(uintptr_t)lphmodule, (uint32_t)cb, (void*)(uintptr_t)lpcbneeded, (uint32_t)dwfilterflag) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hprocess, (void*)(uintptr_t)lphmodule, (uint32_t)cb, (void*)(uintptr_t)lpcbneeded, (uint32_t)dwfilterflag);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)lphmodule;
     (void)cb;
     (void)lpcbneeded;
     (void)dwfilterflag;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -650,11 +868,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "K32EnumProcesses");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)lpidprocess, (uint32_t)cb, (void*)(uintptr_t)lpcbneeded) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)lpidprocess, (uint32_t)cb, (void*)(uintptr_t)lpcbneeded);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpidprocess;
     (void)cb;
     (void)lpcbneeded;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -670,11 +895,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "K32GetDeviceDriverBaseNameA");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)imagebase, (void*)(uintptr_t)lpfilename, (uint32_t)nsize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)imagebase, (void*)(uintptr_t)lpfilename, (uint32_t)nsize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)imagebase;
     (void)lpfilename;
     (void)nsize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -690,11 +922,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "K32GetDeviceDriverBaseNameW");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)imagebase, (void*)(uintptr_t)lpbasename, (uint32_t)nsize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)imagebase, (void*)(uintptr_t)lpbasename, (uint32_t)nsize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)imagebase;
     (void)lpbasename;
     (void)nsize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -710,11 +949,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "K32GetDeviceDriverFileNameA");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)imagebase, (void*)(uintptr_t)lpfilename, (uint32_t)nsize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)imagebase, (void*)(uintptr_t)lpfilename, (uint32_t)nsize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)imagebase;
     (void)lpfilename;
     (void)nsize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -730,11 +976,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "K32GetDeviceDriverFileNameW");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)imagebase, (void*)(uintptr_t)lpfilename, (uint32_t)nsize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)imagebase, (void*)(uintptr_t)lpfilename, (uint32_t)nsize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)imagebase;
     (void)lpfilename;
     (void)nsize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -750,12 +1003,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "K32GetMappedFileNameA");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hprocess, (void*)(uintptr_t)lpv, (void*)(uintptr_t)lpfilename, (uint32_t)nsize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hprocess, (void*)(uintptr_t)lpv, (void*)(uintptr_t)lpfilename, (uint32_t)nsize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hprocess;
     (void)lpv;
     (void)lpfilename;
     (void)nsize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -771,12 +1031,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "K32GetMappedFileNameW");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hprocess, (void*)(uintptr_t)lpv, (void*)(uintptr_t)lpfilename, (uint32_t)nsize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hprocess, (void*)(uintptr_t)lpv, (void*)(uintptr_t)lpfilename, (uint32_t)nsize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hprocess;
     (void)lpv;
     (void)lpfilename;
     (void)nsize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -792,12 +1059,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "K32GetModuleBaseNameA");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hprocess, (void*)(uintptr_t)hmodule, (void*)(uintptr_t)lpbasename, (uint32_t)nsize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hprocess, (void*)(uintptr_t)hmodule, (void*)(uintptr_t)lpbasename, (uint32_t)nsize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hprocess;
     (void)hmodule;
     (void)lpbasename;
     (void)nsize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -813,12 +1087,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "K32GetModuleBaseNameW");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hprocess, (void*)(uintptr_t)hmodule, (void*)(uintptr_t)lpbasename, (uint32_t)nsize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hprocess, (void*)(uintptr_t)hmodule, (void*)(uintptr_t)lpbasename, (uint32_t)nsize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hprocess;
     (void)hmodule;
     (void)lpbasename;
     (void)nsize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -834,12 +1115,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "K32GetModuleFileNameExA");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hprocess, (void*)(uintptr_t)hmodule, (void*)(uintptr_t)lpfilename, (uint32_t)nsize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hprocess, (void*)(uintptr_t)hmodule, (void*)(uintptr_t)lpfilename, (uint32_t)nsize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hprocess;
     (void)hmodule;
     (void)lpfilename;
     (void)nsize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -855,12 +1143,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "K32GetModuleFileNameExW");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hprocess, (void*)(uintptr_t)hmodule, (void*)(uintptr_t)lpfilename, (uint32_t)nsize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hprocess, (void*)(uintptr_t)hmodule, (void*)(uintptr_t)lpfilename, (uint32_t)nsize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hprocess;
     (void)hmodule;
     (void)lpfilename;
     (void)nsize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -876,12 +1171,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "K32GetModuleInformation");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hprocess, (void*)(uintptr_t)hmodule, (void*)(uintptr_t)lpmodinfo, (uint32_t)cb) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hprocess, (void*)(uintptr_t)hmodule, (void*)(uintptr_t)lpmodinfo, (uint32_t)cb);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)hmodule;
     (void)lpmodinfo;
     (void)cb;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -897,10 +1199,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "K32GetPerformanceInfo");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pperformanceinformation, (uint32_t)cb) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pperformanceinformation, (uint32_t)cb);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pperformanceinformation;
     (void)cb;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -916,11 +1225,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "K32GetProcessImageFileNameA");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hprocess, (void*)(uintptr_t)lpimagefilename, (uint32_t)nsize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hprocess, (void*)(uintptr_t)lpimagefilename, (uint32_t)nsize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hprocess;
     (void)lpimagefilename;
     (void)nsize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -936,11 +1252,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "K32GetProcessImageFileNameW");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hprocess, (void*)(uintptr_t)lpimagefilename, (uint32_t)nsize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hprocess, (void*)(uintptr_t)lpimagefilename, (uint32_t)nsize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hprocess;
     (void)lpimagefilename;
     (void)nsize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -956,11 +1279,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "K32GetProcessMemoryInfo");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)process, (void*)(uintptr_t)ppsmemcounters, (uint32_t)cb) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)process, (void*)(uintptr_t)ppsmemcounters, (uint32_t)cb);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)process;
     (void)ppsmemcounters;
     (void)cb;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -976,11 +1306,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "K32GetWsChanges");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hprocess, (void*)(uintptr_t)lpwatchinfo, (uint32_t)cb) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hprocess, (void*)(uintptr_t)lpwatchinfo, (uint32_t)cb);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)lpwatchinfo;
     (void)cb;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -996,11 +1333,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "K32GetWsChangesEx");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hprocess, (void*)(uintptr_t)lpwatchinfoex, (void*)(uintptr_t)cb) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hprocess, (void*)(uintptr_t)lpwatchinfoex, (void*)(uintptr_t)cb);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)lpwatchinfoex;
     (void)cb;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1016,9 +1360,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "K32InitializeProcessForWsWatch");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hprocess) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hprocess);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1034,11 +1385,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "K32QueryWorkingSet");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hprocess, (void*)(uintptr_t)pv, (uint32_t)cb) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hprocess, (void*)(uintptr_t)pv, (uint32_t)cb);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)pv;
     (void)cb;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1054,11 +1412,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "K32QueryWorkingSetEx");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hprocess, (void*)(uintptr_t)pv, (uint32_t)cb) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hprocess, (void*)(uintptr_t)pv, (uint32_t)cb);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)pv;
     (void)cb;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1074,11 +1439,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("psapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "QueryWorkingSet");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hprocess, (void*)(uintptr_t)pv, (uint32_t)cb) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hprocess, (void*)(uintptr_t)pv, (uint32_t)cb);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)pv;
     (void)cb;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1094,11 +1466,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("psapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "QueryWorkingSetEx");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hprocess, (void*)(uintptr_t)pv, (uint32_t)cb) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hprocess, (void*)(uintptr_t)pv, (uint32_t)cb);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)pv;
     (void)cb;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;

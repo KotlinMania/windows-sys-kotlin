@@ -5,6 +5,7 @@
 #include <stdbool.h>
 #include <stddef.h>
 #include <stdint.h>
+#include <stdlib.h>
 #include <errno.h>
 #ifdef _WIN32
 #ifndef WIN32_LEAN_AND_MEAN
@@ -28,8 +29,15 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "LdapGetLastError");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr() : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -45,9 +53,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "LdapMapErrorToWin32");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)ldaperror) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)ldaperror);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ldaperror;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -63,12 +78,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "LdapUTF8ToUnicode");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)lpsrcstr, (int32_t)cchsrc, (void*)(uintptr_t)lpdeststr, (int32_t)cchdest) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)lpsrcstr, (int32_t)cchsrc, (void*)(uintptr_t)lpdeststr, (int32_t)cchdest);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpsrcstr;
     (void)cchsrc;
     (void)lpdeststr;
     (void)cchdest;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -84,12 +106,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "LdapUnicodeToUTF8");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)lpsrcstr, (int32_t)cchsrc, (void*)(uintptr_t)lpdeststr, (int32_t)cchdest) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)lpsrcstr, (int32_t)cchsrc, (void*)(uintptr_t)lpdeststr, (int32_t)cchdest);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpsrcstr;
     (void)cchsrc;
     (void)lpdeststr;
     (void)cchdest;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -105,9 +134,16 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ber_alloc_t");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int32_t)options) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int32_t)options);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)options;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -123,9 +159,16 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ber_bvdup");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pberval) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pberval);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)pberval;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -141,9 +184,14 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ber_bvecfree");
     }
-    if (km_fn_ptr != NULL) km_fn_ptr((void*)(uintptr_t)pberval);
+    if (km_fn_ptr != NULL) {
+        km_fn_ptr((void*)(uintptr_t)pberval);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pberval;
+    errno = ENOSYS;
 #endif
 }
 
@@ -157,9 +205,14 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ber_bvfree");
     }
-    if (km_fn_ptr != NULL) km_fn_ptr((void*)(uintptr_t)bv);
+    if (km_fn_ptr != NULL) {
+        km_fn_ptr((void*)(uintptr_t)bv);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)bv;
+    errno = ENOSYS;
 #endif
 }
 
@@ -173,11 +226,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ber_first_element");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pberelement, (void*)(uintptr_t)plen, (void*)(uintptr_t)ppopaque) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pberelement, (void*)(uintptr_t)plen, (void*)(uintptr_t)ppopaque);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pberelement;
     (void)plen;
     (void)ppopaque;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -193,10 +253,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ber_flatten");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pberelement, (void*)(uintptr_t)pberval) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pberelement, (void*)(uintptr_t)pberval);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pberelement;
     (void)pberval;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -212,10 +279,15 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ber_free");
     }
-    if (km_fn_ptr != NULL) km_fn_ptr((void*)(uintptr_t)pberelement, (int32_t)fbuf);
+    if (km_fn_ptr != NULL) {
+        km_fn_ptr((void*)(uintptr_t)pberelement, (int32_t)fbuf);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pberelement;
     (void)fbuf;
+    errno = ENOSYS;
 #endif
 }
 
@@ -229,9 +301,16 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ber_init");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pberval) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pberval);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)pberval;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -247,11 +326,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ber_next_element");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pberelement, (void*)(uintptr_t)plen, (void*)(uintptr_t)opaque) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pberelement, (void*)(uintptr_t)plen, (void*)(uintptr_t)opaque);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pberelement;
     (void)plen;
     (void)opaque;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -267,10 +353,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ber_peek_tag");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pberelement, (void*)(uintptr_t)plen) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pberelement, (void*)(uintptr_t)plen);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pberelement;
     (void)plen;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -295,11 +388,14 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
             case 3: km_res = km_fn_ptr((void*)(uintptr_t)pberelement, (void*)(uintptr_t)fmt, (intptr_t)km_va0, (intptr_t)km_va1, (intptr_t)km_va2); break;
             default: km_res = km_fn_ptr((void*)(uintptr_t)pberelement, (void*)(uintptr_t)fmt, (intptr_t)km_va0, (intptr_t)km_va1, (intptr_t)km_va2, (intptr_t)km_va3); break;
         }
+    } else {
+        errno = ENOSYS;
     }
 #else
     (void)pberelement;
     (void)fmt;
     (void)km_vac; (void)km_va0; (void)km_va1; (void)km_va2; (void)km_va3;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -324,11 +420,14 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
             case 3: km_res = km_fn_ptr((void*)(uintptr_t)pberelement, (void*)(uintptr_t)fmt, (intptr_t)km_va0, (intptr_t)km_va1, (intptr_t)km_va2); break;
             default: km_res = km_fn_ptr((void*)(uintptr_t)pberelement, (void*)(uintptr_t)fmt, (intptr_t)km_va0, (intptr_t)km_va1, (intptr_t)km_va2, (intptr_t)km_va3); break;
         }
+    } else {
+        errno = ENOSYS;
     }
 #else
     (void)pberelement;
     (void)fmt;
     (void)km_vac; (void)km_va0; (void)km_va1; (void)km_va2; (void)km_va3;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -344,10 +443,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ber_skip_tag");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pberelement, (void*)(uintptr_t)plen) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pberelement, (void*)(uintptr_t)plen);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pberelement;
     (void)plen;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -363,10 +469,17 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "cldap_open");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hostname, (uint32_t)portnumber) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hostname, (uint32_t)portnumber);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)hostname;
     (void)portnumber;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -382,10 +495,17 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "cldap_openA");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hostname, (uint32_t)portnumber) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hostname, (uint32_t)portnumber);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)hostname;
     (void)portnumber;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -401,10 +521,17 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "cldap_openW");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hostname, (uint32_t)portnumber) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hostname, (uint32_t)portnumber);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)hostname;
     (void)portnumber;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -420,10 +547,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_abandon");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (uint32_t)msgid) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (uint32_t)msgid);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)msgid;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -439,11 +573,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_add");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)attrs) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)attrs);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
     (void)attrs;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -459,11 +600,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_addA");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)attrs) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)attrs);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
     (void)attrs;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -479,11 +627,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_addW");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)attrs) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)attrs);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
     (void)attrs;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -499,7 +654,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_add_ext");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)attrs, (void*)(uintptr_t)servercontrols, (void*)(uintptr_t)clientcontrols, (void*)(uintptr_t)messagenumber) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)attrs, (void*)(uintptr_t)servercontrols, (void*)(uintptr_t)clientcontrols, (void*)(uintptr_t)messagenumber);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
@@ -507,6 +668,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)servercontrols;
     (void)clientcontrols;
     (void)messagenumber;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -522,7 +684,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_add_extA");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)attrs, (void*)(uintptr_t)servercontrols, (void*)(uintptr_t)clientcontrols, (void*)(uintptr_t)messagenumber) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)attrs, (void*)(uintptr_t)servercontrols, (void*)(uintptr_t)clientcontrols, (void*)(uintptr_t)messagenumber);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
@@ -530,6 +698,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)servercontrols;
     (void)clientcontrols;
     (void)messagenumber;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -545,7 +714,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_add_extW");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)attrs, (void*)(uintptr_t)servercontrols, (void*)(uintptr_t)clientcontrols, (void*)(uintptr_t)messagenumber) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)attrs, (void*)(uintptr_t)servercontrols, (void*)(uintptr_t)clientcontrols, (void*)(uintptr_t)messagenumber);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
@@ -553,6 +728,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)servercontrols;
     (void)clientcontrols;
     (void)messagenumber;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -568,13 +744,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_add_ext_s");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)attrs, (void*)(uintptr_t)servercontrols, (void*)(uintptr_t)clientcontrols) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)attrs, (void*)(uintptr_t)servercontrols, (void*)(uintptr_t)clientcontrols);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
     (void)attrs;
     (void)servercontrols;
     (void)clientcontrols;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -590,13 +773,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_add_ext_sA");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)attrs, (void*)(uintptr_t)servercontrols, (void*)(uintptr_t)clientcontrols) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)attrs, (void*)(uintptr_t)servercontrols, (void*)(uintptr_t)clientcontrols);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
     (void)attrs;
     (void)servercontrols;
     (void)clientcontrols;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -612,13 +802,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_add_ext_sW");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)attrs, (void*)(uintptr_t)servercontrols, (void*)(uintptr_t)clientcontrols) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)attrs, (void*)(uintptr_t)servercontrols, (void*)(uintptr_t)clientcontrols);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
     (void)attrs;
     (void)servercontrols;
     (void)clientcontrols;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -634,11 +831,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_add_s");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)attrs) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)attrs);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
     (void)attrs;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -654,11 +858,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_add_sA");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)attrs) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)attrs);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
     (void)attrs;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -674,11 +885,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_add_sW");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)attrs) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)attrs);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
     (void)attrs;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -694,12 +912,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_bind");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)cred, (uint32_t)method) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)cred, (uint32_t)method);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
     (void)cred;
     (void)method;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -715,12 +940,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_bindA");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)cred, (uint32_t)method) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)cred, (uint32_t)method);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
     (void)cred;
     (void)method;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -736,12 +968,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_bindW");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)cred, (uint32_t)method) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)cred, (uint32_t)method);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
     (void)cred;
     (void)method;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -757,12 +996,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_bind_s");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)cred, (uint32_t)method) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)cred, (uint32_t)method);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
     (void)cred;
     (void)method;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -778,12 +1024,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_bind_sA");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)cred, (uint32_t)method) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)cred, (uint32_t)method);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
     (void)cred;
     (void)method;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -799,12 +1052,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_bind_sW");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)cred, (uint32_t)method) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)cred, (uint32_t)method);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
     (void)cred;
     (void)method;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -820,10 +1080,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_check_filterA");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)searchfilter) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)searchfilter);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)searchfilter;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -839,10 +1106,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_check_filterW");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)searchfilter) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)searchfilter);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)searchfilter;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -858,9 +1132,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_cleanup");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hinstance) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hinstance);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hinstance;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -876,10 +1157,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_close_extended_op");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (uint32_t)messagenumber) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (uint32_t)messagenumber);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)messagenumber;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -895,12 +1183,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_compare");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)attr, (void*)(uintptr_t)value) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)attr, (void*)(uintptr_t)value);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
     (void)attr;
     (void)value;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -916,12 +1211,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_compareA");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)attr, (void*)(uintptr_t)value) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)attr, (void*)(uintptr_t)value);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
     (void)attr;
     (void)value;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -937,12 +1239,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_compareW");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)attr, (void*)(uintptr_t)value) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)attr, (void*)(uintptr_t)value);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
     (void)attr;
     (void)value;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -958,7 +1267,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_compare_ext");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)attr, (void*)(uintptr_t)value, (void*)(uintptr_t)data, (void*)(uintptr_t)servercontrols, (void*)(uintptr_t)clientcontrols, (void*)(uintptr_t)messagenumber) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)attr, (void*)(uintptr_t)value, (void*)(uintptr_t)data, (void*)(uintptr_t)servercontrols, (void*)(uintptr_t)clientcontrols, (void*)(uintptr_t)messagenumber);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
@@ -968,6 +1283,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)servercontrols;
     (void)clientcontrols;
     (void)messagenumber;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -983,7 +1299,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_compare_extA");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)attr, (void*)(uintptr_t)value, (void*)(uintptr_t)data, (void*)(uintptr_t)servercontrols, (void*)(uintptr_t)clientcontrols, (void*)(uintptr_t)messagenumber) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)attr, (void*)(uintptr_t)value, (void*)(uintptr_t)data, (void*)(uintptr_t)servercontrols, (void*)(uintptr_t)clientcontrols, (void*)(uintptr_t)messagenumber);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
@@ -993,6 +1315,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)servercontrols;
     (void)clientcontrols;
     (void)messagenumber;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -1008,7 +1331,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_compare_extW");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)attr, (void*)(uintptr_t)value, (void*)(uintptr_t)data, (void*)(uintptr_t)servercontrols, (void*)(uintptr_t)clientcontrols, (void*)(uintptr_t)messagenumber) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)attr, (void*)(uintptr_t)value, (void*)(uintptr_t)data, (void*)(uintptr_t)servercontrols, (void*)(uintptr_t)clientcontrols, (void*)(uintptr_t)messagenumber);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
@@ -1018,6 +1347,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)servercontrols;
     (void)clientcontrols;
     (void)messagenumber;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -1033,7 +1363,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_compare_ext_s");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)attr, (void*)(uintptr_t)value, (void*)(uintptr_t)data, (void*)(uintptr_t)servercontrols, (void*)(uintptr_t)clientcontrols) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)attr, (void*)(uintptr_t)value, (void*)(uintptr_t)data, (void*)(uintptr_t)servercontrols, (void*)(uintptr_t)clientcontrols);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
@@ -1042,6 +1378,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)data;
     (void)servercontrols;
     (void)clientcontrols;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -1057,7 +1394,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_compare_ext_sA");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)attr, (void*)(uintptr_t)value, (void*)(uintptr_t)data, (void*)(uintptr_t)servercontrols, (void*)(uintptr_t)clientcontrols) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)attr, (void*)(uintptr_t)value, (void*)(uintptr_t)data, (void*)(uintptr_t)servercontrols, (void*)(uintptr_t)clientcontrols);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
@@ -1066,6 +1409,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)data;
     (void)servercontrols;
     (void)clientcontrols;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -1081,7 +1425,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_compare_ext_sW");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)attr, (void*)(uintptr_t)value, (void*)(uintptr_t)data, (void*)(uintptr_t)servercontrols, (void*)(uintptr_t)clientcontrols) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)attr, (void*)(uintptr_t)value, (void*)(uintptr_t)data, (void*)(uintptr_t)servercontrols, (void*)(uintptr_t)clientcontrols);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
@@ -1090,6 +1440,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)data;
     (void)servercontrols;
     (void)clientcontrols;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -1105,12 +1456,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_compare_s");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)attr, (void*)(uintptr_t)value) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)attr, (void*)(uintptr_t)value);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
     (void)attr;
     (void)value;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -1126,12 +1484,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_compare_sA");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)attr, (void*)(uintptr_t)value) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)attr, (void*)(uintptr_t)value);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
     (void)attr;
     (void)value;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -1147,12 +1512,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_compare_sW");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)attr, (void*)(uintptr_t)value) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)attr, (void*)(uintptr_t)value);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
     (void)attr;
     (void)value;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -1168,10 +1540,17 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_conn_from_msg");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)primaryconn, (void*)(uintptr_t)res) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)primaryconn, (void*)(uintptr_t)res);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)primaryconn;
     (void)res;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -1187,10 +1566,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_connect");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)timeout) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)timeout);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)timeout;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -1206,9 +1592,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_control_free");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)control) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)control);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)control;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -1224,9 +1617,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_control_freeA");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)controls) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)controls);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)controls;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -1242,9 +1642,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_control_freeW");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)control) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)control);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)control;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -1260,9 +1667,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_controls_free");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)controls) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)controls);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)controls;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -1278,9 +1692,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_controls_freeA");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)controls) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)controls);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)controls;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -1296,9 +1717,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_controls_freeW");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)control) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)control);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)control;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -1314,10 +1742,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_count_entries");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)res) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)res);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)res;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -1333,10 +1768,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_count_references");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)res) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)res);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)res;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -1352,9 +1794,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_count_values");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)vals) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)vals);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)vals;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -1370,9 +1819,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_count_valuesA");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)vals) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)vals);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)vals;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -1388,9 +1844,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_count_valuesW");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)vals) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)vals);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)vals;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -1406,9 +1869,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_count_values_len");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)vals) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)vals);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)vals;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -1424,13 +1894,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_create_page_control");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)externalhandle, (uint32_t)pagesize, (void*)(uintptr_t)cookie, (uint8_t)iscritical, (void*)(uintptr_t)control) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)externalhandle, (uint32_t)pagesize, (void*)(uintptr_t)cookie, (uint8_t)iscritical, (void*)(uintptr_t)control);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)externalhandle;
     (void)pagesize;
     (void)cookie;
     (void)iscritical;
     (void)control;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -1446,13 +1923,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_create_page_controlA");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)externalhandle, (uint32_t)pagesize, (void*)(uintptr_t)cookie, (uint8_t)iscritical, (void*)(uintptr_t)control) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)externalhandle, (uint32_t)pagesize, (void*)(uintptr_t)cookie, (uint8_t)iscritical, (void*)(uintptr_t)control);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)externalhandle;
     (void)pagesize;
     (void)cookie;
     (void)iscritical;
     (void)control;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -1468,13 +1952,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_create_page_controlW");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)externalhandle, (uint32_t)pagesize, (void*)(uintptr_t)cookie, (uint8_t)iscritical, (void*)(uintptr_t)control) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)externalhandle, (uint32_t)pagesize, (void*)(uintptr_t)cookie, (uint8_t)iscritical, (void*)(uintptr_t)control);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)externalhandle;
     (void)pagesize;
     (void)cookie;
     (void)iscritical;
     (void)control;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -1490,12 +1981,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_create_sort_control");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)externalhandle, (void*)(uintptr_t)sortkeys, (uint8_t)iscritical, (void*)(uintptr_t)control) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)externalhandle, (void*)(uintptr_t)sortkeys, (uint8_t)iscritical, (void*)(uintptr_t)control);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)externalhandle;
     (void)sortkeys;
     (void)iscritical;
     (void)control;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -1511,12 +2009,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_create_sort_controlA");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)externalhandle, (void*)(uintptr_t)sortkeys, (uint8_t)iscritical, (void*)(uintptr_t)control) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)externalhandle, (void*)(uintptr_t)sortkeys, (uint8_t)iscritical, (void*)(uintptr_t)control);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)externalhandle;
     (void)sortkeys;
     (void)iscritical;
     (void)control;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -1532,12 +2037,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_create_sort_controlW");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)externalhandle, (void*)(uintptr_t)sortkeys, (uint8_t)iscritical, (void*)(uintptr_t)control) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)externalhandle, (void*)(uintptr_t)sortkeys, (uint8_t)iscritical, (void*)(uintptr_t)control);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)externalhandle;
     (void)sortkeys;
     (void)iscritical;
     (void)control;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -1553,12 +2065,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_create_vlv_controlA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)externalhandle, (void*)(uintptr_t)vlvinfo, (uint8_t)iscritical, (void*)(uintptr_t)control) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)externalhandle, (void*)(uintptr_t)vlvinfo, (uint8_t)iscritical, (void*)(uintptr_t)control);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)externalhandle;
     (void)vlvinfo;
     (void)iscritical;
     (void)control;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1574,12 +2093,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_create_vlv_controlW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)externalhandle, (void*)(uintptr_t)vlvinfo, (uint8_t)iscritical, (void*)(uintptr_t)control) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)externalhandle, (void*)(uintptr_t)vlvinfo, (uint8_t)iscritical, (void*)(uintptr_t)control);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)externalhandle;
     (void)vlvinfo;
     (void)iscritical;
     (void)control;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1595,10 +2121,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_delete");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -1614,10 +2147,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_deleteA");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -1633,10 +2173,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_deleteW");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -1652,13 +2199,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_delete_ext");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)servercontrols, (void*)(uintptr_t)clientcontrols, (void*)(uintptr_t)messagenumber) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)servercontrols, (void*)(uintptr_t)clientcontrols, (void*)(uintptr_t)messagenumber);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
     (void)servercontrols;
     (void)clientcontrols;
     (void)messagenumber;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -1674,13 +2228,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_delete_extA");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)servercontrols, (void*)(uintptr_t)clientcontrols, (void*)(uintptr_t)messagenumber) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)servercontrols, (void*)(uintptr_t)clientcontrols, (void*)(uintptr_t)messagenumber);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
     (void)servercontrols;
     (void)clientcontrols;
     (void)messagenumber;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -1696,13 +2257,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_delete_extW");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)servercontrols, (void*)(uintptr_t)clientcontrols, (void*)(uintptr_t)messagenumber) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)servercontrols, (void*)(uintptr_t)clientcontrols, (void*)(uintptr_t)messagenumber);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
     (void)servercontrols;
     (void)clientcontrols;
     (void)messagenumber;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -1718,12 +2286,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_delete_ext_s");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)servercontrols, (void*)(uintptr_t)clientcontrols) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)servercontrols, (void*)(uintptr_t)clientcontrols);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
     (void)servercontrols;
     (void)clientcontrols;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -1739,12 +2314,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_delete_ext_sA");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)servercontrols, (void*)(uintptr_t)clientcontrols) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)servercontrols, (void*)(uintptr_t)clientcontrols);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
     (void)servercontrols;
     (void)clientcontrols;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -1760,12 +2342,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_delete_ext_sW");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)servercontrols, (void*)(uintptr_t)clientcontrols) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)servercontrols, (void*)(uintptr_t)clientcontrols);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
     (void)servercontrols;
     (void)clientcontrols;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -1781,10 +2370,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_delete_s");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -1800,10 +2396,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_delete_sA");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -1819,10 +2422,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_delete_sW");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -1838,9 +2448,16 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_dn2ufn");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)dn) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)dn);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)dn;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -1856,9 +2473,16 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_dn2ufnA");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)dn) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)dn);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)dn;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -1874,9 +2498,16 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_dn2ufnW");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)dn) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)dn);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)dn;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -1892,12 +2523,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_encode_sort_controlA");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)externalhandle, (void*)(uintptr_t)sortkeys, (void*)(uintptr_t)control, (bool)criticality) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)externalhandle, (void*)(uintptr_t)sortkeys, (void*)(uintptr_t)control, (bool)criticality);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)externalhandle;
     (void)sortkeys;
     (void)control;
     (void)criticality;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -1913,12 +2551,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_encode_sort_controlW");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)externalhandle, (void*)(uintptr_t)sortkeys, (void*)(uintptr_t)control, (bool)criticality) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)externalhandle, (void*)(uintptr_t)sortkeys, (void*)(uintptr_t)control, (bool)criticality);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)externalhandle;
     (void)sortkeys;
     (void)control;
     (void)criticality;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -1934,9 +2579,16 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_err2string");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)err) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)err);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)err;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -1952,9 +2604,16 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_err2stringA");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)err) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)err);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)err;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -1970,9 +2629,16 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_err2stringW");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)err) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)err);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)err;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -1988,12 +2654,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_escape_filter_element");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)sourcefilterelement, (uint32_t)sourcelength, (void*)(uintptr_t)destfilterelement, (uint32_t)destlength) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)sourcefilterelement, (uint32_t)sourcelength, (void*)(uintptr_t)destfilterelement, (uint32_t)destlength);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)sourcefilterelement;
     (void)sourcelength;
     (void)destfilterelement;
     (void)destlength;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -2009,12 +2682,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_escape_filter_elementA");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)sourcefilterelement, (uint32_t)sourcelength, (void*)(uintptr_t)destfilterelement, (uint32_t)destlength) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)sourcefilterelement, (uint32_t)sourcelength, (void*)(uintptr_t)destfilterelement, (uint32_t)destlength);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)sourcefilterelement;
     (void)sourcelength;
     (void)destfilterelement;
     (void)destlength;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -2030,12 +2710,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_escape_filter_elementW");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)sourcefilterelement, (uint32_t)sourcelength, (void*)(uintptr_t)destfilterelement, (uint32_t)destlength) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)sourcefilterelement, (uint32_t)sourcelength, (void*)(uintptr_t)destfilterelement, (uint32_t)destlength);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)sourcefilterelement;
     (void)sourcelength;
     (void)destfilterelement;
     (void)destlength;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -2051,10 +2738,17 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_explode_dn");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)dn, (uint32_t)notypes) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)dn, (uint32_t)notypes);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)dn;
     (void)notypes;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -2070,10 +2764,17 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_explode_dnA");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)dn, (uint32_t)notypes) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)dn, (uint32_t)notypes);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)dn;
     (void)notypes;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -2089,10 +2790,17 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_explode_dnW");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)dn, (uint32_t)notypes) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)dn, (uint32_t)notypes);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)dn;
     (void)notypes;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -2108,7 +2816,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_extended_operation");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)oid, (void*)(uintptr_t)data, (void*)(uintptr_t)servercontrols, (void*)(uintptr_t)clientcontrols, (void*)(uintptr_t)messagenumber) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)oid, (void*)(uintptr_t)data, (void*)(uintptr_t)servercontrols, (void*)(uintptr_t)clientcontrols, (void*)(uintptr_t)messagenumber);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)oid;
@@ -2116,6 +2830,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)servercontrols;
     (void)clientcontrols;
     (void)messagenumber;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -2131,7 +2846,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_extended_operationA");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)oid, (void*)(uintptr_t)data, (void*)(uintptr_t)servercontrols, (void*)(uintptr_t)clientcontrols, (void*)(uintptr_t)messagenumber) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)oid, (void*)(uintptr_t)data, (void*)(uintptr_t)servercontrols, (void*)(uintptr_t)clientcontrols, (void*)(uintptr_t)messagenumber);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)oid;
@@ -2139,6 +2860,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)servercontrols;
     (void)clientcontrols;
     (void)messagenumber;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -2154,7 +2876,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_extended_operationW");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)oid, (void*)(uintptr_t)data, (void*)(uintptr_t)servercontrols, (void*)(uintptr_t)clientcontrols, (void*)(uintptr_t)messagenumber) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)oid, (void*)(uintptr_t)data, (void*)(uintptr_t)servercontrols, (void*)(uintptr_t)clientcontrols, (void*)(uintptr_t)messagenumber);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)oid;
@@ -2162,6 +2890,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)servercontrols;
     (void)clientcontrols;
     (void)messagenumber;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -2177,7 +2906,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_extended_operation_sA");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)externalhandle, (void*)(uintptr_t)oid, (void*)(uintptr_t)data, (void*)(uintptr_t)servercontrols, (void*)(uintptr_t)clientcontrols, (void*)(uintptr_t)returnedoid, (void*)(uintptr_t)returneddata) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)externalhandle, (void*)(uintptr_t)oid, (void*)(uintptr_t)data, (void*)(uintptr_t)servercontrols, (void*)(uintptr_t)clientcontrols, (void*)(uintptr_t)returnedoid, (void*)(uintptr_t)returneddata);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)externalhandle;
     (void)oid;
@@ -2186,6 +2921,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)clientcontrols;
     (void)returnedoid;
     (void)returneddata;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -2201,7 +2937,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_extended_operation_sW");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)externalhandle, (void*)(uintptr_t)oid, (void*)(uintptr_t)data, (void*)(uintptr_t)servercontrols, (void*)(uintptr_t)clientcontrols, (void*)(uintptr_t)returnedoid, (void*)(uintptr_t)returneddata) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)externalhandle, (void*)(uintptr_t)oid, (void*)(uintptr_t)data, (void*)(uintptr_t)servercontrols, (void*)(uintptr_t)clientcontrols, (void*)(uintptr_t)returnedoid, (void*)(uintptr_t)returneddata);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)externalhandle;
     (void)oid;
@@ -2210,6 +2952,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)clientcontrols;
     (void)returnedoid;
     (void)returneddata;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -2225,11 +2968,18 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_first_attribute");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)entry, (void*)(uintptr_t)ptr) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)entry, (void*)(uintptr_t)ptr);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)ld;
     (void)entry;
     (void)ptr;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -2245,11 +2995,18 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_first_attributeA");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)entry, (void*)(uintptr_t)ptr) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)entry, (void*)(uintptr_t)ptr);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)ld;
     (void)entry;
     (void)ptr;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -2265,11 +3022,18 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_first_attributeW");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)entry, (void*)(uintptr_t)ptr) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)entry, (void*)(uintptr_t)ptr);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)ld;
     (void)entry;
     (void)ptr;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -2285,10 +3049,17 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_first_entry");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)res) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)res);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)ld;
     (void)res;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -2304,10 +3075,17 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_first_reference");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)res) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)res);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)ld;
     (void)res;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -2323,9 +3101,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_free_controls");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)controls) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)controls);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)controls;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -2341,9 +3126,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_free_controlsA");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)controls) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)controls);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)controls;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -2359,9 +3151,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_free_controlsW");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)controls) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)controls);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)controls;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -2377,10 +3176,17 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_get_dn");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)entry) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)entry);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)ld;
     (void)entry;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -2396,10 +3202,17 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_get_dnA");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)entry) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)entry);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)ld;
     (void)entry;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -2415,10 +3228,17 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_get_dnW");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)entry) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)entry);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)ld;
     (void)entry;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -2434,12 +3254,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_get_next_page");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)externalhandle, (int64_t)searchhandle, (uint32_t)pagesize, (void*)(uintptr_t)messagenumber) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)externalhandle, (int64_t)searchhandle, (uint32_t)pagesize, (void*)(uintptr_t)messagenumber);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)externalhandle;
     (void)searchhandle;
     (void)pagesize;
     (void)messagenumber;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -2455,7 +3282,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_get_next_page_s");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)externalhandle, (int64_t)searchhandle, (void*)(uintptr_t)timeout, (uint32_t)pagesize, (void*)(uintptr_t)totalcount, (void*)(uintptr_t)results) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)externalhandle, (int64_t)searchhandle, (void*)(uintptr_t)timeout, (uint32_t)pagesize, (void*)(uintptr_t)totalcount, (void*)(uintptr_t)results);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)externalhandle;
     (void)searchhandle;
@@ -2463,6 +3296,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)pagesize;
     (void)totalcount;
     (void)results;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -2478,11 +3312,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_get_option");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (int32_t)option, (void*)(uintptr_t)outvalue) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (int32_t)option, (void*)(uintptr_t)outvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)option;
     (void)outvalue;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -2498,11 +3339,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_get_optionW");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (int32_t)option, (void*)(uintptr_t)outvalue) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (int32_t)option, (void*)(uintptr_t)outvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)option;
     (void)outvalue;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -2518,12 +3366,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_get_paged_count");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)externalhandle, (int64_t)searchblock, (void*)(uintptr_t)totalcount, (void*)(uintptr_t)results) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)externalhandle, (int64_t)searchblock, (void*)(uintptr_t)totalcount, (void*)(uintptr_t)results);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)externalhandle;
     (void)searchblock;
     (void)totalcount;
     (void)results;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -2539,11 +3394,18 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_get_values");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)entry, (void*)(uintptr_t)attr) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)entry, (void*)(uintptr_t)attr);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)ld;
     (void)entry;
     (void)attr;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -2559,11 +3421,18 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_get_valuesA");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)entry, (void*)(uintptr_t)attr) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)entry, (void*)(uintptr_t)attr);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)ld;
     (void)entry;
     (void)attr;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -2579,11 +3448,18 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_get_valuesW");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)entry, (void*)(uintptr_t)attr) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)entry, (void*)(uintptr_t)attr);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)ld;
     (void)entry;
     (void)attr;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -2599,11 +3475,18 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_get_values_len");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)externalhandle, (void*)(uintptr_t)message, (void*)(uintptr_t)attr) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)externalhandle, (void*)(uintptr_t)message, (void*)(uintptr_t)attr);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)externalhandle;
     (void)message;
     (void)attr;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -2619,11 +3502,18 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_get_values_lenA");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)externalhandle, (void*)(uintptr_t)message, (void*)(uintptr_t)attr) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)externalhandle, (void*)(uintptr_t)message, (void*)(uintptr_t)attr);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)externalhandle;
     (void)message;
     (void)attr;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -2639,11 +3529,18 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_get_values_lenW");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)externalhandle, (void*)(uintptr_t)message, (void*)(uintptr_t)attr) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)externalhandle, (void*)(uintptr_t)message, (void*)(uintptr_t)attr);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)externalhandle;
     (void)message;
     (void)attr;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -2659,10 +3556,17 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_init");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hostname, (uint32_t)portnumber) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hostname, (uint32_t)portnumber);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)hostname;
     (void)portnumber;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -2678,10 +3582,17 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_initA");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hostname, (uint32_t)portnumber) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hostname, (uint32_t)portnumber);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)hostname;
     (void)portnumber;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -2697,10 +3608,17 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_initW");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hostname, (uint32_t)portnumber) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hostname, (uint32_t)portnumber);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)hostname;
     (void)portnumber;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -2716,9 +3634,14 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_memfree");
     }
-    if (km_fn_ptr != NULL) km_fn_ptr((void*)(uintptr_t)block);
+    if (km_fn_ptr != NULL) {
+        km_fn_ptr((void*)(uintptr_t)block);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)block;
+    errno = ENOSYS;
 #endif
 }
 
@@ -2732,9 +3655,14 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_memfreeA");
     }
-    if (km_fn_ptr != NULL) km_fn_ptr((void*)(uintptr_t)block);
+    if (km_fn_ptr != NULL) {
+        km_fn_ptr((void*)(uintptr_t)block);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)block;
+    errno = ENOSYS;
 #endif
 }
 
@@ -2748,9 +3676,14 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_memfreeW");
     }
-    if (km_fn_ptr != NULL) km_fn_ptr((void*)(uintptr_t)block);
+    if (km_fn_ptr != NULL) {
+        km_fn_ptr((void*)(uintptr_t)block);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)block;
+    errno = ENOSYS;
 #endif
 }
 
@@ -2764,11 +3697,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_modify");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)mods) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)mods);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
     (void)mods;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -2784,11 +3724,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_modifyA");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)mods) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)mods);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
     (void)mods;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -2804,11 +3751,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_modifyW");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)mods) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)mods);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
     (void)mods;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -2824,7 +3778,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_modify_ext");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)mods, (void*)(uintptr_t)servercontrols, (void*)(uintptr_t)clientcontrols, (void*)(uintptr_t)messagenumber) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)mods, (void*)(uintptr_t)servercontrols, (void*)(uintptr_t)clientcontrols, (void*)(uintptr_t)messagenumber);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
@@ -2832,6 +3792,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)servercontrols;
     (void)clientcontrols;
     (void)messagenumber;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -2847,7 +3808,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_modify_extA");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)mods, (void*)(uintptr_t)servercontrols, (void*)(uintptr_t)clientcontrols, (void*)(uintptr_t)messagenumber) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)mods, (void*)(uintptr_t)servercontrols, (void*)(uintptr_t)clientcontrols, (void*)(uintptr_t)messagenumber);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
@@ -2855,6 +3822,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)servercontrols;
     (void)clientcontrols;
     (void)messagenumber;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -2870,7 +3838,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_modify_extW");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)mods, (void*)(uintptr_t)servercontrols, (void*)(uintptr_t)clientcontrols, (void*)(uintptr_t)messagenumber) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)mods, (void*)(uintptr_t)servercontrols, (void*)(uintptr_t)clientcontrols, (void*)(uintptr_t)messagenumber);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
@@ -2878,6 +3852,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)servercontrols;
     (void)clientcontrols;
     (void)messagenumber;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -2893,13 +3868,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_modify_ext_s");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)mods, (void*)(uintptr_t)servercontrols, (void*)(uintptr_t)clientcontrols) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)mods, (void*)(uintptr_t)servercontrols, (void*)(uintptr_t)clientcontrols);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
     (void)mods;
     (void)servercontrols;
     (void)clientcontrols;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -2915,13 +3897,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_modify_ext_sA");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)mods, (void*)(uintptr_t)servercontrols, (void*)(uintptr_t)clientcontrols) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)mods, (void*)(uintptr_t)servercontrols, (void*)(uintptr_t)clientcontrols);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
     (void)mods;
     (void)servercontrols;
     (void)clientcontrols;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -2937,13 +3926,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_modify_ext_sW");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)mods, (void*)(uintptr_t)servercontrols, (void*)(uintptr_t)clientcontrols) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)mods, (void*)(uintptr_t)servercontrols, (void*)(uintptr_t)clientcontrols);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
     (void)mods;
     (void)servercontrols;
     (void)clientcontrols;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -2959,11 +3955,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_modify_s");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)mods) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)mods);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
     (void)mods;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -2979,11 +3982,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_modify_sA");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)mods) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)mods);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
     (void)mods;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -2999,11 +4009,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_modify_sW");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)mods) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)mods);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
     (void)mods;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -3019,11 +4036,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_modrdn");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)externalhandle, (void*)(uintptr_t)distinguishedname, (void*)(uintptr_t)newdistinguishedname) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)externalhandle, (void*)(uintptr_t)distinguishedname, (void*)(uintptr_t)newdistinguishedname);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)externalhandle;
     (void)distinguishedname;
     (void)newdistinguishedname;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -3039,12 +4063,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_modrdn2");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)externalhandle, (void*)(uintptr_t)distinguishedname, (void*)(uintptr_t)newdistinguishedname, (int32_t)deleteoldrdn) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)externalhandle, (void*)(uintptr_t)distinguishedname, (void*)(uintptr_t)newdistinguishedname, (int32_t)deleteoldrdn);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)externalhandle;
     (void)distinguishedname;
     (void)newdistinguishedname;
     (void)deleteoldrdn;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -3060,12 +4091,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_modrdn2A");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)externalhandle, (void*)(uintptr_t)distinguishedname, (void*)(uintptr_t)newdistinguishedname, (int32_t)deleteoldrdn) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)externalhandle, (void*)(uintptr_t)distinguishedname, (void*)(uintptr_t)newdistinguishedname, (int32_t)deleteoldrdn);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)externalhandle;
     (void)distinguishedname;
     (void)newdistinguishedname;
     (void)deleteoldrdn;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -3081,12 +4119,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_modrdn2W");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)externalhandle, (void*)(uintptr_t)distinguishedname, (void*)(uintptr_t)newdistinguishedname, (int32_t)deleteoldrdn) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)externalhandle, (void*)(uintptr_t)distinguishedname, (void*)(uintptr_t)newdistinguishedname, (int32_t)deleteoldrdn);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)externalhandle;
     (void)distinguishedname;
     (void)newdistinguishedname;
     (void)deleteoldrdn;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -3102,12 +4147,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_modrdn2_s");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)externalhandle, (void*)(uintptr_t)distinguishedname, (void*)(uintptr_t)newdistinguishedname, (int32_t)deleteoldrdn) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)externalhandle, (void*)(uintptr_t)distinguishedname, (void*)(uintptr_t)newdistinguishedname, (int32_t)deleteoldrdn);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)externalhandle;
     (void)distinguishedname;
     (void)newdistinguishedname;
     (void)deleteoldrdn;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -3123,12 +4175,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_modrdn2_sA");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)externalhandle, (void*)(uintptr_t)distinguishedname, (void*)(uintptr_t)newdistinguishedname, (int32_t)deleteoldrdn) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)externalhandle, (void*)(uintptr_t)distinguishedname, (void*)(uintptr_t)newdistinguishedname, (int32_t)deleteoldrdn);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)externalhandle;
     (void)distinguishedname;
     (void)newdistinguishedname;
     (void)deleteoldrdn;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -3144,12 +4203,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_modrdn2_sW");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)externalhandle, (void*)(uintptr_t)distinguishedname, (void*)(uintptr_t)newdistinguishedname, (int32_t)deleteoldrdn) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)externalhandle, (void*)(uintptr_t)distinguishedname, (void*)(uintptr_t)newdistinguishedname, (int32_t)deleteoldrdn);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)externalhandle;
     (void)distinguishedname;
     (void)newdistinguishedname;
     (void)deleteoldrdn;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -3165,11 +4231,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_modrdnA");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)externalhandle, (void*)(uintptr_t)distinguishedname, (void*)(uintptr_t)newdistinguishedname) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)externalhandle, (void*)(uintptr_t)distinguishedname, (void*)(uintptr_t)newdistinguishedname);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)externalhandle;
     (void)distinguishedname;
     (void)newdistinguishedname;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -3185,11 +4258,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_modrdnW");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)externalhandle, (void*)(uintptr_t)distinguishedname, (void*)(uintptr_t)newdistinguishedname) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)externalhandle, (void*)(uintptr_t)distinguishedname, (void*)(uintptr_t)newdistinguishedname);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)externalhandle;
     (void)distinguishedname;
     (void)newdistinguishedname;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -3205,11 +4285,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_modrdn_s");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)externalhandle, (void*)(uintptr_t)distinguishedname, (void*)(uintptr_t)newdistinguishedname) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)externalhandle, (void*)(uintptr_t)distinguishedname, (void*)(uintptr_t)newdistinguishedname);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)externalhandle;
     (void)distinguishedname;
     (void)newdistinguishedname;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -3225,11 +4312,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_modrdn_sA");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)externalhandle, (void*)(uintptr_t)distinguishedname, (void*)(uintptr_t)newdistinguishedname) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)externalhandle, (void*)(uintptr_t)distinguishedname, (void*)(uintptr_t)newdistinguishedname);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)externalhandle;
     (void)distinguishedname;
     (void)newdistinguishedname;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -3245,11 +4339,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_modrdn_sW");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)externalhandle, (void*)(uintptr_t)distinguishedname, (void*)(uintptr_t)newdistinguishedname) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)externalhandle, (void*)(uintptr_t)distinguishedname, (void*)(uintptr_t)newdistinguishedname);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)externalhandle;
     (void)distinguishedname;
     (void)newdistinguishedname;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -3265,9 +4366,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_msgfree");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)res) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)res);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)res;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -3283,11 +4391,18 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_next_attribute");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)entry, (void*)(uintptr_t)ptr) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)entry, (void*)(uintptr_t)ptr);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)ld;
     (void)entry;
     (void)ptr;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -3303,11 +4418,18 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_next_attributeA");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)entry, (void*)(uintptr_t)ptr) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)entry, (void*)(uintptr_t)ptr);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)ld;
     (void)entry;
     (void)ptr;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -3323,11 +4445,18 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_next_attributeW");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)entry, (void*)(uintptr_t)ptr) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)entry, (void*)(uintptr_t)ptr);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)ld;
     (void)entry;
     (void)ptr;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -3343,10 +4472,17 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_next_entry");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)entry) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)entry);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)ld;
     (void)entry;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -3362,10 +4498,17 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_next_reference");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)entry) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)entry);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)ld;
     (void)entry;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -3381,10 +4524,17 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_open");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hostname, (uint32_t)portnumber) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hostname, (uint32_t)portnumber);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)hostname;
     (void)portnumber;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -3400,10 +4550,17 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_openA");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hostname, (uint32_t)portnumber) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hostname, (uint32_t)portnumber);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)hostname;
     (void)portnumber;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -3419,10 +4576,17 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_openW");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hostname, (uint32_t)portnumber) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hostname, (uint32_t)portnumber);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)hostname;
     (void)portnumber;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -3438,13 +4602,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_parse_extended_resultA");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)connection, (void*)(uintptr_t)resultmessage, (void*)(uintptr_t)resultoid, (void*)(uintptr_t)resultdata, (bool)freeit) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)connection, (void*)(uintptr_t)resultmessage, (void*)(uintptr_t)resultoid, (void*)(uintptr_t)resultdata, (bool)freeit);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)connection;
     (void)resultmessage;
     (void)resultoid;
     (void)resultdata;
     (void)freeit;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -3460,13 +4631,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_parse_extended_resultW");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)connection, (void*)(uintptr_t)resultmessage, (void*)(uintptr_t)resultoid, (void*)(uintptr_t)resultdata, (bool)freeit) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)connection, (void*)(uintptr_t)resultmessage, (void*)(uintptr_t)resultoid, (void*)(uintptr_t)resultdata, (bool)freeit);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)connection;
     (void)resultmessage;
     (void)resultoid;
     (void)resultdata;
     (void)freeit;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -3482,12 +4660,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_parse_page_control");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)externalhandle, (void*)(uintptr_t)servercontrols, (void*)(uintptr_t)totalcount, (void*)(uintptr_t)cookie) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)externalhandle, (void*)(uintptr_t)servercontrols, (void*)(uintptr_t)totalcount, (void*)(uintptr_t)cookie);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)externalhandle;
     (void)servercontrols;
     (void)totalcount;
     (void)cookie;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -3503,12 +4688,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_parse_page_controlA");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)externalhandle, (void*)(uintptr_t)servercontrols, (void*)(uintptr_t)totalcount, (void*)(uintptr_t)cookie) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)externalhandle, (void*)(uintptr_t)servercontrols, (void*)(uintptr_t)totalcount, (void*)(uintptr_t)cookie);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)externalhandle;
     (void)servercontrols;
     (void)totalcount;
     (void)cookie;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -3524,12 +4716,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_parse_page_controlW");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)externalhandle, (void*)(uintptr_t)servercontrols, (void*)(uintptr_t)totalcount, (void*)(uintptr_t)cookie) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)externalhandle, (void*)(uintptr_t)servercontrols, (void*)(uintptr_t)totalcount, (void*)(uintptr_t)cookie);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)externalhandle;
     (void)servercontrols;
     (void)totalcount;
     (void)cookie;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -3545,11 +4744,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_parse_reference");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)connection, (void*)(uintptr_t)resultmessage, (void*)(uintptr_t)referrals) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)connection, (void*)(uintptr_t)resultmessage, (void*)(uintptr_t)referrals);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)connection;
     (void)resultmessage;
     (void)referrals;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -3565,11 +4771,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_parse_referenceA");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)connection, (void*)(uintptr_t)resultmessage, (void*)(uintptr_t)referrals) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)connection, (void*)(uintptr_t)resultmessage, (void*)(uintptr_t)referrals);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)connection;
     (void)resultmessage;
     (void)referrals;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -3585,11 +4798,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_parse_referenceW");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)connection, (void*)(uintptr_t)resultmessage, (void*)(uintptr_t)referrals) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)connection, (void*)(uintptr_t)resultmessage, (void*)(uintptr_t)referrals);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)connection;
     (void)resultmessage;
     (void)referrals;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -3605,7 +4825,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_parse_result");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)connection, (void*)(uintptr_t)resultmessage, (void*)(uintptr_t)returncode, (void*)(uintptr_t)matcheddns, (void*)(uintptr_t)errormessage, (void*)(uintptr_t)referrals, (void*)(uintptr_t)servercontrols, (bool)freeit) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)connection, (void*)(uintptr_t)resultmessage, (void*)(uintptr_t)returncode, (void*)(uintptr_t)matcheddns, (void*)(uintptr_t)errormessage, (void*)(uintptr_t)referrals, (void*)(uintptr_t)servercontrols, (bool)freeit);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)connection;
     (void)resultmessage;
@@ -3615,6 +4841,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)referrals;
     (void)servercontrols;
     (void)freeit;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -3630,7 +4857,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_parse_resultA");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)connection, (void*)(uintptr_t)resultmessage, (void*)(uintptr_t)returncode, (void*)(uintptr_t)matcheddns, (void*)(uintptr_t)errormessage, (void*)(uintptr_t)referrals, (void*)(uintptr_t)servercontrols, (bool)freeit) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)connection, (void*)(uintptr_t)resultmessage, (void*)(uintptr_t)returncode, (void*)(uintptr_t)matcheddns, (void*)(uintptr_t)errormessage, (void*)(uintptr_t)referrals, (void*)(uintptr_t)servercontrols, (bool)freeit);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)connection;
     (void)resultmessage;
@@ -3640,6 +4873,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)referrals;
     (void)servercontrols;
     (void)freeit;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -3655,7 +4889,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_parse_resultW");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)connection, (void*)(uintptr_t)resultmessage, (void*)(uintptr_t)returncode, (void*)(uintptr_t)matcheddns, (void*)(uintptr_t)errormessage, (void*)(uintptr_t)referrals, (void*)(uintptr_t)servercontrols, (bool)freeit) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)connection, (void*)(uintptr_t)resultmessage, (void*)(uintptr_t)returncode, (void*)(uintptr_t)matcheddns, (void*)(uintptr_t)errormessage, (void*)(uintptr_t)referrals, (void*)(uintptr_t)servercontrols, (bool)freeit);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)connection;
     (void)resultmessage;
@@ -3665,6 +4905,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)referrals;
     (void)servercontrols;
     (void)freeit;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -3680,12 +4921,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_parse_sort_control");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)externalhandle, (void*)(uintptr_t)control, (void*)(uintptr_t)result, (void*)(uintptr_t)attribute) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)externalhandle, (void*)(uintptr_t)control, (void*)(uintptr_t)result, (void*)(uintptr_t)attribute);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)externalhandle;
     (void)control;
     (void)result;
     (void)attribute;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -3701,12 +4949,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_parse_sort_controlA");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)externalhandle, (void*)(uintptr_t)control, (void*)(uintptr_t)result, (void*)(uintptr_t)attribute) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)externalhandle, (void*)(uintptr_t)control, (void*)(uintptr_t)result, (void*)(uintptr_t)attribute);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)externalhandle;
     (void)control;
     (void)result;
     (void)attribute;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -3722,12 +4977,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_parse_sort_controlW");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)externalhandle, (void*)(uintptr_t)control, (void*)(uintptr_t)result, (void*)(uintptr_t)attribute) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)externalhandle, (void*)(uintptr_t)control, (void*)(uintptr_t)result, (void*)(uintptr_t)attribute);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)externalhandle;
     (void)control;
     (void)result;
     (void)attribute;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -3743,7 +5005,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_parse_vlv_controlA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)externalhandle, (void*)(uintptr_t)control, (void*)(uintptr_t)targetpos, (void*)(uintptr_t)listcount, (void*)(uintptr_t)context, (void*)(uintptr_t)errcode) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)externalhandle, (void*)(uintptr_t)control, (void*)(uintptr_t)targetpos, (void*)(uintptr_t)listcount, (void*)(uintptr_t)context, (void*)(uintptr_t)errcode);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)externalhandle;
     (void)control;
@@ -3751,6 +5019,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)listcount;
     (void)context;
     (void)errcode;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -3766,7 +5035,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_parse_vlv_controlW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)externalhandle, (void*)(uintptr_t)control, (void*)(uintptr_t)targetpos, (void*)(uintptr_t)listcount, (void*)(uintptr_t)context, (void*)(uintptr_t)errcode) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)externalhandle, (void*)(uintptr_t)control, (void*)(uintptr_t)targetpos, (void*)(uintptr_t)listcount, (void*)(uintptr_t)context, (void*)(uintptr_t)errcode);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)externalhandle;
     (void)control;
@@ -3774,6 +5049,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)listcount;
     (void)context;
     (void)errcode;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -3789,10 +5065,15 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_perror");
     }
-    if (km_fn_ptr != NULL) km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)msg);
+    if (km_fn_ptr != NULL) {
+        km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)msg);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)ld;
     (void)msg;
+    errno = ENOSYS;
 #endif
 }
 
@@ -3806,7 +5087,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_rename_ext");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)newrdn, (void*)(uintptr_t)newparent, (int32_t)deleteoldrdn, (void*)(uintptr_t)servercontrols, (void*)(uintptr_t)clientcontrols, (void*)(uintptr_t)messagenumber) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)newrdn, (void*)(uintptr_t)newparent, (int32_t)deleteoldrdn, (void*)(uintptr_t)servercontrols, (void*)(uintptr_t)clientcontrols, (void*)(uintptr_t)messagenumber);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
@@ -3816,6 +5103,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)servercontrols;
     (void)clientcontrols;
     (void)messagenumber;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -3831,7 +5119,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_rename_extA");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)newrdn, (void*)(uintptr_t)newparent, (int32_t)deleteoldrdn, (void*)(uintptr_t)servercontrols, (void*)(uintptr_t)clientcontrols, (void*)(uintptr_t)messagenumber) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)newrdn, (void*)(uintptr_t)newparent, (int32_t)deleteoldrdn, (void*)(uintptr_t)servercontrols, (void*)(uintptr_t)clientcontrols, (void*)(uintptr_t)messagenumber);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
@@ -3841,6 +5135,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)servercontrols;
     (void)clientcontrols;
     (void)messagenumber;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -3856,7 +5151,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_rename_extW");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)newrdn, (void*)(uintptr_t)newparent, (int32_t)deleteoldrdn, (void*)(uintptr_t)servercontrols, (void*)(uintptr_t)clientcontrols, (void*)(uintptr_t)messagenumber) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)newrdn, (void*)(uintptr_t)newparent, (int32_t)deleteoldrdn, (void*)(uintptr_t)servercontrols, (void*)(uintptr_t)clientcontrols, (void*)(uintptr_t)messagenumber);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
@@ -3866,6 +5167,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)servercontrols;
     (void)clientcontrols;
     (void)messagenumber;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -3881,7 +5183,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_rename_ext_s");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)newrdn, (void*)(uintptr_t)newparent, (int32_t)deleteoldrdn, (void*)(uintptr_t)servercontrols, (void*)(uintptr_t)clientcontrols) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)newrdn, (void*)(uintptr_t)newparent, (int32_t)deleteoldrdn, (void*)(uintptr_t)servercontrols, (void*)(uintptr_t)clientcontrols);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
@@ -3890,6 +5198,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)deleteoldrdn;
     (void)servercontrols;
     (void)clientcontrols;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -3905,7 +5214,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_rename_ext_sA");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)newrdn, (void*)(uintptr_t)newparent, (int32_t)deleteoldrdn, (void*)(uintptr_t)servercontrols, (void*)(uintptr_t)clientcontrols) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)newrdn, (void*)(uintptr_t)newparent, (int32_t)deleteoldrdn, (void*)(uintptr_t)servercontrols, (void*)(uintptr_t)clientcontrols);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
@@ -3914,6 +5229,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)deleteoldrdn;
     (void)servercontrols;
     (void)clientcontrols;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -3929,7 +5245,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_rename_ext_sW");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)newrdn, (void*)(uintptr_t)newparent, (int32_t)deleteoldrdn, (void*)(uintptr_t)servercontrols, (void*)(uintptr_t)clientcontrols) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)newrdn, (void*)(uintptr_t)newparent, (int32_t)deleteoldrdn, (void*)(uintptr_t)servercontrols, (void*)(uintptr_t)clientcontrols);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
@@ -3938,6 +5260,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)deleteoldrdn;
     (void)servercontrols;
     (void)clientcontrols;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -3953,13 +5276,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_result");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (uint32_t)msgid, (uint32_t)all, (void*)(uintptr_t)timeout, (void*)(uintptr_t)res) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (uint32_t)msgid, (uint32_t)all, (void*)(uintptr_t)timeout, (void*)(uintptr_t)res);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)msgid;
     (void)all;
     (void)timeout;
     (void)res;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -3975,11 +5305,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_result2error");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)res, (uint32_t)freeit) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)res, (uint32_t)freeit);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)res;
     (void)freeit;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -3995,7 +5332,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_sasl_bindA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)externalhandle, (void*)(uintptr_t)distname, (void*)(uintptr_t)authmechanism, (void*)(uintptr_t)cred, (void*)(uintptr_t)serverctrls, (void*)(uintptr_t)clientctrls, (void*)(uintptr_t)messagenumber) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)externalhandle, (void*)(uintptr_t)distname, (void*)(uintptr_t)authmechanism, (void*)(uintptr_t)cred, (void*)(uintptr_t)serverctrls, (void*)(uintptr_t)clientctrls, (void*)(uintptr_t)messagenumber);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)externalhandle;
     (void)distname;
@@ -4004,6 +5347,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)serverctrls;
     (void)clientctrls;
     (void)messagenumber;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -4019,7 +5363,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_sasl_bindW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)externalhandle, (void*)(uintptr_t)distname, (void*)(uintptr_t)authmechanism, (void*)(uintptr_t)cred, (void*)(uintptr_t)serverctrls, (void*)(uintptr_t)clientctrls, (void*)(uintptr_t)messagenumber) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)externalhandle, (void*)(uintptr_t)distname, (void*)(uintptr_t)authmechanism, (void*)(uintptr_t)cred, (void*)(uintptr_t)serverctrls, (void*)(uintptr_t)clientctrls, (void*)(uintptr_t)messagenumber);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)externalhandle;
     (void)distname;
@@ -4028,6 +5378,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)serverctrls;
     (void)clientctrls;
     (void)messagenumber;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -4043,7 +5394,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_sasl_bind_sA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)externalhandle, (void*)(uintptr_t)distname, (void*)(uintptr_t)authmechanism, (void*)(uintptr_t)cred, (void*)(uintptr_t)serverctrls, (void*)(uintptr_t)clientctrls, (void*)(uintptr_t)serverdata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)externalhandle, (void*)(uintptr_t)distname, (void*)(uintptr_t)authmechanism, (void*)(uintptr_t)cred, (void*)(uintptr_t)serverctrls, (void*)(uintptr_t)clientctrls, (void*)(uintptr_t)serverdata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)externalhandle;
     (void)distname;
@@ -4052,6 +5409,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)serverctrls;
     (void)clientctrls;
     (void)serverdata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -4067,7 +5425,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_sasl_bind_sW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)externalhandle, (void*)(uintptr_t)distname, (void*)(uintptr_t)authmechanism, (void*)(uintptr_t)cred, (void*)(uintptr_t)serverctrls, (void*)(uintptr_t)clientctrls, (void*)(uintptr_t)serverdata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)externalhandle, (void*)(uintptr_t)distname, (void*)(uintptr_t)authmechanism, (void*)(uintptr_t)cred, (void*)(uintptr_t)serverctrls, (void*)(uintptr_t)clientctrls, (void*)(uintptr_t)serverdata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)externalhandle;
     (void)distname;
@@ -4076,6 +5440,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)serverctrls;
     (void)clientctrls;
     (void)serverdata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -4091,7 +5456,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_search");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)base, (uint32_t)scope, (void*)(uintptr_t)filter, (void*)(uintptr_t)attrs, (uint32_t)attrsonly) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)base, (uint32_t)scope, (void*)(uintptr_t)filter, (void*)(uintptr_t)attrs, (uint32_t)attrsonly);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)base;
@@ -4099,6 +5470,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)filter;
     (void)attrs;
     (void)attrsonly;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -4114,7 +5486,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_searchA");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)base, (uint32_t)scope, (void*)(uintptr_t)filter, (void*)(uintptr_t)attrs, (uint32_t)attrsonly) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)base, (uint32_t)scope, (void*)(uintptr_t)filter, (void*)(uintptr_t)attrs, (uint32_t)attrsonly);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)base;
@@ -4122,6 +5500,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)filter;
     (void)attrs;
     (void)attrsonly;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -4137,7 +5516,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_searchW");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)base, (uint32_t)scope, (void*)(uintptr_t)filter, (void*)(uintptr_t)attrs, (uint32_t)attrsonly) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)base, (uint32_t)scope, (void*)(uintptr_t)filter, (void*)(uintptr_t)attrs, (uint32_t)attrsonly);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)base;
@@ -4145,6 +5530,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)filter;
     (void)attrs;
     (void)attrsonly;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -4160,10 +5546,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_search_abandon_page");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)externalhandle, (int64_t)searchblock) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)externalhandle, (int64_t)searchblock);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)externalhandle;
     (void)searchblock;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -4179,7 +5572,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_search_ext");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)base, (uint32_t)scope, (void*)(uintptr_t)filter, (void*)(uintptr_t)attrs, (uint32_t)attrsonly, (void*)(uintptr_t)servercontrols, (void*)(uintptr_t)clientcontrols, (uint32_t)timelimit, (uint32_t)sizelimit, (void*)(uintptr_t)messagenumber) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)base, (uint32_t)scope, (void*)(uintptr_t)filter, (void*)(uintptr_t)attrs, (uint32_t)attrsonly, (void*)(uintptr_t)servercontrols, (void*)(uintptr_t)clientcontrols, (uint32_t)timelimit, (uint32_t)sizelimit, (void*)(uintptr_t)messagenumber);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)base;
@@ -4192,6 +5591,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)timelimit;
     (void)sizelimit;
     (void)messagenumber;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -4207,7 +5607,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_search_extA");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)base, (uint32_t)scope, (void*)(uintptr_t)filter, (void*)(uintptr_t)attrs, (uint32_t)attrsonly, (void*)(uintptr_t)servercontrols, (void*)(uintptr_t)clientcontrols, (uint32_t)timelimit, (uint32_t)sizelimit, (void*)(uintptr_t)messagenumber) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)base, (uint32_t)scope, (void*)(uintptr_t)filter, (void*)(uintptr_t)attrs, (uint32_t)attrsonly, (void*)(uintptr_t)servercontrols, (void*)(uintptr_t)clientcontrols, (uint32_t)timelimit, (uint32_t)sizelimit, (void*)(uintptr_t)messagenumber);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)base;
@@ -4220,6 +5626,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)timelimit;
     (void)sizelimit;
     (void)messagenumber;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -4235,7 +5642,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_search_extW");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)base, (uint32_t)scope, (void*)(uintptr_t)filter, (void*)(uintptr_t)attrs, (uint32_t)attrsonly, (void*)(uintptr_t)servercontrols, (void*)(uintptr_t)clientcontrols, (uint32_t)timelimit, (uint32_t)sizelimit, (void*)(uintptr_t)messagenumber) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)base, (uint32_t)scope, (void*)(uintptr_t)filter, (void*)(uintptr_t)attrs, (uint32_t)attrsonly, (void*)(uintptr_t)servercontrols, (void*)(uintptr_t)clientcontrols, (uint32_t)timelimit, (uint32_t)sizelimit, (void*)(uintptr_t)messagenumber);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)base;
@@ -4248,6 +5661,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)timelimit;
     (void)sizelimit;
     (void)messagenumber;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -4263,7 +5677,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_search_ext_s");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)base, (uint32_t)scope, (void*)(uintptr_t)filter, (void*)(uintptr_t)attrs, (uint32_t)attrsonly, (void*)(uintptr_t)servercontrols, (void*)(uintptr_t)clientcontrols, (void*)(uintptr_t)timeout, (uint32_t)sizelimit, (void*)(uintptr_t)res) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)base, (uint32_t)scope, (void*)(uintptr_t)filter, (void*)(uintptr_t)attrs, (uint32_t)attrsonly, (void*)(uintptr_t)servercontrols, (void*)(uintptr_t)clientcontrols, (void*)(uintptr_t)timeout, (uint32_t)sizelimit, (void*)(uintptr_t)res);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)base;
@@ -4276,6 +5696,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)timeout;
     (void)sizelimit;
     (void)res;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -4291,7 +5712,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_search_ext_sA");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)base, (uint32_t)scope, (void*)(uintptr_t)filter, (void*)(uintptr_t)attrs, (uint32_t)attrsonly, (void*)(uintptr_t)servercontrols, (void*)(uintptr_t)clientcontrols, (void*)(uintptr_t)timeout, (uint32_t)sizelimit, (void*)(uintptr_t)res) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)base, (uint32_t)scope, (void*)(uintptr_t)filter, (void*)(uintptr_t)attrs, (uint32_t)attrsonly, (void*)(uintptr_t)servercontrols, (void*)(uintptr_t)clientcontrols, (void*)(uintptr_t)timeout, (uint32_t)sizelimit, (void*)(uintptr_t)res);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)base;
@@ -4304,6 +5731,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)timeout;
     (void)sizelimit;
     (void)res;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -4319,7 +5747,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_search_ext_sW");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)base, (uint32_t)scope, (void*)(uintptr_t)filter, (void*)(uintptr_t)attrs, (uint32_t)attrsonly, (void*)(uintptr_t)servercontrols, (void*)(uintptr_t)clientcontrols, (void*)(uintptr_t)timeout, (uint32_t)sizelimit, (void*)(uintptr_t)res) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)base, (uint32_t)scope, (void*)(uintptr_t)filter, (void*)(uintptr_t)attrs, (uint32_t)attrsonly, (void*)(uintptr_t)servercontrols, (void*)(uintptr_t)clientcontrols, (void*)(uintptr_t)timeout, (uint32_t)sizelimit, (void*)(uintptr_t)res);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)base;
@@ -4332,6 +5766,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)timeout;
     (void)sizelimit;
     (void)res;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -4347,7 +5782,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_search_init_page");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)externalhandle, (void*)(uintptr_t)distinguishedname, (uint32_t)scopeofsearch, (void*)(uintptr_t)searchfilter, (void*)(uintptr_t)attributelist, (uint32_t)attributesonly, (void*)(uintptr_t)servercontrols, (void*)(uintptr_t)clientcontrols, (uint32_t)pagetimelimit, (uint32_t)totalsizelimit, (void*)(uintptr_t)sortkeys) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)externalhandle, (void*)(uintptr_t)distinguishedname, (uint32_t)scopeofsearch, (void*)(uintptr_t)searchfilter, (void*)(uintptr_t)attributelist, (uint32_t)attributesonly, (void*)(uintptr_t)servercontrols, (void*)(uintptr_t)clientcontrols, (uint32_t)pagetimelimit, (uint32_t)totalsizelimit, (void*)(uintptr_t)sortkeys);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)externalhandle;
     (void)distinguishedname;
@@ -4360,6 +5801,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)pagetimelimit;
     (void)totalsizelimit;
     (void)sortkeys;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -4375,7 +5817,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_search_init_pageA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)externalhandle, (void*)(uintptr_t)distinguishedname, (uint32_t)scopeofsearch, (void*)(uintptr_t)searchfilter, (void*)(uintptr_t)attributelist, (uint32_t)attributesonly, (void*)(uintptr_t)servercontrols, (void*)(uintptr_t)clientcontrols, (uint32_t)pagetimelimit, (uint32_t)totalsizelimit, (void*)(uintptr_t)sortkeys) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)externalhandle, (void*)(uintptr_t)distinguishedname, (uint32_t)scopeofsearch, (void*)(uintptr_t)searchfilter, (void*)(uintptr_t)attributelist, (uint32_t)attributesonly, (void*)(uintptr_t)servercontrols, (void*)(uintptr_t)clientcontrols, (uint32_t)pagetimelimit, (uint32_t)totalsizelimit, (void*)(uintptr_t)sortkeys);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)externalhandle;
     (void)distinguishedname;
@@ -4388,6 +5836,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)pagetimelimit;
     (void)totalsizelimit;
     (void)sortkeys;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -4403,7 +5852,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_search_init_pageW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)externalhandle, (void*)(uintptr_t)distinguishedname, (uint32_t)scopeofsearch, (void*)(uintptr_t)searchfilter, (void*)(uintptr_t)attributelist, (uint32_t)attributesonly, (void*)(uintptr_t)servercontrols, (void*)(uintptr_t)clientcontrols, (uint32_t)pagetimelimit, (uint32_t)totalsizelimit, (void*)(uintptr_t)sortkeys) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)externalhandle, (void*)(uintptr_t)distinguishedname, (uint32_t)scopeofsearch, (void*)(uintptr_t)searchfilter, (void*)(uintptr_t)attributelist, (uint32_t)attributesonly, (void*)(uintptr_t)servercontrols, (void*)(uintptr_t)clientcontrols, (uint32_t)pagetimelimit, (uint32_t)totalsizelimit, (void*)(uintptr_t)sortkeys);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)externalhandle;
     (void)distinguishedname;
@@ -4416,6 +5871,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)pagetimelimit;
     (void)totalsizelimit;
     (void)sortkeys;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -4431,7 +5887,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_search_s");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)base, (uint32_t)scope, (void*)(uintptr_t)filter, (void*)(uintptr_t)attrs, (uint32_t)attrsonly, (void*)(uintptr_t)res) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)base, (uint32_t)scope, (void*)(uintptr_t)filter, (void*)(uintptr_t)attrs, (uint32_t)attrsonly, (void*)(uintptr_t)res);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)base;
@@ -4440,6 +5902,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)attrs;
     (void)attrsonly;
     (void)res;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -4455,7 +5918,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_search_sA");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)base, (uint32_t)scope, (void*)(uintptr_t)filter, (void*)(uintptr_t)attrs, (uint32_t)attrsonly, (void*)(uintptr_t)res) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)base, (uint32_t)scope, (void*)(uintptr_t)filter, (void*)(uintptr_t)attrs, (uint32_t)attrsonly, (void*)(uintptr_t)res);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)base;
@@ -4464,6 +5933,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)attrs;
     (void)attrsonly;
     (void)res;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -4479,7 +5949,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_search_sW");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)base, (uint32_t)scope, (void*)(uintptr_t)filter, (void*)(uintptr_t)attrs, (uint32_t)attrsonly, (void*)(uintptr_t)res) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)base, (uint32_t)scope, (void*)(uintptr_t)filter, (void*)(uintptr_t)attrs, (uint32_t)attrsonly, (void*)(uintptr_t)res);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)base;
@@ -4488,6 +5964,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)attrs;
     (void)attrsonly;
     (void)res;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -4503,7 +5980,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_search_st");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)base, (uint32_t)scope, (void*)(uintptr_t)filter, (void*)(uintptr_t)attrs, (uint32_t)attrsonly, (void*)(uintptr_t)timeout, (void*)(uintptr_t)res) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)base, (uint32_t)scope, (void*)(uintptr_t)filter, (void*)(uintptr_t)attrs, (uint32_t)attrsonly, (void*)(uintptr_t)timeout, (void*)(uintptr_t)res);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)base;
@@ -4513,6 +5996,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)attrsonly;
     (void)timeout;
     (void)res;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -4528,7 +6012,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_search_stA");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)base, (uint32_t)scope, (void*)(uintptr_t)filter, (void*)(uintptr_t)attrs, (uint32_t)attrsonly, (void*)(uintptr_t)timeout, (void*)(uintptr_t)res) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)base, (uint32_t)scope, (void*)(uintptr_t)filter, (void*)(uintptr_t)attrs, (uint32_t)attrsonly, (void*)(uintptr_t)timeout, (void*)(uintptr_t)res);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)base;
@@ -4538,6 +6028,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)attrsonly;
     (void)timeout;
     (void)res;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -4553,7 +6044,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_search_stW");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)base, (uint32_t)scope, (void*)(uintptr_t)filter, (void*)(uintptr_t)attrs, (uint32_t)attrsonly, (void*)(uintptr_t)timeout, (void*)(uintptr_t)res) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)base, (uint32_t)scope, (void*)(uintptr_t)filter, (void*)(uintptr_t)attrs, (uint32_t)attrsonly, (void*)(uintptr_t)timeout, (void*)(uintptr_t)res);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)base;
@@ -4563,6 +6060,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)attrsonly;
     (void)timeout;
     (void)res;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -4578,9 +6076,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_set_dbg_flags");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)newflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)newflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)newflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -4596,9 +6101,14 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_set_dbg_routine");
     }
-    if (km_fn_ptr != NULL) km_fn_ptr((void*)(uintptr_t)debugprintroutine);
+    if (km_fn_ptr != NULL) {
+        km_fn_ptr((void*)(uintptr_t)debugprintroutine);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)debugprintroutine;
+    errno = ENOSYS;
 #endif
 }
 
@@ -4612,11 +6122,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_set_option");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (int32_t)option, (void*)(uintptr_t)invalue) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (int32_t)option, (void*)(uintptr_t)invalue);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)option;
     (void)invalue;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -4632,11 +6149,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_set_optionW");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (int32_t)option, (void*)(uintptr_t)invalue) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (int32_t)option, (void*)(uintptr_t)invalue);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)option;
     (void)invalue;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -4652,11 +6176,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_simple_bind");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)passwd) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)passwd);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
     (void)passwd;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -4672,11 +6203,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_simple_bindA");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)passwd) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)passwd);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
     (void)passwd;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -4692,11 +6230,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_simple_bindW");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)passwd) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)passwd);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
     (void)passwd;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -4712,11 +6257,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_simple_bind_s");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)passwd) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)passwd);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
     (void)passwd;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -4732,11 +6284,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_simple_bind_sA");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)passwd) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)passwd);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
     (void)passwd;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -4752,11 +6311,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_simple_bind_sW");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)passwd) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld, (void*)(uintptr_t)dn, (void*)(uintptr_t)passwd);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
     (void)passwd;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -4772,11 +6338,18 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_sslinit");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hostname, (uint32_t)portnumber, (int32_t)secure) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hostname, (uint32_t)portnumber, (int32_t)secure);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)hostname;
     (void)portnumber;
     (void)secure;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -4792,11 +6365,18 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_sslinitA");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hostname, (uint32_t)portnumber, (int32_t)secure) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hostname, (uint32_t)portnumber, (int32_t)secure);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)hostname;
     (void)portnumber;
     (void)secure;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -4812,11 +6392,18 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_sslinitW");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hostname, (uint32_t)portnumber, (int32_t)secure) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hostname, (uint32_t)portnumber, (int32_t)secure);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)hostname;
     (void)portnumber;
     (void)secure;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -4832,13 +6419,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_start_tls_sA");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)externalhandle, (void*)(uintptr_t)serverreturnvalue, (void*)(uintptr_t)result, (void*)(uintptr_t)servercontrols, (void*)(uintptr_t)clientcontrols) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)externalhandle, (void*)(uintptr_t)serverreturnvalue, (void*)(uintptr_t)result, (void*)(uintptr_t)servercontrols, (void*)(uintptr_t)clientcontrols);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)externalhandle;
     (void)serverreturnvalue;
     (void)result;
     (void)servercontrols;
     (void)clientcontrols;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -4854,13 +6448,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_start_tls_sW");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)externalhandle, (void*)(uintptr_t)serverreturnvalue, (void*)(uintptr_t)result, (void*)(uintptr_t)servercontrols, (void*)(uintptr_t)clientcontrols) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)externalhandle, (void*)(uintptr_t)serverreturnvalue, (void*)(uintptr_t)result, (void*)(uintptr_t)servercontrols, (void*)(uintptr_t)clientcontrols);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)externalhandle;
     (void)serverreturnvalue;
     (void)result;
     (void)servercontrols;
     (void)clientcontrols;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -4876,10 +6477,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_startup");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)version, (void*)(uintptr_t)instance) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)version, (void*)(uintptr_t)instance);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)version;
     (void)instance;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -4895,9 +6503,16 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_n
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_stop_tls_s");
     }
-    bool km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)externalhandle) : false;
+    bool km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)externalhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)externalhandle;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return (jboolean)km_res;
@@ -4913,10 +6528,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_ufn2dn");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ufn, (void*)(uintptr_t)pdn) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ufn, (void*)(uintptr_t)pdn);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ufn;
     (void)pdn;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -4932,10 +6554,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_ufn2dnA");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ufn, (void*)(uintptr_t)pdn) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ufn, (void*)(uintptr_t)pdn);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ufn;
     (void)pdn;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -4951,10 +6580,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_ufn2dnW");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ufn, (void*)(uintptr_t)pdn) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ufn, (void*)(uintptr_t)pdn);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ufn;
     (void)pdn;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -4970,9 +6606,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_unbind");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -4988,9 +6631,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_unbind_s");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ld) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ld);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -5006,9 +6656,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_value_free");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)vals) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)vals);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)vals;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -5024,9 +6681,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_value_freeA");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)vals) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)vals);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)vals;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -5042,9 +6706,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_value_freeW");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)vals) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)vals);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)vals;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -5060,9 +6731,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ldap_value_free_len");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)vals) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)vals);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)vals;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;

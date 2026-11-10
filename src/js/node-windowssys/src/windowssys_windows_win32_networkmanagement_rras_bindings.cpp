@@ -68,7 +68,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mgmAddGroupMe
         HMODULE km_h_mod = LoadLibraryA("rtm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MgmAddGroupMembershipEntry")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprotocol, dwsourceaddr, dwsourcemask, dwgroupaddr, dwgroupmask, dwifindex, dwifnexthopipaddr, dwflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprotocol, dwsourceaddr, dwsourcemask, dwgroupaddr, dwgroupmask, dwifindex, dwifnexthopipaddr, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hprotocol;
     (void)dwsourceaddr;
@@ -78,6 +84,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mgmAddGroupMe
     (void)dwifindex;
     (void)dwifnexthopipaddr;
     (void)dwflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -93,9 +100,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mgmDeRegister
         HMODULE km_h_mod = LoadLibraryA("rtm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MgmDeRegisterMProtocol")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprotocol) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprotocol);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hprotocol;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -118,7 +132,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mgmDeleteGrou
         HMODULE km_h_mod = LoadLibraryA("rtm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MgmDeleteGroupMembershipEntry")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprotocol, dwsourceaddr, dwsourcemask, dwgroupaddr, dwgroupmask, dwifindex, dwifnexthopipaddr, dwflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprotocol, dwsourceaddr, dwsourcemask, dwgroupaddr, dwgroupmask, dwifindex, dwifnexthopipaddr, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hprotocol;
     (void)dwsourceaddr;
@@ -128,6 +148,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mgmDeleteGrou
     (void)dwifindex;
     (void)dwifnexthopipaddr;
     (void)dwflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -145,11 +166,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mgmGetFirstMf
         HMODULE km_h_mod = LoadLibraryA("rtm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MgmGetFirstMfe")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pdwbuffersize, pbbuffer, pdwnumentries) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pdwbuffersize, pbbuffer, pdwnumentries);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pdwbuffersize;
     (void)pbbuffer;
     (void)pdwnumentries;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -168,12 +196,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mgmGetFirstMf
         HMODULE km_h_mod = LoadLibraryA("rtm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MgmGetFirstMfeStats")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pdwbuffersize, pbbuffer, pdwnumentries, dwflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pdwbuffersize, pbbuffer, pdwnumentries, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pdwbuffersize;
     (void)pbbuffer;
     (void)pdwnumentries;
     (void)dwflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -191,11 +226,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mgmGetMfe_nap
         HMODULE km_h_mod = LoadLibraryA("rtm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MgmGetMfe")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pimm, pdwbuffersize, pbbuffer) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pimm, pdwbuffersize, pbbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pimm;
     (void)pdwbuffersize;
     (void)pbbuffer;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -214,12 +256,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mgmGetMfeStat
         HMODULE km_h_mod = LoadLibraryA("rtm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MgmGetMfeStats")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pimm, pdwbuffersize, pbbuffer, dwflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pimm, pdwbuffersize, pbbuffer, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pimm;
     (void)pdwbuffersize;
     (void)pbbuffer;
     (void)dwflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -238,12 +287,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mgmGetNextMfe
         HMODULE km_h_mod = LoadLibraryA("rtm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MgmGetNextMfe")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pimmstart, pdwbuffersize, pbbuffer, pdwnumentries) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pimmstart, pdwbuffersize, pbbuffer, pdwnumentries);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pimmstart;
     (void)pdwbuffersize;
     (void)pbbuffer;
     (void)pdwnumentries;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -263,13 +319,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mgmGetNextMfe
         HMODULE km_h_mod = LoadLibraryA("rtm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MgmGetNextMfeStats")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pimmstart, pdwbuffersize, pbbuffer, pdwnumentries, dwflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pimmstart, pdwbuffersize, pbbuffer, pdwnumentries, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pimmstart;
     (void)pdwbuffersize;
     (void)pbbuffer;
     (void)pdwnumentries;
     (void)dwflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -288,12 +351,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mgmGetProtoco
         HMODULE km_h_mod = LoadLibraryA("rtm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MgmGetProtocolOnInterface")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwifindex, dwifnexthopaddr, pdwifprotocolid, pdwifcomponentid) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwifindex, dwifnexthopaddr, pdwifprotocolid, pdwifcomponentid);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dwifindex;
     (void)dwifnexthopaddr;
     (void)pdwifprotocolid;
     (void)pdwifcomponentid;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -309,9 +379,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mgmGroupEnume
         HMODULE km_h_mod = LoadLibraryA("rtm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MgmGroupEnumerationEnd")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(henum) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(henum);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)henum;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -330,12 +407,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mgmGroupEnume
         HMODULE km_h_mod = LoadLibraryA("rtm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MgmGroupEnumerationGetNext")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(henum, pdwbuffersize, pbbuffer, pdwnumentries) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(henum, pdwbuffersize, pbbuffer, pdwnumentries);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)henum;
     (void)pdwbuffersize;
     (void)pbbuffer;
     (void)pdwnumentries;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -353,11 +437,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mgmGroupEnume
         HMODULE km_h_mod = LoadLibraryA("rtm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MgmGroupEnumerationStart")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprotocol, metenumtype, phenumhandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprotocol, metenumtype, phenumhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hprotocol;
     (void)metenumtype;
     (void)phenumhandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -376,12 +467,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mgmRegisterMP
         HMODULE km_h_mod = LoadLibraryA("rtm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MgmRegisterMProtocol")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(prpiinfo, dwprotocolid, dwcomponentid, phprotocol) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(prpiinfo, dwprotocolid, dwcomponentid, phprotocol);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)prpiinfo;
     (void)dwprotocolid;
     (void)dwcomponentid;
     (void)phprotocol;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -399,11 +497,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mgmReleaseInt
         HMODULE km_h_mod = LoadLibraryA("rtm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MgmReleaseInterfaceOwnership")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprotocol, dwifindex, dwifnexthopaddr) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprotocol, dwifindex, dwifnexthopaddr);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hprotocol;
     (void)dwifindex;
     (void)dwifnexthopaddr;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -421,11 +526,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mgmTakeInterf
         HMODULE km_h_mod = LoadLibraryA("rtm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MgmTakeInterfaceOwnership")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprotocol, dwifindex, dwifnexthopaddr) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprotocol, dwifindex, dwifnexthopaddr);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hprotocol;
     (void)dwifindex;
     (void)dwifnexthopaddr;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -441,9 +553,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminBuffe
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprAdminBufferFree")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pbuffer) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pbuffer;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -460,10 +579,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminConne
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprAdminConnectionClearStats")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hrasserver, hrasconnection) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hrasserver, hrasconnection);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hrasserver;
     (void)hrasconnection;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -485,7 +611,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminConne
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprAdminConnectionEnum")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hrasserver, dwlevel, lplpbbuffer, dwprefmaxlen, lpdwentriesread, lpdwtotalentries, lpdwresumehandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hrasserver, dwlevel, lplpbbuffer, dwprefmaxlen, lpdwentriesread, lpdwtotalentries, lpdwresumehandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hrasserver;
     (void)dwlevel;
@@ -494,6 +626,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminConne
     (void)lpdwentriesread;
     (void)lpdwtotalentries;
     (void)lpdwresumehandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -515,7 +648,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminConne
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprAdminConnectionEnumEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hrasserver, pobjectheader, dwpreferedmaxlen, lpdwentriesread, lpdwtotalentries, pprasconn, lpdwresumehandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hrasserver, pobjectheader, dwpreferedmaxlen, lpdwentriesread, lpdwtotalentries, pprasconn, lpdwresumehandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hrasserver;
     (void)pobjectheader;
@@ -524,6 +663,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminConne
     (void)lpdwtotalentries;
     (void)pprasconn;
     (void)lpdwresumehandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -542,12 +682,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminConne
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprAdminConnectionGetInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hrasserver, dwlevel, hrasconnection, lplpbbuffer) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hrasserver, dwlevel, hrasconnection, lplpbbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hrasserver;
     (void)dwlevel;
     (void)hrasconnection;
     (void)lplpbbuffer;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -565,11 +712,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminConne
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprAdminConnectionGetInfoEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hrasserver, hrasconnection, prasconnection) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hrasserver, hrasconnection, prasconnection);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hrasserver;
     (void)hrasconnection;
     (void)prasconnection;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -587,11 +741,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminConne
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprAdminConnectionRemoveQuarantine")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hrasserver, hrasconnection, fisipaddress) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hrasserver, hrasconnection, fisipaddress);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hrasserver;
     (void)hrasconnection;
     (void)fisipaddress;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -608,10 +769,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminDereg
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprAdminDeregisterConnectionNotification")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmprserver, heventnotification) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmprserver, heventnotification);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmprserver;
     (void)heventnotification;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -630,12 +798,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminDevic
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprAdminDeviceEnum")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmprserver, dwlevel, lplpbbuffer, lpdwtotalentries) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmprserver, dwlevel, lplpbbuffer, lpdwtotalentries);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmprserver;
     (void)dwlevel;
     (void)lplpbbuffer;
     (void)lpdwtotalentries;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -653,11 +828,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminEstab
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprAdminEstablishDomainRasServer")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszdomain, pszmachine, benable) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszdomain, pszmachine, benable);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pszdomain;
     (void)pszmachine;
     (void)benable;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -674,10 +856,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminGetEr
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprAdminGetErrorString")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwerror, lplpwserrorstring) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwerror, lplpwserrorstring);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dwerror;
     (void)lplpwserrorstring;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -695,11 +884,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminGetPD
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprAdminGetPDCServer")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszdomain, lpszserver, lpszpdcserver) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszdomain, lpszserver, lpszpdcserver);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpszdomain;
     (void)lpszserver;
     (void)lpszpdcserver;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -718,12 +914,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminInter
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprAdminInterfaceConnect")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmprserver, hinterface, hevent, fsynchronous) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmprserver, hinterface, hevent, fsynchronous);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmprserver;
     (void)hinterface;
     (void)hevent;
     (void)fsynchronous;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -742,12 +945,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminInter
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprAdminInterfaceCreate")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmprserver, dwlevel, lpbbuffer, phinterface) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmprserver, dwlevel, lpbbuffer, phinterface);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmprserver;
     (void)dwlevel;
     (void)lpbbuffer;
     (void)phinterface;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -764,10 +974,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminInter
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprAdminInterfaceDelete")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmprserver, hinterface) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmprserver, hinterface);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmprserver;
     (void)hinterface;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -787,13 +1004,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminInter
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprAdminInterfaceDeviceGetInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmprserver, hinterface, dwindex, dwlevel, lplpbuffer) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmprserver, hinterface, dwindex, dwlevel, lplpbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmprserver;
     (void)hinterface;
     (void)dwindex;
     (void)dwlevel;
     (void)lplpbuffer;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -813,13 +1037,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminInter
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprAdminInterfaceDeviceSetInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmprserver, hinterface, dwindex, dwlevel, lpbbuffer) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmprserver, hinterface, dwindex, dwlevel, lpbbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmprserver;
     (void)hinterface;
     (void)dwindex;
     (void)dwlevel;
     (void)lpbbuffer;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -836,10 +1067,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminInter
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprAdminInterfaceDisconnect")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmprserver, hinterface) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmprserver, hinterface);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmprserver;
     (void)hinterface;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -861,7 +1099,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminInter
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprAdminInterfaceEnum")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmprserver, dwlevel, lplpbbuffer, dwprefmaxlen, lpdwentriesread, lpdwtotalentries, lpdwresumehandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmprserver, dwlevel, lplpbbuffer, dwprefmaxlen, lpdwentriesread, lpdwtotalentries, lpdwresumehandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmprserver;
     (void)dwlevel;
@@ -870,6 +1114,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminInter
     (void)lpdwentriesread;
     (void)lpdwtotalentries;
     (void)lpdwresumehandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -889,13 +1134,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminInter
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprAdminInterfaceGetCredentials")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpwsserver, lpwsinterfacename, lpwsusername, lpwspassword, lpwsdomainname) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpwsserver, lpwsinterfacename, lpwsusername, lpwspassword, lpwsdomainname);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpwsserver;
     (void)lpwsinterfacename;
     (void)lpwsusername;
     (void)lpwspassword;
     (void)lpwsdomainname;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -914,12 +1166,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminInter
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprAdminInterfaceGetCredentialsEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmprserver, hinterface, dwlevel, lplpbbuffer) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmprserver, hinterface, dwlevel, lplpbbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmprserver;
     (void)hinterface;
     (void)dwlevel;
     (void)lplpbbuffer;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -937,11 +1196,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminInter
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprAdminInterfaceGetCustomInfoEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmprserver, hinterface, pcustominfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmprserver, hinterface, pcustominfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmprserver;
     (void)hinterface;
     (void)pcustominfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -960,12 +1226,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminInter
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprAdminInterfaceGetHandle")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmprserver, lpwsinterfacename, phinterface, fincludeclientinterfaces) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmprserver, lpwsinterfacename, phinterface, fincludeclientinterfaces);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmprserver;
     (void)lpwsinterfacename;
     (void)phinterface;
     (void)fincludeclientinterfaces;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -984,12 +1257,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminInter
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprAdminInterfaceGetInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmprserver, hinterface, dwlevel, lplpbbuffer) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmprserver, hinterface, dwlevel, lplpbbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmprserver;
     (void)hinterface;
     (void)dwlevel;
     (void)lplpbbuffer;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1008,12 +1288,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminInter
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprAdminInterfaceQueryUpdateResult")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmprserver, hinterface, dwprotocolid, lpdwupdateresult) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmprserver, hinterface, dwprotocolid, lpdwupdateresult);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmprserver;
     (void)hinterface;
     (void)dwprotocolid;
     (void)lpdwupdateresult;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1033,13 +1320,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminInter
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprAdminInterfaceSetCredentials")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpwsserver, lpwsinterfacename, lpwsusername, lpwsdomainname, lpwspassword) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpwsserver, lpwsinterfacename, lpwsusername, lpwsdomainname, lpwspassword);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpwsserver;
     (void)lpwsinterfacename;
     (void)lpwsusername;
     (void)lpwsdomainname;
     (void)lpwspassword;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1058,12 +1352,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminInter
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprAdminInterfaceSetCredentialsEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmprserver, hinterface, dwlevel, lpbbuffer) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmprserver, hinterface, dwlevel, lpbbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmprserver;
     (void)hinterface;
     (void)dwlevel;
     (void)lpbbuffer;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1081,11 +1382,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminInter
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprAdminInterfaceSetCustomInfoEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmprserver, hinterface, pcustominfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmprserver, hinterface, pcustominfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmprserver;
     (void)hinterface;
     (void)pcustominfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1104,12 +1412,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminInter
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprAdminInterfaceSetInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmprserver, hinterface, dwlevel, lpbbuffer) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmprserver, hinterface, dwlevel, lpbbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmprserver;
     (void)hinterface;
     (void)dwlevel;
     (void)lpbbuffer;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1129,13 +1444,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminInter
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprAdminInterfaceTransportAdd")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmprserver, hinterface, dwtransportid, pinterfaceinfo, dwinterfaceinfosize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmprserver, hinterface, dwtransportid, pinterfaceinfo, dwinterfaceinfosize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmprserver;
     (void)hinterface;
     (void)dwtransportid;
     (void)pinterfaceinfo;
     (void)dwinterfaceinfosize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1155,13 +1477,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminInter
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprAdminInterfaceTransportGetInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmprserver, hinterface, dwtransportid, ppinterfaceinfo, lpdwinterfaceinfosize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmprserver, hinterface, dwtransportid, ppinterfaceinfo, lpdwinterfaceinfosize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmprserver;
     (void)hinterface;
     (void)dwtransportid;
     (void)ppinterfaceinfo;
     (void)lpdwinterfaceinfosize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1179,11 +1508,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminInter
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprAdminInterfaceTransportRemove")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmprserver, hinterface, dwtransportid) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmprserver, hinterface, dwtransportid);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmprserver;
     (void)hinterface;
     (void)dwtransportid;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1203,13 +1539,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminInter
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprAdminInterfaceTransportSetInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmprserver, hinterface, dwtransportid, pinterfaceinfo, dwinterfaceinfosize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmprserver, hinterface, dwtransportid, pinterfaceinfo, dwinterfaceinfosize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmprserver;
     (void)hinterface;
     (void)dwtransportid;
     (void)pinterfaceinfo;
     (void)dwinterfaceinfosize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1226,10 +1569,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminInter
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprAdminInterfaceUpdatePhonebookInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmprserver, hinterface) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmprserver, hinterface);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmprserver;
     (void)hinterface;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1248,12 +1598,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminInter
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprAdminInterfaceUpdateRoutes")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmprserver, hinterface, dwprotocolid, hevent) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmprserver, hinterface, dwprotocolid, hevent);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmprserver;
     (void)hinterface;
     (void)dwprotocolid;
     (void)hevent;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1271,11 +1628,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminIsDom
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprAdminIsDomainRasServer")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszdomain, pszmachine, pbisrasserver) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszdomain, pszmachine, pbisrasserver);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pszdomain;
     (void)pszmachine;
     (void)pbisrasserver;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1292,10 +1656,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminIsSer
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprAdminIsServiceInitialized")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpwsservername, fisserviceinitialized) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpwsservername, fisserviceinitialized);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpwsservername;
     (void)fisserviceinitialized;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1311,9 +1682,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminIsSer
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprAdminIsServiceRunning")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpwsservername) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpwsservername);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpwsservername;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1329,9 +1707,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminMIBBu
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprAdminMIBBufferFree")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pbuffer) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pbuffer;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1351,13 +1736,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminMIBEn
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprAdminMIBEntryCreate")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmibserver, dwpid, dwroutingpid, lpentry, dwentrysize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmibserver, dwpid, dwroutingpid, lpentry, dwentrysize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmibserver;
     (void)dwpid;
     (void)dwroutingpid;
     (void)lpentry;
     (void)dwentrysize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1377,13 +1769,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminMIBEn
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprAdminMIBEntryDelete")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmibserver, dwprotocolid, dwroutingpid, lpentry, dwentrysize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmibserver, dwprotocolid, dwroutingpid, lpentry, dwentrysize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmibserver;
     (void)dwprotocolid;
     (void)dwroutingpid;
     (void)lpentry;
     (void)dwentrysize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1405,7 +1804,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminMIBEn
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprAdminMIBEntryGet")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmibserver, dwprotocolid, dwroutingpid, lpinentry, dwinentrysize, lplpoutentry, lpoutentrysize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmibserver, dwprotocolid, dwroutingpid, lpinentry, dwinentrysize, lplpoutentry, lpoutentrysize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmibserver;
     (void)dwprotocolid;
@@ -1414,6 +1819,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminMIBEn
     (void)dwinentrysize;
     (void)lplpoutentry;
     (void)lpoutentrysize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1435,7 +1841,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminMIBEn
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprAdminMIBEntryGetFirst")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmibserver, dwprotocolid, dwroutingpid, lpinentry, dwinentrysize, lplpoutentry, lpoutentrysize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmibserver, dwprotocolid, dwroutingpid, lpinentry, dwinentrysize, lplpoutentry, lpoutentrysize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmibserver;
     (void)dwprotocolid;
@@ -1444,6 +1856,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminMIBEn
     (void)dwinentrysize;
     (void)lplpoutentry;
     (void)lpoutentrysize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1465,7 +1878,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminMIBEn
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprAdminMIBEntryGetNext")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmibserver, dwprotocolid, dwroutingpid, lpinentry, dwinentrysize, lplpoutentry, lpoutentrysize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmibserver, dwprotocolid, dwroutingpid, lpinentry, dwinentrysize, lplpoutentry, lpoutentrysize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmibserver;
     (void)dwprotocolid;
@@ -1474,6 +1893,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminMIBEn
     (void)dwinentrysize;
     (void)lplpoutentry;
     (void)lpoutentrysize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1493,13 +1913,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminMIBEn
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprAdminMIBEntrySet")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmibserver, dwprotocolid, dwroutingpid, lpentry, dwentrysize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmibserver, dwprotocolid, dwroutingpid, lpentry, dwentrysize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmibserver;
     (void)dwprotocolid;
     (void)dwroutingpid;
     (void)lpentry;
     (void)dwentrysize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1516,10 +1943,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminMIBSe
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprAdminMIBServerConnect")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpwsservername, phmibserver) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpwsservername, phmibserver);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpwsservername;
     (void)phmibserver;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1535,9 +1969,14 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminMIBSe
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprAdminMIBServerDisconnect")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(hmibserver);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(hmibserver);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)hmibserver;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -1553,10 +1992,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminPortC
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprAdminPortClearStats")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hrasserver, hport) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hrasserver, hport);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hrasserver;
     (void)hport;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1573,10 +2019,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminPortD
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprAdminPortDisconnect")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hrasserver, hport) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hrasserver, hport);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hrasserver;
     (void)hport;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1599,7 +2052,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminPortE
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprAdminPortEnum")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hrasserver, dwlevel, hrasconnection, lplpbbuffer, dwprefmaxlen, lpdwentriesread, lpdwtotalentries, lpdwresumehandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hrasserver, dwlevel, hrasconnection, lplpbbuffer, dwprefmaxlen, lpdwentriesread, lpdwtotalentries, lpdwresumehandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hrasserver;
     (void)dwlevel;
@@ -1609,6 +2068,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminPortE
     (void)lpdwentriesread;
     (void)lpdwtotalentries;
     (void)lpdwresumehandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1627,12 +2087,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminPortG
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprAdminPortGetInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hrasserver, dwlevel, hport, lplpbbuffer) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hrasserver, dwlevel, hport, lplpbbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hrasserver;
     (void)dwlevel;
     (void)hport;
     (void)lplpbbuffer;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1649,10 +2116,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminPortR
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprAdminPortReset")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hrasserver, hport) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hrasserver, hport);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hrasserver;
     (void)hport;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1669,10 +2143,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminRegis
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprAdminRegisterConnectionNotification")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmprserver, heventnotification) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmprserver, heventnotification);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmprserver;
     (void)heventnotification;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1690,11 +2171,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminSendU
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprAdminSendUserMessage")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmprserver, hconnection, lpwszmessage) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmprserver, hconnection, lpwszmessage);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmprserver;
     (void)hconnection;
     (void)lpwszmessage;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1711,10 +2199,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminServe
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprAdminServerConnect")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpwsservername, phmprserver) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpwsservername, phmprserver);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpwsservername;
     (void)phmprserver;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1730,9 +2225,14 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminServe
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprAdminServerDisconnect")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(hmprserver);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(hmprserver);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)hmprserver;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -1749,11 +2249,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminServe
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprAdminServerGetCredentials")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmprserver, dwlevel, lplpbbuffer) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmprserver, dwlevel, lplpbbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmprserver;
     (void)dwlevel;
     (void)lplpbbuffer;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1771,11 +2278,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminServe
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprAdminServerGetInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmprserver, dwlevel, lplpbbuffer) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmprserver, dwlevel, lplpbbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmprserver;
     (void)dwlevel;
     (void)lplpbbuffer;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1792,10 +2306,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminServe
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprAdminServerGetInfoEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmprserver, pserverinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmprserver, pserverinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmprserver;
     (void)pserverinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1813,11 +2334,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminServe
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprAdminServerSetCredentials")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmprserver, dwlevel, lpbbuffer) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmprserver, dwlevel, lpbbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmprserver;
     (void)dwlevel;
     (void)lpbbuffer;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1835,11 +2363,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminServe
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprAdminServerSetInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmprserver, dwlevel, lpbbuffer) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmprserver, dwlevel, lpbbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmprserver;
     (void)dwlevel;
     (void)lpbbuffer;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1856,10 +2391,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminServe
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprAdminServerSetInfoEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmprserver, pserverinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmprserver, pserverinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmprserver;
     (void)pserverinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1882,7 +2424,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminTrans
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprAdminTransportCreate")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmprserver, dwtransportid, lpwstransportname, pglobalinfo, dwglobalinfosize, pclientinterfaceinfo, dwclientinterfaceinfosize, lpwsdllpath) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmprserver, dwtransportid, lpwstransportname, pglobalinfo, dwglobalinfosize, pclientinterfaceinfo, dwclientinterfaceinfosize, lpwsdllpath);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmprserver;
     (void)dwtransportid;
@@ -1892,6 +2440,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminTrans
     (void)pclientinterfaceinfo;
     (void)dwclientinterfaceinfosize;
     (void)lpwsdllpath;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1912,7 +2461,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminTrans
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprAdminTransportGetInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmprserver, dwtransportid, ppglobalinfo, lpdwglobalinfosize, ppclientinterfaceinfo, lpdwclientinterfaceinfosize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmprserver, dwtransportid, ppglobalinfo, lpdwglobalinfosize, ppclientinterfaceinfo, lpdwclientinterfaceinfosize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmprserver;
     (void)dwtransportid;
@@ -1920,6 +2475,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminTrans
     (void)lpdwglobalinfosize;
     (void)ppclientinterfaceinfo;
     (void)lpdwclientinterfaceinfosize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1940,7 +2496,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminTrans
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprAdminTransportSetInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmprserver, dwtransportid, pglobalinfo, dwglobalinfosize, pclientinterfaceinfo, dwclientinterfaceinfosize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmprserver, dwtransportid, pglobalinfo, dwglobalinfosize, pclientinterfaceinfo, dwclientinterfaceinfosize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmprserver;
     (void)dwtransportid;
@@ -1948,6 +2510,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminTrans
     (void)dwglobalinfosize;
     (void)pclientinterfaceinfo;
     (void)dwclientinterfaceinfosize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1965,11 +2528,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminUpdat
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprAdminUpdateConnection")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hrasserver, hrasconnection, prasupdateconnection) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hrasserver, hrasconnection, prasupdateconnection);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hrasserver;
     (void)hrasconnection;
     (void)prasupdateconnection;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1988,12 +2558,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminUserG
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprAdminUserGetInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszserver, lpszuser, dwlevel, lpbbuffer) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszserver, lpszuser, dwlevel, lpbbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpszserver;
     (void)lpszuser;
     (void)dwlevel;
     (void)lpbbuffer;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2012,12 +2589,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprAdminUserS
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprAdminUserSetInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszserver, lpszuser, dwlevel, lpbbuffer) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszserver, lpszuser, dwlevel, lpbbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpszserver;
     (void)lpszuser;
     (void)dwlevel;
     (void)lpbbuffer;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2033,9 +2617,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigBuff
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprConfigBufferFree")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pbuffer) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pbuffer;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2054,12 +2645,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigFilt
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprConfigFilterGetInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmprconfig, dwlevel, dwtransportid, lpbuffer) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmprconfig, dwlevel, dwtransportid, lpbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmprconfig;
     (void)dwlevel;
     (void)dwtransportid;
     (void)lpbuffer;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2078,12 +2676,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigFilt
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprConfigFilterSetInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmprconfig, dwlevel, dwtransportid, lpbuffer) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmprconfig, dwlevel, dwtransportid, lpbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmprconfig;
     (void)dwlevel;
     (void)dwtransportid;
     (void)lpbuffer;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2102,12 +2707,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigGetF
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprConfigGetFriendlyName")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmprconfig, pszguidname, pszbuffer, dwbuffersize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmprconfig, pszguidname, pszbuffer, dwbuffersize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmprconfig;
     (void)pszguidname;
     (void)pszbuffer;
     (void)dwbuffersize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2126,12 +2738,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigGetG
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprConfigGetGuidName")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmprconfig, pszfriendlyname, pszbuffer, dwbuffersize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmprconfig, pszfriendlyname, pszbuffer, dwbuffersize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmprconfig;
     (void)pszfriendlyname;
     (void)pszbuffer;
     (void)dwbuffersize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2150,12 +2769,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigInte
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprConfigInterfaceCreate")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmprconfig, dwlevel, lpbbuffer, phrouterinterface) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmprconfig, dwlevel, lpbbuffer, phrouterinterface);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmprconfig;
     (void)dwlevel;
     (void)lpbbuffer;
     (void)phrouterinterface;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2172,10 +2798,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigInte
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprConfigInterfaceDelete")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmprconfig, hrouterinterface) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmprconfig, hrouterinterface);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmprconfig;
     (void)hrouterinterface;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2197,7 +2830,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigInte
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprConfigInterfaceEnum")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmprconfig, dwlevel, lplpbuffer, dwprefmaxlen, lpdwentriesread, lpdwtotalentries, lpdwresumehandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmprconfig, dwlevel, lplpbuffer, dwprefmaxlen, lpdwentriesread, lpdwtotalentries, lpdwresumehandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmprconfig;
     (void)dwlevel;
@@ -2206,6 +2845,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigInte
     (void)lpdwentriesread;
     (void)lpdwtotalentries;
     (void)lpdwresumehandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2223,11 +2863,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigInte
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprConfigInterfaceGetCustomInfoEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmprconfig, hrouterinterface, pcustominfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmprconfig, hrouterinterface, pcustominfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmprconfig;
     (void)hrouterinterface;
     (void)pcustominfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2245,11 +2892,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigInte
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprConfigInterfaceGetHandle")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmprconfig, lpwsinterfacename, phrouterinterface) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmprconfig, lpwsinterfacename, phrouterinterface);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmprconfig;
     (void)lpwsinterfacename;
     (void)phrouterinterface;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2269,13 +2923,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigInte
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprConfigInterfaceGetInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmprconfig, hrouterinterface, dwlevel, lplpbuffer, lpdwbuffersize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmprconfig, hrouterinterface, dwlevel, lplpbuffer, lpdwbuffersize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmprconfig;
     (void)hrouterinterface;
     (void)dwlevel;
     (void)lplpbuffer;
     (void)lpdwbuffersize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2293,11 +2954,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigInte
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprConfigInterfaceSetCustomInfoEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmprconfig, hrouterinterface, pcustominfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmprconfig, hrouterinterface, pcustominfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmprconfig;
     (void)hrouterinterface;
     (void)pcustominfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2316,12 +2984,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigInte
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprConfigInterfaceSetInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmprconfig, hrouterinterface, dwlevel, lpbbuffer) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmprconfig, hrouterinterface, dwlevel, lpbbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmprconfig;
     (void)hrouterinterface;
     (void)dwlevel;
     (void)lpbbuffer;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2343,7 +3018,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigInte
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprConfigInterfaceTransportAdd")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmprconfig, hrouterinterface, dwtransportid, lpwstransportname, pinterfaceinfo, dwinterfaceinfosize, phrouteriftransport) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmprconfig, hrouterinterface, dwtransportid, lpwstransportname, pinterfaceinfo, dwinterfaceinfosize, phrouteriftransport);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmprconfig;
     (void)hrouterinterface;
@@ -2352,6 +3033,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigInte
     (void)pinterfaceinfo;
     (void)dwinterfaceinfosize;
     (void)phrouteriftransport;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2374,7 +3056,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigInte
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprConfigInterfaceTransportEnum")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmprconfig, hrouterinterface, dwlevel, lplpbuffer, dwprefmaxlen, lpdwentriesread, lpdwtotalentries, lpdwresumehandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmprconfig, hrouterinterface, dwlevel, lplpbuffer, dwprefmaxlen, lpdwentriesread, lpdwtotalentries, lpdwresumehandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmprconfig;
     (void)hrouterinterface;
@@ -2384,6 +3072,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigInte
     (void)lpdwentriesread;
     (void)lpdwtotalentries;
     (void)lpdwresumehandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2402,12 +3091,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigInte
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprConfigInterfaceTransportGetHandle")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmprconfig, hrouterinterface, dwtransportid, phrouteriftransport) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmprconfig, hrouterinterface, dwtransportid, phrouteriftransport);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmprconfig;
     (void)hrouterinterface;
     (void)dwtransportid;
     (void)phrouteriftransport;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2427,13 +3123,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigInte
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprConfigInterfaceTransportGetInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmprconfig, hrouterinterface, hrouteriftransport, ppinterfaceinfo, lpdwinterfaceinfosize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmprconfig, hrouterinterface, hrouteriftransport, ppinterfaceinfo, lpdwinterfaceinfosize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmprconfig;
     (void)hrouterinterface;
     (void)hrouteriftransport;
     (void)ppinterfaceinfo;
     (void)lpdwinterfaceinfosize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2451,11 +3154,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigInte
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprConfigInterfaceTransportRemove")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmprconfig, hrouterinterface, hrouteriftransport) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmprconfig, hrouterinterface, hrouteriftransport);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmprconfig;
     (void)hrouterinterface;
     (void)hrouteriftransport;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2475,13 +3185,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigInte
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprConfigInterfaceTransportSetInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmprconfig, hrouterinterface, hrouteriftransport, pinterfaceinfo, dwinterfaceinfosize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmprconfig, hrouterinterface, hrouteriftransport, pinterfaceinfo, dwinterfaceinfosize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmprconfig;
     (void)hrouterinterface;
     (void)hrouteriftransport;
     (void)pinterfaceinfo;
     (void)dwinterfaceinfosize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2498,10 +3215,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigServ
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprConfigServerBackup")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmprconfig, lpwspath) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmprconfig, lpwspath);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmprconfig;
     (void)lpwspath;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2518,10 +3242,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigServ
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprConfigServerConnect")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpwsservername, phmprconfig) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpwsservername, phmprconfig);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpwsservername;
     (void)phmprconfig;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2537,9 +3268,14 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigServ
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprConfigServerDisconnect")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(hmprconfig);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(hmprconfig);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)hmprconfig;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -2556,11 +3292,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigServ
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprConfigServerGetInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmprconfig, dwlevel, lplpbbuffer) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmprconfig, dwlevel, lplpbbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmprconfig;
     (void)dwlevel;
     (void)lplpbbuffer;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2577,10 +3320,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigServ
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprConfigServerGetInfoEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmprconfig, pserverinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmprconfig, pserverinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmprconfig;
     (void)pserverinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2597,10 +3347,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigServ
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprConfigServerInstall")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwlevel, pbuffer) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwlevel, pbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dwlevel;
     (void)pbuffer;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2616,9 +3373,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigServ
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprConfigServerRefresh")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmprconfig) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmprconfig);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmprconfig;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2635,10 +3399,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigServ
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprConfigServerRestore")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmprconfig, lpwspath) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmprconfig, lpwspath);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmprconfig;
     (void)lpwspath;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2656,11 +3427,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigServ
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprConfigServerSetInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmprserver, dwlevel, lpbbuffer) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmprserver, dwlevel, lpbbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmprserver;
     (void)dwlevel;
     (void)lpbbuffer;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2677,10 +3455,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigServ
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprConfigServerSetInfoEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmprconfig, psetserverconfig) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmprconfig, psetserverconfig);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmprconfig;
     (void)psetserverconfig;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2704,7 +3489,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigTran
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprConfigTransportCreate")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmprconfig, dwtransportid, lpwstransportname, pglobalinfo, dwglobalinfosize, pclientinterfaceinfo, dwclientinterfaceinfosize, lpwsdllpath, phroutertransport) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmprconfig, dwtransportid, lpwstransportname, pglobalinfo, dwglobalinfosize, pclientinterfaceinfo, dwclientinterfaceinfosize, lpwsdllpath, phroutertransport);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmprconfig;
     (void)dwtransportid;
@@ -2715,6 +3506,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigTran
     (void)dwclientinterfaceinfosize;
     (void)lpwsdllpath;
     (void)phroutertransport;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2731,10 +3523,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigTran
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprConfigTransportDelete")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmprconfig, hroutertransport) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmprconfig, hroutertransport);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmprconfig;
     (void)hroutertransport;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2756,7 +3555,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigTran
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprConfigTransportEnum")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmprconfig, dwlevel, lplpbuffer, dwprefmaxlen, lpdwentriesread, lpdwtotalentries, lpdwresumehandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmprconfig, dwlevel, lplpbuffer, dwprefmaxlen, lpdwentriesread, lpdwtotalentries, lpdwresumehandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmprconfig;
     (void)dwlevel;
@@ -2765,6 +3570,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigTran
     (void)lpdwentriesread;
     (void)lpdwtotalentries;
     (void)lpdwresumehandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2782,11 +3588,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigTran
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprConfigTransportGetHandle")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmprconfig, dwtransportid, phroutertransport) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmprconfig, dwtransportid, phroutertransport);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmprconfig;
     (void)dwtransportid;
     (void)phroutertransport;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2808,7 +3621,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigTran
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprConfigTransportGetInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmprconfig, hroutertransport, ppglobalinfo, lpdwglobalinfosize, ppclientinterfaceinfo, lpdwclientinterfaceinfosize, lplpwsdllpath) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmprconfig, hroutertransport, ppglobalinfo, lpdwglobalinfosize, ppclientinterfaceinfo, lpdwclientinterfaceinfosize, lplpwsdllpath);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmprconfig;
     (void)hroutertransport;
@@ -2817,6 +3636,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigTran
     (void)ppclientinterfaceinfo;
     (void)lpdwclientinterfaceinfosize;
     (void)lplpwsdllpath;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2838,7 +3658,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigTran
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprConfigTransportSetInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmprconfig, hroutertransport, pglobalinfo, dwglobalinfosize, pclientinterfaceinfo, dwclientinterfaceinfosize, lpwsdllpath) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmprconfig, hroutertransport, pglobalinfo, dwglobalinfosize, pclientinterfaceinfo, dwclientinterfaceinfosize, lpwsdllpath);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmprconfig;
     (void)hroutertransport;
@@ -2847,6 +3673,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprConfigTran
     (void)pclientinterfaceinfo;
     (void)dwclientinterfaceinfosize;
     (void)lpwsdllpath;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2867,7 +3694,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprInfoBlockA
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprInfoBlockAdd")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpheader, dwinfotype, dwitemsize, dwitemcount, lpitemdata, lplpnewheader) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpheader, dwinfotype, dwitemsize, dwitemcount, lpitemdata, lplpnewheader);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpheader;
     (void)dwinfotype;
@@ -2875,6 +3708,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprInfoBlockA
     (void)dwitemcount;
     (void)lpitemdata;
     (void)lplpnewheader;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2894,13 +3728,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprInfoBlockF
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprInfoBlockFind")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpheader, dwinfotype, lpdwitemsize, lpdwitemcount, lplpitemdata) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpheader, dwinfotype, lpdwitemsize, lpdwitemcount, lplpitemdata);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpheader;
     (void)dwinfotype;
     (void)lpdwitemsize;
     (void)lpdwitemcount;
     (void)lplpitemdata;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2916,9 +3757,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprInfoBlockQ
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprInfoBlockQuerySize")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpheader) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpheader);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpheader;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2936,11 +3784,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprInfoBlockR
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprInfoBlockRemove")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpheader, dwinfotype, lplpnewheader) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpheader, dwinfotype, lplpnewheader);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpheader;
     (void)dwinfotype;
     (void)lplpnewheader;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2961,7 +3816,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprInfoBlockS
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprInfoBlockSet")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpheader, dwinfotype, dwitemsize, dwitemcount, lpitemdata, lplpnewheader) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpheader, dwinfotype, dwitemsize, dwitemcount, lpitemdata, lplpnewheader);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpheader;
     (void)dwinfotype;
@@ -2969,6 +3830,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprInfoBlockS
     (void)dwitemcount;
     (void)lpitemdata;
     (void)lplpnewheader;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2985,10 +3847,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprInfoCreate
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprInfoCreate")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwversion, lplpnewheader) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwversion, lplpnewheader);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dwversion;
     (void)lplpnewheader;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3004,9 +3873,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprInfoDelete
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprInfoDelete")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpheader) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpheader);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpheader;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3023,10 +3899,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprInfoDuplic
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprInfoDuplicate")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpheader, lplpnewheader) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpheader, lplpnewheader);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpheader;
     (void)lplpnewheader;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3043,10 +3926,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_mprInfoRemove
         HMODULE km_h_mod = LoadLibraryA("mprapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprInfoRemoveAll")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpheader, lplpnewheader) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpheader, lplpnewheader);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpheader;
     (void)lplpnewheader;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3062,9 +3952,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasClearConne
         HMODULE km_h_mod = LoadLibraryA("rasapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RasClearConnectionStatistics")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hrasconn) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hrasconn);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hrasconn;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3081,10 +3978,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasClearLinkS
         HMODULE km_h_mod = LoadLibraryA("rasapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RasClearLinkStatistics")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hrasconn, dwsubentry) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hrasconn, dwsubentry);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hrasconn;
     (void)dwsubentry;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3102,11 +4006,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasConnection
         HMODULE km_h_mod = LoadLibraryA("rasapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RasConnectionNotificationA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3124,11 +4035,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasConnection
         HMODULE km_h_mod = LoadLibraryA("rasapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RasConnectionNotificationW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3145,10 +4063,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasCreatePhon
         HMODULE km_h_mod = LoadLibraryA("rasapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RasCreatePhonebookEntryA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)param0;
     (void)param1;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3165,10 +4090,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasCreatePhon
         HMODULE km_h_mod = LoadLibraryA("rasapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RasCreatePhonebookEntryW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)param0;
     (void)param1;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3185,10 +4117,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasDeleteEntr
         HMODULE km_h_mod = LoadLibraryA("rasapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RasDeleteEntryA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)param0;
     (void)param1;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3205,10 +4144,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasDeleteEntr
         HMODULE km_h_mod = LoadLibraryA("rasapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RasDeleteEntryW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)param0;
     (void)param1;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3226,11 +4172,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasDeleteSubE
         HMODULE km_h_mod = LoadLibraryA("rasapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RasDeleteSubEntryA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszphonebook, pszentry, dwsubentryid) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszphonebook, pszentry, dwsubentryid);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pszphonebook;
     (void)pszentry;
     (void)dwsubentryid;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3248,11 +4201,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasDeleteSubE
         HMODULE km_h_mod = LoadLibraryA("rasapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RasDeleteSubEntryW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszphonebook, pszentry, dwsubentryid) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszphonebook, pszentry, dwsubentryid);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pszphonebook;
     (void)pszentry;
     (void)dwsubentryid;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3273,7 +4233,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasDialA_napi
         HMODULE km_h_mod = LoadLibraryA("rasapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RasDialA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2, param3, param4, param5) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2, param3, param4, param5);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)param0;
     (void)param1;
@@ -3281,6 +4247,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasDialA_napi
     (void)param3;
     (void)param4;
     (void)param5;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3299,12 +4266,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasDialDlgA_n
         HMODULE km_h_mod = LoadLibraryA("rasdlg.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RasDialDlgA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszphonebook, lpszentry, lpszphonenumber, lpinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszphonebook, lpszentry, lpszphonenumber, lpinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszphonebook;
     (void)lpszentry;
     (void)lpszphonenumber;
     (void)lpinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3323,12 +4297,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasDialDlgW_n
         HMODULE km_h_mod = LoadLibraryA("rasdlg.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RasDialDlgW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszphonebook, lpszentry, lpszphonenumber, lpinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszphonebook, lpszentry, lpszphonenumber, lpinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszphonebook;
     (void)lpszentry;
     (void)lpszphonenumber;
     (void)lpinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3349,7 +4330,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasDialW_napi
         HMODULE km_h_mod = LoadLibraryA("rasapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RasDialW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2, param3, param4, param5) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2, param3, param4, param5);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)param0;
     (void)param1;
@@ -3357,6 +4344,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasDialW_napi
     (void)param3;
     (void)param4;
     (void)param5;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3374,11 +4362,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasEditPhoneb
         HMODULE km_h_mod = LoadLibraryA("rasapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RasEditPhonebookEntryA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3396,11 +4391,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasEditPhoneb
         HMODULE km_h_mod = LoadLibraryA("rasapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RasEditPhonebookEntryW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3418,11 +4420,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasEntryDlgA_
         HMODULE km_h_mod = LoadLibraryA("rasdlg.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RasEntryDlgA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszphonebook, lpszentry, lpinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszphonebook, lpszentry, lpinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszphonebook;
     (void)lpszentry;
     (void)lpinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3440,11 +4449,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasEntryDlgW_
         HMODULE km_h_mod = LoadLibraryA("rasdlg.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RasEntryDlgW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszphonebook, lpszentry, lpinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszphonebook, lpszentry, lpinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszphonebook;
     (void)lpszentry;
     (void)lpinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3462,11 +4478,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasEnumAutodi
         HMODULE km_h_mod = LoadLibraryA("rasapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RasEnumAutodialAddressesA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpprasautodialaddresses, lpdwcbrasautodialaddresses, lpdwcrasautodialaddresses) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpprasautodialaddresses, lpdwcbrasautodialaddresses, lpdwcrasautodialaddresses);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpprasautodialaddresses;
     (void)lpdwcbrasautodialaddresses;
     (void)lpdwcrasautodialaddresses;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3484,11 +4507,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasEnumAutodi
         HMODULE km_h_mod = LoadLibraryA("rasapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RasEnumAutodialAddressesW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpprasautodialaddresses, lpdwcbrasautodialaddresses, lpdwcrasautodialaddresses) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpprasautodialaddresses, lpdwcbrasautodialaddresses, lpdwcrasautodialaddresses);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpprasautodialaddresses;
     (void)lpdwcbrasautodialaddresses;
     (void)lpdwcrasautodialaddresses;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3506,11 +4536,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasEnumConnec
         HMODULE km_h_mod = LoadLibraryA("rasapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RasEnumConnectionsA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3528,11 +4565,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasEnumConnec
         HMODULE km_h_mod = LoadLibraryA("rasapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RasEnumConnectionsW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3550,11 +4594,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasEnumDevice
         HMODULE km_h_mod = LoadLibraryA("rasapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RasEnumDevicesA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3572,11 +4623,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasEnumDevice
         HMODULE km_h_mod = LoadLibraryA("rasapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RasEnumDevicesW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3596,13 +4654,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasEnumEntrie
         HMODULE km_h_mod = LoadLibraryA("rasapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RasEnumEntriesA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2, param3, param4) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2, param3, param4);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
     (void)param3;
     (void)param4;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3622,13 +4687,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasEnumEntrie
         HMODULE km_h_mod = LoadLibraryA("rasapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RasEnumEntriesW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2, param3, param4) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2, param3, param4);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
     (void)param3;
     (void)param4;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3644,9 +4716,14 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasFreeEapUse
         HMODULE km_h_mod = LoadLibraryA("rasapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RasFreeEapUserIdentityA")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(praseapuseridentity);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(praseapuseridentity);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)praseapuseridentity;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -3661,9 +4738,14 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasFreeEapUse
         HMODULE km_h_mod = LoadLibraryA("rasapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RasFreeEapUserIdentityW")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(praseapuseridentity);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(praseapuseridentity);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)praseapuseridentity;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -3682,13 +4764,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetAutodia
         HMODULE km_h_mod = LoadLibraryA("rasapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RasGetAutodialAddressA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2, param3, param4) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2, param3, param4);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
     (void)param3;
     (void)param4;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3708,13 +4797,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetAutodia
         HMODULE km_h_mod = LoadLibraryA("rasapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RasGetAutodialAddressW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2, param3, param4) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2, param3, param4);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
     (void)param3;
     (void)param4;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3731,10 +4827,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetAutodia
         HMODULE km_h_mod = LoadLibraryA("rasapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RasGetAutodialEnableA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)param0;
     (void)param1;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3751,10 +4854,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetAutodia
         HMODULE km_h_mod = LoadLibraryA("rasapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RasGetAutodialEnableW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)param0;
     (void)param1;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3772,11 +4882,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetAutodia
         HMODULE km_h_mod = LoadLibraryA("rasapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RasGetAutodialParamA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3794,11 +4911,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetAutodia
         HMODULE km_h_mod = LoadLibraryA("rasapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RasGetAutodialParamW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3815,10 +4939,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetConnect
         HMODULE km_h_mod = LoadLibraryA("rasapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RasGetConnectStatusA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)param0;
     (void)param1;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3835,10 +4966,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetConnect
         HMODULE km_h_mod = LoadLibraryA("rasapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RasGetConnectStatusW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)param0;
     (void)param1;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3855,10 +4993,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetConnect
         HMODULE km_h_mod = LoadLibraryA("rasapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RasGetConnectionStatistics")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hrasconn, lpstatistics) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hrasconn, lpstatistics);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hrasconn;
     (void)lpstatistics;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3875,10 +5020,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetCountry
         HMODULE km_h_mod = LoadLibraryA("rasapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RasGetCountryInfoA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)param0;
     (void)param1;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3895,10 +5047,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetCountry
         HMODULE km_h_mod = LoadLibraryA("rasapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RasGetCountryInfoW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)param0;
     (void)param1;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3916,11 +5075,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetCredent
         HMODULE km_h_mod = LoadLibraryA("rasapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RasGetCredentialsA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3938,11 +5104,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetCredent
         HMODULE km_h_mod = LoadLibraryA("rasapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RasGetCredentialsW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3961,12 +5134,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetCustomA
         HMODULE km_h_mod = LoadLibraryA("rasapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RasGetCustomAuthDataA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszphonebook, pszentry, pbcustomauthdata, pdwsizeofcustomauthdata) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszphonebook, pszentry, pbcustomauthdata, pdwsizeofcustomauthdata);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pszphonebook;
     (void)pszentry;
     (void)pbcustomauthdata;
     (void)pdwsizeofcustomauthdata;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3985,12 +5165,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetCustomA
         HMODULE km_h_mod = LoadLibraryA("rasapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RasGetCustomAuthDataW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszphonebook, pszentry, pbcustomauthdata, pdwsizeofcustomauthdata) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszphonebook, pszentry, pbcustomauthdata, pdwsizeofcustomauthdata);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pszphonebook;
     (void)pszentry;
     (void)pbcustomauthdata;
     (void)pdwsizeofcustomauthdata;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4010,13 +5197,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetEapUser
         HMODULE km_h_mod = LoadLibraryA("rasapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RasGetEapUserDataA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(htoken, pszphonebook, pszentry, pbeapdata, pdwsizeofeapdata) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(htoken, pszphonebook, pszentry, pbeapdata, pdwsizeofeapdata);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)htoken;
     (void)pszphonebook;
     (void)pszentry;
     (void)pbeapdata;
     (void)pdwsizeofeapdata;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4036,13 +5230,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetEapUser
         HMODULE km_h_mod = LoadLibraryA("rasapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RasGetEapUserDataW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(htoken, pszphonebook, pszentry, pbeapdata, pdwsizeofeapdata) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(htoken, pszphonebook, pszentry, pbeapdata, pdwsizeofeapdata);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)htoken;
     (void)pszphonebook;
     (void)pszentry;
     (void)pbeapdata;
     (void)pdwsizeofeapdata;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4062,13 +5263,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetEapUser
         HMODULE km_h_mod = LoadLibraryA("rasapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RasGetEapUserIdentityA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszphonebook, pszentry, dwflags, hwnd, ppraseapuseridentity) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszphonebook, pszentry, dwflags, hwnd, ppraseapuseridentity);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pszphonebook;
     (void)pszentry;
     (void)dwflags;
     (void)hwnd;
     (void)ppraseapuseridentity;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4088,13 +5296,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetEapUser
         HMODULE km_h_mod = LoadLibraryA("rasapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RasGetEapUserIdentityW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszphonebook, pszentry, dwflags, hwnd, ppraseapuseridentity) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszphonebook, pszentry, dwflags, hwnd, ppraseapuseridentity);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pszphonebook;
     (void)pszentry;
     (void)dwflags;
     (void)hwnd;
     (void)ppraseapuseridentity;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4112,11 +5327,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetEntryDi
         HMODULE km_h_mod = LoadLibraryA("rasapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RasGetEntryDialParamsA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4134,11 +5356,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetEntryDi
         HMODULE km_h_mod = LoadLibraryA("rasapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RasGetEntryDialParamsW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4159,7 +5388,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetEntryPr
         HMODULE km_h_mod = LoadLibraryA("rasapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RasGetEntryPropertiesA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2, param3, param4, param5) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2, param3, param4, param5);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)param0;
     (void)param1;
@@ -4167,6 +5402,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetEntryPr
     (void)param3;
     (void)param4;
     (void)param5;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4187,7 +5423,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetEntryPr
         HMODULE km_h_mod = LoadLibraryA("rasapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RasGetEntryPropertiesW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2, param3, param4, param5) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2, param3, param4, param5);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)param0;
     (void)param1;
@@ -4195,6 +5437,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetEntryPr
     (void)param3;
     (void)param4;
     (void)param5;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4212,11 +5455,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetErrorSt
         HMODULE km_h_mod = LoadLibraryA("rasapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RasGetErrorStringA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(resourceid, lpszstring, inbufsize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(resourceid, lpszstring, inbufsize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)resourceid;
     (void)lpszstring;
     (void)inbufsize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4234,11 +5484,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetErrorSt
         HMODULE km_h_mod = LoadLibraryA("rasapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RasGetErrorStringW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(resourceid, lpszstring, inbufsize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(resourceid, lpszstring, inbufsize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)resourceid;
     (void)lpszstring;
     (void)inbufsize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4256,11 +5513,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetLinkSta
         HMODULE km_h_mod = LoadLibraryA("rasapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RasGetLinkStatistics")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hrasconn, dwsubentry, lpstatistics) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hrasconn, dwsubentry, lpstatistics);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hrasconn;
     (void)dwsubentry;
     (void)lpstatistics;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4276,9 +5540,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetPCscf_n
         HMODULE km_h_mod = LoadLibraryA("rasapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RasGetPCscf")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszpcscf) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszpcscf);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpszpcscf;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4297,12 +5568,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetProject
         HMODULE km_h_mod = LoadLibraryA("rasapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RasGetProjectionInfoA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2, param3) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2, param3);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
     (void)param3;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4320,11 +5598,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetProject
         HMODULE km_h_mod = LoadLibraryA("rasapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RasGetProjectionInfoEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hrasconn, prasprojection, lpdwsize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hrasconn, prasprojection, lpdwsize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hrasconn;
     (void)prasprojection;
     (void)lpdwsize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4343,12 +5628,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetProject
         HMODULE km_h_mod = LoadLibraryA("rasapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RasGetProjectionInfoW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2, param3) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2, param3);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
     (void)param3;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4366,11 +5658,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetSubEntr
         HMODULE km_h_mod = LoadLibraryA("rasapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RasGetSubEntryHandleA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4388,11 +5687,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetSubEntr
         HMODULE km_h_mod = LoadLibraryA("rasapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RasGetSubEntryHandleW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4414,7 +5720,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetSubEntr
         HMODULE km_h_mod = LoadLibraryA("rasapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RasGetSubEntryPropertiesA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2, param3, param4, param5, param6) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2, param3, param4, param5, param6);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)param0;
     (void)param1;
@@ -4423,6 +5735,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetSubEntr
     (void)param4;
     (void)param5;
     (void)param6;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4444,7 +5757,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetSubEntr
         HMODULE km_h_mod = LoadLibraryA("rasapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RasGetSubEntryPropertiesW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2, param3, param4, param5, param6) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2, param3, param4, param5, param6);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)param0;
     (void)param1;
@@ -4453,6 +5772,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasGetSubEntr
     (void)param4;
     (void)param5;
     (void)param6;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4468,9 +5788,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasHangUpA_na
         HMODULE km_h_mod = LoadLibraryA("rasapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RasHangUpA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)param0;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4486,9 +5813,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasHangUpW_na
         HMODULE km_h_mod = LoadLibraryA("rasapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RasHangUpW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)param0;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4507,12 +5841,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasInvokeEapU
         HMODULE km_h_mod = LoadLibraryA("rasapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RasInvokeEapUI")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2, param3) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2, param3);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
     (void)param3;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4530,11 +5871,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasPhonebookD
         HMODULE km_h_mod = LoadLibraryA("rasdlg.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RasPhonebookDlgA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszphonebook, lpszentry, lpinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszphonebook, lpszentry, lpinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszphonebook;
     (void)lpszentry;
     (void)lpinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4552,11 +5900,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasPhonebookD
         HMODULE km_h_mod = LoadLibraryA("rasdlg.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RasPhonebookDlgW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszphonebook, lpszentry, lpinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszphonebook, lpszentry, lpinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszphonebook;
     (void)lpszentry;
     (void)lpinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4574,11 +5929,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasRenameEntr
         HMODULE km_h_mod = LoadLibraryA("rasapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RasRenameEntryA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4596,11 +5958,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasRenameEntr
         HMODULE km_h_mod = LoadLibraryA("rasapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RasRenameEntryW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4620,13 +5989,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasSetAutodia
         HMODULE km_h_mod = LoadLibraryA("rasapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RasSetAutodialAddressA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2, param3, param4) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2, param3, param4);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
     (void)param3;
     (void)param4;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4646,13 +6022,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasSetAutodia
         HMODULE km_h_mod = LoadLibraryA("rasapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RasSetAutodialAddressW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2, param3, param4) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2, param3, param4);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
     (void)param3;
     (void)param4;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4669,10 +6052,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasSetAutodia
         HMODULE km_h_mod = LoadLibraryA("rasapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RasSetAutodialEnableA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)param0;
     (void)param1;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4689,10 +6079,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasSetAutodia
         HMODULE km_h_mod = LoadLibraryA("rasapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RasSetAutodialEnableW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)param0;
     (void)param1;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4710,11 +6107,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasSetAutodia
         HMODULE km_h_mod = LoadLibraryA("rasapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RasSetAutodialParamA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4732,11 +6136,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasSetAutodia
         HMODULE km_h_mod = LoadLibraryA("rasapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RasSetAutodialParamW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4755,12 +6166,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasSetCredent
         HMODULE km_h_mod = LoadLibraryA("rasapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RasSetCredentialsA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2, param3) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2, param3);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
     (void)param3;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4779,12 +6197,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasSetCredent
         HMODULE km_h_mod = LoadLibraryA("rasapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RasSetCredentialsW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2, param3) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2, param3);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
     (void)param3;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4803,12 +6228,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasSetCustomA
         HMODULE km_h_mod = LoadLibraryA("rasapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RasSetCustomAuthDataA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszphonebook, pszentry, pbcustomauthdata, dwsizeofcustomauthdata) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszphonebook, pszentry, pbcustomauthdata, dwsizeofcustomauthdata);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pszphonebook;
     (void)pszentry;
     (void)pbcustomauthdata;
     (void)dwsizeofcustomauthdata;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4827,12 +6259,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasSetCustomA
         HMODULE km_h_mod = LoadLibraryA("rasapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RasSetCustomAuthDataW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszphonebook, pszentry, pbcustomauthdata, dwsizeofcustomauthdata) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszphonebook, pszentry, pbcustomauthdata, dwsizeofcustomauthdata);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pszphonebook;
     (void)pszentry;
     (void)pbcustomauthdata;
     (void)dwsizeofcustomauthdata;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4852,13 +6291,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasSetEapUser
         HMODULE km_h_mod = LoadLibraryA("rasapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RasSetEapUserDataA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(htoken, pszphonebook, pszentry, pbeapdata, dwsizeofeapdata) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(htoken, pszphonebook, pszentry, pbeapdata, dwsizeofeapdata);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)htoken;
     (void)pszphonebook;
     (void)pszentry;
     (void)pbeapdata;
     (void)dwsizeofeapdata;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4878,13 +6324,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasSetEapUser
         HMODULE km_h_mod = LoadLibraryA("rasapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RasSetEapUserDataW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(htoken, pszphonebook, pszentry, pbeapdata, dwsizeofeapdata) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(htoken, pszphonebook, pszentry, pbeapdata, dwsizeofeapdata);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)htoken;
     (void)pszphonebook;
     (void)pszentry;
     (void)pbeapdata;
     (void)dwsizeofeapdata;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4902,11 +6355,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasSetEntryDi
         HMODULE km_h_mod = LoadLibraryA("rasapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RasSetEntryDialParamsA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4924,11 +6384,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasSetEntryDi
         HMODULE km_h_mod = LoadLibraryA("rasapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RasSetEntryDialParamsW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4949,7 +6416,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasSetEntryPr
         HMODULE km_h_mod = LoadLibraryA("rasapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RasSetEntryPropertiesA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2, param3, param4, param5) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2, param3, param4, param5);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)param0;
     (void)param1;
@@ -4957,6 +6430,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasSetEntryPr
     (void)param3;
     (void)param4;
     (void)param5;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4977,7 +6451,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasSetEntryPr
         HMODULE km_h_mod = LoadLibraryA("rasapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RasSetEntryPropertiesW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2, param3, param4, param5) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2, param3, param4, param5);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)param0;
     (void)param1;
@@ -4985,6 +6465,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasSetEntryPr
     (void)param3;
     (void)param4;
     (void)param5;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5006,7 +6487,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasSetSubEntr
         HMODULE km_h_mod = LoadLibraryA("rasapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RasSetSubEntryPropertiesA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2, param3, param4, param5, param6) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2, param3, param4, param5, param6);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)param0;
     (void)param1;
@@ -5015,6 +6502,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasSetSubEntr
     (void)param4;
     (void)param5;
     (void)param6;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5036,7 +6524,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasSetSubEntr
         HMODULE km_h_mod = LoadLibraryA("rasapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RasSetSubEntryPropertiesW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2, param3, param4, param5, param6) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2, param3, param4, param5, param6);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)param0;
     (void)param1;
@@ -5045,6 +6539,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasSetSubEntr
     (void)param4;
     (void)param5;
     (void)param6;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5061,10 +6556,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasUpdateConn
         HMODULE km_h_mod = LoadLibraryA("rasapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RasUpdateConnection")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hrasconn, lprasupdateconn) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hrasconn, lprasupdateconn);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hrasconn;
     (void)lprasupdateconn;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5081,10 +6583,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasValidateEn
         HMODULE km_h_mod = LoadLibraryA("rasapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RasValidateEntryNameA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)param0;
     (void)param1;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5101,10 +6610,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rasValidateEn
         HMODULE km_h_mod = LoadLibraryA("rasapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RasValidateEntryNameW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)param0;
     (void)param1;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5123,12 +6639,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmAddNextHop
         HMODULE km_h_mod = LoadLibraryA("rtm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtmAddNextHop")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rtmreghandle, nexthopinfo, nexthophandle, changeflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rtmreghandle, nexthopinfo, nexthophandle, changeflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rtmreghandle;
     (void)nexthopinfo;
     (void)nexthophandle;
     (void)changeflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5152,7 +6675,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmAddRouteTo
         HMODULE km_h_mod = LoadLibraryA("rtm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtmAddRouteToDest")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rtmreghandle, routehandle, destaddress, routeinfo, timetolive, routelisthandle, notifytype, notifyhandle, changeflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rtmreghandle, routehandle, destaddress, routeinfo, timetolive, routelisthandle, notifytype, notifyhandle, changeflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rtmreghandle;
     (void)routehandle;
@@ -5163,6 +6692,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmAddRouteTo
     (void)notifytype;
     (void)notifyhandle;
     (void)changeflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5181,12 +6711,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmBlockMetho
         HMODULE km_h_mod = LoadLibraryA("rtm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtmBlockMethods")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rtmreghandle, targethandle, targettype, blockingflag) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rtmreghandle, targethandle, targettype, blockingflag);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rtmreghandle;
     (void)targethandle;
     (void)targettype;
     (void)blockingflag;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5205,12 +6742,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmConvertNet
         HMODULE km_h_mod = LoadLibraryA("rtm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtmConvertNetAddressToIpv6AddressAndLength")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pnetaddress, paddress, plength, dwaddresssize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pnetaddress, paddress, plength, dwaddresssize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pnetaddress;
     (void)paddress;
     (void)plength;
     (void)dwaddresssize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5231,7 +6775,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmCreateDest
         HMODULE km_h_mod = LoadLibraryA("rtm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtmCreateDestEnum")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rtmreghandle, targetviews, enumflags, netaddress, protocolid, rtmenumhandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rtmreghandle, targetviews, enumflags, netaddress, protocolid, rtmenumhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rtmreghandle;
     (void)targetviews;
@@ -5239,6 +6789,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmCreateDest
     (void)netaddress;
     (void)protocolid;
     (void)rtmenumhandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5257,12 +6808,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmCreateNext
         HMODULE km_h_mod = LoadLibraryA("rtm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtmCreateNextHopEnum")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rtmreghandle, enumflags, netaddress, rtmenumhandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rtmreghandle, enumflags, netaddress, rtmenumhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rtmreghandle;
     (void)enumflags;
     (void)netaddress;
     (void)rtmenumhandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5286,7 +6844,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmCreateRout
         HMODULE km_h_mod = LoadLibraryA("rtm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtmCreateRouteEnum")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rtmreghandle, desthandle, targetviews, enumflags, startdest, matchingflags, criteriaroute, criteriainterface, rtmenumhandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rtmreghandle, desthandle, targetviews, enumflags, startdest, matchingflags, criteriaroute, criteriainterface, rtmenumhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rtmreghandle;
     (void)desthandle;
@@ -5297,6 +6861,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmCreateRout
     (void)criteriaroute;
     (void)criteriainterface;
     (void)rtmenumhandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5313,10 +6878,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmCreateRout
         HMODULE km_h_mod = LoadLibraryA("rtm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtmCreateRouteList")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rtmreghandle, routelisthandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rtmreghandle, routelisthandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rtmreghandle;
     (void)routelisthandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5334,11 +6906,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmCreateRout
         HMODULE km_h_mod = LoadLibraryA("rtm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtmCreateRouteListEnum")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rtmreghandle, routelisthandle, rtmenumhandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rtmreghandle, routelisthandle, rtmenumhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rtmreghandle;
     (void)routelisthandle;
     (void)rtmenumhandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5355,10 +6934,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmDeleteEnum
         HMODULE km_h_mod = LoadLibraryA("rtm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtmDeleteEnumHandle")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rtmreghandle, enumhandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rtmreghandle, enumhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rtmreghandle;
     (void)enumhandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5376,11 +6962,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmDeleteNext
         HMODULE km_h_mod = LoadLibraryA("rtm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtmDeleteNextHop")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rtmreghandle, nexthophandle, nexthopinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rtmreghandle, nexthophandle, nexthopinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rtmreghandle;
     (void)nexthophandle;
     (void)nexthopinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5397,10 +6990,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmDeleteRout
         HMODULE km_h_mod = LoadLibraryA("rtm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtmDeleteRouteList")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rtmreghandle, routelisthandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rtmreghandle, routelisthandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rtmreghandle;
     (void)routelisthandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5418,11 +7018,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmDeleteRout
         HMODULE km_h_mod = LoadLibraryA("rtm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtmDeleteRouteToDest")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rtmreghandle, routehandle, changeflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rtmreghandle, routehandle, changeflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rtmreghandle;
     (void)routehandle;
     (void)changeflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5438,9 +7045,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmDeregister
         HMODULE km_h_mod = LoadLibraryA("rtm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtmDeregisterEntity")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rtmreghandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rtmreghandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rtmreghandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5457,10 +7071,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmDeregister
         HMODULE km_h_mod = LoadLibraryA("rtm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtmDeregisterFromChangeNotification")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rtmreghandle, notifyhandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rtmreghandle, notifyhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rtmreghandle;
     (void)notifyhandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5479,12 +7100,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmFindNextHo
         HMODULE km_h_mod = LoadLibraryA("rtm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtmFindNextHop")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rtmreghandle, nexthopinfo, nexthophandle, nexthoppointer) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rtmreghandle, nexthopinfo, nexthophandle, nexthoppointer);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rtmreghandle;
     (void)nexthopinfo;
     (void)nexthophandle;
     (void)nexthoppointer;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5503,12 +7131,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmGetChangeS
         HMODULE km_h_mod = LoadLibraryA("rtm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtmGetChangeStatus")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rtmreghandle, notifyhandle, desthandle, changestatus) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rtmreghandle, notifyhandle, desthandle, changestatus);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rtmreghandle;
     (void)notifyhandle;
     (void)desthandle;
     (void)changestatus;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5527,12 +7162,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmGetChanged
         HMODULE km_h_mod = LoadLibraryA("rtm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtmGetChangedDests")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rtmreghandle, notifyhandle, numdests, changeddests) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rtmreghandle, notifyhandle, numdests, changeddests);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rtmreghandle;
     (void)notifyhandle;
     (void)numdests;
     (void)changeddests;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5552,13 +7194,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmGetDestInf
         HMODULE km_h_mod = LoadLibraryA("rtm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtmGetDestInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rtmreghandle, desthandle, protocolid, targetviews, destinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rtmreghandle, desthandle, protocolid, targetviews, destinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rtmreghandle;
     (void)desthandle;
     (void)protocolid;
     (void)targetviews;
     (void)destinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5576,11 +7225,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmGetEntityI
         HMODULE km_h_mod = LoadLibraryA("rtm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtmGetEntityInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rtmreghandle, entityhandle, entityinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rtmreghandle, entityhandle, entityinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rtmreghandle;
     (void)entityhandle;
     (void)entityinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5599,12 +7255,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmGetEntityM
         HMODULE km_h_mod = LoadLibraryA("rtm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtmGetEntityMethods")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rtmreghandle, entityhandle, nummethods, exptmethods) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rtmreghandle, entityhandle, nummethods, exptmethods);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rtmreghandle;
     (void)entityhandle;
     (void)nummethods;
     (void)exptmethods;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5623,12 +7286,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmGetEnumDes
         HMODULE km_h_mod = LoadLibraryA("rtm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtmGetEnumDests")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rtmreghandle, enumhandle, numdests, destinfos) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rtmreghandle, enumhandle, numdests, destinfos);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rtmreghandle;
     (void)enumhandle;
     (void)numdests;
     (void)destinfos;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5647,12 +7317,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmGetEnumNex
         HMODULE km_h_mod = LoadLibraryA("rtm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtmGetEnumNextHops")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rtmreghandle, enumhandle, numnexthops, nexthophandles) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rtmreghandle, enumhandle, numnexthops, nexthophandles);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rtmreghandle;
     (void)enumhandle;
     (void)numnexthops;
     (void)nexthophandles;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5671,12 +7348,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmGetEnumRou
         HMODULE km_h_mod = LoadLibraryA("rtm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtmGetEnumRoutes")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rtmreghandle, enumhandle, numroutes, routehandles) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rtmreghandle, enumhandle, numroutes, routehandles);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rtmreghandle;
     (void)enumhandle;
     (void)numroutes;
     (void)routehandles;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5696,13 +7380,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmGetExactMa
         HMODULE km_h_mod = LoadLibraryA("rtm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtmGetExactMatchDestination")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rtmreghandle, destaddress, protocolid, targetviews, destinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rtmreghandle, destaddress, protocolid, targetviews, destinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rtmreghandle;
     (void)destaddress;
     (void)protocolid;
     (void)targetviews;
     (void)destinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5724,7 +7415,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmGetExactMa
         HMODULE km_h_mod = LoadLibraryA("rtm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtmGetExactMatchRoute")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rtmreghandle, destaddress, matchingflags, routeinfo, interfaceindex, targetviews, routehandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rtmreghandle, destaddress, matchingflags, routeinfo, interfaceindex, targetviews, routehandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rtmreghandle;
     (void)destaddress;
@@ -5733,6 +7430,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmGetExactMa
     (void)interfaceindex;
     (void)targetviews;
     (void)routehandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5752,13 +7450,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmGetLessSpe
         HMODULE km_h_mod = LoadLibraryA("rtm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtmGetLessSpecificDestination")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rtmreghandle, desthandle, protocolid, targetviews, destinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rtmreghandle, desthandle, protocolid, targetviews, destinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rtmreghandle;
     (void)desthandle;
     (void)protocolid;
     (void)targetviews;
     (void)destinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5777,12 +7482,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmGetListEnu
         HMODULE km_h_mod = LoadLibraryA("rtm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtmGetListEnumRoutes")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rtmreghandle, enumhandle, numroutes, routehandles) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rtmreghandle, enumhandle, numroutes, routehandles);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rtmreghandle;
     (void)enumhandle;
     (void)numroutes;
     (void)routehandles;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5802,13 +7514,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmGetMostSpe
         HMODULE km_h_mod = LoadLibraryA("rtm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtmGetMostSpecificDestination")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rtmreghandle, destaddress, protocolid, targetviews, destinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rtmreghandle, destaddress, protocolid, targetviews, destinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rtmreghandle;
     (void)destaddress;
     (void)protocolid;
     (void)targetviews;
     (void)destinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5826,11 +7545,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmGetNextHop
         HMODULE km_h_mod = LoadLibraryA("rtm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtmGetNextHopInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rtmreghandle, nexthophandle, nexthopinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rtmreghandle, nexthophandle, nexthopinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rtmreghandle;
     (void)nexthophandle;
     (void)nexthopinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5848,11 +7574,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmGetNextHop
         HMODULE km_h_mod = LoadLibraryA("rtm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtmGetNextHopPointer")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rtmreghandle, nexthophandle, nexthoppointer) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rtmreghandle, nexthophandle, nexthoppointer);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rtmreghandle;
     (void)nexthophandle;
     (void)nexthoppointer;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5870,11 +7603,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmGetOpaqueI
         HMODULE km_h_mod = LoadLibraryA("rtm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtmGetOpaqueInformationPointer")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rtmreghandle, desthandle, opaqueinfopointer) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rtmreghandle, desthandle, opaqueinfopointer);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rtmreghandle;
     (void)desthandle;
     (void)opaqueinfopointer;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5893,12 +7633,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmGetRegiste
         HMODULE km_h_mod = LoadLibraryA("rtm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtmGetRegisteredEntities")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rtmreghandle, numentities, entityhandles, entityinfos) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rtmreghandle, numentities, entityhandles, entityinfos);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rtmreghandle;
     (void)numentities;
     (void)entityhandles;
     (void)entityinfos;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5917,12 +7664,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmGetRouteIn
         HMODULE km_h_mod = LoadLibraryA("rtm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtmGetRouteInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rtmreghandle, routehandle, routeinfo, destaddress) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rtmreghandle, routehandle, routeinfo, destaddress);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rtmreghandle;
     (void)routehandle;
     (void)routeinfo;
     (void)destaddress;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5940,11 +7694,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmGetRoutePo
         HMODULE km_h_mod = LoadLibraryA("rtm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtmGetRoutePointer")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rtmreghandle, routehandle, routepointer) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rtmreghandle, routehandle, routepointer);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rtmreghandle;
     (void)routehandle;
     (void)routepointer;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5963,12 +7724,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmHoldDestin
         HMODULE km_h_mod = LoadLibraryA("rtm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtmHoldDestination")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rtmreghandle, desthandle, targetviews, holdtime) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rtmreghandle, desthandle, targetviews, holdtime);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rtmreghandle;
     (void)desthandle;
     (void)targetviews;
     (void)holdtime;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5987,12 +7755,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmIgnoreChan
         HMODULE km_h_mod = LoadLibraryA("rtm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtmIgnoreChangedDests")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rtmreghandle, notifyhandle, numdests, changeddests) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rtmreghandle, notifyhandle, numdests, changeddests);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rtmreghandle;
     (void)notifyhandle;
     (void)numdests;
     (void)changeddests;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6011,12 +7786,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmInsertInRo
         HMODULE km_h_mod = LoadLibraryA("rtm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtmInsertInRouteList")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rtmreghandle, routelisthandle, numroutes, routehandles) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rtmreghandle, routelisthandle, numroutes, routehandles);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rtmreghandle;
     (void)routelisthandle;
     (void)numroutes;
     (void)routehandles;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6036,13 +7818,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmInvokeMeth
         HMODULE km_h_mod = LoadLibraryA("rtm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtmInvokeMethod")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rtmreghandle, entityhandle, input, outputsize, output) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rtmreghandle, entityhandle, input, outputsize, output);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rtmreghandle;
     (void)entityhandle;
     (void)input;
     (void)outputsize;
     (void)output;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6060,11 +7849,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmIsBestRout
         HMODULE km_h_mod = LoadLibraryA("rtm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtmIsBestRoute")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rtmreghandle, routehandle, bestinviews) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rtmreghandle, routehandle, bestinviews);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rtmreghandle;
     (void)routehandle;
     (void)bestinviews;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6083,12 +7879,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmIsMarkedFo
         HMODULE km_h_mod = LoadLibraryA("rtm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtmIsMarkedForChangeNotification")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rtmreghandle, notifyhandle, desthandle, destmarked) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rtmreghandle, notifyhandle, desthandle, destmarked);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rtmreghandle;
     (void)notifyhandle;
     (void)desthandle;
     (void)destmarked;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6107,12 +7910,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmLockDestin
         HMODULE km_h_mod = LoadLibraryA("rtm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtmLockDestination")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rtmreghandle, desthandle, exclusive, lockdest) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rtmreghandle, desthandle, exclusive, lockdest);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rtmreghandle;
     (void)desthandle;
     (void)exclusive;
     (void)lockdest;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6132,13 +7942,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmLockNextHo
         HMODULE km_h_mod = LoadLibraryA("rtm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtmLockNextHop")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rtmreghandle, nexthophandle, exclusive, locknexthop, nexthoppointer) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rtmreghandle, nexthophandle, exclusive, locknexthop, nexthoppointer);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rtmreghandle;
     (void)nexthophandle;
     (void)exclusive;
     (void)locknexthop;
     (void)nexthoppointer;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6158,13 +7975,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmLockRoute_
         HMODULE km_h_mod = LoadLibraryA("rtm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtmLockRoute")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rtmreghandle, routehandle, exclusive, lockroute, routepointer) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rtmreghandle, routehandle, exclusive, lockroute, routepointer);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rtmreghandle;
     (void)routehandle;
     (void)exclusive;
     (void)lockroute;
     (void)routepointer;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6183,12 +8007,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmMarkDestFo
         HMODULE km_h_mod = LoadLibraryA("rtm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtmMarkDestForChangeNotification")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rtmreghandle, notifyhandle, desthandle, markdest) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rtmreghandle, notifyhandle, desthandle, markdest);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rtmreghandle;
     (void)notifyhandle;
     (void)desthandle;
     (void)markdest;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6206,11 +8037,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmReferenceH
         HMODULE km_h_mod = LoadLibraryA("rtm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtmReferenceHandles")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rtmreghandle, numhandles, rtmhandles) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rtmreghandle, numhandles, rtmhandles);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rtmreghandle;
     (void)numhandles;
     (void)rtmhandles;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6231,7 +8069,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmRegisterEn
         HMODULE km_h_mod = LoadLibraryA("rtm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtmRegisterEntity")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rtmentityinfo, exportmethods, eventcallback, reserveopaquepointer, rtmregprofile, rtmreghandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rtmentityinfo, exportmethods, eventcallback, reserveopaquepointer, rtmregprofile, rtmreghandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rtmentityinfo;
     (void)exportmethods;
@@ -6239,6 +8083,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmRegisterEn
     (void)reserveopaquepointer;
     (void)rtmregprofile;
     (void)rtmreghandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6258,13 +8103,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmRegisterFo
         HMODULE km_h_mod = LoadLibraryA("rtm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtmRegisterForChangeNotification")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rtmreghandle, targetviews, notifyflags, notifycontext, notifyhandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rtmreghandle, targetviews, notifyflags, notifycontext, notifyhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rtmreghandle;
     (void)targetviews;
     (void)notifyflags;
     (void)notifycontext;
     (void)notifyhandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6283,12 +8135,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmReleaseCha
         HMODULE km_h_mod = LoadLibraryA("rtm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtmReleaseChangedDests")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rtmreghandle, notifyhandle, numdests, changeddests) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rtmreghandle, notifyhandle, numdests, changeddests);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rtmreghandle;
     (void)notifyhandle;
     (void)numdests;
     (void)changeddests;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6305,10 +8164,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmReleaseDes
         HMODULE km_h_mod = LoadLibraryA("rtm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtmReleaseDestInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rtmreghandle, destinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rtmreghandle, destinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rtmreghandle;
     (void)destinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6326,11 +8192,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmReleaseDes
         HMODULE km_h_mod = LoadLibraryA("rtm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtmReleaseDests")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rtmreghandle, numdests, destinfos) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rtmreghandle, numdests, destinfos);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rtmreghandle;
     (void)numdests;
     (void)destinfos;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6348,11 +8221,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmReleaseEnt
         HMODULE km_h_mod = LoadLibraryA("rtm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtmReleaseEntities")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rtmreghandle, numentities, entityhandles) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rtmreghandle, numentities, entityhandles);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rtmreghandle;
     (void)numentities;
     (void)entityhandles;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6369,10 +8249,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmReleaseEnt
         HMODULE km_h_mod = LoadLibraryA("rtm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtmReleaseEntityInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rtmreghandle, entityinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rtmreghandle, entityinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rtmreghandle;
     (void)entityinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6389,10 +8276,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmReleaseNex
         HMODULE km_h_mod = LoadLibraryA("rtm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtmReleaseNextHopInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rtmreghandle, nexthopinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rtmreghandle, nexthopinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rtmreghandle;
     (void)nexthopinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6410,11 +8304,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmReleaseNex
         HMODULE km_h_mod = LoadLibraryA("rtm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtmReleaseNextHops")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rtmreghandle, numnexthops, nexthophandles) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rtmreghandle, numnexthops, nexthophandles);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rtmreghandle;
     (void)numnexthops;
     (void)nexthophandles;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6431,10 +8332,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmReleaseRou
         HMODULE km_h_mod = LoadLibraryA("rtm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtmReleaseRouteInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rtmreghandle, routeinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rtmreghandle, routeinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rtmreghandle;
     (void)routeinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6452,11 +8360,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmReleaseRou
         HMODULE km_h_mod = LoadLibraryA("rtm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtmReleaseRoutes")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rtmreghandle, numroutes, routehandles) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rtmreghandle, numroutes, routehandles);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rtmreghandle;
     (void)numroutes;
     (void)routehandles;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6478,7 +8393,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmUpdateAndU
         HMODULE km_h_mod = LoadLibraryA("rtm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtmUpdateAndUnlockRoute")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rtmreghandle, routehandle, timetolive, routelisthandle, notifytype, notifyhandle, changeflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rtmreghandle, routehandle, timetolive, routelisthandle, notifytype, notifyhandle, changeflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rtmreghandle;
     (void)routehandle;
@@ -6487,6 +8408,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_rras_rtmUpdateAndU
     (void)notifytype;
     (void)notifyhandle;
     (void)changeflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

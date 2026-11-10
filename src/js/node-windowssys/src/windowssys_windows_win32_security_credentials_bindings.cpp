@@ -63,11 +63,18 @@ static Napi::Value windowssys_windows_win32_security_credentials_credDeleteA_nap
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CredDeleteA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(targetname, type, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(targetname, type, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)targetname;
     (void)type;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -85,11 +92,18 @@ static Napi::Value windowssys_windows_win32_security_credentials_credDeleteW_nap
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CredDeleteW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(targetname, type, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(targetname, type, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)targetname;
     (void)type;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -108,12 +122,19 @@ static Napi::Value windowssys_windows_win32_security_credentials_credEnumerateA_
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CredEnumerateA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(filter, flags, count, credential) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(filter, flags, count, credential);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)filter;
     (void)flags;
     (void)count;
     (void)credential;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -132,12 +153,19 @@ static Napi::Value windowssys_windows_win32_security_credentials_credEnumerateW_
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CredEnumerateW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(filter, flags, count, credential) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(filter, flags, count, credential);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)filter;
     (void)flags;
     (void)count;
     (void)credential;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -156,12 +184,19 @@ static Napi::Value windowssys_windows_win32_security_credentials_credFindBestCre
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CredFindBestCredentialA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(targetname, type, flags, credential) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(targetname, type, flags, credential);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)targetname;
     (void)type;
     (void)flags;
     (void)credential;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -180,12 +215,19 @@ static Napi::Value windowssys_windows_win32_security_credentials_credFindBestCre
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CredFindBestCredentialW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(targetname, type, flags, credential) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(targetname, type, flags, credential);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)targetname;
     (void)type;
     (void)flags;
     (void)credential;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -201,9 +243,14 @@ static Napi::Value windowssys_windows_win32_security_credentials_credFree_napi(c
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CredFree")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(buffer);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(buffer);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)buffer;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -219,10 +266,17 @@ static Napi::Value windowssys_windows_win32_security_credentials_credGetSessionT
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CredGetSessionTypes")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(maximumpersistcount, maximumpersist) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(maximumpersistcount, maximumpersist);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)maximumpersistcount;
     (void)maximumpersist;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -240,11 +294,18 @@ static Napi::Value windowssys_windows_win32_security_credentials_credGetTargetIn
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CredGetTargetInfoA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(targetname, flags, targetinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(targetname, flags, targetinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)targetname;
     (void)flags;
     (void)targetinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -262,11 +323,18 @@ static Napi::Value windowssys_windows_win32_security_credentials_credGetTargetIn
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CredGetTargetInfoW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(targetname, flags, targetinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(targetname, flags, targetinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)targetname;
     (void)flags;
     (void)targetinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -282,9 +350,16 @@ static Napi::Value windowssys_windows_win32_security_credentials_credIsMarshaled
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CredIsMarshaledCredentialA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(marshaledcredential) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(marshaledcredential);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)marshaledcredential;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -300,9 +375,16 @@ static Napi::Value windowssys_windows_win32_security_credentials_credIsMarshaled
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CredIsMarshaledCredentialW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(marshaledcredential) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(marshaledcredential);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)marshaledcredential;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -319,10 +401,17 @@ static Napi::Value windowssys_windows_win32_security_credentials_credIsProtected
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CredIsProtectedA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszprotectedcredentials, pprotectiontype) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszprotectedcredentials, pprotectiontype);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszprotectedcredentials;
     (void)pprotectiontype;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -339,10 +428,17 @@ static Napi::Value windowssys_windows_win32_security_credentials_credIsProtected
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CredIsProtectedW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszprotectedcredentials, pprotectiontype) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszprotectedcredentials, pprotectiontype);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszprotectedcredentials;
     (void)pprotectiontype;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -360,11 +456,18 @@ static Napi::Value windowssys_windows_win32_security_credentials_credMarshalCred
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CredMarshalCredentialA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(credtype, credential, marshaledcredential) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(credtype, credential, marshaledcredential);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)credtype;
     (void)credential;
     (void)marshaledcredential;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -382,11 +485,18 @@ static Napi::Value windowssys_windows_win32_security_credentials_credMarshalCred
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CredMarshalCredentialW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(credtype, credential, marshaledcredential) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(credtype, credential, marshaledcredential);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)credtype;
     (void)credential;
     (void)marshaledcredential;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -406,13 +516,20 @@ static Napi::Value windowssys_windows_win32_security_credentials_credPackAuthent
         HMODULE km_h_mod = LoadLibraryA("credui.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CredPackAuthenticationBufferA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwflags, pszusername, pszpassword, ppackedcredentials, pcbpackedcredentials) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwflags, pszusername, pszpassword, ppackedcredentials, pcbpackedcredentials);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwflags;
     (void)pszusername;
     (void)pszpassword;
     (void)ppackedcredentials;
     (void)pcbpackedcredentials;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -432,13 +549,20 @@ static Napi::Value windowssys_windows_win32_security_credentials_credPackAuthent
         HMODULE km_h_mod = LoadLibraryA("credui.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CredPackAuthenticationBufferW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwflags, pszusername, pszpassword, ppackedcredentials, pcbpackedcredentials) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwflags, pszusername, pszpassword, ppackedcredentials, pcbpackedcredentials);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwflags;
     (void)pszusername;
     (void)pszpassword;
     (void)ppackedcredentials;
     (void)pcbpackedcredentials;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -459,7 +583,13 @@ static Napi::Value windowssys_windows_win32_security_credentials_credProtectA_na
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CredProtectA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(fasself, pszcredentials, cchcredentials, pszprotectedcredentials, pcchmaxchars, protectiontype) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(fasself, pszcredentials, cchcredentials, pszprotectedcredentials, pcchmaxchars, protectiontype);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)fasself;
     (void)pszcredentials;
@@ -467,6 +597,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_credProtectA_na
     (void)pszprotectedcredentials;
     (void)pcchmaxchars;
     (void)protectiontype;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -487,7 +618,13 @@ static Napi::Value windowssys_windows_win32_security_credentials_credProtectW_na
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CredProtectW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(fasself, pszcredentials, cchcredentials, pszprotectedcredentials, pcchmaxchars, protectiontype) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(fasself, pszcredentials, cchcredentials, pszprotectedcredentials, pcchmaxchars, protectiontype);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)fasself;
     (void)pszcredentials;
@@ -495,6 +632,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_credProtectW_na
     (void)pszprotectedcredentials;
     (void)pcchmaxchars;
     (void)protectiontype;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -513,12 +651,19 @@ static Napi::Value windowssys_windows_win32_security_credentials_credReadA_napi(
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CredReadA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(targetname, type, flags, credential) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(targetname, type, flags, credential);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)targetname;
     (void)type;
     (void)flags;
     (void)credential;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -537,12 +682,19 @@ static Napi::Value windowssys_windows_win32_security_credentials_credReadDomainC
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CredReadDomainCredentialsA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(targetinfo, flags, count, credential) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(targetinfo, flags, count, credential);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)targetinfo;
     (void)flags;
     (void)count;
     (void)credential;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -561,12 +713,19 @@ static Napi::Value windowssys_windows_win32_security_credentials_credReadDomainC
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CredReadDomainCredentialsW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(targetinfo, flags, count, credential) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(targetinfo, flags, count, credential);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)targetinfo;
     (void)flags;
     (void)count;
     (void)credential;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -585,12 +744,19 @@ static Napi::Value windowssys_windows_win32_security_credentials_credReadW_napi(
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CredReadW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(targetname, type, flags, credential) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(targetname, type, flags, credential);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)targetname;
     (void)type;
     (void)flags;
     (void)credential;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -609,12 +775,19 @@ static Napi::Value windowssys_windows_win32_security_credentials_credRenameA_nap
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CredRenameA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(oldtargetname, newtargetname, type, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(oldtargetname, newtargetname, type, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)oldtargetname;
     (void)newtargetname;
     (void)type;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -633,12 +806,19 @@ static Napi::Value windowssys_windows_win32_security_credentials_credRenameW_nap
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CredRenameW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(oldtargetname, newtargetname, type, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(oldtargetname, newtargetname, type, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)oldtargetname;
     (void)newtargetname;
     (void)type;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -662,7 +842,13 @@ static Napi::Value windowssys_windows_win32_security_credentials_credUICmdLinePr
         HMODULE km_h_mod = LoadLibraryA("credui.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CredUICmdLinePromptForCredentialsA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(psztargetname, pcontext, dwautherror, username, uluserbuffersize, pszpassword, ulpasswordbuffersize, pfsave, dwflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(psztargetname, pcontext, dwautherror, username, uluserbuffersize, pszpassword, ulpasswordbuffersize, pfsave, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)psztargetname;
     (void)pcontext;
@@ -673,6 +859,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_credUICmdLinePr
     (void)ulpasswordbuffersize;
     (void)pfsave;
     (void)dwflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -696,7 +883,13 @@ static Napi::Value windowssys_windows_win32_security_credentials_credUICmdLinePr
         HMODULE km_h_mod = LoadLibraryA("credui.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CredUICmdLinePromptForCredentialsW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(psztargetname, pcontext, dwautherror, username, uluserbuffersize, pszpassword, ulpasswordbuffersize, pfsave, dwflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(psztargetname, pcontext, dwautherror, username, uluserbuffersize, pszpassword, ulpasswordbuffersize, pfsave, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)psztargetname;
     (void)pcontext;
@@ -707,6 +900,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_credUICmdLinePr
     (void)ulpasswordbuffersize;
     (void)pfsave;
     (void)dwflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -723,10 +917,17 @@ static Napi::Value windowssys_windows_win32_security_credentials_credUIConfirmCr
         HMODULE km_h_mod = LoadLibraryA("credui.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CredUIConfirmCredentialsA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(psztargetname, bconfirm) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(psztargetname, bconfirm);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)psztargetname;
     (void)bconfirm;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -743,10 +944,17 @@ static Napi::Value windowssys_windows_win32_security_credentials_credUIConfirmCr
         HMODULE km_h_mod = LoadLibraryA("credui.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CredUIConfirmCredentialsW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(psztargetname, bconfirm) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(psztargetname, bconfirm);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)psztargetname;
     (void)bconfirm;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -766,13 +974,20 @@ static Napi::Value windowssys_windows_win32_security_credentials_credUIParseUser
         HMODULE km_h_mod = LoadLibraryA("credui.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CredUIParseUserNameA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(username, user, userbuffersize, domain, domainbuffersize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(username, user, userbuffersize, domain, domainbuffersize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)username;
     (void)user;
     (void)userbuffersize;
     (void)domain;
     (void)domainbuffersize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -792,13 +1007,20 @@ static Napi::Value windowssys_windows_win32_security_credentials_credUIParseUser
         HMODULE km_h_mod = LoadLibraryA("credui.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CredUIParseUserNameW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(username, user, userbuffersize, domain, domainbuffersize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(username, user, userbuffersize, domain, domainbuffersize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)username;
     (void)user;
     (void)userbuffersize;
     (void)domain;
     (void)domainbuffersize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -823,7 +1045,13 @@ static Napi::Value windowssys_windows_win32_security_credentials_credUIPromptFor
         HMODULE km_h_mod = LoadLibraryA("credui.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CredUIPromptForCredentialsA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(puiinfo, psztargetname, pcontext, dwautherror, pszusername, ulusernamebuffersize, pszpassword, ulpasswordbuffersize, save, dwflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(puiinfo, psztargetname, pcontext, dwautherror, pszusername, ulusernamebuffersize, pszpassword, ulpasswordbuffersize, save, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)puiinfo;
     (void)psztargetname;
@@ -835,6 +1063,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_credUIPromptFor
     (void)ulpasswordbuffersize;
     (void)save;
     (void)dwflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -859,7 +1088,13 @@ static Napi::Value windowssys_windows_win32_security_credentials_credUIPromptFor
         HMODULE km_h_mod = LoadLibraryA("credui.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CredUIPromptForCredentialsW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(puiinfo, psztargetname, pcontext, dwautherror, pszusername, ulusernamebuffersize, pszpassword, ulpasswordbuffersize, save, dwflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(puiinfo, psztargetname, pcontext, dwautherror, pszusername, ulusernamebuffersize, pszpassword, ulpasswordbuffersize, save, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)puiinfo;
     (void)psztargetname;
@@ -871,6 +1106,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_credUIPromptFor
     (void)ulpasswordbuffersize;
     (void)save;
     (void)dwflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -894,7 +1130,13 @@ static Napi::Value windowssys_windows_win32_security_credentials_credUIPromptFor
         HMODULE km_h_mod = LoadLibraryA("credui.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CredUIPromptForWindowsCredentialsA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(puiinfo, dwautherror, pulauthpackage, pvinauthbuffer, ulinauthbuffersize, ppvoutauthbuffer, puloutauthbuffersize, pfsave, dwflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(puiinfo, dwautherror, pulauthpackage, pvinauthbuffer, ulinauthbuffersize, ppvoutauthbuffer, puloutauthbuffersize, pfsave, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)puiinfo;
     (void)dwautherror;
@@ -905,6 +1147,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_credUIPromptFor
     (void)puloutauthbuffersize;
     (void)pfsave;
     (void)dwflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -928,7 +1171,13 @@ static Napi::Value windowssys_windows_win32_security_credentials_credUIPromptFor
         HMODULE km_h_mod = LoadLibraryA("credui.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CredUIPromptForWindowsCredentialsW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(puiinfo, dwautherror, pulauthpackage, pvinauthbuffer, ulinauthbuffersize, ppvoutauthbuffer, puloutauthbuffersize, pfsave, dwflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(puiinfo, dwautherror, pulauthpackage, pvinauthbuffer, ulinauthbuffersize, ppvoutauthbuffer, puloutauthbuffersize, pfsave, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)puiinfo;
     (void)dwautherror;
@@ -939,6 +1188,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_credUIPromptFor
     (void)puloutauthbuffersize;
     (void)pfsave;
     (void)dwflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -955,10 +1205,17 @@ static Napi::Value windowssys_windows_win32_security_credentials_credUIReadSSOCr
         HMODULE km_h_mod = LoadLibraryA("credui.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CredUIReadSSOCredW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszrealm, ppszusername) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszrealm, ppszusername);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pszrealm;
     (void)ppszusername;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -977,12 +1234,19 @@ static Napi::Value windowssys_windows_win32_security_credentials_credUIStoreSSOC
         HMODULE km_h_mod = LoadLibraryA("credui.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CredUIStoreSSOCredW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszrealm, pszusername, pszpassword, bpersist) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszrealm, pszusername, pszpassword, bpersist);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pszrealm;
     (void)pszusername;
     (void)pszpassword;
     (void)bpersist;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1006,7 +1270,13 @@ static Napi::Value windowssys_windows_win32_security_credentials_credUnPackAuthe
         HMODULE km_h_mod = LoadLibraryA("credui.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CredUnPackAuthenticationBufferA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwflags, pauthbuffer, cbauthbuffer, pszusername, pcchlmaxusername, pszdomainname, pcchmaxdomainname, pszpassword, pcchmaxpassword) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwflags, pauthbuffer, cbauthbuffer, pszusername, pcchlmaxusername, pszdomainname, pcchmaxdomainname, pszpassword, pcchmaxpassword);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwflags;
     (void)pauthbuffer;
@@ -1017,6 +1287,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_credUnPackAuthe
     (void)pcchmaxdomainname;
     (void)pszpassword;
     (void)pcchmaxpassword;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1040,7 +1311,13 @@ static Napi::Value windowssys_windows_win32_security_credentials_credUnPackAuthe
         HMODULE km_h_mod = LoadLibraryA("credui.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CredUnPackAuthenticationBufferW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwflags, pauthbuffer, cbauthbuffer, pszusername, pcchmaxusername, pszdomainname, pcchmaxdomainname, pszpassword, pcchmaxpassword) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwflags, pauthbuffer, cbauthbuffer, pszusername, pcchmaxusername, pszdomainname, pcchmaxdomainname, pszpassword, pcchmaxpassword);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwflags;
     (void)pauthbuffer;
@@ -1051,6 +1328,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_credUnPackAuthe
     (void)pcchmaxdomainname;
     (void)pszpassword;
     (void)pcchmaxpassword;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1068,11 +1346,18 @@ static Napi::Value windowssys_windows_win32_security_credentials_credUnmarshalCr
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CredUnmarshalCredentialA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(marshaledcredential, credtype, credential) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(marshaledcredential, credtype, credential);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)marshaledcredential;
     (void)credtype;
     (void)credential;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1090,11 +1375,18 @@ static Napi::Value windowssys_windows_win32_security_credentials_credUnmarshalCr
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CredUnmarshalCredentialW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(marshaledcredential, credtype, credential) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(marshaledcredential, credtype, credential);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)marshaledcredential;
     (void)credtype;
     (void)credential;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1114,13 +1406,20 @@ static Napi::Value windowssys_windows_win32_security_credentials_credUnprotectA_
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CredUnprotectA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(fasself, pszprotectedcredentials, cchprotectedcredentials, pszcredentials, pcchmaxchars) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(fasself, pszprotectedcredentials, cchprotectedcredentials, pszcredentials, pcchmaxchars);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)fasself;
     (void)pszprotectedcredentials;
     (void)cchprotectedcredentials;
     (void)pszcredentials;
     (void)pcchmaxchars;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1140,13 +1439,20 @@ static Napi::Value windowssys_windows_win32_security_credentials_credUnprotectW_
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CredUnprotectW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(fasself, pszprotectedcredentials, cchprotectedcredentials, pszcredentials, pcchmaxchars) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(fasself, pszprotectedcredentials, cchprotectedcredentials, pszcredentials, pcchmaxchars);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)fasself;
     (void)pszprotectedcredentials;
     (void)cchprotectedcredentials;
     (void)pszcredentials;
     (void)pcchmaxchars;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1163,10 +1469,17 @@ static Napi::Value windowssys_windows_win32_security_credentials_credWriteA_napi
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CredWriteA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(credential, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(credential, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)credential;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1184,11 +1497,18 @@ static Napi::Value windowssys_windows_win32_security_credentials_credWriteDomain
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CredWriteDomainCredentialsA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(targetinfo, credential, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(targetinfo, credential, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)targetinfo;
     (void)credential;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1206,11 +1526,18 @@ static Napi::Value windowssys_windows_win32_security_credentials_credWriteDomain
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CredWriteDomainCredentialsW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(targetinfo, credential, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(targetinfo, credential, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)targetinfo;
     (void)credential;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1227,10 +1554,17 @@ static Napi::Value windowssys_windows_win32_security_credentials_credWriteW_napi
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CredWriteW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(credential, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(credential, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)credential;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1246,9 +1580,16 @@ static Napi::Value windowssys_windows_win32_security_credentials_getOpenCardName
         HMODULE km_h_mod = LoadLibraryA("scarddlg.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetOpenCardNameA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)param0;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1264,9 +1605,16 @@ static Napi::Value windowssys_windows_win32_security_credentials_getOpenCardName
         HMODULE km_h_mod = LoadLibraryA("scarddlg.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetOpenCardNameW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)param0;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1282,9 +1630,14 @@ static Napi::Value windowssys_windows_win32_security_credentials_keyCredentialMa
         HMODULE km_h_mod = LoadLibraryA("keycredmgr.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "KeyCredentialManagerFreeInformation")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(keycredentialmanagerinfo);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(keycredentialmanagerinfo);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)keycredentialmanagerinfo;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -1299,9 +1652,16 @@ static Napi::Value windowssys_windows_win32_security_credentials_keyCredentialMa
         HMODULE km_h_mod = LoadLibraryA("keycredmgr.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "KeyCredentialManagerGetInformation")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(keycredentialmanagerinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(keycredentialmanagerinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)keycredentialmanagerinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1319,11 +1679,18 @@ static Napi::Value windowssys_windows_win32_security_credentials_keyCredentialMa
         HMODULE km_h_mod = LoadLibraryA("keycredmgr.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "KeyCredentialManagerGetOperationErrorStates")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(keycredentialmanageroperationtype, isready, keycredentialmanageroperationerrorstates) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(keycredentialmanageroperationtype, isready, keycredentialmanageroperationerrorstates);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)keycredentialmanageroperationtype;
     (void)isready;
     (void)keycredentialmanageroperationerrorstates;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1340,10 +1707,17 @@ static Napi::Value windowssys_windows_win32_security_credentials_keyCredentialMa
         HMODULE km_h_mod = LoadLibraryA("keycredmgr.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "KeyCredentialManagerShowUIOperation")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwndowner, keycredentialmanageroperationtype) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwndowner, keycredentialmanageroperationtype);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwndowner;
     (void)keycredentialmanageroperationtype;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1358,9 +1732,16 @@ static Napi::Value windowssys_windows_win32_security_credentials_sCardAccessStar
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SCardAccessStartedEvent")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1377,11 +1758,18 @@ static Napi::Value windowssys_windows_win32_security_credentials_sCardAddReaderT
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SCardAddReaderToGroupA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcontext, szreadername, szgroupname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcontext, szreadername, szgroupname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)szreadername;
     (void)szgroupname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1399,11 +1787,18 @@ static Napi::Value windowssys_windows_win32_security_credentials_sCardAddReaderT
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SCardAddReaderToGroupW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcontext, szreadername, szgroupname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcontext, szreadername, szgroupname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)szreadername;
     (void)szgroupname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1420,10 +1815,17 @@ static Napi::Value windowssys_windows_win32_security_credentials_sCardAudit_napi
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SCardAudit")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcontext, dwevent) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcontext, dwevent);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)dwevent;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1439,9 +1841,16 @@ static Napi::Value windowssys_windows_win32_security_credentials_sCardBeginTrans
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SCardBeginTransaction")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcard) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcard);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcard;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1457,9 +1866,16 @@ static Napi::Value windowssys_windows_win32_security_credentials_sCardCancel_nap
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SCardCancel")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1480,7 +1896,13 @@ static Napi::Value windowssys_windows_win32_security_credentials_sCardConnectA_n
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SCardConnectA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcontext, szreader, dwsharemode, dwpreferredprotocols, phcard, pdwactiveprotocol) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcontext, szreader, dwsharemode, dwpreferredprotocols, phcard, pdwactiveprotocol);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)szreader;
@@ -1488,6 +1910,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_sCardConnectA_n
     (void)dwpreferredprotocols;
     (void)phcard;
     (void)pdwactiveprotocol;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1508,7 +1931,13 @@ static Napi::Value windowssys_windows_win32_security_credentials_sCardConnectW_n
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SCardConnectW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcontext, szreader, dwsharemode, dwpreferredprotocols, phcard, pdwactiveprotocol) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcontext, szreader, dwsharemode, dwpreferredprotocols, phcard, pdwactiveprotocol);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)szreader;
@@ -1516,6 +1945,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_sCardConnectW_n
     (void)dwpreferredprotocols;
     (void)phcard;
     (void)pdwactiveprotocol;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1537,7 +1967,13 @@ static Napi::Value windowssys_windows_win32_security_credentials_sCardControl_na
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SCardControl")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcard, dwcontrolcode, lpinbuffer, cbinbuffersize, lpoutbuffer, cboutbuffersize, lpbytesreturned) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcard, dwcontrolcode, lpinbuffer, cbinbuffersize, lpoutbuffer, cboutbuffersize, lpbytesreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcard;
     (void)dwcontrolcode;
@@ -1546,6 +1982,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_sCardControl_na
     (void)lpoutbuffer;
     (void)cboutbuffersize;
     (void)lpbytesreturned;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1562,10 +1999,17 @@ static Napi::Value windowssys_windows_win32_security_credentials_sCardDisconnect
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SCardDisconnect")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcard, dwdisposition) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcard, dwdisposition);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcard;
     (void)dwdisposition;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1580,8 +2024,15 @@ static Napi::Value windowssys_windows_win32_security_credentials_sCardDlgExtende
         HMODULE km_h_mod = LoadLibraryA("scarddlg.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SCardDlgExtendedError")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1598,10 +2049,17 @@ static Napi::Value windowssys_windows_win32_security_credentials_sCardEndTransac
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SCardEndTransaction")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcard, dwdisposition) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcard, dwdisposition);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcard;
     (void)dwdisposition;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1620,12 +2078,19 @@ static Napi::Value windowssys_windows_win32_security_credentials_sCardEstablishC
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SCardEstablishContext")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwscope, pvreserved1, pvreserved2, phcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwscope, pvreserved1, pvreserved2, phcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwscope;
     (void)pvreserved1;
     (void)pvreserved2;
     (void)phcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1642,10 +2107,17 @@ static Napi::Value windowssys_windows_win32_security_credentials_sCardForgetCard
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SCardForgetCardTypeA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcontext, szcardname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcontext, szcardname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)szcardname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1662,10 +2134,17 @@ static Napi::Value windowssys_windows_win32_security_credentials_sCardForgetCard
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SCardForgetCardTypeW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcontext, szcardname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcontext, szcardname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)szcardname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1682,10 +2161,17 @@ static Napi::Value windowssys_windows_win32_security_credentials_sCardForgetRead
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SCardForgetReaderA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcontext, szreadername) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcontext, szreadername);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)szreadername;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1702,10 +2188,17 @@ static Napi::Value windowssys_windows_win32_security_credentials_sCardForgetRead
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SCardForgetReaderGroupA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcontext, szgroupname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcontext, szgroupname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)szgroupname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1722,10 +2215,17 @@ static Napi::Value windowssys_windows_win32_security_credentials_sCardForgetRead
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SCardForgetReaderGroupW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcontext, szgroupname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcontext, szgroupname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)szgroupname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1742,10 +2242,17 @@ static Napi::Value windowssys_windows_win32_security_credentials_sCardForgetRead
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SCardForgetReaderW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcontext, szreadername) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcontext, szreadername);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)szreadername;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1762,10 +2269,17 @@ static Napi::Value windowssys_windows_win32_security_credentials_sCardFreeMemory
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SCardFreeMemory")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcontext, pvmem) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcontext, pvmem);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)pvmem;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1784,12 +2298,19 @@ static Napi::Value windowssys_windows_win32_security_credentials_sCardGetAttrib_
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SCardGetAttrib")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcard, dwattrid, pbattr, pcbattrlen) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcard, dwattrid, pbattr, pcbattrlen);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcard;
     (void)dwattrid;
     (void)pbattr;
     (void)pcbattrlen;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1809,13 +2330,20 @@ static Napi::Value windowssys_windows_win32_security_credentials_sCardGetCardTyp
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SCardGetCardTypeProviderNameA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcontext, szcardname, dwproviderid, szprovider, pcchprovider) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcontext, szcardname, dwproviderid, szprovider, pcchprovider);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)szcardname;
     (void)dwproviderid;
     (void)szprovider;
     (void)pcchprovider;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1835,13 +2363,20 @@ static Napi::Value windowssys_windows_win32_security_credentials_sCardGetCardTyp
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SCardGetCardTypeProviderNameW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcontext, szcardname, dwproviderid, szprovider, pcchprovider) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcontext, szcardname, dwproviderid, szprovider, pcchprovider);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)szcardname;
     (void)dwproviderid;
     (void)szprovider;
     (void)pcchprovider;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1859,11 +2394,18 @@ static Napi::Value windowssys_windows_win32_security_credentials_sCardGetDeviceT
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SCardGetDeviceTypeIdA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcontext, szreadername, pdwdevicetypeid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcontext, szreadername, pdwdevicetypeid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)szreadername;
     (void)pdwdevicetypeid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1881,11 +2423,18 @@ static Napi::Value windowssys_windows_win32_security_credentials_sCardGetDeviceT
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SCardGetDeviceTypeIdW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcontext, szreadername, pdwdevicetypeid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcontext, szreadername, pdwdevicetypeid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)szreadername;
     (void)pdwdevicetypeid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1903,11 +2452,18 @@ static Napi::Value windowssys_windows_win32_security_credentials_sCardGetProvide
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SCardGetProviderIdA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcontext, szcard, pguidproviderid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcontext, szcard, pguidproviderid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)szcard;
     (void)pguidproviderid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1925,11 +2481,18 @@ static Napi::Value windowssys_windows_win32_security_credentials_sCardGetProvide
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SCardGetProviderIdW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcontext, szcard, pguidproviderid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcontext, szcard, pguidproviderid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)szcard;
     (void)pguidproviderid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1948,12 +2511,19 @@ static Napi::Value windowssys_windows_win32_security_credentials_sCardGetReaderD
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SCardGetReaderDeviceInstanceIdA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcontext, szreadername, szdeviceinstanceid, pcchdeviceinstanceid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcontext, szreadername, szdeviceinstanceid, pcchdeviceinstanceid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)szreadername;
     (void)szdeviceinstanceid;
     (void)pcchdeviceinstanceid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1972,12 +2542,19 @@ static Napi::Value windowssys_windows_win32_security_credentials_sCardGetReaderD
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SCardGetReaderDeviceInstanceIdW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcontext, szreadername, szdeviceinstanceid, pcchdeviceinstanceid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcontext, szreadername, szdeviceinstanceid, pcchdeviceinstanceid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)szreadername;
     (void)szdeviceinstanceid;
     (void)pcchdeviceinstanceid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1996,12 +2573,19 @@ static Napi::Value windowssys_windows_win32_security_credentials_sCardGetReaderI
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SCardGetReaderIconA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcontext, szreadername, pbicon, pcbicon) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcontext, szreadername, pbicon, pcbicon);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)szreadername;
     (void)pbicon;
     (void)pcbicon;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2020,12 +2604,19 @@ static Napi::Value windowssys_windows_win32_security_credentials_sCardGetReaderI
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SCardGetReaderIconW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcontext, szreadername, pbicon, pcbicon) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcontext, szreadername, pbicon, pcbicon);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)szreadername;
     (void)pbicon;
     (void)pcbicon;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2044,12 +2635,19 @@ static Napi::Value windowssys_windows_win32_security_credentials_sCardGetStatusC
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SCardGetStatusChangeA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcontext, dwtimeout, rgreaderstates, creaders) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcontext, dwtimeout, rgreaderstates, creaders);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)dwtimeout;
     (void)rgreaderstates;
     (void)creaders;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2068,12 +2666,19 @@ static Napi::Value windowssys_windows_win32_security_credentials_sCardGetStatusC
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SCardGetStatusChangeW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcontext, dwtimeout, rgreaderstates, creaders) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcontext, dwtimeout, rgreaderstates, creaders);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)dwtimeout;
     (void)rgreaderstates;
     (void)creaders;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2090,10 +2695,17 @@ static Napi::Value windowssys_windows_win32_security_credentials_sCardGetTransmi
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SCardGetTransmitCount")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcard, pctransmitcount) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcard, pctransmitcount);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcard;
     (void)pctransmitcount;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2116,7 +2728,13 @@ static Napi::Value windowssys_windows_win32_security_credentials_sCardIntroduceC
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SCardIntroduceCardTypeA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcontext, szcardname, pguidprimaryprovider, rgguidinterfaces, dwinterfacecount, pbatr, pbatrmask, cbatrlen) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcontext, szcardname, pguidprimaryprovider, rgguidinterfaces, dwinterfacecount, pbatr, pbatrmask, cbatrlen);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)szcardname;
@@ -2126,6 +2744,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_sCardIntroduceC
     (void)pbatr;
     (void)pbatrmask;
     (void)cbatrlen;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2148,7 +2767,13 @@ static Napi::Value windowssys_windows_win32_security_credentials_sCardIntroduceC
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SCardIntroduceCardTypeW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcontext, szcardname, pguidprimaryprovider, rgguidinterfaces, dwinterfacecount, pbatr, pbatrmask, cbatrlen) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcontext, szcardname, pguidprimaryprovider, rgguidinterfaces, dwinterfacecount, pbatr, pbatrmask, cbatrlen);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)szcardname;
@@ -2158,6 +2783,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_sCardIntroduceC
     (void)pbatr;
     (void)pbatrmask;
     (void)cbatrlen;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2175,11 +2801,18 @@ static Napi::Value windowssys_windows_win32_security_credentials_sCardIntroduceR
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SCardIntroduceReaderA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcontext, szreadername, szdevicename) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcontext, szreadername, szdevicename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)szreadername;
     (void)szdevicename;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2196,10 +2829,17 @@ static Napi::Value windowssys_windows_win32_security_credentials_sCardIntroduceR
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SCardIntroduceReaderGroupA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcontext, szgroupname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcontext, szgroupname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)szgroupname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2216,10 +2856,17 @@ static Napi::Value windowssys_windows_win32_security_credentials_sCardIntroduceR
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SCardIntroduceReaderGroupW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcontext, szgroupname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcontext, szgroupname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)szgroupname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2237,11 +2884,18 @@ static Napi::Value windowssys_windows_win32_security_credentials_sCardIntroduceR
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SCardIntroduceReaderW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcontext, szreadername, szdevicename) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcontext, szreadername, szdevicename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)szreadername;
     (void)szdevicename;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2257,9 +2911,16 @@ static Napi::Value windowssys_windows_win32_security_credentials_sCardIsValidCon
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SCardIsValidContext")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2280,7 +2941,13 @@ static Napi::Value windowssys_windows_win32_security_credentials_sCardListCardsA
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SCardListCardsA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcontext, pbatr, rgquidinterfaces, cguidinterfacecount, mszcards, pcchcards) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcontext, pbatr, rgquidinterfaces, cguidinterfacecount, mszcards, pcchcards);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)pbatr;
@@ -2288,6 +2955,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_sCardListCardsA
     (void)cguidinterfacecount;
     (void)mszcards;
     (void)pcchcards;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2308,7 +2976,13 @@ static Napi::Value windowssys_windows_win32_security_credentials_sCardListCardsW
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SCardListCardsW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcontext, pbatr, rgquidinterfaces, cguidinterfacecount, mszcards, pcchcards) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcontext, pbatr, rgquidinterfaces, cguidinterfacecount, mszcards, pcchcards);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)pbatr;
@@ -2316,6 +2990,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_sCardListCardsW
     (void)cguidinterfacecount;
     (void)mszcards;
     (void)pcchcards;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2334,12 +3009,19 @@ static Napi::Value windowssys_windows_win32_security_credentials_sCardListInterf
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SCardListInterfacesA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcontext, szcard, pguidinterfaces, pcguidinterfaces) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcontext, szcard, pguidinterfaces, pcguidinterfaces);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)szcard;
     (void)pguidinterfaces;
     (void)pcguidinterfaces;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2358,12 +3040,19 @@ static Napi::Value windowssys_windows_win32_security_credentials_sCardListInterf
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SCardListInterfacesW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcontext, szcard, pguidinterfaces, pcguidinterfaces) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcontext, szcard, pguidinterfaces, pcguidinterfaces);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)szcard;
     (void)pguidinterfaces;
     (void)pcguidinterfaces;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2381,11 +3070,18 @@ static Napi::Value windowssys_windows_win32_security_credentials_sCardListReader
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SCardListReaderGroupsA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcontext, mszgroups, pcchgroups) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcontext, mszgroups, pcchgroups);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)mszgroups;
     (void)pcchgroups;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2403,11 +3099,18 @@ static Napi::Value windowssys_windows_win32_security_credentials_sCardListReader
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SCardListReaderGroupsW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcontext, mszgroups, pcchgroups) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcontext, mszgroups, pcchgroups);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)mszgroups;
     (void)pcchgroups;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2426,12 +3129,19 @@ static Napi::Value windowssys_windows_win32_security_credentials_sCardListReader
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SCardListReadersA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcontext, mszgroups, mszreaders, pcchreaders) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcontext, mszgroups, mszreaders, pcchreaders);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)mszgroups;
     (void)mszreaders;
     (void)pcchreaders;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2450,12 +3160,19 @@ static Napi::Value windowssys_windows_win32_security_credentials_sCardListReader
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SCardListReadersW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcontext, mszgroups, mszreaders, pcchreaders) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcontext, mszgroups, mszreaders, pcchreaders);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)mszgroups;
     (void)mszreaders;
     (void)pcchreaders;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2474,12 +3191,19 @@ static Napi::Value windowssys_windows_win32_security_credentials_sCardListReader
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SCardListReadersWithDeviceInstanceIdA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcontext, szdeviceinstanceid, mszreaders, pcchreaders) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcontext, szdeviceinstanceid, mszreaders, pcchreaders);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)szdeviceinstanceid;
     (void)mszreaders;
     (void)pcchreaders;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2498,12 +3222,19 @@ static Napi::Value windowssys_windows_win32_security_credentials_sCardListReader
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SCardListReadersWithDeviceInstanceIdW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcontext, szdeviceinstanceid, mszreaders, pcchreaders) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcontext, szdeviceinstanceid, mszreaders, pcchreaders);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)szdeviceinstanceid;
     (void)mszreaders;
     (void)pcchreaders;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2522,12 +3253,19 @@ static Napi::Value windowssys_windows_win32_security_credentials_sCardLocateCard
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SCardLocateCardsA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcontext, mszcards, rgreaderstates, creaders) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcontext, mszcards, rgreaderstates, creaders);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)mszcards;
     (void)rgreaderstates;
     (void)creaders;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2547,13 +3285,20 @@ static Napi::Value windowssys_windows_win32_security_credentials_sCardLocateCard
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SCardLocateCardsByATRA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcontext, rgatrmasks, catrs, rgreaderstates, creaders) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcontext, rgatrmasks, catrs, rgreaderstates, creaders);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)rgatrmasks;
     (void)catrs;
     (void)rgreaderstates;
     (void)creaders;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2573,13 +3318,20 @@ static Napi::Value windowssys_windows_win32_security_credentials_sCardLocateCard
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SCardLocateCardsByATRW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcontext, rgatrmasks, catrs, rgreaderstates, creaders) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcontext, rgatrmasks, catrs, rgreaderstates, creaders);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)rgatrmasks;
     (void)catrs;
     (void)rgreaderstates;
     (void)creaders;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2598,12 +3350,19 @@ static Napi::Value windowssys_windows_win32_security_credentials_sCardLocateCard
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SCardLocateCardsW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcontext, mszcards, rgreaderstates, creaders) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcontext, mszcards, rgreaderstates, creaders);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)mszcards;
     (void)rgreaderstates;
     (void)creaders;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2624,7 +3383,13 @@ static Napi::Value windowssys_windows_win32_security_credentials_sCardReadCacheA
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SCardReadCacheA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcontext, cardidentifier, freshnesscounter, lookupname, data, datalen) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcontext, cardidentifier, freshnesscounter, lookupname, data, datalen);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)cardidentifier;
@@ -2632,6 +3397,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_sCardReadCacheA
     (void)lookupname;
     (void)data;
     (void)datalen;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2652,7 +3418,13 @@ static Napi::Value windowssys_windows_win32_security_credentials_sCardReadCacheW
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SCardReadCacheW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcontext, cardidentifier, freshnesscounter, lookupname, data, datalen) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcontext, cardidentifier, freshnesscounter, lookupname, data, datalen);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)cardidentifier;
@@ -2660,6 +3432,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_sCardReadCacheW
     (void)lookupname;
     (void)data;
     (void)datalen;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2679,13 +3452,20 @@ static Napi::Value windowssys_windows_win32_security_credentials_sCardReconnect_
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SCardReconnect")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcard, dwsharemode, dwpreferredprotocols, dwinitialization, pdwactiveprotocol) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcard, dwsharemode, dwpreferredprotocols, dwinitialization, pdwactiveprotocol);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcard;
     (void)dwsharemode;
     (void)dwpreferredprotocols;
     (void)dwinitialization;
     (void)pdwactiveprotocol;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2701,9 +3481,16 @@ static Napi::Value windowssys_windows_win32_security_credentials_sCardReleaseCon
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SCardReleaseContext")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2718,8 +3505,13 @@ static Napi::Value windowssys_windows_win32_security_credentials_sCardReleaseSta
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SCardReleaseStartedEvent")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr();
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+    }
 #else
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -2736,11 +3528,18 @@ static Napi::Value windowssys_windows_win32_security_credentials_sCardRemoveRead
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SCardRemoveReaderFromGroupA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcontext, szreadername, szgroupname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcontext, szreadername, szgroupname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)szreadername;
     (void)szgroupname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2758,11 +3557,18 @@ static Napi::Value windowssys_windows_win32_security_credentials_sCardRemoveRead
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SCardRemoveReaderFromGroupW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcontext, szreadername, szgroupname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcontext, szreadername, szgroupname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)szreadername;
     (void)szgroupname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2781,12 +3587,19 @@ static Napi::Value windowssys_windows_win32_security_credentials_sCardSetAttrib_
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SCardSetAttrib")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcard, dwattrid, pbattr, cbattrlen) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcard, dwattrid, pbattr, cbattrlen);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcard;
     (void)dwattrid;
     (void)pbattr;
     (void)cbattrlen;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2805,12 +3618,19 @@ static Napi::Value windowssys_windows_win32_security_credentials_sCardSetCardTyp
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SCardSetCardTypeProviderNameA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcontext, szcardname, dwproviderid, szprovider) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcontext, szcardname, dwproviderid, szprovider);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)szcardname;
     (void)dwproviderid;
     (void)szprovider;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2829,12 +3649,19 @@ static Napi::Value windowssys_windows_win32_security_credentials_sCardSetCardTyp
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SCardSetCardTypeProviderNameW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcontext, szcardname, dwproviderid, szprovider) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcontext, szcardname, dwproviderid, szprovider);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)szcardname;
     (void)dwproviderid;
     (void)szprovider;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2854,13 +3681,20 @@ static Napi::Value windowssys_windows_win32_security_credentials_sCardState_napi
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SCardState")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcard, pdwstate, pdwprotocol, pbatr, pcbatrlen) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcard, pdwstate, pdwprotocol, pbatr, pcbatrlen);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcard;
     (void)pdwstate;
     (void)pdwprotocol;
     (void)pbatr;
     (void)pcbatrlen;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2882,7 +3716,13 @@ static Napi::Value windowssys_windows_win32_security_credentials_sCardStatusA_na
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SCardStatusA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcard, mszreadernames, pcchreaderlen, pdwstate, pdwprotocol, pbatr, pcbatrlen) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcard, mszreadernames, pcchreaderlen, pdwstate, pdwprotocol, pbatr, pcbatrlen);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcard;
     (void)mszreadernames;
@@ -2891,6 +3731,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_sCardStatusA_na
     (void)pdwprotocol;
     (void)pbatr;
     (void)pcbatrlen;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2912,7 +3753,13 @@ static Napi::Value windowssys_windows_win32_security_credentials_sCardStatusW_na
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SCardStatusW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcard, mszreadernames, pcchreaderlen, pdwstate, pdwprotocol, pbatr, pcbatrlen) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcard, mszreadernames, pcchreaderlen, pdwstate, pdwprotocol, pbatr, pcbatrlen);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcard;
     (void)mszreadernames;
@@ -2921,6 +3768,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_sCardStatusW_na
     (void)pdwprotocol;
     (void)pbatr;
     (void)pcbatrlen;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2942,7 +3790,13 @@ static Napi::Value windowssys_windows_win32_security_credentials_sCardTransmit_n
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SCardTransmit")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcard, piosendpci, pbsendbuffer, cbsendlength, piorecvpci, pbrecvbuffer, pcbrecvlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcard, piosendpci, pbsendbuffer, cbsendlength, piorecvpci, pbrecvbuffer, pcbrecvlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcard;
     (void)piosendpci;
@@ -2951,6 +3805,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_sCardTransmit_n
     (void)piorecvpci;
     (void)pbrecvbuffer;
     (void)pcbrecvlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2966,9 +3821,16 @@ static Napi::Value windowssys_windows_win32_security_credentials_sCardUIDlgSelec
         HMODULE km_h_mod = LoadLibraryA("scarddlg.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SCardUIDlgSelectCardA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)param0;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2984,9 +3846,16 @@ static Napi::Value windowssys_windows_win32_security_credentials_sCardUIDlgSelec
         HMODULE km_h_mod = LoadLibraryA("scarddlg.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SCardUIDlgSelectCardW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)param0;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3007,7 +3876,13 @@ static Napi::Value windowssys_windows_win32_security_credentials_sCardWriteCache
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SCardWriteCacheA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcontext, cardidentifier, freshnesscounter, lookupname, data, datalen) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcontext, cardidentifier, freshnesscounter, lookupname, data, datalen);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)cardidentifier;
@@ -3015,6 +3890,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_sCardWriteCache
     (void)lookupname;
     (void)data;
     (void)datalen;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3035,7 +3911,13 @@ static Napi::Value windowssys_windows_win32_security_credentials_sCardWriteCache
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SCardWriteCacheW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcontext, cardidentifier, freshnesscounter, lookupname, data, datalen) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcontext, cardidentifier, freshnesscounter, lookupname, data, datalen);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)cardidentifier;
@@ -3043,6 +3925,7 @@ static Napi::Value windowssys_windows_win32_security_credentials_sCardWriteCache
     (void)lookupname;
     (void)data;
     (void)datalen;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

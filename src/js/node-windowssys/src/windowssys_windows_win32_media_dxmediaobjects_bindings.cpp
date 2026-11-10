@@ -67,7 +67,13 @@ static Napi::Value windowssys_windows_win32_media_dxmediaobjects_dMOEnum_napi(co
         HMODULE km_h_mod = LoadLibraryA("msdmo.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DMOEnum")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(guidcategory, dwflags, cintypes, pintypes, couttypes, pouttypes, ppenum) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(guidcategory, dwflags, cintypes, pintypes, couttypes, pouttypes, ppenum);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)guidcategory;
     (void)dwflags;
@@ -76,6 +82,7 @@ static Napi::Value windowssys_windows_win32_media_dxmediaobjects_dMOEnum_napi(co
     (void)couttypes;
     (void)pouttypes;
     (void)ppenum;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -92,10 +99,17 @@ static Napi::Value windowssys_windows_win32_media_dxmediaobjects_dMOGetName_napi
         HMODULE km_h_mod = LoadLibraryA("msdmo.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DMOGetName")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(clsiddmo, szname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(clsiddmo, szname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)clsiddmo;
     (void)szname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -117,7 +131,13 @@ static Napi::Value windowssys_windows_win32_media_dxmediaobjects_dMOGetTypes_nap
         HMODULE km_h_mod = LoadLibraryA("msdmo.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DMOGetTypes")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(clsiddmo, ulinputtypesrequested, pulinputtypessupplied, pinputtypes, uloutputtypesrequested, puloutputtypessupplied, poutputtypes) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(clsiddmo, ulinputtypesrequested, pulinputtypessupplied, pinputtypes, uloutputtypesrequested, puloutputtypessupplied, poutputtypes);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)clsiddmo;
     (void)ulinputtypesrequested;
@@ -126,6 +146,7 @@ static Napi::Value windowssys_windows_win32_media_dxmediaobjects_dMOGetTypes_nap
     (void)uloutputtypesrequested;
     (void)puloutputtypessupplied;
     (void)poutputtypes;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -148,7 +169,13 @@ static Napi::Value windowssys_windows_win32_media_dxmediaobjects_dMORegister_nap
         HMODULE km_h_mod = LoadLibraryA("msdmo.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DMORegister")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szname, clsiddmo, guidcategory, dwflags, cintypes, pintypes, couttypes, pouttypes) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szname, clsiddmo, guidcategory, dwflags, cintypes, pintypes, couttypes, pouttypes);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)szname;
     (void)clsiddmo;
@@ -158,6 +185,7 @@ static Napi::Value windowssys_windows_win32_media_dxmediaobjects_dMORegister_nap
     (void)pintypes;
     (void)couttypes;
     (void)pouttypes;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -174,10 +202,17 @@ static Napi::Value windowssys_windows_win32_media_dxmediaobjects_dMOUnregister_n
         HMODULE km_h_mod = LoadLibraryA("msdmo.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DMOUnregister")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(clsiddmo, guidcategory) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(clsiddmo, guidcategory);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)clsiddmo;
     (void)guidcategory;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -194,10 +229,17 @@ static Napi::Value windowssys_windows_win32_media_dxmediaobjects_moCopyMediaType
         HMODULE km_h_mod = LoadLibraryA("msdmo.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MoCopyMediaType")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pmtdest, pmtsrc) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pmtdest, pmtsrc);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pmtdest;
     (void)pmtsrc;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -214,10 +256,17 @@ static Napi::Value windowssys_windows_win32_media_dxmediaobjects_moCreateMediaTy
         HMODULE km_h_mod = LoadLibraryA("msdmo.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MoCreateMediaType")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ppmt, cbformat) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ppmt, cbformat);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ppmt;
     (void)cbformat;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -233,9 +282,16 @@ static Napi::Value windowssys_windows_win32_media_dxmediaobjects_moDeleteMediaTy
         HMODULE km_h_mod = LoadLibraryA("msdmo.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MoDeleteMediaType")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pmt) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pmt);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pmt;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -252,10 +308,17 @@ static Napi::Value windowssys_windows_win32_media_dxmediaobjects_moDuplicateMedi
         HMODULE km_h_mod = LoadLibraryA("msdmo.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MoDuplicateMediaType")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ppmtdest, pmtsrc) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ppmtdest, pmtsrc);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ppmtdest;
     (void)pmtsrc;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -271,9 +334,16 @@ static Napi::Value windowssys_windows_win32_media_dxmediaobjects_moFreeMediaType
         HMODULE km_h_mod = LoadLibraryA("msdmo.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MoFreeMediaType")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pmt) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pmt);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pmt;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -290,10 +360,17 @@ static Napi::Value windowssys_windows_win32_media_dxmediaobjects_moInitMediaType
         HMODULE km_h_mod = LoadLibraryA("msdmo.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MoInitMediaType")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pmt, cbformat) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pmt, cbformat);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pmt;
     (void)cbformat;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

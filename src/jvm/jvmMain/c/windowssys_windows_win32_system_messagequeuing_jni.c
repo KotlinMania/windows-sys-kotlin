@@ -5,6 +5,7 @@
 #include <stdbool.h>
 #include <stddef.h>
 #include <stdint.h>
+#include <stdlib.h>
 #include <errno.h>
 #ifdef _WIN32
 #ifndef WIN32_LEAN_AND_MEAN
@@ -28,11 +29,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("mqrt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "MQADsPathToFormatName");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)lpwcsadspath, (void*)(uintptr_t)lpwcsformatname, (void*)(uintptr_t)lpdwformatnamelength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)lpwcsadspath, (void*)(uintptr_t)lpwcsformatname, (void*)(uintptr_t)lpdwformatnamelength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpwcsadspath;
     (void)lpwcsformatname;
     (void)lpdwformatnamelength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -48,9 +56,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("mqrt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "MQBeginTransaction");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pptransaction) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pptransaction);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pptransaction;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -66,9 +81,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("mqrt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "MQCloseCursor");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hcursor) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hcursor);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcursor;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -84,9 +106,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("mqrt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "MQCloseQueue");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)hqueue) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int64_t)hqueue);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hqueue;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -102,10 +131,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("mqrt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "MQCreateCursor");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)hqueue, (void*)(uintptr_t)phcursor) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int64_t)hqueue, (void*)(uintptr_t)phcursor);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hqueue;
     (void)phcursor;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -121,12 +157,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("mqrt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "MQCreateQueue");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)psecuritydescriptor, (void*)(uintptr_t)pqueueprops, (void*)(uintptr_t)lpwcsformatname, (void*)(uintptr_t)lpdwformatnamelength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)psecuritydescriptor, (void*)(uintptr_t)pqueueprops, (void*)(uintptr_t)lpwcsformatname, (void*)(uintptr_t)lpdwformatnamelength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)psecuritydescriptor;
     (void)pqueueprops;
     (void)lpwcsformatname;
     (void)lpdwformatnamelength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -142,9 +185,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("mqrt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "MQDeleteQueue");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)lpwcsformatname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)lpwcsformatname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpwcsformatname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -160,9 +210,14 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("mqrt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "MQFreeMemory");
     }
-    if (km_fn_ptr != NULL) km_fn_ptr((void*)(uintptr_t)pvmemory);
+    if (km_fn_ptr != NULL) {
+        km_fn_ptr((void*)(uintptr_t)pvmemory);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pvmemory;
+    errno = ENOSYS;
 #endif
 }
 
@@ -176,9 +231,14 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("mqrt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "MQFreeSecurityContext");
     }
-    if (km_fn_ptr != NULL) km_fn_ptr((void*)(uintptr_t)hsecuritycontext);
+    if (km_fn_ptr != NULL) {
+        km_fn_ptr((void*)(uintptr_t)hsecuritycontext);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)hsecuritycontext;
+    errno = ENOSYS;
 #endif
 }
 
@@ -192,11 +252,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("mqrt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "MQGetMachineProperties");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)lpwcsmachinename, (void*)(uintptr_t)pguidmachineid, (void*)(uintptr_t)pqmprops) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)lpwcsmachinename, (void*)(uintptr_t)pguidmachineid, (void*)(uintptr_t)pqmprops);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpwcsmachinename;
     (void)pguidmachineid;
     (void)pqmprops;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -212,9 +279,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("mqrt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "MQGetOverlappedResult");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)lpoverlapped) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)lpoverlapped);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpoverlapped;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -230,10 +304,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("mqrt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "MQGetPrivateComputerInformation");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)lpwcscomputername, (void*)(uintptr_t)pprivateprops) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)lpwcscomputername, (void*)(uintptr_t)pprivateprops);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpwcscomputername;
     (void)pprivateprops;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -249,10 +330,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("mqrt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "MQGetQueueProperties");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)lpwcsformatname, (void*)(uintptr_t)pqueueprops) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)lpwcsformatname, (void*)(uintptr_t)pqueueprops);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpwcsformatname;
     (void)pqueueprops;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -268,13 +356,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("mqrt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "MQGetQueueSecurity");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)lpwcsformatname, (uint32_t)requestedinformation, (void*)(uintptr_t)psecuritydescriptor, (uint32_t)nlength, (void*)(uintptr_t)lpnlengthneeded) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)lpwcsformatname, (uint32_t)requestedinformation, (void*)(uintptr_t)psecuritydescriptor, (uint32_t)nlength, (void*)(uintptr_t)lpnlengthneeded);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpwcsformatname;
     (void)requestedinformation;
     (void)psecuritydescriptor;
     (void)nlength;
     (void)lpnlengthneeded;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -290,11 +385,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("mqrt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "MQGetSecurityContext");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)lpcertbuffer, (uint32_t)dwcertbufferlength, (void*)(uintptr_t)phsecuritycontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)lpcertbuffer, (uint32_t)dwcertbufferlength, (void*)(uintptr_t)phsecuritycontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpcertbuffer;
     (void)dwcertbufferlength;
     (void)phsecuritycontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -310,11 +412,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("mqrt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "MQGetSecurityContextEx");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)lpcertbuffer, (uint32_t)dwcertbufferlength, (void*)(uintptr_t)phsecuritycontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)lpcertbuffer, (uint32_t)dwcertbufferlength, (void*)(uintptr_t)phsecuritycontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpcertbuffer;
     (void)dwcertbufferlength;
     (void)phsecuritycontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -330,11 +439,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("mqrt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "MQHandleToFormatName");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)hqueue, (void*)(uintptr_t)lpwcsformatname, (void*)(uintptr_t)lpdwformatnamelength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int64_t)hqueue, (void*)(uintptr_t)lpwcsformatname, (void*)(uintptr_t)lpdwformatnamelength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hqueue;
     (void)lpwcsformatname;
     (void)lpdwformatnamelength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -350,11 +466,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("mqrt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "MQInstanceToFormatName");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pguid, (void*)(uintptr_t)lpwcsformatname, (void*)(uintptr_t)lpdwformatnamelength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pguid, (void*)(uintptr_t)lpwcsformatname, (void*)(uintptr_t)lpdwformatnamelength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pguid;
     (void)lpwcsformatname;
     (void)lpdwformatnamelength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -370,13 +493,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("mqrt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "MQLocateBegin");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)lpwcscontext, (void*)(uintptr_t)prestriction, (void*)(uintptr_t)pcolumns, (void*)(uintptr_t)psort, (void*)(uintptr_t)phenum) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)lpwcscontext, (void*)(uintptr_t)prestriction, (void*)(uintptr_t)pcolumns, (void*)(uintptr_t)psort, (void*)(uintptr_t)phenum);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpwcscontext;
     (void)prestriction;
     (void)pcolumns;
     (void)psort;
     (void)phenum;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -392,9 +522,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("mqrt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "MQLocateEnd");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)henum) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)henum);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)henum;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -410,11 +547,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("mqrt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "MQLocateNext");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)henum, (void*)(uintptr_t)pcprops, (void*)(uintptr_t)apropvar) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)henum, (void*)(uintptr_t)pcprops, (void*)(uintptr_t)apropvar);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)henum;
     (void)pcprops;
     (void)apropvar;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -430,10 +574,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("mqrt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "MQMarkMessageRejected");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hqueue, (uint64_t)ulllookupid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hqueue, (uint64_t)ulllookupid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hqueue;
     (void)ulllookupid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -449,11 +600,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("mqrt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "MQMgmtAction");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pcomputername, (void*)(uintptr_t)pobjectname, (void*)(uintptr_t)paction) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pcomputername, (void*)(uintptr_t)pobjectname, (void*)(uintptr_t)paction);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pcomputername;
     (void)pobjectname;
     (void)paction;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -469,11 +627,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("mqrt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "MQMgmtGetInfo");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pcomputername, (void*)(uintptr_t)pobjectname, (void*)(uintptr_t)pmgmtprops) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pcomputername, (void*)(uintptr_t)pobjectname, (void*)(uintptr_t)pmgmtprops);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pcomputername;
     (void)pobjectname;
     (void)pmgmtprops;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -489,12 +654,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("mqrt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "MQMoveMessage");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)hsourcequeue, (int64_t)hdestinationqueue, (uint64_t)ulllookupid, (void*)(uintptr_t)ptransaction) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int64_t)hsourcequeue, (int64_t)hdestinationqueue, (uint64_t)ulllookupid, (void*)(uintptr_t)ptransaction);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hsourcequeue;
     (void)hdestinationqueue;
     (void)ulllookupid;
     (void)ptransaction;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -510,12 +682,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("mqrt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "MQOpenQueue");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)lpwcsformatname, (uint32_t)dwaccess, (uint32_t)dwsharemode, (void*)(uintptr_t)phqueue) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)lpwcsformatname, (uint32_t)dwaccess, (uint32_t)dwsharemode, (void*)(uintptr_t)phqueue);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpwcsformatname;
     (void)dwaccess;
     (void)dwsharemode;
     (void)phqueue;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -531,11 +710,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("mqrt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "MQPathNameToFormatName");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)lpwcspathname, (void*)(uintptr_t)lpwcsformatname, (void*)(uintptr_t)lpdwformatnamelength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)lpwcspathname, (void*)(uintptr_t)lpwcsformatname, (void*)(uintptr_t)lpdwformatnamelength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpwcspathname;
     (void)lpwcsformatname;
     (void)lpdwformatnamelength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -551,9 +737,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("mqrt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "MQPurgeQueue");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)hqueue) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int64_t)hqueue);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hqueue;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -569,7 +762,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("mqrt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "MQReceiveMessage");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)hsource, (uint32_t)dwtimeout, (uint32_t)dwaction, (void*)(uintptr_t)pmessageprops, (void*)(uintptr_t)lpoverlapped, (void*)(uintptr_t)fnreceivecallback, (void*)(uintptr_t)hcursor, (void*)(uintptr_t)ptransaction) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int64_t)hsource, (uint32_t)dwtimeout, (uint32_t)dwaction, (void*)(uintptr_t)pmessageprops, (void*)(uintptr_t)lpoverlapped, (void*)(uintptr_t)fnreceivecallback, (void*)(uintptr_t)hcursor, (void*)(uintptr_t)ptransaction);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hsource;
     (void)dwtimeout;
@@ -579,6 +778,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     (void)fnreceivecallback;
     (void)hcursor;
     (void)ptransaction;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -594,7 +794,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("mqrt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "MQReceiveMessageByLookupId");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)hsource, (uint64_t)ulllookupid, (uint32_t)dwlookupaction, (void*)(uintptr_t)pmessageprops, (void*)(uintptr_t)lpoverlapped, (void*)(uintptr_t)fnreceivecallback, (void*)(uintptr_t)ptransaction) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int64_t)hsource, (uint64_t)ulllookupid, (uint32_t)dwlookupaction, (void*)(uintptr_t)pmessageprops, (void*)(uintptr_t)lpoverlapped, (void*)(uintptr_t)fnreceivecallback, (void*)(uintptr_t)ptransaction);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hsource;
     (void)ulllookupid;
@@ -603,6 +809,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     (void)lpoverlapped;
     (void)fnreceivecallback;
     (void)ptransaction;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -618,11 +825,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("mqrt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "MQRegisterCertificate");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwflags, (void*)(uintptr_t)lpcertbuffer, (uint32_t)dwcertbufferlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwflags, (void*)(uintptr_t)lpcertbuffer, (uint32_t)dwcertbufferlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwflags;
     (void)lpcertbuffer;
     (void)dwcertbufferlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -638,11 +852,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("mqrt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "MQSendMessage");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)hdestinationqueue, (void*)(uintptr_t)pmessageprops, (void*)(uintptr_t)ptransaction) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int64_t)hdestinationqueue, (void*)(uintptr_t)pmessageprops, (void*)(uintptr_t)ptransaction);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdestinationqueue;
     (void)pmessageprops;
     (void)ptransaction;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -658,10 +879,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("mqrt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "MQSetQueueProperties");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)lpwcsformatname, (void*)(uintptr_t)pqueueprops) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)lpwcsformatname, (void*)(uintptr_t)pqueueprops);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpwcsformatname;
     (void)pqueueprops;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -677,11 +905,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("mqrt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "MQSetQueueSecurity");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)lpwcsformatname, (uint32_t)securityinformation, (void*)(uintptr_t)psecuritydescriptor) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)lpwcsformatname, (uint32_t)securityinformation, (void*)(uintptr_t)psecuritydescriptor);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpwcsformatname;
     (void)securityinformation;
     (void)psecuritydescriptor;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;

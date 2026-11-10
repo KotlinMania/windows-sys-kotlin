@@ -63,11 +63,18 @@ static Napi::Value windowssys_windows_win32_graphics_printing_addMonitorA_napi(c
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AddMonitorA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pname, level, pmonitors) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pname, level, pmonitors);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pname;
     (void)level;
     (void)pmonitors;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -85,11 +92,18 @@ static Napi::Value windowssys_windows_win32_graphics_printing_addMonitorW_napi(c
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AddMonitorW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pname, level, pmonitors) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pname, level, pmonitors);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pname;
     (void)level;
     (void)pmonitors;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -107,11 +121,18 @@ static Napi::Value windowssys_windows_win32_graphics_printing_addPortA_napi(cons
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AddPortA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pname, hwnd, pmonitorname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pname, hwnd, pmonitorname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pname;
     (void)hwnd;
     (void)pmonitorname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -129,11 +150,18 @@ static Napi::Value windowssys_windows_win32_graphics_printing_addPortW_napi(cons
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AddPortW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pname, hwnd, pmonitorname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pname, hwnd, pmonitorname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pname;
     (void)hwnd;
     (void)pmonitorname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -152,12 +180,19 @@ static Napi::Value windowssys_windows_win32_graphics_printing_addPrintProcessorA
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AddPrintProcessorA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pname, penvironment, ppathname, pprintprocessorname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pname, penvironment, ppathname, pprintprocessorname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pname;
     (void)penvironment;
     (void)ppathname;
     (void)pprintprocessorname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -176,12 +211,19 @@ static Napi::Value windowssys_windows_win32_graphics_printing_addPrintProcessorW
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AddPrintProcessorW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pname, penvironment, ppathname, pprintprocessorname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pname, penvironment, ppathname, pprintprocessorname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pname;
     (void)penvironment;
     (void)ppathname;
     (void)pprintprocessorname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -199,11 +241,18 @@ static Napi::Value windowssys_windows_win32_graphics_printing_addPrintProvidorA_
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AddPrintProvidorA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pname, level, pprovidorinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pname, level, pprovidorinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pname;
     (void)level;
     (void)pprovidorinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -221,11 +270,18 @@ static Napi::Value windowssys_windows_win32_graphics_printing_addPrintProvidorW_
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AddPrintProvidorW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pname, level, pprovidorinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pname, level, pprovidorinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pname;
     (void)level;
     (void)pprovidorinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -243,12 +299,19 @@ static Napi::Value windowssys_windows_win32_graphics_printing_addPrinterA_napi(c
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AddPrinterA")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pname, level, pprinter) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pname, level, pprinter);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pname;
     (void)level;
     (void)pprinter;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -266,12 +329,19 @@ static Napi::Value windowssys_windows_win32_graphics_printing_addPrinterConnecti
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AddPrinterConnection2A")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, pszname, dwlevel, pconnectioninfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, pszname, dwlevel, pconnectioninfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)pszname;
     (void)dwlevel;
     (void)pconnectioninfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -290,12 +360,19 @@ static Napi::Value windowssys_windows_win32_graphics_printing_addPrinterConnecti
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AddPrinterConnection2W")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, pszname, dwlevel, pconnectioninfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, pszname, dwlevel, pconnectioninfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)pszname;
     (void)dwlevel;
     (void)pconnectioninfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -311,9 +388,16 @@ static Napi::Value windowssys_windows_win32_graphics_printing_addPrinterConnecti
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AddPrinterConnectionA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -329,9 +413,16 @@ static Napi::Value windowssys_windows_win32_graphics_printing_addPrinterConnecti
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AddPrinterConnectionW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -349,11 +440,18 @@ static Napi::Value windowssys_windows_win32_graphics_printing_addPrinterDriverA_
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AddPrinterDriverA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pname, level, pdriverinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pname, level, pdriverinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pname;
     (void)level;
     (void)pdriverinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -372,12 +470,19 @@ static Napi::Value windowssys_windows_win32_graphics_printing_addPrinterDriverEx
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AddPrinterDriverExA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pname, level, lpbdriverinfo, dwfilecopyflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pname, level, lpbdriverinfo, dwfilecopyflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pname;
     (void)level;
     (void)lpbdriverinfo;
     (void)dwfilecopyflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -396,12 +501,19 @@ static Napi::Value windowssys_windows_win32_graphics_printing_addPrinterDriverEx
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AddPrinterDriverExW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pname, level, lpbdriverinfo, dwfilecopyflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pname, level, lpbdriverinfo, dwfilecopyflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pname;
     (void)level;
     (void)lpbdriverinfo;
     (void)dwfilecopyflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -419,11 +531,18 @@ static Napi::Value windowssys_windows_win32_graphics_printing_addPrinterDriverW_
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AddPrinterDriverW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pname, level, pdriverinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pname, level, pdriverinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pname;
     (void)level;
     (void)pdriverinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -441,12 +560,19 @@ static Napi::Value windowssys_windows_win32_graphics_printing_addPrinterW_napi(c
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AddPrinterW")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pname, level, pprinter) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pname, level, pprinter);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pname;
     (void)level;
     (void)pprinter;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -463,11 +589,18 @@ static Napi::Value windowssys_windows_win32_graphics_printing_appendPrinterNotif
         HMODULE km_h_mod = LoadLibraryA("spoolss.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AppendPrinterNotifyInfoData")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pinfodest, pdatasrc, fdwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pinfodest, pdatasrc, fdwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pinfodest;
     (void)pdatasrc;
     (void)fdwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -487,13 +620,20 @@ static Napi::Value windowssys_windows_win32_graphics_printing_callRouterFindFirs
         HMODULE km_h_mod = LoadLibraryA("spoolss.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CallRouterFindFirstPrinterChangeNotification")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprinterrpc, fdwfilterflags, fdwoptions, hnotify, pprinternotifyoptions) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprinterrpc, fdwfilterflags, fdwoptions, hnotify, pprinternotifyoptions);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hprinterrpc;
     (void)fdwfilterflags;
     (void)fdwoptions;
     (void)hnotify;
     (void)pprinternotifyoptions;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -512,12 +652,19 @@ static Napi::Value windowssys_windows_win32_graphics_printing_commonPropertyShee
         HMODULE km_h_mod = LoadLibraryA("compstui.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CommonPropertySheetUIA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwndowner, pfnpropsheetui, lparam, presult) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwndowner, pfnpropsheetui, lparam, presult);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwndowner;
     (void)pfnpropsheetui;
     (void)lparam;
     (void)presult;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -536,12 +683,19 @@ static Napi::Value windowssys_windows_win32_graphics_printing_commonPropertyShee
         HMODULE km_h_mod = LoadLibraryA("compstui.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CommonPropertySheetUIW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwndowner, pfnpropsheetui, lparam, presult) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwndowner, pfnpropsheetui, lparam, presult);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwndowner;
     (void)pfnpropsheetui;
     (void)lparam;
     (void)presult;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -559,11 +713,18 @@ static Napi::Value windowssys_windows_win32_graphics_printing_configurePortA_nap
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ConfigurePortA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pname, hwnd, pportname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pname, hwnd, pportname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pname;
     (void)hwnd;
     (void)pportname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -581,11 +742,18 @@ static Napi::Value windowssys_windows_win32_graphics_printing_configurePortW_nap
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ConfigurePortW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pname, hwnd, pportname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pname, hwnd, pportname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pname;
     (void)hwnd;
     (void)pportname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -602,11 +770,18 @@ static Napi::Value windowssys_windows_win32_graphics_printing_connectToPrinterDl
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ConnectToPrinterDlg")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, flags) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hwnd;
     (void)flags;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -626,7 +801,13 @@ static Napi::Value windowssys_windows_win32_graphics_printing_createPrintAsyncNo
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreatePrintAsyncNotifyChannel")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszname, pnotificationtype, euserfilter, econversationstyle, pcallback, ppiasynchnotification) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszname, pnotificationtype, euserfilter, econversationstyle, pcallback, ppiasynchnotification);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszname;
     (void)pnotificationtype;
@@ -634,6 +815,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_createPrintAsyncNo
     (void)econversationstyle;
     (void)pcallback;
     (void)ppiasynchnotification;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -651,11 +833,18 @@ static Napi::Value windowssys_windows_win32_graphics_printing_deleteMonitorA_nap
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DeleteMonitorA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pname, penvironment, pmonitorname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pname, penvironment, pmonitorname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pname;
     (void)penvironment;
     (void)pmonitorname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -673,11 +862,18 @@ static Napi::Value windowssys_windows_win32_graphics_printing_deleteMonitorW_nap
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DeleteMonitorW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pname, penvironment, pmonitorname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pname, penvironment, pmonitorname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pname;
     (void)penvironment;
     (void)pmonitorname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -695,11 +891,18 @@ static Napi::Value windowssys_windows_win32_graphics_printing_deletePortA_napi(c
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DeletePortA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pname, hwnd, pportname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pname, hwnd, pportname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pname;
     (void)hwnd;
     (void)pportname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -717,11 +920,18 @@ static Napi::Value windowssys_windows_win32_graphics_printing_deletePortW_napi(c
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DeletePortW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pname, hwnd, pportname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pname, hwnd, pportname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pname;
     (void)hwnd;
     (void)pportname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -739,11 +949,18 @@ static Napi::Value windowssys_windows_win32_graphics_printing_deletePrintProcess
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DeletePrintProcessorA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pname, penvironment, pprintprocessorname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pname, penvironment, pprintprocessorname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pname;
     (void)penvironment;
     (void)pprintprocessorname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -761,11 +978,18 @@ static Napi::Value windowssys_windows_win32_graphics_printing_deletePrintProcess
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DeletePrintProcessorW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pname, penvironment, pprintprocessorname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pname, penvironment, pprintprocessorname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pname;
     (void)penvironment;
     (void)pprintprocessorname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -783,11 +1007,18 @@ static Napi::Value windowssys_windows_win32_graphics_printing_deletePrintProvido
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DeletePrintProvidorA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pname, penvironment, pprintprovidorname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pname, penvironment, pprintprovidorname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pname;
     (void)penvironment;
     (void)pprintprovidorname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -805,11 +1036,18 @@ static Napi::Value windowssys_windows_win32_graphics_printing_deletePrintProvido
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DeletePrintProvidorW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pname, penvironment, pprintprovidorname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pname, penvironment, pprintprovidorname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pname;
     (void)penvironment;
     (void)pprintprovidorname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -825,9 +1063,16 @@ static Napi::Value windowssys_windows_win32_graphics_printing_deletePrinterConne
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DeletePrinterConnectionA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -843,9 +1088,16 @@ static Napi::Value windowssys_windows_win32_graphics_printing_deletePrinterConne
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DeletePrinterConnectionW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -863,11 +1115,18 @@ static Napi::Value windowssys_windows_win32_graphics_printing_deletePrinterDrive
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DeletePrinterDriverA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pname, penvironment, pdrivername) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pname, penvironment, pdrivername);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pname;
     (void)penvironment;
     (void)pdrivername;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -887,13 +1146,20 @@ static Napi::Value windowssys_windows_win32_graphics_printing_deletePrinterDrive
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DeletePrinterDriverExA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pname, penvironment, pdrivername, dwdeleteflag, dwversionflag) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pname, penvironment, pdrivername, dwdeleteflag, dwversionflag);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pname;
     (void)penvironment;
     (void)pdrivername;
     (void)dwdeleteflag;
     (void)dwversionflag;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -913,13 +1179,20 @@ static Napi::Value windowssys_windows_win32_graphics_printing_deletePrinterDrive
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DeletePrinterDriverExW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pname, penvironment, pdrivername, dwdeleteflag, dwversionflag) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pname, penvironment, pdrivername, dwdeleteflag, dwversionflag);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pname;
     (void)penvironment;
     (void)pdrivername;
     (void)dwdeleteflag;
     (void)dwversionflag;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -937,11 +1210,18 @@ static Napi::Value windowssys_windows_win32_graphics_printing_deletePrinterDrive
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DeletePrinterDriverPackageA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszserver, pszinfpath, pszenvironment) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszserver, pszinfpath, pszenvironment);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszserver;
     (void)pszinfpath;
     (void)pszenvironment;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -959,11 +1239,18 @@ static Napi::Value windowssys_windows_win32_graphics_printing_deletePrinterDrive
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DeletePrinterDriverPackageW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszserver, pszinfpath, pszenvironment) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszserver, pszinfpath, pszenvironment);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszserver;
     (void)pszinfpath;
     (void)pszenvironment;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -981,11 +1268,18 @@ static Napi::Value windowssys_windows_win32_graphics_printing_deletePrinterDrive
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DeletePrinterDriverW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pname, penvironment, pdrivername) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pname, penvironment, pdrivername);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pname;
     (void)penvironment;
     (void)pdrivername;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1001,9 +1295,16 @@ static Napi::Value windowssys_windows_win32_graphics_printing_deletePrinterIC_na
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DeletePrinterIC")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprinteric) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprinteric);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprinteric;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1019,9 +1320,16 @@ static Napi::Value windowssys_windows_win32_graphics_printing_devQueryPrintEx_na
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DevQueryPrintEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pdqpinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pdqpinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pdqpinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1042,7 +1350,13 @@ static Napi::Value windowssys_windows_win32_graphics_printing_enumMonitorsA_napi
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EnumMonitorsA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pname, level, pmonitor, cbbuf, pcbneeded, pcreturned) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pname, level, pmonitor, cbbuf, pcbneeded, pcreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pname;
     (void)level;
@@ -1050,6 +1364,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_enumMonitorsA_napi
     (void)cbbuf;
     (void)pcbneeded;
     (void)pcreturned;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1070,7 +1385,13 @@ static Napi::Value windowssys_windows_win32_graphics_printing_enumMonitorsW_napi
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EnumMonitorsW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pname, level, pmonitor, cbbuf, pcbneeded, pcreturned) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pname, level, pmonitor, cbbuf, pcbneeded, pcreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pname;
     (void)level;
@@ -1078,6 +1399,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_enumMonitorsW_napi
     (void)cbbuf;
     (void)pcbneeded;
     (void)pcreturned;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1098,7 +1420,13 @@ static Napi::Value windowssys_windows_win32_graphics_printing_enumPortsA_napi(co
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EnumPortsA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pname, level, pport, cbbuf, pcbneeded, pcreturned) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pname, level, pport, cbbuf, pcbneeded, pcreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pname;
     (void)level;
@@ -1106,6 +1434,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_enumPortsA_napi(co
     (void)cbbuf;
     (void)pcbneeded;
     (void)pcreturned;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1126,7 +1455,13 @@ static Napi::Value windowssys_windows_win32_graphics_printing_enumPortsW_napi(co
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EnumPortsW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pname, level, pport, cbbuf, pcbneeded, pcreturned) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pname, level, pport, cbbuf, pcbneeded, pcreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pname;
     (void)level;
@@ -1134,6 +1469,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_enumPortsW_napi(co
     (void)cbbuf;
     (void)pcbneeded;
     (void)pcreturned;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1155,7 +1491,13 @@ static Napi::Value windowssys_windows_win32_graphics_printing_enumPrintProcessor
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EnumPrintProcessorDatatypesA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pname, pprintprocessorname, level, pdatatypes, cbbuf, pcbneeded, pcreturned) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pname, pprintprocessorname, level, pdatatypes, cbbuf, pcbneeded, pcreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pname;
     (void)pprintprocessorname;
@@ -1164,6 +1506,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_enumPrintProcessor
     (void)cbbuf;
     (void)pcbneeded;
     (void)pcreturned;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1185,7 +1528,13 @@ static Napi::Value windowssys_windows_win32_graphics_printing_enumPrintProcessor
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EnumPrintProcessorDatatypesW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pname, pprintprocessorname, level, pdatatypes, cbbuf, pcbneeded, pcreturned) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pname, pprintprocessorname, level, pdatatypes, cbbuf, pcbneeded, pcreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pname;
     (void)pprintprocessorname;
@@ -1194,6 +1543,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_enumPrintProcessor
     (void)cbbuf;
     (void)pcbneeded;
     (void)pcreturned;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1215,7 +1565,13 @@ static Napi::Value windowssys_windows_win32_graphics_printing_enumPrintProcessor
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EnumPrintProcessorsA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pname, penvironment, level, pprintprocessorinfo, cbbuf, pcbneeded, pcreturned) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pname, penvironment, level, pprintprocessorinfo, cbbuf, pcbneeded, pcreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pname;
     (void)penvironment;
@@ -1224,6 +1580,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_enumPrintProcessor
     (void)cbbuf;
     (void)pcbneeded;
     (void)pcreturned;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1245,7 +1602,13 @@ static Napi::Value windowssys_windows_win32_graphics_printing_enumPrintProcessor
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EnumPrintProcessorsW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pname, penvironment, level, pprintprocessorinfo, cbbuf, pcbneeded, pcreturned) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pname, penvironment, level, pprintprocessorinfo, cbbuf, pcbneeded, pcreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pname;
     (void)penvironment;
@@ -1254,6 +1617,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_enumPrintProcessor
     (void)cbbuf;
     (void)pcbneeded;
     (void)pcreturned;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1275,7 +1639,13 @@ static Napi::Value windowssys_windows_win32_graphics_printing_enumPrinterDrivers
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EnumPrinterDriversA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pname, penvironment, level, pdriverinfo, cbbuf, pcbneeded, pcreturned) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pname, penvironment, level, pdriverinfo, cbbuf, pcbneeded, pcreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pname;
     (void)penvironment;
@@ -1284,6 +1654,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_enumPrinterDrivers
     (void)cbbuf;
     (void)pcbneeded;
     (void)pcreturned;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1305,7 +1676,13 @@ static Napi::Value windowssys_windows_win32_graphics_printing_enumPrinterDrivers
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EnumPrinterDriversW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pname, penvironment, level, pdriverinfo, cbbuf, pcbneeded, pcreturned) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pname, penvironment, level, pdriverinfo, cbbuf, pcbneeded, pcreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pname;
     (void)penvironment;
@@ -1314,6 +1691,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_enumPrinterDrivers
     (void)cbbuf;
     (void)pcbneeded;
     (void)pcreturned;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1335,7 +1713,13 @@ static Napi::Value windowssys_windows_win32_graphics_printing_enumPrintersA_napi
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EnumPrintersA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(flags, name, level, pprinterenum, cbbuf, pcbneeded, pcreturned) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(flags, name, level, pprinterenum, cbbuf, pcbneeded, pcreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)flags;
     (void)name;
@@ -1344,6 +1728,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_enumPrintersA_napi
     (void)cbbuf;
     (void)pcbneeded;
     (void)pcreturned;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1365,7 +1750,13 @@ static Napi::Value windowssys_windows_win32_graphics_printing_enumPrintersW_napi
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EnumPrintersW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(flags, name, level, pprinterenum, cbbuf, pcbneeded, pcreturned) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(flags, name, level, pprinterenum, cbbuf, pcbneeded, pcreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)flags;
     (void)name;
@@ -1374,6 +1765,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_enumPrintersW_napi
     (void)cbbuf;
     (void)pcbneeded;
     (void)pcreturned;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1396,7 +1788,13 @@ static Napi::Value windowssys_windows_win32_graphics_printing_extDeviceMode_napi
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ExtDeviceMode")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, hinst, pdevmodeoutput, pdevicename, pport, pdevmodeinput, pprofile, fmode) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, hinst, pdevmodeoutput, pdevicename, pport, pdevmodeinput, pprofile, fmode);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)hinst;
@@ -1406,6 +1804,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_extDeviceMode_napi
     (void)pdevmodeinput;
     (void)pprofile;
     (void)fmode;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1421,9 +1820,16 @@ static Napi::Value windowssys_windows_win32_graphics_printing_findClosePrinterCh
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FindClosePrinterChangeNotification")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hchange) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hchange);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hchange;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1442,12 +1848,19 @@ static Napi::Value windowssys_windows_win32_graphics_printing_findNextPrinterCha
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FindNextPrinterChangeNotification")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hchange, pdwchange, pvreserved, ppprinternotifyinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hchange, pdwchange, pvreserved, ppprinternotifyinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hchange;
     (void)pdwchange;
     (void)pvreserved;
     (void)ppprinternotifyinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1464,10 +1877,15 @@ static Napi::Value windowssys_windows_win32_graphics_printing_freePrintNamedProp
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FreePrintNamedPropertyArray")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(cproperties, ppproperties);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(cproperties, ppproperties);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)cproperties;
     (void)ppproperties;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -1482,9 +1900,14 @@ static Napi::Value windowssys_windows_win32_graphics_printing_freePrintPropertyV
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FreePrintPropertyValue")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pvalue);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pvalue);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pvalue;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -1499,9 +1922,16 @@ static Napi::Value windowssys_windows_win32_graphics_printing_freePrinterNotifyI
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FreePrinterNotifyInfo")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pprinternotifyinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pprinternotifyinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pprinternotifyinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1517,9 +1947,16 @@ static Napi::Value windowssys_windows_win32_graphics_printing_gdiDeleteSpoolFile
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GdiDeleteSpoolFileHandle")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(spoolfilehandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(spoolfilehandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)spoolfilehandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1535,9 +1972,16 @@ static Napi::Value windowssys_windows_win32_graphics_printing_gdiEndDocEMF_napi(
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GdiEndDocEMF")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(spoolfilehandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(spoolfilehandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)spoolfilehandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1554,10 +1998,17 @@ static Napi::Value windowssys_windows_win32_graphics_printing_gdiEndPageEMF_napi
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GdiEndPageEMF")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(spoolfilehandle, dwoptimization) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(spoolfilehandle, dwoptimization);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)spoolfilehandle;
     (void)dwoptimization;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1573,10 +2024,17 @@ static Napi::Value windowssys_windows_win32_graphics_printing_gdiGetDC_napi(cons
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GdiGetDC")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(spoolfilehandle) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(spoolfilehandle);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)spoolfilehandle;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1594,12 +2052,19 @@ static Napi::Value windowssys_windows_win32_graphics_printing_gdiGetDevmodeForPa
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GdiGetDevmodeForPage")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(spoolfilehandle, dwpagenumber, pcurrdm, plastdm) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(spoolfilehandle, dwpagenumber, pcurrdm, plastdm);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)spoolfilehandle;
     (void)dwpagenumber;
     (void)pcurrdm;
     (void)plastdm;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1615,9 +2080,16 @@ static Napi::Value windowssys_windows_win32_graphics_printing_gdiGetPageCount_na
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GdiGetPageCount")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(spoolfilehandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(spoolfilehandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)spoolfilehandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1635,12 +2107,19 @@ static Napi::Value windowssys_windows_win32_graphics_printing_gdiGetPageHandle_n
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GdiGetPageHandle")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(spoolfilehandle, page, pdwpagetype) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(spoolfilehandle, page, pdwpagetype);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)spoolfilehandle;
     (void)page;
     (void)pdwpagetype;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1657,12 +2136,19 @@ static Napi::Value windowssys_windows_win32_graphics_printing_gdiGetSpoolFileHan
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GdiGetSpoolFileHandle")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pwszprintername, pdevmode, pwszdocname) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pwszprintername, pdevmode, pwszdocname);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pwszprintername;
     (void)pdevmode;
     (void)pwszdocname;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1681,13 +2167,20 @@ static Napi::Value windowssys_windows_win32_graphics_printing_gdiPlayPageEMF_nap
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GdiPlayPageEMF")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(spoolfilehandle, hemf, prectdocument, prectborder, prectclip) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(spoolfilehandle, hemf, prectdocument, prectborder, prectclip);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)spoolfilehandle;
     (void)hemf;
     (void)prectdocument;
     (void)prectborder;
     (void)prectclip;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1704,10 +2197,17 @@ static Napi::Value windowssys_windows_win32_graphics_printing_gdiResetDCEMF_napi
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GdiResetDCEMF")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(spoolfilehandle, pcurrdm) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(spoolfilehandle, pcurrdm);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)spoolfilehandle;
     (void)pcurrdm;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1724,10 +2224,17 @@ static Napi::Value windowssys_windows_win32_graphics_printing_gdiStartDocEMF_nap
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GdiStartDocEMF")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(spoolfilehandle, pdocinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(spoolfilehandle, pdocinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)spoolfilehandle;
     (void)pdocinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1743,9 +2250,16 @@ static Napi::Value windowssys_windows_win32_graphics_printing_gdiStartPageEMF_na
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GdiStartPageEMF")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(spoolfilehandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(spoolfilehandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)spoolfilehandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1769,7 +2283,13 @@ static Napi::Value windowssys_windows_win32_graphics_printing_generateCopyFilePa
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GenerateCopyFilePaths")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszprintername, pszdirectory, psplclientinfo, dwlevel, pszsourcedir, pcchsourcedirsize, psztargetdir, pcchtargetdirsize, dwflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszprintername, pszdirectory, psplclientinfo, dwlevel, pszsourcedir, pcchsourcedirsize, psztargetdir, pcchtargetdirsize, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pszprintername;
     (void)pszdirectory;
@@ -1780,6 +2300,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_generateCopyFilePa
     (void)psztargetdir;
     (void)pcchtargetdirsize;
     (void)dwflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1795,9 +2316,16 @@ static Napi::Value windowssys_windows_win32_graphics_printing_getCPSUIUserData_n
         HMODULE km_h_mod = LoadLibraryA("compstui.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetCPSUIUserData")));
     }
-    uint64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdlg) : 0;
+    uint64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdlg);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hdlg;
+    errno = ENOSYS;
     uint64_t km_res = 0;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
@@ -1817,13 +2345,20 @@ static Napi::Value windowssys_windows_win32_graphics_printing_getCorePrinterDriv
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetCorePrinterDriversA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszserver, pszenvironment, pszzcoredriverdependencies, ccoreprinterdrivers, pcoreprinterdrivers) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszserver, pszenvironment, pszzcoredriverdependencies, ccoreprinterdrivers, pcoreprinterdrivers);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszserver;
     (void)pszenvironment;
     (void)pszzcoredriverdependencies;
     (void)ccoreprinterdrivers;
     (void)pcoreprinterdrivers;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1843,13 +2378,20 @@ static Napi::Value windowssys_windows_win32_graphics_printing_getCorePrinterDriv
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetCorePrinterDriversW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszserver, pszenvironment, pszzcoredriverdependencies, ccoreprinterdrivers, pcoreprinterdrivers) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszserver, pszenvironment, pszzcoredriverdependencies, ccoreprinterdrivers, pcoreprinterdrivers);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszserver;
     (void)pszenvironment;
     (void)pszzcoredriverdependencies;
     (void)ccoreprinterdrivers;
     (void)pcoreprinterdrivers;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1866,10 +2408,17 @@ static Napi::Value windowssys_windows_win32_graphics_printing_getDefaultPrinterA
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetDefaultPrinterA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszbuffer, pcchbuffer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszbuffer, pcchbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszbuffer;
     (void)pcchbuffer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1886,10 +2435,17 @@ static Napi::Value windowssys_windows_win32_graphics_printing_getDefaultPrinterW
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetDefaultPrinterW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszbuffer, pcchbuffer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszbuffer, pcchbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszbuffer;
     (void)pcchbuffer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1907,11 +2463,18 @@ static Napi::Value windowssys_windows_win32_graphics_printing_getJobAttributes_n
         HMODULE km_h_mod = LoadLibraryA("spoolss.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetJobAttributes")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pprintername, pdevmode, pattributeinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pprintername, pdevmode, pattributeinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pprintername;
     (void)pdevmode;
     (void)pattributeinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1932,7 +2495,13 @@ static Napi::Value windowssys_windows_win32_graphics_printing_getJobAttributesEx
         HMODULE km_h_mod = LoadLibraryA("spoolss.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetJobAttributesEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pprintername, pdevmode, dwlevel, pattributeinfo, nsize, dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pprintername, pdevmode, dwlevel, pattributeinfo, nsize, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pprintername;
     (void)pdevmode;
@@ -1940,6 +2509,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_getJobAttributesEx
     (void)pattributeinfo;
     (void)nsize;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1955,9 +2525,16 @@ static Napi::Value windowssys_windows_win32_graphics_printing_getPrintExecutionD
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetPrintExecutionData")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pdata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pdata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pdata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1976,12 +2553,19 @@ static Napi::Value windowssys_windows_win32_graphics_printing_getPrintOutputInfo
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetPrintOutputInfo")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, pszprinter, phfile, ppszoutputfile) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, pszprinter, phfile, ppszoutputfile);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)pszprinter;
     (void)phfile;
     (void)ppszoutputfile;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2002,7 +2586,13 @@ static Napi::Value windowssys_windows_win32_graphics_printing_getPrintProcessorD
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetPrintProcessorDirectoryA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pname, penvironment, level, pprintprocessorinfo, cbbuf, pcbneeded) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pname, penvironment, level, pprintprocessorinfo, cbbuf, pcbneeded);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pname;
     (void)penvironment;
@@ -2010,6 +2600,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_getPrintProcessorD
     (void)pprintprocessorinfo;
     (void)cbbuf;
     (void)pcbneeded;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2030,7 +2621,13 @@ static Napi::Value windowssys_windows_win32_graphics_printing_getPrintProcessorD
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetPrintProcessorDirectoryW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pname, penvironment, level, pprintprocessorinfo, cbbuf, pcbneeded) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pname, penvironment, level, pprintprocessorinfo, cbbuf, pcbneeded);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pname;
     (void)penvironment;
@@ -2038,6 +2635,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_getPrintProcessorD
     (void)pprintprocessorinfo;
     (void)cbbuf;
     (void)pcbneeded;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2058,7 +2656,13 @@ static Napi::Value windowssys_windows_win32_graphics_printing_getPrinterDriverDi
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetPrinterDriverDirectoryA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pname, penvironment, level, pdriverdirectory, cbbuf, pcbneeded) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pname, penvironment, level, pdriverdirectory, cbbuf, pcbneeded);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pname;
     (void)penvironment;
@@ -2066,6 +2670,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_getPrinterDriverDi
     (void)pdriverdirectory;
     (void)cbbuf;
     (void)pcbneeded;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2086,7 +2691,13 @@ static Napi::Value windowssys_windows_win32_graphics_printing_getPrinterDriverDi
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetPrinterDriverDirectoryW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pname, penvironment, level, pdriverdirectory, cbbuf, pcbneeded) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pname, penvironment, level, pdriverdirectory, cbbuf, pcbneeded);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pname;
     (void)penvironment;
@@ -2094,6 +2705,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_getPrinterDriverDi
     (void)pdriverdirectory;
     (void)cbbuf;
     (void)pcbneeded;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2115,7 +2727,13 @@ static Napi::Value windowssys_windows_win32_graphics_printing_getPrinterDriverPa
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetPrinterDriverPackagePathA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszserver, pszenvironment, pszlanguage, pszpackageid, pszdriverpackagecab, cchdriverpackagecab, pcchrequiredsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszserver, pszenvironment, pszlanguage, pszpackageid, pszdriverpackagecab, cchdriverpackagecab, pcchrequiredsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszserver;
     (void)pszenvironment;
@@ -2124,6 +2742,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_getPrinterDriverPa
     (void)pszdriverpackagecab;
     (void)cchdriverpackagecab;
     (void)pcchrequiredsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2145,7 +2764,13 @@ static Napi::Value windowssys_windows_win32_graphics_printing_getPrinterDriverPa
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetPrinterDriverPackagePathW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszserver, pszenvironment, pszlanguage, pszpackageid, pszdriverpackagecab, cchdriverpackagecab, pcchrequiredsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszserver, pszenvironment, pszlanguage, pszpackageid, pszdriverpackagecab, cchdriverpackagecab, pcchrequiredsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszserver;
     (void)pszenvironment;
@@ -2154,6 +2779,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_getPrinterDriverPa
     (void)pszdriverpackagecab;
     (void)cchdriverpackagecab;
     (void)pcchrequiredsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2169,9 +2795,16 @@ static Napi::Value windowssys_windows_win32_graphics_printing_impersonatePrinter
         HMODULE km_h_mod = LoadLibraryA("spoolss.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ImpersonatePrinterClient")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(htoken) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(htoken);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)htoken;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2191,13 +2824,20 @@ static Napi::Value windowssys_windows_win32_graphics_printing_installPrinterDriv
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InstallPrinterDriverFromPackageA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszserver, pszinfpath, pszdrivername, pszenvironment, dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszserver, pszinfpath, pszdrivername, pszenvironment, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszserver;
     (void)pszinfpath;
     (void)pszdrivername;
     (void)pszenvironment;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2217,13 +2857,20 @@ static Napi::Value windowssys_windows_win32_graphics_printing_installPrinterDriv
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InstallPrinterDriverFromPackageW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszserver, pszinfpath, pszdrivername, pszenvironment, dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszserver, pszinfpath, pszdrivername, pszenvironment, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszserver;
     (void)pszinfpath;
     (void)pszdrivername;
     (void)pszenvironment;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2240,10 +2887,17 @@ static Napi::Value windowssys_windows_win32_graphics_printing_isValidDevmodeA_na
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IsValidDevmodeA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pdevmode, devmodesize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pdevmode, devmodesize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pdevmode;
     (void)devmodesize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2260,10 +2914,17 @@ static Napi::Value windowssys_windows_win32_graphics_printing_isValidDevmodeW_na
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IsValidDevmodeW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pdevmode, devmodesize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pdevmode, devmodesize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pdevmode;
     (void)devmodesize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2282,12 +2943,19 @@ static Napi::Value windowssys_windows_win32_graphics_printing_openPrinter2A_napi
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OpenPrinter2A")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pprintername, phprinter, pdefault, poptions) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pprintername, phprinter, pdefault, poptions);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pprintername;
     (void)phprinter;
     (void)pdefault;
     (void)poptions;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2306,12 +2974,19 @@ static Napi::Value windowssys_windows_win32_graphics_printing_openPrinter2W_napi
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OpenPrinter2W")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pprintername, phprinter, pdefault, poptions) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pprintername, phprinter, pdefault, poptions);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pprintername;
     (void)phprinter;
     (void)pdefault;
     (void)poptions;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2329,11 +3004,18 @@ static Napi::Value windowssys_windows_win32_graphics_printing_openPrinterA_napi(
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OpenPrinterA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pprintername, phprinter, pdefault) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pprintername, phprinter, pdefault);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pprintername;
     (void)phprinter;
     (void)pdefault;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2351,11 +3033,18 @@ static Napi::Value windowssys_windows_win32_graphics_printing_openPrinterW_napi(
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OpenPrinterW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pprintername, phprinter, pdefault) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pprintername, phprinter, pdefault);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pprintername;
     (void)phprinter;
     (void)pdefault;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2376,7 +3065,13 @@ static Napi::Value windowssys_windows_win32_graphics_printing_playGdiScriptOnPri
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PlayGdiScriptOnPrinterIC")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprinteric, pin, cin, pout, cout, ul) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprinteric, pin, cin, pout, cout, ul);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprinteric;
     (void)pin;
@@ -2384,6 +3079,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_playGdiScriptOnPri
     (void)pout;
     (void)cout;
     (void)ul;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2404,7 +3100,13 @@ static Napi::Value windowssys_windows_win32_graphics_printing_registerForPrintAs
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegisterForPrintAsyncNotifications")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszname, pnotificationtype, euserfilter, econversationstyle, pcallback, phnotify) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszname, pnotificationtype, euserfilter, econversationstyle, pcallback, phnotify);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszname;
     (void)pnotificationtype;
@@ -2412,6 +3114,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_registerForPrintAs
     (void)econversationstyle;
     (void)pcallback;
     (void)phnotify;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2427,9 +3130,16 @@ static Napi::Value windowssys_windows_win32_graphics_printing_removePrintDeviceO
         HMODULE km_h_mod = LoadLibraryA("spoolss.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RemovePrintDeviceObject")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdeviceobject) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdeviceobject);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdeviceobject;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2449,13 +3159,20 @@ static Napi::Value windowssys_windows_win32_graphics_printing_replyPrinterChange
         HMODULE km_h_mod = LoadLibraryA("spoolss.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ReplyPrinterChangeNotificationEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hnotify, dwcolor, fdwflags, pdwresult, pprinternotifyinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hnotify, dwcolor, fdwflags, pdwresult, pprinternotifyinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hnotify;
     (void)dwcolor;
     (void)fdwflags;
     (void)pdwresult;
     (void)pprinternotifyinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2474,12 +3191,19 @@ static Napi::Value windowssys_windows_win32_graphics_printing_reportJobProcessin
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ReportJobProcessingProgress")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(printerhandle, jobid, joboperation, jobprogress) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(printerhandle, jobid, joboperation, jobprogress);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)printerhandle;
     (void)jobid;
     (void)joboperation;
     (void)jobprogress;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2494,9 +3218,16 @@ static Napi::Value windowssys_windows_win32_graphics_printing_revertToPrinterSel
         HMODULE km_h_mod = LoadLibraryA("spoolss.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RevertToPrinterSelf")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -2511,10 +3242,17 @@ static Napi::Value windowssys_windows_win32_graphics_printing_routerAllocBidiMem
         HMODULE km_h_mod = LoadLibraryA("spoolss.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RouterAllocBidiMem")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(numbytes) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(numbytes);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)numbytes;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -2529,10 +3267,17 @@ static Napi::Value windowssys_windows_win32_graphics_printing_routerAllocBidiRes
         HMODULE km_h_mod = LoadLibraryA("spoolss.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RouterAllocBidiResponseContainer")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(count) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(count);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)count;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -2547,10 +3292,17 @@ static Napi::Value windowssys_windows_win32_graphics_printing_routerAllocPrinter
         HMODULE km_h_mod = LoadLibraryA("spoolss.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RouterAllocPrinterNotifyInfo")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(cprinternotifyinfodata) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(cprinternotifyinfodata);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)cprinternotifyinfodata;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -2565,9 +3317,14 @@ static Napi::Value windowssys_windows_win32_graphics_printing_routerFreeBidiMem_
         HMODULE km_h_mod = LoadLibraryA("spoolss.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RouterFreeBidiMem")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pmempointer);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pmempointer);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pmempointer;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -2582,9 +3339,16 @@ static Napi::Value windowssys_windows_win32_graphics_printing_routerFreeBidiResp
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RouterFreeBidiResponseContainer")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pdata) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pdata);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pdata;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2600,9 +3364,16 @@ static Napi::Value windowssys_windows_win32_graphics_printing_routerFreePrinterN
         HMODULE km_h_mod = LoadLibraryA("spoolss.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RouterFreePrinterNotifyInfo")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2619,10 +3390,17 @@ static Napi::Value windowssys_windows_win32_graphics_printing_setCPSUIUserData_n
         HMODULE km_h_mod = LoadLibraryA("compstui.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetCPSUIUserData")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdlg, cpsuiuserdata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdlg, cpsuiuserdata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdlg;
     (void)cpsuiuserdata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2638,9 +3416,16 @@ static Napi::Value windowssys_windows_win32_graphics_printing_setDefaultPrinterA
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetDefaultPrinterA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszprinter) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszprinter);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszprinter;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2656,9 +3441,16 @@ static Napi::Value windowssys_windows_win32_graphics_printing_setDefaultPrinterW
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetDefaultPrinterW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszprinter) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszprinter);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszprinter;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2677,12 +3469,19 @@ static Napi::Value windowssys_windows_win32_graphics_printing_setPortA_napi(cons
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetPortA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pname, pportname, dwlevel, pportinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pname, pportname, dwlevel, pportinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pname;
     (void)pportname;
     (void)dwlevel;
     (void)pportinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2701,12 +3500,19 @@ static Napi::Value windowssys_windows_win32_graphics_printing_setPortW_napi(cons
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetPortW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pname, pportname, dwlevel, pportinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pname, pportname, dwlevel, pportinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pname;
     (void)pportname;
     (void)dwlevel;
     (void)pportinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2724,11 +3530,18 @@ static Napi::Value windowssys_windows_win32_graphics_printing_spoolerCopyFileEve
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SpoolerCopyFileEvent")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszprintername, pszkey, dwcopyfileevent) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszprintername, pszkey, dwcopyfileevent);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszprintername;
     (void)pszkey;
     (void)dwcopyfileevent;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2744,9 +3557,14 @@ static Napi::Value windowssys_windows_win32_graphics_printing_spoolerFreePrinter
         HMODULE km_h_mod = LoadLibraryA("spoolss.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SpoolerFreePrinterNotifyInfo")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pinfo);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pinfo);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pinfo;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -2761,9 +3579,16 @@ static Napi::Value windowssys_windows_win32_graphics_printing_unRegisterForPrint
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UnRegisterForPrintAsyncNotifications")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)param0;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2785,7 +3610,13 @@ static Napi::Value windowssys_windows_win32_graphics_printing_uploadPrinterDrive
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UploadPrinterDriverPackageA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszserver, pszinfpath, pszenvironment, dwflags, hwnd, pszdestinfpath, pcchdestinfpath) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszserver, pszinfpath, pszenvironment, dwflags, hwnd, pszdestinfpath, pcchdestinfpath);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszserver;
     (void)pszinfpath;
@@ -2794,6 +3625,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_uploadPrinterDrive
     (void)hwnd;
     (void)pszdestinfpath;
     (void)pcchdestinfpath;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2815,7 +3647,13 @@ static Napi::Value windowssys_windows_win32_graphics_printing_uploadPrinterDrive
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UploadPrinterDriverPackageW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszserver, pszinfpath, pszenvironment, dwflags, hwnd, pszdestinfpath, pcchdestinfpath) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszserver, pszinfpath, pszenvironment, dwflags, hwnd, pszdestinfpath, pcchdestinfpath);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszserver;
     (void)pszinfpath;
@@ -2824,6 +3662,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_uploadPrinterDrive
     (void)hwnd;
     (void)pszdestinfpath;
     (void)pcchdestinfpath;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2846,7 +3685,13 @@ static Napi::Value windowssys_windows_win32_graphics_printing_xcvDataW_napi(cons
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "XcvDataW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hxcv, pszdataname, pinputdata, cbinputdata, poutputdata, cboutputdata, pcboutputneeded, pdwstatus) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hxcv, pszdataname, pinputdata, cbinputdata, poutputdata, cboutputdata, pcboutputneeded, pdwstatus);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hxcv;
     (void)pszdataname;
@@ -2856,6 +3701,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_xcvDataW_napi(cons
     (void)cboutputdata;
     (void)pcboutputneeded;
     (void)pdwstatus;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

@@ -70,7 +70,13 @@ static Napi::Value windowssys_windows_win32_system_registry_getRegistryValueWith
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-core-state-helpers-l1-1-0.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetRegistryValueWithFallbackW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkeyprimary, pwszprimarysubkey, hkeyfallback, pwszfallbacksubkey, pwszvalue, dwflags, pdwtype, pvdata, cbdatain, pcbdataout) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkeyprimary, pwszprimarysubkey, hkeyfallback, pwszfallbacksubkey, pwszvalue, dwflags, pdwtype, pvdata, cbdatain, pcbdataout);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hkeyprimary;
     (void)pwszprimarysubkey;
@@ -82,6 +88,7 @@ static Napi::Value windowssys_windows_win32_system_registry_getRegistryValueWith
     (void)pvdata;
     (void)cbdatain;
     (void)pcbdataout;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -97,9 +104,16 @@ static Napi::Value windowssys_windows_win32_system_registry_regCloseKey_napi(con
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegCloseKey")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkey) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkey);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hkey;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -117,11 +131,18 @@ static Napi::Value windowssys_windows_win32_system_registry_regConnectRegistryA_
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegConnectRegistryA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpmachinename, hkey, phkresult) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpmachinename, hkey, phkresult);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpmachinename;
     (void)hkey;
     (void)phkresult;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -140,12 +161,19 @@ static Napi::Value windowssys_windows_win32_system_registry_regConnectRegistryEx
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegConnectRegistryExA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpmachinename, hkey, flags, phkresult) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpmachinename, hkey, flags, phkresult);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpmachinename;
     (void)hkey;
     (void)flags;
     (void)phkresult;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -164,12 +192,19 @@ static Napi::Value windowssys_windows_win32_system_registry_regConnectRegistryEx
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegConnectRegistryExW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpmachinename, hkey, flags, phkresult) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpmachinename, hkey, flags, phkresult);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpmachinename;
     (void)hkey;
     (void)flags;
     (void)phkresult;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -187,11 +222,18 @@ static Napi::Value windowssys_windows_win32_system_registry_regConnectRegistryW_
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegConnectRegistryW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpmachinename, hkey, phkresult) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpmachinename, hkey, phkresult);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpmachinename;
     (void)hkey;
     (void)phkresult;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -209,11 +251,18 @@ static Napi::Value windowssys_windows_win32_system_registry_regCopyTreeA_napi(co
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegCopyTreeA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkeysrc, lpsubkey, hkeydest) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkeysrc, lpsubkey, hkeydest);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hkeysrc;
     (void)lpsubkey;
     (void)hkeydest;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -231,11 +280,18 @@ static Napi::Value windowssys_windows_win32_system_registry_regCopyTreeW_napi(co
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegCopyTreeW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkeysrc, lpsubkey, hkeydest) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkeysrc, lpsubkey, hkeydest);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hkeysrc;
     (void)lpsubkey;
     (void)hkeydest;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -253,11 +309,18 @@ static Napi::Value windowssys_windows_win32_system_registry_regCreateKeyA_napi(c
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegCreateKeyA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkey, lpsubkey, phkresult) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkey, lpsubkey, phkresult);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hkey;
     (void)lpsubkey;
     (void)phkresult;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -281,7 +344,13 @@ static Napi::Value windowssys_windows_win32_system_registry_regCreateKeyExA_napi
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegCreateKeyExA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkey, lpsubkey, reserved, lpclass, dwoptions, samdesired, lpsecurityattributes, phkresult, lpdwdisposition) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkey, lpsubkey, reserved, lpclass, dwoptions, samdesired, lpsecurityattributes, phkresult, lpdwdisposition);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hkey;
     (void)lpsubkey;
@@ -292,6 +361,7 @@ static Napi::Value windowssys_windows_win32_system_registry_regCreateKeyExA_napi
     (void)lpsecurityattributes;
     (void)phkresult;
     (void)lpdwdisposition;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -315,7 +385,13 @@ static Napi::Value windowssys_windows_win32_system_registry_regCreateKeyExW_napi
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegCreateKeyExW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkey, lpsubkey, reserved, lpclass, dwoptions, samdesired, lpsecurityattributes, phkresult, lpdwdisposition) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkey, lpsubkey, reserved, lpclass, dwoptions, samdesired, lpsecurityattributes, phkresult, lpdwdisposition);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hkey;
     (void)lpsubkey;
@@ -326,6 +402,7 @@ static Napi::Value windowssys_windows_win32_system_registry_regCreateKeyExW_napi
     (void)lpsecurityattributes;
     (void)phkresult;
     (void)lpdwdisposition;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -351,7 +428,13 @@ static Napi::Value windowssys_windows_win32_system_registry_regCreateKeyTransact
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegCreateKeyTransactedA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkey, lpsubkey, reserved, lpclass, dwoptions, samdesired, lpsecurityattributes, phkresult, lpdwdisposition, htransaction, pextendedparemeter) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkey, lpsubkey, reserved, lpclass, dwoptions, samdesired, lpsecurityattributes, phkresult, lpdwdisposition, htransaction, pextendedparemeter);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hkey;
     (void)lpsubkey;
@@ -364,6 +447,7 @@ static Napi::Value windowssys_windows_win32_system_registry_regCreateKeyTransact
     (void)lpdwdisposition;
     (void)htransaction;
     (void)pextendedparemeter;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -389,7 +473,13 @@ static Napi::Value windowssys_windows_win32_system_registry_regCreateKeyTransact
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegCreateKeyTransactedW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkey, lpsubkey, reserved, lpclass, dwoptions, samdesired, lpsecurityattributes, phkresult, lpdwdisposition, htransaction, pextendedparemeter) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkey, lpsubkey, reserved, lpclass, dwoptions, samdesired, lpsecurityattributes, phkresult, lpdwdisposition, htransaction, pextendedparemeter);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hkey;
     (void)lpsubkey;
@@ -402,6 +492,7 @@ static Napi::Value windowssys_windows_win32_system_registry_regCreateKeyTransact
     (void)lpdwdisposition;
     (void)htransaction;
     (void)pextendedparemeter;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -419,11 +510,18 @@ static Napi::Value windowssys_windows_win32_system_registry_regCreateKeyW_napi(c
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegCreateKeyW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkey, lpsubkey, phkresult) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkey, lpsubkey, phkresult);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hkey;
     (void)lpsubkey;
     (void)phkresult;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -440,10 +538,17 @@ static Napi::Value windowssys_windows_win32_system_registry_regDeleteKeyA_napi(c
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegDeleteKeyA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkey, lpsubkey) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkey, lpsubkey);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hkey;
     (void)lpsubkey;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -462,12 +567,19 @@ static Napi::Value windowssys_windows_win32_system_registry_regDeleteKeyExA_napi
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegDeleteKeyExA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkey, lpsubkey, samdesired, reserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkey, lpsubkey, samdesired, reserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hkey;
     (void)lpsubkey;
     (void)samdesired;
     (void)reserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -486,12 +598,19 @@ static Napi::Value windowssys_windows_win32_system_registry_regDeleteKeyExW_napi
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegDeleteKeyExW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkey, lpsubkey, samdesired, reserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkey, lpsubkey, samdesired, reserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hkey;
     (void)lpsubkey;
     (void)samdesired;
     (void)reserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -512,7 +631,13 @@ static Napi::Value windowssys_windows_win32_system_registry_regDeleteKeyTransact
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegDeleteKeyTransactedA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkey, lpsubkey, samdesired, reserved, htransaction, pextendedparameter) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkey, lpsubkey, samdesired, reserved, htransaction, pextendedparameter);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hkey;
     (void)lpsubkey;
@@ -520,6 +645,7 @@ static Napi::Value windowssys_windows_win32_system_registry_regDeleteKeyTransact
     (void)reserved;
     (void)htransaction;
     (void)pextendedparameter;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -540,7 +666,13 @@ static Napi::Value windowssys_windows_win32_system_registry_regDeleteKeyTransact
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegDeleteKeyTransactedW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkey, lpsubkey, samdesired, reserved, htransaction, pextendedparameter) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkey, lpsubkey, samdesired, reserved, htransaction, pextendedparameter);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hkey;
     (void)lpsubkey;
@@ -548,6 +680,7 @@ static Napi::Value windowssys_windows_win32_system_registry_regDeleteKeyTransact
     (void)reserved;
     (void)htransaction;
     (void)pextendedparameter;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -565,11 +698,18 @@ static Napi::Value windowssys_windows_win32_system_registry_regDeleteKeyValueA_n
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegDeleteKeyValueA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkey, lpsubkey, lpvaluename) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkey, lpsubkey, lpvaluename);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hkey;
     (void)lpsubkey;
     (void)lpvaluename;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -587,11 +727,18 @@ static Napi::Value windowssys_windows_win32_system_registry_regDeleteKeyValueW_n
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegDeleteKeyValueW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkey, lpsubkey, lpvaluename) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkey, lpsubkey, lpvaluename);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hkey;
     (void)lpsubkey;
     (void)lpvaluename;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -608,10 +755,17 @@ static Napi::Value windowssys_windows_win32_system_registry_regDeleteKeyW_napi(c
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegDeleteKeyW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkey, lpsubkey) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkey, lpsubkey);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hkey;
     (void)lpsubkey;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -628,10 +782,17 @@ static Napi::Value windowssys_windows_win32_system_registry_regDeleteTreeA_napi(
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegDeleteTreeA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkey, lpsubkey) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkey, lpsubkey);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hkey;
     (void)lpsubkey;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -648,10 +809,17 @@ static Napi::Value windowssys_windows_win32_system_registry_regDeleteTreeW_napi(
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegDeleteTreeW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkey, lpsubkey) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkey, lpsubkey);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hkey;
     (void)lpsubkey;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -668,10 +836,17 @@ static Napi::Value windowssys_windows_win32_system_registry_regDeleteValueA_napi
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegDeleteValueA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkey, lpvaluename) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkey, lpvaluename);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hkey;
     (void)lpvaluename;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -688,10 +863,17 @@ static Napi::Value windowssys_windows_win32_system_registry_regDeleteValueW_napi
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegDeleteValueW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkey, lpvaluename) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkey, lpvaluename);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hkey;
     (void)lpvaluename;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -706,8 +888,15 @@ static Napi::Value windowssys_windows_win32_system_registry_regDisablePredefined
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegDisablePredefinedCache")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -722,8 +911,15 @@ static Napi::Value windowssys_windows_win32_system_registry_regDisablePredefined
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegDisablePredefinedCacheEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -739,9 +935,16 @@ static Napi::Value windowssys_windows_win32_system_registry_regDisableReflection
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegDisableReflectionKey")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hbase) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hbase);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hbase;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -757,9 +960,16 @@ static Napi::Value windowssys_windows_win32_system_registry_regEnableReflectionK
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegEnableReflectionKey")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hbase) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hbase);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hbase;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -778,12 +988,19 @@ static Napi::Value windowssys_windows_win32_system_registry_regEnumKeyA_napi(con
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegEnumKeyA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkey, dwindex, lpname, cchname) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkey, dwindex, lpname, cchname);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hkey;
     (void)dwindex;
     (void)lpname;
     (void)cchname;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -806,7 +1023,13 @@ static Napi::Value windowssys_windows_win32_system_registry_regEnumKeyExA_napi(c
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegEnumKeyExA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkey, dwindex, lpname, lpcchname, lpreserved, lpclass, lpcchclass, lpftlastwritetime) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkey, dwindex, lpname, lpcchname, lpreserved, lpclass, lpcchclass, lpftlastwritetime);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hkey;
     (void)dwindex;
@@ -816,6 +1039,7 @@ static Napi::Value windowssys_windows_win32_system_registry_regEnumKeyExA_napi(c
     (void)lpclass;
     (void)lpcchclass;
     (void)lpftlastwritetime;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -838,7 +1062,13 @@ static Napi::Value windowssys_windows_win32_system_registry_regEnumKeyExW_napi(c
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegEnumKeyExW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkey, dwindex, lpname, lpcchname, lpreserved, lpclass, lpcchclass, lpftlastwritetime) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkey, dwindex, lpname, lpcchname, lpreserved, lpclass, lpcchclass, lpftlastwritetime);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hkey;
     (void)dwindex;
@@ -848,6 +1078,7 @@ static Napi::Value windowssys_windows_win32_system_registry_regEnumKeyExW_napi(c
     (void)lpclass;
     (void)lpcchclass;
     (void)lpftlastwritetime;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -866,12 +1097,19 @@ static Napi::Value windowssys_windows_win32_system_registry_regEnumKeyW_napi(con
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegEnumKeyW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkey, dwindex, lpname, cchname) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkey, dwindex, lpname, cchname);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hkey;
     (void)dwindex;
     (void)lpname;
     (void)cchname;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -894,7 +1132,13 @@ static Napi::Value windowssys_windows_win32_system_registry_regEnumValueA_napi(c
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegEnumValueA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkey, dwindex, lpvaluename, lpcchvaluename, lpreserved, lptype, lpdata, lpcbdata) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkey, dwindex, lpvaluename, lpcchvaluename, lpreserved, lptype, lpdata, lpcbdata);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hkey;
     (void)dwindex;
@@ -904,6 +1148,7 @@ static Napi::Value windowssys_windows_win32_system_registry_regEnumValueA_napi(c
     (void)lptype;
     (void)lpdata;
     (void)lpcbdata;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -926,7 +1171,13 @@ static Napi::Value windowssys_windows_win32_system_registry_regEnumValueW_napi(c
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegEnumValueW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkey, dwindex, lpvaluename, lpcchvaluename, lpreserved, lptype, lpdata, lpcbdata) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkey, dwindex, lpvaluename, lpcchvaluename, lpreserved, lptype, lpdata, lpcbdata);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hkey;
     (void)dwindex;
@@ -936,6 +1187,7 @@ static Napi::Value windowssys_windows_win32_system_registry_regEnumValueW_napi(c
     (void)lptype;
     (void)lpdata;
     (void)lpcbdata;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -951,9 +1203,16 @@ static Napi::Value windowssys_windows_win32_system_registry_regFlushKey_napi(con
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegFlushKey")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkey) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkey);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hkey;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -972,12 +1231,19 @@ static Napi::Value windowssys_windows_win32_system_registry_regGetKeySecurity_na
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegGetKeySecurity")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkey, securityinformation, psecuritydescriptor, lpcbsecuritydescriptor) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkey, securityinformation, psecuritydescriptor, lpcbsecuritydescriptor);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hkey;
     (void)securityinformation;
     (void)psecuritydescriptor;
     (void)lpcbsecuritydescriptor;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -999,7 +1265,13 @@ static Napi::Value windowssys_windows_win32_system_registry_regGetValueA_napi(co
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegGetValueA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkey, lpsubkey, lpvalue, dwflags, pdwtype, pvdata, pcbdata) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkey, lpsubkey, lpvalue, dwflags, pdwtype, pvdata, pcbdata);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hkey;
     (void)lpsubkey;
@@ -1008,6 +1280,7 @@ static Napi::Value windowssys_windows_win32_system_registry_regGetValueA_napi(co
     (void)pdwtype;
     (void)pvdata;
     (void)pcbdata;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1029,7 +1302,13 @@ static Napi::Value windowssys_windows_win32_system_registry_regGetValueW_napi(co
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegGetValueW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkey, lpsubkey, lpvalue, dwflags, pdwtype, pvdata, pcbdata) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkey, lpsubkey, lpvalue, dwflags, pdwtype, pvdata, pcbdata);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hkey;
     (void)lpsubkey;
@@ -1038,6 +1317,7 @@ static Napi::Value windowssys_windows_win32_system_registry_regGetValueW_napi(co
     (void)pdwtype;
     (void)pvdata;
     (void)pcbdata;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1057,13 +1337,20 @@ static Napi::Value windowssys_windows_win32_system_registry_regLoadAppKeyA_napi(
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegLoadAppKeyA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpfile, phkresult, samdesired, dwoptions, reserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpfile, phkresult, samdesired, dwoptions, reserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpfile;
     (void)phkresult;
     (void)samdesired;
     (void)dwoptions;
     (void)reserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1083,13 +1370,20 @@ static Napi::Value windowssys_windows_win32_system_registry_regLoadAppKeyW_napi(
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegLoadAppKeyW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpfile, phkresult, samdesired, dwoptions, reserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpfile, phkresult, samdesired, dwoptions, reserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpfile;
     (void)phkresult;
     (void)samdesired;
     (void)dwoptions;
     (void)reserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1107,11 +1401,18 @@ static Napi::Value windowssys_windows_win32_system_registry_regLoadKeyA_napi(con
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegLoadKeyA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkey, lpsubkey, lpfile) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkey, lpsubkey, lpfile);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hkey;
     (void)lpsubkey;
     (void)lpfile;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1129,11 +1430,18 @@ static Napi::Value windowssys_windows_win32_system_registry_regLoadKeyW_napi(con
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegLoadKeyW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkey, lpsubkey, lpfile) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkey, lpsubkey, lpfile);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hkey;
     (void)lpsubkey;
     (void)lpfile;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1155,7 +1463,13 @@ static Napi::Value windowssys_windows_win32_system_registry_regLoadMUIStringA_na
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegLoadMUIStringA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkey, pszvalue, pszoutbuf, cboutbuf, pcbdata, flags, pszdirectory) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkey, pszvalue, pszoutbuf, cboutbuf, pcbdata, flags, pszdirectory);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hkey;
     (void)pszvalue;
@@ -1164,6 +1478,7 @@ static Napi::Value windowssys_windows_win32_system_registry_regLoadMUIStringA_na
     (void)pcbdata;
     (void)flags;
     (void)pszdirectory;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1185,7 +1500,13 @@ static Napi::Value windowssys_windows_win32_system_registry_regLoadMUIStringW_na
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegLoadMUIStringW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkey, pszvalue, pszoutbuf, cboutbuf, pcbdata, flags, pszdirectory) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkey, pszvalue, pszoutbuf, cboutbuf, pcbdata, flags, pszdirectory);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hkey;
     (void)pszvalue;
@@ -1194,6 +1515,7 @@ static Napi::Value windowssys_windows_win32_system_registry_regLoadMUIStringW_na
     (void)pcbdata;
     (void)flags;
     (void)pszdirectory;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1213,13 +1535,20 @@ static Napi::Value windowssys_windows_win32_system_registry_regNotifyChangeKeyVa
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegNotifyChangeKeyValue")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkey, bwatchsubtree, dwnotifyfilter, hevent, fasynchronous) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkey, bwatchsubtree, dwnotifyfilter, hevent, fasynchronous);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hkey;
     (void)bwatchsubtree;
     (void)dwnotifyfilter;
     (void)hevent;
     (void)fasynchronous;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1236,10 +1565,17 @@ static Napi::Value windowssys_windows_win32_system_registry_regOpenCurrentUser_n
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegOpenCurrentUser")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(samdesired, phkresult) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(samdesired, phkresult);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)samdesired;
     (void)phkresult;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1257,11 +1593,18 @@ static Napi::Value windowssys_windows_win32_system_registry_regOpenKeyA_napi(con
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegOpenKeyA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkey, lpsubkey, phkresult) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkey, lpsubkey, phkresult);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hkey;
     (void)lpsubkey;
     (void)phkresult;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1281,13 +1624,20 @@ static Napi::Value windowssys_windows_win32_system_registry_regOpenKeyExA_napi(c
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegOpenKeyExA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkey, lpsubkey, uloptions, samdesired, phkresult) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkey, lpsubkey, uloptions, samdesired, phkresult);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hkey;
     (void)lpsubkey;
     (void)uloptions;
     (void)samdesired;
     (void)phkresult;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1307,13 +1657,20 @@ static Napi::Value windowssys_windows_win32_system_registry_regOpenKeyExW_napi(c
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegOpenKeyExW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkey, lpsubkey, uloptions, samdesired, phkresult) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkey, lpsubkey, uloptions, samdesired, phkresult);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hkey;
     (void)lpsubkey;
     (void)uloptions;
     (void)samdesired;
     (void)phkresult;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1335,7 +1692,13 @@ static Napi::Value windowssys_windows_win32_system_registry_regOpenKeyTransacted
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegOpenKeyTransactedA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkey, lpsubkey, uloptions, samdesired, phkresult, htransaction, pextendedparemeter) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkey, lpsubkey, uloptions, samdesired, phkresult, htransaction, pextendedparemeter);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hkey;
     (void)lpsubkey;
@@ -1344,6 +1707,7 @@ static Napi::Value windowssys_windows_win32_system_registry_regOpenKeyTransacted
     (void)phkresult;
     (void)htransaction;
     (void)pextendedparemeter;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1365,7 +1729,13 @@ static Napi::Value windowssys_windows_win32_system_registry_regOpenKeyTransacted
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegOpenKeyTransactedW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkey, lpsubkey, uloptions, samdesired, phkresult, htransaction, pextendedparemeter) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkey, lpsubkey, uloptions, samdesired, phkresult, htransaction, pextendedparemeter);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hkey;
     (void)lpsubkey;
@@ -1374,6 +1744,7 @@ static Napi::Value windowssys_windows_win32_system_registry_regOpenKeyTransacted
     (void)phkresult;
     (void)htransaction;
     (void)pextendedparemeter;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1391,11 +1762,18 @@ static Napi::Value windowssys_windows_win32_system_registry_regOpenKeyW_napi(con
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegOpenKeyW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkey, lpsubkey, phkresult) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkey, lpsubkey, phkresult);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hkey;
     (void)lpsubkey;
     (void)phkresult;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1414,12 +1792,19 @@ static Napi::Value windowssys_windows_win32_system_registry_regOpenUserClassesRo
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegOpenUserClassesRoot")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(htoken, dwoptions, samdesired, phkresult) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(htoken, dwoptions, samdesired, phkresult);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)htoken;
     (void)dwoptions;
     (void)samdesired;
     (void)phkresult;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1436,10 +1821,17 @@ static Napi::Value windowssys_windows_win32_system_registry_regOverridePredefKey
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegOverridePredefKey")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkey, hnewhkey) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkey, hnewhkey);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hkey;
     (void)hnewhkey;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1466,7 +1858,13 @@ static Napi::Value windowssys_windows_win32_system_registry_regQueryInfoKeyA_nap
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegQueryInfoKeyA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkey, lpclass, lpcchclass, lpreserved, lpcsubkeys, lpcbmaxsubkeylen, lpcbmaxclasslen, lpcvalues, lpcbmaxvaluenamelen, lpcbmaxvaluelen, lpcbsecuritydescriptor, lpftlastwritetime) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkey, lpclass, lpcchclass, lpreserved, lpcsubkeys, lpcbmaxsubkeylen, lpcbmaxclasslen, lpcvalues, lpcbmaxvaluenamelen, lpcbmaxvaluelen, lpcbsecuritydescriptor, lpftlastwritetime);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hkey;
     (void)lpclass;
@@ -1480,6 +1878,7 @@ static Napi::Value windowssys_windows_win32_system_registry_regQueryInfoKeyA_nap
     (void)lpcbmaxvaluelen;
     (void)lpcbsecuritydescriptor;
     (void)lpftlastwritetime;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1506,7 +1905,13 @@ static Napi::Value windowssys_windows_win32_system_registry_regQueryInfoKeyW_nap
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegQueryInfoKeyW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkey, lpclass, lpcchclass, lpreserved, lpcsubkeys, lpcbmaxsubkeylen, lpcbmaxclasslen, lpcvalues, lpcbmaxvaluenamelen, lpcbmaxvaluelen, lpcbsecuritydescriptor, lpftlastwritetime) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkey, lpclass, lpcchclass, lpreserved, lpcsubkeys, lpcbmaxsubkeylen, lpcbmaxclasslen, lpcvalues, lpcbmaxvaluenamelen, lpcbmaxvaluelen, lpcbsecuritydescriptor, lpftlastwritetime);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hkey;
     (void)lpclass;
@@ -1520,6 +1925,7 @@ static Napi::Value windowssys_windows_win32_system_registry_regQueryInfoKeyW_nap
     (void)lpcbmaxvaluelen;
     (void)lpcbsecuritydescriptor;
     (void)lpftlastwritetime;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1539,13 +1945,20 @@ static Napi::Value windowssys_windows_win32_system_registry_regQueryMultipleValu
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegQueryMultipleValuesA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkey, val_list, num_vals, lpvaluebuf, ldwtotsize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkey, val_list, num_vals, lpvaluebuf, ldwtotsize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hkey;
     (void)val_list;
     (void)num_vals;
     (void)lpvaluebuf;
     (void)ldwtotsize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1565,13 +1978,20 @@ static Napi::Value windowssys_windows_win32_system_registry_regQueryMultipleValu
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegQueryMultipleValuesW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkey, val_list, num_vals, lpvaluebuf, ldwtotsize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkey, val_list, num_vals, lpvaluebuf, ldwtotsize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hkey;
     (void)val_list;
     (void)num_vals;
     (void)lpvaluebuf;
     (void)ldwtotsize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1588,10 +2008,17 @@ static Napi::Value windowssys_windows_win32_system_registry_regQueryReflectionKe
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegQueryReflectionKey")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hbase, bisreflectiondisabled) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hbase, bisreflectiondisabled);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hbase;
     (void)bisreflectiondisabled;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1610,12 +2037,19 @@ static Napi::Value windowssys_windows_win32_system_registry_regQueryValueA_napi(
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegQueryValueA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkey, lpsubkey, lpdata, lpcbdata) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkey, lpsubkey, lpdata, lpcbdata);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hkey;
     (void)lpsubkey;
     (void)lpdata;
     (void)lpcbdata;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1636,7 +2070,13 @@ static Napi::Value windowssys_windows_win32_system_registry_regQueryValueExA_nap
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegQueryValueExA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkey, lpvaluename, lpreserved, lptype, lpdata, lpcbdata) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkey, lpvaluename, lpreserved, lptype, lpdata, lpcbdata);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hkey;
     (void)lpvaluename;
@@ -1644,6 +2084,7 @@ static Napi::Value windowssys_windows_win32_system_registry_regQueryValueExA_nap
     (void)lptype;
     (void)lpdata;
     (void)lpcbdata;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1664,7 +2105,13 @@ static Napi::Value windowssys_windows_win32_system_registry_regQueryValueExW_nap
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegQueryValueExW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkey, lpvaluename, lpreserved, lptype, lpdata, lpcbdata) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkey, lpvaluename, lpreserved, lptype, lpdata, lpcbdata);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hkey;
     (void)lpvaluename;
@@ -1672,6 +2119,7 @@ static Napi::Value windowssys_windows_win32_system_registry_regQueryValueExW_nap
     (void)lptype;
     (void)lpdata;
     (void)lpcbdata;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1690,12 +2138,19 @@ static Napi::Value windowssys_windows_win32_system_registry_regQueryValueW_napi(
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegQueryValueW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkey, lpsubkey, lpdata, lpcbdata) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkey, lpsubkey, lpdata, lpcbdata);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hkey;
     (void)lpsubkey;
     (void)lpdata;
     (void)lpcbdata;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1713,11 +2168,18 @@ static Napi::Value windowssys_windows_win32_system_registry_regRenameKey_napi(co
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegRenameKey")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkey, lpsubkeyname, lpnewkeyname) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkey, lpsubkeyname, lpnewkeyname);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hkey;
     (void)lpsubkeyname;
     (void)lpnewkeyname;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1736,12 +2198,19 @@ static Napi::Value windowssys_windows_win32_system_registry_regReplaceKeyA_napi(
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegReplaceKeyA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkey, lpsubkey, lpnewfile, lpoldfile) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkey, lpsubkey, lpnewfile, lpoldfile);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hkey;
     (void)lpsubkey;
     (void)lpnewfile;
     (void)lpoldfile;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1760,12 +2229,19 @@ static Napi::Value windowssys_windows_win32_system_registry_regReplaceKeyW_napi(
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegReplaceKeyW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkey, lpsubkey, lpnewfile, lpoldfile) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkey, lpsubkey, lpnewfile, lpoldfile);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hkey;
     (void)lpsubkey;
     (void)lpnewfile;
     (void)lpoldfile;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1783,11 +2259,18 @@ static Napi::Value windowssys_windows_win32_system_registry_regRestoreKeyA_napi(
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegRestoreKeyA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkey, lpfile, dwflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkey, lpfile, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hkey;
     (void)lpfile;
     (void)dwflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1805,11 +2288,18 @@ static Napi::Value windowssys_windows_win32_system_registry_regRestoreKeyW_napi(
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegRestoreKeyW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkey, lpfile, dwflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkey, lpfile, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hkey;
     (void)lpfile;
     (void)dwflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1827,11 +2317,18 @@ static Napi::Value windowssys_windows_win32_system_registry_regSaveKeyA_napi(con
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegSaveKeyA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkey, lpfile, lpsecurityattributes) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkey, lpfile, lpsecurityattributes);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hkey;
     (void)lpfile;
     (void)lpsecurityattributes;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1850,12 +2347,19 @@ static Napi::Value windowssys_windows_win32_system_registry_regSaveKeyExA_napi(c
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegSaveKeyExA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkey, lpfile, lpsecurityattributes, flags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkey, lpfile, lpsecurityattributes, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hkey;
     (void)lpfile;
     (void)lpsecurityattributes;
     (void)flags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1874,12 +2378,19 @@ static Napi::Value windowssys_windows_win32_system_registry_regSaveKeyExW_napi(c
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegSaveKeyExW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkey, lpfile, lpsecurityattributes, flags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkey, lpfile, lpsecurityattributes, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hkey;
     (void)lpfile;
     (void)lpsecurityattributes;
     (void)flags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1897,11 +2408,18 @@ static Napi::Value windowssys_windows_win32_system_registry_regSaveKeyW_napi(con
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegSaveKeyW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkey, lpfile, lpsecurityattributes) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkey, lpfile, lpsecurityattributes);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hkey;
     (void)lpfile;
     (void)lpsecurityattributes;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1919,11 +2437,18 @@ static Napi::Value windowssys_windows_win32_system_registry_regSetKeySecurity_na
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegSetKeySecurity")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkey, securityinformation, psecuritydescriptor) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkey, securityinformation, psecuritydescriptor);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hkey;
     (void)securityinformation;
     (void)psecuritydescriptor;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1944,7 +2469,13 @@ static Napi::Value windowssys_windows_win32_system_registry_regSetKeyValueA_napi
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegSetKeyValueA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkey, lpsubkey, lpvaluename, dwtype, lpdata, cbdata) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkey, lpsubkey, lpvaluename, dwtype, lpdata, cbdata);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hkey;
     (void)lpsubkey;
@@ -1952,6 +2483,7 @@ static Napi::Value windowssys_windows_win32_system_registry_regSetKeyValueA_napi
     (void)dwtype;
     (void)lpdata;
     (void)cbdata;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1972,7 +2504,13 @@ static Napi::Value windowssys_windows_win32_system_registry_regSetKeyValueW_napi
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegSetKeyValueW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkey, lpsubkey, lpvaluename, dwtype, lpdata, cbdata) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkey, lpsubkey, lpvaluename, dwtype, lpdata, cbdata);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hkey;
     (void)lpsubkey;
@@ -1980,6 +2518,7 @@ static Napi::Value windowssys_windows_win32_system_registry_regSetKeyValueW_napi
     (void)dwtype;
     (void)lpdata;
     (void)cbdata;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1999,13 +2538,20 @@ static Napi::Value windowssys_windows_win32_system_registry_regSetValueA_napi(co
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegSetValueA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkey, lpsubkey, dwtype, lpdata, cbdata) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkey, lpsubkey, dwtype, lpdata, cbdata);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hkey;
     (void)lpsubkey;
     (void)dwtype;
     (void)lpdata;
     (void)cbdata;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2026,7 +2572,13 @@ static Napi::Value windowssys_windows_win32_system_registry_regSetValueExA_napi(
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegSetValueExA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkey, lpvaluename, reserved, dwtype, lpdata, cbdata) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkey, lpvaluename, reserved, dwtype, lpdata, cbdata);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hkey;
     (void)lpvaluename;
@@ -2034,6 +2586,7 @@ static Napi::Value windowssys_windows_win32_system_registry_regSetValueExA_napi(
     (void)dwtype;
     (void)lpdata;
     (void)cbdata;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2054,7 +2607,13 @@ static Napi::Value windowssys_windows_win32_system_registry_regSetValueExW_napi(
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegSetValueExW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkey, lpvaluename, reserved, dwtype, lpdata, cbdata) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkey, lpvaluename, reserved, dwtype, lpdata, cbdata);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hkey;
     (void)lpvaluename;
@@ -2062,6 +2621,7 @@ static Napi::Value windowssys_windows_win32_system_registry_regSetValueExW_napi(
     (void)dwtype;
     (void)lpdata;
     (void)cbdata;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2081,13 +2641,20 @@ static Napi::Value windowssys_windows_win32_system_registry_regSetValueW_napi(co
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegSetValueW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkey, lpsubkey, dwtype, lpdata, cbdata) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkey, lpsubkey, dwtype, lpdata, cbdata);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hkey;
     (void)lpsubkey;
     (void)dwtype;
     (void)lpdata;
     (void)cbdata;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2104,10 +2671,17 @@ static Napi::Value windowssys_windows_win32_system_registry_regUnLoadKeyA_napi(c
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegUnLoadKeyA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkey, lpsubkey) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkey, lpsubkey);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hkey;
     (void)lpsubkey;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2124,10 +2698,17 @@ static Napi::Value windowssys_windows_win32_system_registry_regUnLoadKeyW_napi(c
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegUnLoadKeyW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkey, lpsubkey) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkey, lpsubkey);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hkey;
     (void)lpsubkey;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

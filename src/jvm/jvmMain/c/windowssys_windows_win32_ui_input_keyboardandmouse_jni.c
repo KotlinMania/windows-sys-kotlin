@@ -5,6 +5,7 @@
 #include <stdbool.h>
 #include <stddef.h>
 #include <stdint.h>
+#include <stdlib.h>
 #include <errno.h>
 #ifdef _WIN32
 #ifndef WIN32_LEAN_AND_MEAN
@@ -28,10 +29,17 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_i
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ActivateKeyboardLayout");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hkl, (uint32_t)flags) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hkl, (uint32_t)flags);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)hkl;
     (void)flags;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -47,9 +55,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BlockInput");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int32_t)fblockit) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int32_t)fblockit);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)fblockit;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -65,10 +80,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "EnableWindow");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hwnd, (int32_t)benable) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hwnd, (int32_t)benable);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)benable;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -84,8 +106,15 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_i
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetActiveWindow");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr() : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -101,9 +130,16 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetAsyncKeyState");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int32_t)vkey) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int32_t)vkey);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)vkey;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -119,8 +155,15 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_i
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetCapture");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr() : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -136,8 +179,15 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetDoubleClickTime");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr() : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -153,8 +203,15 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_i
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetFocus");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr() : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -170,8 +227,15 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetKBCodePage");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr() : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -187,11 +251,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetKeyNameTextA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int32_t)lparam, (void*)(uintptr_t)lpstring, (int32_t)cchsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int32_t)lparam, (void*)(uintptr_t)lpstring, (int32_t)cchsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lparam;
     (void)lpstring;
     (void)cchsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -207,11 +278,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetKeyNameTextW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int32_t)lparam, (void*)(uintptr_t)lpstring, (int32_t)cchsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int32_t)lparam, (void*)(uintptr_t)lpstring, (int32_t)cchsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lparam;
     (void)lpstring;
     (void)cchsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -227,9 +305,16 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetKeyState");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int32_t)nvirtkey) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int32_t)nvirtkey);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)nvirtkey;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -245,9 +330,16 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_i
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetKeyboardLayout");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)idthread) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)idthread);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)idthread;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -263,10 +355,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetKeyboardLayoutList");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int32_t)nbuff, (void*)(uintptr_t)lplist) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int32_t)nbuff, (void*)(uintptr_t)lplist);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)nbuff;
     (void)lplist;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -282,9 +381,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetKeyboardLayoutNameA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pwszklid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pwszklid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pwszklid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -300,9 +406,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetKeyboardLayoutNameW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pwszklid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pwszklid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pwszklid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -318,9 +431,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetKeyboardState");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)lpkeystate) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)lpkeystate);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpkeystate;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -336,9 +456,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetKeyboardType");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int32_t)ntypeflag) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int32_t)ntypeflag);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ntypeflag;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -354,9 +481,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetLastInputInfo");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)plii) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)plii);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)plii;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -372,13 +506,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetMouseMovePointsEx");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)cbsize, (void*)(uintptr_t)lppt, (void*)(uintptr_t)lpptbuf, (int32_t)nbufpoints, (uint32_t)resolution) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)cbsize, (void*)(uintptr_t)lppt, (void*)(uintptr_t)lpptbuf, (int32_t)nbufpoints, (uint32_t)resolution);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)cbsize;
     (void)lppt;
     (void)lpptbuf;
     (void)nbufpoints;
     (void)resolution;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -394,9 +535,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "IsWindowEnabled");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hwnd) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hwnd);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -412,10 +560,17 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_i
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "LoadKeyboardLayoutA");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pwszklid, (uint32_t)flags) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pwszklid, (uint32_t)flags);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)pwszklid;
     (void)flags;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -431,10 +586,17 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_i
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "LoadKeyboardLayoutW");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pwszklid, (uint32_t)flags) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pwszklid, (uint32_t)flags);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)pwszklid;
     (void)flags;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -450,10 +612,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "MapVirtualKeyA");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)ucode, (uint32_t)umaptype) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)ucode, (uint32_t)umaptype);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ucode;
     (void)umaptype;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -469,11 +638,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "MapVirtualKeyExA");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)ucode, (uint32_t)umaptype, (void*)(uintptr_t)dwhkl) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)ucode, (uint32_t)umaptype, (void*)(uintptr_t)dwhkl);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ucode;
     (void)umaptype;
     (void)dwhkl;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -489,11 +665,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "MapVirtualKeyExW");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)ucode, (uint32_t)umaptype, (void*)(uintptr_t)dwhkl) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)ucode, (uint32_t)umaptype, (void*)(uintptr_t)dwhkl);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ucode;
     (void)umaptype;
     (void)dwhkl;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -509,10 +692,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "MapVirtualKeyW");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)ucode, (uint32_t)umaptype) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)ucode, (uint32_t)umaptype);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ucode;
     (void)umaptype;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -528,9 +718,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OemKeyScan");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint16_t)woemchar) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint16_t)woemchar);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)woemchar;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -546,12 +743,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "RegisterHotKey");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hwnd, (int32_t)id, (uint32_t)fsmodifiers, (uint32_t)vk) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hwnd, (int32_t)id, (uint32_t)fsmodifiers, (uint32_t)vk);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)id;
     (void)fsmodifiers;
     (void)vk;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -567,8 +771,15 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ReleaseCapture");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr() : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -584,11 +795,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SendInput");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)cinputs, (void*)(uintptr_t)pinputs, (int32_t)cbsize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)cinputs, (void*)(uintptr_t)pinputs, (int32_t)cbsize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)cinputs;
     (void)pinputs;
     (void)cbsize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -604,9 +822,16 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_i
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SetActiveWindow");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hwnd) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hwnd);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)hwnd;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -622,9 +847,16 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_i
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SetCapture");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hwnd) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hwnd);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)hwnd;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -640,9 +872,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SetDoubleClickTime");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)param0) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)param0);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)param0;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -658,9 +897,16 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_i
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SetFocus");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hwnd) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hwnd);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)hwnd;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -676,9 +922,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SetKeyboardState");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)lpkeystate) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)lpkeystate);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpkeystate;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -694,9 +947,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SwapMouseButton");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int32_t)fswap) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int32_t)fswap);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)fswap;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -712,13 +972,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ToAscii");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)uvirtkey, (uint32_t)uscancode, (void*)(uintptr_t)lpkeystate, (void*)(uintptr_t)lpchar, (uint32_t)uflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)uvirtkey, (uint32_t)uscancode, (void*)(uintptr_t)lpkeystate, (void*)(uintptr_t)lpchar, (uint32_t)uflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)uvirtkey;
     (void)uscancode;
     (void)lpkeystate;
     (void)lpchar;
     (void)uflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -734,7 +1001,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ToAsciiEx");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)uvirtkey, (uint32_t)uscancode, (void*)(uintptr_t)lpkeystate, (void*)(uintptr_t)lpchar, (uint32_t)uflags, (void*)(uintptr_t)dwhkl) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)uvirtkey, (uint32_t)uscancode, (void*)(uintptr_t)lpkeystate, (void*)(uintptr_t)lpchar, (uint32_t)uflags, (void*)(uintptr_t)dwhkl);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)uvirtkey;
     (void)uscancode;
@@ -742,6 +1015,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     (void)lpchar;
     (void)uflags;
     (void)dwhkl;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -757,7 +1031,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ToUnicode");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)wvirtkey, (uint32_t)wscancode, (void*)(uintptr_t)lpkeystate, (void*)(uintptr_t)pwszbuff, (int32_t)cchbuff, (uint32_t)wflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)wvirtkey, (uint32_t)wscancode, (void*)(uintptr_t)lpkeystate, (void*)(uintptr_t)pwszbuff, (int32_t)cchbuff, (uint32_t)wflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)wvirtkey;
     (void)wscancode;
@@ -765,6 +1045,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     (void)pwszbuff;
     (void)cchbuff;
     (void)wflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -780,7 +1061,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ToUnicodeEx");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)wvirtkey, (uint32_t)wscancode, (void*)(uintptr_t)lpkeystate, (void*)(uintptr_t)pwszbuff, (int32_t)cchbuff, (uint32_t)wflags, (void*)(uintptr_t)dwhkl) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)wvirtkey, (uint32_t)wscancode, (void*)(uintptr_t)lpkeystate, (void*)(uintptr_t)pwszbuff, (int32_t)cchbuff, (uint32_t)wflags, (void*)(uintptr_t)dwhkl);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)wvirtkey;
     (void)wscancode;
@@ -789,6 +1076,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
     (void)cchbuff;
     (void)wflags;
     (void)dwhkl;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -804,9 +1092,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "TrackMouseEvent");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)lpeventtrack) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)lpeventtrack);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpeventtrack;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -822,9 +1117,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "UnloadKeyboardLayout");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hkl) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hkl);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hkl;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -840,10 +1142,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "UnregisterHotKey");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hwnd, (int32_t)id) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hwnd, (int32_t)id);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)id;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -859,9 +1168,16 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VkKeyScanA");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int8_t)ch) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int8_t)ch);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ch;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -877,10 +1193,17 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VkKeyScanExA");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int8_t)ch, (void*)(uintptr_t)dwhkl) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int8_t)ch, (void*)(uintptr_t)dwhkl);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ch;
     (void)dwhkl;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -896,10 +1219,17 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VkKeyScanExW");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint16_t)ch, (void*)(uintptr_t)dwhkl) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint16_t)ch, (void*)(uintptr_t)dwhkl);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ch;
     (void)dwhkl;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -915,9 +1245,16 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VkKeyScanW");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint16_t)ch) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint16_t)ch);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ch;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -933,12 +1270,17 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "keybd_event");
     }
-    if (km_fn_ptr != NULL) km_fn_ptr((uint8_t)bvk, (uint8_t)bscan, (uint32_t)dwflags, (uint64_t)dwextrainfo);
+    if (km_fn_ptr != NULL) {
+        km_fn_ptr((uint8_t)bvk, (uint8_t)bscan, (uint32_t)dwflags, (uint64_t)dwextrainfo);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)bvk;
     (void)bscan;
     (void)dwflags;
     (void)dwextrainfo;
+    errno = ENOSYS;
 #endif
 }
 
@@ -952,13 +1294,18 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "mouse_event");
     }
-    if (km_fn_ptr != NULL) km_fn_ptr((uint32_t)dwflags, (int32_t)dx, (int32_t)dy, (int32_t)dwdata, (uint64_t)dwextrainfo);
+    if (km_fn_ptr != NULL) {
+        km_fn_ptr((uint32_t)dwflags, (int32_t)dx, (int32_t)dy, (int32_t)dwdata, (uint64_t)dwextrainfo);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)dwflags;
     (void)dx;
     (void)dy;
     (void)dwdata;
     (void)dwextrainfo;
+    errno = ENOSYS;
 #endif
 }
 

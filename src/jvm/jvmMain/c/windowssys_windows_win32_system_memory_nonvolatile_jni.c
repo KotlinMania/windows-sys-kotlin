@@ -5,6 +5,7 @@
 #include <stdbool.h>
 #include <stddef.h>
 #include <stdint.h>
+#include <stdlib.h>
 #include <errno.h>
 #ifdef _WIN32
 #ifndef WIN32_LEAN_AND_MEAN
@@ -28,9 +29,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "RtlDrainNonVolatileFlush");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)nvtoken) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)nvtoken);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)nvtoken;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -46,13 +54,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "RtlFillNonVolatileMemory");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)nvtoken, (void*)(uintptr_t)nvdestination, (uint64_t)size, (uint8_t)value, (uint32_t)flags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)nvtoken, (void*)(uintptr_t)nvdestination, (uint64_t)size, (uint8_t)value, (uint32_t)flags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)nvtoken;
     (void)nvdestination;
     (void)size;
     (void)value;
     (void)flags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -68,12 +83,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "RtlFlushNonVolatileMemory");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)nvtoken, (void*)(uintptr_t)nvbuffer, (uint64_t)size, (uint32_t)flags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)nvtoken, (void*)(uintptr_t)nvbuffer, (uint64_t)size, (uint32_t)flags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)nvtoken;
     (void)nvbuffer;
     (void)size;
     (void)flags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -89,12 +111,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "RtlFlushNonVolatileMemoryRanges");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)nvtoken, (void*)(uintptr_t)nvranges, (uint64_t)numranges, (uint32_t)flags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)nvtoken, (void*)(uintptr_t)nvranges, (uint64_t)numranges, (uint32_t)flags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)nvtoken;
     (void)nvranges;
     (void)numranges;
     (void)flags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -110,9 +139,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "RtlFreeNonVolatileToken");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)nvtoken) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)nvtoken);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)nvtoken;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -128,11 +164,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "RtlGetNonVolatileToken");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)nvbuffer, (uint64_t)size, (void*)(uintptr_t)nvtoken) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)nvbuffer, (uint64_t)size, (void*)(uintptr_t)nvtoken);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)nvbuffer;
     (void)size;
     (void)nvtoken;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -148,13 +191,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "RtlWriteNonVolatileMemory");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)nvtoken, (void*)(uintptr_t)nvdestination, (void*)(uintptr_t)source, (uint64_t)size, (uint32_t)flags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)nvtoken, (void*)(uintptr_t)nvdestination, (void*)(uintptr_t)source, (uint64_t)size, (uint32_t)flags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)nvtoken;
     (void)nvdestination;
     (void)source;
     (void)size;
     (void)flags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;

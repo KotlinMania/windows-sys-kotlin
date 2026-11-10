@@ -61,9 +61,16 @@ static Napi::Value windowssys_windows_win32_graphics_dwm_dwmAttachMilContent_nap
         HMODULE km_h_mod = LoadLibraryA("dwmapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DwmAttachMilContent")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -83,13 +90,20 @@ static Napi::Value windowssys_windows_win32_graphics_dwm_dwmDefWindowProc_napi(c
         HMODULE km_h_mod = LoadLibraryA("dwmapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DwmDefWindowProc")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, msg, wparam, lparam, plresult) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, msg, wparam, lparam, plresult);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)msg;
     (void)wparam;
     (void)lparam;
     (void)plresult;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -105,9 +119,16 @@ static Napi::Value windowssys_windows_win32_graphics_dwm_dwmDetachMilContent_nap
         HMODULE km_h_mod = LoadLibraryA("dwmapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DwmDetachMilContent")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -124,10 +145,17 @@ static Napi::Value windowssys_windows_win32_graphics_dwm_dwmEnableBlurBehindWind
         HMODULE km_h_mod = LoadLibraryA("dwmapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DwmEnableBlurBehindWindow")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, pblurbehind) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, pblurbehind);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)pblurbehind;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -143,9 +171,16 @@ static Napi::Value windowssys_windows_win32_graphics_dwm_dwmEnableComposition_na
         HMODULE km_h_mod = LoadLibraryA("dwmapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DwmEnableComposition")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ucompositionaction) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ucompositionaction);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ucompositionaction;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -161,9 +196,16 @@ static Napi::Value windowssys_windows_win32_graphics_dwm_dwmEnableMMCSS_napi(con
         HMODULE km_h_mod = LoadLibraryA("dwmapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DwmEnableMMCSS")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(fenablemmcss) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(fenablemmcss);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)fenablemmcss;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -180,10 +222,17 @@ static Napi::Value windowssys_windows_win32_graphics_dwm_dwmExtendFrameIntoClien
         HMODULE km_h_mod = LoadLibraryA("dwmapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DwmExtendFrameIntoClientArea")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, pmarinset) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, pmarinset);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)pmarinset;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -198,8 +247,15 @@ static Napi::Value windowssys_windows_win32_graphics_dwm_dwmFlush_napi(const Nap
         HMODULE km_h_mod = LoadLibraryA("dwmapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DwmFlush")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -216,10 +272,17 @@ static Napi::Value windowssys_windows_win32_graphics_dwm_dwmGetColorizationColor
         HMODULE km_h_mod = LoadLibraryA("dwmapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DwmGetColorizationColor")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pcrcolorization, pfopaqueblend) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pcrcolorization, pfopaqueblend);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pcrcolorization;
     (void)pfopaqueblend;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -236,10 +299,17 @@ static Napi::Value windowssys_windows_win32_graphics_dwm_dwmGetCompositionTiming
         HMODULE km_h_mod = LoadLibraryA("dwmapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DwmGetCompositionTimingInfo")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, ptiminginfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, ptiminginfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)ptiminginfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -256,10 +326,17 @@ static Napi::Value windowssys_windows_win32_graphics_dwm_dwmGetGraphicsStreamCli
         HMODULE km_h_mod = LoadLibraryA("dwmapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DwmGetGraphicsStreamClient")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(uindex, pclientuuid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(uindex, pclientuuid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)uindex;
     (void)pclientuuid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -276,10 +353,17 @@ static Napi::Value windowssys_windows_win32_graphics_dwm_dwmGetGraphicsStreamTra
         HMODULE km_h_mod = LoadLibraryA("dwmapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DwmGetGraphicsStreamTransformHint")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(uindex, ptransform) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(uindex, ptransform);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)uindex;
     (void)ptransform;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -297,11 +381,18 @@ static Napi::Value windowssys_windows_win32_graphics_dwm_dwmGetTransportAttribut
         HMODULE km_h_mod = LoadLibraryA("dwmapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DwmGetTransportAttributes")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pfisremoting, pfisconnected, pdwgeneration) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pfisremoting, pfisconnected, pdwgeneration);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pfisremoting;
     (void)pfisconnected;
     (void)pdwgeneration;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -318,10 +409,17 @@ static Napi::Value windowssys_windows_win32_graphics_dwm_dwmGetUnmetTabRequireme
         HMODULE km_h_mod = LoadLibraryA("dwmapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DwmGetUnmetTabRequirements")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(appwindow, value) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(appwindow, value);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)appwindow;
     (void)value;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -340,12 +438,19 @@ static Napi::Value windowssys_windows_win32_graphics_dwm_dwmGetWindowAttribute_n
         HMODULE km_h_mod = LoadLibraryA("dwmapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DwmGetWindowAttribute")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, dwattribute, pvattribute, cbattribute) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, dwattribute, pvattribute, cbattribute);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)dwattribute;
     (void)pvattribute;
     (void)cbattribute;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -361,9 +466,16 @@ static Napi::Value windowssys_windows_win32_graphics_dwm_dwmInvalidateIconicBitm
         HMODULE km_h_mod = LoadLibraryA("dwmapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DwmInvalidateIconicBitmaps")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -379,9 +491,16 @@ static Napi::Value windowssys_windows_win32_graphics_dwm_dwmIsCompositionEnabled
         HMODULE km_h_mod = LoadLibraryA("dwmapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DwmIsCompositionEnabled")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pfenabled) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pfenabled);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pfenabled;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -399,11 +518,18 @@ static Napi::Value windowssys_windows_win32_graphics_dwm_dwmModifyPreviousDxFram
         HMODULE km_h_mod = LoadLibraryA("dwmapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DwmModifyPreviousDxFrameDuration")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, crefreshes, frelative) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, crefreshes, frelative);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)crefreshes;
     (void)frelative;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -420,10 +546,17 @@ static Napi::Value windowssys_windows_win32_graphics_dwm_dwmQueryThumbnailSource
         HMODULE km_h_mod = LoadLibraryA("dwmapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DwmQueryThumbnailSourceSize")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hthumbnail, psize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hthumbnail, psize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hthumbnail;
     (void)psize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -441,11 +574,18 @@ static Napi::Value windowssys_windows_win32_graphics_dwm_dwmRegisterThumbnail_na
         HMODULE km_h_mod = LoadLibraryA("dwmapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DwmRegisterThumbnail")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnddestination, hwndsource, phthumbnailid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnddestination, hwndsource, phthumbnailid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnddestination;
     (void)hwndsource;
     (void)phthumbnailid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -464,12 +604,19 @@ static Napi::Value windowssys_windows_win32_graphics_dwm_dwmRenderGesture_napi(c
         HMODULE km_h_mod = LoadLibraryA("dwmapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DwmRenderGesture")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(gt, ccontacts, pdwpointerid, ppoints) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(gt, ccontacts, pdwpointerid, ppoints);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)gt;
     (void)ccontacts;
     (void)pdwpointerid;
     (void)ppoints;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -486,10 +633,17 @@ static Napi::Value windowssys_windows_win32_graphics_dwm_dwmSetDxFrameDuration_n
         HMODULE km_h_mod = LoadLibraryA("dwmapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DwmSetDxFrameDuration")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, crefreshes) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, crefreshes);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)crefreshes;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -508,12 +662,19 @@ static Napi::Value windowssys_windows_win32_graphics_dwm_dwmSetIconicLivePreview
         HMODULE km_h_mod = LoadLibraryA("dwmapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DwmSetIconicLivePreviewBitmap")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, hbmp, pptclient, dwsitflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, hbmp, pptclient, dwsitflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)hbmp;
     (void)pptclient;
     (void)dwsitflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -531,11 +692,18 @@ static Napi::Value windowssys_windows_win32_graphics_dwm_dwmSetIconicThumbnail_n
         HMODULE km_h_mod = LoadLibraryA("dwmapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DwmSetIconicThumbnail")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, hbmp, dwsitflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, hbmp, dwsitflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)hbmp;
     (void)dwsitflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -552,10 +720,17 @@ static Napi::Value windowssys_windows_win32_graphics_dwm_dwmSetPresentParameters
         HMODULE km_h_mod = LoadLibraryA("dwmapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DwmSetPresentParameters")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, ppresentparams) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, ppresentparams);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)ppresentparams;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -574,12 +749,19 @@ static Napi::Value windowssys_windows_win32_graphics_dwm_dwmSetWindowAttribute_n
         HMODULE km_h_mod = LoadLibraryA("dwmapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DwmSetWindowAttribute")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, dwattribute, pvattribute, cbattribute) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, dwattribute, pvattribute, cbattribute);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)dwattribute;
     (void)pvattribute;
     (void)cbattribute;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -596,10 +778,17 @@ static Napi::Value windowssys_windows_win32_graphics_dwm_dwmShowContact_napi(con
         HMODULE km_h_mod = LoadLibraryA("dwmapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DwmShowContact")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwpointerid, eshowcontact) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwpointerid, eshowcontact);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwpointerid;
     (void)eshowcontact;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -616,10 +805,17 @@ static Napi::Value windowssys_windows_win32_graphics_dwm_dwmTransitionOwnedWindo
         HMODULE km_h_mod = LoadLibraryA("dwmapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DwmTransitionOwnedWindow")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, target) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, target);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)target;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -635,9 +831,16 @@ static Napi::Value windowssys_windows_win32_graphics_dwm_dwmUnregisterThumbnail_
         HMODULE km_h_mod = LoadLibraryA("dwmapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DwmUnregisterThumbnail")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hthumbnailid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hthumbnailid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hthumbnailid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -654,10 +857,17 @@ static Napi::Value windowssys_windows_win32_graphics_dwm_dwmUpdateThumbnailPrope
         HMODULE km_h_mod = LoadLibraryA("dwmapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DwmUpdateThumbnailProperties")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hthumbnailid, ptnproperties) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hthumbnailid, ptnproperties);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hthumbnailid;
     (void)ptnproperties;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

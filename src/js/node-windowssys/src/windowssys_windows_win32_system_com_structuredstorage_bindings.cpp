@@ -62,10 +62,15 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_clearPr
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClearPropVariantArray")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(rgpropvar, cvars);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(rgpropvar, cvars);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)rgpropvar;
     (void)cvars;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -87,7 +92,13 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_coGetIn
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoGetInstanceFromFile")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pserverinfo, pclsid, punkouter, dwclsctx, grfmode, pwszname, dwcount, presults) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pserverinfo, pclsid, punkouter, dwclsctx, grfmode, pwszname, dwcount, presults);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pserverinfo;
     (void)pclsid;
@@ -97,6 +108,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_coGetIn
     (void)pwszname;
     (void)dwcount;
     (void)presults;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -118,7 +130,13 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_coGetIn
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoGetInstanceFromIStorage")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pserverinfo, pclsid, punkouter, dwclsctx, pstg, dwcount, presults) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pserverinfo, pclsid, punkouter, dwclsctx, pstg, dwcount, presults);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pserverinfo;
     (void)pclsid;
@@ -127,6 +145,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_coGetIn
     (void)pstg;
     (void)dwcount;
     (void)presults;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -144,11 +163,18 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_coGetIn
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoGetInterfaceAndReleaseStream")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pstm, iid, ppv) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pstm, iid, ppv);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pstm;
     (void)iid;
     (void)ppv;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -166,11 +192,18 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_createI
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateILockBytesOnHGlobal")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hglobal, fdeleteonrelease, pplkbyt) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hglobal, fdeleteonrelease, pplkbyt);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hglobal;
     (void)fdeleteonrelease;
     (void)pplkbyt;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -188,11 +221,18 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_createS
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateStreamOnHGlobal")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hglobal, fdeleteonrelease, ppstm) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hglobal, fdeleteonrelease, ppstm);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hglobal;
     (void)fdeleteonrelease;
     (void)ppstm;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -209,10 +249,17 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_fmtIdTo
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FmtIdToPropStgName")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pfmtid, oszname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pfmtid, oszname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pfmtid;
     (void)oszname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -229,10 +276,17 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_freePro
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FreePropVariantArray")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(cvariants, rgvars) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(cvariants, rgvars);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)cvariants;
     (void)rgvars;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -248,9 +302,16 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_getConv
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetConvertStg")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pstg) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pstg);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pstg;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -267,10 +328,17 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_getHGlo
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetHGlobalFromILockBytes")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(plkbyt, phglobal) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(plkbyt, phglobal);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)plkbyt;
     (void)phglobal;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -287,10 +355,17 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_getHGlo
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetHGlobalFromStream")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pstm, phglobal) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pstm, phglobal);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pstm;
     (void)phglobal;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -308,11 +383,18 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_initPro
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InitPropVariantFromBooleanVector")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(prgf, celems, ppropvar) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(prgf, celems, ppropvar);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)prgf;
     (void)celems;
     (void)ppropvar;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -330,11 +412,18 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_initPro
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InitPropVariantFromBuffer")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pv, cb, ppropvar) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pv, cb, ppropvar);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pv;
     (void)cb;
     (void)ppropvar;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -351,10 +440,17 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_initPro
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InitPropVariantFromCLSID")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(clsid, ppropvar) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(clsid, ppropvar);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)clsid;
     (void)ppropvar;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -372,11 +468,18 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_initPro
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InitPropVariantFromDoubleVector")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(prgn, celems, ppropvar) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(prgn, celems, ppropvar);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)prgn;
     (void)celems;
     (void)ppropvar;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -393,10 +496,17 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_initPro
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InitPropVariantFromFileTime")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pftin, ppropvar) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pftin, ppropvar);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pftin;
     (void)ppropvar;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -414,11 +524,18 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_initPro
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InitPropVariantFromFileTimeVector")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(prgft, celems, ppropvar) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(prgft, celems, ppropvar);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)prgft;
     (void)celems;
     (void)ppropvar;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -435,10 +552,17 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_initPro
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InitPropVariantFromGUIDAsString")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(guid, ppropvar) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(guid, ppropvar);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)guid;
     (void)ppropvar;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -456,11 +580,18 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_initPro
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InitPropVariantFromInt16Vector")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(prgn, celems, ppropvar) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(prgn, celems, ppropvar);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)prgn;
     (void)celems;
     (void)ppropvar;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -478,11 +609,18 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_initPro
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InitPropVariantFromInt32Vector")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(prgn, celems, ppropvar) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(prgn, celems, ppropvar);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)prgn;
     (void)celems;
     (void)ppropvar;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -500,11 +638,18 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_initPro
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InitPropVariantFromInt64Vector")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(prgn, celems, ppropvar) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(prgn, celems, ppropvar);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)prgn;
     (void)celems;
     (void)ppropvar;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -522,11 +667,18 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_initPro
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InitPropVariantFromPropVariantVectorElem")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(propvarin, ielem, ppropvar) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(propvarin, ielem, ppropvar);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)propvarin;
     (void)ielem;
     (void)ppropvar;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -544,11 +696,18 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_initPro
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InitPropVariantFromResource")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hinst, id, ppropvar) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hinst, id, ppropvar);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hinst;
     (void)id;
     (void)ppropvar;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -565,10 +724,17 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_initPro
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InitPropVariantFromStringAsVector")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(psz, ppropvar) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(psz, ppropvar);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)psz;
     (void)ppropvar;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -586,11 +752,18 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_initPro
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InitPropVariantFromStringVector")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(prgsz, celems, ppropvar) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(prgsz, celems, ppropvar);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)prgsz;
     (void)celems;
     (void)ppropvar;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -608,11 +781,18 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_initPro
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InitPropVariantFromUInt16Vector")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(prgn, celems, ppropvar) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(prgn, celems, ppropvar);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)prgn;
     (void)celems;
     (void)ppropvar;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -630,11 +810,18 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_initPro
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InitPropVariantFromUInt32Vector")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(prgn, celems, ppropvar) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(prgn, celems, ppropvar);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)prgn;
     (void)celems;
     (void)ppropvar;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -652,11 +839,18 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_initPro
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InitPropVariantFromUInt64Vector")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(prgn, celems, ppropvar) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(prgn, celems, ppropvar);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)prgn;
     (void)celems;
     (void)ppropvar;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -673,10 +867,17 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_initPro
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InitPropVariantVectorFromPropVariant")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(propvarsingle, ppropvarvector) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(propvarsingle, ppropvarvector);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)propvarsingle;
     (void)ppropvarvector;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -693,10 +894,17 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_oleConv
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OleConvertIStorageToOLESTREAM")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pstg, lpolestream) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pstg, lpolestream);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pstg;
     (void)lpolestream;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -718,7 +926,13 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_oleConv
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OleConvertIStorageToOLESTREAMEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pstg, cfformat, lwidth, lheight, dwsize, pmedium, polestm) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pstg, cfformat, lwidth, lheight, dwsize, pmedium, polestm);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pstg;
     (void)cfformat;
@@ -727,6 +941,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_oleConv
     (void)dwsize;
     (void)pmedium;
     (void)polestm;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -744,11 +959,18 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_oleConv
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OleConvertOLESTREAMToIStorage")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpolestream, pstg, ptd) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpolestream, pstg, ptd);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpolestream;
     (void)pstg;
     (void)ptd;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -770,7 +992,13 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_oleConv
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OleConvertOLESTREAMToIStorageEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(polestm, pstg, pcfformat, plwwidth, plheight, pdwsize, pmedium) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(polestm, pstg, pcfformat, plwwidth, plheight, pdwsize, pmedium);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)polestm;
     (void)pstg;
@@ -779,6 +1007,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_oleConv
     (void)plheight;
     (void)pdwsize;
     (void)pmedium;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -795,10 +1024,17 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propStg
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PropStgNameToFmtId")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(oszname, pfmtid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(oszname, pfmtid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)oszname;
     (void)pfmtid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -817,12 +1053,19 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PropVariantChangeType")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ppropvardest, propvarsrc, flags, vt) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ppropvardest, propvarsrc, flags, vt);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ppropvardest;
     (void)propvarsrc;
     (void)flags;
     (void)vt;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -838,9 +1081,16 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PropVariantClear")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pvar) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pvar);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pvar;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -859,12 +1109,19 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PropVariantCompareEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(propvar1, propvar2, unit, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(propvar1, propvar2, unit, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)propvar1;
     (void)propvar2;
     (void)unit;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -881,10 +1138,17 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PropVariantCopy")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pvardest, pvarsrc) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pvardest, pvarsrc);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pvardest;
     (void)pvarsrc;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -902,11 +1166,18 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PropVariantGetBooleanElem")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(propvar, ielem, pfval) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(propvar, ielem, pfval);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)propvar;
     (void)ielem;
     (void)pfval;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -924,11 +1195,18 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PropVariantGetDoubleElem")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(propvar, ielem, pnval) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(propvar, ielem, pnval);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)propvar;
     (void)ielem;
     (void)pnval;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -944,9 +1222,16 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PropVariantGetElementCount")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(propvar) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(propvar);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)propvar;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -964,11 +1249,18 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PropVariantGetFileTimeElem")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(propvar, ielem, pftval) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(propvar, ielem, pftval);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)propvar;
     (void)ielem;
     (void)pftval;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -986,11 +1278,18 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PropVariantGetInt16Elem")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(propvar, ielem, pnval) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(propvar, ielem, pnval);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)propvar;
     (void)ielem;
     (void)pnval;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1008,11 +1307,18 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PropVariantGetInt32Elem")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(propvar, ielem, pnval) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(propvar, ielem, pnval);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)propvar;
     (void)ielem;
     (void)pnval;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1030,11 +1336,18 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PropVariantGetInt64Elem")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(propvar, ielem, pnval) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(propvar, ielem, pnval);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)propvar;
     (void)ielem;
     (void)pnval;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1052,11 +1365,18 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PropVariantGetStringElem")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(propvar, ielem, ppszval) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(propvar, ielem, ppszval);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)propvar;
     (void)ielem;
     (void)ppszval;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1074,11 +1394,18 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PropVariantGetUInt16Elem")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(propvar, ielem, pnval) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(propvar, ielem, pnval);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)propvar;
     (void)ielem;
     (void)pnval;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1096,11 +1423,18 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PropVariantGetUInt32Elem")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(propvar, ielem, pnval) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(propvar, ielem, pnval);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)propvar;
     (void)ielem;
     (void)pnval;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1118,11 +1452,18 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PropVariantGetUInt64Elem")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(propvar, ielem, pnval) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(propvar, ielem, pnval);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)propvar;
     (void)ielem;
     (void)pnval;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1139,10 +1480,17 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PropVariantToBSTR")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(propvar, pbstrout) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(propvar, pbstrout);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)propvar;
     (void)pbstrout;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1159,10 +1507,17 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PropVariantToBoolean")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(propvarin, pfret) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(propvarin, pfret);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)propvarin;
     (void)pfret;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1181,12 +1536,19 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PropVariantToBooleanVector")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(propvar, prgf, crgf, pcelem) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(propvar, prgf, crgf, pcelem);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)propvar;
     (void)prgf;
     (void)crgf;
     (void)pcelem;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1204,11 +1566,18 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PropVariantToBooleanVectorAlloc")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(propvar, pprgf, pcelem) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(propvar, pprgf, pcelem);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)propvar;
     (void)pprgf;
     (void)pcelem;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1225,10 +1594,17 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PropVariantToBooleanWithDefault")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(propvarin, fdefault) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(propvarin, fdefault);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)propvarin;
     (void)fdefault;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1246,11 +1622,18 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PropVariantToBuffer")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(propvar, pv, cb) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(propvar, pv, cb);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)propvar;
     (void)pv;
     (void)cb;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1267,10 +1650,17 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PropVariantToDouble")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(propvarin, pdblret) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(propvarin, pdblret);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)propvarin;
     (void)pdblret;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1289,12 +1679,19 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PropVariantToDoubleVector")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(propvar, prgn, crgn, pcelem) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(propvar, prgn, crgn, pcelem);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)propvar;
     (void)prgn;
     (void)crgn;
     (void)pcelem;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1312,11 +1709,18 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PropVariantToDoubleVectorAlloc")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(propvar, pprgn, pcelem) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(propvar, pprgn, pcelem);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)propvar;
     (void)pprgn;
     (void)pcelem;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1333,10 +1737,17 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PropVariantToDoubleWithDefault")));
     }
-    double km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(propvarin, dbldefault) : 0.0;
+    double km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(propvarin, dbldefault);
+    } else {
+        errno = ENOSYS;
+        km_res = 0.0;
+    }
 #else
     (void)propvarin;
     (void)dbldefault;
+    errno = ENOSYS;
     double km_res = 0.0;
 #endif
     return Napi::Number::New(km_env, static_cast<double>(km_res));
@@ -1354,11 +1765,18 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PropVariantToFileTime")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(propvar, pstfout, pftout) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(propvar, pstfout, pftout);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)propvar;
     (void)pstfout;
     (void)pftout;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1377,12 +1795,19 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PropVariantToFileTimeVector")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(propvar, prgft, crgft, pcelem) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(propvar, prgft, crgft, pcelem);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)propvar;
     (void)prgft;
     (void)crgft;
     (void)pcelem;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1400,11 +1825,18 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PropVariantToFileTimeVectorAlloc")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(propvar, pprgft, pcelem) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(propvar, pprgft, pcelem);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)propvar;
     (void)pprgft;
     (void)pcelem;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1421,10 +1853,17 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PropVariantToGUID")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(propvar, pguid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(propvar, pguid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)propvar;
     (void)pguid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1441,10 +1880,17 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PropVariantToInt16")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(propvarin, piret) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(propvarin, piret);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)propvarin;
     (void)piret;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1463,12 +1909,19 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PropVariantToInt16Vector")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(propvar, prgn, crgn, pcelem) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(propvar, prgn, crgn, pcelem);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)propvar;
     (void)prgn;
     (void)crgn;
     (void)pcelem;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1486,11 +1939,18 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PropVariantToInt16VectorAlloc")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(propvar, pprgn, pcelem) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(propvar, pprgn, pcelem);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)propvar;
     (void)pprgn;
     (void)pcelem;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1507,10 +1967,17 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PropVariantToInt16WithDefault")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(propvarin, idefault) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(propvarin, idefault);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)propvarin;
     (void)idefault;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1527,10 +1994,17 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PropVariantToInt32")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(propvarin, plret) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(propvarin, plret);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)propvarin;
     (void)plret;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1549,12 +2023,19 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PropVariantToInt32Vector")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(propvar, prgn, crgn, pcelem) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(propvar, prgn, crgn, pcelem);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)propvar;
     (void)prgn;
     (void)crgn;
     (void)pcelem;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1572,11 +2053,18 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PropVariantToInt32VectorAlloc")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(propvar, pprgn, pcelem) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(propvar, pprgn, pcelem);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)propvar;
     (void)pprgn;
     (void)pcelem;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1593,10 +2081,17 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PropVariantToInt32WithDefault")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(propvarin, ldefault) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(propvarin, ldefault);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)propvarin;
     (void)ldefault;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1613,10 +2108,17 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PropVariantToInt64")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(propvarin, pllret) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(propvarin, pllret);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)propvarin;
     (void)pllret;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1635,12 +2137,19 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PropVariantToInt64Vector")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(propvar, prgn, crgn, pcelem) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(propvar, prgn, crgn, pcelem);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)propvar;
     (void)prgn;
     (void)crgn;
     (void)pcelem;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1658,11 +2167,18 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PropVariantToInt64VectorAlloc")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(propvar, pprgn, pcelem) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(propvar, pprgn, pcelem);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)propvar;
     (void)pprgn;
     (void)pcelem;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1679,10 +2195,17 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PropVariantToInt64WithDefault")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(propvarin, lldefault) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(propvarin, lldefault);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)propvarin;
     (void)lldefault;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -1700,11 +2223,18 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PropVariantToString")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(propvar, psz, cch) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(propvar, psz, cch);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)propvar;
     (void)psz;
     (void)cch;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1721,10 +2251,17 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PropVariantToStringAlloc")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(propvar, ppszout) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(propvar, ppszout);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)propvar;
     (void)ppszout;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1743,12 +2280,19 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PropVariantToStringVector")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(propvar, prgsz, crgsz, pcelem) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(propvar, prgsz, crgsz, pcelem);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)propvar;
     (void)prgsz;
     (void)crgsz;
     (void)pcelem;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1766,11 +2310,18 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PropVariantToStringVectorAlloc")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(propvar, pprgsz, pcelem) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(propvar, pprgsz, pcelem);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)propvar;
     (void)pprgsz;
     (void)pcelem;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1787,11 +2338,18 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PropVariantToStringWithDefault")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(propvarin, pszdefault) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(propvarin, pszdefault);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)propvarin;
     (void)pszdefault;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1807,10 +2365,17 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PropVariantToUInt16")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(propvarin, puiret) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(propvarin, puiret);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)propvarin;
     (void)puiret;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1829,12 +2394,19 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PropVariantToUInt16Vector")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(propvar, prgn, crgn, pcelem) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(propvar, prgn, crgn, pcelem);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)propvar;
     (void)prgn;
     (void)crgn;
     (void)pcelem;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1852,11 +2424,18 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PropVariantToUInt16VectorAlloc")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(propvar, pprgn, pcelem) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(propvar, pprgn, pcelem);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)propvar;
     (void)pprgn;
     (void)pcelem;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1873,10 +2452,17 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PropVariantToUInt16WithDefault")));
     }
-    uint16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(propvarin, uidefault) : 0;
+    uint16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(propvarin, uidefault);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)propvarin;
     (void)uidefault;
+    errno = ENOSYS;
     uint16_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1893,10 +2479,17 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PropVariantToUInt32")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(propvarin, pulret) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(propvarin, pulret);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)propvarin;
     (void)pulret;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1915,12 +2508,19 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PropVariantToUInt32Vector")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(propvar, prgn, crgn, pcelem) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(propvar, prgn, crgn, pcelem);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)propvar;
     (void)prgn;
     (void)crgn;
     (void)pcelem;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1938,11 +2538,18 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PropVariantToUInt32VectorAlloc")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(propvar, pprgn, pcelem) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(propvar, pprgn, pcelem);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)propvar;
     (void)pprgn;
     (void)pcelem;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1959,10 +2566,17 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PropVariantToUInt32WithDefault")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(propvarin, uldefault) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(propvarin, uldefault);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)propvarin;
     (void)uldefault;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1979,10 +2593,17 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PropVariantToUInt64")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(propvarin, pullret) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(propvarin, pullret);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)propvarin;
     (void)pullret;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2001,12 +2622,19 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PropVariantToUInt64Vector")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(propvar, prgn, crgn, pcelem) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(propvar, prgn, crgn, pcelem);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)propvar;
     (void)prgn;
     (void)crgn;
     (void)pcelem;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2024,11 +2652,18 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PropVariantToUInt64VectorAlloc")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(propvar, pprgn, pcelem) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(propvar, pprgn, pcelem);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)propvar;
     (void)pprgn;
     (void)pcelem;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2045,10 +2680,17 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PropVariantToUInt64WithDefault")));
     }
-    uint64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(propvarin, ulldefault) : 0;
+    uint64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(propvarin, ulldefault);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)propvarin;
     (void)ulldefault;
+    errno = ENOSYS;
     uint64_t km_res = 0;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
@@ -2065,10 +2707,17 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PropVariantToVariant")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ppropvar, pvar) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ppropvar, pvar);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ppropvar;
     (void)pvar;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2086,11 +2735,18 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_propVar
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PropVariantToWinRTPropertyValue")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(propvar, riid, ppv) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(propvar, riid, ppv);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)propvar;
     (void)riid;
     (void)ppv;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2107,10 +2763,17 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_readCla
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ReadClassStg")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pstg, pclsid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pstg, pclsid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pstg;
     (void)pclsid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2127,10 +2790,17 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_readCla
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ReadClassStm")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pstm, pclsid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pstm, pclsid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pstm;
     (void)pclsid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2148,11 +2818,18 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_readFmt
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ReadFmtUserTypeStg")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pstg, pcf, lplpszusertype) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pstg, pcf, lplpszusertype);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pstg;
     (void)pcf;
     (void)lplpszusertype;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2169,10 +2846,17 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_setConv
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetConvertStg")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pstg, fconvert) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pstg, fconvert);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pstg;
     (void)fconvert;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2191,12 +2875,19 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_stgConv
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "StgConvertPropertyToVariant")));
     }
-    bool km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pprop, codepage, pvar, pma) : false;
+    bool km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pprop, codepage, pvar, pma);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)pprop;
     (void)codepage;
     (void)pvar;
     (void)pma;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return Napi::Boolean::New(km_env, km_res);
@@ -2218,7 +2909,13 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_stgConv
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "StgConvertVariantToProperty")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pvar, codepage, pprop, pcb, pid, freserved, pcindirect) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pvar, codepage, pprop, pcb, pid, freserved, pcindirect);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pvar;
     (void)codepage;
@@ -2227,7 +2924,8 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_stgConv
     (void)pid;
     (void)freserved;
     (void)pcindirect;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -2245,12 +2943,19 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_stgCrea
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "StgCreateDocfile")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pwcsname, grfmode, reserved, ppstgopen) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pwcsname, grfmode, reserved, ppstgopen);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pwcsname;
     (void)grfmode;
     (void)reserved;
     (void)ppstgopen;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2269,12 +2974,19 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_stgCrea
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "StgCreateDocfileOnILockBytes")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(plkbyt, grfmode, reserved, ppstgopen) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(plkbyt, grfmode, reserved, ppstgopen);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)plkbyt;
     (void)grfmode;
     (void)reserved;
     (void)ppstgopen;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2292,11 +3004,18 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_stgCrea
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "StgCreatePropSetStg")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pstorage, dwreserved, pppropsetstg) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pstorage, dwreserved, pppropsetstg);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pstorage;
     (void)dwreserved;
     (void)pppropsetstg;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2317,7 +3036,13 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_stgCrea
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "StgCreatePropStg")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(punk, fmtid, pclsid, grfflags, dwreserved, pppropstg) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(punk, fmtid, pclsid, grfflags, dwreserved, pppropstg);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)punk;
     (void)fmtid;
@@ -2325,6 +3050,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_stgCrea
     (void)grfflags;
     (void)dwreserved;
     (void)pppropstg;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2347,7 +3073,13 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_stgCrea
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "StgCreateStorageEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pwcsname, grfmode, stgfmt, grfattrs, pstgoptions, psecuritydescriptor, riid, ppobjectopen) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pwcsname, grfmode, stgfmt, grfattrs, pstgoptions, psecuritydescriptor, riid, ppobjectopen);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pwcsname;
     (void)grfmode;
@@ -2357,6 +3089,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_stgCrea
     (void)psecuritydescriptor;
     (void)riid;
     (void)ppobjectopen;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2374,11 +3107,18 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_stgDese
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "StgDeserializePropVariant")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pprop, cbmax, ppropvar) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pprop, cbmax, ppropvar);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pprop;
     (void)cbmax;
     (void)ppropvar;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2395,10 +3135,17 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_stgGetI
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "StgGetIFillLockBytesOnFile")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pwcsname, ppflb) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pwcsname, ppflb);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pwcsname;
     (void)ppflb;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2415,10 +3162,17 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_stgGetI
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "StgGetIFillLockBytesOnILockBytes")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pilb, ppflb) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pilb, ppflb);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pilb;
     (void)ppflb;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2434,9 +3188,16 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_stgIsSt
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "StgIsStorageFile")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pwcsname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pwcsname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pwcsname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2452,9 +3213,16 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_stgIsSt
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "StgIsStorageILockBytes")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(plkbyt) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(plkbyt);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)plkbyt;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2473,12 +3241,19 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_stgOpen
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "StgOpenAsyncDocfileOnIFillLockBytes")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pflb, grfmode, asyncflags, ppstgopen) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pflb, grfmode, asyncflags, ppstgopen);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pflb;
     (void)grfmode;
     (void)asyncflags;
     (void)ppstgopen;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2497,12 +3272,19 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_stgOpen
         HMODULE km_h_mod = LoadLibraryA("dflayout.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "StgOpenLayoutDocfile")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pwcsdfname, grfmode, reserved, ppstgopen) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pwcsdfname, grfmode, reserved, ppstgopen);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pwcsdfname;
     (void)grfmode;
     (void)reserved;
     (void)ppstgopen;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2522,13 +3304,20 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_stgOpen
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "StgOpenPropStg")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(punk, fmtid, grfflags, dwreserved, pppropstg) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(punk, fmtid, grfflags, dwreserved, pppropstg);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)punk;
     (void)fmtid;
     (void)grfflags;
     (void)dwreserved;
     (void)pppropstg;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2549,7 +3338,13 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_stgOpen
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "StgOpenStorage")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pwcsname, pstgpriority, grfmode, snbexclude, reserved, ppstgopen) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pwcsname, pstgpriority, grfmode, snbexclude, reserved, ppstgopen);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pwcsname;
     (void)pstgpriority;
@@ -2557,6 +3352,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_stgOpen
     (void)snbexclude;
     (void)reserved;
     (void)ppstgopen;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2579,7 +3375,13 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_stgOpen
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "StgOpenStorageEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pwcsname, grfmode, stgfmt, grfattrs, pstgoptions, psecuritydescriptor, riid, ppobjectopen) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pwcsname, grfmode, stgfmt, grfattrs, pstgoptions, psecuritydescriptor, riid, ppobjectopen);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pwcsname;
     (void)grfmode;
@@ -2589,6 +3391,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_stgOpen
     (void)psecuritydescriptor;
     (void)riid;
     (void)ppobjectopen;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2609,7 +3412,13 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_stgOpen
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "StgOpenStorageOnILockBytes")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(plkbyt, pstgpriority, grfmode, snbexclude, reserved, ppstgopen) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(plkbyt, pstgpriority, grfmode, snbexclude, reserved, ppstgopen);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)plkbyt;
     (void)pstgpriority;
@@ -2617,6 +3426,7 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_stgOpen
     (void)snbexclude;
     (void)reserved;
     (void)ppstgopen;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2635,12 +3445,19 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_stgProp
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "StgPropertyLengthAsVariant")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pprop, cbprop, codepage, breserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pprop, cbprop, codepage, breserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pprop;
     (void)cbprop;
     (void)codepage;
     (void)breserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2658,11 +3475,18 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_stgSeri
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "StgSerializePropVariant")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ppropvar, ppprop, pcb) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ppropvar, ppprop, pcb);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ppropvar;
     (void)ppprop;
     (void)pcb;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2681,12 +3505,19 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_stgSetT
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "StgSetTimes")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszname, pctime, patime, pmtime) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszname, pctime, patime, pmtime);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszname;
     (void)pctime;
     (void)patime;
     (void)pmtime;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2703,10 +3534,17 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_variant
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "VariantToPropVariant")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pvar, ppropvar) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pvar, ppropvar);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pvar;
     (void)ppropvar;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2723,10 +3561,17 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_winRTPr
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinRTPropertyValueToPropVariant")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(punkpropertyvalue, ppropvar) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(punkpropertyvalue, ppropvar);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)punkpropertyvalue;
     (void)ppropvar;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2743,10 +3588,17 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_writeCl
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WriteClassStg")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pstg, rclsid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pstg, rclsid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pstg;
     (void)rclsid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2763,10 +3615,17 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_writeCl
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WriteClassStm")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pstm, rclsid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pstm, rclsid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pstm;
     (void)rclsid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2784,11 +3643,18 @@ static Napi::Value windowssys_windows_win32_system_com_structuredstorage_writeFm
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WriteFmtUserTypeStg")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pstg, cf, lpszusertype) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pstg, cf, lpszusertype);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pstg;
     (void)cf;
     (void)lpszusertype;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

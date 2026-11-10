@@ -61,9 +61,14 @@ static Napi::Value windowssys_windows_win32_storage_imapi_closeIMsgSession_napi(
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CloseIMsgSession")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(lpmsgsess);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(lpmsgsess);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)lpmsgsess;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -80,11 +85,18 @@ static Napi::Value windowssys_windows_win32_storage_imapi_getAttribIMsgOnIStg_na
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetAttribIMsgOnIStg")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpobject, lpproptagarray, lpppropattrarray) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpobject, lpproptagarray, lpppropattrarray);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpobject;
     (void)lpproptagarray;
     (void)lpppropattrarray;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -100,9 +112,16 @@ static Napi::Value windowssys_windows_win32_storage_imapi_mapStorageSCode_napi(c
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MapStorageSCode")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(stgscode) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(stgscode);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)stgscode;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -120,11 +139,18 @@ static Napi::Value windowssys_windows_win32_storage_imapi_openIMsgSession_napi(c
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OpenIMsgSession")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpmalloc, ulflags, lppmsgsess) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpmalloc, ulflags, lppmsgsess);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpmalloc;
     (void)ulflags;
     (void)lppmsgsess;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -143,12 +169,19 @@ static Napi::Value windowssys_windows_win32_storage_imapi_setAttribIMsgOnIStg_na
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetAttribIMsgOnIStg")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpobject, lpproptags, lppropattrs, lpppropproblems) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpobject, lpproptags, lppropattrs, lpppropproblems);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpobject;
     (void)lpproptags;
     (void)lppropattrs;
     (void)lpppropproblems;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

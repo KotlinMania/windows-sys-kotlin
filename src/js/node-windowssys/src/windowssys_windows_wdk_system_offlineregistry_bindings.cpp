@@ -61,9 +61,16 @@ static Napi::Value windowssys_windows_wdk_system_offlineregistry_oRCloseHive_nap
         HMODULE km_h_mod = LoadLibraryA("offreg.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ORCloseHive")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(handle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(handle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)handle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -79,9 +86,16 @@ static Napi::Value windowssys_windows_wdk_system_offlineregistry_oRCloseKey_napi
         HMODULE km_h_mod = LoadLibraryA("offreg.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ORCloseKey")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(keyhandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(keyhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)keyhandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -97,9 +111,16 @@ static Napi::Value windowssys_windows_wdk_system_offlineregistry_oRCreateHive_na
         HMODULE km_h_mod = LoadLibraryA("offreg.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ORCreateHive")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(horkey) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(horkey);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)horkey;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -121,7 +142,13 @@ static Napi::Value windowssys_windows_wdk_system_offlineregistry_oRCreateKey_nap
         HMODULE km_h_mod = LoadLibraryA("offreg.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ORCreateKey")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(keyhandle, lpsubkey, lpclass, dwoptions, psecuritydescriptor, phkresult, pdwdisposition) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(keyhandle, lpsubkey, lpclass, dwoptions, psecuritydescriptor, phkresult, pdwdisposition);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)keyhandle;
     (void)lpsubkey;
@@ -130,6 +157,7 @@ static Napi::Value windowssys_windows_wdk_system_offlineregistry_oRCreateKey_nap
     (void)psecuritydescriptor;
     (void)phkresult;
     (void)pdwdisposition;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -146,10 +174,17 @@ static Napi::Value windowssys_windows_wdk_system_offlineregistry_oRDeleteKey_nap
         HMODULE km_h_mod = LoadLibraryA("offreg.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ORDeleteKey")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(handle, lpsubkey) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(handle, lpsubkey);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)handle;
     (void)lpsubkey;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -166,10 +201,17 @@ static Napi::Value windowssys_windows_wdk_system_offlineregistry_oRDeleteValue_n
         HMODULE km_h_mod = LoadLibraryA("offreg.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ORDeleteValue")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(handle, lpvaluename) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(handle, lpvaluename);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)handle;
     (void)lpvaluename;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -191,7 +233,13 @@ static Napi::Value windowssys_windows_wdk_system_offlineregistry_oREnumKey_napi(
         HMODULE km_h_mod = LoadLibraryA("offreg.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OREnumKey")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(handle, dwindex, lpname, lpcname, lpclass, lpcclass, lpftlastwritetime) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(handle, dwindex, lpname, lpcname, lpclass, lpcclass, lpftlastwritetime);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)handle;
     (void)dwindex;
@@ -200,6 +248,7 @@ static Napi::Value windowssys_windows_wdk_system_offlineregistry_oREnumKey_napi(
     (void)lpclass;
     (void)lpcclass;
     (void)lpftlastwritetime;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -221,7 +270,13 @@ static Napi::Value windowssys_windows_wdk_system_offlineregistry_oREnumValue_nap
         HMODULE km_h_mod = LoadLibraryA("offreg.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OREnumValue")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(handle, dwindex, lpvaluename, lpcvaluename, lptype, lpdata, lpcbdata) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(handle, dwindex, lpvaluename, lpcvaluename, lptype, lpdata, lpcbdata);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)handle;
     (void)dwindex;
@@ -230,6 +285,7 @@ static Napi::Value windowssys_windows_wdk_system_offlineregistry_oREnumValue_nap
     (void)lptype;
     (void)lpdata;
     (void)lpcbdata;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -248,12 +304,19 @@ static Napi::Value windowssys_windows_wdk_system_offlineregistry_oRGetKeySecurit
         HMODULE km_h_mod = LoadLibraryA("offreg.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ORGetKeySecurity")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(handle, securityinformation, psecuritydescriptor, lpcbsecuritydescriptor) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(handle, securityinformation, psecuritydescriptor, lpcbsecuritydescriptor);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)handle;
     (void)securityinformation;
     (void)psecuritydescriptor;
     (void)lpcbsecuritydescriptor;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -274,7 +337,13 @@ static Napi::Value windowssys_windows_wdk_system_offlineregistry_oRGetValue_napi
         HMODULE km_h_mod = LoadLibraryA("offreg.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ORGetValue")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(handle, lpsubkey, lpvalue, pdwtype, pvdata, pcbdata) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(handle, lpsubkey, lpvalue, pdwtype, pvdata, pcbdata);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)handle;
     (void)lpsubkey;
@@ -282,6 +351,7 @@ static Napi::Value windowssys_windows_wdk_system_offlineregistry_oRGetValue_napi
     (void)pdwtype;
     (void)pvdata;
     (void)pcbdata;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -298,10 +368,17 @@ static Napi::Value windowssys_windows_wdk_system_offlineregistry_oRGetVersion_na
         HMODULE km_h_mod = LoadLibraryA("offreg.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ORGetVersion")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pdwmajorversion, pdwminorversion) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pdwmajorversion, pdwminorversion);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pdwmajorversion;
     (void)pdwminorversion;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -318,10 +395,17 @@ static Napi::Value windowssys_windows_wdk_system_offlineregistry_oRGetVirtualFla
         HMODULE km_h_mod = LoadLibraryA("offreg.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ORGetVirtualFlags")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(handle, pdwflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(handle, pdwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)handle;
     (void)pdwflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -339,11 +423,18 @@ static Napi::Value windowssys_windows_wdk_system_offlineregistry_oRMergeHives_na
         HMODULE km_h_mod = LoadLibraryA("offreg.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ORMergeHives")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hivehandles, hivecount, phkresult) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hivehandles, hivecount, phkresult);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hivehandles;
     (void)hivecount;
     (void)phkresult;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -360,10 +451,17 @@ static Napi::Value windowssys_windows_wdk_system_offlineregistry_oROpenHive_napi
         HMODULE km_h_mod = LoadLibraryA("offreg.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OROpenHive")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(filepath, horkey) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(filepath, horkey);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)filepath;
     (void)horkey;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -380,10 +478,17 @@ static Napi::Value windowssys_windows_wdk_system_offlineregistry_oROpenHiveByHan
         HMODULE km_h_mod = LoadLibraryA("offreg.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OROpenHiveByHandle")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(filehandle, horkey) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(filehandle, horkey);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)filehandle;
     (void)horkey;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -401,11 +506,18 @@ static Napi::Value windowssys_windows_wdk_system_offlineregistry_oROpenKey_napi(
         HMODULE km_h_mod = LoadLibraryA("offreg.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OROpenKey")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(handle, lpsubkey, phkresult) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(handle, lpsubkey, phkresult);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)handle;
     (void)lpsubkey;
     (void)phkresult;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -431,7 +543,13 @@ static Napi::Value windowssys_windows_wdk_system_offlineregistry_oRQueryInfoKey_
         HMODULE km_h_mod = LoadLibraryA("offreg.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ORQueryInfoKey")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(handle, lpclass, lpcclass, lpcsubkeys, lpcmaxsubkeylen, lpcmaxclasslen, lpcvalues, lpcmaxvaluenamelen, lpcmaxvaluelen, lpcbsecuritydescriptor, lpftlastwritetime) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(handle, lpclass, lpcclass, lpcsubkeys, lpcmaxsubkeylen, lpcmaxclasslen, lpcvalues, lpcmaxvaluenamelen, lpcmaxvaluelen, lpcbsecuritydescriptor, lpftlastwritetime);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)handle;
     (void)lpclass;
@@ -444,6 +562,7 @@ static Napi::Value windowssys_windows_wdk_system_offlineregistry_oRQueryInfoKey_
     (void)lpcmaxvaluelen;
     (void)lpcbsecuritydescriptor;
     (void)lpftlastwritetime;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -460,10 +579,17 @@ static Napi::Value windowssys_windows_wdk_system_offlineregistry_oRRenameKey_nap
         HMODULE km_h_mod = LoadLibraryA("offreg.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ORRenameKey")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(handle, lpnewname) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(handle, lpnewname);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)handle;
     (void)lpnewname;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -482,12 +608,19 @@ static Napi::Value windowssys_windows_wdk_system_offlineregistry_oRSaveHive_napi
         HMODULE km_h_mod = LoadLibraryA("offreg.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ORSaveHive")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(horkey, hivepath, osmajorversion, osminorversion) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(horkey, hivepath, osmajorversion, osminorversion);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)horkey;
     (void)hivepath;
     (void)osmajorversion;
     (void)osminorversion;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -505,11 +638,18 @@ static Napi::Value windowssys_windows_wdk_system_offlineregistry_oRSetKeySecurit
         HMODULE km_h_mod = LoadLibraryA("offreg.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ORSetKeySecurity")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(handle, securityinformation, psecuritydescriptor) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(handle, securityinformation, psecuritydescriptor);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)handle;
     (void)securityinformation;
     (void)psecuritydescriptor;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -529,13 +669,20 @@ static Napi::Value windowssys_windows_wdk_system_offlineregistry_oRSetValue_napi
         HMODULE km_h_mod = LoadLibraryA("offreg.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ORSetValue")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(handle, lpvaluename, dwtype, lpdata, cbdata) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(handle, lpvaluename, dwtype, lpdata, cbdata);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)handle;
     (void)lpvaluename;
     (void)dwtype;
     (void)lpdata;
     (void)cbdata;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -552,10 +699,17 @@ static Napi::Value windowssys_windows_wdk_system_offlineregistry_oRSetVirtualFla
         HMODULE km_h_mod = LoadLibraryA("offreg.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ORSetVirtualFlags")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(handle, dwflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(handle, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)handle;
     (void)dwflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -570,8 +724,15 @@ static Napi::Value windowssys_windows_wdk_system_offlineregistry_oRShutdown_napi
         HMODULE km_h_mod = LoadLibraryA("offreg.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ORShutdown")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -586,8 +747,15 @@ static Napi::Value windowssys_windows_wdk_system_offlineregistry_oRStart_napi(co
         HMODULE km_h_mod = LoadLibraryA("offreg.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ORStart")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

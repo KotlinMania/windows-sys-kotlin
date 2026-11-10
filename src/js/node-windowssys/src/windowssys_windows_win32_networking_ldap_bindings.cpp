@@ -60,8 +60,15 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapGetLastError_nap
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LdapGetLastError")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -77,9 +84,16 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapMapErrorToWin32_
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LdapMapErrorToWin32")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ldaperror) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ldaperror);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ldaperror;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -98,12 +112,19 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapUTF8ToUnicode_na
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LdapUTF8ToUnicode")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpsrcstr, cchsrc, lpdeststr, cchdest) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpsrcstr, cchsrc, lpdeststr, cchdest);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpsrcstr;
     (void)cchsrc;
     (void)lpdeststr;
     (void)cchdest;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -122,12 +143,19 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapUnicodeToUTF8_na
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LdapUnicodeToUTF8")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpsrcstr, cchsrc, lpdeststr, cchdest) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpsrcstr, cchsrc, lpdeststr, cchdest);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpsrcstr;
     (void)cchsrc;
     (void)lpdeststr;
     (void)cchdest;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -143,10 +171,17 @@ static Napi::Value windowssys_windows_win32_networking_ldap_berAllocT_napi(const
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ber_alloc_t")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(options) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(options);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)options;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -161,10 +196,17 @@ static Napi::Value windowssys_windows_win32_networking_ldap_berBvdup_napi(const 
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ber_bvdup")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pberval) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pberval);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pberval;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -179,9 +221,14 @@ static Napi::Value windowssys_windows_win32_networking_ldap_berBvecfree_napi(con
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ber_bvecfree")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pberval);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pberval);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pberval;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -196,9 +243,14 @@ static Napi::Value windowssys_windows_win32_networking_ldap_berBvfree_napi(const
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ber_bvfree")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(bv);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(bv);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)bv;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -215,11 +267,18 @@ static Napi::Value windowssys_windows_win32_networking_ldap_berFirstElement_napi
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ber_first_element")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pberelement, plen, ppopaque) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pberelement, plen, ppopaque);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pberelement;
     (void)plen;
     (void)ppopaque;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -236,10 +295,17 @@ static Napi::Value windowssys_windows_win32_networking_ldap_berFlatten_napi(cons
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ber_flatten")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pberelement, pberval) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pberelement, pberval);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pberelement;
     (void)pberval;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -256,10 +322,15 @@ static Napi::Value windowssys_windows_win32_networking_ldap_berFree_napi(const N
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ber_free")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pberelement, fbuf);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pberelement, fbuf);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pberelement;
     (void)fbuf;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -274,10 +345,17 @@ static Napi::Value windowssys_windows_win32_networking_ldap_berInit_napi(const N
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ber_init")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pberval) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pberval);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pberval;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -294,11 +372,18 @@ static Napi::Value windowssys_windows_win32_networking_ldap_berNextElement_napi(
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ber_next_element")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pberelement, plen, opaque) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pberelement, plen, opaque);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pberelement;
     (void)plen;
     (void)opaque;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -315,10 +400,17 @@ static Napi::Value windowssys_windows_win32_networking_ldap_berPeekTag_napi(cons
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ber_peek_tag")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pberelement, plen) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pberelement, plen);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pberelement;
     (void)plen;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -349,11 +441,14 @@ static Napi::Value windowssys_windows_win32_networking_ldap_berPrintf_napi(const
             case 3: km_res = km_fn_ptr(pberelement, fmt, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2)); break;
             default: km_res = km_fn_ptr(pberelement, fmt, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2), static_cast<intptr_t>(km_va3)); break;
         }
+    } else {
+        errno = ENOSYS;
     }
 #else
     (void)pberelement;
     (void)fmt;
     (void)km_vac; (void)km_va0; (void)km_va1; (void)km_va2; (void)km_va3;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -384,11 +479,14 @@ static Napi::Value windowssys_windows_win32_networking_ldap_berScanf_napi(const 
             case 3: km_res = km_fn_ptr(pberelement, fmt, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2)); break;
             default: km_res = km_fn_ptr(pberelement, fmt, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2), static_cast<intptr_t>(km_va3)); break;
         }
+    } else {
+        errno = ENOSYS;
     }
 #else
     (void)pberelement;
     (void)fmt;
     (void)km_vac; (void)km_va0; (void)km_va1; (void)km_va2; (void)km_va3;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -405,10 +503,17 @@ static Napi::Value windowssys_windows_win32_networking_ldap_berSkipTag_napi(cons
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ber_skip_tag")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pberelement, plen) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pberelement, plen);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pberelement;
     (void)plen;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -425,11 +530,18 @@ static Napi::Value windowssys_windows_win32_networking_ldap_cldapOpen_napi(const
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "cldap_open")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hostname, portnumber) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hostname, portnumber);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hostname;
     (void)portnumber;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -445,11 +557,18 @@ static Napi::Value windowssys_windows_win32_networking_ldap_cldapOpenA_napi(cons
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "cldap_openA")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hostname, portnumber) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hostname, portnumber);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hostname;
     (void)portnumber;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -465,11 +584,18 @@ static Napi::Value windowssys_windows_win32_networking_ldap_cldapOpenW_napi(cons
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "cldap_openW")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hostname, portnumber) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hostname, portnumber);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hostname;
     (void)portnumber;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -485,10 +611,17 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapAbandon_napi(con
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_abandon")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, msgid) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, msgid);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)msgid;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -506,11 +639,18 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapAdd_napi(const N
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_add")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, dn, attrs) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, dn, attrs);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
     (void)attrs;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -528,11 +668,18 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapAddA_napi(const 
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_addA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, dn, attrs) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, dn, attrs);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
     (void)attrs;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -550,11 +697,18 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapAddW_napi(const 
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_addW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, dn, attrs) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, dn, attrs);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
     (void)attrs;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -575,7 +729,13 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapAddExt_napi(cons
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_add_ext")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, dn, attrs, servercontrols, clientcontrols, messagenumber) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, dn, attrs, servercontrols, clientcontrols, messagenumber);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
@@ -583,6 +743,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapAddExt_napi(cons
     (void)servercontrols;
     (void)clientcontrols;
     (void)messagenumber;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -603,7 +764,13 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapAddExtA_napi(con
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_add_extA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, dn, attrs, servercontrols, clientcontrols, messagenumber) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, dn, attrs, servercontrols, clientcontrols, messagenumber);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
@@ -611,6 +778,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapAddExtA_napi(con
     (void)servercontrols;
     (void)clientcontrols;
     (void)messagenumber;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -631,7 +799,13 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapAddExtW_napi(con
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_add_extW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, dn, attrs, servercontrols, clientcontrols, messagenumber) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, dn, attrs, servercontrols, clientcontrols, messagenumber);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
@@ -639,6 +813,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapAddExtW_napi(con
     (void)servercontrols;
     (void)clientcontrols;
     (void)messagenumber;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -658,13 +833,20 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapAddExtS_napi(con
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_add_ext_s")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, dn, attrs, servercontrols, clientcontrols) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, dn, attrs, servercontrols, clientcontrols);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
     (void)attrs;
     (void)servercontrols;
     (void)clientcontrols;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -684,13 +866,20 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapAddExtSA_napi(co
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_add_ext_sA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, dn, attrs, servercontrols, clientcontrols) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, dn, attrs, servercontrols, clientcontrols);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
     (void)attrs;
     (void)servercontrols;
     (void)clientcontrols;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -710,13 +899,20 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapAddExtSW_napi(co
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_add_ext_sW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, dn, attrs, servercontrols, clientcontrols) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, dn, attrs, servercontrols, clientcontrols);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
     (void)attrs;
     (void)servercontrols;
     (void)clientcontrols;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -734,11 +930,18 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapAddS_napi(const 
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_add_s")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, dn, attrs) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, dn, attrs);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
     (void)attrs;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -756,11 +959,18 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapAddSA_napi(const
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_add_sA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, dn, attrs) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, dn, attrs);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
     (void)attrs;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -778,11 +988,18 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapAddSW_napi(const
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_add_sW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, dn, attrs) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, dn, attrs);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
     (void)attrs;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -801,12 +1018,19 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapBind_napi(const 
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_bind")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, dn, cred, method) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, dn, cred, method);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
     (void)cred;
     (void)method;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -825,12 +1049,19 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapBindA_napi(const
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_bindA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, dn, cred, method) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, dn, cred, method);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
     (void)cred;
     (void)method;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -849,12 +1080,19 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapBindW_napi(const
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_bindW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, dn, cred, method) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, dn, cred, method);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
     (void)cred;
     (void)method;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -873,12 +1111,19 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapBindS_napi(const
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_bind_s")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, dn, cred, method) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, dn, cred, method);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
     (void)cred;
     (void)method;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -897,12 +1142,19 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapBindSA_napi(cons
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_bind_sA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, dn, cred, method) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, dn, cred, method);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
     (void)cred;
     (void)method;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -921,12 +1173,19 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapBindSW_napi(cons
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_bind_sW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, dn, cred, method) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, dn, cred, method);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
     (void)cred;
     (void)method;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -943,10 +1202,17 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapCheckFilterA_nap
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_check_filterA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, searchfilter) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, searchfilter);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)searchfilter;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -963,10 +1229,17 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapCheckFilterW_nap
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_check_filterW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, searchfilter) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, searchfilter);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)searchfilter;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -982,9 +1255,16 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapCleanup_napi(con
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_cleanup")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hinstance) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hinstance);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hinstance;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1001,10 +1281,17 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapCloseExtendedOp_
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_close_extended_op")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, messagenumber) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, messagenumber);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)messagenumber;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1023,12 +1310,19 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapCompare_napi(con
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_compare")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, dn, attr, value) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, dn, attr, value);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
     (void)attr;
     (void)value;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1047,12 +1341,19 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapCompareA_napi(co
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_compareA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, dn, attr, value) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, dn, attr, value);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
     (void)attr;
     (void)value;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1071,12 +1372,19 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapCompareW_napi(co
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_compareW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, dn, attr, value) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, dn, attr, value);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
     (void)attr;
     (void)value;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1099,7 +1407,13 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapCompareExt_napi(
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_compare_ext")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, dn, attr, value, data, servercontrols, clientcontrols, messagenumber) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, dn, attr, value, data, servercontrols, clientcontrols, messagenumber);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
@@ -1109,6 +1423,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapCompareExt_napi(
     (void)servercontrols;
     (void)clientcontrols;
     (void)messagenumber;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1131,7 +1446,13 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapCompareExtA_napi
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_compare_extA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, dn, attr, value, data, servercontrols, clientcontrols, messagenumber) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, dn, attr, value, data, servercontrols, clientcontrols, messagenumber);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
@@ -1141,6 +1462,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapCompareExtA_napi
     (void)servercontrols;
     (void)clientcontrols;
     (void)messagenumber;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1163,7 +1485,13 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapCompareExtW_napi
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_compare_extW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, dn, attr, value, data, servercontrols, clientcontrols, messagenumber) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, dn, attr, value, data, servercontrols, clientcontrols, messagenumber);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
@@ -1173,6 +1501,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapCompareExtW_napi
     (void)servercontrols;
     (void)clientcontrols;
     (void)messagenumber;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1194,7 +1523,13 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapCompareExtS_napi
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_compare_ext_s")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, dn, attr, value, data, servercontrols, clientcontrols) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, dn, attr, value, data, servercontrols, clientcontrols);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
@@ -1203,6 +1538,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapCompareExtS_napi
     (void)data;
     (void)servercontrols;
     (void)clientcontrols;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1224,7 +1560,13 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapCompareExtSA_nap
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_compare_ext_sA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, dn, attr, value, data, servercontrols, clientcontrols) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, dn, attr, value, data, servercontrols, clientcontrols);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
@@ -1233,6 +1575,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapCompareExtSA_nap
     (void)data;
     (void)servercontrols;
     (void)clientcontrols;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1254,7 +1597,13 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapCompareExtSW_nap
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_compare_ext_sW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, dn, attr, value, data, servercontrols, clientcontrols) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, dn, attr, value, data, servercontrols, clientcontrols);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
@@ -1263,6 +1612,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapCompareExtSW_nap
     (void)data;
     (void)servercontrols;
     (void)clientcontrols;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1281,12 +1631,19 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapCompareS_napi(co
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_compare_s")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, dn, attr, value) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, dn, attr, value);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
     (void)attr;
     (void)value;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1305,12 +1662,19 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapCompareSA_napi(c
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_compare_sA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, dn, attr, value) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, dn, attr, value);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
     (void)attr;
     (void)value;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1329,12 +1693,19 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapCompareSW_napi(c
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_compare_sW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, dn, attr, value) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, dn, attr, value);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
     (void)attr;
     (void)value;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1351,11 +1722,18 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapConnFromMsg_napi
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_conn_from_msg")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(primaryconn, res) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(primaryconn, res);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)primaryconn;
     (void)res;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1371,10 +1749,17 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapConnect_napi(con
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_connect")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, timeout) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, timeout);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)timeout;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1390,9 +1775,16 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapControlFree_napi
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_control_free")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(control) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(control);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)control;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1408,9 +1800,16 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapControlFreeA_nap
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_control_freeA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(controls) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(controls);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)controls;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1426,9 +1825,16 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapControlFreeW_nap
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_control_freeW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(control) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(control);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)control;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1444,9 +1850,16 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapControlsFree_nap
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_controls_free")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(controls) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(controls);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)controls;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1462,9 +1875,16 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapControlsFreeA_na
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_controls_freeA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(controls) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(controls);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)controls;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1480,9 +1900,16 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapControlsFreeW_na
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_controls_freeW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(control) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(control);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)control;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1499,10 +1926,17 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapCountEntries_nap
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_count_entries")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, res) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, res);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)res;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1519,10 +1953,17 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapCountReferences_
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_count_references")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, res) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, res);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)res;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1538,9 +1979,16 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapCountValues_napi
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_count_values")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(vals) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(vals);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)vals;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1556,9 +2004,16 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapCountValuesA_nap
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_count_valuesA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(vals) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(vals);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)vals;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1574,9 +2029,16 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapCountValuesW_nap
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_count_valuesW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(vals) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(vals);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)vals;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1592,9 +2054,16 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapCountValuesLen_n
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_count_values_len")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(vals) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(vals);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)vals;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1614,13 +2083,20 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapCreatePageContro
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_create_page_control")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(externalhandle, pagesize, cookie, iscritical, control) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(externalhandle, pagesize, cookie, iscritical, control);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)externalhandle;
     (void)pagesize;
     (void)cookie;
     (void)iscritical;
     (void)control;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1640,13 +2116,20 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapCreatePageContro
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_create_page_controlA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(externalhandle, pagesize, cookie, iscritical, control) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(externalhandle, pagesize, cookie, iscritical, control);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)externalhandle;
     (void)pagesize;
     (void)cookie;
     (void)iscritical;
     (void)control;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1666,13 +2149,20 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapCreatePageContro
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_create_page_controlW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(externalhandle, pagesize, cookie, iscritical, control) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(externalhandle, pagesize, cookie, iscritical, control);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)externalhandle;
     (void)pagesize;
     (void)cookie;
     (void)iscritical;
     (void)control;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1691,12 +2181,19 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapCreateSortContro
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_create_sort_control")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(externalhandle, sortkeys, iscritical, control) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(externalhandle, sortkeys, iscritical, control);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)externalhandle;
     (void)sortkeys;
     (void)iscritical;
     (void)control;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1715,12 +2212,19 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapCreateSortContro
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_create_sort_controlA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(externalhandle, sortkeys, iscritical, control) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(externalhandle, sortkeys, iscritical, control);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)externalhandle;
     (void)sortkeys;
     (void)iscritical;
     (void)control;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1739,12 +2243,19 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapCreateSortContro
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_create_sort_controlW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(externalhandle, sortkeys, iscritical, control) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(externalhandle, sortkeys, iscritical, control);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)externalhandle;
     (void)sortkeys;
     (void)iscritical;
     (void)control;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1763,12 +2274,19 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapCreateVlvControl
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_create_vlv_controlA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(externalhandle, vlvinfo, iscritical, control) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(externalhandle, vlvinfo, iscritical, control);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)externalhandle;
     (void)vlvinfo;
     (void)iscritical;
     (void)control;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1787,12 +2305,19 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapCreateVlvControl
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_create_vlv_controlW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(externalhandle, vlvinfo, iscritical, control) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(externalhandle, vlvinfo, iscritical, control);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)externalhandle;
     (void)vlvinfo;
     (void)iscritical;
     (void)control;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1809,10 +2334,17 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapDelete_napi(cons
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_delete")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, dn) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, dn);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1829,10 +2361,17 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapDeleteA_napi(con
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_deleteA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, dn) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, dn);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1849,10 +2388,17 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapDeleteW_napi(con
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_deleteW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, dn) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, dn);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1872,13 +2418,20 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapDeleteExt_napi(c
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_delete_ext")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, dn, servercontrols, clientcontrols, messagenumber) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, dn, servercontrols, clientcontrols, messagenumber);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
     (void)servercontrols;
     (void)clientcontrols;
     (void)messagenumber;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1898,13 +2451,20 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapDeleteExtA_napi(
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_delete_extA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, dn, servercontrols, clientcontrols, messagenumber) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, dn, servercontrols, clientcontrols, messagenumber);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
     (void)servercontrols;
     (void)clientcontrols;
     (void)messagenumber;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1924,13 +2484,20 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapDeleteExtW_napi(
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_delete_extW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, dn, servercontrols, clientcontrols, messagenumber) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, dn, servercontrols, clientcontrols, messagenumber);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
     (void)servercontrols;
     (void)clientcontrols;
     (void)messagenumber;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1949,12 +2516,19 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapDeleteExtS_napi(
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_delete_ext_s")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, dn, servercontrols, clientcontrols) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, dn, servercontrols, clientcontrols);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
     (void)servercontrols;
     (void)clientcontrols;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1973,12 +2547,19 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapDeleteExtSA_napi
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_delete_ext_sA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, dn, servercontrols, clientcontrols) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, dn, servercontrols, clientcontrols);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
     (void)servercontrols;
     (void)clientcontrols;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1997,12 +2578,19 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapDeleteExtSW_napi
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_delete_ext_sW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, dn, servercontrols, clientcontrols) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, dn, servercontrols, clientcontrols);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
     (void)servercontrols;
     (void)clientcontrols;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2019,10 +2607,17 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapDeleteS_napi(con
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_delete_s")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, dn) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, dn);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2039,10 +2634,17 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapDeleteSA_napi(co
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_delete_sA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, dn) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, dn);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2059,10 +2661,17 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapDeleteSW_napi(co
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_delete_sW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, dn) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, dn);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2078,10 +2687,17 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapDn2ufn_napi(cons
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_dn2ufn")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dn) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dn);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)dn;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -2096,10 +2712,17 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapDn2ufnA_napi(con
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_dn2ufnA")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dn) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dn);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)dn;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -2114,10 +2737,17 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapDn2ufnW_napi(con
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_dn2ufnW")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dn) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dn);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)dn;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -2135,12 +2765,19 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapEncodeSortContro
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_encode_sort_controlA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(externalhandle, sortkeys, control, criticality) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(externalhandle, sortkeys, control, criticality);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)externalhandle;
     (void)sortkeys;
     (void)control;
     (void)criticality;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2159,12 +2796,19 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapEncodeSortContro
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_encode_sort_controlW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(externalhandle, sortkeys, control, criticality) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(externalhandle, sortkeys, control, criticality);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)externalhandle;
     (void)sortkeys;
     (void)control;
     (void)criticality;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2180,10 +2824,17 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapErr2string_napi(
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_err2string")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(err) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(err);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)err;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -2198,10 +2849,17 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapErr2stringA_napi
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_err2stringA")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(err) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(err);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)err;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -2216,10 +2874,17 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapErr2stringW_napi
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_err2stringW")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(err) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(err);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)err;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -2237,12 +2902,19 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapEscapeFilterElem
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_escape_filter_element")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sourcefilterelement, sourcelength, destfilterelement, destlength) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sourcefilterelement, sourcelength, destfilterelement, destlength);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)sourcefilterelement;
     (void)sourcelength;
     (void)destfilterelement;
     (void)destlength;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2261,12 +2933,19 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapEscapeFilterElem
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_escape_filter_elementA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sourcefilterelement, sourcelength, destfilterelement, destlength) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sourcefilterelement, sourcelength, destfilterelement, destlength);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)sourcefilterelement;
     (void)sourcelength;
     (void)destfilterelement;
     (void)destlength;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2285,12 +2964,19 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapEscapeFilterElem
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_escape_filter_elementW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sourcefilterelement, sourcelength, destfilterelement, destlength) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sourcefilterelement, sourcelength, destfilterelement, destlength);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)sourcefilterelement;
     (void)sourcelength;
     (void)destfilterelement;
     (void)destlength;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2307,11 +2993,18 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapExplodeDn_napi(c
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_explode_dn")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dn, notypes) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dn, notypes);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)dn;
     (void)notypes;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -2327,11 +3020,18 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapExplodeDnA_napi(
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_explode_dnA")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dn, notypes) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dn, notypes);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)dn;
     (void)notypes;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -2347,11 +3047,18 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapExplodeDnW_napi(
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_explode_dnW")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dn, notypes) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dn, notypes);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)dn;
     (void)notypes;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -2371,7 +3078,13 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapExtendedOperatio
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_extended_operation")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, oid, data, servercontrols, clientcontrols, messagenumber) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, oid, data, servercontrols, clientcontrols, messagenumber);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)oid;
@@ -2379,6 +3092,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapExtendedOperatio
     (void)servercontrols;
     (void)clientcontrols;
     (void)messagenumber;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2399,7 +3113,13 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapExtendedOperatio
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_extended_operationA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, oid, data, servercontrols, clientcontrols, messagenumber) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, oid, data, servercontrols, clientcontrols, messagenumber);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)oid;
@@ -2407,6 +3127,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapExtendedOperatio
     (void)servercontrols;
     (void)clientcontrols;
     (void)messagenumber;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2427,7 +3148,13 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapExtendedOperatio
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_extended_operationW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, oid, data, servercontrols, clientcontrols, messagenumber) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, oid, data, servercontrols, clientcontrols, messagenumber);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)oid;
@@ -2435,6 +3162,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapExtendedOperatio
     (void)servercontrols;
     (void)clientcontrols;
     (void)messagenumber;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2456,7 +3184,13 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapExtendedOperatio
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_extended_operation_sA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(externalhandle, oid, data, servercontrols, clientcontrols, returnedoid, returneddata) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(externalhandle, oid, data, servercontrols, clientcontrols, returnedoid, returneddata);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)externalhandle;
     (void)oid;
@@ -2465,6 +3199,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapExtendedOperatio
     (void)clientcontrols;
     (void)returnedoid;
     (void)returneddata;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2486,7 +3221,13 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapExtendedOperatio
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_extended_operation_sW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(externalhandle, oid, data, servercontrols, clientcontrols, returnedoid, returneddata) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(externalhandle, oid, data, servercontrols, clientcontrols, returnedoid, returneddata);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)externalhandle;
     (void)oid;
@@ -2495,6 +3236,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapExtendedOperatio
     (void)clientcontrols;
     (void)returnedoid;
     (void)returneddata;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2512,12 +3254,19 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapFirstAttribute_n
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_first_attribute")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, entry, ptr) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, entry, ptr);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)ld;
     (void)entry;
     (void)ptr;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -2534,12 +3283,19 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapFirstAttributeA_
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_first_attributeA")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, entry, ptr) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, entry, ptr);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)ld;
     (void)entry;
     (void)ptr;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -2556,12 +3312,19 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapFirstAttributeW_
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_first_attributeW")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, entry, ptr) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, entry, ptr);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)ld;
     (void)entry;
     (void)ptr;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -2577,11 +3340,18 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapFirstEntry_napi(
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_first_entry")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, res) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, res);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)ld;
     (void)res;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -2597,11 +3367,18 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapFirstReference_n
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_first_reference")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, res) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, res);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)ld;
     (void)res;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -2616,9 +3393,16 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapFreeControls_nap
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_free_controls")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(controls) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(controls);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)controls;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2634,9 +3418,16 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapFreeControlsA_na
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_free_controlsA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(controls) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(controls);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)controls;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2652,9 +3443,16 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapFreeControlsW_na
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_free_controlsW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(controls) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(controls);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)controls;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2671,11 +3469,18 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapGetDn_napi(const
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_get_dn")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, entry) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, entry);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)ld;
     (void)entry;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -2691,11 +3496,18 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapGetDnA_napi(cons
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_get_dnA")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, entry) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, entry);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)ld;
     (void)entry;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -2711,11 +3523,18 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapGetDnW_napi(cons
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_get_dnW")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, entry) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, entry);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)ld;
     (void)entry;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -2733,12 +3552,19 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapGetNextPage_napi
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_get_next_page")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(externalhandle, searchhandle, pagesize, messagenumber) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(externalhandle, searchhandle, pagesize, messagenumber);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)externalhandle;
     (void)searchhandle;
     (void)pagesize;
     (void)messagenumber;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2759,7 +3585,13 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapGetNextPageS_nap
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_get_next_page_s")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(externalhandle, searchhandle, timeout, pagesize, totalcount, results) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(externalhandle, searchhandle, timeout, pagesize, totalcount, results);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)externalhandle;
     (void)searchhandle;
@@ -2767,6 +3599,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapGetNextPageS_nap
     (void)pagesize;
     (void)totalcount;
     (void)results;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2784,11 +3617,18 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapGetOption_napi(c
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_get_option")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, option, outvalue) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, option, outvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)option;
     (void)outvalue;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2806,11 +3646,18 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapGetOptionW_napi(
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_get_optionW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, option, outvalue) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, option, outvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)option;
     (void)outvalue;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2829,12 +3676,19 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapGetPagedCount_na
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_get_paged_count")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(externalhandle, searchblock, totalcount, results) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(externalhandle, searchblock, totalcount, results);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)externalhandle;
     (void)searchblock;
     (void)totalcount;
     (void)results;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2852,12 +3706,19 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapGetValues_napi(c
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_get_values")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, entry, attr) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, entry, attr);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)ld;
     (void)entry;
     (void)attr;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -2874,12 +3735,19 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapGetValuesA_napi(
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_get_valuesA")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, entry, attr) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, entry, attr);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)ld;
     (void)entry;
     (void)attr;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -2896,12 +3764,19 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapGetValuesW_napi(
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_get_valuesW")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, entry, attr) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, entry, attr);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)ld;
     (void)entry;
     (void)attr;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -2918,12 +3793,19 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapGetValuesLen_nap
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_get_values_len")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(externalhandle, message, attr) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(externalhandle, message, attr);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)externalhandle;
     (void)message;
     (void)attr;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -2940,12 +3822,19 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapGetValuesLenA_na
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_get_values_lenA")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(externalhandle, message, attr) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(externalhandle, message, attr);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)externalhandle;
     (void)message;
     (void)attr;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -2962,12 +3851,19 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapGetValuesLenW_na
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_get_values_lenW")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(externalhandle, message, attr) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(externalhandle, message, attr);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)externalhandle;
     (void)message;
     (void)attr;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -2983,11 +3879,18 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapInit_napi(const 
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_init")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hostname, portnumber) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hostname, portnumber);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hostname;
     (void)portnumber;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -3003,11 +3906,18 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapInitA_napi(const
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_initA")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hostname, portnumber) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hostname, portnumber);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hostname;
     (void)portnumber;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -3023,11 +3933,18 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapInitW_napi(const
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_initW")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hostname, portnumber) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hostname, portnumber);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hostname;
     (void)portnumber;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -3042,9 +3959,14 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapMemfree_napi(con
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_memfree")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(block);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(block);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)block;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -3059,9 +3981,14 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapMemfreeA_napi(co
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_memfreeA")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(block);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(block);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)block;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -3076,9 +4003,14 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapMemfreeW_napi(co
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_memfreeW")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(block);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(block);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)block;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -3095,11 +4027,18 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapModify_napi(cons
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_modify")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, dn, mods) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, dn, mods);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
     (void)mods;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3117,11 +4056,18 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapModifyA_napi(con
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_modifyA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, dn, mods) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, dn, mods);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
     (void)mods;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3139,11 +4085,18 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapModifyW_napi(con
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_modifyW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, dn, mods) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, dn, mods);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
     (void)mods;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3164,7 +4117,13 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapModifyExt_napi(c
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_modify_ext")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, dn, mods, servercontrols, clientcontrols, messagenumber) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, dn, mods, servercontrols, clientcontrols, messagenumber);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
@@ -3172,6 +4131,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapModifyExt_napi(c
     (void)servercontrols;
     (void)clientcontrols;
     (void)messagenumber;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3192,7 +4152,13 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapModifyExtA_napi(
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_modify_extA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, dn, mods, servercontrols, clientcontrols, messagenumber) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, dn, mods, servercontrols, clientcontrols, messagenumber);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
@@ -3200,6 +4166,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapModifyExtA_napi(
     (void)servercontrols;
     (void)clientcontrols;
     (void)messagenumber;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3220,7 +4187,13 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapModifyExtW_napi(
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_modify_extW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, dn, mods, servercontrols, clientcontrols, messagenumber) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, dn, mods, servercontrols, clientcontrols, messagenumber);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
@@ -3228,6 +4201,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapModifyExtW_napi(
     (void)servercontrols;
     (void)clientcontrols;
     (void)messagenumber;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3247,13 +4221,20 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapModifyExtS_napi(
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_modify_ext_s")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, dn, mods, servercontrols, clientcontrols) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, dn, mods, servercontrols, clientcontrols);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
     (void)mods;
     (void)servercontrols;
     (void)clientcontrols;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3273,13 +4254,20 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapModifyExtSA_napi
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_modify_ext_sA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, dn, mods, servercontrols, clientcontrols) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, dn, mods, servercontrols, clientcontrols);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
     (void)mods;
     (void)servercontrols;
     (void)clientcontrols;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3299,13 +4287,20 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapModifyExtSW_napi
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_modify_ext_sW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, dn, mods, servercontrols, clientcontrols) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, dn, mods, servercontrols, clientcontrols);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
     (void)mods;
     (void)servercontrols;
     (void)clientcontrols;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3323,11 +4318,18 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapModifyS_napi(con
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_modify_s")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, dn, mods) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, dn, mods);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
     (void)mods;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3345,11 +4347,18 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapModifySA_napi(co
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_modify_sA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, dn, mods) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, dn, mods);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
     (void)mods;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3367,11 +4376,18 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapModifySW_napi(co
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_modify_sW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, dn, mods) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, dn, mods);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
     (void)mods;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3389,11 +4405,18 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapModrdn_napi(cons
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_modrdn")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(externalhandle, distinguishedname, newdistinguishedname) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(externalhandle, distinguishedname, newdistinguishedname);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)externalhandle;
     (void)distinguishedname;
     (void)newdistinguishedname;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3412,12 +4435,19 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapModrdn2_napi(con
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_modrdn2")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(externalhandle, distinguishedname, newdistinguishedname, deleteoldrdn) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(externalhandle, distinguishedname, newdistinguishedname, deleteoldrdn);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)externalhandle;
     (void)distinguishedname;
     (void)newdistinguishedname;
     (void)deleteoldrdn;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3436,12 +4466,19 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapModrdn2A_napi(co
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_modrdn2A")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(externalhandle, distinguishedname, newdistinguishedname, deleteoldrdn) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(externalhandle, distinguishedname, newdistinguishedname, deleteoldrdn);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)externalhandle;
     (void)distinguishedname;
     (void)newdistinguishedname;
     (void)deleteoldrdn;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3460,12 +4497,19 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapModrdn2W_napi(co
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_modrdn2W")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(externalhandle, distinguishedname, newdistinguishedname, deleteoldrdn) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(externalhandle, distinguishedname, newdistinguishedname, deleteoldrdn);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)externalhandle;
     (void)distinguishedname;
     (void)newdistinguishedname;
     (void)deleteoldrdn;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3484,12 +4528,19 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapModrdn2S_napi(co
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_modrdn2_s")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(externalhandle, distinguishedname, newdistinguishedname, deleteoldrdn) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(externalhandle, distinguishedname, newdistinguishedname, deleteoldrdn);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)externalhandle;
     (void)distinguishedname;
     (void)newdistinguishedname;
     (void)deleteoldrdn;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3508,12 +4559,19 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapModrdn2SA_napi(c
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_modrdn2_sA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(externalhandle, distinguishedname, newdistinguishedname, deleteoldrdn) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(externalhandle, distinguishedname, newdistinguishedname, deleteoldrdn);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)externalhandle;
     (void)distinguishedname;
     (void)newdistinguishedname;
     (void)deleteoldrdn;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3532,12 +4590,19 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapModrdn2SW_napi(c
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_modrdn2_sW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(externalhandle, distinguishedname, newdistinguishedname, deleteoldrdn) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(externalhandle, distinguishedname, newdistinguishedname, deleteoldrdn);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)externalhandle;
     (void)distinguishedname;
     (void)newdistinguishedname;
     (void)deleteoldrdn;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3555,11 +4620,18 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapModrdnA_napi(con
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_modrdnA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(externalhandle, distinguishedname, newdistinguishedname) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(externalhandle, distinguishedname, newdistinguishedname);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)externalhandle;
     (void)distinguishedname;
     (void)newdistinguishedname;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3577,11 +4649,18 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapModrdnW_napi(con
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_modrdnW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(externalhandle, distinguishedname, newdistinguishedname) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(externalhandle, distinguishedname, newdistinguishedname);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)externalhandle;
     (void)distinguishedname;
     (void)newdistinguishedname;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3599,11 +4678,18 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapModrdnS_napi(con
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_modrdn_s")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(externalhandle, distinguishedname, newdistinguishedname) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(externalhandle, distinguishedname, newdistinguishedname);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)externalhandle;
     (void)distinguishedname;
     (void)newdistinguishedname;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3621,11 +4707,18 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapModrdnSA_napi(co
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_modrdn_sA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(externalhandle, distinguishedname, newdistinguishedname) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(externalhandle, distinguishedname, newdistinguishedname);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)externalhandle;
     (void)distinguishedname;
     (void)newdistinguishedname;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3643,11 +4736,18 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapModrdnSW_napi(co
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_modrdn_sW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(externalhandle, distinguishedname, newdistinguishedname) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(externalhandle, distinguishedname, newdistinguishedname);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)externalhandle;
     (void)distinguishedname;
     (void)newdistinguishedname;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3663,9 +4763,16 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapMsgfree_napi(con
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_msgfree")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(res) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(res);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)res;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3683,12 +4790,19 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapNextAttribute_na
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_next_attribute")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, entry, ptr) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, entry, ptr);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)ld;
     (void)entry;
     (void)ptr;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -3705,12 +4819,19 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapNextAttributeA_n
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_next_attributeA")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, entry, ptr) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, entry, ptr);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)ld;
     (void)entry;
     (void)ptr;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -3727,12 +4848,19 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapNextAttributeW_n
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_next_attributeW")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, entry, ptr) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, entry, ptr);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)ld;
     (void)entry;
     (void)ptr;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -3748,11 +4876,18 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapNextEntry_napi(c
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_next_entry")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, entry) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, entry);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)ld;
     (void)entry;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -3768,11 +4903,18 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapNextReference_na
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_next_reference")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, entry) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, entry);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)ld;
     (void)entry;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -3788,11 +4930,18 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapOpen_napi(const 
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_open")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hostname, portnumber) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hostname, portnumber);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hostname;
     (void)portnumber;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -3808,11 +4957,18 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapOpenA_napi(const
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_openA")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hostname, portnumber) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hostname, portnumber);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hostname;
     (void)portnumber;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -3828,11 +4984,18 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapOpenW_napi(const
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_openW")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hostname, portnumber) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hostname, portnumber);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hostname;
     (void)portnumber;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -3851,13 +5014,20 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapParseExtendedRes
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_parse_extended_resultA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(connection, resultmessage, resultoid, resultdata, freeit) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(connection, resultmessage, resultoid, resultdata, freeit);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)connection;
     (void)resultmessage;
     (void)resultoid;
     (void)resultdata;
     (void)freeit;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3877,13 +5047,20 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapParseExtendedRes
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_parse_extended_resultW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(connection, resultmessage, resultoid, resultdata, freeit) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(connection, resultmessage, resultoid, resultdata, freeit);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)connection;
     (void)resultmessage;
     (void)resultoid;
     (void)resultdata;
     (void)freeit;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3902,12 +5079,19 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapParsePageControl
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_parse_page_control")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(externalhandle, servercontrols, totalcount, cookie) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(externalhandle, servercontrols, totalcount, cookie);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)externalhandle;
     (void)servercontrols;
     (void)totalcount;
     (void)cookie;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3926,12 +5110,19 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapParsePageControl
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_parse_page_controlA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(externalhandle, servercontrols, totalcount, cookie) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(externalhandle, servercontrols, totalcount, cookie);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)externalhandle;
     (void)servercontrols;
     (void)totalcount;
     (void)cookie;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3950,12 +5141,19 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapParsePageControl
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_parse_page_controlW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(externalhandle, servercontrols, totalcount, cookie) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(externalhandle, servercontrols, totalcount, cookie);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)externalhandle;
     (void)servercontrols;
     (void)totalcount;
     (void)cookie;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3973,11 +5171,18 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapParseReference_n
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_parse_reference")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(connection, resultmessage, referrals) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(connection, resultmessage, referrals);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)connection;
     (void)resultmessage;
     (void)referrals;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3995,11 +5200,18 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapParseReferenceA_
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_parse_referenceA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(connection, resultmessage, referrals) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(connection, resultmessage, referrals);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)connection;
     (void)resultmessage;
     (void)referrals;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4017,11 +5229,18 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapParseReferenceW_
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_parse_referenceW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(connection, resultmessage, referrals) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(connection, resultmessage, referrals);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)connection;
     (void)resultmessage;
     (void)referrals;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4044,7 +5263,13 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapParseResult_napi
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_parse_result")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(connection, resultmessage, returncode, matcheddns, errormessage, referrals, servercontrols, freeit) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(connection, resultmessage, returncode, matcheddns, errormessage, referrals, servercontrols, freeit);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)connection;
     (void)resultmessage;
@@ -4054,6 +5279,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapParseResult_napi
     (void)referrals;
     (void)servercontrols;
     (void)freeit;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4076,7 +5302,13 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapParseResultA_nap
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_parse_resultA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(connection, resultmessage, returncode, matcheddns, errormessage, referrals, servercontrols, freeit) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(connection, resultmessage, returncode, matcheddns, errormessage, referrals, servercontrols, freeit);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)connection;
     (void)resultmessage;
@@ -4086,6 +5318,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapParseResultA_nap
     (void)referrals;
     (void)servercontrols;
     (void)freeit;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4108,7 +5341,13 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapParseResultW_nap
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_parse_resultW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(connection, resultmessage, returncode, matcheddns, errormessage, referrals, servercontrols, freeit) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(connection, resultmessage, returncode, matcheddns, errormessage, referrals, servercontrols, freeit);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)connection;
     (void)resultmessage;
@@ -4118,6 +5357,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapParseResultW_nap
     (void)referrals;
     (void)servercontrols;
     (void)freeit;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4136,12 +5376,19 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapParseSortControl
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_parse_sort_control")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(externalhandle, control, result, attribute) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(externalhandle, control, result, attribute);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)externalhandle;
     (void)control;
     (void)result;
     (void)attribute;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4160,12 +5407,19 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapParseSortControl
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_parse_sort_controlA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(externalhandle, control, result, attribute) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(externalhandle, control, result, attribute);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)externalhandle;
     (void)control;
     (void)result;
     (void)attribute;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4184,12 +5438,19 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapParseSortControl
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_parse_sort_controlW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(externalhandle, control, result, attribute) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(externalhandle, control, result, attribute);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)externalhandle;
     (void)control;
     (void)result;
     (void)attribute;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4210,7 +5471,13 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapParseVlvControlA
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_parse_vlv_controlA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(externalhandle, control, targetpos, listcount, context, errcode) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(externalhandle, control, targetpos, listcount, context, errcode);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)externalhandle;
     (void)control;
@@ -4218,6 +5485,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapParseVlvControlA
     (void)listcount;
     (void)context;
     (void)errcode;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4238,7 +5506,13 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapParseVlvControlW
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_parse_vlv_controlW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(externalhandle, control, targetpos, listcount, context, errcode) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(externalhandle, control, targetpos, listcount, context, errcode);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)externalhandle;
     (void)control;
@@ -4246,6 +5520,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapParseVlvControlW
     (void)listcount;
     (void)context;
     (void)errcode;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4262,10 +5537,15 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapPerror_napi(cons
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_perror")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(ld, msg);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(ld, msg);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)ld;
     (void)msg;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -4287,7 +5567,13 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapRenameExt_napi(c
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_rename_ext")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, dn, newrdn, newparent, deleteoldrdn, servercontrols, clientcontrols, messagenumber) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, dn, newrdn, newparent, deleteoldrdn, servercontrols, clientcontrols, messagenumber);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
@@ -4297,6 +5583,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapRenameExt_napi(c
     (void)servercontrols;
     (void)clientcontrols;
     (void)messagenumber;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4319,7 +5606,13 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapRenameExtA_napi(
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_rename_extA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, dn, newrdn, newparent, deleteoldrdn, servercontrols, clientcontrols, messagenumber) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, dn, newrdn, newparent, deleteoldrdn, servercontrols, clientcontrols, messagenumber);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
@@ -4329,6 +5622,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapRenameExtA_napi(
     (void)servercontrols;
     (void)clientcontrols;
     (void)messagenumber;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4351,7 +5645,13 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapRenameExtW_napi(
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_rename_extW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, dn, newrdn, newparent, deleteoldrdn, servercontrols, clientcontrols, messagenumber) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, dn, newrdn, newparent, deleteoldrdn, servercontrols, clientcontrols, messagenumber);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
@@ -4361,6 +5661,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapRenameExtW_napi(
     (void)servercontrols;
     (void)clientcontrols;
     (void)messagenumber;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4382,7 +5683,13 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapRenameExtS_napi(
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_rename_ext_s")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, dn, newrdn, newparent, deleteoldrdn, servercontrols, clientcontrols) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, dn, newrdn, newparent, deleteoldrdn, servercontrols, clientcontrols);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
@@ -4391,6 +5698,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapRenameExtS_napi(
     (void)deleteoldrdn;
     (void)servercontrols;
     (void)clientcontrols;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4412,7 +5720,13 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapRenameExtSA_napi
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_rename_ext_sA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, dn, newrdn, newparent, deleteoldrdn, servercontrols, clientcontrols) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, dn, newrdn, newparent, deleteoldrdn, servercontrols, clientcontrols);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
@@ -4421,6 +5735,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapRenameExtSA_napi
     (void)deleteoldrdn;
     (void)servercontrols;
     (void)clientcontrols;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4442,7 +5757,13 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapRenameExtSW_napi
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_rename_ext_sW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, dn, newrdn, newparent, deleteoldrdn, servercontrols, clientcontrols) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, dn, newrdn, newparent, deleteoldrdn, servercontrols, clientcontrols);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
@@ -4451,6 +5772,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapRenameExtSW_napi
     (void)deleteoldrdn;
     (void)servercontrols;
     (void)clientcontrols;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4470,13 +5792,20 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapResult_napi(cons
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_result")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, msgid, all, timeout, res) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, msgid, all, timeout, res);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)msgid;
     (void)all;
     (void)timeout;
     (void)res;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4494,11 +5823,18 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapResult2error_nap
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_result2error")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, res, freeit) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, res, freeit);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)res;
     (void)freeit;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4520,7 +5856,13 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapSaslBindA_napi(c
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_sasl_bindA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(externalhandle, distname, authmechanism, cred, serverctrls, clientctrls, messagenumber) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(externalhandle, distname, authmechanism, cred, serverctrls, clientctrls, messagenumber);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)externalhandle;
     (void)distname;
@@ -4529,6 +5871,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapSaslBindA_napi(c
     (void)serverctrls;
     (void)clientctrls;
     (void)messagenumber;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4550,7 +5893,13 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapSaslBindW_napi(c
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_sasl_bindW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(externalhandle, distname, authmechanism, cred, serverctrls, clientctrls, messagenumber) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(externalhandle, distname, authmechanism, cred, serverctrls, clientctrls, messagenumber);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)externalhandle;
     (void)distname;
@@ -4559,6 +5908,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapSaslBindW_napi(c
     (void)serverctrls;
     (void)clientctrls;
     (void)messagenumber;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4580,7 +5930,13 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapSaslBindSA_napi(
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_sasl_bind_sA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(externalhandle, distname, authmechanism, cred, serverctrls, clientctrls, serverdata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(externalhandle, distname, authmechanism, cred, serverctrls, clientctrls, serverdata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)externalhandle;
     (void)distname;
@@ -4589,6 +5945,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapSaslBindSA_napi(
     (void)serverctrls;
     (void)clientctrls;
     (void)serverdata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4610,7 +5967,13 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapSaslBindSW_napi(
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_sasl_bind_sW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(externalhandle, distname, authmechanism, cred, serverctrls, clientctrls, serverdata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(externalhandle, distname, authmechanism, cred, serverctrls, clientctrls, serverdata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)externalhandle;
     (void)distname;
@@ -4619,6 +5982,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapSaslBindSW_napi(
     (void)serverctrls;
     (void)clientctrls;
     (void)serverdata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4639,7 +6003,13 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapSearch_napi(cons
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_search")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, base, scope, filter, attrs, attrsonly) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, base, scope, filter, attrs, attrsonly);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)base;
@@ -4647,6 +6017,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapSearch_napi(cons
     (void)filter;
     (void)attrs;
     (void)attrsonly;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4667,7 +6038,13 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapSearchA_napi(con
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_searchA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, base, scope, filter, attrs, attrsonly) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, base, scope, filter, attrs, attrsonly);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)base;
@@ -4675,6 +6052,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapSearchA_napi(con
     (void)filter;
     (void)attrs;
     (void)attrsonly;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4695,7 +6073,13 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapSearchW_napi(con
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_searchW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, base, scope, filter, attrs, attrsonly) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, base, scope, filter, attrs, attrsonly);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)base;
@@ -4703,6 +6087,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapSearchW_napi(con
     (void)filter;
     (void)attrs;
     (void)attrsonly;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4719,10 +6104,17 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapSearchAbandonPag
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_search_abandon_page")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(externalhandle, searchblock) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(externalhandle, searchblock);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)externalhandle;
     (void)searchblock;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4748,7 +6140,13 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapSearchExt_napi(c
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_search_ext")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, base, scope, filter, attrs, attrsonly, servercontrols, clientcontrols, timelimit, sizelimit, messagenumber) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, base, scope, filter, attrs, attrsonly, servercontrols, clientcontrols, timelimit, sizelimit, messagenumber);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)base;
@@ -4761,6 +6159,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapSearchExt_napi(c
     (void)timelimit;
     (void)sizelimit;
     (void)messagenumber;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4786,7 +6185,13 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapSearchExtA_napi(
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_search_extA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, base, scope, filter, attrs, attrsonly, servercontrols, clientcontrols, timelimit, sizelimit, messagenumber) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, base, scope, filter, attrs, attrsonly, servercontrols, clientcontrols, timelimit, sizelimit, messagenumber);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)base;
@@ -4799,6 +6204,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapSearchExtA_napi(
     (void)timelimit;
     (void)sizelimit;
     (void)messagenumber;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4824,7 +6230,13 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapSearchExtW_napi(
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_search_extW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, base, scope, filter, attrs, attrsonly, servercontrols, clientcontrols, timelimit, sizelimit, messagenumber) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, base, scope, filter, attrs, attrsonly, servercontrols, clientcontrols, timelimit, sizelimit, messagenumber);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)base;
@@ -4837,6 +6249,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapSearchExtW_napi(
     (void)timelimit;
     (void)sizelimit;
     (void)messagenumber;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4862,7 +6275,13 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapSearchExtS_napi(
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_search_ext_s")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, base, scope, filter, attrs, attrsonly, servercontrols, clientcontrols, timeout, sizelimit, res) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, base, scope, filter, attrs, attrsonly, servercontrols, clientcontrols, timeout, sizelimit, res);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)base;
@@ -4875,6 +6294,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapSearchExtS_napi(
     (void)timeout;
     (void)sizelimit;
     (void)res;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4900,7 +6320,13 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapSearchExtSA_napi
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_search_ext_sA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, base, scope, filter, attrs, attrsonly, servercontrols, clientcontrols, timeout, sizelimit, res) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, base, scope, filter, attrs, attrsonly, servercontrols, clientcontrols, timeout, sizelimit, res);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)base;
@@ -4913,6 +6339,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapSearchExtSA_napi
     (void)timeout;
     (void)sizelimit;
     (void)res;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4938,7 +6365,13 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapSearchExtSW_napi
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_search_ext_sW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, base, scope, filter, attrs, attrsonly, servercontrols, clientcontrols, timeout, sizelimit, res) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, base, scope, filter, attrs, attrsonly, servercontrols, clientcontrols, timeout, sizelimit, res);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)base;
@@ -4951,6 +6384,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapSearchExtSW_napi
     (void)timeout;
     (void)sizelimit;
     (void)res;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4976,7 +6410,13 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapSearchInitPage_n
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_search_init_page")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(externalhandle, distinguishedname, scopeofsearch, searchfilter, attributelist, attributesonly, servercontrols, clientcontrols, pagetimelimit, totalsizelimit, sortkeys) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(externalhandle, distinguishedname, scopeofsearch, searchfilter, attributelist, attributesonly, servercontrols, clientcontrols, pagetimelimit, totalsizelimit, sortkeys);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)externalhandle;
     (void)distinguishedname;
@@ -4989,6 +6429,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapSearchInitPage_n
     (void)pagetimelimit;
     (void)totalsizelimit;
     (void)sortkeys;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5014,7 +6455,13 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapSearchInitPageA_
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_search_init_pageA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(externalhandle, distinguishedname, scopeofsearch, searchfilter, attributelist, attributesonly, servercontrols, clientcontrols, pagetimelimit, totalsizelimit, sortkeys) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(externalhandle, distinguishedname, scopeofsearch, searchfilter, attributelist, attributesonly, servercontrols, clientcontrols, pagetimelimit, totalsizelimit, sortkeys);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)externalhandle;
     (void)distinguishedname;
@@ -5027,6 +6474,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapSearchInitPageA_
     (void)pagetimelimit;
     (void)totalsizelimit;
     (void)sortkeys;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5052,7 +6500,13 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapSearchInitPageW_
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_search_init_pageW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(externalhandle, distinguishedname, scopeofsearch, searchfilter, attributelist, attributesonly, servercontrols, clientcontrols, pagetimelimit, totalsizelimit, sortkeys) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(externalhandle, distinguishedname, scopeofsearch, searchfilter, attributelist, attributesonly, servercontrols, clientcontrols, pagetimelimit, totalsizelimit, sortkeys);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)externalhandle;
     (void)distinguishedname;
@@ -5065,6 +6519,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapSearchInitPageW_
     (void)pagetimelimit;
     (void)totalsizelimit;
     (void)sortkeys;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5086,7 +6541,13 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapSearchS_napi(con
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_search_s")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, base, scope, filter, attrs, attrsonly, res) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, base, scope, filter, attrs, attrsonly, res);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)base;
@@ -5095,6 +6556,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapSearchS_napi(con
     (void)attrs;
     (void)attrsonly;
     (void)res;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5116,7 +6578,13 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapSearchSA_napi(co
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_search_sA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, base, scope, filter, attrs, attrsonly, res) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, base, scope, filter, attrs, attrsonly, res);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)base;
@@ -5125,6 +6593,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapSearchSA_napi(co
     (void)attrs;
     (void)attrsonly;
     (void)res;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5146,7 +6615,13 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapSearchSW_napi(co
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_search_sW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, base, scope, filter, attrs, attrsonly, res) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, base, scope, filter, attrs, attrsonly, res);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)base;
@@ -5155,6 +6630,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapSearchSW_napi(co
     (void)attrs;
     (void)attrsonly;
     (void)res;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5177,7 +6653,13 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapSearchSt_napi(co
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_search_st")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, base, scope, filter, attrs, attrsonly, timeout, res) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, base, scope, filter, attrs, attrsonly, timeout, res);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)base;
@@ -5187,6 +6669,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapSearchSt_napi(co
     (void)attrsonly;
     (void)timeout;
     (void)res;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5209,7 +6692,13 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapSearchStA_napi(c
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_search_stA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, base, scope, filter, attrs, attrsonly, timeout, res) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, base, scope, filter, attrs, attrsonly, timeout, res);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)base;
@@ -5219,6 +6708,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapSearchStA_napi(c
     (void)attrsonly;
     (void)timeout;
     (void)res;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5241,7 +6731,13 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapSearchStW_napi(c
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_search_stW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, base, scope, filter, attrs, attrsonly, timeout, res) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, base, scope, filter, attrs, attrsonly, timeout, res);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)base;
@@ -5251,6 +6747,7 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapSearchStW_napi(c
     (void)attrsonly;
     (void)timeout;
     (void)res;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5266,9 +6763,16 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapSetDbgFlags_napi
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_set_dbg_flags")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(newflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(newflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)newflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5284,9 +6788,14 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapSetDbgRoutine_na
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_set_dbg_routine")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(debugprintroutine);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(debugprintroutine);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)debugprintroutine;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -5303,11 +6812,18 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapSetOption_napi(c
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_set_option")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, option, invalue) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, option, invalue);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)option;
     (void)invalue;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5325,11 +6841,18 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapSetOptionW_napi(
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_set_optionW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, option, invalue) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, option, invalue);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)option;
     (void)invalue;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5347,11 +6870,18 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapSimpleBind_napi(
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_simple_bind")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, dn, passwd) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, dn, passwd);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
     (void)passwd;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5369,11 +6899,18 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapSimpleBindA_napi
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_simple_bindA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, dn, passwd) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, dn, passwd);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
     (void)passwd;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5391,11 +6928,18 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapSimpleBindW_napi
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_simple_bindW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, dn, passwd) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, dn, passwd);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
     (void)passwd;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5413,11 +6957,18 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapSimpleBindS_napi
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_simple_bind_s")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, dn, passwd) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, dn, passwd);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
     (void)passwd;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5435,11 +6986,18 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapSimpleBindSA_nap
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_simple_bind_sA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, dn, passwd) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, dn, passwd);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
     (void)passwd;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5457,11 +7015,18 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapSimpleBindSW_nap
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_simple_bind_sW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld, dn, passwd) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld, dn, passwd);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
     (void)dn;
     (void)passwd;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5479,12 +7044,19 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapSslinit_napi(con
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_sslinit")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hostname, portnumber, secure) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hostname, portnumber, secure);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hostname;
     (void)portnumber;
     (void)secure;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -5501,12 +7073,19 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapSslinitA_napi(co
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_sslinitA")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hostname, portnumber, secure) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hostname, portnumber, secure);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hostname;
     (void)portnumber;
     (void)secure;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -5523,12 +7102,19 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapSslinitW_napi(co
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_sslinitW")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hostname, portnumber, secure) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hostname, portnumber, secure);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hostname;
     (void)portnumber;
     (void)secure;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -5547,13 +7133,20 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapStartTlsSA_napi(
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_start_tls_sA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(externalhandle, serverreturnvalue, result, servercontrols, clientcontrols) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(externalhandle, serverreturnvalue, result, servercontrols, clientcontrols);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)externalhandle;
     (void)serverreturnvalue;
     (void)result;
     (void)servercontrols;
     (void)clientcontrols;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5573,13 +7166,20 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapStartTlsSW_napi(
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_start_tls_sW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(externalhandle, serverreturnvalue, result, servercontrols, clientcontrols) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(externalhandle, serverreturnvalue, result, servercontrols, clientcontrols);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)externalhandle;
     (void)serverreturnvalue;
     (void)result;
     (void)servercontrols;
     (void)clientcontrols;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5596,10 +7196,17 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapStartup_napi(con
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_startup")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(version, instance) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(version, instance);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)version;
     (void)instance;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5615,9 +7222,16 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapStopTlsS_napi(co
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_stop_tls_s")));
     }
-    bool km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(externalhandle) : false;
+    bool km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(externalhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)externalhandle;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return Napi::Boolean::New(km_env, km_res);
@@ -5634,10 +7248,17 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapUfn2dn_napi(cons
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_ufn2dn")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ufn, pdn) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ufn, pdn);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ufn;
     (void)pdn;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5654,10 +7275,17 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapUfn2dnA_napi(con
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_ufn2dnA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ufn, pdn) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ufn, pdn);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ufn;
     (void)pdn;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5674,10 +7302,17 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapUfn2dnW_napi(con
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_ufn2dnW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ufn, pdn) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ufn, pdn);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ufn;
     (void)pdn;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5693,9 +7328,16 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapUnbind_napi(cons
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_unbind")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5711,9 +7353,16 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapUnbindS_napi(con
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_unbind_s")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ld) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ld);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ld;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5729,9 +7378,16 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapValueFree_napi(c
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_value_free")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(vals) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(vals);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)vals;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5747,9 +7403,16 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapValueFreeA_napi(
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_value_freeA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(vals) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(vals);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)vals;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5765,9 +7428,16 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapValueFreeW_napi(
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_value_freeW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(vals) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(vals);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)vals;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5783,9 +7453,16 @@ static Napi::Value windowssys_windows_win32_networking_ldap_ldapValueFreeLen_nap
         HMODULE km_h_mod = LoadLibraryA("wldap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ldap_value_free_len")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(vals) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(vals);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)vals;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

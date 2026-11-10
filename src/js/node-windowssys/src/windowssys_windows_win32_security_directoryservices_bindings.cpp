@@ -67,7 +67,13 @@ static Napi::Value windowssys_windows_win32_security_directoryservices_dSCreateS
         HMODULE km_h_mod = LoadLibraryA("dssec.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DSCreateSecurityPage")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pwszobjectpath, pwszobjectclass, dwflags, phpage, pfnreadsd, pfnwritesd, lpcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pwszobjectpath, pwszobjectclass, dwflags, phpage, pfnreadsd, pfnwritesd, lpcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pwszobjectpath;
     (void)pwszobjectclass;
@@ -76,6 +82,7 @@ static Napi::Value windowssys_windows_win32_security_directoryservices_dSCreateS
     (void)pfnreadsd;
     (void)pfnwritesd;
     (void)lpcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -98,7 +105,13 @@ static Napi::Value windowssys_windows_win32_security_directoryservices_dSEditSec
         HMODULE km_h_mod = LoadLibraryA("dssec.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DSEditSecurity")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwndowner, pwszobjectpath, pwszobjectclass, dwflags, pwszcaption, pfnreadsd, pfnwritesd, lpcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwndowner, pwszobjectpath, pwszobjectclass, dwflags, pwszcaption, pfnreadsd, pfnwritesd, lpcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwndowner;
     (void)pwszobjectpath;
@@ -108,6 +121,7 @@ static Napi::Value windowssys_windows_win32_security_directoryservices_dSEditSec
     (void)pfnreadsd;
     (void)pfnwritesd;
     (void)lpcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

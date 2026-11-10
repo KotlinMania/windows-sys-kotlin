@@ -70,7 +70,13 @@ static Napi::Value windowssys_windows_wdk_system_memory_ntMapViewOfSection_napi(
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NtMapViewOfSection")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sectionhandle, processhandle, baseaddress, zerobits, commitsize, sectionoffset, viewsize, inheritdisposition, allocationtype, win32protect) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sectionhandle, processhandle, baseaddress, zerobits, commitsize, sectionoffset, viewsize, inheritdisposition, allocationtype, win32protect);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sectionhandle;
     (void)processhandle;
@@ -82,6 +88,7 @@ static Napi::Value windowssys_windows_wdk_system_memory_ntMapViewOfSection_napi(
     (void)inheritdisposition;
     (void)allocationtype;
     (void)win32protect;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -99,11 +106,18 @@ static Napi::Value windowssys_windows_wdk_system_memory_ntOpenSection_napi(const
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NtOpenSection")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sectionhandle, desiredaccess, objectattributes) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sectionhandle, desiredaccess, objectattributes);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sectionhandle;
     (void)desiredaccess;
     (void)objectattributes;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -120,10 +134,17 @@ static Napi::Value windowssys_windows_wdk_system_memory_ntUnmapViewOfSection_nap
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NtUnmapViewOfSection")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(processhandle, baseaddress) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(processhandle, baseaddress);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)processhandle;
     (void)baseaddress;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -148,7 +169,13 @@ static Napi::Value windowssys_windows_wdk_system_memory_zwMapViewOfSection_napi(
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ZwMapViewOfSection")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sectionhandle, processhandle, baseaddress, zerobits, commitsize, sectionoffset, viewsize, inheritdisposition, allocationtype, win32protect) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sectionhandle, processhandle, baseaddress, zerobits, commitsize, sectionoffset, viewsize, inheritdisposition, allocationtype, win32protect);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sectionhandle;
     (void)processhandle;
@@ -160,6 +187,7 @@ static Napi::Value windowssys_windows_wdk_system_memory_zwMapViewOfSection_napi(
     (void)inheritdisposition;
     (void)allocationtype;
     (void)win32protect;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -177,11 +205,18 @@ static Napi::Value windowssys_windows_wdk_system_memory_zwOpenSection_napi(const
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ZwOpenSection")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sectionhandle, desiredaccess, objectattributes) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sectionhandle, desiredaccess, objectattributes);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sectionhandle;
     (void)desiredaccess;
     (void)objectattributes;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -198,10 +233,17 @@ static Napi::Value windowssys_windows_wdk_system_memory_zwUnmapViewOfSection_nap
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ZwUnmapViewOfSection")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(processhandle, baseaddress) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(processhandle, baseaddress);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)processhandle;
     (void)baseaddress;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

@@ -63,11 +63,18 @@ static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptC
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CryptCATAdminAcquireContext")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(phcatadmin, pgsubsystem, dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(phcatadmin, pgsubsystem, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)phcatadmin;
     (void)pgsubsystem;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -87,13 +94,20 @@ static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptC
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CryptCATAdminAcquireContext2")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(phcatadmin, pgsubsystem, pwszhashalgorithm, pstronghashpolicy, dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(phcatadmin, pgsubsystem, pwszhashalgorithm, pstronghashpolicy, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)phcatadmin;
     (void)pgsubsystem;
     (void)pwszhashalgorithm;
     (void)pstronghashpolicy;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -112,12 +126,19 @@ static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptC
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CryptCATAdminAddCatalog")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcatadmin, pwszcatalogfile, pwszselectbasename, dwflags) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcatadmin, pwszcatalogfile, pwszselectbasename, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcatadmin;
     (void)pwszcatalogfile;
     (void)pwszselectbasename;
     (void)dwflags;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -136,12 +157,19 @@ static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptC
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CryptCATAdminCalcHashFromFileHandle")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hfile, pcbhash, pbhash, dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hfile, pcbhash, pbhash, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hfile;
     (void)pcbhash;
     (void)pbhash;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -161,13 +189,20 @@ static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptC
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CryptCATAdminCalcHashFromFileHandle2")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcatadmin, hfile, pcbhash, pbhash, dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcatadmin, hfile, pcbhash, pbhash, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcatadmin;
     (void)hfile;
     (void)pcbhash;
     (void)pbhash;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -187,13 +222,20 @@ static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptC
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CryptCATAdminEnumCatalogFromHash")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcatadmin, pbhash, cbhash, dwflags, phprevcatinfo) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcatadmin, pbhash, cbhash, dwflags, phprevcatinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcatadmin;
     (void)pbhash;
     (void)cbhash;
     (void)dwflags;
     (void)phprevcatinfo;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -210,10 +252,17 @@ static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptC
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CryptCATAdminPauseServiceForBackup")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwflags, fresume) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwflags, fresume);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwflags;
     (void)fresume;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -231,11 +280,18 @@ static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptC
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CryptCATAdminReleaseCatalogContext")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcatadmin, hcatinfo, dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcatadmin, hcatinfo, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcatadmin;
     (void)hcatinfo;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -252,10 +308,17 @@ static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptC
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CryptCATAdminReleaseContext")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcatadmin, dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcatadmin, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcatadmin;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -273,11 +336,18 @@ static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptC
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CryptCATAdminRemoveCatalog")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcatadmin, pwszcatalogfile, dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcatadmin, pwszcatalogfile, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcatadmin;
     (void)pwszcatalogfile;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -296,12 +366,19 @@ static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptC
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CryptCATAdminResolveCatalogPath")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcatadmin, pwszcatalogfile, pscatinfo, dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcatadmin, pwszcatalogfile, pscatinfo, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcatadmin;
     (void)pwszcatalogfile;
     (void)pscatinfo;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -318,11 +395,18 @@ static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptC
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CryptCATAllocSortedMemberInfo")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcatalog, pwszreferencetag) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcatalog, pwszreferencetag);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hcatalog;
     (void)pwszreferencetag;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -337,9 +421,16 @@ static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptC
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CryptCATCDFClose")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pcdf) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pcdf);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pcdf;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -358,13 +449,20 @@ static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptC
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CryptCATCDFEnumAttributes")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pcdf, pmember, pprevattr, pfnparseerror) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pcdf, pmember, pprevattr, pfnparseerror);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pcdf;
     (void)pmember;
     (void)pprevattr;
     (void)pfnparseerror;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -383,14 +481,21 @@ static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptC
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CryptCATCDFEnumAttributesWithCDFTag")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pcdf, pwszmembertag, pmember, pprevattr, pfnparseerror) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pcdf, pwszmembertag, pmember, pprevattr, pfnparseerror);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pcdf;
     (void)pwszmembertag;
     (void)pmember;
     (void)pprevattr;
     (void)pfnparseerror;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -407,12 +512,19 @@ static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptC
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CryptCATCDFEnumCatAttributes")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pcdf, pprevattr, pfnparseerror) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pcdf, pprevattr, pfnparseerror);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pcdf;
     (void)pprevattr;
     (void)pfnparseerror;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -429,12 +541,19 @@ static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptC
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CryptCATCDFEnumMembers")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pcdf, pprevmember, pfnparseerror) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pcdf, pprevmember, pfnparseerror);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pcdf;
     (void)pprevmember;
     (void)pfnparseerror;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -454,7 +573,13 @@ static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptC
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CryptCATCDFEnumMembersByCDFTagEx")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pcdf, pwszprevcdftag, pfnparseerror, ppmember, fcontinueonerror, pvreserved) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pcdf, pwszprevcdftag, pfnparseerror, ppmember, fcontinueonerror, pvreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pcdf;
     (void)pwszprevcdftag;
@@ -462,7 +587,8 @@ static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptC
     (void)ppmember;
     (void)fcontinueonerror;
     (void)pvreserved;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -478,11 +604,18 @@ static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptC
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CryptCATCDFOpen")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pwszfilepath, pfnparseerror) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pwszfilepath, pfnparseerror);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pwszfilepath;
     (void)pfnparseerror;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -499,11 +632,18 @@ static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptC
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CryptCATCatalogInfoFromContext")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcatinfo, pscatinfo, dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcatinfo, pscatinfo, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcatinfo;
     (void)pscatinfo;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -519,9 +659,16 @@ static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptC
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CryptCATClose")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcatalog) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcatalog);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcatalog;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -539,12 +686,19 @@ static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptC
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CryptCATEnumerateAttr")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcatalog, pcatmember, pprevattr) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcatalog, pcatmember, pprevattr);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hcatalog;
     (void)pcatmember;
     (void)pprevattr;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -560,11 +714,18 @@ static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptC
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CryptCATEnumerateCatAttr")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcatalog, pprevattr) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcatalog, pprevattr);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hcatalog;
     (void)pprevattr;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -580,11 +741,18 @@ static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptC
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CryptCATEnumerateMember")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcatalog, pprevmember) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcatalog, pprevmember);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hcatalog;
     (void)pprevmember;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -600,10 +768,15 @@ static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptC
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CryptCATFreeSortedMemberInfo")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(hcatalog, pcatmember);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(hcatalog, pcatmember);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)hcatalog;
     (void)pcatmember;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -620,12 +793,19 @@ static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptC
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CryptCATGetAttrInfo")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcatalog, pcatmember, pwszreferencetag) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcatalog, pcatmember, pwszreferencetag);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hcatalog;
     (void)pcatmember;
     (void)pwszreferencetag;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -641,11 +821,18 @@ static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptC
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CryptCATGetCatAttrInfo")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcatalog, pwszreferencetag) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcatalog, pwszreferencetag);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hcatalog;
     (void)pwszreferencetag;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -661,11 +848,18 @@ static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptC
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CryptCATGetMemberInfo")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcatalog, pwszreferencetag) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcatalog, pwszreferencetag);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hcatalog;
     (void)pwszreferencetag;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -680,10 +874,17 @@ static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptC
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CryptCATHandleFromStore")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pcatstore) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pcatstore);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pcatstore;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -702,14 +903,21 @@ static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptC
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CryptCATOpen")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pwszfilename, fdwopenflags, hprov, dwpublicversion, dwencodingtype) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pwszfilename, fdwopenflags, hprov, dwpublicversion, dwencodingtype);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pwszfilename;
     (void)fdwopenflags;
     (void)hprov;
     (void)dwpublicversion;
     (void)dwencodingtype;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -724,9 +932,16 @@ static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptC
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CryptCATPersistStore")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcatalog) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcatalog);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcatalog;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -747,7 +962,13 @@ static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptC
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CryptCATPutAttrInfo")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcatalog, pcatmember, pwszreferencetag, dwattrtypeandaction, cbdata, pbdata) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcatalog, pcatmember, pwszreferencetag, dwattrtypeandaction, cbdata, pbdata);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hcatalog;
     (void)pcatmember;
@@ -755,7 +976,8 @@ static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptC
     (void)dwattrtypeandaction;
     (void)cbdata;
     (void)pbdata;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -774,14 +996,21 @@ static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptC
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CryptCATPutCatAttrInfo")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcatalog, pwszreferencetag, dwattrtypeandaction, cbdata, pbdata) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcatalog, pwszreferencetag, dwattrtypeandaction, cbdata, pbdata);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hcatalog;
     (void)pwszreferencetag;
     (void)dwattrtypeandaction;
     (void)cbdata;
     (void)pbdata;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -802,7 +1031,13 @@ static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptC
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CryptCATPutMemberInfo")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcatalog, pwszfilename, pwszreferencetag, pgsubjecttype, dwcertversion, cbsipindirectdata, pbsipindirectdata) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcatalog, pwszfilename, pwszreferencetag, pgsubjecttype, dwcertversion, cbsipindirectdata, pbsipindirectdata);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hcatalog;
     (void)pwszfilename;
@@ -811,7 +1046,8 @@ static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptC
     (void)dwcertversion;
     (void)cbsipindirectdata;
     (void)pbsipindirectdata;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -826,10 +1062,17 @@ static Napi::Value windowssys_windows_win32_security_cryptography_catalog_cryptC
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CryptCATStoreFromHandle")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcatalog) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcatalog);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hcatalog;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -845,10 +1088,17 @@ static Napi::Value windowssys_windows_win32_security_cryptography_catalog_isCata
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IsCatalogFile")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hfile, pwszfilename) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hfile, pwszfilename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hfile;
     (void)pwszfilename;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

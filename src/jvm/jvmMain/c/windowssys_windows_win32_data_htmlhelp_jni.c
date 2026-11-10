@@ -5,6 +5,7 @@
 #include <stdbool.h>
 #include <stddef.h>
 #include <stdint.h>
+#include <stdlib.h>
 #include <errno.h>
 #ifdef _WIN32
 #ifndef WIN32_LEAN_AND_MEAN
@@ -28,12 +29,19 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data
         HMODULE km_h_mod = LoadLibraryA("hhctrl.ocx");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HtmlHelpA");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hwndcaller, (void*)(uintptr_t)pszfile, (uint32_t)ucommand, (uint64_t)dwdata) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hwndcaller, (void*)(uintptr_t)pszfile, (uint32_t)ucommand, (uint64_t)dwdata);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)hwndcaller;
     (void)pszfile;
     (void)ucommand;
     (void)dwdata;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -49,12 +57,19 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_data
         HMODULE km_h_mod = LoadLibraryA("hhctrl.ocx");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HtmlHelpW");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hwndcaller, (void*)(uintptr_t)pszfile, (uint32_t)ucommand, (uint64_t)dwdata) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hwndcaller, (void*)(uintptr_t)pszfile, (uint32_t)ucommand, (uint64_t)dwdata);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)hwndcaller;
     (void)pszfile;
     (void)ucommand;
     (void)dwdata;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;

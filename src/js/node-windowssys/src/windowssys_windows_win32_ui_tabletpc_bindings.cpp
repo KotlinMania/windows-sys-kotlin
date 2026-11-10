@@ -65,13 +65,20 @@ static Napi::Value windowssys_windows_win32_ui_tabletpc_addStroke_napi(const Nap
         HMODULE km_h_mod = LoadLibraryA("inkobjcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AddStroke")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hrc, ppacketdesc, cbpacket, ppacket, pxform) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hrc, ppacketdesc, cbpacket, ppacket, pxform);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hrc;
     (void)ppacketdesc;
     (void)cbpacket;
     (void)ppacket;
     (void)pxform;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -88,10 +95,17 @@ static Napi::Value windowssys_windows_win32_ui_tabletpc_addWordsToWordList_napi(
         HMODULE km_h_mod = LoadLibraryA("inkobjcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AddWordsToWordList")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwl, pwcwords) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwl, pwcwords);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwl;
     (void)pwcwords;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -108,10 +122,17 @@ static Napi::Value windowssys_windows_win32_ui_tabletpc_adviseInkChange_napi(con
         HMODULE km_h_mod = LoadLibraryA("inkobjcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AdviseInkChange")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hrc, bnewstroke) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hrc, bnewstroke);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hrc;
     (void)bnewstroke;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -128,10 +149,17 @@ static Napi::Value windowssys_windows_win32_ui_tabletpc_createContext_napi(const
         HMODULE km_h_mod = LoadLibraryA("inkobjcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateContext")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hrec, phrc) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hrec, phrc);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hrec;
     (void)phrc;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -148,10 +176,17 @@ static Napi::Value windowssys_windows_win32_ui_tabletpc_createRecognizer_napi(co
         HMODULE km_h_mod = LoadLibraryA("inkobjcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateRecognizer")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pclsid, phrec) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pclsid, phrec);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pclsid;
     (void)phrec;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -167,9 +202,16 @@ static Napi::Value windowssys_windows_win32_ui_tabletpc_destroyContext_napi(cons
         HMODULE km_h_mod = LoadLibraryA("inkobjcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DestroyContext")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hrc) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hrc);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hrc;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -185,9 +227,16 @@ static Napi::Value windowssys_windows_win32_ui_tabletpc_destroyRecognizer_napi(c
         HMODULE km_h_mod = LoadLibraryA("inkobjcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DestroyRecognizer")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hrec) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hrec);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hrec;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -203,9 +252,16 @@ static Napi::Value windowssys_windows_win32_ui_tabletpc_destroyWordList_napi(con
         HMODULE km_h_mod = LoadLibraryA("inkobjcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DestroyWordList")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwl) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwl);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwl;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -221,9 +277,16 @@ static Napi::Value windowssys_windows_win32_ui_tabletpc_endInkInput_napi(const N
         HMODULE km_h_mod = LoadLibraryA("inkobjcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EndInkInput")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hrc) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hrc);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hrc;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -240,10 +303,17 @@ static Napi::Value windowssys_windows_win32_ui_tabletpc_getAllRecognizers_napi(c
         HMODULE km_h_mod = LoadLibraryA("inkobjcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetAllRecognizers")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(recognizerclsids, count) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(recognizerclsids, count);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)recognizerclsids;
     (void)count;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -261,11 +331,18 @@ static Napi::Value windowssys_windows_win32_ui_tabletpc_getBestResultString_napi
         HMODULE km_h_mod = LoadLibraryA("inkobjcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetBestResultString")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hrc, pcsize, pwcbestresult) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hrc, pcsize, pwcbestresult);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hrc;
     (void)pcsize;
     (void)pwcbestresult;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -282,10 +359,17 @@ static Napi::Value windowssys_windows_win32_ui_tabletpc_getLatticePtr_napi(const
         HMODULE km_h_mod = LoadLibraryA("inkobjcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetLatticePtr")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hrc, pplattice) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hrc, pplattice);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hrc;
     (void)pplattice;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -303,11 +387,18 @@ static Napi::Value windowssys_windows_win32_ui_tabletpc_getLeftSeparator_napi(co
         HMODULE km_h_mod = LoadLibraryA("inkobjcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetLeftSeparator")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hrc, pcsize, pwcleftseparator) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hrc, pcsize, pwcleftseparator);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hrc;
     (void)pcsize;
     (void)pwcleftseparator;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -324,10 +415,17 @@ static Napi::Value windowssys_windows_win32_ui_tabletpc_getRecoAttributes_napi(c
         HMODULE km_h_mod = LoadLibraryA("inkobjcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetRecoAttributes")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hrec, precoattrs) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hrec, precoattrs);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hrec;
     (void)precoattrs;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -345,11 +443,18 @@ static Napi::Value windowssys_windows_win32_ui_tabletpc_getResultPropertyList_na
         HMODULE km_h_mod = LoadLibraryA("inkobjcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetResultPropertyList")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hrec, ppropertycount, ppropertyguid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hrec, ppropertycount, ppropertyguid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hrec;
     (void)ppropertycount;
     (void)ppropertyguid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -367,11 +472,18 @@ static Napi::Value windowssys_windows_win32_ui_tabletpc_getRightSeparator_napi(c
         HMODULE km_h_mod = LoadLibraryA("inkobjcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetRightSeparator")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hrc, pcsize, pwcrightseparator) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hrc, pcsize, pwcrightseparator);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hrc;
     (void)pcsize;
     (void)pwcrightseparator;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -389,11 +501,18 @@ static Napi::Value windowssys_windows_win32_ui_tabletpc_getUnicodeRanges_napi(co
         HMODULE km_h_mod = LoadLibraryA("inkobjcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetUnicodeRanges")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hrec, pcranges, pcr) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hrec, pcranges, pcr);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hrec;
     (void)pcranges;
     (void)pcr;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -411,11 +530,18 @@ static Napi::Value windowssys_windows_win32_ui_tabletpc_isStringSupported_napi(c
         HMODULE km_h_mod = LoadLibraryA("inkobjcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IsStringSupported")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hrc, wcstring, pwcstring) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hrc, wcstring, pwcstring);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hrc;
     (void)wcstring;
     (void)pwcstring;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -433,11 +559,18 @@ static Napi::Value windowssys_windows_win32_ui_tabletpc_makeWordList_napi(const 
         HMODULE km_h_mod = LoadLibraryA("inkobjcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MakeWordList")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hrec, pbuffer, phwl) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hrec, pbuffer, phwl);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hrec;
     (void)pbuffer;
     (void)phwl;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -454,10 +587,17 @@ static Napi::Value windowssys_windows_win32_ui_tabletpc_process_napi(const Napi:
         HMODULE km_h_mod = LoadLibraryA("inkobjcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "Process")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hrc, pbpartialprocessing) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hrc, pbpartialprocessing);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hrc;
     (void)pbpartialprocessing;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -475,11 +615,18 @@ static Napi::Value windowssys_windows_win32_ui_tabletpc_setEnabledUnicodeRanges_
         HMODULE km_h_mod = LoadLibraryA("inkobjcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetEnabledUnicodeRanges")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hrc, cranges, pcr) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hrc, cranges, pcr);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hrc;
     (void)cranges;
     (void)pcr;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -497,11 +644,18 @@ static Napi::Value windowssys_windows_win32_ui_tabletpc_setFactoid_napi(const Na
         HMODULE km_h_mod = LoadLibraryA("inkobjcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetFactoid")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hrc, cwcfactoid, pwcfactoid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hrc, cwcfactoid, pwcfactoid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hrc;
     (void)cwcfactoid;
     (void)pwcfactoid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -518,10 +672,17 @@ static Napi::Value windowssys_windows_win32_ui_tabletpc_setFlags_napi(const Napi
         HMODULE km_h_mod = LoadLibraryA("inkobjcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetFlags")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hrc, dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hrc, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hrc;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -539,11 +700,18 @@ static Napi::Value windowssys_windows_win32_ui_tabletpc_setGuide_napi(const Napi
         HMODULE km_h_mod = LoadLibraryA("inkobjcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetGuide")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hrc, pguide, iindex) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hrc, pguide, iindex);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hrc;
     (void)pguide;
     (void)iindex;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -563,13 +731,20 @@ static Napi::Value windowssys_windows_win32_ui_tabletpc_setTextContext_napi(cons
         HMODULE km_h_mod = LoadLibraryA("inkobjcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetTextContext")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hrc, cwcbefore, pwcbefore, cwcafter, pwcafter) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hrc, cwcbefore, pwcbefore, cwcafter, pwcafter);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hrc;
     (void)cwcbefore;
     (void)pwcbefore;
     (void)cwcafter;
     (void)pwcafter;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -586,10 +761,17 @@ static Napi::Value windowssys_windows_win32_ui_tabletpc_setWordList_napi(const N
         HMODULE km_h_mod = LoadLibraryA("inkobjcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetWordList")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hrc, hwl) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hrc, hwl);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hrc;
     (void)hwl;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

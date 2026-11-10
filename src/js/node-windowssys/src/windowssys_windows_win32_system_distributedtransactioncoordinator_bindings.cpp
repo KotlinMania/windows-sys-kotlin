@@ -67,7 +67,13 @@ static Napi::Value windowssys_windows_win32_system_distributedtransactioncoordin
         HMODULE km_h_mod = LoadLibraryA("xolehlp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DtcGetTransactionManager")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(i_pszhost, i_psztmname, i_riid, i_dwreserved1, i_wcbreserved2, i_pvreserved2, o_ppvobject) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(i_pszhost, i_psztmname, i_riid, i_dwreserved1, i_wcbreserved2, i_pvreserved2, o_ppvobject);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)i_pszhost;
     (void)i_psztmname;
@@ -76,6 +82,7 @@ static Napi::Value windowssys_windows_win32_system_distributedtransactioncoordin
     (void)i_wcbreserved2;
     (void)i_pvreserved2;
     (void)o_ppvobject;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -97,7 +104,13 @@ static Napi::Value windowssys_windows_win32_system_distributedtransactioncoordin
         HMODULE km_h_mod = LoadLibraryA("xolehlp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DtcGetTransactionManagerC")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(i_pszhost, i_psztmname, i_riid, i_dwreserved1, i_wcbreserved2, i_pvreserved2, o_ppvobject) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(i_pszhost, i_psztmname, i_riid, i_dwreserved1, i_wcbreserved2, i_pvreserved2, o_ppvobject);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)i_pszhost;
     (void)i_psztmname;
@@ -106,6 +119,7 @@ static Napi::Value windowssys_windows_win32_system_distributedtransactioncoordin
     (void)i_wcbreserved2;
     (void)i_pvreserved2;
     (void)o_ppvobject;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -126,7 +140,13 @@ static Napi::Value windowssys_windows_win32_system_distributedtransactioncoordin
         HMODULE km_h_mod = LoadLibraryA("xolehlp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DtcGetTransactionManagerExA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(i_pszhost, i_psztmname, i_riid, i_grfoptions, i_pvconfigparams, o_ppvobject) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(i_pszhost, i_psztmname, i_riid, i_grfoptions, i_pvconfigparams, o_ppvobject);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)i_pszhost;
     (void)i_psztmname;
@@ -134,6 +154,7 @@ static Napi::Value windowssys_windows_win32_system_distributedtransactioncoordin
     (void)i_grfoptions;
     (void)i_pvconfigparams;
     (void)o_ppvobject;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -154,7 +175,13 @@ static Napi::Value windowssys_windows_win32_system_distributedtransactioncoordin
         HMODULE km_h_mod = LoadLibraryA("xolehlp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DtcGetTransactionManagerExW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(i_pwszhost, i_pwsztmname, i_riid, i_grfoptions, i_pvconfigparams, o_ppvobject) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(i_pwszhost, i_pwsztmname, i_riid, i_grfoptions, i_pvconfigparams, o_ppvobject);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)i_pwszhost;
     (void)i_pwsztmname;
@@ -162,6 +189,7 @@ static Napi::Value windowssys_windows_win32_system_distributedtransactioncoordin
     (void)i_grfoptions;
     (void)i_pvconfigparams;
     (void)o_ppvobject;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

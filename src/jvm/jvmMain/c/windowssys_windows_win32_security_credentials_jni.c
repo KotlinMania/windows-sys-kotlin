@@ -5,6 +5,7 @@
 #include <stdbool.h>
 #include <stddef.h>
 #include <stdint.h>
+#include <stdlib.h>
 #include <errno.h>
 #ifdef _WIN32
 #ifndef WIN32_LEAN_AND_MEAN
@@ -28,11 +29,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CredDeleteA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)targetname, (uint32_t)type, (uint32_t)flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)targetname, (uint32_t)type, (uint32_t)flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)targetname;
     (void)type;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -48,11 +56,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CredDeleteW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)targetname, (uint32_t)type, (uint32_t)flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)targetname, (uint32_t)type, (uint32_t)flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)targetname;
     (void)type;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -68,12 +83,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CredEnumerateA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)filter, (uint32_t)flags, (void*)(uintptr_t)count, (void*)(uintptr_t)credential) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)filter, (uint32_t)flags, (void*)(uintptr_t)count, (void*)(uintptr_t)credential);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)filter;
     (void)flags;
     (void)count;
     (void)credential;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -89,12 +111,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CredEnumerateW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)filter, (uint32_t)flags, (void*)(uintptr_t)count, (void*)(uintptr_t)credential) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)filter, (uint32_t)flags, (void*)(uintptr_t)count, (void*)(uintptr_t)credential);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)filter;
     (void)flags;
     (void)count;
     (void)credential;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -110,12 +139,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CredFindBestCredentialA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)targetname, (uint32_t)type, (uint32_t)flags, (void*)(uintptr_t)credential) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)targetname, (uint32_t)type, (uint32_t)flags, (void*)(uintptr_t)credential);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)targetname;
     (void)type;
     (void)flags;
     (void)credential;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -131,12 +167,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CredFindBestCredentialW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)targetname, (uint32_t)type, (uint32_t)flags, (void*)(uintptr_t)credential) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)targetname, (uint32_t)type, (uint32_t)flags, (void*)(uintptr_t)credential);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)targetname;
     (void)type;
     (void)flags;
     (void)credential;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -152,9 +195,14 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CredFree");
     }
-    if (km_fn_ptr != NULL) km_fn_ptr((void*)(uintptr_t)buffer);
+    if (km_fn_ptr != NULL) {
+        km_fn_ptr((void*)(uintptr_t)buffer);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)buffer;
+    errno = ENOSYS;
 #endif
 }
 
@@ -168,10 +216,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CredGetSessionTypes");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)maximumpersistcount, (void*)(uintptr_t)maximumpersist) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)maximumpersistcount, (void*)(uintptr_t)maximumpersist);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)maximumpersistcount;
     (void)maximumpersist;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -187,11 +242,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CredGetTargetInfoA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)targetname, (uint32_t)flags, (void*)(uintptr_t)targetinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)targetname, (uint32_t)flags, (void*)(uintptr_t)targetinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)targetname;
     (void)flags;
     (void)targetinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -207,11 +269,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CredGetTargetInfoW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)targetname, (uint32_t)flags, (void*)(uintptr_t)targetinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)targetname, (uint32_t)flags, (void*)(uintptr_t)targetinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)targetname;
     (void)flags;
     (void)targetinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -227,9 +296,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CredIsMarshaledCredentialA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)marshaledcredential) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)marshaledcredential);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)marshaledcredential;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -245,9 +321,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CredIsMarshaledCredentialW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)marshaledcredential) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)marshaledcredential);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)marshaledcredential;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -263,10 +346,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CredIsProtectedA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pszprotectedcredentials, (void*)(uintptr_t)pprotectiontype) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pszprotectedcredentials, (void*)(uintptr_t)pprotectiontype);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszprotectedcredentials;
     (void)pprotectiontype;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -282,10 +372,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CredIsProtectedW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pszprotectedcredentials, (void*)(uintptr_t)pprotectiontype) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pszprotectedcredentials, (void*)(uintptr_t)pprotectiontype);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszprotectedcredentials;
     (void)pprotectiontype;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -301,11 +398,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CredMarshalCredentialA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int32_t)credtype, (void*)(uintptr_t)credential, (void*)(uintptr_t)marshaledcredential) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int32_t)credtype, (void*)(uintptr_t)credential, (void*)(uintptr_t)marshaledcredential);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)credtype;
     (void)credential;
     (void)marshaledcredential;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -321,11 +425,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CredMarshalCredentialW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int32_t)credtype, (void*)(uintptr_t)credential, (void*)(uintptr_t)marshaledcredential) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int32_t)credtype, (void*)(uintptr_t)credential, (void*)(uintptr_t)marshaledcredential);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)credtype;
     (void)credential;
     (void)marshaledcredential;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -341,13 +452,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("credui.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CredPackAuthenticationBufferA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwflags, (void*)(uintptr_t)pszusername, (void*)(uintptr_t)pszpassword, (void*)(uintptr_t)ppackedcredentials, (void*)(uintptr_t)pcbpackedcredentials) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwflags, (void*)(uintptr_t)pszusername, (void*)(uintptr_t)pszpassword, (void*)(uintptr_t)ppackedcredentials, (void*)(uintptr_t)pcbpackedcredentials);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwflags;
     (void)pszusername;
     (void)pszpassword;
     (void)ppackedcredentials;
     (void)pcbpackedcredentials;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -363,13 +481,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("credui.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CredPackAuthenticationBufferW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwflags, (void*)(uintptr_t)pszusername, (void*)(uintptr_t)pszpassword, (void*)(uintptr_t)ppackedcredentials, (void*)(uintptr_t)pcbpackedcredentials) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwflags, (void*)(uintptr_t)pszusername, (void*)(uintptr_t)pszpassword, (void*)(uintptr_t)ppackedcredentials, (void*)(uintptr_t)pcbpackedcredentials);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwflags;
     (void)pszusername;
     (void)pszpassword;
     (void)ppackedcredentials;
     (void)pcbpackedcredentials;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -385,7 +510,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CredProtectA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int32_t)fasself, (void*)(uintptr_t)pszcredentials, (uint32_t)cchcredentials, (void*)(uintptr_t)pszprotectedcredentials, (void*)(uintptr_t)pcchmaxchars, (void*)(uintptr_t)protectiontype) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int32_t)fasself, (void*)(uintptr_t)pszcredentials, (uint32_t)cchcredentials, (void*)(uintptr_t)pszprotectedcredentials, (void*)(uintptr_t)pcchmaxchars, (void*)(uintptr_t)protectiontype);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)fasself;
     (void)pszcredentials;
@@ -393,6 +524,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)pszprotectedcredentials;
     (void)pcchmaxchars;
     (void)protectiontype;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -408,7 +540,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CredProtectW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int32_t)fasself, (void*)(uintptr_t)pszcredentials, (uint32_t)cchcredentials, (void*)(uintptr_t)pszprotectedcredentials, (void*)(uintptr_t)pcchmaxchars, (void*)(uintptr_t)protectiontype) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int32_t)fasself, (void*)(uintptr_t)pszcredentials, (uint32_t)cchcredentials, (void*)(uintptr_t)pszprotectedcredentials, (void*)(uintptr_t)pcchmaxchars, (void*)(uintptr_t)protectiontype);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)fasself;
     (void)pszcredentials;
@@ -416,6 +554,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)pszprotectedcredentials;
     (void)pcchmaxchars;
     (void)protectiontype;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -431,12 +570,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CredReadA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)targetname, (uint32_t)type, (uint32_t)flags, (void*)(uintptr_t)credential) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)targetname, (uint32_t)type, (uint32_t)flags, (void*)(uintptr_t)credential);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)targetname;
     (void)type;
     (void)flags;
     (void)credential;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -452,12 +598,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CredReadDomainCredentialsA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)targetinfo, (uint32_t)flags, (void*)(uintptr_t)count, (void*)(uintptr_t)credential) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)targetinfo, (uint32_t)flags, (void*)(uintptr_t)count, (void*)(uintptr_t)credential);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)targetinfo;
     (void)flags;
     (void)count;
     (void)credential;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -473,12 +626,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CredReadDomainCredentialsW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)targetinfo, (uint32_t)flags, (void*)(uintptr_t)count, (void*)(uintptr_t)credential) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)targetinfo, (uint32_t)flags, (void*)(uintptr_t)count, (void*)(uintptr_t)credential);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)targetinfo;
     (void)flags;
     (void)count;
     (void)credential;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -494,12 +654,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CredReadW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)targetname, (uint32_t)type, (uint32_t)flags, (void*)(uintptr_t)credential) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)targetname, (uint32_t)type, (uint32_t)flags, (void*)(uintptr_t)credential);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)targetname;
     (void)type;
     (void)flags;
     (void)credential;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -515,12 +682,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CredRenameA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)oldtargetname, (void*)(uintptr_t)newtargetname, (uint32_t)type, (uint32_t)flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)oldtargetname, (void*)(uintptr_t)newtargetname, (uint32_t)type, (uint32_t)flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)oldtargetname;
     (void)newtargetname;
     (void)type;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -536,12 +710,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CredRenameW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)oldtargetname, (void*)(uintptr_t)newtargetname, (uint32_t)type, (uint32_t)flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)oldtargetname, (void*)(uintptr_t)newtargetname, (uint32_t)type, (uint32_t)flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)oldtargetname;
     (void)newtargetname;
     (void)type;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -557,7 +738,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("credui.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CredUICmdLinePromptForCredentialsA");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)psztargetname, (void*)(uintptr_t)pcontext, (uint32_t)dwautherror, (void*)(uintptr_t)username, (uint32_t)uluserbuffersize, (void*)(uintptr_t)pszpassword, (uint32_t)ulpasswordbuffersize, (void*)(uintptr_t)pfsave, (uint32_t)dwflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)psztargetname, (void*)(uintptr_t)pcontext, (uint32_t)dwautherror, (void*)(uintptr_t)username, (uint32_t)uluserbuffersize, (void*)(uintptr_t)pszpassword, (uint32_t)ulpasswordbuffersize, (void*)(uintptr_t)pfsave, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)psztargetname;
     (void)pcontext;
@@ -568,6 +755,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)ulpasswordbuffersize;
     (void)pfsave;
     (void)dwflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -583,7 +771,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("credui.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CredUICmdLinePromptForCredentialsW");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)psztargetname, (void*)(uintptr_t)pcontext, (uint32_t)dwautherror, (void*)(uintptr_t)username, (uint32_t)uluserbuffersize, (void*)(uintptr_t)pszpassword, (uint32_t)ulpasswordbuffersize, (void*)(uintptr_t)pfsave, (uint32_t)dwflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)psztargetname, (void*)(uintptr_t)pcontext, (uint32_t)dwautherror, (void*)(uintptr_t)username, (uint32_t)uluserbuffersize, (void*)(uintptr_t)pszpassword, (uint32_t)ulpasswordbuffersize, (void*)(uintptr_t)pfsave, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)psztargetname;
     (void)pcontext;
@@ -594,6 +788,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)ulpasswordbuffersize;
     (void)pfsave;
     (void)dwflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -609,10 +804,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("credui.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CredUIConfirmCredentialsA");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)psztargetname, (int32_t)bconfirm) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)psztargetname, (int32_t)bconfirm);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)psztargetname;
     (void)bconfirm;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -628,10 +830,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("credui.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CredUIConfirmCredentialsW");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)psztargetname, (int32_t)bconfirm) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)psztargetname, (int32_t)bconfirm);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)psztargetname;
     (void)bconfirm;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -647,13 +856,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("credui.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CredUIParseUserNameA");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)username, (void*)(uintptr_t)user, (uint32_t)userbuffersize, (void*)(uintptr_t)domain, (uint32_t)domainbuffersize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)username, (void*)(uintptr_t)user, (uint32_t)userbuffersize, (void*)(uintptr_t)domain, (uint32_t)domainbuffersize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)username;
     (void)user;
     (void)userbuffersize;
     (void)domain;
     (void)domainbuffersize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -669,13 +885,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("credui.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CredUIParseUserNameW");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)username, (void*)(uintptr_t)user, (uint32_t)userbuffersize, (void*)(uintptr_t)domain, (uint32_t)domainbuffersize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)username, (void*)(uintptr_t)user, (uint32_t)userbuffersize, (void*)(uintptr_t)domain, (uint32_t)domainbuffersize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)username;
     (void)user;
     (void)userbuffersize;
     (void)domain;
     (void)domainbuffersize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -691,7 +914,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("credui.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CredUIPromptForCredentialsA");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)puiinfo, (void*)(uintptr_t)psztargetname, (void*)(uintptr_t)pcontext, (uint32_t)dwautherror, (void*)(uintptr_t)pszusername, (uint32_t)ulusernamebuffersize, (void*)(uintptr_t)pszpassword, (uint32_t)ulpasswordbuffersize, (void*)(uintptr_t)save, (uint32_t)dwflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)puiinfo, (void*)(uintptr_t)psztargetname, (void*)(uintptr_t)pcontext, (uint32_t)dwautherror, (void*)(uintptr_t)pszusername, (uint32_t)ulusernamebuffersize, (void*)(uintptr_t)pszpassword, (uint32_t)ulpasswordbuffersize, (void*)(uintptr_t)save, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)puiinfo;
     (void)psztargetname;
@@ -703,6 +932,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)ulpasswordbuffersize;
     (void)save;
     (void)dwflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -718,7 +948,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("credui.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CredUIPromptForCredentialsW");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)puiinfo, (void*)(uintptr_t)psztargetname, (void*)(uintptr_t)pcontext, (uint32_t)dwautherror, (void*)(uintptr_t)pszusername, (uint32_t)ulusernamebuffersize, (void*)(uintptr_t)pszpassword, (uint32_t)ulpasswordbuffersize, (void*)(uintptr_t)save, (uint32_t)dwflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)puiinfo, (void*)(uintptr_t)psztargetname, (void*)(uintptr_t)pcontext, (uint32_t)dwautherror, (void*)(uintptr_t)pszusername, (uint32_t)ulusernamebuffersize, (void*)(uintptr_t)pszpassword, (uint32_t)ulpasswordbuffersize, (void*)(uintptr_t)save, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)puiinfo;
     (void)psztargetname;
@@ -730,6 +966,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)ulpasswordbuffersize;
     (void)save;
     (void)dwflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -745,7 +982,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("credui.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CredUIPromptForWindowsCredentialsA");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)puiinfo, (uint32_t)dwautherror, (void*)(uintptr_t)pulauthpackage, (void*)(uintptr_t)pvinauthbuffer, (uint32_t)ulinauthbuffersize, (void*)(uintptr_t)ppvoutauthbuffer, (void*)(uintptr_t)puloutauthbuffersize, (void*)(uintptr_t)pfsave, (uint32_t)dwflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)puiinfo, (uint32_t)dwautherror, (void*)(uintptr_t)pulauthpackage, (void*)(uintptr_t)pvinauthbuffer, (uint32_t)ulinauthbuffersize, (void*)(uintptr_t)ppvoutauthbuffer, (void*)(uintptr_t)puloutauthbuffersize, (void*)(uintptr_t)pfsave, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)puiinfo;
     (void)dwautherror;
@@ -756,6 +999,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)puloutauthbuffersize;
     (void)pfsave;
     (void)dwflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -771,7 +1015,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("credui.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CredUIPromptForWindowsCredentialsW");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)puiinfo, (uint32_t)dwautherror, (void*)(uintptr_t)pulauthpackage, (void*)(uintptr_t)pvinauthbuffer, (uint32_t)ulinauthbuffersize, (void*)(uintptr_t)ppvoutauthbuffer, (void*)(uintptr_t)puloutauthbuffersize, (void*)(uintptr_t)pfsave, (uint32_t)dwflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)puiinfo, (uint32_t)dwautherror, (void*)(uintptr_t)pulauthpackage, (void*)(uintptr_t)pvinauthbuffer, (uint32_t)ulinauthbuffersize, (void*)(uintptr_t)ppvoutauthbuffer, (void*)(uintptr_t)puloutauthbuffersize, (void*)(uintptr_t)pfsave, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)puiinfo;
     (void)dwautherror;
@@ -782,6 +1032,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)puloutauthbuffersize;
     (void)pfsave;
     (void)dwflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -797,10 +1048,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("credui.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CredUIReadSSOCredW");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pszrealm, (void*)(uintptr_t)ppszusername) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pszrealm, (void*)(uintptr_t)ppszusername);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pszrealm;
     (void)ppszusername;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -816,12 +1074,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("credui.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CredUIStoreSSOCredW");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pszrealm, (void*)(uintptr_t)pszusername, (void*)(uintptr_t)pszpassword, (int32_t)bpersist) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pszrealm, (void*)(uintptr_t)pszusername, (void*)(uintptr_t)pszpassword, (int32_t)bpersist);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pszrealm;
     (void)pszusername;
     (void)pszpassword;
     (void)bpersist;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -837,7 +1102,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("credui.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CredUnPackAuthenticationBufferA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwflags, (void*)(uintptr_t)pauthbuffer, (uint32_t)cbauthbuffer, (void*)(uintptr_t)pszusername, (void*)(uintptr_t)pcchlmaxusername, (void*)(uintptr_t)pszdomainname, (void*)(uintptr_t)pcchmaxdomainname, (void*)(uintptr_t)pszpassword, (void*)(uintptr_t)pcchmaxpassword) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwflags, (void*)(uintptr_t)pauthbuffer, (uint32_t)cbauthbuffer, (void*)(uintptr_t)pszusername, (void*)(uintptr_t)pcchlmaxusername, (void*)(uintptr_t)pszdomainname, (void*)(uintptr_t)pcchmaxdomainname, (void*)(uintptr_t)pszpassword, (void*)(uintptr_t)pcchmaxpassword);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwflags;
     (void)pauthbuffer;
@@ -848,6 +1119,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)pcchmaxdomainname;
     (void)pszpassword;
     (void)pcchmaxpassword;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -863,7 +1135,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("credui.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CredUnPackAuthenticationBufferW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwflags, (void*)(uintptr_t)pauthbuffer, (uint32_t)cbauthbuffer, (void*)(uintptr_t)pszusername, (void*)(uintptr_t)pcchmaxusername, (void*)(uintptr_t)pszdomainname, (void*)(uintptr_t)pcchmaxdomainname, (void*)(uintptr_t)pszpassword, (void*)(uintptr_t)pcchmaxpassword) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwflags, (void*)(uintptr_t)pauthbuffer, (uint32_t)cbauthbuffer, (void*)(uintptr_t)pszusername, (void*)(uintptr_t)pcchmaxusername, (void*)(uintptr_t)pszdomainname, (void*)(uintptr_t)pcchmaxdomainname, (void*)(uintptr_t)pszpassword, (void*)(uintptr_t)pcchmaxpassword);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwflags;
     (void)pauthbuffer;
@@ -874,6 +1152,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)pcchmaxdomainname;
     (void)pszpassword;
     (void)pcchmaxpassword;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -889,11 +1168,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CredUnmarshalCredentialA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)marshaledcredential, (void*)(uintptr_t)credtype, (void*)(uintptr_t)credential) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)marshaledcredential, (void*)(uintptr_t)credtype, (void*)(uintptr_t)credential);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)marshaledcredential;
     (void)credtype;
     (void)credential;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -909,11 +1195,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CredUnmarshalCredentialW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)marshaledcredential, (void*)(uintptr_t)credtype, (void*)(uintptr_t)credential) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)marshaledcredential, (void*)(uintptr_t)credtype, (void*)(uintptr_t)credential);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)marshaledcredential;
     (void)credtype;
     (void)credential;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -929,13 +1222,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CredUnprotectA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int32_t)fasself, (void*)(uintptr_t)pszprotectedcredentials, (uint32_t)cchprotectedcredentials, (void*)(uintptr_t)pszcredentials, (void*)(uintptr_t)pcchmaxchars) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int32_t)fasself, (void*)(uintptr_t)pszprotectedcredentials, (uint32_t)cchprotectedcredentials, (void*)(uintptr_t)pszcredentials, (void*)(uintptr_t)pcchmaxchars);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)fasself;
     (void)pszprotectedcredentials;
     (void)cchprotectedcredentials;
     (void)pszcredentials;
     (void)pcchmaxchars;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -951,13 +1251,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CredUnprotectW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int32_t)fasself, (void*)(uintptr_t)pszprotectedcredentials, (uint32_t)cchprotectedcredentials, (void*)(uintptr_t)pszcredentials, (void*)(uintptr_t)pcchmaxchars) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int32_t)fasself, (void*)(uintptr_t)pszprotectedcredentials, (uint32_t)cchprotectedcredentials, (void*)(uintptr_t)pszcredentials, (void*)(uintptr_t)pcchmaxchars);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)fasself;
     (void)pszprotectedcredentials;
     (void)cchprotectedcredentials;
     (void)pszcredentials;
     (void)pcchmaxchars;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -973,10 +1280,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CredWriteA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)credential, (uint32_t)flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)credential, (uint32_t)flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)credential;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -992,11 +1306,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CredWriteDomainCredentialsA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)targetinfo, (void*)(uintptr_t)credential, (uint32_t)flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)targetinfo, (void*)(uintptr_t)credential, (uint32_t)flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)targetinfo;
     (void)credential;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1012,11 +1333,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CredWriteDomainCredentialsW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)targetinfo, (void*)(uintptr_t)credential, (uint32_t)flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)targetinfo, (void*)(uintptr_t)credential, (uint32_t)flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)targetinfo;
     (void)credential;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1032,10 +1360,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CredWriteW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)credential, (uint32_t)flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)credential, (uint32_t)flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)credential;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1051,9 +1386,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("scarddlg.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetOpenCardNameA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)param0) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)param0);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)param0;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1069,9 +1411,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("scarddlg.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetOpenCardNameW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)param0) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)param0);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)param0;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1087,9 +1436,14 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("keycredmgr.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "KeyCredentialManagerFreeInformation");
     }
-    if (km_fn_ptr != NULL) km_fn_ptr((void*)(uintptr_t)keycredentialmanagerinfo);
+    if (km_fn_ptr != NULL) {
+        km_fn_ptr((void*)(uintptr_t)keycredentialmanagerinfo);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)keycredentialmanagerinfo;
+    errno = ENOSYS;
 #endif
 }
 
@@ -1103,9 +1457,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("keycredmgr.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "KeyCredentialManagerGetInformation");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)keycredentialmanagerinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)keycredentialmanagerinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)keycredentialmanagerinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1121,11 +1482,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("keycredmgr.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "KeyCredentialManagerGetOperationErrorStates");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int32_t)keycredentialmanageroperationtype, (void*)(uintptr_t)isready, (void*)(uintptr_t)keycredentialmanageroperationerrorstates) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int32_t)keycredentialmanageroperationtype, (void*)(uintptr_t)isready, (void*)(uintptr_t)keycredentialmanageroperationerrorstates);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)keycredentialmanageroperationtype;
     (void)isready;
     (void)keycredentialmanageroperationerrorstates;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1141,10 +1509,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("keycredmgr.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "KeyCredentialManagerShowUIOperation");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hwndowner, (int32_t)keycredentialmanageroperationtype) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hwndowner, (int32_t)keycredentialmanageroperationtype);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwndowner;
     (void)keycredentialmanageroperationtype;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1160,8 +1535,15 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SCardAccessStartedEvent");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr() : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -1177,11 +1559,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SCardAddReaderToGroupA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hcontext, (void*)(uintptr_t)szreadername, (void*)(uintptr_t)szgroupname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hcontext, (void*)(uintptr_t)szreadername, (void*)(uintptr_t)szgroupname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)szreadername;
     (void)szgroupname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1197,11 +1586,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SCardAddReaderToGroupW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hcontext, (void*)(uintptr_t)szreadername, (void*)(uintptr_t)szgroupname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hcontext, (void*)(uintptr_t)szreadername, (void*)(uintptr_t)szgroupname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)szreadername;
     (void)szgroupname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1217,10 +1613,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SCardAudit");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hcontext, (uint32_t)dwevent) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hcontext, (uint32_t)dwevent);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)dwevent;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1236,9 +1639,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SCardBeginTransaction");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hcard) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hcard);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcard;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1254,9 +1664,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SCardCancel");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1272,7 +1689,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SCardConnectA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hcontext, (void*)(uintptr_t)szreader, (uint32_t)dwsharemode, (uint32_t)dwpreferredprotocols, (void*)(uintptr_t)phcard, (void*)(uintptr_t)pdwactiveprotocol) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hcontext, (void*)(uintptr_t)szreader, (uint32_t)dwsharemode, (uint32_t)dwpreferredprotocols, (void*)(uintptr_t)phcard, (void*)(uintptr_t)pdwactiveprotocol);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)szreader;
@@ -1280,6 +1703,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)dwpreferredprotocols;
     (void)phcard;
     (void)pdwactiveprotocol;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1295,7 +1719,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SCardConnectW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hcontext, (void*)(uintptr_t)szreader, (uint32_t)dwsharemode, (uint32_t)dwpreferredprotocols, (void*)(uintptr_t)phcard, (void*)(uintptr_t)pdwactiveprotocol) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hcontext, (void*)(uintptr_t)szreader, (uint32_t)dwsharemode, (uint32_t)dwpreferredprotocols, (void*)(uintptr_t)phcard, (void*)(uintptr_t)pdwactiveprotocol);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)szreader;
@@ -1303,6 +1733,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)dwpreferredprotocols;
     (void)phcard;
     (void)pdwactiveprotocol;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1318,7 +1749,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SCardControl");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hcard, (uint32_t)dwcontrolcode, (void*)(uintptr_t)lpinbuffer, (uint32_t)cbinbuffersize, (void*)(uintptr_t)lpoutbuffer, (uint32_t)cboutbuffersize, (void*)(uintptr_t)lpbytesreturned) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hcard, (uint32_t)dwcontrolcode, (void*)(uintptr_t)lpinbuffer, (uint32_t)cbinbuffersize, (void*)(uintptr_t)lpoutbuffer, (uint32_t)cboutbuffersize, (void*)(uintptr_t)lpbytesreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcard;
     (void)dwcontrolcode;
@@ -1327,6 +1764,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)lpoutbuffer;
     (void)cboutbuffersize;
     (void)lpbytesreturned;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1342,10 +1780,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SCardDisconnect");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hcard, (uint32_t)dwdisposition) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hcard, (uint32_t)dwdisposition);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcard;
     (void)dwdisposition;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1361,8 +1806,15 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("scarddlg.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SCardDlgExtendedError");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr() : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1378,10 +1830,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SCardEndTransaction");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hcard, (uint32_t)dwdisposition) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hcard, (uint32_t)dwdisposition);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcard;
     (void)dwdisposition;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1397,12 +1856,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SCardEstablishContext");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwscope, (void*)(uintptr_t)pvreserved1, (void*)(uintptr_t)pvreserved2, (void*)(uintptr_t)phcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwscope, (void*)(uintptr_t)pvreserved1, (void*)(uintptr_t)pvreserved2, (void*)(uintptr_t)phcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwscope;
     (void)pvreserved1;
     (void)pvreserved2;
     (void)phcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1418,10 +1884,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SCardForgetCardTypeA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hcontext, (void*)(uintptr_t)szcardname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hcontext, (void*)(uintptr_t)szcardname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)szcardname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1437,10 +1910,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SCardForgetCardTypeW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hcontext, (void*)(uintptr_t)szcardname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hcontext, (void*)(uintptr_t)szcardname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)szcardname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1456,10 +1936,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SCardForgetReaderA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hcontext, (void*)(uintptr_t)szreadername) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hcontext, (void*)(uintptr_t)szreadername);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)szreadername;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1475,10 +1962,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SCardForgetReaderGroupA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hcontext, (void*)(uintptr_t)szgroupname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hcontext, (void*)(uintptr_t)szgroupname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)szgroupname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1494,10 +1988,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SCardForgetReaderGroupW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hcontext, (void*)(uintptr_t)szgroupname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hcontext, (void*)(uintptr_t)szgroupname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)szgroupname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1513,10 +2014,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SCardForgetReaderW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hcontext, (void*)(uintptr_t)szreadername) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hcontext, (void*)(uintptr_t)szreadername);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)szreadername;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1532,10 +2040,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SCardFreeMemory");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hcontext, (void*)(uintptr_t)pvmem) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hcontext, (void*)(uintptr_t)pvmem);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)pvmem;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1551,12 +2066,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SCardGetAttrib");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hcard, (uint32_t)dwattrid, (void*)(uintptr_t)pbattr, (void*)(uintptr_t)pcbattrlen) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hcard, (uint32_t)dwattrid, (void*)(uintptr_t)pbattr, (void*)(uintptr_t)pcbattrlen);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcard;
     (void)dwattrid;
     (void)pbattr;
     (void)pcbattrlen;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1572,13 +2094,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SCardGetCardTypeProviderNameA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hcontext, (void*)(uintptr_t)szcardname, (uint32_t)dwproviderid, (void*)(uintptr_t)szprovider, (void*)(uintptr_t)pcchprovider) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hcontext, (void*)(uintptr_t)szcardname, (uint32_t)dwproviderid, (void*)(uintptr_t)szprovider, (void*)(uintptr_t)pcchprovider);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)szcardname;
     (void)dwproviderid;
     (void)szprovider;
     (void)pcchprovider;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1594,13 +2123,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SCardGetCardTypeProviderNameW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hcontext, (void*)(uintptr_t)szcardname, (uint32_t)dwproviderid, (void*)(uintptr_t)szprovider, (void*)(uintptr_t)pcchprovider) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hcontext, (void*)(uintptr_t)szcardname, (uint32_t)dwproviderid, (void*)(uintptr_t)szprovider, (void*)(uintptr_t)pcchprovider);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)szcardname;
     (void)dwproviderid;
     (void)szprovider;
     (void)pcchprovider;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1616,11 +2152,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SCardGetDeviceTypeIdA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hcontext, (void*)(uintptr_t)szreadername, (void*)(uintptr_t)pdwdevicetypeid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hcontext, (void*)(uintptr_t)szreadername, (void*)(uintptr_t)pdwdevicetypeid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)szreadername;
     (void)pdwdevicetypeid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1636,11 +2179,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SCardGetDeviceTypeIdW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hcontext, (void*)(uintptr_t)szreadername, (void*)(uintptr_t)pdwdevicetypeid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hcontext, (void*)(uintptr_t)szreadername, (void*)(uintptr_t)pdwdevicetypeid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)szreadername;
     (void)pdwdevicetypeid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1656,11 +2206,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SCardGetProviderIdA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hcontext, (void*)(uintptr_t)szcard, (void*)(uintptr_t)pguidproviderid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hcontext, (void*)(uintptr_t)szcard, (void*)(uintptr_t)pguidproviderid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)szcard;
     (void)pguidproviderid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1676,11 +2233,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SCardGetProviderIdW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hcontext, (void*)(uintptr_t)szcard, (void*)(uintptr_t)pguidproviderid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hcontext, (void*)(uintptr_t)szcard, (void*)(uintptr_t)pguidproviderid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)szcard;
     (void)pguidproviderid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1696,12 +2260,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SCardGetReaderDeviceInstanceIdA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hcontext, (void*)(uintptr_t)szreadername, (void*)(uintptr_t)szdeviceinstanceid, (void*)(uintptr_t)pcchdeviceinstanceid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hcontext, (void*)(uintptr_t)szreadername, (void*)(uintptr_t)szdeviceinstanceid, (void*)(uintptr_t)pcchdeviceinstanceid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)szreadername;
     (void)szdeviceinstanceid;
     (void)pcchdeviceinstanceid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1717,12 +2288,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SCardGetReaderDeviceInstanceIdW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hcontext, (void*)(uintptr_t)szreadername, (void*)(uintptr_t)szdeviceinstanceid, (void*)(uintptr_t)pcchdeviceinstanceid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hcontext, (void*)(uintptr_t)szreadername, (void*)(uintptr_t)szdeviceinstanceid, (void*)(uintptr_t)pcchdeviceinstanceid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)szreadername;
     (void)szdeviceinstanceid;
     (void)pcchdeviceinstanceid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1738,12 +2316,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SCardGetReaderIconA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hcontext, (void*)(uintptr_t)szreadername, (void*)(uintptr_t)pbicon, (void*)(uintptr_t)pcbicon) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hcontext, (void*)(uintptr_t)szreadername, (void*)(uintptr_t)pbicon, (void*)(uintptr_t)pcbicon);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)szreadername;
     (void)pbicon;
     (void)pcbicon;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1759,12 +2344,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SCardGetReaderIconW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hcontext, (void*)(uintptr_t)szreadername, (void*)(uintptr_t)pbicon, (void*)(uintptr_t)pcbicon) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hcontext, (void*)(uintptr_t)szreadername, (void*)(uintptr_t)pbicon, (void*)(uintptr_t)pcbicon);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)szreadername;
     (void)pbicon;
     (void)pcbicon;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1780,12 +2372,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SCardGetStatusChangeA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hcontext, (uint32_t)dwtimeout, (void*)(uintptr_t)rgreaderstates, (uint32_t)creaders) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hcontext, (uint32_t)dwtimeout, (void*)(uintptr_t)rgreaderstates, (uint32_t)creaders);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)dwtimeout;
     (void)rgreaderstates;
     (void)creaders;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1801,12 +2400,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SCardGetStatusChangeW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hcontext, (uint32_t)dwtimeout, (void*)(uintptr_t)rgreaderstates, (uint32_t)creaders) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hcontext, (uint32_t)dwtimeout, (void*)(uintptr_t)rgreaderstates, (uint32_t)creaders);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)dwtimeout;
     (void)rgreaderstates;
     (void)creaders;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1822,10 +2428,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SCardGetTransmitCount");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hcard, (void*)(uintptr_t)pctransmitcount) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hcard, (void*)(uintptr_t)pctransmitcount);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcard;
     (void)pctransmitcount;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1841,7 +2454,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SCardIntroduceCardTypeA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hcontext, (void*)(uintptr_t)szcardname, (void*)(uintptr_t)pguidprimaryprovider, (void*)(uintptr_t)rgguidinterfaces, (uint32_t)dwinterfacecount, (void*)(uintptr_t)pbatr, (void*)(uintptr_t)pbatrmask, (uint32_t)cbatrlen) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hcontext, (void*)(uintptr_t)szcardname, (void*)(uintptr_t)pguidprimaryprovider, (void*)(uintptr_t)rgguidinterfaces, (uint32_t)dwinterfacecount, (void*)(uintptr_t)pbatr, (void*)(uintptr_t)pbatrmask, (uint32_t)cbatrlen);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)szcardname;
@@ -1851,6 +2470,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)pbatr;
     (void)pbatrmask;
     (void)cbatrlen;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1866,7 +2486,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SCardIntroduceCardTypeW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hcontext, (void*)(uintptr_t)szcardname, (void*)(uintptr_t)pguidprimaryprovider, (void*)(uintptr_t)rgguidinterfaces, (uint32_t)dwinterfacecount, (void*)(uintptr_t)pbatr, (void*)(uintptr_t)pbatrmask, (uint32_t)cbatrlen) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hcontext, (void*)(uintptr_t)szcardname, (void*)(uintptr_t)pguidprimaryprovider, (void*)(uintptr_t)rgguidinterfaces, (uint32_t)dwinterfacecount, (void*)(uintptr_t)pbatr, (void*)(uintptr_t)pbatrmask, (uint32_t)cbatrlen);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)szcardname;
@@ -1876,6 +2502,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)pbatr;
     (void)pbatrmask;
     (void)cbatrlen;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1891,11 +2518,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SCardIntroduceReaderA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hcontext, (void*)(uintptr_t)szreadername, (void*)(uintptr_t)szdevicename) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hcontext, (void*)(uintptr_t)szreadername, (void*)(uintptr_t)szdevicename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)szreadername;
     (void)szdevicename;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1911,10 +2545,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SCardIntroduceReaderGroupA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hcontext, (void*)(uintptr_t)szgroupname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hcontext, (void*)(uintptr_t)szgroupname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)szgroupname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1930,10 +2571,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SCardIntroduceReaderGroupW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hcontext, (void*)(uintptr_t)szgroupname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hcontext, (void*)(uintptr_t)szgroupname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)szgroupname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1949,11 +2597,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SCardIntroduceReaderW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hcontext, (void*)(uintptr_t)szreadername, (void*)(uintptr_t)szdevicename) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hcontext, (void*)(uintptr_t)szreadername, (void*)(uintptr_t)szdevicename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)szreadername;
     (void)szdevicename;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1969,9 +2624,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SCardIsValidContext");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1987,7 +2649,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SCardListCardsA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hcontext, (void*)(uintptr_t)pbatr, (void*)(uintptr_t)rgquidinterfaces, (uint32_t)cguidinterfacecount, (void*)(uintptr_t)mszcards, (void*)(uintptr_t)pcchcards) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hcontext, (void*)(uintptr_t)pbatr, (void*)(uintptr_t)rgquidinterfaces, (uint32_t)cguidinterfacecount, (void*)(uintptr_t)mszcards, (void*)(uintptr_t)pcchcards);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)pbatr;
@@ -1995,6 +2663,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)cguidinterfacecount;
     (void)mszcards;
     (void)pcchcards;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -2010,7 +2679,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SCardListCardsW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hcontext, (void*)(uintptr_t)pbatr, (void*)(uintptr_t)rgquidinterfaces, (uint32_t)cguidinterfacecount, (void*)(uintptr_t)mszcards, (void*)(uintptr_t)pcchcards) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hcontext, (void*)(uintptr_t)pbatr, (void*)(uintptr_t)rgquidinterfaces, (uint32_t)cguidinterfacecount, (void*)(uintptr_t)mszcards, (void*)(uintptr_t)pcchcards);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)pbatr;
@@ -2018,6 +2693,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)cguidinterfacecount;
     (void)mszcards;
     (void)pcchcards;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -2033,12 +2709,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SCardListInterfacesA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hcontext, (void*)(uintptr_t)szcard, (void*)(uintptr_t)pguidinterfaces, (void*)(uintptr_t)pcguidinterfaces) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hcontext, (void*)(uintptr_t)szcard, (void*)(uintptr_t)pguidinterfaces, (void*)(uintptr_t)pcguidinterfaces);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)szcard;
     (void)pguidinterfaces;
     (void)pcguidinterfaces;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -2054,12 +2737,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SCardListInterfacesW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hcontext, (void*)(uintptr_t)szcard, (void*)(uintptr_t)pguidinterfaces, (void*)(uintptr_t)pcguidinterfaces) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hcontext, (void*)(uintptr_t)szcard, (void*)(uintptr_t)pguidinterfaces, (void*)(uintptr_t)pcguidinterfaces);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)szcard;
     (void)pguidinterfaces;
     (void)pcguidinterfaces;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -2075,11 +2765,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SCardListReaderGroupsA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hcontext, (void*)(uintptr_t)mszgroups, (void*)(uintptr_t)pcchgroups) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hcontext, (void*)(uintptr_t)mszgroups, (void*)(uintptr_t)pcchgroups);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)mszgroups;
     (void)pcchgroups;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -2095,11 +2792,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SCardListReaderGroupsW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hcontext, (void*)(uintptr_t)mszgroups, (void*)(uintptr_t)pcchgroups) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hcontext, (void*)(uintptr_t)mszgroups, (void*)(uintptr_t)pcchgroups);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)mszgroups;
     (void)pcchgroups;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -2115,12 +2819,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SCardListReadersA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hcontext, (void*)(uintptr_t)mszgroups, (void*)(uintptr_t)mszreaders, (void*)(uintptr_t)pcchreaders) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hcontext, (void*)(uintptr_t)mszgroups, (void*)(uintptr_t)mszreaders, (void*)(uintptr_t)pcchreaders);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)mszgroups;
     (void)mszreaders;
     (void)pcchreaders;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -2136,12 +2847,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SCardListReadersW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hcontext, (void*)(uintptr_t)mszgroups, (void*)(uintptr_t)mszreaders, (void*)(uintptr_t)pcchreaders) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hcontext, (void*)(uintptr_t)mszgroups, (void*)(uintptr_t)mszreaders, (void*)(uintptr_t)pcchreaders);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)mszgroups;
     (void)mszreaders;
     (void)pcchreaders;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -2157,12 +2875,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SCardListReadersWithDeviceInstanceIdA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hcontext, (void*)(uintptr_t)szdeviceinstanceid, (void*)(uintptr_t)mszreaders, (void*)(uintptr_t)pcchreaders) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hcontext, (void*)(uintptr_t)szdeviceinstanceid, (void*)(uintptr_t)mszreaders, (void*)(uintptr_t)pcchreaders);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)szdeviceinstanceid;
     (void)mszreaders;
     (void)pcchreaders;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -2178,12 +2903,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SCardListReadersWithDeviceInstanceIdW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hcontext, (void*)(uintptr_t)szdeviceinstanceid, (void*)(uintptr_t)mszreaders, (void*)(uintptr_t)pcchreaders) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hcontext, (void*)(uintptr_t)szdeviceinstanceid, (void*)(uintptr_t)mszreaders, (void*)(uintptr_t)pcchreaders);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)szdeviceinstanceid;
     (void)mszreaders;
     (void)pcchreaders;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -2199,12 +2931,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SCardLocateCardsA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hcontext, (void*)(uintptr_t)mszcards, (void*)(uintptr_t)rgreaderstates, (uint32_t)creaders) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hcontext, (void*)(uintptr_t)mszcards, (void*)(uintptr_t)rgreaderstates, (uint32_t)creaders);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)mszcards;
     (void)rgreaderstates;
     (void)creaders;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -2220,13 +2959,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SCardLocateCardsByATRA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hcontext, (void*)(uintptr_t)rgatrmasks, (uint32_t)catrs, (void*)(uintptr_t)rgreaderstates, (uint32_t)creaders) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hcontext, (void*)(uintptr_t)rgatrmasks, (uint32_t)catrs, (void*)(uintptr_t)rgreaderstates, (uint32_t)creaders);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)rgatrmasks;
     (void)catrs;
     (void)rgreaderstates;
     (void)creaders;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -2242,13 +2988,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SCardLocateCardsByATRW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hcontext, (void*)(uintptr_t)rgatrmasks, (uint32_t)catrs, (void*)(uintptr_t)rgreaderstates, (uint32_t)creaders) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hcontext, (void*)(uintptr_t)rgatrmasks, (uint32_t)catrs, (void*)(uintptr_t)rgreaderstates, (uint32_t)creaders);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)rgatrmasks;
     (void)catrs;
     (void)rgreaderstates;
     (void)creaders;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -2264,12 +3017,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SCardLocateCardsW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hcontext, (void*)(uintptr_t)mszcards, (void*)(uintptr_t)rgreaderstates, (uint32_t)creaders) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hcontext, (void*)(uintptr_t)mszcards, (void*)(uintptr_t)rgreaderstates, (uint32_t)creaders);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)mszcards;
     (void)rgreaderstates;
     (void)creaders;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -2285,7 +3045,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SCardReadCacheA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hcontext, (void*)(uintptr_t)cardidentifier, (uint32_t)freshnesscounter, (void*)(uintptr_t)lookupname, (void*)(uintptr_t)data, (void*)(uintptr_t)datalen) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hcontext, (void*)(uintptr_t)cardidentifier, (uint32_t)freshnesscounter, (void*)(uintptr_t)lookupname, (void*)(uintptr_t)data, (void*)(uintptr_t)datalen);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)cardidentifier;
@@ -2293,6 +3059,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)lookupname;
     (void)data;
     (void)datalen;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -2308,7 +3075,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SCardReadCacheW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hcontext, (void*)(uintptr_t)cardidentifier, (uint32_t)freshnesscounter, (void*)(uintptr_t)lookupname, (void*)(uintptr_t)data, (void*)(uintptr_t)datalen) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hcontext, (void*)(uintptr_t)cardidentifier, (uint32_t)freshnesscounter, (void*)(uintptr_t)lookupname, (void*)(uintptr_t)data, (void*)(uintptr_t)datalen);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)cardidentifier;
@@ -2316,6 +3089,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)lookupname;
     (void)data;
     (void)datalen;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -2331,13 +3105,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SCardReconnect");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hcard, (uint32_t)dwsharemode, (uint32_t)dwpreferredprotocols, (uint32_t)dwinitialization, (void*)(uintptr_t)pdwactiveprotocol) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hcard, (uint32_t)dwsharemode, (uint32_t)dwpreferredprotocols, (uint32_t)dwinitialization, (void*)(uintptr_t)pdwactiveprotocol);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcard;
     (void)dwsharemode;
     (void)dwpreferredprotocols;
     (void)dwinitialization;
     (void)pdwactiveprotocol;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -2353,9 +3134,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SCardReleaseContext");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -2371,8 +3159,13 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SCardReleaseStartedEvent");
     }
-    if (km_fn_ptr != NULL) km_fn_ptr();
+    if (km_fn_ptr != NULL) {
+        km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+    }
 #else
+    errno = ENOSYS;
 #endif
 }
 
@@ -2386,11 +3179,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SCardRemoveReaderFromGroupA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hcontext, (void*)(uintptr_t)szreadername, (void*)(uintptr_t)szgroupname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hcontext, (void*)(uintptr_t)szreadername, (void*)(uintptr_t)szgroupname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)szreadername;
     (void)szgroupname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -2406,11 +3206,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SCardRemoveReaderFromGroupW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hcontext, (void*)(uintptr_t)szreadername, (void*)(uintptr_t)szgroupname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hcontext, (void*)(uintptr_t)szreadername, (void*)(uintptr_t)szgroupname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)szreadername;
     (void)szgroupname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -2426,12 +3233,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SCardSetAttrib");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hcard, (uint32_t)dwattrid, (void*)(uintptr_t)pbattr, (uint32_t)cbattrlen) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hcard, (uint32_t)dwattrid, (void*)(uintptr_t)pbattr, (uint32_t)cbattrlen);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcard;
     (void)dwattrid;
     (void)pbattr;
     (void)cbattrlen;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -2447,12 +3261,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SCardSetCardTypeProviderNameA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hcontext, (void*)(uintptr_t)szcardname, (uint32_t)dwproviderid, (void*)(uintptr_t)szprovider) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hcontext, (void*)(uintptr_t)szcardname, (uint32_t)dwproviderid, (void*)(uintptr_t)szprovider);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)szcardname;
     (void)dwproviderid;
     (void)szprovider;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -2468,12 +3289,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SCardSetCardTypeProviderNameW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hcontext, (void*)(uintptr_t)szcardname, (uint32_t)dwproviderid, (void*)(uintptr_t)szprovider) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hcontext, (void*)(uintptr_t)szcardname, (uint32_t)dwproviderid, (void*)(uintptr_t)szprovider);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)szcardname;
     (void)dwproviderid;
     (void)szprovider;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -2489,13 +3317,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SCardState");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hcard, (void*)(uintptr_t)pdwstate, (void*)(uintptr_t)pdwprotocol, (void*)(uintptr_t)pbatr, (void*)(uintptr_t)pcbatrlen) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hcard, (void*)(uintptr_t)pdwstate, (void*)(uintptr_t)pdwprotocol, (void*)(uintptr_t)pbatr, (void*)(uintptr_t)pcbatrlen);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcard;
     (void)pdwstate;
     (void)pdwprotocol;
     (void)pbatr;
     (void)pcbatrlen;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -2511,7 +3346,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SCardStatusA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hcard, (void*)(uintptr_t)mszreadernames, (void*)(uintptr_t)pcchreaderlen, (void*)(uintptr_t)pdwstate, (void*)(uintptr_t)pdwprotocol, (void*)(uintptr_t)pbatr, (void*)(uintptr_t)pcbatrlen) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hcard, (void*)(uintptr_t)mszreadernames, (void*)(uintptr_t)pcchreaderlen, (void*)(uintptr_t)pdwstate, (void*)(uintptr_t)pdwprotocol, (void*)(uintptr_t)pbatr, (void*)(uintptr_t)pcbatrlen);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcard;
     (void)mszreadernames;
@@ -2520,6 +3361,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)pdwprotocol;
     (void)pbatr;
     (void)pcbatrlen;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -2535,7 +3377,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SCardStatusW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hcard, (void*)(uintptr_t)mszreadernames, (void*)(uintptr_t)pcchreaderlen, (void*)(uintptr_t)pdwstate, (void*)(uintptr_t)pdwprotocol, (void*)(uintptr_t)pbatr, (void*)(uintptr_t)pcbatrlen) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hcard, (void*)(uintptr_t)mszreadernames, (void*)(uintptr_t)pcchreaderlen, (void*)(uintptr_t)pdwstate, (void*)(uintptr_t)pdwprotocol, (void*)(uintptr_t)pbatr, (void*)(uintptr_t)pcbatrlen);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcard;
     (void)mszreadernames;
@@ -2544,6 +3392,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)pdwprotocol;
     (void)pbatr;
     (void)pcbatrlen;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -2559,7 +3408,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SCardTransmit");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hcard, (void*)(uintptr_t)piosendpci, (void*)(uintptr_t)pbsendbuffer, (uint32_t)cbsendlength, (void*)(uintptr_t)piorecvpci, (void*)(uintptr_t)pbrecvbuffer, (void*)(uintptr_t)pcbrecvlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hcard, (void*)(uintptr_t)piosendpci, (void*)(uintptr_t)pbsendbuffer, (uint32_t)cbsendlength, (void*)(uintptr_t)piorecvpci, (void*)(uintptr_t)pbrecvbuffer, (void*)(uintptr_t)pcbrecvlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcard;
     (void)piosendpci;
@@ -2568,6 +3423,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)piorecvpci;
     (void)pbrecvbuffer;
     (void)pcbrecvlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -2583,9 +3439,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("scarddlg.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SCardUIDlgSelectCardA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)param0) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)param0);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)param0;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -2601,9 +3464,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("scarddlg.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SCardUIDlgSelectCardW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)param0) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)param0);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)param0;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -2619,7 +3489,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SCardWriteCacheA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hcontext, (void*)(uintptr_t)cardidentifier, (uint32_t)freshnesscounter, (void*)(uintptr_t)lookupname, (void*)(uintptr_t)data, (uint32_t)datalen) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hcontext, (void*)(uintptr_t)cardidentifier, (uint32_t)freshnesscounter, (void*)(uintptr_t)lookupname, (void*)(uintptr_t)data, (uint32_t)datalen);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)cardidentifier;
@@ -2627,6 +3503,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)lookupname;
     (void)data;
     (void)datalen;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -2642,7 +3519,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("winscard.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SCardWriteCacheW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hcontext, (void*)(uintptr_t)cardidentifier, (uint32_t)freshnesscounter, (void*)(uintptr_t)lookupname, (void*)(uintptr_t)data, (uint32_t)datalen) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hcontext, (void*)(uintptr_t)cardidentifier, (uint32_t)freshnesscounter, (void*)(uintptr_t)lookupname, (void*)(uintptr_t)data, (uint32_t)datalen);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcontext;
     (void)cardidentifier;
@@ -2650,6 +3533,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)lookupname;
     (void)data;
     (void)datalen;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;

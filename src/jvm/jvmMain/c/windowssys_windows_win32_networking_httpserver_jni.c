@@ -5,6 +5,7 @@
 #include <stdbool.h>
 #include <stddef.h>
 #include <stdint.h>
+#include <stdlib.h>
 #include <errno.h>
 #ifdef _WIN32
 #ifndef WIN32_LEAN_AND_MEAN
@@ -28,13 +29,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("httpapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HttpAddFragmentToCache");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)requestqueuehandle, (void*)(uintptr_t)urlprefix, (void*)(uintptr_t)datachunk, (void*)(uintptr_t)cachepolicy, (void*)(uintptr_t)overlapped) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)requestqueuehandle, (void*)(uintptr_t)urlprefix, (void*)(uintptr_t)datachunk, (void*)(uintptr_t)cachepolicy, (void*)(uintptr_t)overlapped);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)requestqueuehandle;
     (void)urlprefix;
     (void)datachunk;
     (void)cachepolicy;
     (void)overlapped;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -50,11 +58,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("httpapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HttpAddUrl");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)requestqueuehandle, (void*)(uintptr_t)fullyqualifiedurl, (void*)(uintptr_t)reserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)requestqueuehandle, (void*)(uintptr_t)fullyqualifiedurl, (void*)(uintptr_t)reserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)requestqueuehandle;
     (void)fullyqualifiedurl;
     (void)reserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -70,12 +85,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("httpapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HttpAddUrlToUrlGroup");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)urlgroupid, (void*)(uintptr_t)pfullyqualifiedurl, (uint64_t)urlcontext, (uint32_t)reserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)urlgroupid, (void*)(uintptr_t)pfullyqualifiedurl, (uint64_t)urlcontext, (uint32_t)reserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)urlgroupid;
     (void)pfullyqualifiedurl;
     (void)urlcontext;
     (void)reserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -91,11 +113,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("httpapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HttpCancelHttpRequest");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)requestqueuehandle, (uint64_t)requestid, (void*)(uintptr_t)overlapped) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)requestqueuehandle, (uint64_t)requestid, (void*)(uintptr_t)overlapped);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)requestqueuehandle;
     (void)requestid;
     (void)overlapped;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -111,9 +140,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("httpapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HttpCloseRequestQueue");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)requestqueuehandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)requestqueuehandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)requestqueuehandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -129,9 +165,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("httpapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HttpCloseServerSession");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)serversessionid) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)serversessionid);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serversessionid;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -147,9 +190,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("httpapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HttpCloseUrlGroup");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)urlgroupid) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)urlgroupid);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)urlgroupid;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -165,10 +215,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("httpapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HttpCreateHttpHandle");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)requestqueuehandle, (uint32_t)reserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)requestqueuehandle, (uint32_t)reserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)requestqueuehandle;
     (void)reserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -184,11 +241,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("httpapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HttpCreateUrlGroup");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)serversessionid, (void*)(uintptr_t)purlgroupid, (uint32_t)reserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)serversessionid, (void*)(uintptr_t)purlgroupid, (uint32_t)reserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serversessionid;
     (void)purlgroupid;
     (void)reserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -204,7 +268,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("httpapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HttpDeclarePush");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)requestqueuehandle, (uint64_t)requestid, (int32_t)verb, (void*)(uintptr_t)path, (void*)(uintptr_t)query, (void*)(uintptr_t)headers) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)requestqueuehandle, (uint64_t)requestid, (int32_t)verb, (void*)(uintptr_t)path, (void*)(uintptr_t)query, (void*)(uintptr_t)headers);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)requestqueuehandle;
     (void)requestid;
@@ -212,6 +282,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)path;
     (void)query;
     (void)headers;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -227,7 +298,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("httpapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HttpDelegateRequestEx");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)requestqueuehandle, (void*)(uintptr_t)delegatequeuehandle, (uint64_t)requestid, (uint64_t)delegateurlgroupid, (uint32_t)propertyinfosetsize, (void*)(uintptr_t)propertyinfoset) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)requestqueuehandle, (void*)(uintptr_t)delegatequeuehandle, (uint64_t)requestid, (uint64_t)delegateurlgroupid, (uint32_t)propertyinfosetsize, (void*)(uintptr_t)propertyinfoset);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)requestqueuehandle;
     (void)delegatequeuehandle;
@@ -235,6 +312,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)delegateurlgroupid;
     (void)propertyinfosetsize;
     (void)propertyinfoset;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -250,13 +328,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("httpapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HttpDeleteServiceConfiguration");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)servicehandle, (int32_t)configid, (void*)(uintptr_t)pconfiginformation, (uint32_t)configinformationlength, (void*)(uintptr_t)poverlapped) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)servicehandle, (int32_t)configid, (void*)(uintptr_t)pconfiginformation, (uint32_t)configinformationlength, (void*)(uintptr_t)poverlapped);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servicehandle;
     (void)configid;
     (void)pconfiginformation;
     (void)configinformationlength;
     (void)poverlapped;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -272,11 +357,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("httpapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HttpFindUrlGroupId");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)fullyqualifiedurl, (void*)(uintptr_t)requestqueuehandle, (void*)(uintptr_t)urlgroupid) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)fullyqualifiedurl, (void*)(uintptr_t)requestqueuehandle, (void*)(uintptr_t)urlgroupid);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)fullyqualifiedurl;
     (void)requestqueuehandle;
     (void)urlgroupid;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -292,12 +384,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("httpapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HttpFlushResponseCache");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)requestqueuehandle, (void*)(uintptr_t)urlprefix, (uint32_t)flags, (void*)(uintptr_t)overlapped) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)requestqueuehandle, (void*)(uintptr_t)urlprefix, (uint32_t)flags, (void*)(uintptr_t)overlapped);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)requestqueuehandle;
     (void)urlprefix;
     (void)flags;
     (void)overlapped;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -313,9 +412,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("httpapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HttpIsFeatureSupported");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int32_t)featureid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int32_t)featureid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)featureid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -331,12 +437,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("httpapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HttpPrepareUrl");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)reserved, (uint32_t)flags, (void*)(uintptr_t)url, (void*)(uintptr_t)preparedurl) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)reserved, (uint32_t)flags, (void*)(uintptr_t)url, (void*)(uintptr_t)preparedurl);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)reserved;
     (void)flags;
     (void)url;
     (void)preparedurl;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -352,7 +465,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("httpapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HttpQueryRequestQueueProperty");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)requestqueuehandle, (int32_t)property, (void*)(uintptr_t)propertyinformation, (uint32_t)propertyinformationlength, (uint32_t)reserved1, (void*)(uintptr_t)returnlength, (void*)(uintptr_t)reserved2) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)requestqueuehandle, (int32_t)property, (void*)(uintptr_t)propertyinformation, (uint32_t)propertyinformationlength, (uint32_t)reserved1, (void*)(uintptr_t)returnlength, (void*)(uintptr_t)reserved2);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)requestqueuehandle;
     (void)property;
@@ -361,6 +480,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)reserved1;
     (void)returnlength;
     (void)reserved2;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -376,13 +496,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("httpapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HttpQueryServerSessionProperty");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)serversessionid, (int32_t)property, (void*)(uintptr_t)propertyinformation, (uint32_t)propertyinformationlength, (void*)(uintptr_t)returnlength) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)serversessionid, (int32_t)property, (void*)(uintptr_t)propertyinformation, (uint32_t)propertyinformationlength, (void*)(uintptr_t)returnlength);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serversessionid;
     (void)property;
     (void)propertyinformation;
     (void)propertyinformationlength;
     (void)returnlength;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -398,7 +525,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("httpapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HttpQueryServiceConfiguration");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)servicehandle, (int32_t)configid, (void*)(uintptr_t)pinput, (uint32_t)inputlength, (void*)(uintptr_t)poutput, (uint32_t)outputlength, (void*)(uintptr_t)preturnlength, (void*)(uintptr_t)poverlapped) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)servicehandle, (int32_t)configid, (void*)(uintptr_t)pinput, (uint32_t)inputlength, (void*)(uintptr_t)poutput, (uint32_t)outputlength, (void*)(uintptr_t)preturnlength, (void*)(uintptr_t)poverlapped);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servicehandle;
     (void)configid;
@@ -408,6 +541,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)outputlength;
     (void)preturnlength;
     (void)poverlapped;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -423,13 +557,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("httpapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HttpQueryUrlGroupProperty");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)urlgroupid, (int32_t)property, (void*)(uintptr_t)propertyinformation, (uint32_t)propertyinformationlength, (void*)(uintptr_t)returnlength) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)urlgroupid, (int32_t)property, (void*)(uintptr_t)propertyinformation, (uint32_t)propertyinformationlength, (void*)(uintptr_t)returnlength);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)urlgroupid;
     (void)property;
     (void)propertyinformation;
     (void)propertyinformationlength;
     (void)returnlength;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -445,7 +586,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("httpapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HttpReadFragmentFromCache");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)requestqueuehandle, (void*)(uintptr_t)urlprefix, (void*)(uintptr_t)byterange, (void*)(uintptr_t)buffer, (uint32_t)bufferlength, (void*)(uintptr_t)bytesread, (void*)(uintptr_t)overlapped) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)requestqueuehandle, (void*)(uintptr_t)urlprefix, (void*)(uintptr_t)byterange, (void*)(uintptr_t)buffer, (uint32_t)bufferlength, (void*)(uintptr_t)bytesread, (void*)(uintptr_t)overlapped);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)requestqueuehandle;
     (void)urlprefix;
@@ -454,6 +601,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)bufferlength;
     (void)bytesread;
     (void)overlapped;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -469,7 +617,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("httpapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HttpReceiveClientCertificate");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)requestqueuehandle, (uint64_t)connectionid, (uint32_t)flags, (void*)(uintptr_t)sslclientcertinfo, (uint32_t)sslclientcertinfosize, (void*)(uintptr_t)bytesreceived, (void*)(uintptr_t)overlapped) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)requestqueuehandle, (uint64_t)connectionid, (uint32_t)flags, (void*)(uintptr_t)sslclientcertinfo, (uint32_t)sslclientcertinfosize, (void*)(uintptr_t)bytesreceived, (void*)(uintptr_t)overlapped);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)requestqueuehandle;
     (void)connectionid;
@@ -478,6 +632,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)sslclientcertinfosize;
     (void)bytesreceived;
     (void)overlapped;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -493,7 +648,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("httpapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HttpReceiveHttpRequest");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)requestqueuehandle, (uint64_t)requestid, (uint32_t)flags, (void*)(uintptr_t)requestbuffer, (uint32_t)requestbufferlength, (void*)(uintptr_t)bytesreturned, (void*)(uintptr_t)overlapped) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)requestqueuehandle, (uint64_t)requestid, (uint32_t)flags, (void*)(uintptr_t)requestbuffer, (uint32_t)requestbufferlength, (void*)(uintptr_t)bytesreturned, (void*)(uintptr_t)overlapped);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)requestqueuehandle;
     (void)requestid;
@@ -502,6 +663,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)requestbufferlength;
     (void)bytesreturned;
     (void)overlapped;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -517,7 +679,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("httpapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HttpReceiveRequestEntityBody");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)requestqueuehandle, (uint64_t)requestid, (uint32_t)flags, (void*)(uintptr_t)entitybuffer, (uint32_t)entitybufferlength, (void*)(uintptr_t)bytesreturned, (void*)(uintptr_t)overlapped) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)requestqueuehandle, (uint64_t)requestid, (uint32_t)flags, (void*)(uintptr_t)entitybuffer, (uint32_t)entitybufferlength, (void*)(uintptr_t)bytesreturned, (void*)(uintptr_t)overlapped);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)requestqueuehandle;
     (void)requestid;
@@ -526,6 +694,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)entitybufferlength;
     (void)bytesreturned;
     (void)overlapped;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -541,10 +710,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("httpapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HttpRemoveUrl");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)requestqueuehandle, (void*)(uintptr_t)fullyqualifiedurl) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)requestqueuehandle, (void*)(uintptr_t)fullyqualifiedurl);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)requestqueuehandle;
     (void)fullyqualifiedurl;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -560,11 +736,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("httpapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HttpRemoveUrlFromUrlGroup");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)urlgroupid, (void*)(uintptr_t)pfullyqualifiedurl, (uint32_t)flags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)urlgroupid, (void*)(uintptr_t)pfullyqualifiedurl, (uint32_t)flags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)urlgroupid;
     (void)pfullyqualifiedurl;
     (void)flags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -580,7 +763,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("httpapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HttpSendHttpResponse");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)requestqueuehandle, (uint64_t)requestid, (uint32_t)flags, (void*)(uintptr_t)httpresponse, (void*)(uintptr_t)cachepolicy, (void*)(uintptr_t)bytessent, (void*)(uintptr_t)reserved1, (uint32_t)reserved2, (void*)(uintptr_t)overlapped, (void*)(uintptr_t)logdata) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)requestqueuehandle, (uint64_t)requestid, (uint32_t)flags, (void*)(uintptr_t)httpresponse, (void*)(uintptr_t)cachepolicy, (void*)(uintptr_t)bytessent, (void*)(uintptr_t)reserved1, (uint32_t)reserved2, (void*)(uintptr_t)overlapped, (void*)(uintptr_t)logdata);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)requestqueuehandle;
     (void)requestid;
@@ -592,6 +781,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)reserved2;
     (void)overlapped;
     (void)logdata;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -607,7 +797,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("httpapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HttpSendResponseEntityBody");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)requestqueuehandle, (uint64_t)requestid, (uint32_t)flags, (uint16_t)entitychunkcount, (void*)(uintptr_t)entitychunks, (void*)(uintptr_t)bytessent, (void*)(uintptr_t)reserved1, (uint32_t)reserved2, (void*)(uintptr_t)overlapped, (void*)(uintptr_t)logdata) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)requestqueuehandle, (uint64_t)requestid, (uint32_t)flags, (uint16_t)entitychunkcount, (void*)(uintptr_t)entitychunks, (void*)(uintptr_t)bytessent, (void*)(uintptr_t)reserved1, (uint32_t)reserved2, (void*)(uintptr_t)overlapped, (void*)(uintptr_t)logdata);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)requestqueuehandle;
     (void)requestid;
@@ -619,6 +815,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)reserved2;
     (void)overlapped;
     (void)logdata;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -634,7 +831,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("httpapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HttpSetRequestProperty");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)requestqueuehandle, (uint64_t)id, (int32_t)propertyid, (void*)(uintptr_t)input, (uint32_t)inputpropertysize, (void*)(uintptr_t)overlapped) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)requestqueuehandle, (uint64_t)id, (int32_t)propertyid, (void*)(uintptr_t)input, (uint32_t)inputpropertysize, (void*)(uintptr_t)overlapped);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)requestqueuehandle;
     (void)id;
@@ -642,6 +845,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)input;
     (void)inputpropertysize;
     (void)overlapped;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -657,7 +861,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("httpapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HttpSetRequestQueueProperty");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)requestqueuehandle, (int32_t)property, (void*)(uintptr_t)propertyinformation, (uint32_t)propertyinformationlength, (uint32_t)reserved1, (void*)(uintptr_t)reserved2) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)requestqueuehandle, (int32_t)property, (void*)(uintptr_t)propertyinformation, (uint32_t)propertyinformationlength, (uint32_t)reserved1, (void*)(uintptr_t)reserved2);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)requestqueuehandle;
     (void)property;
@@ -665,6 +875,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)propertyinformationlength;
     (void)reserved1;
     (void)reserved2;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -680,12 +891,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("httpapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HttpSetServerSessionProperty");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)serversessionid, (int32_t)property, (void*)(uintptr_t)propertyinformation, (uint32_t)propertyinformationlength) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)serversessionid, (int32_t)property, (void*)(uintptr_t)propertyinformation, (uint32_t)propertyinformationlength);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serversessionid;
     (void)property;
     (void)propertyinformation;
     (void)propertyinformationlength;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -701,13 +919,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("httpapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HttpSetServiceConfiguration");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)servicehandle, (int32_t)configid, (void*)(uintptr_t)pconfiginformation, (uint32_t)configinformationlength, (void*)(uintptr_t)poverlapped) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)servicehandle, (int32_t)configid, (void*)(uintptr_t)pconfiginformation, (uint32_t)configinformationlength, (void*)(uintptr_t)poverlapped);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servicehandle;
     (void)configid;
     (void)pconfiginformation;
     (void)configinformationlength;
     (void)poverlapped;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -723,12 +948,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("httpapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HttpSetUrlGroupProperty");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)urlgroupid, (int32_t)property, (void*)(uintptr_t)propertyinformation, (uint32_t)propertyinformationlength) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)urlgroupid, (int32_t)property, (void*)(uintptr_t)propertyinformation, (uint32_t)propertyinformationlength);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)urlgroupid;
     (void)property;
     (void)propertyinformation;
     (void)propertyinformationlength;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -744,9 +976,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("httpapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HttpShutdownRequestQueue");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)requestqueuehandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)requestqueuehandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)requestqueuehandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -762,10 +1001,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("httpapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HttpTerminate");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)flags, (void*)(uintptr_t)preserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)flags, (void*)(uintptr_t)preserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)flags;
     (void)preserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -781,13 +1027,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("httpapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HttpUpdateServiceConfiguration");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)handle, (int32_t)configid, (void*)(uintptr_t)configinfo, (uint32_t)configinfolength, (void*)(uintptr_t)overlapped) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)handle, (int32_t)configid, (void*)(uintptr_t)configinfo, (uint32_t)configinfolength, (void*)(uintptr_t)overlapped);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)handle;
     (void)configid;
     (void)configinfo;
     (void)configinfolength;
     (void)overlapped;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -803,10 +1056,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("httpapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HttpWaitForDemandStart");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)requestqueuehandle, (void*)(uintptr_t)overlapped) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)requestqueuehandle, (void*)(uintptr_t)overlapped);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)requestqueuehandle;
     (void)overlapped;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -822,11 +1082,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("httpapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HttpWaitForDisconnect");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)requestqueuehandle, (uint64_t)connectionid, (void*)(uintptr_t)overlapped) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)requestqueuehandle, (uint64_t)connectionid, (void*)(uintptr_t)overlapped);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)requestqueuehandle;
     (void)connectionid;
     (void)overlapped;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -842,12 +1109,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("httpapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HttpWaitForDisconnectEx");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)requestqueuehandle, (uint64_t)connectionid, (uint32_t)reserved, (void*)(uintptr_t)overlapped) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)requestqueuehandle, (uint64_t)connectionid, (uint32_t)reserved, (void*)(uintptr_t)overlapped);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)requestqueuehandle;
     (void)connectionid;
     (void)reserved;
     (void)overlapped;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;

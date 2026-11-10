@@ -64,12 +64,19 @@ static Napi::Value windowssys_windows_wdk_system_systeminformation_ntQuerySystem
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NtQuerySystemInformation")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(systeminformationclass, systeminformation, systeminformationlength, returnlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(systeminformationclass, systeminformation, systeminformationlength, returnlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)systeminformationclass;
     (void)systeminformation;
     (void)systeminformationlength;
     (void)returnlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -85,9 +92,16 @@ static Napi::Value windowssys_windows_wdk_system_systeminformation_ntQuerySystem
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NtQuerySystemTime")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(systemtime) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(systemtime);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)systemtime;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -105,11 +119,18 @@ static Napi::Value windowssys_windows_wdk_system_systeminformation_ntQueryTimerR
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NtQueryTimerResolution")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(maximumtime, minimumtime, currenttime) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(maximumtime, minimumtime, currenttime);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)maximumtime;
     (void)minimumtime;
     (void)currenttime;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -128,12 +149,19 @@ static Napi::Value windowssys_windows_wdk_system_systeminformation_zwQuerySystem
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ZwQuerySystemInformation")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(systeminformationclass, systeminformation, systeminformationlength, returnlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(systeminformationclass, systeminformation, systeminformationlength, returnlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)systeminformationclass;
     (void)systeminformation;
     (void)systeminformationlength;
     (void)returnlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -149,9 +177,16 @@ static Napi::Value windowssys_windows_wdk_system_systeminformation_zwQuerySystem
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ZwQuerySystemTime")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(systemtime) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(systemtime);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)systemtime;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -169,11 +204,18 @@ static Napi::Value windowssys_windows_wdk_system_systeminformation_zwQueryTimerR
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ZwQueryTimerResolution")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(maximumtime, minimumtime, currenttime) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(maximumtime, minimumtime, currenttime);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)maximumtime;
     (void)minimumtime;
     (void)currenttime;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

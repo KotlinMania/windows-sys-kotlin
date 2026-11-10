@@ -61,9 +61,14 @@ static Napi::Value windowssys_windows_win32_networking_websocket_webSocketAbortH
         HMODULE km_h_mod = LoadLibraryA("websocket.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WebSocketAbortHandle")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(hwebsocket);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(hwebsocket);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)hwebsocket;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -86,7 +91,13 @@ static Napi::Value windowssys_windows_win32_networking_websocket_webSocketBeginC
         HMODULE km_h_mod = LoadLibraryA("websocket.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WebSocketBeginClientHandshake")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwebsocket, pszsubprotocols, ulsubprotocolcount, pszextensions, ulextensioncount, pinitialheaders, ulinitialheadercount, padditionalheaders, puladditionalheadercount) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwebsocket, pszsubprotocols, ulsubprotocolcount, pszextensions, ulextensioncount, pinitialheaders, ulinitialheadercount, padditionalheaders, puladditionalheadercount);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwebsocket;
     (void)pszsubprotocols;
@@ -97,6 +108,7 @@ static Napi::Value windowssys_windows_win32_networking_websocket_webSocketBeginC
     (void)ulinitialheadercount;
     (void)padditionalheaders;
     (void)puladditionalheadercount;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -119,7 +131,13 @@ static Napi::Value windowssys_windows_win32_networking_websocket_webSocketBeginS
         HMODULE km_h_mod = LoadLibraryA("websocket.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WebSocketBeginServerHandshake")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwebsocket, pszsubprotocolselected, pszextensionselected, ulextensionselectedcount, prequestheaders, ulrequestheadercount, presponseheaders, pulresponseheadercount) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwebsocket, pszsubprotocolselected, pszextensionselected, ulextensionselectedcount, prequestheaders, ulrequestheadercount, presponseheaders, pulresponseheadercount);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwebsocket;
     (void)pszsubprotocolselected;
@@ -129,6 +147,7 @@ static Napi::Value windowssys_windows_win32_networking_websocket_webSocketBeginS
     (void)ulrequestheadercount;
     (void)presponseheaders;
     (void)pulresponseheadercount;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -146,11 +165,16 @@ static Napi::Value windowssys_windows_win32_networking_websocket_webSocketComple
         HMODULE km_h_mod = LoadLibraryA("websocket.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WebSocketCompleteAction")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(hwebsocket, pvactioncontext, ulbytestransferred);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(hwebsocket, pvactioncontext, ulbytestransferred);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)hwebsocket;
     (void)pvactioncontext;
     (void)ulbytestransferred;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -167,11 +191,18 @@ static Napi::Value windowssys_windows_win32_networking_websocket_webSocketCreate
         HMODULE km_h_mod = LoadLibraryA("websocket.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WebSocketCreateClientHandle")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pproperties, ulpropertycount, phwebsocket) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pproperties, ulpropertycount, phwebsocket);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pproperties;
     (void)ulpropertycount;
     (void)phwebsocket;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -189,11 +220,18 @@ static Napi::Value windowssys_windows_win32_networking_websocket_webSocketCreate
         HMODULE km_h_mod = LoadLibraryA("websocket.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WebSocketCreateServerHandle")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pproperties, ulpropertycount, phwebsocket) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pproperties, ulpropertycount, phwebsocket);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pproperties;
     (void)ulpropertycount;
     (void)phwebsocket;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -209,9 +247,14 @@ static Napi::Value windowssys_windows_win32_networking_websocket_webSocketDelete
         HMODULE km_h_mod = LoadLibraryA("websocket.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WebSocketDeleteHandle")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(hwebsocket);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(hwebsocket);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)hwebsocket;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -231,7 +274,13 @@ static Napi::Value windowssys_windows_win32_networking_websocket_webSocketEndCli
         HMODULE km_h_mod = LoadLibraryA("websocket.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WebSocketEndClientHandshake")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwebsocket, presponseheaders, ulreponseheadercount, pulselectedextensions, pulselectedextensioncount, pulselectedsubprotocol) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwebsocket, presponseheaders, ulreponseheadercount, pulselectedextensions, pulselectedextensioncount, pulselectedsubprotocol);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwebsocket;
     (void)presponseheaders;
@@ -239,6 +288,7 @@ static Napi::Value windowssys_windows_win32_networking_websocket_webSocketEndCli
     (void)pulselectedextensions;
     (void)pulselectedextensioncount;
     (void)pulselectedsubprotocol;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -254,9 +304,16 @@ static Napi::Value windowssys_windows_win32_networking_websocket_webSocketEndSer
         HMODULE km_h_mod = LoadLibraryA("websocket.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WebSocketEndServerHandshake")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwebsocket) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwebsocket);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwebsocket;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -279,7 +336,13 @@ static Napi::Value windowssys_windows_win32_networking_websocket_webSocketGetAct
         HMODULE km_h_mod = LoadLibraryA("websocket.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WebSocketGetAction")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwebsocket, eactionqueue, pdatabuffers, puldatabuffercount, paction, pbuffertype, pvapplicationcontext, pvactioncontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwebsocket, eactionqueue, pdatabuffers, puldatabuffercount, paction, pbuffertype, pvapplicationcontext, pvactioncontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwebsocket;
     (void)eactionqueue;
@@ -289,6 +352,7 @@ static Napi::Value windowssys_windows_win32_networking_websocket_webSocketGetAct
     (void)pbuffertype;
     (void)pvapplicationcontext;
     (void)pvactioncontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -306,11 +370,18 @@ static Napi::Value windowssys_windows_win32_networking_websocket_webSocketGetGlo
         HMODULE km_h_mod = LoadLibraryA("websocket.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WebSocketGetGlobalProperty")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(etype, pvvalue, ulsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(etype, pvvalue, ulsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)etype;
     (void)pvvalue;
     (void)ulsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -328,11 +399,18 @@ static Napi::Value windowssys_windows_win32_networking_websocket_webSocketReceiv
         HMODULE km_h_mod = LoadLibraryA("websocket.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WebSocketReceive")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwebsocket, pbuffer, pvcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwebsocket, pbuffer, pvcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwebsocket;
     (void)pbuffer;
     (void)pvcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -351,12 +429,19 @@ static Napi::Value windowssys_windows_win32_networking_websocket_webSocketSend_n
         HMODULE km_h_mod = LoadLibraryA("websocket.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WebSocketSend")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwebsocket, buffertype, pbuffer, context) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwebsocket, buffertype, pbuffer, context);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwebsocket;
     (void)buffertype;
     (void)pbuffer;
     (void)context;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

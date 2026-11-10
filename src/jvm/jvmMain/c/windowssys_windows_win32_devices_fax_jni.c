@@ -5,6 +5,7 @@
 #include <stdbool.h>
 #include <stddef.h>
 #include <stdint.h>
+#include <stdlib.h>
 #include <errno.h>
 #ifdef _WIN32
 #ifndef WIN32_LEAN_AND_MEAN
@@ -28,8 +29,15 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("fxsutility.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CanSendToFaxRecipient");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr() : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -45,10 +53,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "FaxAbort");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)faxhandle, (uint32_t)jobid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)faxhandle, (uint32_t)jobid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)faxhandle;
     (void)jobid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -64,10 +79,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "FaxAccessCheck");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)faxhandle, (uint32_t)accessmask) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)faxhandle, (uint32_t)accessmask);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)faxhandle;
     (void)accessmask;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -83,9 +105,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "FaxClose");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)faxhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)faxhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)faxhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -101,10 +130,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "FaxCompleteJobParamsA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)jobparams, (void*)(uintptr_t)coverpageinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)jobparams, (void*)(uintptr_t)coverpageinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)jobparams;
     (void)coverpageinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -120,10 +156,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "FaxCompleteJobParamsW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)jobparams, (void*)(uintptr_t)coverpageinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)jobparams, (void*)(uintptr_t)coverpageinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)jobparams;
     (void)coverpageinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -139,10 +182,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "FaxConnectFaxServerA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)machinename, (void*)(uintptr_t)faxhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)machinename, (void*)(uintptr_t)faxhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)machinename;
     (void)faxhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -158,10 +208,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "FaxConnectFaxServerW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)machinename, (void*)(uintptr_t)faxhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)machinename, (void*)(uintptr_t)faxhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)machinename;
     (void)faxhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -177,11 +234,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "FaxEnableRoutingMethodA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)faxporthandle, (void*)(uintptr_t)routingguid, (int32_t)enabled) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)faxporthandle, (void*)(uintptr_t)routingguid, (int32_t)enabled);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)faxporthandle;
     (void)routingguid;
     (void)enabled;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -197,11 +261,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "FaxEnableRoutingMethodW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)faxporthandle, (void*)(uintptr_t)routingguid, (int32_t)enabled) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)faxporthandle, (void*)(uintptr_t)routingguid, (int32_t)enabled);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)faxporthandle;
     (void)routingguid;
     (void)enabled;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -217,11 +288,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "FaxEnumGlobalRoutingInfoA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)faxhandle, (void*)(uintptr_t)routinginfo, (void*)(uintptr_t)methodsreturned) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)faxhandle, (void*)(uintptr_t)routinginfo, (void*)(uintptr_t)methodsreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)faxhandle;
     (void)routinginfo;
     (void)methodsreturned;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -237,11 +315,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "FaxEnumGlobalRoutingInfoW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)faxhandle, (void*)(uintptr_t)routinginfo, (void*)(uintptr_t)methodsreturned) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)faxhandle, (void*)(uintptr_t)routinginfo, (void*)(uintptr_t)methodsreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)faxhandle;
     (void)routinginfo;
     (void)methodsreturned;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -257,11 +342,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "FaxEnumJobsA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)faxhandle, (void*)(uintptr_t)jobentry, (void*)(uintptr_t)jobsreturned) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)faxhandle, (void*)(uintptr_t)jobentry, (void*)(uintptr_t)jobsreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)faxhandle;
     (void)jobentry;
     (void)jobsreturned;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -277,11 +369,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "FaxEnumJobsW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)faxhandle, (void*)(uintptr_t)jobentry, (void*)(uintptr_t)jobsreturned) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)faxhandle, (void*)(uintptr_t)jobentry, (void*)(uintptr_t)jobsreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)faxhandle;
     (void)jobentry;
     (void)jobsreturned;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -297,11 +396,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "FaxEnumPortsA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)faxhandle, (void*)(uintptr_t)portinfo, (void*)(uintptr_t)portsreturned) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)faxhandle, (void*)(uintptr_t)portinfo, (void*)(uintptr_t)portsreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)faxhandle;
     (void)portinfo;
     (void)portsreturned;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -317,11 +423,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "FaxEnumPortsW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)faxhandle, (void*)(uintptr_t)portinfo, (void*)(uintptr_t)portsreturned) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)faxhandle, (void*)(uintptr_t)portinfo, (void*)(uintptr_t)portsreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)faxhandle;
     (void)portinfo;
     (void)portsreturned;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -337,11 +450,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "FaxEnumRoutingMethodsA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)faxporthandle, (void*)(uintptr_t)routingmethod, (void*)(uintptr_t)methodsreturned) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)faxporthandle, (void*)(uintptr_t)routingmethod, (void*)(uintptr_t)methodsreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)faxporthandle;
     (void)routingmethod;
     (void)methodsreturned;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -357,11 +477,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "FaxEnumRoutingMethodsW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)faxporthandle, (void*)(uintptr_t)routingmethod, (void*)(uintptr_t)methodsreturned) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)faxporthandle, (void*)(uintptr_t)routingmethod, (void*)(uintptr_t)methodsreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)faxporthandle;
     (void)routingmethod;
     (void)methodsreturned;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -377,9 +504,14 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "FaxFreeBuffer");
     }
-    if (km_fn_ptr != NULL) km_fn_ptr((void*)(uintptr_t)buffer);
+    if (km_fn_ptr != NULL) {
+        km_fn_ptr((void*)(uintptr_t)buffer);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)buffer;
+    errno = ENOSYS;
 #endif
 }
 
@@ -393,10 +525,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "FaxGetConfigurationA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)faxhandle, (void*)(uintptr_t)faxconfig) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)faxhandle, (void*)(uintptr_t)faxconfig);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)faxhandle;
     (void)faxconfig;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -412,10 +551,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "FaxGetConfigurationW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)faxhandle, (void*)(uintptr_t)faxconfig) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)faxhandle, (void*)(uintptr_t)faxconfig);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)faxhandle;
     (void)faxconfig;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -431,10 +577,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "FaxGetDeviceStatusA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)faxporthandle, (void*)(uintptr_t)devicestatus) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)faxporthandle, (void*)(uintptr_t)devicestatus);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)faxporthandle;
     (void)devicestatus;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -450,10 +603,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "FaxGetDeviceStatusW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)faxporthandle, (void*)(uintptr_t)devicestatus) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)faxporthandle, (void*)(uintptr_t)devicestatus);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)faxporthandle;
     (void)devicestatus;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -469,11 +629,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "FaxGetJobA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)faxhandle, (uint32_t)jobid, (void*)(uintptr_t)jobentry) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)faxhandle, (uint32_t)jobid, (void*)(uintptr_t)jobentry);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)faxhandle;
     (void)jobid;
     (void)jobentry;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -489,11 +656,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "FaxGetJobW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)faxhandle, (uint32_t)jobid, (void*)(uintptr_t)jobentry) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)faxhandle, (uint32_t)jobid, (void*)(uintptr_t)jobentry);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)faxhandle;
     (void)jobid;
     (void)jobentry;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -509,11 +683,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "FaxGetLoggingCategoriesA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)faxhandle, (void*)(uintptr_t)categories, (void*)(uintptr_t)numbercategories) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)faxhandle, (void*)(uintptr_t)categories, (void*)(uintptr_t)numbercategories);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)faxhandle;
     (void)categories;
     (void)numbercategories;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -529,11 +710,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "FaxGetLoggingCategoriesW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)faxhandle, (void*)(uintptr_t)categories, (void*)(uintptr_t)numbercategories) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)faxhandle, (void*)(uintptr_t)categories, (void*)(uintptr_t)numbercategories);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)faxhandle;
     (void)categories;
     (void)numbercategories;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -549,7 +737,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "FaxGetPageData");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)faxhandle, (uint32_t)jobid, (void*)(uintptr_t)buffer, (void*)(uintptr_t)buffersize, (void*)(uintptr_t)imagewidth, (void*)(uintptr_t)imageheight) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)faxhandle, (uint32_t)jobid, (void*)(uintptr_t)buffer, (void*)(uintptr_t)buffersize, (void*)(uintptr_t)imagewidth, (void*)(uintptr_t)imageheight);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)faxhandle;
     (void)jobid;
@@ -557,6 +751,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     (void)buffersize;
     (void)imagewidth;
     (void)imageheight;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -572,10 +767,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "FaxGetPortA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)faxporthandle, (void*)(uintptr_t)portinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)faxporthandle, (void*)(uintptr_t)portinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)faxporthandle;
     (void)portinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -591,10 +793,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "FaxGetPortW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)faxporthandle, (void*)(uintptr_t)portinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)faxporthandle, (void*)(uintptr_t)portinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)faxporthandle;
     (void)portinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -610,12 +819,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "FaxGetRoutingInfoA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)faxporthandle, (void*)(uintptr_t)routingguid, (void*)(uintptr_t)routinginfobuffer, (void*)(uintptr_t)routinginfobuffersize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)faxporthandle, (void*)(uintptr_t)routingguid, (void*)(uintptr_t)routinginfobuffer, (void*)(uintptr_t)routinginfobuffersize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)faxporthandle;
     (void)routingguid;
     (void)routinginfobuffer;
     (void)routinginfobuffersize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -631,12 +847,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "FaxGetRoutingInfoW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)faxporthandle, (void*)(uintptr_t)routingguid, (void*)(uintptr_t)routinginfobuffer, (void*)(uintptr_t)routinginfobuffersize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)faxporthandle, (void*)(uintptr_t)routingguid, (void*)(uintptr_t)routinginfobuffer, (void*)(uintptr_t)routinginfobuffersize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)faxporthandle;
     (void)routingguid;
     (void)routinginfobuffer;
     (void)routinginfobuffersize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -652,13 +875,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "FaxInitializeEventQueue");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)faxhandle, (void*)(uintptr_t)completionport, (uint64_t)completionkey, (void*)(uintptr_t)hwnd, (uint32_t)messagestart) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)faxhandle, (void*)(uintptr_t)completionport, (uint64_t)completionkey, (void*)(uintptr_t)hwnd, (uint32_t)messagestart);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)faxhandle;
     (void)completionport;
     (void)completionkey;
     (void)hwnd;
     (void)messagestart;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -674,12 +904,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "FaxOpenPort");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)faxhandle, (uint32_t)deviceid, (uint32_t)flags, (void*)(uintptr_t)faxporthandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)faxhandle, (uint32_t)deviceid, (uint32_t)flags, (void*)(uintptr_t)faxporthandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)faxhandle;
     (void)deviceid;
     (void)flags;
     (void)faxporthandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -695,10 +932,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "FaxPrintCoverPageA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)faxcontextinfo, (void*)(uintptr_t)coverpageinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)faxcontextinfo, (void*)(uintptr_t)coverpageinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)faxcontextinfo;
     (void)coverpageinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -714,10 +958,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "FaxPrintCoverPageW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)faxcontextinfo, (void*)(uintptr_t)coverpageinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)faxcontextinfo, (void*)(uintptr_t)coverpageinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)faxcontextinfo;
     (void)coverpageinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -733,7 +984,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "FaxRegisterRoutingExtensionW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)faxhandle, (void*)(uintptr_t)extensionname, (void*)(uintptr_t)friendlyname, (void*)(uintptr_t)imagename, (void*)(uintptr_t)callback, (void*)(uintptr_t)context) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)faxhandle, (void*)(uintptr_t)extensionname, (void*)(uintptr_t)friendlyname, (void*)(uintptr_t)imagename, (void*)(uintptr_t)callback, (void*)(uintptr_t)context);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)faxhandle;
     (void)extensionname;
@@ -741,6 +998,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     (void)imagename;
     (void)callback;
     (void)context;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -756,12 +1014,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "FaxRegisterServiceProviderW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)deviceprovider, (void*)(uintptr_t)friendlyname, (void*)(uintptr_t)imagename, (void*)(uintptr_t)tspname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)deviceprovider, (void*)(uintptr_t)friendlyname, (void*)(uintptr_t)imagename, (void*)(uintptr_t)tspname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)deviceprovider;
     (void)friendlyname;
     (void)imagename;
     (void)tspname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -777,13 +1042,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "FaxSendDocumentA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)faxhandle, (void*)(uintptr_t)filename, (void*)(uintptr_t)jobparams, (void*)(uintptr_t)coverpageinfo, (void*)(uintptr_t)faxjobid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)faxhandle, (void*)(uintptr_t)filename, (void*)(uintptr_t)jobparams, (void*)(uintptr_t)coverpageinfo, (void*)(uintptr_t)faxjobid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)faxhandle;
     (void)filename;
     (void)jobparams;
     (void)coverpageinfo;
     (void)faxjobid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -799,13 +1071,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "FaxSendDocumentForBroadcastA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)faxhandle, (void*)(uintptr_t)filename, (void*)(uintptr_t)faxjobid, (void*)(uintptr_t)faxrecipientcallback, (void*)(uintptr_t)context) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)faxhandle, (void*)(uintptr_t)filename, (void*)(uintptr_t)faxjobid, (void*)(uintptr_t)faxrecipientcallback, (void*)(uintptr_t)context);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)faxhandle;
     (void)filename;
     (void)faxjobid;
     (void)faxrecipientcallback;
     (void)context;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -821,13 +1100,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "FaxSendDocumentForBroadcastW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)faxhandle, (void*)(uintptr_t)filename, (void*)(uintptr_t)faxjobid, (void*)(uintptr_t)faxrecipientcallback, (void*)(uintptr_t)context) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)faxhandle, (void*)(uintptr_t)filename, (void*)(uintptr_t)faxjobid, (void*)(uintptr_t)faxrecipientcallback, (void*)(uintptr_t)context);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)faxhandle;
     (void)filename;
     (void)faxjobid;
     (void)faxrecipientcallback;
     (void)context;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -843,13 +1129,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "FaxSendDocumentW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)faxhandle, (void*)(uintptr_t)filename, (void*)(uintptr_t)jobparams, (void*)(uintptr_t)coverpageinfo, (void*)(uintptr_t)faxjobid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)faxhandle, (void*)(uintptr_t)filename, (void*)(uintptr_t)jobparams, (void*)(uintptr_t)coverpageinfo, (void*)(uintptr_t)faxjobid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)faxhandle;
     (void)filename;
     (void)jobparams;
     (void)coverpageinfo;
     (void)faxjobid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -865,10 +1158,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "FaxSetConfigurationA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)faxhandle, (void*)(uintptr_t)faxconfig) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)faxhandle, (void*)(uintptr_t)faxconfig);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)faxhandle;
     (void)faxconfig;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -884,10 +1184,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "FaxSetConfigurationW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)faxhandle, (void*)(uintptr_t)faxconfig) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)faxhandle, (void*)(uintptr_t)faxconfig);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)faxhandle;
     (void)faxconfig;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -903,10 +1210,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "FaxSetGlobalRoutingInfoA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)faxhandle, (void*)(uintptr_t)routinginfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)faxhandle, (void*)(uintptr_t)routinginfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)faxhandle;
     (void)routinginfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -922,10 +1236,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "FaxSetGlobalRoutingInfoW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)faxhandle, (void*)(uintptr_t)routinginfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)faxhandle, (void*)(uintptr_t)routinginfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)faxhandle;
     (void)routinginfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -941,12 +1262,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "FaxSetJobA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)faxhandle, (uint32_t)jobid, (uint32_t)command, (void*)(uintptr_t)jobentry) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)faxhandle, (uint32_t)jobid, (uint32_t)command, (void*)(uintptr_t)jobentry);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)faxhandle;
     (void)jobid;
     (void)command;
     (void)jobentry;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -962,12 +1290,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "FaxSetJobW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)faxhandle, (uint32_t)jobid, (uint32_t)command, (void*)(uintptr_t)jobentry) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)faxhandle, (uint32_t)jobid, (uint32_t)command, (void*)(uintptr_t)jobentry);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)faxhandle;
     (void)jobid;
     (void)command;
     (void)jobentry;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -983,11 +1318,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "FaxSetLoggingCategoriesA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)faxhandle, (void*)(uintptr_t)categories, (uint32_t)numbercategories) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)faxhandle, (void*)(uintptr_t)categories, (uint32_t)numbercategories);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)faxhandle;
     (void)categories;
     (void)numbercategories;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1003,11 +1345,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "FaxSetLoggingCategoriesW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)faxhandle, (void*)(uintptr_t)categories, (uint32_t)numbercategories) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)faxhandle, (void*)(uintptr_t)categories, (uint32_t)numbercategories);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)faxhandle;
     (void)categories;
     (void)numbercategories;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1023,10 +1372,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "FaxSetPortA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)faxporthandle, (void*)(uintptr_t)portinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)faxporthandle, (void*)(uintptr_t)portinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)faxporthandle;
     (void)portinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1042,10 +1398,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "FaxSetPortW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)faxporthandle, (void*)(uintptr_t)portinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)faxporthandle, (void*)(uintptr_t)portinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)faxporthandle;
     (void)portinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1061,12 +1424,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "FaxSetRoutingInfoA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)faxporthandle, (void*)(uintptr_t)routingguid, (void*)(uintptr_t)routinginfobuffer, (uint32_t)routinginfobuffersize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)faxporthandle, (void*)(uintptr_t)routingguid, (void*)(uintptr_t)routinginfobuffer, (uint32_t)routinginfobuffersize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)faxporthandle;
     (void)routingguid;
     (void)routinginfobuffer;
     (void)routinginfobuffersize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1082,12 +1452,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "FaxSetRoutingInfoW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)faxporthandle, (void*)(uintptr_t)routingguid, (void*)(uintptr_t)routinginfobuffer, (uint32_t)routinginfobuffersize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)faxporthandle, (void*)(uintptr_t)routingguid, (void*)(uintptr_t)routinginfobuffer, (uint32_t)routinginfobuffersize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)faxporthandle;
     (void)routingguid;
     (void)routinginfobuffer;
     (void)routinginfobuffersize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1103,12 +1480,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "FaxStartPrintJobA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)printername, (void*)(uintptr_t)printinfo, (void*)(uintptr_t)faxjobid, (void*)(uintptr_t)faxcontextinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)printername, (void*)(uintptr_t)printinfo, (void*)(uintptr_t)faxjobid, (void*)(uintptr_t)faxcontextinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)printername;
     (void)printinfo;
     (void)faxjobid;
     (void)faxcontextinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1124,12 +1508,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "FaxStartPrintJobW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)printername, (void*)(uintptr_t)printinfo, (void*)(uintptr_t)faxjobid, (void*)(uintptr_t)faxcontextinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)printername, (void*)(uintptr_t)printinfo, (void*)(uintptr_t)faxjobid, (void*)(uintptr_t)faxcontextinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)printername;
     (void)printinfo;
     (void)faxjobid;
     (void)faxcontextinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1145,9 +1536,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winfax.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "FaxUnregisterServiceProviderW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)deviceprovider) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)deviceprovider);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)deviceprovider;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1163,10 +1561,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("fxsutility.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SendToFaxRecipient");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int32_t)sndmode, (void*)(uintptr_t)lpfilename) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int32_t)sndmode, (void*)(uintptr_t)lpfilename);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)sndmode;
     (void)lpfilename;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -1182,12 +1587,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("sti.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "StiCreateInstanceW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hinst, (uint32_t)dwver, (void*)(uintptr_t)ppsti, (void*)(uintptr_t)punkouter) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hinst, (uint32_t)dwver, (void*)(uintptr_t)ppsti, (void*)(uintptr_t)punkouter);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hinst;
     (void)dwver;
     (void)ppsti;
     (void)punkouter;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;

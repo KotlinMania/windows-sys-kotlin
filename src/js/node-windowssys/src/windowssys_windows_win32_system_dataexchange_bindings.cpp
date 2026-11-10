@@ -61,9 +61,16 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_addAtomA_napi(co
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AddAtomA")));
     }
-    uint16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpstring) : 0;
+    uint16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpstring);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpstring;
+    errno = ENOSYS;
     uint16_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -79,9 +86,16 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_addAtomW_napi(co
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AddAtomW")));
     }
-    uint16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpstring) : 0;
+    uint16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpstring);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpstring;
+    errno = ENOSYS;
     uint16_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -97,9 +111,16 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_addClipboardForm
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AddClipboardFormatListener")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -116,10 +137,17 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_changeClipboardC
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ChangeClipboardChain")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwndremove, hwndnewnext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwndremove, hwndnewnext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwndremove;
     (void)hwndnewnext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -134,8 +162,15 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_closeClipboard_n
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CloseClipboard")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -150,8 +185,15 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_countClipboardFo
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CountClipboardFormats")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -169,11 +211,18 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_ddeAbandonTransa
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DdeAbandonTransaction")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(idinst, hconv, idtransaction) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(idinst, hconv, idtransaction);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)idinst;
     (void)hconv;
     (void)idtransaction;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -190,11 +239,18 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_ddeAccessData_na
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DdeAccessData")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdata, pcbdatasize) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdata, pcbdatasize);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hdata;
     (void)pcbdatasize;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -212,13 +268,20 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_ddeAddData_napi(
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DdeAddData")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdata, psrc, cb, cboff) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdata, psrc, cb, cboff);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hdata;
     (void)psrc;
     (void)cb;
     (void)cboff;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -240,7 +303,13 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_ddeClientTransac
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DdeClientTransaction")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pdata, cbdata, hconv, hszitem, wfmt, wtype, dwtimeout, pdwresult) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pdata, cbdata, hconv, hszitem, wfmt, wtype, dwtimeout, pdwresult);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pdata;
     (void)cbdata;
@@ -250,7 +319,8 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_ddeClientTransac
     (void)wtype;
     (void)dwtimeout;
     (void)pdwresult;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -266,10 +336,17 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_ddeCmpStringHand
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DdeCmpStringHandles")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hsz1, hsz2) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hsz1, hsz2);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hsz1;
     (void)hsz2;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -288,13 +365,20 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_ddeConnect_napi(
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DdeConnect")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(idinst, hszservice, hsztopic, pcc) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(idinst, hszservice, hsztopic, pcc);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)idinst;
     (void)hszservice;
     (void)hsztopic;
     (void)pcc;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -313,14 +397,21 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_ddeConnectList_n
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DdeConnectList")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(idinst, hszservice, hsztopic, hconvlist, pcc) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(idinst, hszservice, hsztopic, hconvlist, pcc);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)idinst;
     (void)hszservice;
     (void)hsztopic;
     (void)hconvlist;
     (void)pcc;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -341,7 +432,13 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_ddeCreateDataHan
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DdeCreateDataHandle")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(idinst, psrc, cb, cboff, hszitem, wfmt, afcmd) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(idinst, psrc, cb, cboff, hszitem, wfmt, afcmd);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)idinst;
     (void)psrc;
@@ -350,7 +447,8 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_ddeCreateDataHan
     (void)hszitem;
     (void)wfmt;
     (void)afcmd;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -367,12 +465,19 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_ddeCreateStringH
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DdeCreateStringHandleA")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(idinst, psz, icodepage) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(idinst, psz, icodepage);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)idinst;
     (void)psz;
     (void)icodepage;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -389,12 +494,19 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_ddeCreateStringH
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DdeCreateStringHandleW")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(idinst, psz, icodepage) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(idinst, psz, icodepage);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)idinst;
     (void)psz;
     (void)icodepage;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -409,9 +521,16 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_ddeDisconnect_na
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DdeDisconnect")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hconv) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hconv);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hconv;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -427,9 +546,16 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_ddeDisconnectLis
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DdeDisconnectList")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hconvlist) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hconvlist);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hconvlist;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -447,11 +573,18 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_ddeEnableCallbac
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DdeEnableCallback")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(idinst, hconv, wcmd) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(idinst, hconv, wcmd);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)idinst;
     (void)hconv;
     (void)wcmd;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -467,9 +600,16 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_ddeFreeDataHandl
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DdeFreeDataHandle")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -486,10 +626,17 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_ddeFreeStringHan
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DdeFreeStringHandle")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(idinst, hsz) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(idinst, hsz);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)idinst;
     (void)hsz;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -508,12 +655,19 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_ddeGetData_napi(
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DdeGetData")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdata, pdst, cbmax, cboff) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdata, pdst, cbmax, cboff);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hdata;
     (void)pdst;
     (void)cbmax;
     (void)cboff;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -529,9 +683,16 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_ddeGetLastError_
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DdeGetLastError")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(idinst) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(idinst);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)idinst;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -547,9 +708,16 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_ddeImpersonateCl
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DdeImpersonateClient")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hconv) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hconv);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hconv;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -568,12 +736,19 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_ddeInitializeA_n
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DdeInitializeA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pidinst, pfncallback, afcmd, ulres) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pidinst, pfncallback, afcmd, ulres);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pidinst;
     (void)pfncallback;
     (void)afcmd;
     (void)ulres;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -592,12 +767,19 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_ddeInitializeW_n
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DdeInitializeW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pidinst, pfncallback, afcmd, ulres) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pidinst, pfncallback, afcmd, ulres);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pidinst;
     (void)pfncallback;
     (void)afcmd;
     (void)ulres;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -614,10 +796,17 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_ddeKeepStringHan
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DdeKeepStringHandle")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(idinst, hsz) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(idinst, hsz);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)idinst;
     (void)hsz;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -636,13 +825,20 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_ddeNameService_n
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DdeNameService")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(idinst, hsz1, hsz2, afcmd) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(idinst, hsz1, hsz2, afcmd);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)idinst;
     (void)hsz1;
     (void)hsz2;
     (void)afcmd;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -659,11 +855,18 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_ddePostAdvise_na
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DdePostAdvise")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(idinst, hsztopic, hszitem) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(idinst, hsztopic, hszitem);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)idinst;
     (void)hsztopic;
     (void)hszitem;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -681,11 +884,18 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_ddeQueryConvInfo
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DdeQueryConvInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hconv, idtransaction, pconvinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hconv, idtransaction, pconvinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hconv;
     (void)idtransaction;
     (void)pconvinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -702,11 +912,18 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_ddeQueryNextServ
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DdeQueryNextServer")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hconvlist, hconvprev) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hconvlist, hconvprev);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hconvlist;
     (void)hconvprev;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -725,13 +942,20 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_ddeQueryStringA_
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DdeQueryStringA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(idinst, hsz, psz, cchmax, icodepage) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(idinst, hsz, psz, cchmax, icodepage);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)idinst;
     (void)hsz;
     (void)psz;
     (void)cchmax;
     (void)icodepage;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -751,13 +975,20 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_ddeQueryStringW_
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DdeQueryStringW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(idinst, hsz, psz, cchmax, icodepage) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(idinst, hsz, psz, cchmax, icodepage);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)idinst;
     (void)hsz;
     (void)psz;
     (void)cchmax;
     (void)icodepage;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -773,10 +1004,17 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_ddeReconnect_nap
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DdeReconnect")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hconv) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hconv);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hconv;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -793,11 +1031,18 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_ddeSetQualityOfS
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DdeSetQualityOfService")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwndclient, pqosnew, pqosprev) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwndclient, pqosnew, pqosprev);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwndclient;
     (void)pqosnew;
     (void)pqosprev;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -815,11 +1060,18 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_ddeSetUserHandle
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DdeSetUserHandle")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hconv, id, huser) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hconv, id, huser);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hconv;
     (void)id;
     (void)huser;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -835,9 +1087,16 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_ddeUnaccessData_
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DdeUnaccessData")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -853,9 +1112,16 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_ddeUninitialize_
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DdeUninitialize")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(idinst) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(idinst);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)idinst;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -871,9 +1137,16 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_deleteAtom_napi(
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DeleteAtom")));
     }
-    uint16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(natom) : 0;
+    uint16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(natom);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)natom;
+    errno = ENOSYS;
     uint16_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -888,8 +1161,15 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_emptyClipboard_n
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EmptyClipboard")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -905,9 +1185,16 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_enumClipboardFor
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EnumClipboardFormats")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(format) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(format);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)format;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -923,9 +1210,16 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_findAtomA_napi(c
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FindAtomA")));
     }
-    uint16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpstring) : 0;
+    uint16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpstring);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpstring;
+    errno = ENOSYS;
     uint16_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -941,9 +1235,16 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_findAtomW_napi(c
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FindAtomW")));
     }
-    uint16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpstring) : 0;
+    uint16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpstring);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpstring;
+    errno = ENOSYS;
     uint16_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -960,10 +1261,17 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_freeDDElParam_na
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FreeDDElParam")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(msg, lparam) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(msg, lparam);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)msg;
     (void)lparam;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -981,11 +1289,18 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_getAtomNameA_nap
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetAtomNameA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(natom, lpbuffer, nsize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(natom, lpbuffer, nsize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)natom;
     (void)lpbuffer;
     (void)nsize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1003,11 +1318,18 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_getAtomNameW_nap
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetAtomNameW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(natom, lpbuffer, nsize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(natom, lpbuffer, nsize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)natom;
     (void)lpbuffer;
     (void)nsize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1023,10 +1345,17 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_getClipboardData
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetClipboardData")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(uformat) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(uformat);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)uformat;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1043,11 +1372,18 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_getClipboardForm
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetClipboardFormatNameA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(format, lpszformatname, cchmaxcount) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(format, lpszformatname, cchmaxcount);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)format;
     (void)lpszformatname;
     (void)cchmaxcount;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1065,11 +1401,18 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_getClipboardForm
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetClipboardFormatNameW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(format, lpszformatname, cchmaxcount) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(format, lpszformatname, cchmaxcount);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)format;
     (void)lpszformatname;
     (void)cchmaxcount;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1084,9 +1427,16 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_getClipboardOwne
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetClipboardOwner")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1100,8 +1450,15 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_getClipboardSequ
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetClipboardSequenceNumber")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1116,9 +1473,16 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_getClipboardView
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetClipboardViewer")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1132,9 +1496,16 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_getOpenClipboard
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetOpenClipboardWindow")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1150,10 +1521,17 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_getPriorityClipb
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetPriorityClipboardFormat")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(paformatprioritylist, cformats) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(paformatprioritylist, cformats);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)paformatprioritylist;
     (void)cformats;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1171,11 +1549,18 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_getUpdatedClipbo
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetUpdatedClipboardFormats")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpuiformats, cformats, pcformatsout) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpuiformats, cformats, pcformatsout);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpuiformats;
     (void)cformats;
     (void)pcformatsout;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1191,9 +1576,16 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_globalAddAtomA_n
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GlobalAddAtomA")));
     }
-    uint16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpstring) : 0;
+    uint16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpstring);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpstring;
+    errno = ENOSYS;
     uint16_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1210,10 +1602,17 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_globalAddAtomExA
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GlobalAddAtomExA")));
     }
-    uint16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpstring, flags) : 0;
+    uint16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpstring, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpstring;
     (void)flags;
+    errno = ENOSYS;
     uint16_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1230,10 +1629,17 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_globalAddAtomExW
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GlobalAddAtomExW")));
     }
-    uint16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpstring, flags) : 0;
+    uint16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpstring, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpstring;
     (void)flags;
+    errno = ENOSYS;
     uint16_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1249,9 +1655,16 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_globalAddAtomW_n
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GlobalAddAtomW")));
     }
-    uint16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpstring) : 0;
+    uint16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpstring);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpstring;
+    errno = ENOSYS;
     uint16_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1267,9 +1680,16 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_globalDeleteAtom
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GlobalDeleteAtom")));
     }
-    uint16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(natom) : 0;
+    uint16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(natom);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)natom;
+    errno = ENOSYS;
     uint16_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1285,9 +1705,16 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_globalFindAtomA_
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GlobalFindAtomA")));
     }
-    uint16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpstring) : 0;
+    uint16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpstring);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpstring;
+    errno = ENOSYS;
     uint16_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1303,9 +1730,16 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_globalFindAtomW_
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GlobalFindAtomW")));
     }
-    uint16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpstring) : 0;
+    uint16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpstring);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpstring;
+    errno = ENOSYS;
     uint16_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1323,11 +1757,18 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_globalGetAtomNam
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GlobalGetAtomNameA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(natom, lpbuffer, nsize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(natom, lpbuffer, nsize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)natom;
     (void)lpbuffer;
     (void)nsize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1345,11 +1786,18 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_globalGetAtomNam
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GlobalGetAtomNameW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(natom, lpbuffer, nsize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(natom, lpbuffer, nsize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)natom;
     (void)lpbuffer;
     (void)nsize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1366,10 +1814,17 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_impersonateDdeCl
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ImpersonateDdeClientWindow")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwndclient, hwndserver) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwndclient, hwndserver);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwndclient;
     (void)hwndserver;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1385,9 +1840,16 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_initAtomTable_na
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InitAtomTable")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(nsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(nsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)nsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1403,9 +1865,16 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_isClipboardForma
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IsClipboardFormatAvailable")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(format) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(format);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)format;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1421,9 +1890,16 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_openClipboard_na
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OpenClipboard")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwndnewowner) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwndnewowner);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwndnewowner;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1441,11 +1917,18 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_packDDElParam_na
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PackDDElParam")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(msg, uilo, uihi) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(msg, uilo, uihi);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)msg;
     (void)uilo;
     (void)uihi;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -1461,9 +1944,16 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_registerClipboar
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegisterClipboardFormatA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszformat) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszformat);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpszformat;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1479,9 +1969,16 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_registerClipboar
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegisterClipboardFormatW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszformat) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszformat);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpszformat;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1497,9 +1994,16 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_removeClipboardF
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RemoveClipboardFormatListener")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1519,13 +2023,20 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_reuseDDElParam_n
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ReuseDDElParam")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lparam, msgin, msgout, uilo, uihi) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lparam, msgin, msgout, uilo, uihi);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lparam;
     (void)msgin;
     (void)msgout;
     (void)uilo;
     (void)uihi;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -1542,11 +2053,18 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_setClipboardData
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetClipboardData")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(uformat, hmem) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(uformat, hmem);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)uformat;
     (void)hmem;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1561,10 +2079,17 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_setClipboardView
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetClipboardViewer")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwndnewviewer) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwndnewviewer);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hwndnewviewer;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1582,13 +2107,20 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_setWinMetaFileBi
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetWinMetaFileBits")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(nsize, lpmeta16data, hdcref, lpmfp) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(nsize, lpmeta16data, hdcref, lpmfp);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)nsize;
     (void)lpmeta16data;
     (void)hdcref;
     (void)lpmfp;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1606,12 +2138,19 @@ static Napi::Value windowssys_windows_win32_system_dataexchange_unpackDDElParam_
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UnpackDDElParam")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(msg, lparam, puilo, puihi) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(msg, lparam, puilo, puihi);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)msg;
     (void)lparam;
     (void)puilo;
     (void)puihi;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

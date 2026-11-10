@@ -61,9 +61,16 @@ static Napi::Value windowssys_windows_win32_system_performance_hardwarecounterpr
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DisableThreadProfiling")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(performancedatahandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(performancedatahandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)performancedatahandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -82,12 +89,19 @@ static Napi::Value windowssys_windows_win32_system_performance_hardwarecounterpr
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EnableThreadProfiling")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(threadhandle, flags, hardwarecounters, performancedatahandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(threadhandle, flags, hardwarecounters, performancedatahandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)threadhandle;
     (void)flags;
     (void)hardwarecounters;
     (void)performancedatahandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -104,10 +118,17 @@ static Napi::Value windowssys_windows_win32_system_performance_hardwarecounterpr
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "QueryThreadProfiling")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(threadhandle, enabled) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(threadhandle, enabled);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)threadhandle;
     (void)enabled;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -125,11 +146,18 @@ static Napi::Value windowssys_windows_win32_system_performance_hardwarecounterpr
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ReadThreadProfilingData")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(performancedatahandle, flags, performancedata) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(performancedatahandle, flags, performancedata);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)performancedatahandle;
     (void)flags;
     (void)performancedata;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

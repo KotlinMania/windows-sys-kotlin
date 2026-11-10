@@ -66,7 +66,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_qos_qOSAddSocketTo
         HMODULE km_h_mod = LoadLibraryA("qwave.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "QOSAddSocketToFlow")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(qoshandle, arg_1_socket, destaddr, traffictype, flags, flowid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(qoshandle, arg_1_socket, destaddr, traffictype, flags, flowid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)qoshandle;
     (void)arg_1_socket;
@@ -74,6 +80,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_qos_qOSAddSocketTo
     (void)traffictype;
     (void)flags;
     (void)flowid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -90,10 +97,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_qos_qOSCancel_napi
         HMODULE km_h_mod = LoadLibraryA("qwave.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "QOSCancel")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(qoshandle, overlapped) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(qoshandle, overlapped);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)qoshandle;
     (void)overlapped;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -109,9 +123,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_qos_qOSCloseHandle
         HMODULE km_h_mod = LoadLibraryA("qwave.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "QOSCloseHandle")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(qoshandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(qoshandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)qoshandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -128,10 +149,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_qos_qOSCreateHandl
         HMODULE km_h_mod = LoadLibraryA("qwave.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "QOSCreateHandle")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(version, qoshandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(version, qoshandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)version;
     (void)qoshandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -149,11 +177,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_qos_qOSEnumerateFl
         HMODULE km_h_mod = LoadLibraryA("qwave.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "QOSEnumerateFlows")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(qoshandle, size, buffer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(qoshandle, size, buffer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)qoshandle;
     (void)size;
     (void)buffer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -175,7 +210,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_qos_qOSNotifyFlow_
         HMODULE km_h_mod = LoadLibraryA("qwave.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "QOSNotifyFlow")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(qoshandle, flowid, operation, size, buffer, flags, overlapped) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(qoshandle, flowid, operation, size, buffer, flags, overlapped);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)qoshandle;
     (void)flowid;
@@ -184,6 +225,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_qos_qOSNotifyFlow_
     (void)buffer;
     (void)flags;
     (void)overlapped;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -205,7 +247,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_qos_qOSQueryFlow_n
         HMODULE km_h_mod = LoadLibraryA("qwave.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "QOSQueryFlow")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(qoshandle, flowid, operation, size, buffer, flags, overlapped) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(qoshandle, flowid, operation, size, buffer, flags, overlapped);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)qoshandle;
     (void)flowid;
@@ -214,6 +262,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_qos_qOSQueryFlow_n
     (void)buffer;
     (void)flags;
     (void)overlapped;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -232,12 +281,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_qos_qOSRemoveSocke
         HMODULE km_h_mod = LoadLibraryA("qwave.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "QOSRemoveSocketFromFlow")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(qoshandle, arg_1_socket, flowid, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(qoshandle, arg_1_socket, flowid, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)qoshandle;
     (void)arg_1_socket;
     (void)flowid;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -259,7 +315,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_qos_qOSSetFlow_nap
         HMODULE km_h_mod = LoadLibraryA("qwave.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "QOSSetFlow")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(qoshandle, flowid, operation, size, buffer, flags, overlapped) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(qoshandle, flowid, operation, size, buffer, flags, overlapped);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)qoshandle;
     (void)flowid;
@@ -268,6 +330,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_qos_qOSSetFlow_nap
     (void)buffer;
     (void)flags;
     (void)overlapped;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -285,11 +348,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_qos_qOSStartTracki
         HMODULE km_h_mod = LoadLibraryA("qwave.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "QOSStartTrackingClient")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(qoshandle, destaddr, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(qoshandle, destaddr, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)qoshandle;
     (void)destaddr;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -307,11 +377,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_qos_qOSStopTrackin
         HMODULE km_h_mod = LoadLibraryA("qwave.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "QOSStopTrackingClient")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(qoshandle, destaddr, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(qoshandle, destaddr, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)qoshandle;
     (void)destaddr;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -329,11 +406,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_qos_tcAddFilter_na
         HMODULE km_h_mod = LoadLibraryA("traffic.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TcAddFilter")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(flowhandle, pgenericfilter, pfilterhandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(flowhandle, pgenericfilter, pfilterhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)flowhandle;
     (void)pgenericfilter;
     (void)pfilterhandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -353,13 +437,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_qos_tcAddFlow_napi
         HMODULE km_h_mod = LoadLibraryA("traffic.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TcAddFlow")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ifchandle, clflowctx, flags, pgenericflow, pflowhandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ifchandle, clflowctx, flags, pgenericflow, pflowhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ifchandle;
     (void)clflowctx;
     (void)flags;
     (void)pgenericflow;
     (void)pflowhandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -375,9 +466,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_qos_tcCloseInterfa
         HMODULE km_h_mod = LoadLibraryA("traffic.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TcCloseInterface")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ifchandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ifchandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ifchandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -393,9 +491,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_qos_tcDeleteFilter
         HMODULE km_h_mod = LoadLibraryA("traffic.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TcDeleteFilter")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(filterhandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(filterhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)filterhandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -411,9 +516,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_qos_tcDeleteFlow_n
         HMODULE km_h_mod = LoadLibraryA("traffic.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TcDeleteFlow")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(flowhandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(flowhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)flowhandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -429,9 +541,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_qos_tcDeregisterCl
         HMODULE km_h_mod = LoadLibraryA("traffic.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TcDeregisterClient")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(clienthandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(clienthandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)clienthandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -451,13 +570,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_qos_tcEnumerateFlo
         HMODULE km_h_mod = LoadLibraryA("traffic.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TcEnumerateFlows")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ifchandle, penumhandle, pflowcount, pbufsize, buffer) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ifchandle, penumhandle, pflowcount, pbufsize, buffer);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ifchandle;
     (void)penumhandle;
     (void)pflowcount;
     (void)pbufsize;
     (void)buffer;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -475,11 +601,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_qos_tcEnumerateInt
         HMODULE km_h_mod = LoadLibraryA("traffic.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TcEnumerateInterfaces")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(clienthandle, pbuffersize, interfacebuffer) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(clienthandle, pbuffersize, interfacebuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)clienthandle;
     (void)pbuffersize;
     (void)interfacebuffer;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -497,11 +630,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_qos_tcGetFlowNameA
         HMODULE km_h_mod = LoadLibraryA("traffic.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TcGetFlowNameA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(flowhandle, strsize, pflowname) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(flowhandle, strsize, pflowname);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)flowhandle;
     (void)strsize;
     (void)pflowname;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -519,11 +659,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_qos_tcGetFlowNameW
         HMODULE km_h_mod = LoadLibraryA("traffic.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TcGetFlowNameW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(flowhandle, strsize, pflowname) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(flowhandle, strsize, pflowname);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)flowhandle;
     (void)strsize;
     (void)pflowname;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -540,10 +687,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_qos_tcModifyFlow_n
         HMODULE km_h_mod = LoadLibraryA("traffic.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TcModifyFlow")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(flowhandle, pgenericflow) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(flowhandle, pgenericflow);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)flowhandle;
     (void)pgenericflow;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -562,12 +716,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_qos_tcOpenInterfac
         HMODULE km_h_mod = LoadLibraryA("traffic.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TcOpenInterfaceA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pinterfacename, clienthandle, clifcctx, pifchandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pinterfacename, clienthandle, clifcctx, pifchandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pinterfacename;
     (void)clienthandle;
     (void)clifcctx;
     (void)pifchandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -586,12 +747,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_qos_tcOpenInterfac
         HMODULE km_h_mod = LoadLibraryA("traffic.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TcOpenInterfaceW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pinterfacename, clienthandle, clifcctx, pifchandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pinterfacename, clienthandle, clifcctx, pifchandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pinterfacename;
     (void)clienthandle;
     (void)clifcctx;
     (void)pifchandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -610,12 +778,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_qos_tcQueryFlowA_n
         HMODULE km_h_mod = LoadLibraryA("traffic.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TcQueryFlowA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pflowname, pguidparam, pbuffersize, buffer) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pflowname, pguidparam, pbuffersize, buffer);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pflowname;
     (void)pguidparam;
     (void)pbuffersize;
     (void)buffer;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -634,12 +809,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_qos_tcQueryFlowW_n
         HMODULE km_h_mod = LoadLibraryA("traffic.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TcQueryFlowW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pflowname, pguidparam, pbuffersize, buffer) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pflowname, pguidparam, pbuffersize, buffer);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pflowname;
     (void)pguidparam;
     (void)pbuffersize;
     (void)buffer;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -659,13 +841,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_qos_tcQueryInterfa
         HMODULE km_h_mod = LoadLibraryA("traffic.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TcQueryInterface")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ifchandle, pguidparam, notifychange, pbuffersize, buffer) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ifchandle, pguidparam, notifychange, pbuffersize, buffer);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ifchandle;
     (void)pguidparam;
     (void)notifychange;
     (void)pbuffersize;
     (void)buffer;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -684,12 +873,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_qos_tcRegisterClie
         HMODULE km_h_mod = LoadLibraryA("traffic.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TcRegisterClient")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(tciversion, clregctx, clienthandlerlist, pclienthandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(tciversion, clregctx, clienthandlerlist, pclienthandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)tciversion;
     (void)clregctx;
     (void)clienthandlerlist;
     (void)pclienthandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -708,12 +904,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_qos_tcSetFlowA_nap
         HMODULE km_h_mod = LoadLibraryA("traffic.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TcSetFlowA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pflowname, pguidparam, buffersize, buffer) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pflowname, pguidparam, buffersize, buffer);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pflowname;
     (void)pguidparam;
     (void)buffersize;
     (void)buffer;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -732,12 +935,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_qos_tcSetFlowW_nap
         HMODULE km_h_mod = LoadLibraryA("traffic.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TcSetFlowW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pflowname, pguidparam, buffersize, buffer) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pflowname, pguidparam, buffersize, buffer);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pflowname;
     (void)pguidparam;
     (void)buffersize;
     (void)buffer;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -756,12 +966,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_qos_tcSetInterface
         HMODULE km_h_mod = LoadLibraryA("traffic.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TcSetInterface")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ifchandle, pguidparam, buffersize, buffer) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ifchandle, pguidparam, buffersize, buffer);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ifchandle;
     (void)pguidparam;
     (void)buffersize;
     (void)buffer;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

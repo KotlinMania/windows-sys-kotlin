@@ -63,11 +63,18 @@ static Napi::Value windowssys_windows_win32_system_services_changeServiceConfig2
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ChangeServiceConfig2A")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hservice, dwinfolevel, lpinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hservice, dwinfolevel, lpinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hservice;
     (void)dwinfolevel;
     (void)lpinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -85,11 +92,18 @@ static Napi::Value windowssys_windows_win32_system_services_changeServiceConfig2
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ChangeServiceConfig2W")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hservice, dwinfolevel, lpinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hservice, dwinfolevel, lpinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hservice;
     (void)dwinfolevel;
     (void)lpinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -115,7 +129,13 @@ static Napi::Value windowssys_windows_win32_system_services_changeServiceConfigA
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ChangeServiceConfigA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hservice, dwservicetype, dwstarttype, dwerrorcontrol, lpbinarypathname, lploadordergroup, lpdwtagid, lpdependencies, lpservicestartname, lppassword, lpdisplayname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hservice, dwservicetype, dwstarttype, dwerrorcontrol, lpbinarypathname, lploadordergroup, lpdwtagid, lpdependencies, lpservicestartname, lppassword, lpdisplayname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hservice;
     (void)dwservicetype;
@@ -128,6 +148,7 @@ static Napi::Value windowssys_windows_win32_system_services_changeServiceConfigA
     (void)lpservicestartname;
     (void)lppassword;
     (void)lpdisplayname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -153,7 +174,13 @@ static Napi::Value windowssys_windows_win32_system_services_changeServiceConfigW
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ChangeServiceConfigW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hservice, dwservicetype, dwstarttype, dwerrorcontrol, lpbinarypathname, lploadordergroup, lpdwtagid, lpdependencies, lpservicestartname, lppassword, lpdisplayname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hservice, dwservicetype, dwstarttype, dwerrorcontrol, lpbinarypathname, lploadordergroup, lpdwtagid, lpdependencies, lpservicestartname, lppassword, lpdisplayname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hservice;
     (void)dwservicetype;
@@ -166,6 +193,7 @@ static Napi::Value windowssys_windows_win32_system_services_changeServiceConfigW
     (void)lpservicestartname;
     (void)lppassword;
     (void)lpdisplayname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -181,9 +209,16 @@ static Napi::Value windowssys_windows_win32_system_services_closeServiceHandle_n
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CloseServiceHandle")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hscobject) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hscobject);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hscobject;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -201,11 +236,18 @@ static Napi::Value windowssys_windows_win32_system_services_controlService_napi(
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ControlService")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hservice, dwcontrol, lpservicestatus) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hservice, dwcontrol, lpservicestatus);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hservice;
     (void)dwcontrol;
     (void)lpservicestatus;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -224,12 +266,19 @@ static Napi::Value windowssys_windows_win32_system_services_controlServiceExA_na
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ControlServiceExA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hservice, dwcontrol, dwinfolevel, pcontrolparams) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hservice, dwcontrol, dwinfolevel, pcontrolparams);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hservice;
     (void)dwcontrol;
     (void)dwinfolevel;
     (void)pcontrolparams;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -248,12 +297,19 @@ static Napi::Value windowssys_windows_win32_system_services_controlServiceExW_na
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ControlServiceExW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hservice, dwcontrol, dwinfolevel, pcontrolparams) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hservice, dwcontrol, dwinfolevel, pcontrolparams);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hservice;
     (void)dwcontrol;
     (void)dwinfolevel;
     (void)pcontrolparams;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -281,7 +337,13 @@ static Napi::Value windowssys_windows_win32_system_services_createServiceA_napi(
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateServiceA")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hscmanager, lpservicename, lpdisplayname, dwdesiredaccess, dwservicetype, dwstarttype, dwerrorcontrol, lpbinarypathname, lploadordergroup, lpdwtagid, lpdependencies, lpservicestartname, lppassword) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hscmanager, lpservicename, lpdisplayname, dwdesiredaccess, dwservicetype, dwstarttype, dwerrorcontrol, lpbinarypathname, lploadordergroup, lpdwtagid, lpdependencies, lpservicestartname, lppassword);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hscmanager;
     (void)lpservicename;
@@ -296,7 +358,8 @@ static Napi::Value windowssys_windows_win32_system_services_createServiceA_napi(
     (void)lpdependencies;
     (void)lpservicestartname;
     (void)lppassword;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -323,7 +386,13 @@ static Napi::Value windowssys_windows_win32_system_services_createServiceW_napi(
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateServiceW")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hscmanager, lpservicename, lpdisplayname, dwdesiredaccess, dwservicetype, dwstarttype, dwerrorcontrol, lpbinarypathname, lploadordergroup, lpdwtagid, lpdependencies, lpservicestartname, lppassword) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hscmanager, lpservicename, lpdisplayname, dwdesiredaccess, dwservicetype, dwstarttype, dwerrorcontrol, lpbinarypathname, lploadordergroup, lpdwtagid, lpdependencies, lpservicestartname, lppassword);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hscmanager;
     (void)lpservicename;
@@ -338,7 +407,8 @@ static Napi::Value windowssys_windows_win32_system_services_createServiceW_napi(
     (void)lpdependencies;
     (void)lpservicestartname;
     (void)lppassword;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -353,9 +423,16 @@ static Napi::Value windowssys_windows_win32_system_services_deleteService_napi(c
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DeleteService")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hservice) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hservice);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hservice;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -376,7 +453,13 @@ static Napi::Value windowssys_windows_win32_system_services_enumDependentService
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EnumDependentServicesA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hservice, dwservicestate, lpservices, cbbufsize, pcbbytesneeded, lpservicesreturned) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hservice, dwservicestate, lpservices, cbbufsize, pcbbytesneeded, lpservicesreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hservice;
     (void)dwservicestate;
@@ -384,6 +467,7 @@ static Napi::Value windowssys_windows_win32_system_services_enumDependentService
     (void)cbbufsize;
     (void)pcbbytesneeded;
     (void)lpservicesreturned;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -404,7 +488,13 @@ static Napi::Value windowssys_windows_win32_system_services_enumDependentService
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EnumDependentServicesW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hservice, dwservicestate, lpservices, cbbufsize, pcbbytesneeded, lpservicesreturned) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hservice, dwservicestate, lpservices, cbbufsize, pcbbytesneeded, lpservicesreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hservice;
     (void)dwservicestate;
@@ -412,6 +502,7 @@ static Napi::Value windowssys_windows_win32_system_services_enumDependentService
     (void)cbbufsize;
     (void)pcbbytesneeded;
     (void)lpservicesreturned;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -434,7 +525,13 @@ static Napi::Value windowssys_windows_win32_system_services_enumServicesStatusA_
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EnumServicesStatusA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hscmanager, dwservicetype, dwservicestate, lpservices, cbbufsize, pcbbytesneeded, lpservicesreturned, lpresumehandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hscmanager, dwservicetype, dwservicestate, lpservices, cbbufsize, pcbbytesneeded, lpservicesreturned, lpresumehandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hscmanager;
     (void)dwservicetype;
@@ -444,6 +541,7 @@ static Napi::Value windowssys_windows_win32_system_services_enumServicesStatusA_
     (void)pcbbytesneeded;
     (void)lpservicesreturned;
     (void)lpresumehandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -468,7 +566,13 @@ static Napi::Value windowssys_windows_win32_system_services_enumServicesStatusEx
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EnumServicesStatusExA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hscmanager, infolevel, dwservicetype, dwservicestate, lpservices, cbbufsize, pcbbytesneeded, lpservicesreturned, lpresumehandle, pszgroupname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hscmanager, infolevel, dwservicetype, dwservicestate, lpservices, cbbufsize, pcbbytesneeded, lpservicesreturned, lpresumehandle, pszgroupname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hscmanager;
     (void)infolevel;
@@ -480,6 +584,7 @@ static Napi::Value windowssys_windows_win32_system_services_enumServicesStatusEx
     (void)lpservicesreturned;
     (void)lpresumehandle;
     (void)pszgroupname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -504,7 +609,13 @@ static Napi::Value windowssys_windows_win32_system_services_enumServicesStatusEx
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EnumServicesStatusExW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hscmanager, infolevel, dwservicetype, dwservicestate, lpservices, cbbufsize, pcbbytesneeded, lpservicesreturned, lpresumehandle, pszgroupname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hscmanager, infolevel, dwservicetype, dwservicestate, lpservices, cbbufsize, pcbbytesneeded, lpservicesreturned, lpresumehandle, pszgroupname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hscmanager;
     (void)infolevel;
@@ -516,6 +627,7 @@ static Napi::Value windowssys_windows_win32_system_services_enumServicesStatusEx
     (void)lpservicesreturned;
     (void)lpresumehandle;
     (void)pszgroupname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -538,7 +650,13 @@ static Napi::Value windowssys_windows_win32_system_services_enumServicesStatusW_
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EnumServicesStatusW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hscmanager, dwservicetype, dwservicestate, lpservices, cbbufsize, pcbbytesneeded, lpservicesreturned, lpresumehandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hscmanager, dwservicetype, dwservicestate, lpservices, cbbufsize, pcbbytesneeded, lpservicesreturned, lpresumehandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hscmanager;
     (void)dwservicetype;
@@ -548,6 +666,7 @@ static Napi::Value windowssys_windows_win32_system_services_enumServicesStatusW_
     (void)pcbbytesneeded;
     (void)lpservicesreturned;
     (void)lpresumehandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -567,13 +686,20 @@ static Napi::Value windowssys_windows_win32_system_services_getServiceDirectory_
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-service-core-l1-1-4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetServiceDirectory")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hservicestatus, edirectorytype, lppathbuffer, cchpathbufferlength, lpcchrequiredbufferlength) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hservicestatus, edirectorytype, lppathbuffer, cchpathbufferlength, lpcchrequiredbufferlength);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hservicestatus;
     (void)edirectorytype;
     (void)lppathbuffer;
     (void)cchpathbufferlength;
     (void)lpcchrequiredbufferlength;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -592,12 +718,19 @@ static Napi::Value windowssys_windows_win32_system_services_getServiceDisplayNam
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetServiceDisplayNameA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hscmanager, lpservicename, lpdisplayname, lpcchbuffer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hscmanager, lpservicename, lpdisplayname, lpcchbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hscmanager;
     (void)lpservicename;
     (void)lpdisplayname;
     (void)lpcchbuffer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -616,12 +749,19 @@ static Napi::Value windowssys_windows_win32_system_services_getServiceDisplayNam
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetServiceDisplayNameW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hscmanager, lpservicename, lpdisplayname, lpcchbuffer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hscmanager, lpservicename, lpdisplayname, lpcchbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hscmanager;
     (void)lpservicename;
     (void)lpdisplayname;
     (void)lpcchbuffer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -640,12 +780,19 @@ static Napi::Value windowssys_windows_win32_system_services_getServiceKeyNameA_n
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetServiceKeyNameA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hscmanager, lpdisplayname, lpservicename, lpcchbuffer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hscmanager, lpdisplayname, lpservicename, lpcchbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hscmanager;
     (void)lpdisplayname;
     (void)lpservicename;
     (void)lpcchbuffer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -664,12 +811,19 @@ static Napi::Value windowssys_windows_win32_system_services_getServiceKeyNameW_n
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetServiceKeyNameW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hscmanager, lpdisplayname, lpservicename, lpcchbuffer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hscmanager, lpdisplayname, lpservicename, lpcchbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hscmanager;
     (void)lpdisplayname;
     (void)lpservicename;
     (void)lpcchbuffer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -688,12 +842,19 @@ static Napi::Value windowssys_windows_win32_system_services_getServiceRegistrySt
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-service-core-l1-1-3.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetServiceRegistryStateKey")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servicestatushandle, statetype, accessmask, servicestatekey) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servicestatushandle, statetype, accessmask, servicestatekey);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servicestatushandle;
     (void)statetype;
     (void)accessmask;
     (void)servicestatekey;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -713,13 +874,20 @@ static Napi::Value windowssys_windows_win32_system_services_getSharedServiceDire
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-service-core-l1-1-5.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetSharedServiceDirectory")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servicehandle, directorytype, pathbuffer, pathbufferlength, requiredbufferlength) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servicehandle, directorytype, pathbuffer, pathbufferlength, requiredbufferlength);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servicehandle;
     (void)directorytype;
     (void)pathbuffer;
     (void)pathbufferlength;
     (void)requiredbufferlength;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -738,12 +906,19 @@ static Napi::Value windowssys_windows_win32_system_services_getSharedServiceRegi
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-service-core-l1-1-5.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetSharedServiceRegistryStateKey")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servicehandle, statetype, accessmask, servicestatekey) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servicehandle, statetype, accessmask, servicestatekey);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servicehandle;
     (void)statetype;
     (void)accessmask;
     (void)servicestatekey;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -759,10 +934,17 @@ static Napi::Value windowssys_windows_win32_system_services_lockServiceDatabase_
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LockServiceDatabase")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hscmanager) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hscmanager);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hscmanager;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -777,9 +959,16 @@ static Napi::Value windowssys_windows_win32_system_services_notifyBootConfigStat
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NotifyBootConfigStatus")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bootacceptable) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bootacceptable);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bootacceptable;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -797,11 +986,18 @@ static Napi::Value windowssys_windows_win32_system_services_notifyServiceStatusC
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NotifyServiceStatusChangeA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hservice, dwnotifymask, pnotifybuffer) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hservice, dwnotifymask, pnotifybuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hservice;
     (void)dwnotifymask;
     (void)pnotifybuffer;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -819,11 +1015,18 @@ static Napi::Value windowssys_windows_win32_system_services_notifyServiceStatusC
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NotifyServiceStatusChangeW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hservice, dwnotifymask, pnotifybuffer) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hservice, dwnotifymask, pnotifybuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hservice;
     (void)dwnotifymask;
     (void)pnotifybuffer;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -841,12 +1044,19 @@ static Napi::Value windowssys_windows_win32_system_services_openSCManagerA_napi(
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OpenSCManagerA")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpmachinename, lpdatabasename, dwdesiredaccess) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpmachinename, lpdatabasename, dwdesiredaccess);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)lpmachinename;
     (void)lpdatabasename;
     (void)dwdesiredaccess;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -863,12 +1073,19 @@ static Napi::Value windowssys_windows_win32_system_services_openSCManagerW_napi(
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OpenSCManagerW")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpmachinename, lpdatabasename, dwdesiredaccess) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpmachinename, lpdatabasename, dwdesiredaccess);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)lpmachinename;
     (void)lpdatabasename;
     (void)dwdesiredaccess;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -885,12 +1102,19 @@ static Napi::Value windowssys_windows_win32_system_services_openServiceA_napi(co
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OpenServiceA")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hscmanager, lpservicename, dwdesiredaccess) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hscmanager, lpservicename, dwdesiredaccess);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hscmanager;
     (void)lpservicename;
     (void)dwdesiredaccess;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -907,12 +1131,19 @@ static Napi::Value windowssys_windows_win32_system_services_openServiceW_napi(co
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OpenServiceW")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hscmanager, lpservicename, dwdesiredaccess) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hscmanager, lpservicename, dwdesiredaccess);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hscmanager;
     (void)lpservicename;
     (void)dwdesiredaccess;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -931,13 +1162,20 @@ static Napi::Value windowssys_windows_win32_system_services_queryServiceConfig2A
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "QueryServiceConfig2A")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hservice, dwinfolevel, lpbuffer, cbbufsize, pcbbytesneeded) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hservice, dwinfolevel, lpbuffer, cbbufsize, pcbbytesneeded);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hservice;
     (void)dwinfolevel;
     (void)lpbuffer;
     (void)cbbufsize;
     (void)pcbbytesneeded;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -957,13 +1195,20 @@ static Napi::Value windowssys_windows_win32_system_services_queryServiceConfig2W
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "QueryServiceConfig2W")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hservice, dwinfolevel, lpbuffer, cbbufsize, pcbbytesneeded) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hservice, dwinfolevel, lpbuffer, cbbufsize, pcbbytesneeded);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hservice;
     (void)dwinfolevel;
     (void)lpbuffer;
     (void)cbbufsize;
     (void)pcbbytesneeded;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -982,12 +1227,19 @@ static Napi::Value windowssys_windows_win32_system_services_queryServiceConfigA_
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "QueryServiceConfigA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hservice, lpserviceconfig, cbbufsize, pcbbytesneeded) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hservice, lpserviceconfig, cbbufsize, pcbbytesneeded);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hservice;
     (void)lpserviceconfig;
     (void)cbbufsize;
     (void)pcbbytesneeded;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1006,12 +1258,19 @@ static Napi::Value windowssys_windows_win32_system_services_queryServiceConfigW_
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "QueryServiceConfigW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hservice, lpserviceconfig, cbbufsize, pcbbytesneeded) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hservice, lpserviceconfig, cbbufsize, pcbbytesneeded);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hservice;
     (void)lpserviceconfig;
     (void)cbbufsize;
     (void)pcbbytesneeded;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1029,11 +1288,18 @@ static Napi::Value windowssys_windows_win32_system_services_queryServiceDynamicI
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "QueryServiceDynamicInformation")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hservicestatus, dwinfolevel, ppdynamicinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hservicestatus, dwinfolevel, ppdynamicinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hservicestatus;
     (void)dwinfolevel;
     (void)ppdynamicinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1052,12 +1318,19 @@ static Napi::Value windowssys_windows_win32_system_services_queryServiceLockStat
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "QueryServiceLockStatusA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hscmanager, lplockstatus, cbbufsize, pcbbytesneeded) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hscmanager, lplockstatus, cbbufsize, pcbbytesneeded);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hscmanager;
     (void)lplockstatus;
     (void)cbbufsize;
     (void)pcbbytesneeded;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1076,12 +1349,19 @@ static Napi::Value windowssys_windows_win32_system_services_queryServiceLockStat
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "QueryServiceLockStatusW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hscmanager, lplockstatus, cbbufsize, pcbbytesneeded) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hscmanager, lplockstatus, cbbufsize, pcbbytesneeded);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hscmanager;
     (void)lplockstatus;
     (void)cbbufsize;
     (void)pcbbytesneeded;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1101,13 +1381,20 @@ static Napi::Value windowssys_windows_win32_system_services_queryServiceObjectSe
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "QueryServiceObjectSecurity")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hservice, dwsecurityinformation, lpsecuritydescriptor, cbbufsize, pcbbytesneeded) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hservice, dwsecurityinformation, lpsecuritydescriptor, cbbufsize, pcbbytesneeded);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hservice;
     (void)dwsecurityinformation;
     (void)lpsecuritydescriptor;
     (void)cbbufsize;
     (void)pcbbytesneeded;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1124,10 +1411,17 @@ static Napi::Value windowssys_windows_win32_system_services_queryServiceStatus_n
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "QueryServiceStatus")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hservice, lpservicestatus) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hservice, lpservicestatus);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hservice;
     (void)lpservicestatus;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1147,13 +1441,20 @@ static Napi::Value windowssys_windows_win32_system_services_queryServiceStatusEx
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "QueryServiceStatusEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hservice, infolevel, lpbuffer, cbbufsize, pcbbytesneeded) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hservice, infolevel, lpbuffer, cbbufsize, pcbbytesneeded);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hservice;
     (void)infolevel;
     (void)lpbuffer;
     (void)cbbufsize;
     (void)pcbbytesneeded;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1170,11 +1471,18 @@ static Napi::Value windowssys_windows_win32_system_services_registerServiceCtrlH
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegisterServiceCtrlHandlerA")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpservicename, lphandlerproc) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpservicename, lphandlerproc);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)lpservicename;
     (void)lphandlerproc;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1191,12 +1499,19 @@ static Napi::Value windowssys_windows_win32_system_services_registerServiceCtrlH
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegisterServiceCtrlHandlerExA")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpservicename, lphandlerproc, lpcontext) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpservicename, lphandlerproc, lpcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)lpservicename;
     (void)lphandlerproc;
     (void)lpcontext;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1213,12 +1528,19 @@ static Napi::Value windowssys_windows_win32_system_services_registerServiceCtrlH
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegisterServiceCtrlHandlerExW")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpservicename, lphandlerproc, lpcontext) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpservicename, lphandlerproc, lpcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)lpservicename;
     (void)lphandlerproc;
     (void)lpcontext;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1234,11 +1556,18 @@ static Napi::Value windowssys_windows_win32_system_services_registerServiceCtrlH
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegisterServiceCtrlHandlerW")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpservicename, lphandlerproc) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpservicename, lphandlerproc);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)lpservicename;
     (void)lphandlerproc;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1256,12 +1585,19 @@ static Napi::Value windowssys_windows_win32_system_services_setServiceBits_napi(
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetServiceBits")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hservicestatus, dwservicebits, bsetbitson, bupdateimmediately) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hservicestatus, dwservicebits, bsetbitson, bupdateimmediately);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hservicestatus;
     (void)dwservicebits;
     (void)bsetbitson;
     (void)bupdateimmediately;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1279,11 +1615,18 @@ static Napi::Value windowssys_windows_win32_system_services_setServiceObjectSecu
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetServiceObjectSecurity")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hservice, dwsecurityinformation, lpsecuritydescriptor) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hservice, dwsecurityinformation, lpsecuritydescriptor);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hservice;
     (void)dwsecurityinformation;
     (void)lpsecuritydescriptor;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1300,10 +1643,17 @@ static Napi::Value windowssys_windows_win32_system_services_setServiceStatus_nap
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetServiceStatus")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hservicestatus, lpservicestatus) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hservicestatus, lpservicestatus);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hservicestatus;
     (void)lpservicestatus;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1321,11 +1671,18 @@ static Napi::Value windowssys_windows_win32_system_services_startServiceA_napi(c
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "StartServiceA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hservice, dwnumserviceargs, lpserviceargvectors) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hservice, dwnumserviceargs, lpserviceargvectors);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hservice;
     (void)dwnumserviceargs;
     (void)lpserviceargvectors;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1341,9 +1698,16 @@ static Napi::Value windowssys_windows_win32_system_services_startServiceCtrlDisp
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "StartServiceCtrlDispatcherA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpservicestarttable) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpservicestarttable);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpservicestarttable;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1359,9 +1723,16 @@ static Napi::Value windowssys_windows_win32_system_services_startServiceCtrlDisp
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "StartServiceCtrlDispatcherW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpservicestarttable) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpservicestarttable);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpservicestarttable;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1379,11 +1750,18 @@ static Napi::Value windowssys_windows_win32_system_services_startServiceW_napi(c
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "StartServiceW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hservice, dwnumserviceargs, lpserviceargvectors) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hservice, dwnumserviceargs, lpserviceargvectors);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hservice;
     (void)dwnumserviceargs;
     (void)lpserviceargvectors;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1403,13 +1781,20 @@ static Napi::Value windowssys_windows_win32_system_services_subscribeServiceChan
         HMODULE km_h_mod = LoadLibraryA("sechost.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SubscribeServiceChangeNotifications")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hservice, eeventtype, pcallback, pcallbackcontext, psubscription) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hservice, eeventtype, pcallback, pcallbackcontext, psubscription);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hservice;
     (void)eeventtype;
     (void)pcallback;
     (void)pcallbackcontext;
     (void)psubscription;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1425,9 +1810,16 @@ static Napi::Value windowssys_windows_win32_system_services_unlockServiceDatabas
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UnlockServiceDatabase")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sclock) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sclock);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sclock;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1443,9 +1835,14 @@ static Napi::Value windowssys_windows_win32_system_services_unsubscribeServiceCh
         HMODULE km_h_mod = LoadLibraryA("sechost.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UnsubscribeServiceChangeNotifications")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(psubscription);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(psubscription);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)psubscription;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -1463,12 +1860,19 @@ static Napi::Value windowssys_windows_win32_system_services_waitServiceState_nap
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WaitServiceState")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hservice, dwnotify, dwtimeout, hcancelevent) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hservice, dwnotify, dwtimeout, hcancelevent);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hservice;
     (void)dwnotify;
     (void)dwtimeout;
     (void)hcancelevent;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

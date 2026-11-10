@@ -65,13 +65,20 @@ static Napi::Value windowssys_windows_win32_storage_distributedfilesystem_netDfs
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetDfsAdd")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dfsentrypath, servername, sharename, comment, flags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dfsentrypath, servername, sharename, comment, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dfsentrypath;
     (void)servername;
     (void)sharename;
     (void)comment;
     (void)flags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -91,13 +98,20 @@ static Napi::Value windowssys_windows_win32_storage_distributedfilesystem_netDfs
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetDfsAddFtRoot")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servername, rootshare, ftdfsname, comment, flags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servername, rootshare, ftdfsname, comment, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servername;
     (void)rootshare;
     (void)ftdfsname;
     (void)comment;
     (void)flags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -117,13 +131,20 @@ static Napi::Value windowssys_windows_win32_storage_distributedfilesystem_netDfs
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetDfsAddRootTarget")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pdfspath, ptargetpath, majorversion, pcomment, flags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pdfspath, ptargetpath, majorversion, pcomment, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pdfspath;
     (void)ptargetpath;
     (void)majorversion;
     (void)pcomment;
     (void)flags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -142,12 +163,19 @@ static Napi::Value windowssys_windows_win32_storage_distributedfilesystem_netDfs
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetDfsAddStdRoot")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servername, rootshare, comment, flags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servername, rootshare, comment, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servername;
     (void)rootshare;
     (void)comment;
     (void)flags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -168,7 +196,13 @@ static Napi::Value windowssys_windows_win32_storage_distributedfilesystem_netDfs
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetDfsEnum")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dfsname, level, prefmaxlen, buffer, entriesread, resumehandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dfsname, level, prefmaxlen, buffer, entriesread, resumehandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dfsname;
     (void)level;
@@ -176,6 +210,7 @@ static Napi::Value windowssys_windows_win32_storage_distributedfilesystem_netDfs
     (void)buffer;
     (void)entriesread;
     (void)resumehandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -195,13 +230,20 @@ static Napi::Value windowssys_windows_win32_storage_distributedfilesystem_netDfs
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetDfsGetClientInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dfsentrypath, servername, sharename, level, buffer) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dfsentrypath, servername, sharename, level, buffer);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dfsentrypath;
     (void)servername;
     (void)sharename;
     (void)level;
     (void)buffer;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -220,12 +262,19 @@ static Napi::Value windowssys_windows_win32_storage_distributedfilesystem_netDfs
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetDfsGetFtContainerSecurity")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(domainname, securityinformation, ppsecuritydescriptor, lpcbsecuritydescriptor) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(domainname, securityinformation, ppsecuritydescriptor, lpcbsecuritydescriptor);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)domainname;
     (void)securityinformation;
     (void)ppsecuritydescriptor;
     (void)lpcbsecuritydescriptor;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -245,13 +294,20 @@ static Napi::Value windowssys_windows_win32_storage_distributedfilesystem_netDfs
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetDfsGetInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dfsentrypath, servername, sharename, level, buffer) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dfsentrypath, servername, sharename, level, buffer);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dfsentrypath;
     (void)servername;
     (void)sharename;
     (void)level;
     (void)buffer;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -270,12 +326,19 @@ static Napi::Value windowssys_windows_win32_storage_distributedfilesystem_netDfs
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetDfsGetSecurity")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dfsentrypath, securityinformation, ppsecuritydescriptor, lpcbsecuritydescriptor) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dfsentrypath, securityinformation, ppsecuritydescriptor, lpcbsecuritydescriptor);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dfsentrypath;
     (void)securityinformation;
     (void)ppsecuritydescriptor;
     (void)lpcbsecuritydescriptor;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -294,12 +357,19 @@ static Napi::Value windowssys_windows_win32_storage_distributedfilesystem_netDfs
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetDfsGetStdContainerSecurity")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(machinename, securityinformation, ppsecuritydescriptor, lpcbsecuritydescriptor) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(machinename, securityinformation, ppsecuritydescriptor, lpcbsecuritydescriptor);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)machinename;
     (void)securityinformation;
     (void)ppsecuritydescriptor;
     (void)lpcbsecuritydescriptor;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -317,11 +387,18 @@ static Napi::Value windowssys_windows_win32_storage_distributedfilesystem_netDfs
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetDfsGetSupportedNamespaceVersion")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(origin, pname, ppversioninfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(origin, pname, ppversioninfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)origin;
     (void)pname;
     (void)ppversioninfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -339,11 +416,18 @@ static Napi::Value windowssys_windows_win32_storage_distributedfilesystem_netDfs
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetDfsMove")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(olddfsentrypath, newdfsentrypath, flags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(olddfsentrypath, newdfsentrypath, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)olddfsentrypath;
     (void)newdfsentrypath;
     (void)flags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -361,11 +445,18 @@ static Napi::Value windowssys_windows_win32_storage_distributedfilesystem_netDfs
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetDfsRemove")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dfsentrypath, servername, sharename) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dfsentrypath, servername, sharename);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dfsentrypath;
     (void)servername;
     (void)sharename;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -384,12 +475,19 @@ static Napi::Value windowssys_windows_win32_storage_distributedfilesystem_netDfs
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetDfsRemoveFtRoot")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servername, rootshare, ftdfsname, flags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servername, rootshare, ftdfsname, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servername;
     (void)rootshare;
     (void)ftdfsname;
     (void)flags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -409,13 +507,20 @@ static Napi::Value windowssys_windows_win32_storage_distributedfilesystem_netDfs
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetDfsRemoveFtRootForced")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(domainname, servername, rootshare, ftdfsname, flags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(domainname, servername, rootshare, ftdfsname, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)domainname;
     (void)servername;
     (void)rootshare;
     (void)ftdfsname;
     (void)flags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -433,11 +538,18 @@ static Napi::Value windowssys_windows_win32_storage_distributedfilesystem_netDfs
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetDfsRemoveRootTarget")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pdfspath, ptargetpath, flags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pdfspath, ptargetpath, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pdfspath;
     (void)ptargetpath;
     (void)flags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -455,11 +567,18 @@ static Napi::Value windowssys_windows_win32_storage_distributedfilesystem_netDfs
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetDfsRemoveStdRoot")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servername, rootshare, flags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servername, rootshare, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servername;
     (void)rootshare;
     (void)flags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -479,13 +598,20 @@ static Napi::Value windowssys_windows_win32_storage_distributedfilesystem_netDfs
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetDfsSetClientInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dfsentrypath, servername, sharename, level, buffer) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dfsentrypath, servername, sharename, level, buffer);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dfsentrypath;
     (void)servername;
     (void)sharename;
     (void)level;
     (void)buffer;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -503,11 +629,18 @@ static Napi::Value windowssys_windows_win32_storage_distributedfilesystem_netDfs
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetDfsSetFtContainerSecurity")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(domainname, securityinformation, psecuritydescriptor) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(domainname, securityinformation, psecuritydescriptor);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)domainname;
     (void)securityinformation;
     (void)psecuritydescriptor;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -527,13 +660,20 @@ static Napi::Value windowssys_windows_win32_storage_distributedfilesystem_netDfs
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetDfsSetInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dfsentrypath, servername, sharename, level, buffer) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dfsentrypath, servername, sharename, level, buffer);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dfsentrypath;
     (void)servername;
     (void)sharename;
     (void)level;
     (void)buffer;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -551,11 +691,18 @@ static Napi::Value windowssys_windows_win32_storage_distributedfilesystem_netDfs
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetDfsSetSecurity")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dfsentrypath, securityinformation, psecuritydescriptor) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dfsentrypath, securityinformation, psecuritydescriptor);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dfsentrypath;
     (void)securityinformation;
     (void)psecuritydescriptor;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -573,11 +720,18 @@ static Napi::Value windowssys_windows_win32_storage_distributedfilesystem_netDfs
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetDfsSetStdContainerSecurity")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(machinename, securityinformation, psecuritydescriptor) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(machinename, securityinformation, psecuritydescriptor);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)machinename;
     (void)securityinformation;
     (void)psecuritydescriptor;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

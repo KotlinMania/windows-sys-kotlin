@@ -63,11 +63,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsAcquireCont
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DnsAcquireContextHandle_A")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(credentialflags, credentials, pcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(credentialflags, credentials, pcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)credentialflags;
     (void)credentials;
     (void)pcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -85,11 +92,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsAcquireCont
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DnsAcquireContextHandle_W")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(credentialflags, credentials, pcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(credentialflags, credentials, pcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)credentialflags;
     (void)credentials;
     (void)pcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -105,9 +119,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsCancelQuery
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DnsCancelQuery")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pcancelhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pcancelhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pcancelhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -123,9 +144,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsCancelQuery
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DnsCancelQueryRaw")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(cancelhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(cancelhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)cancelhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -141,9 +169,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsConnectionD
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DnsConnectionDeletePolicyEntries")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(policyentrytag) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(policyentrytag);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)policyentrytag;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -160,10 +195,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsConnectionD
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DnsConnectionDeleteProxyInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pwszconnectionname, type) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pwszconnectionname, type);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pwszconnectionname;
     (void)type;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -179,9 +221,14 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsConnectionF
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DnsConnectionFreeNameList")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pnamelist);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pnamelist);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pnamelist;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -196,9 +243,14 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsConnectionF
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DnsConnectionFreeProxyInfo")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pproxyinfo);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pproxyinfo);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pproxyinfo;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -213,9 +265,14 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsConnectionF
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DnsConnectionFreeProxyInfoEx")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pproxyinfoex);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pproxyinfoex);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pproxyinfoex;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -230,9 +287,14 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsConnectionF
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DnsConnectionFreeProxyList")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pproxylist);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pproxylist);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pproxylist;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -247,9 +309,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsConnectionG
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DnsConnectionGetNameList")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pnamelist) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pnamelist);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pnamelist;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -267,11 +336,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsConnectionG
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DnsConnectionGetProxyInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pwszconnectionname, type, pproxyinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pwszconnectionname, type, pproxyinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pwszconnectionname;
     (void)type;
     (void)pproxyinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -291,13 +367,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsConnectionG
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DnsConnectionGetProxyInfoForHostUrl")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pwszhosturl, pselectioncontext, dwselectioncontextlength, dwexplicitinterfaceindex, pproxyinfoex) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pwszhosturl, pselectioncontext, dwselectioncontextlength, dwexplicitinterfaceindex, pproxyinfoex);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pwszhosturl;
     (void)pselectioncontext;
     (void)dwselectioncontextlength;
     (void)dwexplicitinterfaceindex;
     (void)pproxyinfoex;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -318,7 +401,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsConnectionG
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DnsConnectionGetProxyInfoForHostUrlEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pwszhosturl, pselectioncontext, dwselectioncontextlength, dwexplicitinterfaceindex, pwszconnectionname, pproxyinfoex) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pwszhosturl, pselectioncontext, dwselectioncontextlength, dwexplicitinterfaceindex, pwszconnectionname, pproxyinfoex);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pwszhosturl;
     (void)pselectioncontext;
@@ -326,6 +415,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsConnectionG
     (void)dwexplicitinterfaceindex;
     (void)pwszconnectionname;
     (void)pproxyinfoex;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -342,10 +432,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsConnectionG
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DnsConnectionGetProxyList")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pwszconnectionname, pproxylist) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pwszconnectionname, pproxylist);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pwszconnectionname;
     (void)pproxylist;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -362,10 +459,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsConnectionS
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DnsConnectionSetPolicyEntries")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(policyentrytag, ppolicyentrylist) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(policyentrytag, ppolicyentrylist);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)policyentrytag;
     (void)ppolicyentrylist;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -383,11 +487,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsConnectionS
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DnsConnectionSetProxyInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pwszconnectionname, type, pproxyinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pwszconnectionname, type, pproxyinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pwszconnectionname;
     (void)type;
     (void)pproxyinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -403,9 +514,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsConnectionU
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DnsConnectionUpdateIfIndexTable")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pconnectionifindexentries) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pconnectionifindexentries);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pconnectionifindexentries;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -423,11 +541,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsExtractReco
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DnsExtractRecordsFromMessage_UTF8")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pdnsbuffer, wmessagelength, pprecord) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pdnsbuffer, wmessagelength, pprecord);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pdnsbuffer;
     (void)wmessagelength;
     (void)pprecord;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -445,11 +570,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsExtractReco
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DnsExtractRecordsFromMessage_W")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pdnsbuffer, wmessagelength, pprecord) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pdnsbuffer, wmessagelength, pprecord);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pdnsbuffer;
     (void)wmessagelength;
     (void)pprecord;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -466,10 +598,15 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsFree_napi(c
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DnsFree")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pdata, freetype);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pdata, freetype);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pdata;
     (void)freetype;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -485,10 +622,15 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsFreeCustomS
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DnsFreeCustomServers")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pcservers, ppservers);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pcservers, ppservers);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pcservers;
     (void)ppservers;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -503,9 +645,14 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsFreeProxyNa
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DnsFreeProxyName")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(proxyname);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(proxyname);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)proxyname;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -522,11 +669,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsGetApplicat
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DnsGetApplicationSettings")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pcservers, ppdefaultservers, psettings) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pcservers, ppdefaultservers, psettings);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pcservers;
     (void)ppdefaultservers;
     (void)psettings;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -546,13 +700,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsGetProxyInf
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DnsGetProxyInformation")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hostname, proxyinformation, defaultproxyinformation, completionroutine, completioncontext) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hostname, proxyinformation, defaultproxyinformation, completionroutine, completioncontext);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hostname;
     (void)proxyinformation;
     (void)defaultproxyinformation;
     (void)completionroutine;
     (void)completioncontext;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -573,7 +734,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsModifyRecor
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DnsModifyRecordsInSet_A")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(paddrecords, pdeleterecords, options, hcredentials, pextralist, preserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(paddrecords, pdeleterecords, options, hcredentials, pextralist, preserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)paddrecords;
     (void)pdeleterecords;
@@ -581,6 +748,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsModifyRecor
     (void)hcredentials;
     (void)pextralist;
     (void)preserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -601,7 +769,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsModifyRecor
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DnsModifyRecordsInSet_UTF8")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(paddrecords, pdeleterecords, options, hcredentials, pextralist, preserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(paddrecords, pdeleterecords, options, hcredentials, pextralist, preserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)paddrecords;
     (void)pdeleterecords;
@@ -609,6 +783,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsModifyRecor
     (void)hcredentials;
     (void)pextralist;
     (void)preserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -629,7 +804,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsModifyRecor
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DnsModifyRecordsInSet_W")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(paddrecords, pdeleterecords, options, hcredentials, pextralist, preserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(paddrecords, pdeleterecords, options, hcredentials, pextralist, preserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)paddrecords;
     (void)pdeleterecords;
@@ -637,6 +818,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsModifyRecor
     (void)hcredentials;
     (void)pextralist;
     (void)preserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -653,10 +835,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsNameCompare
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DnsNameCompare_A")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pname1, pname2) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pname1, pname2);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pname1;
     (void)pname2;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -673,10 +862,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsNameCompare
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DnsNameCompare_W")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pname1, pname2) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pname1, pname2);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pname1;
     (void)pname2;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -697,7 +893,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsQueryConfig
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DnsQueryConfig")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(config, flag, pwsadaptername, preserved, pbuffer, pbuflen) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(config, flag, pwsadaptername, preserved, pbuffer, pbuflen);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)config;
     (void)flag;
@@ -705,6 +907,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsQueryConfig
     (void)preserved;
     (void)pbuffer;
     (void)pbuflen;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -722,11 +925,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsQueryEx_nap
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DnsQueryEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pqueryrequest, pqueryresults, pcancelhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pqueryrequest, pqueryresults, pcancelhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pqueryrequest;
     (void)pqueryresults;
     (void)pcancelhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -743,10 +953,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsQueryRaw_na
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DnsQueryRaw")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(queryrequest, cancelhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(queryrequest, cancelhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)queryrequest;
     (void)cancelhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -762,9 +979,14 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsQueryRawRes
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DnsQueryRawResultFree")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(queryresults);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(queryresults);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)queryresults;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -784,7 +1006,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsQueryA_napi
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DnsQuery_A")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszname, wtype, options, pextra, ppqueryresults, preserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszname, wtype, options, pextra, ppqueryresults, preserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pszname;
     (void)wtype;
@@ -792,6 +1020,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsQueryA_napi
     (void)pextra;
     (void)ppqueryresults;
     (void)preserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -812,7 +1041,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsQueryUtf8_n
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DnsQuery_UTF8")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszname, wtype, options, pextra, ppqueryresults, preserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszname, wtype, options, pextra, ppqueryresults, preserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pszname;
     (void)wtype;
@@ -820,6 +1055,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsQueryUtf8_n
     (void)pextra;
     (void)ppqueryresults;
     (void)preserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -840,7 +1076,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsQueryW_napi
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DnsQuery_W")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszname, wtype, options, pextra, ppqueryresults, preserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszname, wtype, options, pextra, ppqueryresults, preserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pszname;
     (void)wtype;
@@ -848,6 +1090,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsQueryW_napi
     (void)pextra;
     (void)ppqueryresults;
     (void)preserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -864,10 +1107,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsRecordCompa
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DnsRecordCompare")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(precord1, precord2) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(precord1, precord2);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)precord1;
     (void)precord2;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -885,12 +1135,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsRecordCopyE
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DnsRecordCopyEx")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(precord, charsetin, charsetout) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(precord, charsetin, charsetout);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)precord;
     (void)charsetin;
     (void)charsetout;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -908,12 +1165,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsRecordSetCo
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DnsRecordSetCompare")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(prr1, prr2, ppdiff1, ppdiff2) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(prr1, prr2, ppdiff1, ppdiff2);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)prr1;
     (void)prr2;
     (void)ppdiff1;
     (void)ppdiff2;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -931,12 +1195,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsRecordSetCo
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DnsRecordSetCopyEx")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(precordset, charsetin, charsetout) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(precordset, charsetin, charsetout);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)precordset;
     (void)charsetin;
     (void)charsetout;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -951,10 +1222,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsRecordSetDe
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DnsRecordSetDetach")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(precordlist) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(precordlist);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)precordlist;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -969,9 +1247,14 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsReleaseCont
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DnsReleaseContextHandle")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(hcontext);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(hcontext);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)hcontext;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -990,13 +1273,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsReplaceReco
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DnsReplaceRecordSetA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(preplaceset, options, hcontext, pextrainfo, preserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(preplaceset, options, hcontext, pextrainfo, preserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)preplaceset;
     (void)options;
     (void)hcontext;
     (void)pextrainfo;
     (void)preserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1016,13 +1306,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsReplaceReco
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DnsReplaceRecordSetUTF8")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(preplaceset, options, hcontext, pextrainfo, preserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(preplaceset, options, hcontext, pextrainfo, preserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)preplaceset;
     (void)options;
     (void)hcontext;
     (void)pextrainfo;
     (void)preserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1042,13 +1339,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsReplaceReco
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DnsReplaceRecordSetW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(preplaceset, options, hcontext, pextrainfo, preserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(preplaceset, options, hcontext, pextrainfo, preserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)preplaceset;
     (void)options;
     (void)hcontext;
     (void)pextrainfo;
     (void)preserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1065,10 +1369,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsServiceBrow
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DnsServiceBrowse")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(prequest, pcancel) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(prequest, pcancel);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)prequest;
     (void)pcancel;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1084,9 +1395,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsServiceBrow
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DnsServiceBrowseCancel")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pcancelhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pcancelhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pcancelhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1111,7 +1429,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsServiceCons
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DnsServiceConstructInstance")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pservicename, phostname, pip4, pip6, wport, wpriority, wweight, dwpropertiescount, keys, values) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pservicename, phostname, pip4, pip6, wport, wpriority, wweight, dwpropertiescount, keys, values);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pservicename;
     (void)phostname;
@@ -1123,7 +1447,8 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsServiceCons
     (void)dwpropertiescount;
     (void)keys;
     (void)values;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1138,10 +1463,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsServiceCopy
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DnsServiceCopyInstance")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(porig) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(porig);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)porig;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1157,10 +1489,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsServiceDeRe
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DnsServiceDeRegister")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(prequest, pcancel) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(prequest, pcancel);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)prequest;
     (void)pcancel;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1176,9 +1515,14 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsServiceFree
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DnsServiceFreeInstance")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pinstance);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pinstance);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pinstance;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -1194,10 +1538,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsServiceRegi
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DnsServiceRegister")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(prequest, pcancel) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(prequest, pcancel);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)prequest;
     (void)pcancel;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1213,9 +1564,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsServiceRegi
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DnsServiceRegisterCancel")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pcancelhandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pcancelhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pcancelhandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1232,10 +1590,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsServiceReso
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DnsServiceResolve")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(prequest, pcancel) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(prequest, pcancel);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)prequest;
     (void)pcancel;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1251,9 +1616,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsServiceReso
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DnsServiceResolveCancel")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pcancelhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pcancelhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pcancelhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1271,11 +1643,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsSetApplicat
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DnsSetApplicationSettings")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(cservers, pservers, psettings) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(cservers, pservers, psettings);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)cservers;
     (void)pservers;
     (void)psettings;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1292,10 +1671,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsStartMultic
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DnsStartMulticastQuery")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pqueryrequest, phandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pqueryrequest, phandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pqueryrequest;
     (void)phandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1311,9 +1697,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsStopMultica
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DnsStopMulticastQuery")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(phandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(phandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)phandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1330,10 +1723,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsValidateNam
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DnsValidateName_A")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszname, format) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszname, format);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszname;
     (void)format;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1350,10 +1750,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsValidateNam
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DnsValidateName_UTF8")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszname, format) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszname, format);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszname;
     (void)format;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1370,10 +1777,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsValidateNam
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DnsValidateName_W")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszname, format) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszname, format);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszname;
     (void)format;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1394,7 +1808,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsWriteQuesti
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DnsWriteQuestionToBuffer_UTF8")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pdnsbuffer, pdwbuffersize, pszname, wtype, xid, frecursiondesired) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pdnsbuffer, pdwbuffersize, pszname, wtype, xid, frecursiondesired);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pdnsbuffer;
     (void)pdwbuffersize;
@@ -1402,6 +1822,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsWriteQuesti
     (void)wtype;
     (void)xid;
     (void)frecursiondesired;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1422,7 +1843,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsWriteQuesti
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DnsWriteQuestionToBuffer_W")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pdnsbuffer, pdwbuffersize, pszname, wtype, xid, frecursiondesired) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pdnsbuffer, pdwbuffersize, pszname, wtype, xid, frecursiondesired);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pdnsbuffer;
     (void)pdwbuffersize;
@@ -1430,6 +1857,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dns_dnsWriteQuesti
     (void)wtype;
     (void)xid;
     (void)frecursiondesired;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

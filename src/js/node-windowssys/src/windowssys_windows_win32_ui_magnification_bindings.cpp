@@ -62,10 +62,17 @@ static Napi::Value windowssys_windows_win32_ui_magnification_magGetColorEffect_n
         HMODULE km_h_mod = LoadLibraryA("magnification.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MagGetColorEffect")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, peffect) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, peffect);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)peffect;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -81,9 +88,16 @@ static Napi::Value windowssys_windows_win32_ui_magnification_magGetFullscreenCol
         HMODULE km_h_mod = LoadLibraryA("magnification.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MagGetFullscreenColorEffect")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(peffect) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(peffect);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)peffect;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -101,11 +115,18 @@ static Napi::Value windowssys_windows_win32_ui_magnification_magGetFullscreenTra
         HMODULE km_h_mod = LoadLibraryA("magnification.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MagGetFullscreenTransform")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pmaglevel, pxoffset, pyoffset) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pmaglevel, pxoffset, pyoffset);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pmaglevel;
     (void)pxoffset;
     (void)pyoffset;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -121,10 +142,17 @@ static Napi::Value windowssys_windows_win32_ui_magnification_magGetImageScalingC
         HMODULE km_h_mod = LoadLibraryA("magnification.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MagGetImageScalingCallback")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hwnd;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -141,11 +169,18 @@ static Napi::Value windowssys_windows_win32_ui_magnification_magGetInputTransfor
         HMODULE km_h_mod = LoadLibraryA("magnification.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MagGetInputTransform")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pfenabled, prectsource, prectdest) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pfenabled, prectsource, prectdest);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pfenabled;
     (void)prectsource;
     (void)prectdest;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -164,12 +199,19 @@ static Napi::Value windowssys_windows_win32_ui_magnification_magGetWindowFilterL
         HMODULE km_h_mod = LoadLibraryA("magnification.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MagGetWindowFilterList")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, pdwfiltermode, count, phwnd) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, pdwfiltermode, count, phwnd);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)pdwfiltermode;
     (void)count;
     (void)phwnd;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -186,10 +228,17 @@ static Napi::Value windowssys_windows_win32_ui_magnification_magGetWindowSource_
         HMODULE km_h_mod = LoadLibraryA("magnification.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MagGetWindowSource")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, prect) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, prect);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)prect;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -206,10 +255,17 @@ static Napi::Value windowssys_windows_win32_ui_magnification_magGetWindowTransfo
         HMODULE km_h_mod = LoadLibraryA("magnification.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MagGetWindowTransform")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, ptransform) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, ptransform);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)ptransform;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -224,8 +280,15 @@ static Napi::Value windowssys_windows_win32_ui_magnification_magInitialize_napi(
         HMODULE km_h_mod = LoadLibraryA("magnification.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MagInitialize")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -242,10 +305,17 @@ static Napi::Value windowssys_windows_win32_ui_magnification_magSetColorEffect_n
         HMODULE km_h_mod = LoadLibraryA("magnification.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MagSetColorEffect")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, peffect) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, peffect);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)peffect;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -261,9 +331,16 @@ static Napi::Value windowssys_windows_win32_ui_magnification_magSetFullscreenCol
         HMODULE km_h_mod = LoadLibraryA("magnification.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MagSetFullscreenColorEffect")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(peffect) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(peffect);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)peffect;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -281,11 +358,18 @@ static Napi::Value windowssys_windows_win32_ui_magnification_magSetFullscreenTra
         HMODULE km_h_mod = LoadLibraryA("magnification.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MagSetFullscreenTransform")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(maglevel, xoffset, yoffset) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(maglevel, xoffset, yoffset);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)maglevel;
     (void)xoffset;
     (void)yoffset;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -302,10 +386,17 @@ static Napi::Value windowssys_windows_win32_ui_magnification_magSetImageScalingC
         HMODULE km_h_mod = LoadLibraryA("magnification.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MagSetImageScalingCallback")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, callback) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, callback);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)callback;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -323,11 +414,18 @@ static Napi::Value windowssys_windows_win32_ui_magnification_magSetInputTransfor
         HMODULE km_h_mod = LoadLibraryA("magnification.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MagSetInputTransform")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(fenabled, prectsource, prectdest) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(fenabled, prectsource, prectdest);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)fenabled;
     (void)prectsource;
     (void)prectdest;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -346,12 +444,19 @@ static Napi::Value windowssys_windows_win32_ui_magnification_magSetWindowFilterL
         HMODULE km_h_mod = LoadLibraryA("magnification.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MagSetWindowFilterList")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, dwfiltermode, count, phwnd) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, dwfiltermode, count, phwnd);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)dwfiltermode;
     (void)count;
     (void)phwnd;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -368,10 +473,17 @@ static Napi::Value windowssys_windows_win32_ui_magnification_magSetWindowTransfo
         HMODULE km_h_mod = LoadLibraryA("magnification.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MagSetWindowTransform")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, ptransform) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, ptransform);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)ptransform;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -387,9 +499,16 @@ static Napi::Value windowssys_windows_win32_ui_magnification_magShowSystemCursor
         HMODULE km_h_mod = LoadLibraryA("magnification.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MagShowSystemCursor")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(fshowcursor) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(fshowcursor);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)fshowcursor;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -404,8 +523,15 @@ static Napi::Value windowssys_windows_win32_ui_magnification_magUninitialize_nap
         HMODULE km_h_mod = LoadLibraryA("magnification.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MagUninitialize")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

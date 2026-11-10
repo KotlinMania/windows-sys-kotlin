@@ -62,11 +62,18 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_addVectored
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AddVectoredContinueHandler")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(first, handler) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(first, handler);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)first;
     (void)handler;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -82,11 +89,18 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_addVectored
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AddVectoredExceptionHandler")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(first, handler) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(first, handler);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)first;
     (void)handler;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -102,10 +116,17 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_beep_napi(c
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "Beep")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwfreq, dwduration) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwfreq, dwduration);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwfreq;
     (void)dwduration;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -123,11 +144,18 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_bindImage_n
         HMODULE km_h_mod = LoadLibraryA("imagehlp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "BindImage")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(imagename, dllpath, symbolpath) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(imagename, dllpath, symbolpath);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)imagename;
     (void)dllpath;
     (void)symbolpath;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -147,13 +175,20 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_bindImageEx
         HMODULE km_h_mod = LoadLibraryA("imagehlp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "BindImageEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(flags, imagename, dllpath, symbolpath, statusroutine) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(flags, imagename, dllpath, symbolpath, statusroutine);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)flags;
     (void)imagename;
     (void)dllpath;
     (void)symbolpath;
     (void)statusroutine;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -170,10 +205,17 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_checkRemote
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CheckRemoteDebuggerPresent")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, pbdebuggerpresent) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, pbdebuggerpresent);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)pbdebuggerpresent;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -192,13 +234,20 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_checkSumMap
         HMODULE km_h_mod = LoadLibraryA("imagehlp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CheckSumMappedFile")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(baseaddress, filelength, headersum, checksum) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(baseaddress, filelength, headersum, checksum);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)baseaddress;
     (void)filelength;
     (void)headersum;
     (void)checksum;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -213,9 +262,14 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_closeThread
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CloseThreadWaitChainSession")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(wcthandle);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(wcthandle);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)wcthandle;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -232,11 +286,18 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_continueDeb
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ContinueDebugEvent")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwprocessid, dwthreadid, dwcontinuestatus) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwprocessid, dwthreadid, dwcontinuestatus);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwprocessid;
     (void)dwthreadid;
     (void)dwcontinuestatus;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -254,11 +315,18 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_copyContext
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CopyContext")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(destination, contextflags, source) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(destination, contextflags, source);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)destination;
     (void)contextflags;
     (void)source;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -276,11 +344,18 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_dbgHelpCrea
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DbgHelpCreateUserDump")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(filename, callback, userdata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(filename, callback, userdata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)filename;
     (void)callback;
     (void)userdata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -298,11 +373,18 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_dbgHelpCrea
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DbgHelpCreateUserDumpW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(filename, callback, userdata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(filename, callback, userdata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)filename;
     (void)callback;
     (void)userdata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -318,9 +400,16 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_debugActive
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DebugActiveProcess")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwprocessid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwprocessid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwprocessid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -336,9 +425,16 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_debugActive
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DebugActiveProcessStop")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwprocessid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwprocessid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwprocessid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -353,8 +449,13 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_debugBreak_
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DebugBreak")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr();
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+    }
 #else
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -369,9 +470,16 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_debugBreakP
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DebugBreakProcess")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(process) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(process);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)process;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -387,9 +495,16 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_debugSetPro
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DebugSetProcessKillOnExit")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(killonexit) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(killonexit);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)killonexit;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -405,10 +520,17 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_decodePoint
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DecodePointer")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ptr) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ptr);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)ptr;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -425,11 +547,18 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_decodeRemot
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-core-util-l1-1-1.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DecodeRemotePointer")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(processhandle, ptr, decodedptr) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(processhandle, ptr, decodedptr);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)processhandle;
     (void)ptr;
     (void)decodedptr;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -445,10 +574,17 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_decodeSyste
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DecodeSystemPointer")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ptr) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ptr);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)ptr;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -463,10 +599,17 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_encodePoint
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EncodePointer")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ptr) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ptr);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)ptr;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -483,11 +626,18 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_encodeRemot
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-core-util-l1-1-1.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EncodeRemotePointer")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(processhandle, ptr, encodedptr) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(processhandle, ptr, encodedptr);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)processhandle;
     (void)ptr;
     (void)encodedptr;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -503,10 +653,17 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_encodeSyste
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EncodeSystemPointer")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ptr) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ptr);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)ptr;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -526,7 +683,13 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_enumDirTree
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EnumDirTree")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, rootpath, inputpathname, outputpathbuffer, cb, data) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, rootpath, inputpathname, outputpathbuffer, cb, data);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)rootpath;
@@ -534,6 +697,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_enumDirTree
     (void)outputpathbuffer;
     (void)cb;
     (void)data;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -554,7 +718,13 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_enumDirTree
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EnumDirTreeW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, rootpath, inputpathname, outputpathbuffer, cb, data) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, rootpath, inputpathname, outputpathbuffer, cb, data);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)rootpath;
@@ -562,6 +732,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_enumDirTree
     (void)outputpathbuffer;
     (void)cb;
     (void)data;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -579,11 +750,18 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_enumerateLo
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EnumerateLoadedModules64")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, enumloadedmodulescallback, usercontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, enumloadedmodulescallback, usercontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)enumloadedmodulescallback;
     (void)usercontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -601,11 +779,18 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_enumerateLo
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EnumerateLoadedModulesEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, enumloadedmodulescallback, usercontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, enumloadedmodulescallback, usercontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)enumloadedmodulescallback;
     (void)usercontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -623,11 +808,18 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_enumerateLo
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EnumerateLoadedModulesExW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, enumloadedmodulescallback, usercontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, enumloadedmodulescallback, usercontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)enumloadedmodulescallback;
     (void)usercontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -645,11 +837,18 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_enumerateLo
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EnumerateLoadedModulesW64")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, enumloadedmodulescallback, usercontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, enumloadedmodulescallback, usercontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)enumloadedmodulescallback;
     (void)usercontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -666,10 +865,15 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_fatalAppExi
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FatalAppExitA")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(uaction, lpmessagetext);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(uaction, lpmessagetext);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)uaction;
     (void)lpmessagetext;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -685,10 +889,15 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_fatalAppExi
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FatalAppExitW")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(uaction, lpmessagetext);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(uaction, lpmessagetext);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)uaction;
     (void)lpmessagetext;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -703,9 +912,14 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_fatalExit_n
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FatalExit")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(exitcode);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(exitcode);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)exitcode;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -722,12 +936,19 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_findDebugIn
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FindDebugInfoFile")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(filename, symbolpath, debugfilepath) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(filename, symbolpath, debugfilepath);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)filename;
     (void)symbolpath;
     (void)debugfilepath;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -746,14 +967,21 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_findDebugIn
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FindDebugInfoFileEx")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(filename, symbolpath, debugfilepath, callback, callerdata) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(filename, symbolpath, debugfilepath, callback, callerdata);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)filename;
     (void)symbolpath;
     (void)debugfilepath;
     (void)callback;
     (void)callerdata;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -772,14 +1000,21 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_findDebugIn
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FindDebugInfoFileExW")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(filename, symbolpath, debugfilepath, callback, callerdata) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(filename, symbolpath, debugfilepath, callback, callerdata);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)filename;
     (void)symbolpath;
     (void)debugfilepath;
     (void)callback;
     (void)callerdata;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -796,12 +1031,19 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_findExecuta
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FindExecutableImage")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(filename, symbolpath, imagefilepath) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(filename, symbolpath, imagefilepath);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)filename;
     (void)symbolpath;
     (void)imagefilepath;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -820,14 +1062,21 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_findExecuta
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FindExecutableImageEx")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(filename, symbolpath, imagefilepath, callback, callerdata) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(filename, symbolpath, imagefilepath, callback, callerdata);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)filename;
     (void)symbolpath;
     (void)imagefilepath;
     (void)callback;
     (void)callerdata;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -846,14 +1095,21 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_findExecuta
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FindExecutableImageExW")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(filename, symbolpath, imagefilepath, callback, callerdata) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(filename, symbolpath, imagefilepath, callback, callerdata);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)filename;
     (void)symbolpath;
     (void)imagefilepath;
     (void)callback;
     (void)callerdata;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -875,7 +1131,13 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_findFileInP
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FindFileInPath")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, searchpatha, filename, id, two, three, flags, filepath) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, searchpatha, filename, id, two, three, flags, filepath);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)searchpatha;
@@ -885,6 +1147,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_findFileInP
     (void)three;
     (void)flags;
     (void)filepath;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -906,7 +1169,13 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_findFileInS
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FindFileInSearchPath")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, searchpatha, filename, one, two, three, filepath) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, searchpatha, filename, one, two, three, filepath);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)searchpatha;
@@ -915,6 +1184,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_findFileInS
     (void)two;
     (void)three;
     (void)filepath;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -932,11 +1202,18 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_flushInstru
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FlushInstructionCache")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, lpbaseaddress, dwsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, lpbaseaddress, dwsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)lpbaseaddress;
     (void)dwsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -958,7 +1235,13 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_formatMessa
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FormatMessageA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwflags, lpsource, dwmessageid, dwlanguageid, lpbuffer, nsize, arguments) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwflags, lpsource, dwmessageid, dwlanguageid, lpbuffer, nsize, arguments);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dwflags;
     (void)lpsource;
@@ -967,6 +1250,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_formatMessa
     (void)lpbuffer;
     (void)nsize;
     (void)arguments;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -988,7 +1272,13 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_formatMessa
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FormatMessageW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwflags, lpsource, dwmessageid, dwlanguageid, lpbuffer, nsize, arguments) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwflags, lpsource, dwmessageid, dwlanguageid, lpbuffer, nsize, arguments);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dwflags;
     (void)lpsource;
@@ -997,6 +1287,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_formatMessa
     (void)lpbuffer;
     (void)nsize;
     (void)arguments;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1011,8 +1302,15 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_getEnabledX
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetEnabledXStateFeatures")));
     }
-    uint64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : 0;
+    uint64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
+    errno = ENOSYS;
     uint64_t km_res = 0;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
@@ -1027,8 +1325,15 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_getErrorMod
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetErrorMode")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1045,10 +1350,17 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_getImageCon
         HMODULE km_h_mod = LoadLibraryA("imagehlp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetImageConfigInformation")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(loadedimage, imageconfiginformation) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(loadedimage, imageconfiginformation);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)loadedimage;
     (void)imageconfiginformation;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1065,10 +1377,17 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_getImageUnu
         HMODULE km_h_mod = LoadLibraryA("imagehlp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetImageUnusedHeaderBytes")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(loadedimage, sizeunusedheaderbytes) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(loadedimage, sizeunusedheaderbytes);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)loadedimage;
     (void)sizeunusedheaderbytes;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1083,8 +1402,15 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_getSymLoadE
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetSymLoadError")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1101,10 +1427,17 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_getThreadCo
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetThreadContext")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hthread, lpcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hthread, lpcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hthread;
     (void)lpcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1119,8 +1452,15 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_getThreadEr
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetThreadErrorMode")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1138,11 +1478,18 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_getThreadSe
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetThreadSelectorEntry")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hthread, dwselector, lpselectorentry) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hthread, dwselector, lpselectorentry);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hthread;
     (void)dwselector;
     (void)lpselectorentry;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1164,7 +1511,13 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_getThreadWa
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetThreadWaitChain")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(wcthandle, context, flags, threadid, nodecount, nodeinfoarray, iscycle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(wcthandle, context, flags, threadid, nodecount, nodeinfoarray, iscycle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)wcthandle;
     (void)context;
@@ -1173,6 +1526,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_getThreadWa
     (void)nodecount;
     (void)nodeinfoarray;
     (void)iscycle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1188,9 +1542,16 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_getTimestam
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetTimestampForLoadedLibrary")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(module) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(module);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)module;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1207,10 +1568,17 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_getXStateFe
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetXStateFeaturesMask")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(context, featuremask) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(context, featuremask);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)context;
     (void)featuremask;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1228,11 +1596,18 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_imageAddCer
         HMODULE km_h_mod = LoadLibraryA("imagehlp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ImageAddCertificate")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(filehandle, certificate, arg_2_index) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(filehandle, certificate, arg_2_index);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)filehandle;
     (void)certificate;
     (void)arg_2_index;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1251,13 +1626,20 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_imageDirect
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ImageDirectoryEntryToData")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(base, mappedasimage, directoryentry, size) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(base, mappedasimage, directoryentry, size);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)base;
     (void)mappedasimage;
     (void)directoryentry;
     (void)size;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1276,14 +1658,21 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_imageDirect
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ImageDirectoryEntryToDataEx")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(base, mappedasimage, directoryentry, size, foundheader) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(base, mappedasimage, directoryentry, size, foundheader);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)base;
     (void)mappedasimage;
     (void)directoryentry;
     (void)size;
     (void)foundheader;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1302,13 +1691,20 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_imageEnumer
         HMODULE km_h_mod = LoadLibraryA("imagehlp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ImageEnumerateCertificates")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(filehandle, typefilter, certificatecount, indices, indexcount) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(filehandle, typefilter, certificatecount, indices, indexcount);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)filehandle;
     (void)typefilter;
     (void)certificatecount;
     (void)indices;
     (void)indexcount;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1327,12 +1723,19 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_imageGetCer
         HMODULE km_h_mod = LoadLibraryA("imagehlp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ImageGetCertificateData")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(filehandle, certificateindex, certificate, requiredlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(filehandle, certificateindex, certificate, requiredlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)filehandle;
     (void)certificateindex;
     (void)certificate;
     (void)requiredlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1350,11 +1753,18 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_imageGetCer
         HMODULE km_h_mod = LoadLibraryA("imagehlp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ImageGetCertificateHeader")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(filehandle, certificateindex, certificateheader) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(filehandle, certificateindex, certificateheader);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)filehandle;
     (void)certificateindex;
     (void)certificateheader;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1373,12 +1783,19 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_imageGetDig
         HMODULE km_h_mod = LoadLibraryA("imagehlp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ImageGetDigestStream")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(filehandle, digestlevel, digestfunction, digesthandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(filehandle, digestlevel, digestfunction, digesthandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)filehandle;
     (void)digestlevel;
     (void)digestfunction;
     (void)digesthandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1395,11 +1812,18 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_imageLoad_n
         HMODULE km_h_mod = LoadLibraryA("imagehlp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ImageLoad")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dllname, dllpath) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dllname, dllpath);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)dllname;
     (void)dllpath;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1414,10 +1838,17 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_imageNtHead
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ImageNtHeader")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(base) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(base);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)base;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1433,10 +1864,17 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_imageRemove
         HMODULE km_h_mod = LoadLibraryA("imagehlp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ImageRemoveCertificate")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(filehandle, arg_1_index) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(filehandle, arg_1_index);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)filehandle;
     (void)arg_1_index;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1454,12 +1892,19 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_imageRvaToS
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ImageRvaToSection")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ntheaders, base, rva) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ntheaders, base, rva);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)ntheaders;
     (void)base;
     (void)rva;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1477,13 +1922,20 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_imageRvaToV
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ImageRvaToVa")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ntheaders, base, rva, lastrvasection) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ntheaders, base, rva, lastrvasection);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)ntheaders;
     (void)base;
     (void)rva;
     (void)lastrvasection;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1498,9 +1950,16 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_imageUnload
         HMODULE km_h_mod = LoadLibraryA("imagehlp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ImageUnload")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(loadedimage) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(loadedimage);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)loadedimage;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1515,9 +1974,16 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_imagehlpApi
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ImagehlpApiVersion")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1532,10 +1998,17 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_imagehlpApi
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ImagehlpApiVersionEx")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(appversion) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(appversion);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)appversion;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1553,12 +2026,19 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_initializeC
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InitializeContext")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(buffer, contextflags, context, contextlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(buffer, contextflags, context, contextlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)buffer;
     (void)contextflags;
     (void)context;
     (void)contextlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1578,13 +2058,20 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_initializeC
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InitializeContext2")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(buffer, contextflags, context, contextlength, xstatecompactionmask) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(buffer, contextflags, context, contextlength, xstatecompactionmask);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)buffer;
     (void)contextflags;
     (void)context;
     (void)contextlength;
     (void)xstatecompactionmask;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1599,8 +2086,15 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_isDebuggerP
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IsDebuggerPresent")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1618,12 +2112,19 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_locateXStat
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LocateXStateFeature")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(context, featureid, length) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(context, featureid, length);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)context;
     (void)featureid;
     (void)length;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1638,9 +2139,16 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_makeSureDir
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MakeSureDirectoryPathExists")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dirpath) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dirpath);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dirpath;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1660,13 +2168,20 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_mapAndLoad_
         HMODULE km_h_mod = LoadLibraryA("imagehlp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MapAndLoad")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(imagename, dllpath, loadedimage, dotdll, readonly) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(imagename, dllpath, loadedimage, dotdll, readonly);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)imagename;
     (void)dllpath;
     (void)loadedimage;
     (void)dotdll;
     (void)readonly;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1684,11 +2199,18 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_mapFileAndC
         HMODULE km_h_mod = LoadLibraryA("imagehlp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MapFileAndCheckSumA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(filename, headersum, checksum) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(filename, headersum, checksum);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)filename;
     (void)headersum;
     (void)checksum;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1706,11 +2228,18 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_mapFileAndC
         HMODULE km_h_mod = LoadLibraryA("imagehlp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MapFileAndCheckSumW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(filename, headersum, checksum) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(filename, headersum, checksum);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)filename;
     (void)headersum;
     (void)checksum;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1726,9 +2255,16 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_messageBeep
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MessageBeep")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(utype) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(utype);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)utype;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1748,13 +2284,20 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_miniDumpRea
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MiniDumpReadDumpStream")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(baseofdump, streamnumber, dir, streampointer, streamsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(baseofdump, streamnumber, dir, streampointer, streamsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)baseofdump;
     (void)streamnumber;
     (void)dir;
     (void)streampointer;
     (void)streamsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1776,7 +2319,13 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_miniDumpWri
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MiniDumpWriteDump")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, processid, hfile, dumptype, exceptionparam, userstreamparam, callbackparam) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, processid, hfile, dumptype, exceptionparam, userstreamparam, callbackparam);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)processid;
@@ -1785,6 +2334,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_miniDumpWri
     (void)exceptionparam;
     (void)userstreamparam;
     (void)callbackparam;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1801,11 +2351,18 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_openThreadW
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OpenThreadWaitChainSession")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(flags, callback) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(flags, callback);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)flags;
     (void)callback;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1820,9 +2377,14 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_outputDebug
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OutputDebugStringA")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(lpoutputstring);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(lpoutputstring);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)lpoutputstring;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -1837,9 +2399,14 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_outputDebug
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OutputDebugStringW")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(lpoutputstring);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(lpoutputstring);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)lpoutputstring;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -1857,12 +2424,17 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_raiseExcept
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RaiseException")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(dwexceptioncode, dwexceptionflags, nnumberofarguments, lparguments);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(dwexceptioncode, dwexceptionflags, nnumberofarguments, lparguments);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)dwexceptioncode;
     (void)dwexceptionflags;
     (void)nnumberofarguments;
     (void)lparguments;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -1879,11 +2451,16 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_raiseFailFa
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RaiseFailFastException")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pexceptionrecord, pcontextrecord, dwflags);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pexceptionrecord, pcontextrecord, dwflags);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pexceptionrecord;
     (void)pcontextrecord;
     (void)dwflags;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -1904,7 +2481,13 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_rangeMapAdd
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RangeMapAddPeImageSections")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rmaphandle, imagename, mappedimage, mappingbytes, imagebase, usertag, mappingflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rmaphandle, imagename, mappedimage, mappingbytes, imagebase, usertag, mappingflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)rmaphandle;
     (void)imagename;
@@ -1913,6 +2496,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_rangeMapAdd
     (void)imagebase;
     (void)usertag;
     (void)mappingflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1927,9 +2511,16 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_rangeMapCre
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RangeMapCreate")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1944,9 +2535,14 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_rangeMapFre
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RangeMapFree")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(rmaphandle);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(rmaphandle);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)rmaphandle;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -1966,7 +2562,13 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_rangeMapRea
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RangeMapRead")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rmaphandle, offset, buffer, requestbytes, flags, donebytes) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rmaphandle, offset, buffer, requestbytes, flags, donebytes);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)rmaphandle;
     (void)offset;
@@ -1974,6 +2576,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_rangeMapRea
     (void)requestbytes;
     (void)flags;
     (void)donebytes;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1990,10 +2593,17 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_rangeMapRem
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RangeMapRemove")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rmaphandle, usertag) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rmaphandle, usertag);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)rmaphandle;
     (void)usertag;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2014,7 +2624,13 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_rangeMapWri
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RangeMapWrite")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rmaphandle, offset, buffer, requestbytes, flags, donebytes) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rmaphandle, offset, buffer, requestbytes, flags, donebytes);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)rmaphandle;
     (void)offset;
@@ -2022,6 +2638,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_rangeMapWri
     (void)requestbytes;
     (void)flags;
     (void)donebytes;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2047,7 +2664,13 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_reBaseImage
         HMODULE km_h_mod = LoadLibraryA("imagehlp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ReBaseImage")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(currentimagename, symbolpath, frebase, frebasesysfileok, fgoingdown, checkimagesize, oldimagesize, oldimagebase, newimagesize, newimagebase, timestamp) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(currentimagename, symbolpath, frebase, frebasesysfileok, fgoingdown, checkimagesize, oldimagesize, oldimagebase, newimagesize, newimagebase, timestamp);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)currentimagename;
     (void)symbolpath;
@@ -2060,6 +2683,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_reBaseImage
     (void)newimagesize;
     (void)newimagebase;
     (void)timestamp;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2085,7 +2709,13 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_reBaseImage
         HMODULE km_h_mod = LoadLibraryA("imagehlp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ReBaseImage64")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(currentimagename, symbolpath, frebase, frebasesysfileok, fgoingdown, checkimagesize, oldimagesize, oldimagebase, newimagesize, newimagebase, timestamp) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(currentimagename, symbolpath, frebase, frebasesysfileok, fgoingdown, checkimagesize, oldimagesize, oldimagebase, newimagesize, newimagebase, timestamp);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)currentimagename;
     (void)symbolpath;
@@ -2098,6 +2728,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_reBaseImage
     (void)newimagesize;
     (void)newimagebase;
     (void)timestamp;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2117,13 +2748,20 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_readProcess
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ReadProcessMemory")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, lpbaseaddress, lpbuffer, nsize, lpnumberofbytesread) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, lpbaseaddress, lpbuffer, nsize, lpnumberofbytesread);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)lpbaseaddress;
     (void)lpbuffer;
     (void)nsize;
     (void)lpnumberofbytesread;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2140,10 +2778,15 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_registerWai
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegisterWaitChainCOMCallback")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(callstatecallback, activationstatecallback);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(callstatecallback, activationstatecallback);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)callstatecallback;
     (void)activationstatecallback;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -2158,9 +2801,14 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_removeInval
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RemoveInvalidModuleList")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(hprocess);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(hprocess);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)hprocess;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -2175,9 +2823,16 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_removeVecto
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RemoveVectoredContinueHandler")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(handle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(handle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)handle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2193,9 +2848,16 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_removeVecto
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RemoveVectoredExceptionHandler")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(handle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(handle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)handle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2213,11 +2875,18 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_reportSymbo
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ReportSymbolLoadSummary")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, ploadmodule, psymboldata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, ploadmodule, psymboldata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)ploadmodule;
     (void)psymboldata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2235,11 +2904,18 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_rtlAddFunct
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtlAddFunctionTable")));
     }
-    bool km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(functiontable, entrycount, baseaddress) : false;
+    bool km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(functiontable, entrycount, baseaddress);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)functiontable;
     (void)entrycount;
     (void)baseaddress;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return Napi::Boolean::New(km_env, km_res);
@@ -2260,7 +2936,13 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_rtlAddGrowa
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtlAddGrowableFunctionTable")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dynamictable, functiontable, entrycount, maximumentrycount, rangebase, rangeend) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dynamictable, functiontable, entrycount, maximumentrycount, rangebase, rangeend);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dynamictable;
     (void)functiontable;
@@ -2268,6 +2950,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_rtlAddGrowa
     (void)maximumentrycount;
     (void)rangebase;
     (void)rangeend;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2283,9 +2966,14 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_rtlCaptureC
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtlCaptureContext")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(contextrecord);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(contextrecord);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)contextrecord;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -2300,9 +2988,14 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_rtlCaptureC
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtlCaptureContext2")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(contextrecord);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(contextrecord);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)contextrecord;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -2320,12 +3013,19 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_rtlCaptureS
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtlCaptureStackBackTrace")));
     }
-    uint16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(framestoskip, framestocapture, backtrace, backtracehash) : 0;
+    uint16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(framestoskip, framestocapture, backtrace, backtracehash);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)framestoskip;
     (void)framestocapture;
     (void)backtrace;
     (void)backtracehash;
+    errno = ENOSYS;
     uint16_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2341,9 +3041,16 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_rtlDeleteFu
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtlDeleteFunctionTable")));
     }
-    bool km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(functiontable) : false;
+    bool km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(functiontable);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)functiontable;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return Napi::Boolean::New(km_env, km_res);
@@ -2359,9 +3066,14 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_rtlDeleteGr
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtlDeleteGrowableFunctionTable")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(dynamictable);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(dynamictable);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)dynamictable;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -2377,10 +3089,15 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_rtlGrowFunc
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtlGrowFunctionTable")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(dynamictable, newentrycount);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(dynamictable, newentrycount);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)dynamictable;
     (void)newentrycount;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -2400,7 +3117,13 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_rtlInstallF
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtlInstallFunctionTableCallback")));
     }
-    bool km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(tableidentifier, baseaddress, length, callback, context, outofprocesscallbackdll) : false;
+    bool km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(tableidentifier, baseaddress, length, callback, context, outofprocesscallbackdll);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)tableidentifier;
     (void)baseaddress;
@@ -2408,6 +3131,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_rtlInstallF
     (void)callback;
     (void)context;
     (void)outofprocesscallbackdll;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return Napi::Boolean::New(km_env, km_res);
@@ -2425,12 +3149,19 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_rtlLookupFu
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtlLookupFunctionEntry")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(controlpc, imagebase, historytable) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(controlpc, imagebase, historytable);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)controlpc;
     (void)imagebase;
     (void)historytable;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -2446,11 +3177,18 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_rtlPcToFile
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtlPcToFileHeader")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pcvalue, baseofimage) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pcvalue, baseofimage);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pcvalue;
     (void)baseofimage;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -2465,9 +3203,14 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_rtlRaiseExc
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtlRaiseException")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(exceptionrecord);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(exceptionrecord);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)exceptionrecord;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -2483,10 +3226,15 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_rtlRestoreC
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtlRestoreContext")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(contextrecord, exceptionrecord);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(contextrecord, exceptionrecord);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)contextrecord;
     (void)exceptionrecord;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -2504,12 +3252,17 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_rtlUnwind_n
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtlUnwind")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(targetframe, targetip, exceptionrecord, returnvalue);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(targetframe, targetip, exceptionrecord, returnvalue);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)targetframe;
     (void)targetip;
     (void)exceptionrecord;
     (void)returnvalue;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -2529,7 +3282,11 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_rtlUnwindEx
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtlUnwindEx")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(targetframe, targetip, exceptionrecord, returnvalue, contextrecord, historytable);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(targetframe, targetip, exceptionrecord, returnvalue, contextrecord, historytable);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)targetframe;
     (void)targetip;
@@ -2537,6 +3294,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_rtlUnwindEx
     (void)returnvalue;
     (void)contextrecord;
     (void)historytable;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -2558,7 +3316,13 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_rtlVirtualU
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtlVirtualUnwind")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(handlertype, imagebase, controlpc, functionentry, contextrecord, handlerdata, establisherframe, contextpointers) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(handlertype, imagebase, controlpc, functionentry, contextrecord, handlerdata, establisherframe, contextpointers);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)handlertype;
     (void)imagebase;
@@ -2568,7 +3332,8 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_rtlVirtualU
     (void)handlerdata;
     (void)establisherframe;
     (void)contextpointers;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -2585,11 +3350,18 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_searchTreeF
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SearchTreeForFile")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rootpath, inputpathname, outputpathbuffer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rootpath, inputpathname, outputpathbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)rootpath;
     (void)inputpathname;
     (void)outputpathbuffer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2607,11 +3379,18 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_searchTreeF
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SearchTreeForFileW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rootpath, inputpathname, outputpathbuffer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rootpath, inputpathname, outputpathbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)rootpath;
     (void)inputpathname;
     (void)outputpathbuffer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2627,9 +3406,14 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_setCheckUse
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetCheckUserInterruptShared")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(lpstartaddress);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(lpstartaddress);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)lpstartaddress;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -2644,9 +3428,16 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_setErrorMod
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetErrorMode")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(umode) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(umode);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)umode;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2663,10 +3454,17 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_setImageCon
         HMODULE km_h_mod = LoadLibraryA("imagehlp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetImageConfigInformation")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(loadedimage, imageconfiginformation) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(loadedimage, imageconfiginformation);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)loadedimage;
     (void)imageconfiginformation;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2682,9 +3480,14 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_setSymLoadE
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetSymLoadError")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(error);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(error);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)error;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -2700,10 +3503,17 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_setThreadCo
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetThreadContext")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hthread, lpcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hthread, lpcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hthread;
     (void)lpcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2720,10 +3530,17 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_setThreadEr
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetThreadErrorMode")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwnewmode, lpoldmode) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwnewmode, lpoldmode);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwnewmode;
     (void)lpoldmode;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2739,10 +3556,17 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_setUnhandle
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetUnhandledExceptionFilter")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lptoplevelexceptionfilter) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lptoplevelexceptionfilter);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)lptoplevelexceptionfilter;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -2758,10 +3582,17 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_setXStateFe
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetXStateFeaturesMask")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(context, featuremask) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(context, featuremask);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)context;
     (void)featuremask;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2787,7 +3618,13 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_stackWalk2_
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "StackWalk2")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(machinetype, hprocess, hthread, stackframe, contextrecord, readmemoryroutine, functiontableaccessroutine, getmodulebaseroutine, translateaddress, gettargetattributevalue, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(machinetype, hprocess, hthread, stackframe, contextrecord, readmemoryroutine, functiontableaccessroutine, getmodulebaseroutine, translateaddress, gettargetattributevalue, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)machinetype;
     (void)hprocess;
@@ -2800,6 +3637,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_stackWalk2_
     (void)translateaddress;
     (void)gettargetattributevalue;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2823,7 +3661,13 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_stackWalk64
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "StackWalk64")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(machinetype, hprocess, hthread, stackframe, contextrecord, readmemoryroutine, functiontableaccessroutine, getmodulebaseroutine, translateaddress) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(machinetype, hprocess, hthread, stackframe, contextrecord, readmemoryroutine, functiontableaccessroutine, getmodulebaseroutine, translateaddress);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)machinetype;
     (void)hprocess;
@@ -2834,6 +3678,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_stackWalk64
     (void)functiontableaccessroutine;
     (void)getmodulebaseroutine;
     (void)translateaddress;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2858,7 +3703,13 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_stackWalkEx
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "StackWalkEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(machinetype, hprocess, hthread, stackframe, contextrecord, readmemoryroutine, functiontableaccessroutine, getmodulebaseroutine, translateaddress, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(machinetype, hprocess, hthread, stackframe, contextrecord, readmemoryroutine, functiontableaccessroutine, getmodulebaseroutine, translateaddress, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)machinetype;
     (void)hprocess;
@@ -2870,6 +3721,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_stackWalkEx
     (void)getmodulebaseroutine;
     (void)translateaddress;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2889,13 +3741,20 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symAddSourc
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymAddSourceStream")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, base, streamfile, buffer, size) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, base, streamfile, buffer, size);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)base;
     (void)streamfile;
     (void)buffer;
     (void)size;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2915,13 +3774,20 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symAddSourc
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymAddSourceStreamA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, base, streamfile, buffer, size) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, base, streamfile, buffer, size);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)base;
     (void)streamfile;
     (void)buffer;
     (void)size;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2941,13 +3807,20 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symAddSourc
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymAddSourceStreamW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, base, filespec, buffer, size) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, base, filespec, buffer, size);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)base;
     (void)filespec;
     (void)buffer;
     (void)size;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2968,7 +3841,13 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symAddSymbo
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymAddSymbol")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, baseofdll, name, address, size, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, baseofdll, name, address, size, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)baseofdll;
@@ -2976,6 +3855,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symAddSymbo
     (void)address;
     (void)size;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2996,7 +3876,13 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symAddSymbo
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymAddSymbolW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, baseofdll, name, address, size, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, baseofdll, name, address, size, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)baseofdll;
@@ -3004,6 +3890,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symAddSymbo
     (void)address;
     (void)size;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3020,10 +3907,17 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symAddrIncl
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymAddrIncludeInlineTrace")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, address) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, address);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hprocess;
     (void)address;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3039,9 +3933,16 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symCleanup_
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymCleanup")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3062,7 +3963,13 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symCompareI
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymCompareInlineTrace")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, address1, inlinecontext1, retaddress1, address2, retaddress2) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, address1, inlinecontext1, retaddress1, address2, retaddress2);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hprocess;
     (void)address1;
@@ -3070,6 +3977,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symCompareI
     (void)retaddress1;
     (void)address2;
     (void)retaddress2;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3089,13 +3997,20 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symDeleteSy
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymDeleteSymbol")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, baseofdll, name, address, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, baseofdll, name, address, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)baseofdll;
     (void)name;
     (void)address;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3115,13 +4030,20 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symDeleteSy
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymDeleteSymbolW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, baseofdll, name, address, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, baseofdll, name, address, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)baseofdll;
     (void)name;
     (void)address;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3142,7 +4064,13 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symEnumLine
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymEnumLines")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, base, obj, file, enumlinescallback, usercontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, base, obj, file, enumlinescallback, usercontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)base;
@@ -3150,6 +4078,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symEnumLine
     (void)file;
     (void)enumlinescallback;
     (void)usercontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3170,7 +4099,13 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symEnumLine
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymEnumLinesW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, base, obj, file, enumlinescallback, usercontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, base, obj, file, enumlinescallback, usercontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)base;
@@ -3178,6 +4113,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symEnumLine
     (void)file;
     (void)enumlinescallback;
     (void)usercontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3194,10 +4130,17 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symEnumProc
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymEnumProcesses")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enumprocessescallback, usercontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enumprocessescallback, usercontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enumprocessescallback;
     (void)usercontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3215,11 +4158,18 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symEnumSour
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymEnumSourceFileTokens")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, base, callback) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, base, callback);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)base;
     (void)callback;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3239,13 +4189,20 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symEnumSour
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymEnumSourceFiles")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, modbase, mask, cbsrcfiles, usercontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, modbase, mask, cbsrcfiles, usercontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)modbase;
     (void)mask;
     (void)cbsrcfiles;
     (void)usercontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3265,13 +4222,20 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symEnumSour
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymEnumSourceFilesW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, modbase, mask, cbsrcfiles, usercontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, modbase, mask, cbsrcfiles, usercontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)modbase;
     (void)mask;
     (void)cbsrcfiles;
     (void)usercontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3294,7 +4258,13 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symEnumSour
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymEnumSourceLines")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, base, obj, file, line, flags, enumlinescallback, usercontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, base, obj, file, line, flags, enumlinescallback, usercontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)base;
@@ -3304,6 +4274,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symEnumSour
     (void)flags;
     (void)enumlinescallback;
     (void)usercontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3326,7 +4297,13 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symEnumSour
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymEnumSourceLinesW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, base, obj, file, line, flags, enumlinescallback, usercontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, base, obj, file, line, flags, enumlinescallback, usercontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)base;
@@ -3336,6 +4313,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symEnumSour
     (void)flags;
     (void)enumlinescallback;
     (void)usercontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3354,12 +4332,19 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symEnumSym_
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymEnumSym")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, baseofdll, enumsymbolscallback, usercontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, baseofdll, enumsymbolscallback, usercontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)baseofdll;
     (void)enumsymbolscallback;
     (void)usercontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3379,13 +4364,20 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symEnumSymb
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymEnumSymbols")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, baseofdll, mask, enumsymbolscallback, usercontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, baseofdll, mask, enumsymbolscallback, usercontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)baseofdll;
     (void)mask;
     (void)enumsymbolscallback;
     (void)usercontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3406,7 +4398,13 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symEnumSymb
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymEnumSymbolsEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, baseofdll, mask, enumsymbolscallback, usercontext, options) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, baseofdll, mask, enumsymbolscallback, usercontext, options);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)baseofdll;
@@ -3414,6 +4412,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symEnumSymb
     (void)enumsymbolscallback;
     (void)usercontext;
     (void)options;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3434,7 +4433,13 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symEnumSymb
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymEnumSymbolsExW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, baseofdll, mask, enumsymbolscallback, usercontext, options) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, baseofdll, mask, enumsymbolscallback, usercontext, options);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)baseofdll;
@@ -3442,6 +4447,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symEnumSymb
     (void)enumsymbolscallback;
     (void)usercontext;
     (void)options;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3460,12 +4466,19 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symEnumSymb
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymEnumSymbolsForAddr")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, address, enumsymbolscallback, usercontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, address, enumsymbolscallback, usercontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)address;
     (void)enumsymbolscallback;
     (void)usercontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3484,12 +4497,19 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symEnumSymb
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymEnumSymbolsForAddrW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, address, enumsymbolscallback, usercontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, address, enumsymbolscallback, usercontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)address;
     (void)enumsymbolscallback;
     (void)usercontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3509,13 +4529,20 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symEnumSymb
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymEnumSymbolsW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, baseofdll, mask, enumsymbolscallback, usercontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, baseofdll, mask, enumsymbolscallback, usercontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)baseofdll;
     (void)mask;
     (void)enumsymbolscallback;
     (void)usercontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3534,12 +4561,19 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symEnumType
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymEnumTypes")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, baseofdll, enumsymbolscallback, usercontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, baseofdll, enumsymbolscallback, usercontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)baseofdll;
     (void)enumsymbolscallback;
     (void)usercontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3559,13 +4593,20 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symEnumType
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymEnumTypesByName")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, baseofdll, mask, enumsymbolscallback, usercontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, baseofdll, mask, enumsymbolscallback, usercontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)baseofdll;
     (void)mask;
     (void)enumsymbolscallback;
     (void)usercontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3585,13 +4626,20 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symEnumType
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymEnumTypesByNameW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, baseofdll, mask, enumsymbolscallback, usercontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, baseofdll, mask, enumsymbolscallback, usercontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)baseofdll;
     (void)mask;
     (void)enumsymbolscallback;
     (void)usercontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3610,12 +4658,19 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symEnumType
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymEnumTypesW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, baseofdll, enumsymbolscallback, usercontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, baseofdll, enumsymbolscallback, usercontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)baseofdll;
     (void)enumsymbolscallback;
     (void)usercontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3633,11 +4688,18 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symEnumerat
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymEnumerateModules64")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, enummodulescallback, usercontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, enummodulescallback, usercontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)enummodulescallback;
     (void)usercontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3655,11 +4717,18 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symEnumerat
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymEnumerateModulesW64")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, enummodulescallback, usercontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, enummodulescallback, usercontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)enummodulescallback;
     (void)usercontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3678,12 +4747,19 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symEnumerat
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymEnumerateSymbols64")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, baseofdll, enumsymbolscallback, usercontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, baseofdll, enumsymbolscallback, usercontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)baseofdll;
     (void)enumsymbolscallback;
     (void)usercontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3702,12 +4778,19 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symEnumerat
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymEnumerateSymbolsW64")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, baseofdll, enumsymbolscallback, usercontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, baseofdll, enumsymbolscallback, usercontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)baseofdll;
     (void)enumsymbolscallback;
     (void)usercontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3727,14 +4810,21 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symFindDebu
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymFindDebugInfoFile")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, filename, debugfilepath, callback, callerdata) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, filename, debugfilepath, callback, callerdata);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hprocess;
     (void)filename;
     (void)debugfilepath;
     (void)callback;
     (void)callerdata;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -3753,14 +4843,21 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symFindDebu
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymFindDebugInfoFileW")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, filename, debugfilepath, callback, callerdata) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, filename, debugfilepath, callback, callerdata);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hprocess;
     (void)filename;
     (void)debugfilepath;
     (void)callback;
     (void)callerdata;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -3779,14 +4876,21 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symFindExec
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymFindExecutableImage")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, filename, imagefilepath, callback, callerdata) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, filename, imagefilepath, callback, callerdata);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hprocess;
     (void)filename;
     (void)imagefilepath;
     (void)callback;
     (void)callerdata;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -3805,14 +4909,21 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symFindExec
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymFindExecutableImageW")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, filename, imagefilepath, callback, callerdata) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, filename, imagefilepath, callback, callerdata);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hprocess;
     (void)filename;
     (void)imagefilepath;
     (void)callback;
     (void)callerdata;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -3836,7 +4947,13 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symFindFile
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymFindFileInPath")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, searchpatha, filename, id, two, three, flags, foundfile, callback, context) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, searchpatha, filename, id, two, three, flags, foundfile, callback, context);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)searchpatha;
@@ -3848,6 +4965,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symFindFile
     (void)foundfile;
     (void)callback;
     (void)context;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3872,7 +4990,13 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symFindFile
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymFindFileInPathW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, searchpatha, filename, id, two, three, flags, foundfile, callback, context) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, searchpatha, filename, id, two, three, flags, foundfile, callback, context);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)searchpatha;
@@ -3884,6 +5008,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symFindFile
     (void)foundfile;
     (void)callback;
     (void)context;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3902,12 +5027,19 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symFromAddr
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymFromAddr")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, address, displacement, symbol) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, address, displacement, symbol);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)address;
     (void)displacement;
     (void)symbol;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3926,12 +5058,19 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symFromAddr
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymFromAddrW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, address, displacement, symbol) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, address, displacement, symbol);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)address;
     (void)displacement;
     (void)symbol;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3950,12 +5089,19 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symFromInde
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymFromIndex")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, baseofdll, arg_2_index, symbol) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, baseofdll, arg_2_index, symbol);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)baseofdll;
     (void)arg_2_index;
     (void)symbol;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3974,12 +5120,19 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symFromInde
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymFromIndexW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, baseofdll, arg_2_index, symbol) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, baseofdll, arg_2_index, symbol);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)baseofdll;
     (void)arg_2_index;
     (void)symbol;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3999,13 +5152,20 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symFromInli
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymFromInlineContext")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, address, inlinecontext, displacement, symbol) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, address, inlinecontext, displacement, symbol);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)address;
     (void)inlinecontext;
     (void)displacement;
     (void)symbol;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4025,13 +5185,20 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symFromInli
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymFromInlineContextW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, address, inlinecontext, displacement, symbol) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, address, inlinecontext, displacement, symbol);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)address;
     (void)inlinecontext;
     (void)displacement;
     (void)symbol;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4049,11 +5216,18 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symFromName
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymFromName")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, name, symbol) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, name, symbol);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)name;
     (void)symbol;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4071,11 +5245,18 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symFromName
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymFromNameW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, name, symbol) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, name, symbol);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)name;
     (void)symbol;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4094,12 +5275,19 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symFromToke
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymFromToken")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, base, token, symbol) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, base, token, symbol);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)base;
     (void)token;
     (void)symbol;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4118,12 +5306,19 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symFromToke
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymFromTokenW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, base, token, symbol) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, base, token, symbol);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)base;
     (void)token;
     (void)symbol;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4140,11 +5335,18 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symFunction
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymFunctionTableAccess64")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, addrbase) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, addrbase);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hprocess;
     (void)addrbase;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -4162,13 +5364,20 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symFunction
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymFunctionTableAccess64AccessRoutines")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, addrbase, readmemoryroutine, getmodulebaseroutine) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, addrbase, readmemoryroutine, getmodulebaseroutine);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hprocess;
     (void)addrbase;
     (void)readmemoryroutine;
     (void)getmodulebaseroutine;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -4183,9 +5392,16 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetExten
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymGetExtendedOption")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(option) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(option);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)option;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4205,13 +5421,20 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetFileL
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymGetFileLineOffsets64")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, modulename, filename, buffer, bufferlines) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, modulename, filename, buffer, bufferlines);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hprocess;
     (void)modulename;
     (void)filename;
     (void)buffer;
     (void)bufferlines;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4229,12 +5452,19 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetHomeD
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymGetHomeDirectory")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(type, dir, size) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(type, dir, size);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)type;
     (void)dir;
     (void)size;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -4251,12 +5481,19 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetHomeD
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymGetHomeDirectoryW")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(type, dir, size) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(type, dir, size);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)type;
     (void)dir;
     (void)size;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -4274,12 +5511,19 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetLineF
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymGetLineFromAddr64")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, qwaddr, pdwdisplacement, line64) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, qwaddr, pdwdisplacement, line64);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)qwaddr;
     (void)pdwdisplacement;
     (void)line64;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4298,12 +5542,19 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetLineF
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymGetLineFromAddrW64")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, dwaddr, pdwdisplacement, line) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, dwaddr, pdwdisplacement, line);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)dwaddr;
     (void)pdwdisplacement;
     (void)line;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4324,7 +5575,13 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetLineF
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymGetLineFromInlineContext")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, qwaddr, inlinecontext, qwmodulebaseaddress, pdwdisplacement, line64) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, qwaddr, inlinecontext, qwmodulebaseaddress, pdwdisplacement, line64);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)qwaddr;
@@ -4332,6 +5589,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetLineF
     (void)qwmodulebaseaddress;
     (void)pdwdisplacement;
     (void)line64;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4352,7 +5610,13 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetLineF
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymGetLineFromInlineContextW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, dwaddr, inlinecontext, qwmodulebaseaddress, pdwdisplacement, line) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, dwaddr, inlinecontext, qwmodulebaseaddress, pdwdisplacement, line);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)dwaddr;
@@ -4360,6 +5624,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetLineF
     (void)qwmodulebaseaddress;
     (void)pdwdisplacement;
     (void)line;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4380,7 +5645,13 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetLineF
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymGetLineFromName64")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, modulename, filename, dwlinenumber, pldisplacement, line) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, modulename, filename, dwlinenumber, pldisplacement, line);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)modulename;
@@ -4388,6 +5659,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetLineF
     (void)dwlinenumber;
     (void)pldisplacement;
     (void)line;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4408,7 +5680,13 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetLineF
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymGetLineFromNameW64")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, modulename, filename, dwlinenumber, pldisplacement, line) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, modulename, filename, dwlinenumber, pldisplacement, line);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)modulename;
@@ -4416,6 +5694,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetLineF
     (void)dwlinenumber;
     (void)pldisplacement;
     (void)line;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4432,10 +5711,17 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetLineN
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymGetLineNext64")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, line) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, line);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)line;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4452,10 +5738,17 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetLineN
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymGetLineNextW64")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, line) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, line);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)line;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4472,10 +5765,17 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetLineP
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymGetLinePrev64")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, line) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, line);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)line;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4492,10 +5792,17 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetLineP
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymGetLinePrevW64")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, line) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, line);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)line;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4512,10 +5819,17 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetModul
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymGetModuleBase64")));
     }
-    uint64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, qwaddr) : 0;
+    uint64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, qwaddr);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hprocess;
     (void)qwaddr;
+    errno = ENOSYS;
     uint64_t km_res = 0;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
@@ -4533,11 +5847,18 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetModul
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymGetModuleInfo64")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, qwaddr, moduleinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, qwaddr, moduleinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)qwaddr;
     (void)moduleinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4555,11 +5876,18 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetModul
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymGetModuleInfoW64")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, qwaddr, moduleinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, qwaddr, moduleinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)qwaddr;
     (void)moduleinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4580,7 +5908,13 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetOmaps
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymGetOmaps")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, baseofdll, omapto, comapto, omapfrom, comapfrom) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, baseofdll, omapto, comapto, omapfrom, comapfrom);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)baseofdll;
@@ -4588,6 +5922,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetOmaps
     (void)comapto;
     (void)omapfrom;
     (void)comapfrom;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4602,8 +5937,15 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetOptio
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymGetOptions")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4622,12 +5964,19 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetScope
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymGetScope")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, baseofdll, arg_2_index, symbol) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, baseofdll, arg_2_index, symbol);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)baseofdll;
     (void)arg_2_index;
     (void)symbol;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4646,12 +5995,19 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetScope
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymGetScopeW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, baseofdll, arg_2_index, symbol) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, baseofdll, arg_2_index, symbol);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)baseofdll;
     (void)arg_2_index;
     (void)symbol;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4669,11 +6025,18 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetSearc
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymGetSearchPath")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, searchpatha, searchpathlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, searchpatha, searchpathlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)searchpatha;
     (void)searchpathlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4691,11 +6054,18 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetSearc
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymGetSearchPathW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, searchpatha, searchpathlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, searchpatha, searchpathlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)searchpatha;
     (void)searchpathlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4716,7 +6086,13 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetSourc
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymGetSourceFile")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, base, params, filespec, filepath, size) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, base, params, filespec, filepath, size);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)base;
@@ -4724,6 +6100,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetSourc
     (void)filespec;
     (void)filepath;
     (void)size;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4745,7 +6122,13 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetSourc
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymGetSourceFileChecksum")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, base, filespec, pchecksumtype, pchecksum, checksumsize, pactualbyteswritten) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, base, filespec, pchecksumtype, pchecksum, checksumsize, pactualbyteswritten);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)base;
@@ -4754,6 +6137,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetSourc
     (void)pchecksum;
     (void)checksumsize;
     (void)pactualbyteswritten;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4775,7 +6159,13 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetSourc
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymGetSourceFileChecksumW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, base, filespec, pchecksumtype, pchecksum, checksumsize, pactualbyteswritten) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, base, filespec, pchecksumtype, pchecksum, checksumsize, pactualbyteswritten);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)base;
@@ -4784,6 +6174,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetSourc
     (void)pchecksum;
     (void)checksumsize;
     (void)pactualbyteswritten;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4803,13 +6194,20 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetSourc
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymGetSourceFileFromToken")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, token, params, filepath, size) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, token, params, filepath, size);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)token;
     (void)params;
     (void)filepath;
     (void)size;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4830,7 +6228,13 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetSourc
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymGetSourceFileFromTokenByTokenName")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, token, tokenname, params, filepath, size) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, token, tokenname, params, filepath, size);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)token;
@@ -4838,6 +6242,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetSourc
     (void)params;
     (void)filepath;
     (void)size;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4858,7 +6263,13 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetSourc
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymGetSourceFileFromTokenByTokenNameW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, token, tokenname, params, filepath, size) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, token, tokenname, params, filepath, size);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)token;
@@ -4866,6 +6277,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetSourc
     (void)params;
     (void)filepath;
     (void)size;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4885,13 +6297,20 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetSourc
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymGetSourceFileFromTokenW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, token, params, filepath, size) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, token, params, filepath, size);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)token;
     (void)params;
     (void)filepath;
     (void)size;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4911,13 +6330,20 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetSourc
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymGetSourceFileToken")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, base, filespec, token, size) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, base, filespec, token, size);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)base;
     (void)filespec;
     (void)token;
     (void)size;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4939,7 +6365,13 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetSourc
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymGetSourceFileTokenByTokenName")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, base, filespec, tokenname, tokenparameters, token, size) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, base, filespec, tokenname, tokenparameters, token, size);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)base;
@@ -4948,6 +6380,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetSourc
     (void)tokenparameters;
     (void)token;
     (void)size;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4969,7 +6402,13 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetSourc
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymGetSourceFileTokenByTokenNameW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, base, filespec, tokenname, tokenparameters, token, size) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, base, filespec, tokenname, tokenparameters, token, size);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)base;
@@ -4978,6 +6417,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetSourc
     (void)tokenparameters;
     (void)token;
     (void)size;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4997,13 +6437,20 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetSourc
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymGetSourceFileTokenW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, base, filespec, token, size) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, base, filespec, token, size);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)base;
     (void)filespec;
     (void)token;
     (void)size;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5024,7 +6471,13 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetSourc
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymGetSourceFileW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, base, params, filespec, filepath, size) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, base, params, filespec, filepath, size);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)base;
@@ -5032,6 +6485,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetSourc
     (void)filespec;
     (void)filepath;
     (void)size;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5052,7 +6506,13 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetSourc
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymGetSourceVarFromToken")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, token, params, varname, value, size) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, token, params, varname, value, size);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)token;
@@ -5060,6 +6520,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetSourc
     (void)varname;
     (void)value;
     (void)size;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5080,7 +6541,13 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetSourc
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymGetSourceVarFromTokenW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, token, params, varname, value, size) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, token, params, varname, value, size);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)token;
@@ -5088,6 +6555,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetSourc
     (void)varname;
     (void)value;
     (void)size;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5106,12 +6574,19 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetSymFr
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymGetSymFromAddr64")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, qwaddr, pdwdisplacement, symbol) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, qwaddr, pdwdisplacement, symbol);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)qwaddr;
     (void)pdwdisplacement;
     (void)symbol;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5129,11 +6604,18 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetSymFr
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymGetSymFromName64")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, name, symbol) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, name, symbol);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)name;
     (void)symbol;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5150,10 +6632,17 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetSymNe
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymGetSymNext64")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, symbol) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, symbol);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)symbol;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5170,10 +6659,17 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetSymPr
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymGetSymPrev64")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, symbol) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, symbol);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)symbol;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5196,7 +6692,13 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetSymbo
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymGetSymbolFile")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, sympath, imagefile, type, symbolfile, csymbolfile, dbgfile, cdbgfile) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, sympath, imagefile, type, symbolfile, csymbolfile, dbgfile, cdbgfile);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)sympath;
@@ -5206,6 +6708,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetSymbo
     (void)csymbolfile;
     (void)dbgfile;
     (void)cdbgfile;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5228,7 +6731,13 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetSymbo
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymGetSymbolFileW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, sympath, imagefile, type, symbolfile, csymbolfile, dbgfile, cdbgfile) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, sympath, imagefile, type, symbolfile, csymbolfile, dbgfile, cdbgfile);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)sympath;
@@ -5238,6 +6747,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetSymbo
     (void)csymbolfile;
     (void)dbgfile;
     (void)cdbgfile;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5256,12 +6766,19 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetTypeF
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymGetTypeFromName")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, baseofdll, name, symbol) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, baseofdll, name, symbol);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)baseofdll;
     (void)name;
     (void)symbol;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5280,12 +6797,19 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetTypeF
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymGetTypeFromNameW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, baseofdll, name, symbol) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, baseofdll, name, symbol);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)baseofdll;
     (void)name;
     (void)symbol;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5305,13 +6829,20 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetTypeI
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymGetTypeInfo")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, modbase, arg_2_typeid, gettype, pinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, modbase, arg_2_typeid, gettype, pinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)modbase;
     (void)arg_2_typeid;
     (void)gettype;
     (void)pinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5329,11 +6860,18 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetTypeI
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymGetTypeInfoEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, modbase, params) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, modbase, params);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)modbase;
     (void)params;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5352,12 +6890,19 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symGetUnwin
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymGetUnwindInfo")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, address, buffer, size) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, address, buffer, size);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)address;
     (void)buffer;
     (void)size;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5375,11 +6920,18 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symInitiali
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymInitialize")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, usersearchpath, finvadeprocess) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, usersearchpath, finvadeprocess);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)usersearchpath;
     (void)finvadeprocess;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5397,11 +6949,18 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symInitiali
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymInitializeW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, usersearchpath, finvadeprocess) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, usersearchpath, finvadeprocess);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)usersearchpath;
     (void)finvadeprocess;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5422,7 +6981,13 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symLoadModu
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymLoadModule64")));
     }
-    uint64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, hfile, imagename, modulename, baseofdll, sizeofdll) : 0;
+    uint64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, hfile, imagename, modulename, baseofdll, sizeofdll);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hprocess;
     (void)hfile;
@@ -5430,6 +6995,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symLoadModu
     (void)modulename;
     (void)baseofdll;
     (void)sizeofdll;
+    errno = ENOSYS;
     uint64_t km_res = 0;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
@@ -5452,7 +7018,13 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symLoadModu
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymLoadModuleEx")));
     }
-    uint64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, hfile, imagename, modulename, baseofdll, dllsize, data, flags) : 0;
+    uint64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, hfile, imagename, modulename, baseofdll, dllsize, data, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hprocess;
     (void)hfile;
@@ -5462,6 +7034,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symLoadModu
     (void)dllsize;
     (void)data;
     (void)flags;
+    errno = ENOSYS;
     uint64_t km_res = 0;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
@@ -5484,7 +7057,13 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symLoadModu
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymLoadModuleExW")));
     }
-    uint64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, hfile, imagename, modulename, baseofdll, dllsize, data, flags) : 0;
+    uint64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, hfile, imagename, modulename, baseofdll, dllsize, data, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hprocess;
     (void)hfile;
@@ -5494,6 +7073,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symLoadModu
     (void)dllsize;
     (void)data;
     (void)flags;
+    errno = ENOSYS;
     uint64_t km_res = 0;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
@@ -5512,12 +7092,19 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symMatchFil
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymMatchFileName")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(filename, match, filenamestop, matchstop) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(filename, match, filenamestop, matchstop);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)filename;
     (void)match;
     (void)filenamestop;
     (void)matchstop;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5536,12 +7123,19 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symMatchFil
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymMatchFileNameW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(filename, match, filenamestop, matchstop) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(filename, match, filenamestop, matchstop);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)filename;
     (void)match;
     (void)filenamestop;
     (void)matchstop;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5559,11 +7153,18 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symMatchStr
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymMatchString")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(string, expression, fcase) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(string, expression, fcase);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)string;
     (void)expression;
     (void)fcase;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5581,11 +7182,18 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symMatchStr
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymMatchStringA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(string, expression, fcase) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(string, expression, fcase);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)string;
     (void)expression;
     (void)fcase;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5603,11 +7211,18 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symMatchStr
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymMatchStringW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(string, expression, fcase) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(string, expression, fcase);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)string;
     (void)expression;
     (void)fcase;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5624,10 +7239,17 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symNext_nap
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymNext")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, si) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, si);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)si;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5644,10 +7266,17 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symNextW_na
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymNextW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, siw) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, siw);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)siw;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5664,10 +7293,17 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symPrev_nap
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymPrev")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, si) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, si);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)si;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5684,10 +7320,17 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symPrevW_na
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymPrevW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, siw) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, siw);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)siw;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5709,7 +7352,13 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symQueryInl
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymQueryInlineTrace")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, startaddress, startcontext, startretaddress, curaddress, curcontext, curframeindex) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, startaddress, startcontext, startretaddress, curaddress, curcontext, curframeindex);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)startaddress;
@@ -5718,6 +7367,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symQueryInl
     (void)curaddress;
     (void)curcontext;
     (void)curframeindex;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5733,9 +7383,16 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symRefreshM
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymRefreshModuleList")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5753,11 +7410,18 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symRegister
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymRegisterCallback64")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, callbackfunction, usercontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, callbackfunction, usercontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)callbackfunction;
     (void)usercontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5775,11 +7439,18 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symRegister
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymRegisterCallbackW64")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, callbackfunction, usercontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, callbackfunction, usercontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)callbackfunction;
     (void)usercontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5797,11 +7468,18 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symRegister
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymRegisterFunctionEntryCallback64")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, callbackfunction, usercontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, callbackfunction, usercontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)callbackfunction;
     (void)usercontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5825,7 +7503,13 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symSearch_n
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymSearch")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, baseofdll, arg_2_index, symtag, mask, address, enumsymbolscallback, usercontext, options) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, baseofdll, arg_2_index, symtag, mask, address, enumsymbolscallback, usercontext, options);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)baseofdll;
@@ -5836,6 +7520,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symSearch_n
     (void)enumsymbolscallback;
     (void)usercontext;
     (void)options;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5859,7 +7544,13 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symSearchW_
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymSearchW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, baseofdll, arg_2_index, symtag, mask, address, enumsymbolscallback, usercontext, options) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, baseofdll, arg_2_index, symtag, mask, address, enumsymbolscallback, usercontext, options);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)baseofdll;
@@ -5870,6 +7561,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symSearchW_
     (void)enumsymbolscallback;
     (void)usercontext;
     (void)options;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5887,11 +7579,18 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symSetConte
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymSetContext")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, stackframe, context) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, stackframe, context);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)stackframe;
     (void)context;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5908,10 +7607,17 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symSetExten
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymSetExtendedOption")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(option, value) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(option, value);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)option;
     (void)value;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5928,11 +7634,18 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symSetHomeD
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymSetHomeDirectory")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, dir) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, dir);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hprocess;
     (void)dir;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -5948,11 +7661,18 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symSetHomeD
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymSetHomeDirectoryW")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, dir) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, dir);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hprocess;
     (void)dir;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -5967,9 +7687,16 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symSetOptio
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymSetOptions")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(symoptions) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(symoptions);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)symoptions;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5985,9 +7712,16 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symSetParen
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymSetParentWindow")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6004,10 +7738,17 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symSetScope
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymSetScopeFromAddr")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, address) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, address);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)address;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6025,11 +7766,18 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symSetScope
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymSetScopeFromIndex")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, baseofdll, arg_2_index) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, baseofdll, arg_2_index);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)baseofdll;
     (void)arg_2_index;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6047,11 +7795,18 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symSetScope
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymSetScopeFromInlineContext")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, address, inlinecontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, address, inlinecontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)address;
     (void)inlinecontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6068,10 +7823,17 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symSetSearc
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymSetSearchPath")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, searchpatha) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, searchpatha);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)searchpatha;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6088,10 +7850,17 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symSetSearc
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymSetSearchPathW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, searchpatha) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, searchpatha);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)searchpatha;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6111,14 +7880,21 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symSrvDelta
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymSrvDeltaName")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, sympath, type, file1, file2) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, sympath, type, file1, file2);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hprocess;
     (void)sympath;
     (void)type;
     (void)file1;
     (void)file2;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -6137,14 +7913,21 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symSrvDelta
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymSrvDeltaNameW")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, sympath, type, file1, file2) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, sympath, type, file1, file2);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hprocess;
     (void)sympath;
     (void)type;
     (void)file1;
     (void)file2;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -6161,11 +7944,18 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symSrvGetFi
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymSrvGetFileIndexInfo")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(file, info, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(file, info, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)file;
     (void)info;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6183,11 +7973,18 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symSrvGetFi
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymSrvGetFileIndexInfoW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(file, info, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(file, info, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)file;
     (void)info;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6208,7 +8005,13 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symSrvGetFi
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymSrvGetFileIndexString")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, srvpath, file, arg_3_index, size, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, srvpath, file, arg_3_index, size, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)srvpath;
@@ -6216,6 +8019,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symSrvGetFi
     (void)arg_3_index;
     (void)size;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6236,7 +8040,13 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symSrvGetFi
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymSrvGetFileIndexStringW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, srvpath, file, arg_3_index, size, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, srvpath, file, arg_3_index, size, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)srvpath;
@@ -6244,6 +8054,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symSrvGetFi
     (void)arg_3_index;
     (void)size;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6263,13 +8074,20 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symSrvGetFi
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymSrvGetFileIndexes")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(file, id, val1, val2, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(file, id, val1, val2, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)file;
     (void)id;
     (void)val1;
     (void)val2;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6289,13 +8107,20 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symSrvGetFi
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymSrvGetFileIndexesW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(file, id, val1, val2, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(file, id, val1, val2, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)file;
     (void)id;
     (void)val1;
     (void)val2;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6314,13 +8139,20 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symSrvGetSu
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymSrvGetSupplement")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, sympath, node, file) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, sympath, node, file);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hprocess;
     (void)sympath;
     (void)node;
     (void)file;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -6338,13 +8170,20 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symSrvGetSu
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymSrvGetSupplementW")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, sympath, node, file) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, sympath, node, file);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hprocess;
     (void)sympath;
     (void)node;
     (void)file;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -6360,10 +8199,17 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symSrvIsSto
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymSrvIsStore")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, path) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, path);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)path;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6380,10 +8226,17 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symSrvIsSto
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymSrvIsStoreW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, path) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, path);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)path;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6402,13 +8255,20 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symSrvStore
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymSrvStoreFile")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, srvpath, file, flags) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, srvpath, file, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hprocess;
     (void)srvpath;
     (void)file;
     (void)flags;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -6426,13 +8286,20 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symSrvStore
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymSrvStoreFileW")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, srvpath, file, flags) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, srvpath, file, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hprocess;
     (void)srvpath;
     (void)file;
     (void)flags;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -6451,14 +8318,21 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symSrvStore
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymSrvStoreSupplement")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, srvpath, node, file, flags) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, srvpath, node, file, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hprocess;
     (void)srvpath;
     (void)node;
     (void)file;
     (void)flags;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -6477,14 +8351,21 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symSrvStore
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymSrvStoreSupplementW")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, sympath, node, file, flags) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, sympath, node, file, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hprocess;
     (void)sympath;
     (void)node;
     (void)file;
     (void)flags;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -6501,11 +8382,18 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symUnDName6
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymUnDName64")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sym, undecname, undecnamelength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sym, undecname, undecnamelength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sym;
     (void)undecname;
     (void)undecnamelength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6522,10 +8410,17 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_symUnloadMo
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SymUnloadModule64")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, baseofdll) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, baseofdll);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)baseofdll;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6541,9 +8436,14 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_terminatePr
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-core-errorhandling-l1-1-3.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TerminateProcessOnMemoryExhaustion")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(failedallocationsize);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(failedallocationsize);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)failedallocationsize;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -6559,10 +8459,17 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_touchFileTi
         HMODULE km_h_mod = LoadLibraryA("imagehlp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TouchFileTimes")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(filehandle, psystemtime) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(filehandle, psystemtime);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)filehandle;
     (void)psystemtime;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6581,12 +8488,19 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_unDecorateS
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UnDecorateSymbolName")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(name, outputstring, maxstringlength, flags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(name, outputstring, maxstringlength, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)name;
     (void)outputstring;
     (void)maxstringlength;
     (void)flags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6605,12 +8519,19 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_unDecorateS
         HMODULE km_h_mod = LoadLibraryA("dbghelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UnDecorateSymbolNameW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(name, outputstring, maxstringlength, flags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(name, outputstring, maxstringlength, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)name;
     (void)outputstring;
     (void)maxstringlength;
     (void)flags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6626,9 +8547,16 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_unMapAndLoa
         HMODULE km_h_mod = LoadLibraryA("imagehlp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UnMapAndLoad")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(loadedimage) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(loadedimage);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)loadedimage;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6644,9 +8572,16 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_unhandledEx
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UnhandledExceptionFilter")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(exceptioninfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(exceptioninfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)exceptioninfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6665,12 +8600,19 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_updateDebug
         HMODULE km_h_mod = LoadLibraryA("imagehlp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UpdateDebugInfoFile")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(imagefilename, symbolpath, debugfilepath, ntheaders) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(imagefilename, symbolpath, debugfilepath, ntheaders);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)imagefilename;
     (void)symbolpath;
     (void)debugfilepath;
     (void)ntheaders;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6690,13 +8632,20 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_updateDebug
         HMODULE km_h_mod = LoadLibraryA("imagehlp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UpdateDebugInfoFileEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(imagefilename, symbolpath, debugfilepath, ntheaders, oldchecksum) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(imagefilename, symbolpath, debugfilepath, ntheaders, oldchecksum);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)imagefilename;
     (void)symbolpath;
     (void)debugfilepath;
     (void)ntheaders;
     (void)oldchecksum;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6713,10 +8662,17 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_waitForDebu
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WaitForDebugEvent")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpdebugevent, dwmilliseconds) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpdebugevent, dwmilliseconds);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpdebugevent;
     (void)dwmilliseconds;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6733,10 +8689,17 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_waitForDebu
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WaitForDebugEventEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpdebugevent, dwmilliseconds) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpdebugevent, dwmilliseconds);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpdebugevent;
     (void)dwmilliseconds;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6753,10 +8716,17 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_wow64GetThr
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "Wow64GetThreadContext")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hthread, lpcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hthread, lpcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hthread;
     (void)lpcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6774,11 +8744,18 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_wow64GetThr
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "Wow64GetThreadSelectorEntry")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hthread, dwselector, lpselectorentry) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hthread, dwselector, lpselectorentry);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hthread;
     (void)dwselector;
     (void)lpselectorentry;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6795,10 +8772,17 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_wow64SetThr
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "Wow64SetThreadContext")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hthread, lpcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hthread, lpcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hthread;
     (void)lpcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6818,13 +8802,20 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_writeProces
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WriteProcessMemory")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, lpbaseaddress, lpbuffer, nsize, lpnumberofbyteswritten) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, lpbaseaddress, lpbuffer, nsize, lpnumberofbyteswritten);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)lpbaseaddress;
     (void)lpbuffer;
     (void)nsize;
     (void)lpnumberofbyteswritten;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

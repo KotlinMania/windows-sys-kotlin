@@ -5,6 +5,7 @@
 #include <stdbool.h>
 #include <stddef.h>
 #include <stdint.h>
+#include <stdlib.h>
 #include <errno.h>
 #ifdef _WIN32
 #ifndef WIN32_LEAN_AND_MEAN
@@ -28,10 +29,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_devices
         HMODULE km_h_mod = LoadLibraryA("vhfum.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VhfAsyncOperationComplete");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)vhfoperationhandle, (int32_t)completionstatus) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)vhfoperationhandle, (int32_t)completionstatus);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)vhfoperationhandle;
     (void)completionstatus;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -47,10 +55,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_devices
         HMODULE km_h_mod = LoadLibraryA("vhfum.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VhfCreate");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)vhfconfig, (void*)(uintptr_t)vhfhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)vhfconfig, (void*)(uintptr_t)vhfhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)vhfconfig;
     (void)vhfhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -66,10 +81,15 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_devices
         HMODULE km_h_mod = LoadLibraryA("vhfum.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VhfDelete");
     }
-    if (km_fn_ptr != NULL) km_fn_ptr((void*)(uintptr_t)vhfhandle, (bool)wait);
+    if (km_fn_ptr != NULL) {
+        km_fn_ptr((void*)(uintptr_t)vhfhandle, (bool)wait);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)vhfhandle;
     (void)wait;
+    errno = ENOSYS;
 #endif
 }
 
@@ -83,10 +103,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_devices
         HMODULE km_h_mod = LoadLibraryA("vhfum.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VhfReadReportSubmit");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)vhfhandle, (void*)(uintptr_t)hidtransferpacket) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)vhfhandle, (void*)(uintptr_t)hidtransferpacket);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)vhfhandle;
     (void)hidtransferpacket;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -102,9 +129,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_wdk_devices
         HMODULE km_h_mod = LoadLibraryA("vhfum.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VhfStart");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)vhfhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)vhfhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)vhfhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;

@@ -69,7 +69,13 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_acc
         HMODULE km_h_mod = LoadLibraryA("secur32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AcceptSecurityContext")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(phcredential, phcontext, pinput, fcontextreq, targetdatarep, phnewcontext, poutput, pfcontextattr, ptsexpiry) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(phcredential, phcontext, pinput, fcontextreq, targetdatarep, phnewcontext, poutput, pfcontextattr, ptsexpiry);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)phcredential;
     (void)phcontext;
@@ -80,6 +86,7 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_acc
     (void)poutput;
     (void)pfcontextattr;
     (void)ptsexpiry;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -103,7 +110,13 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_acq
         HMODULE km_h_mod = LoadLibraryA("secur32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AcquireCredentialsHandleA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszprincipal, pszpackage, fcredentialuse, pvlogonid, pauthdata, pgetkeyfn, pvgetkeyargument, phcredential, ptsexpiry) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszprincipal, pszpackage, fcredentialuse, pvlogonid, pauthdata, pgetkeyfn, pvgetkeyargument, phcredential, ptsexpiry);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszprincipal;
     (void)pszpackage;
@@ -114,6 +127,7 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_acq
     (void)pvgetkeyargument;
     (void)phcredential;
     (void)ptsexpiry;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -137,7 +151,13 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_acq
         HMODULE km_h_mod = LoadLibraryA("secur32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AcquireCredentialsHandleW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszprincipal, pszpackage, fcredentialuse, pvlogonid, pauthdata, pgetkeyfn, pvgetkeyargument, phcredential, ptsexpiry) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszprincipal, pszpackage, fcredentialuse, pvlogonid, pauthdata, pgetkeyfn, pvgetkeyargument, phcredential, ptsexpiry);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszprincipal;
     (void)pszpackage;
@@ -148,6 +168,7 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_acq
     (void)pvgetkeyargument;
     (void)phcredential;
     (void)ptsexpiry;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -170,7 +191,13 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_add
         HMODULE km_h_mod = LoadLibraryA("secur32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AddCredentialsA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcredentials, pszprincipal, pszpackage, fcredentialuse, pauthdata, pgetkeyfn, pvgetkeyargument, ptsexpiry) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcredentials, pszprincipal, pszpackage, fcredentialuse, pauthdata, pgetkeyfn, pvgetkeyargument, ptsexpiry);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcredentials;
     (void)pszprincipal;
@@ -180,6 +207,7 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_add
     (void)pgetkeyfn;
     (void)pvgetkeyargument;
     (void)ptsexpiry;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -202,7 +230,13 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_add
         HMODULE km_h_mod = LoadLibraryA("secur32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AddCredentialsW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcredentials, pszprincipal, pszpackage, fcredentialuse, pauthdata, pgetkeyfn, pvgetkeyargument, ptsexpiry) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcredentials, pszprincipal, pszpackage, fcredentialuse, pauthdata, pgetkeyfn, pvgetkeyargument, ptsexpiry);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcredentials;
     (void)pszprincipal;
@@ -212,6 +246,7 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_add
     (void)pgetkeyfn;
     (void)pvgetkeyargument;
     (void)ptsexpiry;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -228,10 +263,17 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_add
         HMODULE km_h_mod = LoadLibraryA("secur32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AddSecurityPackageA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszpackagename, poptions) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszpackagename, poptions);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszpackagename;
     (void)poptions;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -248,10 +290,17 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_add
         HMODULE km_h_mod = LoadLibraryA("secur32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AddSecurityPackageW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszpackagename, poptions) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszpackagename, poptions);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszpackagename;
     (void)poptions;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -268,10 +317,17 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_app
         HMODULE km_h_mod = LoadLibraryA("secur32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ApplyControlToken")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(phcontext, pinput) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(phcontext, pinput);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)phcontext;
     (void)pinput;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -290,12 +346,19 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_aud
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AuditComputeEffectivePolicyBySid")));
     }
-    bool km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(psid, psubcategoryguids, dwpolicycount, ppauditpolicy) : false;
+    bool km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(psid, psubcategoryguids, dwpolicycount, ppauditpolicy);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)psid;
     (void)psubcategoryguids;
     (void)dwpolicycount;
     (void)ppauditpolicy;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return Napi::Boolean::New(km_env, km_res);
@@ -314,12 +377,19 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_aud
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AuditComputeEffectivePolicyByToken")));
     }
-    bool km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(htokenhandle, psubcategoryguids, dwpolicycount, ppauditpolicy) : false;
+    bool km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(htokenhandle, psubcategoryguids, dwpolicycount, ppauditpolicy);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)htokenhandle;
     (void)psubcategoryguids;
     (void)dwpolicycount;
     (void)ppauditpolicy;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return Napi::Boolean::New(km_env, km_res);
@@ -336,10 +406,17 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_aud
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AuditEnumerateCategories")));
     }
-    bool km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ppauditcategoriesarray, pdwcountreturned) : false;
+    bool km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ppauditcategoriesarray, pdwcountreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)ppauditcategoriesarray;
     (void)pdwcountreturned;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return Napi::Boolean::New(km_env, km_res);
@@ -355,9 +432,16 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_aud
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AuditEnumeratePerUserPolicy")));
     }
-    bool km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ppauditsidarray) : false;
+    bool km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ppauditsidarray);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)ppauditsidarray;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return Napi::Boolean::New(km_env, km_res);
@@ -376,12 +460,19 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_aud
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AuditEnumerateSubCategories")));
     }
-    bool km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pauditcategoryguid, bretrieveallsubcategories, ppauditsubcategoriesarray, pdwcountreturned) : false;
+    bool km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pauditcategoryguid, bretrieveallsubcategories, ppauditsubcategoriesarray, pdwcountreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)pauditcategoryguid;
     (void)bretrieveallsubcategories;
     (void)ppauditsubcategoriesarray;
     (void)pdwcountreturned;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return Napi::Boolean::New(km_env, km_res);
@@ -397,9 +488,14 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_aud
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AuditFree")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(buffer);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(buffer);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)buffer;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -415,10 +511,17 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_aud
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AuditLookupCategoryGuidFromCategoryId")));
     }
-    bool km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(auditcategoryid, pauditcategoryguid) : false;
+    bool km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(auditcategoryid, pauditcategoryguid);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)auditcategoryid;
     (void)pauditcategoryguid;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return Napi::Boolean::New(km_env, km_res);
@@ -435,10 +538,17 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_aud
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AuditLookupCategoryIdFromCategoryGuid")));
     }
-    bool km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pauditcategoryguid, pauditcategoryid) : false;
+    bool km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pauditcategoryguid, pauditcategoryid);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)pauditcategoryguid;
     (void)pauditcategoryid;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return Napi::Boolean::New(km_env, km_res);
@@ -455,10 +565,17 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_aud
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AuditLookupCategoryNameA")));
     }
-    bool km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pauditcategoryguid, ppszcategoryname) : false;
+    bool km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pauditcategoryguid, ppszcategoryname);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)pauditcategoryguid;
     (void)ppszcategoryname;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return Napi::Boolean::New(km_env, km_res);
@@ -475,10 +592,17 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_aud
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AuditLookupCategoryNameW")));
     }
-    bool km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pauditcategoryguid, ppszcategoryname) : false;
+    bool km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pauditcategoryguid, ppszcategoryname);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)pauditcategoryguid;
     (void)ppszcategoryname;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return Napi::Boolean::New(km_env, km_res);
@@ -495,10 +619,17 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_aud
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AuditLookupSubCategoryNameA")));
     }
-    bool km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pauditsubcategoryguid, ppszsubcategoryname) : false;
+    bool km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pauditsubcategoryguid, ppszsubcategoryname);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)pauditsubcategoryguid;
     (void)ppszsubcategoryname;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return Napi::Boolean::New(km_env, km_res);
@@ -515,10 +646,17 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_aud
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AuditLookupSubCategoryNameW")));
     }
-    bool km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pauditsubcategoryguid, ppszsubcategoryname) : false;
+    bool km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pauditsubcategoryguid, ppszsubcategoryname);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)pauditsubcategoryguid;
     (void)ppszsubcategoryname;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return Napi::Boolean::New(km_env, km_res);
@@ -535,10 +673,17 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_aud
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AuditQueryGlobalSaclA")));
     }
-    bool km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(objecttypename, acl) : false;
+    bool km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(objecttypename, acl);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)objecttypename;
     (void)acl;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return Napi::Boolean::New(km_env, km_res);
@@ -555,10 +700,17 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_aud
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AuditQueryGlobalSaclW")));
     }
-    bool km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(objecttypename, acl) : false;
+    bool km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(objecttypename, acl);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)objecttypename;
     (void)acl;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return Napi::Boolean::New(km_env, km_res);
@@ -577,12 +729,19 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_aud
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AuditQueryPerUserPolicy")));
     }
-    bool km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(psid, psubcategoryguids, dwpolicycount, ppauditpolicy) : false;
+    bool km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(psid, psubcategoryguids, dwpolicycount, ppauditpolicy);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)psid;
     (void)psubcategoryguids;
     (void)dwpolicycount;
     (void)ppauditpolicy;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return Napi::Boolean::New(km_env, km_res);
@@ -599,10 +758,17 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_aud
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AuditQuerySecurity")));
     }
-    bool km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(securityinformation, ppsecuritydescriptor) : false;
+    bool km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(securityinformation, ppsecuritydescriptor);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)securityinformation;
     (void)ppsecuritydescriptor;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return Napi::Boolean::New(km_env, km_res);
@@ -620,11 +786,18 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_aud
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AuditQuerySystemPolicy")));
     }
-    bool km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(psubcategoryguids, dwpolicycount, ppauditpolicy) : false;
+    bool km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(psubcategoryguids, dwpolicycount, ppauditpolicy);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)psubcategoryguids;
     (void)dwpolicycount;
     (void)ppauditpolicy;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return Napi::Boolean::New(km_env, km_res);
@@ -641,10 +814,17 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_aud
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AuditSetGlobalSaclA")));
     }
-    bool km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(objecttypename, acl) : false;
+    bool km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(objecttypename, acl);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)objecttypename;
     (void)acl;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return Napi::Boolean::New(km_env, km_res);
@@ -661,10 +841,17 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_aud
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AuditSetGlobalSaclW")));
     }
-    bool km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(objecttypename, acl) : false;
+    bool km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(objecttypename, acl);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)objecttypename;
     (void)acl;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return Napi::Boolean::New(km_env, km_res);
@@ -682,11 +869,18 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_aud
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AuditSetPerUserPolicy")));
     }
-    bool km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(psid, pauditpolicy, dwpolicycount) : false;
+    bool km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(psid, pauditpolicy, dwpolicycount);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)psid;
     (void)pauditpolicy;
     (void)dwpolicycount;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return Napi::Boolean::New(km_env, km_res);
@@ -703,10 +897,17 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_aud
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AuditSetSecurity")));
     }
-    bool km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(securityinformation, psecuritydescriptor) : false;
+    bool km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(securityinformation, psecuritydescriptor);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)securityinformation;
     (void)psecuritydescriptor;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return Napi::Boolean::New(km_env, km_res);
@@ -723,10 +924,17 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_aud
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AuditSetSystemPolicy")));
     }
-    bool km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pauditpolicy, dwpolicycount) : false;
+    bool km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pauditpolicy, dwpolicycount);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)pauditpolicy;
     (void)dwpolicycount;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return Napi::Boolean::New(km_env, km_res);
@@ -749,7 +957,13 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_cha
         HMODULE km_h_mod = LoadLibraryA("secur32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ChangeAccountPasswordA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszpackagename, pszdomainname, pszaccountname, pszoldpassword, psznewpassword, bimpersonating, dwreserved, poutput) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszpackagename, pszdomainname, pszaccountname, pszoldpassword, psznewpassword, bimpersonating, dwreserved, poutput);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszpackagename;
     (void)pszdomainname;
@@ -759,6 +973,7 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_cha
     (void)bimpersonating;
     (void)dwreserved;
     (void)poutput;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -781,7 +996,13 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_cha
         HMODULE km_h_mod = LoadLibraryA("secur32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ChangeAccountPasswordW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszpackagename, pszdomainname, pszaccountname, pszoldpassword, psznewpassword, bimpersonating, dwreserved, poutput) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszpackagename, pszdomainname, pszaccountname, pszoldpassword, psznewpassword, bimpersonating, dwreserved, poutput);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszpackagename;
     (void)pszdomainname;
@@ -791,6 +1012,7 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_cha
     (void)bimpersonating;
     (void)dwreserved;
     (void)poutput;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -807,10 +1029,17 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_com
         HMODULE km_h_mod = LoadLibraryA("secur32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CompleteAuthToken")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(phcontext, ptoken) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(phcontext, ptoken);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)phcontext;
     (void)ptoken;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -828,11 +1057,18 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_cre
         HMODULE km_h_mod = LoadLibraryA("secur32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CredMarshalTargetInfo")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(intargetinfo, buffer, buffersize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(intargetinfo, buffer, buffersize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)intargetinfo;
     (void)buffer;
     (void)buffersize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -851,12 +1087,19 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_cre
         HMODULE km_h_mod = LoadLibraryA("secur32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CredUnmarshalTargetInfo")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(buffer, buffersize, rettargetinfo, retactualsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(buffer, buffersize, rettargetinfo, retactualsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)buffer;
     (void)buffersize;
     (void)rettargetinfo;
     (void)retactualsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -875,12 +1118,19 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_dec
         HMODULE km_h_mod = LoadLibraryA("secur32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DecryptMessage")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(phcontext, pmessage, messageseqno, pfqop) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(phcontext, pmessage, messageseqno, pfqop);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)phcontext;
     (void)pmessage;
     (void)messageseqno;
     (void)pfqop;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -896,9 +1146,16 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_del
         HMODULE km_h_mod = LoadLibraryA("secur32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DeleteSecurityContext")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(phcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(phcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)phcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -914,9 +1171,16 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_del
         HMODULE km_h_mod = LoadLibraryA("secur32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DeleteSecurityPackageA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszpackagename) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszpackagename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszpackagename;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -932,9 +1196,16 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_del
         HMODULE km_h_mod = LoadLibraryA("secur32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DeleteSecurityPackageW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszpackagename) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszpackagename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszpackagename;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -953,12 +1224,19 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_enc
         HMODULE km_h_mod = LoadLibraryA("secur32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EncryptMessage")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(phcontext, fqop, pmessage, messageseqno) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(phcontext, fqop, pmessage, messageseqno);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)phcontext;
     (void)fqop;
     (void)pmessage;
     (void)messageseqno;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -975,10 +1253,17 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_enu
         HMODULE km_h_mod = LoadLibraryA("secur32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EnumerateSecurityPackagesA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pcpackages, pppackageinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pcpackages, pppackageinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pcpackages;
     (void)pppackageinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -995,10 +1280,17 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_enu
         HMODULE km_h_mod = LoadLibraryA("secur32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EnumerateSecurityPackagesW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pcpackages, pppackageinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pcpackages, pppackageinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pcpackages;
     (void)pppackageinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1017,12 +1309,19 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_exp
         HMODULE km_h_mod = LoadLibraryA("secur32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ExportSecurityContext")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(phcontext, fflags, ppackedcontext, ptoken) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(phcontext, fflags, ppackedcontext, ptoken);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)phcontext;
     (void)fflags;
     (void)ppackedcontext;
     (void)ptoken;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1038,9 +1337,16 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_fre
         HMODULE km_h_mod = LoadLibraryA("secur32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FreeContextBuffer")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pvcontextbuffer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pvcontextbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pvcontextbuffer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1056,9 +1362,16 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_fre
         HMODULE km_h_mod = LoadLibraryA("secur32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FreeCredentialsHandle")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(phcredential) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(phcredential);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)phcredential;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1076,11 +1389,18 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_get
         HMODULE km_h_mod = LoadLibraryA("secur32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetComputerObjectNameA")));
     }
-    bool km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(nameformat, lpnamebuffer, nsize) : false;
+    bool km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(nameformat, lpnamebuffer, nsize);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)nameformat;
     (void)lpnamebuffer;
     (void)nsize;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return Napi::Boolean::New(km_env, km_res);
@@ -1098,11 +1418,18 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_get
         HMODULE km_h_mod = LoadLibraryA("secur32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetComputerObjectNameW")));
     }
-    bool km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(nameformat, lpnamebuffer, nsize) : false;
+    bool km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(nameformat, lpnamebuffer, nsize);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)nameformat;
     (void)lpnamebuffer;
     (void)nsize;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return Napi::Boolean::New(km_env, km_res);
@@ -1120,11 +1447,18 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_get
         HMODULE km_h_mod = LoadLibraryA("secur32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetUserNameExA")));
     }
-    bool km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(nameformat, lpnamebuffer, nsize) : false;
+    bool km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(nameformat, lpnamebuffer, nsize);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)nameformat;
     (void)lpnamebuffer;
     (void)nsize;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return Napi::Boolean::New(km_env, km_res);
@@ -1142,11 +1476,18 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_get
         HMODULE km_h_mod = LoadLibraryA("secur32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetUserNameExW")));
     }
-    bool km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(nameformat, lpnamebuffer, nsize) : false;
+    bool km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(nameformat, lpnamebuffer, nsize);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)nameformat;
     (void)lpnamebuffer;
     (void)nsize;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return Napi::Boolean::New(km_env, km_res);
@@ -1162,9 +1503,16 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_imp
         HMODULE km_h_mod = LoadLibraryA("secur32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ImpersonateSecurityContext")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(phcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(phcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)phcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1183,12 +1531,19 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_imp
         HMODULE km_h_mod = LoadLibraryA("secur32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ImportSecurityContextA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszpackage, ppackedcontext, token, phcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszpackage, ppackedcontext, token, phcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszpackage;
     (void)ppackedcontext;
     (void)token;
     (void)phcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1207,12 +1562,19 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_imp
         HMODULE km_h_mod = LoadLibraryA("secur32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ImportSecurityContextW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszpackage, ppackedcontext, token, phcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszpackage, ppackedcontext, token, phcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszpackage;
     (void)ppackedcontext;
     (void)token;
     (void)phcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1227,9 +1589,16 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_ini
         HMODULE km_h_mod = LoadLibraryA("secur32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InitSecurityInterfaceA")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1243,9 +1612,16 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_ini
         HMODULE km_h_mod = LoadLibraryA("secur32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InitSecurityInterfaceW")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1271,7 +1647,13 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_ini
         HMODULE km_h_mod = LoadLibraryA("secur32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InitializeSecurityContextA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(phcredential, phcontext, psztargetname, fcontextreq, reserved1, targetdatarep, pinput, reserved2, phnewcontext, poutput, pfcontextattr, ptsexpiry) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(phcredential, phcontext, psztargetname, fcontextreq, reserved1, targetdatarep, pinput, reserved2, phnewcontext, poutput, pfcontextattr, ptsexpiry);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)phcredential;
     (void)phcontext;
@@ -1285,6 +1667,7 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_ini
     (void)poutput;
     (void)pfcontextattr;
     (void)ptsexpiry;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1311,7 +1694,13 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_ini
         HMODULE km_h_mod = LoadLibraryA("secur32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InitializeSecurityContextW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(phcredential, phcontext, psztargetname, fcontextreq, reserved1, targetdatarep, pinput, reserved2, phnewcontext, poutput, pfcontextattr, ptsexpiry) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(phcredential, phcontext, psztargetname, fcontextreq, reserved1, targetdatarep, pinput, reserved2, phnewcontext, poutput, pfcontextattr, ptsexpiry);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)phcredential;
     (void)phcontext;
@@ -1325,6 +1714,7 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_ini
     (void)poutput;
     (void)pfcontextattr;
     (void)ptsexpiry;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1343,12 +1733,19 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_lsa
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LsaAddAccountRights")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(policyhandle, accountsid, userrights, countofrights) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(policyhandle, accountsid, userrights, countofrights);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)policyhandle;
     (void)accountsid;
     (void)userrights;
     (void)countofrights;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1370,7 +1767,13 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_lsa
         HMODULE km_h_mod = LoadLibraryA("secur32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LsaCallAuthenticationPackage")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lsahandle, authenticationpackage, protocolsubmitbuffer, submitbufferlength, protocolreturnbuffer, returnbufferlength, protocolstatus) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lsahandle, authenticationpackage, protocolsubmitbuffer, submitbufferlength, protocolreturnbuffer, returnbufferlength, protocolstatus);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lsahandle;
     (void)authenticationpackage;
@@ -1379,6 +1782,7 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_lsa
     (void)protocolreturnbuffer;
     (void)returnbufferlength;
     (void)protocolstatus;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1394,9 +1798,16 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_lsa
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LsaClose")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(objecthandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(objecthandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)objecthandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1412,9 +1823,16 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_lsa
         HMODULE km_h_mod = LoadLibraryA("secur32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LsaConnectUntrusted")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lsahandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lsahandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lsahandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1434,13 +1852,20 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_lsa
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LsaCreateTrustedDomainEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(policyhandle, trusteddomaininformation, authenticationinformation, desiredaccess, trusteddomainhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(policyhandle, trusteddomaininformation, authenticationinformation, desiredaccess, trusteddomainhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)policyhandle;
     (void)trusteddomaininformation;
     (void)authenticationinformation;
     (void)desiredaccess;
     (void)trusteddomainhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1457,10 +1882,17 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_lsa
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LsaDeleteTrustedDomain")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(policyhandle, trusteddomainsid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(policyhandle, trusteddomainsid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)policyhandle;
     (void)trusteddomainsid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1476,9 +1908,16 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_lsa
         HMODULE km_h_mod = LoadLibraryA("secur32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LsaDeregisterLogonProcess")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lsahandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lsahandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lsahandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1497,12 +1936,19 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_lsa
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LsaEnumerateAccountRights")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(policyhandle, accountsid, userrights, countofrights) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(policyhandle, accountsid, userrights, countofrights);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)policyhandle;
     (void)accountsid;
     (void)userrights;
     (void)countofrights;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1521,12 +1967,19 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_lsa
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LsaEnumerateAccountsWithUserRight")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(policyhandle, userright, buffer, countreturned) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(policyhandle, userright, buffer, countreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)policyhandle;
     (void)userright;
     (void)buffer;
     (void)countreturned;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1543,10 +1996,17 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_lsa
         HMODULE km_h_mod = LoadLibraryA("secur32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LsaEnumerateLogonSessions")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(logonsessioncount, logonsessionlist) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(logonsessioncount, logonsessionlist);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)logonsessioncount;
     (void)logonsessionlist;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1566,13 +2026,20 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_lsa
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LsaEnumerateTrustedDomains")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(policyhandle, enumerationcontext, buffer, preferedmaximumlength, countreturned) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(policyhandle, enumerationcontext, buffer, preferedmaximumlength, countreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)policyhandle;
     (void)enumerationcontext;
     (void)buffer;
     (void)preferedmaximumlength;
     (void)countreturned;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1592,13 +2059,20 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_lsa
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LsaEnumerateTrustedDomainsEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(policyhandle, enumerationcontext, buffer, preferedmaximumlength, countreturned) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(policyhandle, enumerationcontext, buffer, preferedmaximumlength, countreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)policyhandle;
     (void)enumerationcontext;
     (void)buffer;
     (void)preferedmaximumlength;
     (void)countreturned;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1614,9 +2088,16 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_lsa
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LsaFreeMemory")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(buffer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(buffer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)buffer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1632,9 +2113,16 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_lsa
         HMODULE km_h_mod = LoadLibraryA("secur32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LsaFreeReturnBuffer")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(buffer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(buffer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)buffer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1652,11 +2140,18 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_lsa
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LsaGetAppliedCAPIDs")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(systemname, capids, capidcount) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(systemname, capids, capidcount);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)systemname;
     (void)capids;
     (void)capidcount;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1673,10 +2168,17 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_lsa
         HMODULE km_h_mod = LoadLibraryA("secur32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LsaGetLogonSessionData")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(logonid, pplogonsessiondata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(logonid, pplogonsessiondata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)logonid;
     (void)pplogonsessiondata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1694,11 +2196,18 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_lsa
         HMODULE km_h_mod = LoadLibraryA("secur32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LsaLookupAuthenticationPackage")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lsahandle, packagename, authenticationpackage) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lsahandle, packagename, authenticationpackage);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lsahandle;
     (void)packagename;
     (void)authenticationpackage;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1718,13 +2227,20 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_lsa
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LsaLookupNames")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(policyhandle, count, names, referenceddomains, sids) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(policyhandle, count, names, referenceddomains, sids);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)policyhandle;
     (void)count;
     (void)names;
     (void)referenceddomains;
     (void)sids;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1745,7 +2261,13 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_lsa
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LsaLookupNames2")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(policyhandle, flags, count, names, referenceddomains, sids) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(policyhandle, flags, count, names, referenceddomains, sids);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)policyhandle;
     (void)flags;
@@ -1753,6 +2275,7 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_lsa
     (void)names;
     (void)referenceddomains;
     (void)sids;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1772,13 +2295,20 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_lsa
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LsaLookupSids")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(policyhandle, count, sids, referenceddomains, names) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(policyhandle, count, sids, referenceddomains, names);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)policyhandle;
     (void)count;
     (void)sids;
     (void)referenceddomains;
     (void)names;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1799,7 +2329,13 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_lsa
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LsaLookupSids2")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(policyhandle, lookupoptions, count, sids, referenceddomains, names) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(policyhandle, lookupoptions, count, sids, referenceddomains, names);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)policyhandle;
     (void)lookupoptions;
@@ -1807,6 +2343,7 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_lsa
     (void)sids;
     (void)referenceddomains;
     (void)names;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1822,9 +2359,16 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_lsa
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LsaNtStatusToWinError")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(status) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(status);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)status;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1843,12 +2387,19 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_lsa
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LsaOpenPolicy")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(systemname, objectattributes, desiredaccess, policyhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(systemname, objectattributes, desiredaccess, policyhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)systemname;
     (void)objectattributes;
     (void)desiredaccess;
     (void)policyhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1867,12 +2418,19 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_lsa
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LsaOpenTrustedDomainByName")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(policyhandle, trusteddomainname, desiredaccess, trusteddomainhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(policyhandle, trusteddomainname, desiredaccess, trusteddomainhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)policyhandle;
     (void)trusteddomainname;
     (void)desiredaccess;
     (void)trusteddomainhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1891,12 +2449,19 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_lsa
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LsaQueryCAPs")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(capids, capidcount, caps, capcount) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(capids, capidcount, caps, capcount);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)capids;
     (void)capidcount;
     (void)caps;
     (void)capcount;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1914,11 +2479,18 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_lsa
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LsaQueryDomainInformationPolicy")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(policyhandle, informationclass, buffer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(policyhandle, informationclass, buffer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)policyhandle;
     (void)informationclass;
     (void)buffer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1936,11 +2508,18 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_lsa
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LsaQueryForestTrustInformation")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(policyhandle, trusteddomainname, foresttrustinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(policyhandle, trusteddomainname, foresttrustinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)policyhandle;
     (void)trusteddomainname;
     (void)foresttrustinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1959,12 +2538,19 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_lsa
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LsaQueryForestTrustInformation2")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(policyhandle, trusteddomainname, highestrecordtype, foresttrustinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(policyhandle, trusteddomainname, highestrecordtype, foresttrustinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)policyhandle;
     (void)trusteddomainname;
     (void)highestrecordtype;
     (void)foresttrustinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1982,11 +2568,18 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_lsa
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LsaQueryInformationPolicy")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(policyhandle, informationclass, buffer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(policyhandle, informationclass, buffer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)policyhandle;
     (void)informationclass;
     (void)buffer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2005,12 +2598,19 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_lsa
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LsaQueryTrustedDomainInfo")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(policyhandle, trusteddomainsid, informationclass, buffer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(policyhandle, trusteddomainsid, informationclass, buffer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)policyhandle;
     (void)trusteddomainsid;
     (void)informationclass;
     (void)buffer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2029,12 +2629,19 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_lsa
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LsaQueryTrustedDomainInfoByName")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(policyhandle, trusteddomainname, informationclass, buffer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(policyhandle, trusteddomainname, informationclass, buffer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)policyhandle;
     (void)trusteddomainname;
     (void)informationclass;
     (void)buffer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2052,11 +2659,18 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_lsa
         HMODULE km_h_mod = LoadLibraryA("secur32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LsaRegisterLogonProcess")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(logonprocessname, lsahandle, securitymode) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(logonprocessname, lsahandle, securitymode);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)logonprocessname;
     (void)lsahandle;
     (void)securitymode;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2073,10 +2687,17 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_lsa
         HMODULE km_h_mod = LoadLibraryA("secur32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LsaRegisterPolicyChangeNotification")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(informationclass, notificationeventhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(informationclass, notificationeventhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)informationclass;
     (void)notificationeventhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2096,13 +2717,20 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_lsa
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LsaRemoveAccountRights")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(policyhandle, accountsid, allrights, userrights, countofrights) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(policyhandle, accountsid, allrights, userrights, countofrights);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)policyhandle;
     (void)accountsid;
     (void)allrights;
     (void)userrights;
     (void)countofrights;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2120,11 +2748,18 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_lsa
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LsaRetrievePrivateData")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(policyhandle, keyname, privatedata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(policyhandle, keyname, privatedata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)policyhandle;
     (void)keyname;
     (void)privatedata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2142,11 +2777,18 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_lsa
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LsaSetCAPs")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(capdns, capdncount, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(capdns, capdncount, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)capdns;
     (void)capdncount;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2164,11 +2806,18 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_lsa
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LsaSetDomainInformationPolicy")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(policyhandle, informationclass, buffer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(policyhandle, informationclass, buffer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)policyhandle;
     (void)informationclass;
     (void)buffer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2188,13 +2837,20 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_lsa
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LsaSetForestTrustInformation")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(policyhandle, trusteddomainname, foresttrustinfo, checkonly, collisioninfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(policyhandle, trusteddomainname, foresttrustinfo, checkonly, collisioninfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)policyhandle;
     (void)trusteddomainname;
     (void)foresttrustinfo;
     (void)checkonly;
     (void)collisioninfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2215,7 +2871,13 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_lsa
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LsaSetForestTrustInformation2")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(policyhandle, trusteddomainname, highestrecordtype, foresttrustinfo, checkonly, collisioninfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(policyhandle, trusteddomainname, highestrecordtype, foresttrustinfo, checkonly, collisioninfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)policyhandle;
     (void)trusteddomainname;
@@ -2223,6 +2885,7 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_lsa
     (void)foresttrustinfo;
     (void)checkonly;
     (void)collisioninfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2240,11 +2903,18 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_lsa
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LsaSetInformationPolicy")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(policyhandle, informationclass, buffer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(policyhandle, informationclass, buffer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)policyhandle;
     (void)informationclass;
     (void)buffer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2263,12 +2933,19 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_lsa
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LsaSetTrustedDomainInfoByName")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(policyhandle, trusteddomainname, informationclass, buffer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(policyhandle, trusteddomainname, informationclass, buffer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)policyhandle;
     (void)trusteddomainname;
     (void)informationclass;
     (void)buffer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2287,12 +2964,19 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_lsa
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LsaSetTrustedDomainInformation")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(policyhandle, trusteddomainsid, informationclass, buffer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(policyhandle, trusteddomainsid, informationclass, buffer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)policyhandle;
     (void)trusteddomainsid;
     (void)informationclass;
     (void)buffer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2310,11 +2994,18 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_lsa
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LsaStorePrivateData")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(policyhandle, keyname, privatedata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(policyhandle, keyname, privatedata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)policyhandle;
     (void)keyname;
     (void)privatedata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2331,10 +3022,17 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_lsa
         HMODULE km_h_mod = LoadLibraryA("secur32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LsaUnregisterPolicyChangeNotification")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(informationclass, notificationeventhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(informationclass, notificationeventhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)informationclass;
     (void)notificationeventhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2353,12 +3051,19 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_mak
         HMODULE km_h_mod = LoadLibraryA("secur32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MakeSignature")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(phcontext, fqop, pmessage, messageseqno) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(phcontext, fqop, pmessage, messageseqno);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)phcontext;
     (void)fqop;
     (void)pmessage;
     (void)messageseqno;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2376,11 +3081,18 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_que
         HMODULE km_h_mod = LoadLibraryA("secur32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "QueryContextAttributesA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(phcontext, ulattribute, pbuffer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(phcontext, ulattribute, pbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)phcontext;
     (void)ulattribute;
     (void)pbuffer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2399,12 +3111,19 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_que
         HMODULE km_h_mod = LoadLibraryA("sspicli.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "QueryContextAttributesExA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(phcontext, ulattribute, pbuffer, cbbuffer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(phcontext, ulattribute, pbuffer, cbbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)phcontext;
     (void)ulattribute;
     (void)pbuffer;
     (void)cbbuffer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2423,12 +3142,19 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_que
         HMODULE km_h_mod = LoadLibraryA("sspicli.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "QueryContextAttributesExW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(phcontext, ulattribute, pbuffer, cbbuffer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(phcontext, ulattribute, pbuffer, cbbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)phcontext;
     (void)ulattribute;
     (void)pbuffer;
     (void)cbbuffer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2446,11 +3172,18 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_que
         HMODULE km_h_mod = LoadLibraryA("secur32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "QueryContextAttributesW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(phcontext, ulattribute, pbuffer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(phcontext, ulattribute, pbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)phcontext;
     (void)ulattribute;
     (void)pbuffer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2468,11 +3201,18 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_que
         HMODULE km_h_mod = LoadLibraryA("secur32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "QueryCredentialsAttributesA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(phcredential, ulattribute, pbuffer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(phcredential, ulattribute, pbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)phcredential;
     (void)ulattribute;
     (void)pbuffer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2491,12 +3231,19 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_que
         HMODULE km_h_mod = LoadLibraryA("sspicli.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "QueryCredentialsAttributesExA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(phcredential, ulattribute, pbuffer, cbbuffer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(phcredential, ulattribute, pbuffer, cbbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)phcredential;
     (void)ulattribute;
     (void)pbuffer;
     (void)cbbuffer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2515,12 +3262,19 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_que
         HMODULE km_h_mod = LoadLibraryA("sspicli.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "QueryCredentialsAttributesExW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(phcredential, ulattribute, pbuffer, cbbuffer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(phcredential, ulattribute, pbuffer, cbbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)phcredential;
     (void)ulattribute;
     (void)pbuffer;
     (void)cbbuffer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2538,11 +3292,18 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_que
         HMODULE km_h_mod = LoadLibraryA("secur32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "QueryCredentialsAttributesW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(phcredential, ulattribute, pbuffer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(phcredential, ulattribute, pbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)phcredential;
     (void)ulattribute;
     (void)pbuffer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2559,10 +3320,17 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_que
         HMODULE km_h_mod = LoadLibraryA("secur32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "QuerySecurityContextToken")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(phcontext, token) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(phcontext, token);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)phcontext;
     (void)token;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2579,10 +3347,17 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_que
         HMODULE km_h_mod = LoadLibraryA("secur32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "QuerySecurityPackageInfoA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszpackagename, pppackageinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszpackagename, pppackageinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszpackagename;
     (void)pppackageinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2599,10 +3374,17 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_que
         HMODULE km_h_mod = LoadLibraryA("secur32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "QuerySecurityPackageInfoW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszpackagename, pppackageinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszpackagename, pppackageinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszpackagename;
     (void)pppackageinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2618,9 +3400,16 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_rev
         HMODULE km_h_mod = LoadLibraryA("secur32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RevertSecurityContext")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(phcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(phcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)phcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2638,11 +3427,18 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_rtl
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SystemFunction041")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(memory, memorysize, optionflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(memory, memorysize, optionflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)memory;
     (void)memorysize;
     (void)optionflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2660,11 +3456,18 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_rtl
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SystemFunction040")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(memory, memorysize, optionflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(memory, memorysize, optionflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)memory;
     (void)memorysize;
     (void)optionflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2681,10 +3484,17 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_rtl
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SystemFunction036")));
     }
-    bool km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(randombuffer, randombufferlength) : false;
+    bool km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(randombuffer, randombufferlength);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)randombuffer;
     (void)randombufferlength;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return Napi::Boolean::New(km_env, km_res);
@@ -2704,13 +3514,20 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_sLA
         HMODULE km_h_mod = LoadLibraryA("slcext.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SLAcquireGenuineTicket")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ppticketblob, pcbticketblob, pwsztemplateid, pwszserverurl, pwszclienttoken) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ppticketblob, pcbticketblob, pwsztemplateid, pwszserverurl, pwszclienttoken);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ppticketblob;
     (void)pcbticketblob;
     (void)pwsztemplateid;
     (void)pwszserverurl;
     (void)pwszclienttoken;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2732,7 +3549,13 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_sLA
         HMODULE km_h_mod = LoadLibraryA("slcext.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SLActivateProduct")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hslc, pproductskuid, cbappspecificdata, pvappspecificdata, pactivationinfo, pwszproxyserver, wproxyport) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hslc, pproductskuid, cbappspecificdata, pvappspecificdata, pactivationinfo, pwszproxyserver, wproxyport);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hslc;
     (void)pproductskuid;
@@ -2741,6 +3564,7 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_sLA
     (void)pactivationinfo;
     (void)pwszproxyserver;
     (void)wproxyport;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2756,9 +3580,16 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_sLC
         HMODULE km_h_mod = LoadLibraryA("slc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SLClose")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hslc) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hslc);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hslc;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2778,13 +3609,20 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_sLC
         HMODULE km_h_mod = LoadLibraryA("slc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SLConsumeRight")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hslc, pappid, pproductskuid, pwszrightname, pvreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hslc, pappid, pproductskuid, pwszrightname, pvreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hslc;
     (void)pappid;
     (void)pproductskuid;
     (void)pwszrightname;
     (void)pvreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2803,12 +3641,19 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_sLD
         HMODULE km_h_mod = LoadLibraryA("slc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SLDepositOfflineConfirmationId")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hslc, pproductskuid, pwszinstallationid, pwszconfirmationid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hslc, pproductskuid, pwszinstallationid, pwszconfirmationid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hslc;
     (void)pproductskuid;
     (void)pwszinstallationid;
     (void)pwszconfirmationid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2828,13 +3673,20 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_sLD
         HMODULE km_h_mod = LoadLibraryA("slc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SLDepositOfflineConfirmationIdEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hslc, pproductskuid, pactivationinfo, pwszinstallationid, pwszconfirmationid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hslc, pproductskuid, pactivationinfo, pwszinstallationid, pwszconfirmationid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hslc;
     (void)pproductskuid;
     (void)pactivationinfo;
     (void)pwszinstallationid;
     (void)pwszconfirmationid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2852,11 +3704,18 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_sLF
         HMODULE km_h_mod = LoadLibraryA("slc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SLFireEvent")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hslc, pwszeventid, papplicationid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hslc, pwszeventid, papplicationid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hslc;
     (void)pwszeventid;
     (void)papplicationid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2874,11 +3733,18 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_sLG
         HMODULE km_h_mod = LoadLibraryA("slc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SLGenerateOfflineInstallationId")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hslc, pproductskuid, ppwszinstallationid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hslc, pproductskuid, ppwszinstallationid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hslc;
     (void)pproductskuid;
     (void)ppwszinstallationid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2897,12 +3763,19 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_sLG
         HMODULE km_h_mod = LoadLibraryA("slc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SLGenerateOfflineInstallationIdEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hslc, pproductskuid, pactivationinfo, ppwszinstallationid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hslc, pproductskuid, pactivationinfo, ppwszinstallationid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hslc;
     (void)pproductskuid;
     (void)pactivationinfo;
     (void)ppwszinstallationid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2923,7 +3796,13 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_sLG
         HMODULE km_h_mod = LoadLibraryA("slc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SLGetApplicationInformation")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hslc, papplicationid, pwszvaluename, pedatatype, pcbvalue, ppbvalue) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hslc, papplicationid, pwszvaluename, pedatatype, pcbvalue, ppbvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hslc;
     (void)papplicationid;
@@ -2931,6 +3810,7 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_sLG
     (void)pedatatype;
     (void)pcbvalue;
     (void)ppbvalue;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2950,13 +3830,20 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_sLG
         HMODULE km_h_mod = LoadLibraryA("slc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SLGetGenuineInformation")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pqueryid, pwszvaluename, pedatatype, pcbvalue, ppbvalue) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pqueryid, pwszvaluename, pedatatype, pcbvalue, ppbvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pqueryid;
     (void)pwszvaluename;
     (void)pedatatype;
     (void)pcbvalue;
     (void)ppbvalue;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2975,12 +3862,19 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_sLG
         HMODULE km_h_mod = LoadLibraryA("slc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SLGetInstalledProductKeyIds")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hslc, pproductskuid, pnproductkeyids, ppproductkeyids) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hslc, pproductskuid, pnproductkeyids, ppproductkeyids);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hslc;
     (void)pproductskuid;
     (void)pnproductkeyids;
     (void)ppproductkeyids;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2999,12 +3893,19 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_sLG
         HMODULE km_h_mod = LoadLibraryA("slc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SLGetLicense")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hslc, plicensefileid, pcblicensefile, ppblicensefile) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hslc, plicensefileid, pcblicensefile, ppblicensefile);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hslc;
     (void)plicensefileid;
     (void)pcblicensefile;
     (void)ppblicensefile;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3023,12 +3924,19 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_sLG
         HMODULE km_h_mod = LoadLibraryA("slc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SLGetLicenseFileId")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hslc, cblicenseblob, pblicenseblob, plicensefileid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hslc, cblicenseblob, pblicenseblob, plicensefileid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hslc;
     (void)cblicenseblob;
     (void)pblicenseblob;
     (void)plicensefileid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3049,7 +3957,13 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_sLG
         HMODULE km_h_mod = LoadLibraryA("slc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SLGetLicenseInformation")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hslc, psllicenseid, pwszvaluename, pedatatype, pcbvalue, ppbvalue) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hslc, psllicenseid, pwszvaluename, pedatatype, pcbvalue, ppbvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hslc;
     (void)psllicenseid;
@@ -3057,6 +3971,7 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_sLG
     (void)pedatatype;
     (void)pcbvalue;
     (void)ppbvalue;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3077,7 +3992,13 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_sLG
         HMODULE km_h_mod = LoadLibraryA("slc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SLGetLicensingStatusInformation")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hslc, pappid, pproductskuid, pwszrightname, pnstatuscount, pplicensingstatus) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hslc, pappid, pproductskuid, pwszrightname, pnstatuscount, pplicensingstatus);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hslc;
     (void)pappid;
@@ -3085,6 +4006,7 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_sLG
     (void)pwszrightname;
     (void)pnstatuscount;
     (void)pplicensingstatus;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3105,7 +4027,13 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_sLG
         HMODULE km_h_mod = LoadLibraryA("slc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SLGetPKeyId")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hslc, pwszpkeyalgorithm, pwszpkeystring, cbpkeyspecificdata, pbpkeyspecificdata, ppkeyid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hslc, pwszpkeyalgorithm, pwszpkeystring, cbpkeyspecificdata, pbpkeyspecificdata, ppkeyid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hslc;
     (void)pwszpkeyalgorithm;
@@ -3113,6 +4041,7 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_sLG
     (void)cbpkeyspecificdata;
     (void)pbpkeyspecificdata;
     (void)ppkeyid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3133,7 +4062,13 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_sLG
         HMODULE km_h_mod = LoadLibraryA("slc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SLGetPKeyInformation")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hslc, ppkeyid, pwszvaluename, pedatatype, pcbvalue, ppbvalue) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hslc, ppkeyid, pwszvaluename, pedatatype, pcbvalue, ppbvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hslc;
     (void)ppkeyid;
@@ -3141,6 +4076,7 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_sLG
     (void)pedatatype;
     (void)pcbvalue;
     (void)ppbvalue;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3160,13 +4096,20 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_sLG
         HMODULE km_h_mod = LoadLibraryA("slc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SLGetPolicyInformation")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hslc, pwszvaluename, pedatatype, pcbvalue, ppbvalue) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hslc, pwszvaluename, pedatatype, pcbvalue, ppbvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hslc;
     (void)pwszvaluename;
     (void)pedatatype;
     (void)pcbvalue;
     (void)ppbvalue;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3184,11 +4127,18 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_sLG
         HMODULE km_h_mod = LoadLibraryA("slc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SLGetPolicyInformationDWORD")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hslc, pwszvaluename, pdwvalue) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hslc, pwszvaluename, pdwvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hslc;
     (void)pwszvaluename;
     (void)pdwvalue;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3209,7 +4159,13 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_sLG
         HMODULE km_h_mod = LoadLibraryA("slc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SLGetProductSkuInformation")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hslc, pproductskuid, pwszvaluename, pedatatype, pcbvalue, ppbvalue) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hslc, pproductskuid, pwszvaluename, pedatatype, pcbvalue, ppbvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hslc;
     (void)pproductskuid;
@@ -3217,6 +4173,7 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_sLG
     (void)pedatatype;
     (void)pcbvalue;
     (void)ppbvalue;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3236,13 +4193,20 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_sLG
         HMODULE km_h_mod = LoadLibraryA("slcext.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SLGetReferralInformation")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hslc, ereferraltype, pskuorappid, pwszvaluename, ppwszvalue) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hslc, ereferraltype, pskuorappid, pwszvaluename, ppwszvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hslc;
     (void)ereferraltype;
     (void)pskuorappid;
     (void)pwszvaluename;
     (void)ppwszvalue;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3263,7 +4227,13 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_sLG
         HMODULE km_h_mod = LoadLibraryA("slc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SLGetSLIDList")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hslc, equeryidtype, pqueryid, ereturnidtype, pnreturnids, ppreturnids) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hslc, equeryidtype, pqueryid, ereturnidtype, pnreturnids, ppreturnids);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hslc;
     (void)equeryidtype;
@@ -3271,6 +4241,7 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_sLG
     (void)ereturnidtype;
     (void)pnreturnids;
     (void)ppreturnids;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3290,13 +4261,20 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_sLG
         HMODULE km_h_mod = LoadLibraryA("slcext.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SLGetServerStatus")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pwszserverurl, pwszacquisitiontype, pwszproxyserver, wproxyport, phrstatus) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pwszserverurl, pwszacquisitiontype, pwszproxyserver, wproxyport, phrstatus);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pwszserverurl;
     (void)pwszacquisitiontype;
     (void)pwszproxyserver;
     (void)wproxyport;
     (void)phrstatus;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3316,13 +4294,20 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_sLG
         HMODULE km_h_mod = LoadLibraryA("slc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SLGetServiceInformation")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hslc, pwszvaluename, pedatatype, pcbvalue, ppbvalue) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hslc, pwszvaluename, pedatatype, pcbvalue, ppbvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hslc;
     (void)pwszvaluename;
     (void)pedatatype;
     (void)pcbvalue;
     (void)ppbvalue;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3341,12 +4326,19 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_sLG
         HMODULE km_h_mod = LoadLibraryA("slc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SLGetWindowsInformation")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pwszvaluename, pedatatype, pcbvalue, ppbvalue) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pwszvaluename, pedatatype, pcbvalue, ppbvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pwszvaluename;
     (void)pedatatype;
     (void)pcbvalue;
     (void)ppbvalue;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3363,10 +4355,17 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_sLG
         HMODULE km_h_mod = LoadLibraryA("slc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SLGetWindowsInformationDWORD")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pwszvaluename, pdwvalue) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pwszvaluename, pdwvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pwszvaluename;
     (void)pdwvalue;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3385,12 +4384,19 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_sLI
         HMODULE km_h_mod = LoadLibraryA("slc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SLInstallLicense")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hslc, cblicenseblob, pblicenseblob, plicensefileid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hslc, cblicenseblob, pblicenseblob, plicensefileid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hslc;
     (void)cblicenseblob;
     (void)pblicenseblob;
     (void)plicensefileid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3411,7 +4417,13 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_sLI
         HMODULE km_h_mod = LoadLibraryA("slc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SLInstallProofOfPurchase")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hslc, pwszpkeyalgorithm, pwszpkeystring, cbpkeyspecificdata, pbpkeyspecificdata, ppkeyid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hslc, pwszpkeyalgorithm, pwszpkeystring, cbpkeyspecificdata, pbpkeyspecificdata, ppkeyid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hslc;
     (void)pwszpkeyalgorithm;
@@ -3419,6 +4431,7 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_sLI
     (void)cbpkeyspecificdata;
     (void)pbpkeyspecificdata;
     (void)ppkeyid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3436,11 +4449,18 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_sLI
         HMODULE km_h_mod = LoadLibraryA("slwga.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SLIsGenuineLocal")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pappid, pgenuinestate, puioptions) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pappid, pgenuinestate, puioptions);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pappid;
     (void)pgenuinestate;
     (void)puioptions;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3456,9 +4476,16 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_sLO
         HMODULE km_h_mod = LoadLibraryA("slc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SLOpen")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(phslc) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(phslc);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)phslc;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3478,13 +4505,20 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_sLQ
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-core-slapi-l1-1-0.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SLQueryLicenseValueFromApp")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(valuename, valuetype, databuffer, datasize, resultdatasize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(valuename, valuetype, databuffer, datasize, resultdatasize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)valuename;
     (void)valuetype;
     (void)databuffer;
     (void)datasize;
     (void)resultdatasize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3503,12 +4537,19 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_sLR
         HMODULE km_h_mod = LoadLibraryA("slc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SLRegisterEvent")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hslc, pwszeventid, papplicationid, hevent) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hslc, pwszeventid, papplicationid, hevent);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hslc;
     (void)pwszeventid;
     (void)papplicationid;
     (void)hevent;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3526,11 +4567,18 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_sLS
         HMODULE km_h_mod = LoadLibraryA("slc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SLSetCurrentProductKey")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hslc, pproductskuid, pproductkeyid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hslc, pproductskuid, pproductkeyid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hslc;
     (void)pproductskuid;
     (void)pproductkeyid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3550,13 +4598,20 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_sLS
         HMODULE km_h_mod = LoadLibraryA("slc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SLSetGenuineInformation")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pqueryid, pwszvaluename, edatatype, cbvalue, pbvalue) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pqueryid, pwszvaluename, edatatype, cbvalue, pbvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pqueryid;
     (void)pwszvaluename;
     (void)edatatype;
     (void)cbvalue;
     (void)pbvalue;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3573,10 +4628,17 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_sLU
         HMODULE km_h_mod = LoadLibraryA("slc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SLUninstallLicense")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hslc, plicensefileid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hslc, plicensefileid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hslc;
     (void)plicensefileid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3593,10 +4655,17 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_sLU
         HMODULE km_h_mod = LoadLibraryA("slc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SLUninstallProofOfPurchase")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hslc, ppkeyid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hslc, ppkeyid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hslc;
     (void)ppkeyid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3615,12 +4684,19 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_sLU
         HMODULE km_h_mod = LoadLibraryA("slc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SLUnregisterEvent")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hslc, pwszeventid, papplicationid, hevent) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hslc, pwszeventid, papplicationid, hevent);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hslc;
     (void)pwszeventid;
     (void)papplicationid;
     (void)hevent;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3644,7 +4720,13 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_sas
         HMODULE km_h_mod = LoadLibraryA("secur32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SaslAcceptSecurityContext")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(phcredential, phcontext, pinput, fcontextreq, targetdatarep, phnewcontext, poutput, pfcontextattr, ptsexpiry) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(phcredential, phcontext, pinput, fcontextreq, targetdatarep, phnewcontext, poutput, pfcontextattr, ptsexpiry);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)phcredential;
     (void)phcontext;
@@ -3655,6 +4737,7 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_sas
     (void)poutput;
     (void)pfcontextattr;
     (void)ptsexpiry;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3671,10 +4754,17 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_sas
         HMODULE km_h_mod = LoadLibraryA("secur32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SaslEnumerateProfilesA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(profilelist, profilecount) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(profilelist, profilecount);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)profilelist;
     (void)profilecount;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3691,10 +4781,17 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_sas
         HMODULE km_h_mod = LoadLibraryA("secur32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SaslEnumerateProfilesW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(profilelist, profilecount) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(profilelist, profilecount);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)profilelist;
     (void)profilecount;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3714,13 +4811,20 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_sas
         HMODULE km_h_mod = LoadLibraryA("secur32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SaslGetContextOption")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(contexthandle, option, value, size, needed) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(contexthandle, option, value, size, needed);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)contexthandle;
     (void)option;
     (void)value;
     (void)size;
     (void)needed;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3737,10 +4841,17 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_sas
         HMODULE km_h_mod = LoadLibraryA("secur32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SaslGetProfilePackageA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(profilename, packageinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(profilename, packageinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)profilename;
     (void)packageinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3757,10 +4868,17 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_sas
         HMODULE km_h_mod = LoadLibraryA("secur32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SaslGetProfilePackageW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(profilename, packageinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(profilename, packageinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)profilename;
     (void)packageinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3777,10 +4895,17 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_sas
         HMODULE km_h_mod = LoadLibraryA("secur32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SaslIdentifyPackageA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pinput, packageinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pinput, packageinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pinput;
     (void)packageinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3797,10 +4922,17 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_sas
         HMODULE km_h_mod = LoadLibraryA("secur32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SaslIdentifyPackageW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pinput, packageinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pinput, packageinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pinput;
     (void)packageinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3827,7 +4959,13 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_sas
         HMODULE km_h_mod = LoadLibraryA("secur32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SaslInitializeSecurityContextA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(phcredential, phcontext, psztargetname, fcontextreq, reserved1, targetdatarep, pinput, reserved2, phnewcontext, poutput, pfcontextattr, ptsexpiry) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(phcredential, phcontext, psztargetname, fcontextreq, reserved1, targetdatarep, pinput, reserved2, phnewcontext, poutput, pfcontextattr, ptsexpiry);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)phcredential;
     (void)phcontext;
@@ -3841,6 +4979,7 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_sas
     (void)poutput;
     (void)pfcontextattr;
     (void)ptsexpiry;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3867,7 +5006,13 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_sas
         HMODULE km_h_mod = LoadLibraryA("secur32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SaslInitializeSecurityContextW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(phcredential, phcontext, psztargetname, fcontextreq, reserved1, targetdatarep, pinput, reserved2, phnewcontext, poutput, pfcontextattr, ptsexpiry) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(phcredential, phcontext, psztargetname, fcontextreq, reserved1, targetdatarep, pinput, reserved2, phnewcontext, poutput, pfcontextattr, ptsexpiry);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)phcredential;
     (void)phcontext;
@@ -3881,6 +5026,7 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_sas
     (void)poutput;
     (void)pfcontextattr;
     (void)ptsexpiry;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3899,12 +5045,19 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_sas
         HMODULE km_h_mod = LoadLibraryA("secur32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SaslSetContextOption")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(contexthandle, option, value, size) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(contexthandle, option, value, size);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)contexthandle;
     (void)option;
     (void)value;
     (void)size;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3920,9 +5073,14 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_sen
         HMODULE km_h_mod = LoadLibraryA("sas.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SendSAS")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(asuser);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(asuser);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)asuser;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -3940,12 +5098,19 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_set
         HMODULE km_h_mod = LoadLibraryA("secur32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetContextAttributesA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(phcontext, ulattribute, pbuffer, cbbuffer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(phcontext, ulattribute, pbuffer, cbbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)phcontext;
     (void)ulattribute;
     (void)pbuffer;
     (void)cbbuffer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3964,12 +5129,19 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_set
         HMODULE km_h_mod = LoadLibraryA("secur32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetContextAttributesW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(phcontext, ulattribute, pbuffer, cbbuffer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(phcontext, ulattribute, pbuffer, cbbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)phcontext;
     (void)ulattribute;
     (void)pbuffer;
     (void)cbbuffer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3988,12 +5160,19 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_set
         HMODULE km_h_mod = LoadLibraryA("secur32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetCredentialsAttributesA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(phcredential, ulattribute, pbuffer, cbbuffer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(phcredential, ulattribute, pbuffer, cbbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)phcredential;
     (void)ulattribute;
     (void)pbuffer;
     (void)cbbuffer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4012,12 +5191,19 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_set
         HMODULE km_h_mod = LoadLibraryA("secur32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetCredentialsAttributesW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(phcredential, ulattribute, pbuffer, cbbuffer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(phcredential, ulattribute, pbuffer, cbbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)phcredential;
     (void)ulattribute;
     (void)pbuffer;
     (void)cbbuffer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4036,12 +5222,19 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_ssl
         HMODULE km_h_mod = LoadLibraryA("schannel.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SslCrackCertificate")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pbcertificate, cbcertificate, dwflags, ppcertificate) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pbcertificate, cbcertificate, dwflags, ppcertificate);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pbcertificate;
     (void)cbcertificate;
     (void)dwflags;
     (void)ppcertificate;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4058,10 +5251,17 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_ssl
         HMODULE km_h_mod = LoadLibraryA("schannel.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SslEmptyCacheA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(psztargetname, dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(psztargetname, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)psztargetname;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4078,10 +5278,17 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_ssl
         HMODULE km_h_mod = LoadLibraryA("schannel.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SslEmptyCacheW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(psztargetname, dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(psztargetname, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)psztargetname;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4097,9 +5304,14 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_ssl
         HMODULE km_h_mod = LoadLibraryA("schannel.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SslFreeCertificate")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pcertificate);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pcertificate);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pcertificate;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -4115,10 +5327,15 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_ssl
         HMODULE km_h_mod = LoadLibraryA("schannel.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SslGenerateRandomBits")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(prandomdata, crandomdata);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(prandomdata, crandomdata);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)prandomdata;
     (void)crandomdata;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -4138,7 +5355,13 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_ssl
         HMODULE km_h_mod = LoadLibraryA("schannel.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SslGetExtensions")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(clienthello, clienthellobytesize, genericextensions, genericextensionscount, bytestoread, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(clienthello, clienthellobytesize, genericextensions, genericextensionscount, bytestoread, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)clienthello;
     (void)clienthellobytesize;
@@ -4146,6 +5369,7 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_ssl
     (void)genericextensionscount;
     (void)bytestoread;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4161,9 +5385,16 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_ssl
         HMODULE km_h_mod = LoadLibraryA("schannel.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SslGetMaximumKeySize")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(reserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(reserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)reserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4183,13 +5414,20 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_ssl
         HMODULE km_h_mod = LoadLibraryA("schannel.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SslGetServerIdentity")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(clienthello, clienthellosize, serveridentity, serveridentitysize, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(clienthello, clienthellosize, serveridentity, serveridentitysize, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)clienthello;
     (void)clienthellosize;
     (void)serveridentity;
     (void)serveridentitysize;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4208,12 +5446,19 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_ssp
         HMODULE km_h_mod = LoadLibraryA("secur32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SspiCompareAuthIdentities")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(authidentity1, authidentity2, samesupplieduser, samesuppliedidentity) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(authidentity1, authidentity2, samesupplieduser, samesuppliedidentity);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)authidentity1;
     (void)authidentity2;
     (void)samesupplieduser;
     (void)samesuppliedidentity;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4230,10 +5475,17 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_ssp
         HMODULE km_h_mod = LoadLibraryA("secur32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SspiCopyAuthIdentity")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(authdata, authdatacopy) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(authdata, authdatacopy);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)authdata;
     (void)authdatacopy;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4249,9 +5501,16 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_ssp
         HMODULE km_h_mod = LoadLibraryA("secur32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SspiDecryptAuthIdentity")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(encryptedauthdata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(encryptedauthdata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)encryptedauthdata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4268,10 +5527,17 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_ssp
         HMODULE km_h_mod = LoadLibraryA("sspicli.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SspiDecryptAuthIdentityEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(options, encryptedauthdata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(options, encryptedauthdata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)options;
     (void)encryptedauthdata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4290,12 +5556,19 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_ssp
         HMODULE km_h_mod = LoadLibraryA("secur32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SspiEncodeAuthIdentityAsStrings")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pauthidentity, ppszusername, ppszdomainname, ppszpackedcredentialsstring) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pauthidentity, ppszusername, ppszdomainname, ppszpackedcredentialsstring);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pauthidentity;
     (void)ppszusername;
     (void)ppszdomainname;
     (void)ppszpackedcredentialsstring;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4314,12 +5587,19 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_ssp
         HMODULE km_h_mod = LoadLibraryA("secur32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SspiEncodeStringsAsAuthIdentity")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszusername, pszdomainname, pszpackedcredentialsstring, ppauthidentity) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszusername, pszdomainname, pszpackedcredentialsstring, ppauthidentity);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszusername;
     (void)pszdomainname;
     (void)pszpackedcredentialsstring;
     (void)ppauthidentity;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4335,9 +5615,16 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_ssp
         HMODULE km_h_mod = LoadLibraryA("secur32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SspiEncryptAuthIdentity")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(authdata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(authdata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)authdata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4354,10 +5641,17 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_ssp
         HMODULE km_h_mod = LoadLibraryA("sspicli.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SspiEncryptAuthIdentityEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(options, authdata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(options, authdata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)options;
     (void)authdata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4375,11 +5669,18 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_ssp
         HMODULE km_h_mod = LoadLibraryA("secur32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SspiExcludePackage")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(authidentity, pszpackagename, ppnewauthidentity) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(authidentity, pszpackagename, ppnewauthidentity);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)authidentity;
     (void)pszpackagename;
     (void)ppnewauthidentity;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4395,9 +5696,14 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_ssp
         HMODULE km_h_mod = LoadLibraryA("secur32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SspiFreeAuthIdentity")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(authdata);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(authdata);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)authdata;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -4413,10 +5719,17 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_ssp
         HMODULE km_h_mod = LoadLibraryA("secur32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SspiGetTargetHostName")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(psztargetname, pszhostname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(psztargetname, pszhostname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)psztargetname;
     (void)pszhostname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4432,9 +5745,16 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_ssp
         HMODULE km_h_mod = LoadLibraryA("secur32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SspiIsAuthIdentityEncrypted")));
     }
-    bool km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(encryptedauthdata) : false;
+    bool km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(encryptedauthdata);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)encryptedauthdata;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return Napi::Boolean::New(km_env, km_res);
@@ -4450,9 +5770,16 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_ssp
         HMODULE km_h_mod = LoadLibraryA("credui.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SspiIsPromptingNeeded")));
     }
-    bool km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(errororntstatus) : false;
+    bool km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(errororntstatus);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)errororntstatus;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return Napi::Boolean::New(km_env, km_res);
@@ -4468,9 +5795,14 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_ssp
         HMODULE km_h_mod = LoadLibraryA("secur32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SspiLocalFree")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(databuffer);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(databuffer);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)databuffer;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -4487,11 +5819,18 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_ssp
         HMODULE km_h_mod = LoadLibraryA("secur32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SspiMarshalAuthIdentity")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(authidentity, authidentitylength, authidentitybytearray) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(authidentity, authidentitylength, authidentitybytearray);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)authidentity;
     (void)authidentitylength;
     (void)authidentitybytearray;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4510,12 +5849,19 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_ssp
         HMODULE km_h_mod = LoadLibraryA("secur32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SspiPrepareForCredRead")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(authidentity, psztargetname, pcredmancredentialtype, ppszcredmantargetname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(authidentity, psztargetname, pcredmancredentialtype, ppszcredmantargetname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)authidentity;
     (void)psztargetname;
     (void)pcredmancredentialtype;
     (void)ppszcredmantargetname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4537,7 +5883,13 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_ssp
         HMODULE km_h_mod = LoadLibraryA("secur32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SspiPrepareForCredWrite")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(authidentity, psztargetname, pcredmancredentialtype, ppszcredmantargetname, ppszcredmanusername, ppcredentialblob, pcredentialblobsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(authidentity, psztargetname, pcredmancredentialtype, ppszcredmantargetname, ppszcredmanusername, ppcredentialblob, pcredentialblobsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)authidentity;
     (void)psztargetname;
@@ -4546,6 +5898,7 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_ssp
     (void)ppszcredmanusername;
     (void)ppcredentialblob;
     (void)pcredentialblobsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4568,7 +5921,13 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_ssp
         HMODULE km_h_mod = LoadLibraryA("credui.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SspiPromptForCredentialsA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(psztargetname, puiinfo, dwautherror, pszpackage, pinputauthidentity, ppauthidentity, pfsave, dwflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(psztargetname, puiinfo, dwautherror, pszpackage, pinputauthidentity, ppauthidentity, pfsave, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)psztargetname;
     (void)puiinfo;
@@ -4578,6 +5937,7 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_ssp
     (void)ppauthidentity;
     (void)pfsave;
     (void)dwflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4600,7 +5960,13 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_ssp
         HMODULE km_h_mod = LoadLibraryA("credui.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SspiPromptForCredentialsW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(psztargetname, puiinfo, dwautherror, pszpackage, pinputauthidentity, ppauthidentity, pfsave, dwflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(psztargetname, puiinfo, dwautherror, pszpackage, pinputauthidentity, ppauthidentity, pfsave, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)psztargetname;
     (void)puiinfo;
@@ -4610,6 +5976,7 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_ssp
     (void)ppauthidentity;
     (void)pfsave;
     (void)dwflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4626,10 +5993,17 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_ssp
         HMODULE km_h_mod = LoadLibraryA("sspicli.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SspiSetChannelBindingFlags")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pbindings, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pbindings, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pbindings;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4647,11 +6021,18 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_ssp
         HMODULE km_h_mod = LoadLibraryA("secur32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SspiUnmarshalAuthIdentity")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(authidentitylength, authidentitybytearray, ppauthidentity) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(authidentitylength, authidentitybytearray, ppauthidentity);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)authidentitylength;
     (void)authidentitybytearray;
     (void)ppauthidentity;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4667,9 +6048,16 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_ssp
         HMODULE km_h_mod = LoadLibraryA("secur32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SspiValidateAuthIdentity")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(authdata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(authdata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)authdata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4685,9 +6073,14 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_ssp
         HMODULE km_h_mod = LoadLibraryA("secur32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SspiZeroAuthIdentity")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(authdata);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(authdata);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)authdata;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -4701,8 +6094,15 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_tok
         HMODULE km_h_mod = LoadLibraryA("tokenbinding.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TokenBindingDeleteAllBindings")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4718,9 +6118,16 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_tok
         HMODULE km_h_mod = LoadLibraryA("tokenbinding.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TokenBindingDeleteBinding")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(targeturl) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(targeturl);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)targeturl;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4745,7 +6152,13 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_tok
         HMODULE km_h_mod = LoadLibraryA("tokenbinding.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TokenBindingGenerateBinding")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(keytype, targeturl, bindingtype, tlsekm, tlsekmsize, extensionformat, extensiondata, tokenbinding, tokenbindingsize, resultdata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(keytype, targeturl, bindingtype, tlsekm, tlsekmsize, extensionformat, extensiondata, tokenbinding, tokenbindingsize, resultdata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)keytype;
     (void)targeturl;
@@ -4757,6 +6170,7 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_tok
     (void)tokenbinding;
     (void)tokenbindingsize;
     (void)resultdata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4775,12 +6189,19 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_tok
         HMODULE km_h_mod = LoadLibraryA("tokenbinding.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TokenBindingGenerateID")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(keytype, publickey, publickeysize, resultdata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(keytype, publickey, publickeysize, resultdata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)keytype;
     (void)publickey;
     (void)publickeysize;
     (void)resultdata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4798,11 +6219,18 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_tok
         HMODULE km_h_mod = LoadLibraryA("tokenbinding.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TokenBindingGenerateIDForUri")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(keytype, targeturi, resultdata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(keytype, targeturi, resultdata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)keytype;
     (void)targeturi;
     (void)resultdata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4822,13 +6250,20 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_tok
         HMODULE km_h_mod = LoadLibraryA("tokenbinding.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TokenBindingGenerateMessage")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(tokenbindings, tokenbindingssize, tokenbindingscount, tokenbindingmessage, tokenbindingmessagesize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(tokenbindings, tokenbindingssize, tokenbindingscount, tokenbindingmessage, tokenbindingmessagesize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)tokenbindings;
     (void)tokenbindingssize;
     (void)tokenbindingscount;
     (void)tokenbindingmessage;
     (void)tokenbindingmessagesize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4845,10 +6280,17 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_tok
         HMODULE km_h_mod = LoadLibraryA("tokenbinding.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TokenBindingGetHighestSupportedVersion")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(majorversion, minorversion) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(majorversion, minorversion);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)majorversion;
     (void)minorversion;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4864,9 +6306,16 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_tok
         HMODULE km_h_mod = LoadLibraryA("tokenbinding.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TokenBindingGetKeyTypesClient")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(keytypes) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(keytypes);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)keytypes;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4882,9 +6331,16 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_tok
         HMODULE km_h_mod = LoadLibraryA("tokenbinding.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TokenBindingGetKeyTypesServer")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(keytypes) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(keytypes);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)keytypes;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4905,7 +6361,13 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_tok
         HMODULE km_h_mod = LoadLibraryA("tokenbinding.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TokenBindingVerifyMessage")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(tokenbindingmessage, tokenbindingmessagesize, keytype, tlsekm, tlsekmsize, resultlist) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(tokenbindingmessage, tokenbindingmessagesize, keytype, tlsekm, tlsekmsize, resultlist);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)tokenbindingmessage;
     (void)tokenbindingmessagesize;
@@ -4913,6 +6375,7 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_tok
     (void)tlsekm;
     (void)tlsekmsize;
     (void)resultlist;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4932,13 +6395,20 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_tra
         HMODULE km_h_mod = LoadLibraryA("secur32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TranslateNameA")));
     }
-    bool km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpaccountname, accountnameformat, desirednameformat, lptranslatedname, nsize) : false;
+    bool km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpaccountname, accountnameformat, desirednameformat, lptranslatedname, nsize);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)lpaccountname;
     (void)accountnameformat;
     (void)desirednameformat;
     (void)lptranslatedname;
     (void)nsize;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return Napi::Boolean::New(km_env, km_res);
@@ -4958,13 +6428,20 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_tra
         HMODULE km_h_mod = LoadLibraryA("secur32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TranslateNameW")));
     }
-    bool km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpaccountname, accountnameformat, desirednameformat, lptranslatedname, nsize) : false;
+    bool km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpaccountname, accountnameformat, desirednameformat, lptranslatedname, nsize);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)lpaccountname;
     (void)accountnameformat;
     (void)desirednameformat;
     (void)lptranslatedname;
     (void)nsize;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return Napi::Boolean::New(km_env, km_res);
@@ -4983,12 +6460,19 @@ static Napi::Value windowssys_windows_win32_security_authentication_identity_ver
         HMODULE km_h_mod = LoadLibraryA("secur32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "VerifySignature")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(phcontext, pmessage, messageseqno, pfqop) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(phcontext, pmessage, messageseqno, pfqop);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)phcontext;
     (void)pmessage;
     (void)messageseqno;
     (void)pfqop;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

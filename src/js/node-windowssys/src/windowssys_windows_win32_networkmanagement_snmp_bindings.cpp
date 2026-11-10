@@ -62,10 +62,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpCancelMsg
         HMODULE km_h_mod = LoadLibraryA("wsnmp32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SnmpCancelMsg")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(session, reqid) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(session, reqid);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)session;
     (void)reqid;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -80,8 +87,15 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpCleanup_n
         HMODULE km_h_mod = LoadLibraryA("wsnmp32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SnmpCleanup")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -96,8 +110,15 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpCleanupEx
         HMODULE km_h_mod = LoadLibraryA("wsnmp32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SnmpCleanupEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -113,9 +134,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpClose_nap
         HMODULE km_h_mod = LoadLibraryA("wsnmp32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SnmpClose")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(session) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(session);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)session;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -132,10 +160,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpContextTo
         HMODULE km_h_mod = LoadLibraryA("wsnmp32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SnmpContextToStr")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(context, string) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(context, string);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)context;
     (void)string;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -151,9 +186,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpCountVbl_
         HMODULE km_h_mod = LoadLibraryA("wsnmp32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SnmpCountVbl")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(vbl) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(vbl);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)vbl;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -174,7 +216,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpCreatePdu
         HMODULE km_h_mod = LoadLibraryA("wsnmp32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SnmpCreatePdu")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(session, pdu_type, request_id, error_status, error_index, varbindlist) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(session, pdu_type, request_id, error_status, error_index, varbindlist);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)session;
     (void)pdu_type;
@@ -182,6 +230,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpCreatePdu
     (void)error_status;
     (void)error_index;
     (void)varbindlist;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -200,12 +249,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpCreateSes
         HMODULE km_h_mod = LoadLibraryA("wsnmp32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SnmpCreateSession")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, wmsg, fcallback, lpclientdata) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, wmsg, fcallback, lpclientdata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)wmsg;
     (void)fcallback;
     (void)lpclientdata;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -223,11 +279,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpCreateVbl
         HMODULE km_h_mod = LoadLibraryA("wsnmp32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SnmpCreateVbl")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(session, name, value) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(session, name, value);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)session;
     (void)name;
     (void)value;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -248,7 +311,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpDecodeMsg
         HMODULE km_h_mod = LoadLibraryA("wsnmp32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SnmpDecodeMsg")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(session, srcentity, dstentity, context, pdu, msgbufdesc) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(session, srcentity, dstentity, context, pdu, msgbufdesc);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)session;
     (void)srcentity;
@@ -256,6 +325,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpDecodeMsg
     (void)context;
     (void)pdu;
     (void)msgbufdesc;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -272,10 +342,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpDeleteVb_
         HMODULE km_h_mod = LoadLibraryA("wsnmp32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SnmpDeleteVb")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(vbl, arg_1_index) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(vbl, arg_1_index);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)vbl;
     (void)arg_1_index;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -292,10 +369,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpDuplicate
         HMODULE km_h_mod = LoadLibraryA("wsnmp32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SnmpDuplicatePdu")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(session, pdu) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(session, pdu);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)session;
     (void)pdu;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -312,10 +396,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpDuplicate
         HMODULE km_h_mod = LoadLibraryA("wsnmp32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SnmpDuplicateVbl")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(session, vbl) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(session, vbl);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)session;
     (void)vbl;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -336,7 +427,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpEncodeMsg
         HMODULE km_h_mod = LoadLibraryA("wsnmp32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SnmpEncodeMsg")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(session, srcentity, dstentity, context, pdu, msgbufdesc) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(session, srcentity, dstentity, context, pdu, msgbufdesc);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)session;
     (void)srcentity;
@@ -344,6 +441,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpEncodeMsg
     (void)context;
     (void)pdu;
     (void)msgbufdesc;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -361,11 +459,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpEntityToS
         HMODULE km_h_mod = LoadLibraryA("wsnmp32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SnmpEntityToStr")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(entity, size, string) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(entity, size, string);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)entity;
     (void)size;
     (void)string;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -381,9 +486,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpFreeConte
         HMODULE km_h_mod = LoadLibraryA("wsnmp32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SnmpFreeContext")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(context) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(context);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)context;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -400,10 +512,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpFreeDescr
         HMODULE km_h_mod = LoadLibraryA("wsnmp32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SnmpFreeDescriptor")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(syntax, descriptor) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(syntax, descriptor);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)syntax;
     (void)descriptor;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -419,9 +538,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpFreeEntit
         HMODULE km_h_mod = LoadLibraryA("wsnmp32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SnmpFreeEntity")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(entity) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(entity);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)entity;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -437,9 +563,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpFreePdu_n
         HMODULE km_h_mod = LoadLibraryA("wsnmp32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SnmpFreePdu")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pdu) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pdu);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pdu;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -455,9 +588,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpFreeVbl_n
         HMODULE km_h_mod = LoadLibraryA("wsnmp32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SnmpFreeVbl")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(vbl) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(vbl);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)vbl;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -473,9 +613,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpGetLastEr
         HMODULE km_h_mod = LoadLibraryA("wsnmp32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SnmpGetLastError")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(session) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(session);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)session;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -496,7 +643,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpGetPduDat
         HMODULE km_h_mod = LoadLibraryA("wsnmp32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SnmpGetPduData")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pdu, pdu_type, request_id, error_status, error_index, varbindlist) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pdu, pdu_type, request_id, error_status, error_index, varbindlist);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pdu;
     (void)pdu_type;
@@ -504,6 +657,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpGetPduDat
     (void)error_status;
     (void)error_index;
     (void)varbindlist;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -519,9 +673,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpGetRetran
         HMODULE km_h_mod = LoadLibraryA("wsnmp32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SnmpGetRetransmitMode")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(nretransmitmode) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(nretransmitmode);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)nretransmitmode;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -539,11 +700,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpGetRetry_
         HMODULE km_h_mod = LoadLibraryA("wsnmp32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SnmpGetRetry")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hentity, npolicyretry, nactualretry) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hentity, npolicyretry, nactualretry);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hentity;
     (void)npolicyretry;
     (void)nactualretry;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -561,11 +729,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpGetTimeou
         HMODULE km_h_mod = LoadLibraryA("wsnmp32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SnmpGetTimeout")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hentity, npolicytimeout, nactualtimeout) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hentity, npolicytimeout, nactualtimeout);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hentity;
     (void)npolicytimeout;
     (void)nactualtimeout;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -581,9 +756,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpGetTransl
         HMODULE km_h_mod = LoadLibraryA("wsnmp32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SnmpGetTranslateMode")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ntranslatemode) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ntranslatemode);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ntranslatemode;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -602,12 +784,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpGetVb_nap
         HMODULE km_h_mod = LoadLibraryA("wsnmp32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SnmpGetVb")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(vbl, arg_1_index, name, value) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(vbl, arg_1_index, name, value);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)vbl;
     (void)arg_1_index;
     (void)name;
     (void)value;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -623,9 +812,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpGetVendor
         HMODULE km_h_mod = LoadLibraryA("wsnmp32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SnmpGetVendorInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(vendorinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(vendorinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)vendorinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -642,10 +838,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpListen_na
         HMODULE km_h_mod = LoadLibraryA("wsnmp32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SnmpListen")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hentity, lstatus) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hentity, lstatus);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hentity;
     (void)lstatus;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -663,11 +866,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpListenEx_
         HMODULE km_h_mod = LoadLibraryA("wsnmp32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SnmpListenEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hentity, lstatus, nuseentityaddr) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hentity, lstatus, nuseentityaddr);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hentity;
     (void)lstatus;
     (void)nuseentityaddr;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -683,9 +893,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpMgrClose_
         HMODULE km_h_mod = LoadLibraryA("mgmtapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SnmpMgrClose")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(session) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(session);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)session;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -707,7 +924,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpMgrCtl_na
         HMODULE km_h_mod = LoadLibraryA("mgmtapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SnmpMgrCtl")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(session, dwctlcode, lpvinbuffer, cbinbuffer, lpvoutbuffer, cboutbuffer, lpcbbytesreturned) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(session, dwctlcode, lpvinbuffer, cbinbuffer, lpvoutbuffer, cboutbuffer, lpcbbytesreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)session;
     (void)dwctlcode;
@@ -716,6 +939,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpMgrCtl_na
     (void)lpvoutbuffer;
     (void)cboutbuffer;
     (void)lpcbbytesreturned;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -736,7 +960,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpMgrGetTra
         HMODULE km_h_mod = LoadLibraryA("mgmtapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SnmpMgrGetTrap")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enterprise, ipaddress, generictrap, specifictrap, timestamp, variablebindings) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enterprise, ipaddress, generictrap, specifictrap, timestamp, variablebindings);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enterprise;
     (void)ipaddress;
@@ -744,6 +974,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpMgrGetTra
     (void)specifictrap;
     (void)timestamp;
     (void)variablebindings;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -766,7 +997,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpMgrGetTra
         HMODULE km_h_mod = LoadLibraryA("mgmtapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SnmpMgrGetTrapEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enterprise, agentaddress, sourceaddress, generictrap, specifictrap, community, timestamp, variablebindings) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enterprise, agentaddress, sourceaddress, generictrap, specifictrap, community, timestamp, variablebindings);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enterprise;
     (void)agentaddress;
@@ -776,6 +1013,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpMgrGetTra
     (void)community;
     (void)timestamp;
     (void)variablebindings;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -792,10 +1030,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpMgrOidToS
         HMODULE km_h_mod = LoadLibraryA("mgmtapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SnmpMgrOidToStr")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(oid, string) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(oid, string);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)oid;
     (void)string;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -814,13 +1059,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpMgrOpen_n
         HMODULE km_h_mod = LoadLibraryA("mgmtapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SnmpMgrOpen")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpagentaddress, lpagentcommunity, ntimeout, nretries) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpagentaddress, lpagentcommunity, ntimeout, nretries);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)lpagentaddress;
     (void)lpagentcommunity;
     (void)ntimeout;
     (void)nretries;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -839,13 +1091,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpMgrReques
         HMODULE km_h_mod = LoadLibraryA("mgmtapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SnmpMgrRequest")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(session, requesttype, variablebindings, errorstatus, errorindex) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(session, requesttype, variablebindings, errorstatus, errorindex);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)session;
     (void)requesttype;
     (void)variablebindings;
     (void)errorstatus;
     (void)errorindex;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -862,10 +1121,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpMgrStrToO
         HMODULE km_h_mod = LoadLibraryA("mgmtapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SnmpMgrStrToOid")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(string, oid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(string, oid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)string;
     (void)oid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -881,9 +1147,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpMgrTrapLi
         HMODULE km_h_mod = LoadLibraryA("mgmtapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SnmpMgrTrapListen")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(phtrapavailable) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(phtrapavailable);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)phtrapavailable;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -902,12 +1175,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpOidCompar
         HMODULE km_h_mod = LoadLibraryA("wsnmp32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SnmpOidCompare")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(xoid, yoid, maxlen, result) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(xoid, yoid, maxlen, result);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)xoid;
     (void)yoid;
     (void)maxlen;
     (void)result;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -924,10 +1204,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpOidCopy_n
         HMODULE km_h_mod = LoadLibraryA("wsnmp32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SnmpOidCopy")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(srcoid, dstoid) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(srcoid, dstoid);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)srcoid;
     (void)dstoid;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -945,11 +1232,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpOidToStr_
         HMODULE km_h_mod = LoadLibraryA("wsnmp32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SnmpOidToStr")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(srcoid, size, string) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(srcoid, size, string);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)srcoid;
     (void)size;
     (void)string;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -966,10 +1260,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpOpen_napi
         HMODULE km_h_mod = LoadLibraryA("wsnmp32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SnmpOpen")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, wmsg) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, wmsg);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)wmsg;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -989,13 +1290,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpRecvMsg_n
         HMODULE km_h_mod = LoadLibraryA("wsnmp32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SnmpRecvMsg")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(session, srcentity, dstentity, context, pdu) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(session, srcentity, dstentity, context, pdu);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)session;
     (void)srcentity;
     (void)dstentity;
     (void)context;
     (void)pdu;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1016,7 +1324,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpRegister_
         HMODULE km_h_mod = LoadLibraryA("wsnmp32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SnmpRegister")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(session, srcentity, dstentity, context, notification, state) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(session, srcentity, dstentity, context, notification, state);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)session;
     (void)srcentity;
@@ -1024,6 +1338,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpRegister_
     (void)context;
     (void)notification;
     (void)state;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1043,13 +1358,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpSendMsg_n
         HMODULE km_h_mod = LoadLibraryA("wsnmp32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SnmpSendMsg")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(session, srcentity, dstentity, context, pdu) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(session, srcentity, dstentity, context, pdu);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)session;
     (void)srcentity;
     (void)dstentity;
     (void)context;
     (void)pdu;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1070,7 +1392,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpSetPduDat
         HMODULE km_h_mod = LoadLibraryA("wsnmp32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SnmpSetPduData")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pdu, pdu_type, request_id, non_repeaters, max_repetitions, varbindlist) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pdu, pdu_type, request_id, non_repeaters, max_repetitions, varbindlist);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pdu;
     (void)pdu_type;
@@ -1078,6 +1406,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpSetPduDat
     (void)non_repeaters;
     (void)max_repetitions;
     (void)varbindlist;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1094,10 +1423,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpSetPort_n
         HMODULE km_h_mod = LoadLibraryA("wsnmp32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SnmpSetPort")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hentity, nport) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hentity, nport);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hentity;
     (void)nport;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1113,9 +1449,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpSetRetran
         HMODULE km_h_mod = LoadLibraryA("wsnmp32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SnmpSetRetransmitMode")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(nretransmitmode) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(nretransmitmode);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)nretransmitmode;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1132,10 +1475,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpSetRetry_
         HMODULE km_h_mod = LoadLibraryA("wsnmp32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SnmpSetRetry")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hentity, npolicyretry) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hentity, npolicyretry);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hentity;
     (void)npolicyretry;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1152,10 +1502,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpSetTimeou
         HMODULE km_h_mod = LoadLibraryA("wsnmp32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SnmpSetTimeout")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hentity, npolicytimeout) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hentity, npolicytimeout);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hentity;
     (void)npolicytimeout;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1171,9 +1528,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpSetTransl
         HMODULE km_h_mod = LoadLibraryA("wsnmp32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SnmpSetTranslateMode")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ntranslatemode) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ntranslatemode);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ntranslatemode;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1192,12 +1556,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpSetVb_nap
         HMODULE km_h_mod = LoadLibraryA("wsnmp32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SnmpSetVb")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(vbl, arg_1_index, name, value) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(vbl, arg_1_index, name, value);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)vbl;
     (void)arg_1_index;
     (void)name;
     (void)value;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1217,13 +1588,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpStartup_n
         HMODULE km_h_mod = LoadLibraryA("wsnmp32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SnmpStartup")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(nmajorversion, nminorversion, nlevel, ntranslatemode, nretransmitmode) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(nmajorversion, nminorversion, nlevel, ntranslatemode, nretransmitmode);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)nmajorversion;
     (void)nminorversion;
     (void)nlevel;
     (void)ntranslatemode;
     (void)nretransmitmode;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1243,13 +1621,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpStartupEx
         HMODULE km_h_mod = LoadLibraryA("wsnmp32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SnmpStartupEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(nmajorversion, nminorversion, nlevel, ntranslatemode, nretransmitmode) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(nmajorversion, nminorversion, nlevel, ntranslatemode, nretransmitmode);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)nmajorversion;
     (void)nminorversion;
     (void)nlevel;
     (void)ntranslatemode;
     (void)nretransmitmode;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1266,10 +1651,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpStrToCont
         HMODULE km_h_mod = LoadLibraryA("wsnmp32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SnmpStrToContext")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(session, string) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(session, string);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)session;
     (void)string;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -1286,10 +1678,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpStrToEnti
         HMODULE km_h_mod = LoadLibraryA("wsnmp32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SnmpStrToEntity")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(session, string) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(session, string);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)session;
     (void)string;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -1306,10 +1705,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpStrToOid_
         HMODULE km_h_mod = LoadLibraryA("wsnmp32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SnmpStrToOid")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(string, dstoid) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(string, dstoid);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)string;
     (void)dstoid;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1324,8 +1730,15 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpSvcGetUpt
         HMODULE km_h_mod = LoadLibraryA("snmpapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SnmpSvcGetUptime")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1341,9 +1754,14 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpSvcSetLog
         HMODULE km_h_mod = LoadLibraryA("snmpapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SnmpSvcSetLogLevel")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(nloglevel);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(nloglevel);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)nloglevel;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -1358,9 +1776,14 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpSvcSetLog
         HMODULE km_h_mod = LoadLibraryA("snmpapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SnmpSvcSetLogType")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(nlogtype);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(nlogtype);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)nlogtype;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -1376,10 +1799,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpUtilAsnAn
         HMODULE km_h_mod = LoadLibraryA("snmpapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SnmpUtilAsnAnyCpy")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(panydst, panysrc) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(panydst, panysrc);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)panydst;
     (void)panysrc;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1395,9 +1825,14 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpUtilAsnAn
         HMODULE km_h_mod = LoadLibraryA("snmpapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SnmpUtilAsnAnyFree")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pany);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pany);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pany;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -1426,11 +1861,14 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpUtilDbgPr
             case 3: km_fn_ptr(nloglevel, szformat, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2)); break;
             default: km_fn_ptr(nloglevel, szformat, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2), static_cast<intptr_t>(km_va3)); break;
         }
+    } else {
+        errno = ENOSYS;
     }
 #else
     (void)nloglevel;
     (void)szformat;
     (void)km_vac; (void)km_va0; (void)km_va1; (void)km_va2; (void)km_va3;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -1446,11 +1884,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpUtilIdsTo
         HMODULE km_h_mod = LoadLibraryA("snmpapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SnmpUtilIdsToA")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ids, idlength) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ids, idlength);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)ids;
     (void)idlength;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1465,10 +1910,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpUtilMemAl
         HMODULE km_h_mod = LoadLibraryA("snmpapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SnmpUtilMemAlloc")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(nbytes) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(nbytes);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)nbytes;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1483,9 +1935,14 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpUtilMemFr
         HMODULE km_h_mod = LoadLibraryA("snmpapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SnmpUtilMemFree")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pmem);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pmem);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pmem;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -1501,11 +1958,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpUtilMemRe
         HMODULE km_h_mod = LoadLibraryA("snmpapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SnmpUtilMemReAlloc")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pmem, nbytes) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pmem, nbytes);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pmem;
     (void)nbytes;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1521,10 +1985,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpUtilOctet
         HMODULE km_h_mod = LoadLibraryA("snmpapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SnmpUtilOctetsCmp")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(poctets1, poctets2) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(poctets1, poctets2);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)poctets1;
     (void)poctets2;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1541,10 +2012,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpUtilOctet
         HMODULE km_h_mod = LoadLibraryA("snmpapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SnmpUtilOctetsCpy")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(poctetsdst, poctetssrc) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(poctetsdst, poctetssrc);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)poctetsdst;
     (void)poctetssrc;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1560,9 +2038,14 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpUtilOctet
         HMODULE km_h_mod = LoadLibraryA("snmpapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SnmpUtilOctetsFree")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(poctets);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(poctets);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)poctets;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -1579,11 +2062,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpUtilOctet
         HMODULE km_h_mod = LoadLibraryA("snmpapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SnmpUtilOctetsNCmp")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(poctets1, poctets2, nchars) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(poctets1, poctets2, nchars);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)poctets1;
     (void)poctets2;
     (void)nchars;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1600,10 +2090,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpUtilOidAp
         HMODULE km_h_mod = LoadLibraryA("snmpapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SnmpUtilOidAppend")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(poiddst, poidsrc) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(poiddst, poidsrc);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)poiddst;
     (void)poidsrc;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1620,10 +2117,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpUtilOidCm
         HMODULE km_h_mod = LoadLibraryA("snmpapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SnmpUtilOidCmp")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(poid1, poid2) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(poid1, poid2);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)poid1;
     (void)poid2;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1640,10 +2144,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpUtilOidCp
         HMODULE km_h_mod = LoadLibraryA("snmpapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SnmpUtilOidCpy")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(poiddst, poidsrc) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(poiddst, poidsrc);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)poiddst;
     (void)poidsrc;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1659,9 +2170,14 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpUtilOidFr
         HMODULE km_h_mod = LoadLibraryA("snmpapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SnmpUtilOidFree")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(poid);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(poid);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)poid;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -1678,11 +2194,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpUtilOidNC
         HMODULE km_h_mod = LoadLibraryA("snmpapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SnmpUtilOidNCmp")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(poid1, poid2, nsubids) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(poid1, poid2, nsubids);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)poid1;
     (void)poid2;
     (void)nsubids;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1698,10 +2221,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpUtilOidTo
         HMODULE km_h_mod = LoadLibraryA("snmpapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SnmpUtilOidToA")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(oid) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(oid);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)oid;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1716,9 +2246,14 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpUtilPrint
         HMODULE km_h_mod = LoadLibraryA("snmpapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SnmpUtilPrintAsnAny")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pany);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pany);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pany;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -1733,9 +2268,14 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpUtilPrint
         HMODULE km_h_mod = LoadLibraryA("snmpapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SnmpUtilPrintOid")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(oid);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(oid);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)oid;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -1751,10 +2291,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpUtilVarBi
         HMODULE km_h_mod = LoadLibraryA("snmpapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SnmpUtilVarBindCpy")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pvbdst, pvbsrc) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pvbdst, pvbsrc);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pvbdst;
     (void)pvbsrc;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1770,9 +2317,14 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpUtilVarBi
         HMODULE km_h_mod = LoadLibraryA("snmpapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SnmpUtilVarBindFree")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pvb);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pvb);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pvb;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -1788,10 +2340,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpUtilVarBi
         HMODULE km_h_mod = LoadLibraryA("snmpapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SnmpUtilVarBindListCpy")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pvbldst, pvblsrc) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pvbldst, pvblsrc);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pvbldst;
     (void)pvblsrc;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1807,9 +2366,14 @@ static Napi::Value windowssys_windows_win32_networkmanagement_snmp_snmpUtilVarBi
         HMODULE km_h_mod = LoadLibraryA("snmpapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SnmpUtilVarBindListFree")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pvbl);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pvbl);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pvbl;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }

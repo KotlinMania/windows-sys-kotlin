@@ -65,13 +65,20 @@ static Napi::Value windowssys_windows_win32_media_audio_activateAudioInterfaceAs
         HMODULE km_h_mod = LoadLibraryA("mmdevapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ActivateAudioInterfaceAsync")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(deviceinterfacepath, riid, activationparams, completionhandler, activationoperation) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(deviceinterfacepath, riid, activationparams, completionhandler, activationoperation);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)deviceinterfacepath;
     (void)riid;
     (void)activationparams;
     (void)completionhandler;
     (void)activationoperation;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -88,10 +95,17 @@ static Napi::Value windowssys_windows_win32_media_audio_coRegisterMessageFilter_
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoRegisterMessageFilter")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpmessagefilter, lplpmessagefilter) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpmessagefilter, lplpmessagefilter);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpmessagefilter;
     (void)lplpmessagefilter;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -107,9 +121,16 @@ static Napi::Value windowssys_windows_win32_media_audio_createCaptureAudioStateM
         HMODULE km_h_mod = LoadLibraryA("windows.media.mediacontrol.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateCaptureAudioStateMonitor")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(audiostatemonitor) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(audiostatemonitor);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)audiostatemonitor;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -126,10 +147,17 @@ static Napi::Value windowssys_windows_win32_media_audio_createCaptureAudioStateM
         HMODULE km_h_mod = LoadLibraryA("windows.media.mediacontrol.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateCaptureAudioStateMonitorForCategory")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(category, audiostatemonitor) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(category, audiostatemonitor);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)category;
     (void)audiostatemonitor;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -147,11 +175,18 @@ static Napi::Value windowssys_windows_win32_media_audio_createCaptureAudioStateM
         HMODULE km_h_mod = LoadLibraryA("windows.media.mediacontrol.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateCaptureAudioStateMonitorForCategoryAndDeviceId")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(category, deviceid, audiostatemonitor) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(category, deviceid, audiostatemonitor);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)category;
     (void)deviceid;
     (void)audiostatemonitor;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -169,11 +204,18 @@ static Napi::Value windowssys_windows_win32_media_audio_createCaptureAudioStateM
         HMODULE km_h_mod = LoadLibraryA("windows.media.mediacontrol.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateCaptureAudioStateMonitorForCategoryAndDeviceRole")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(category, role, audiostatemonitor) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(category, role, audiostatemonitor);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)category;
     (void)role;
     (void)audiostatemonitor;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -189,9 +231,16 @@ static Napi::Value windowssys_windows_win32_media_audio_createRenderAudioStateMo
         HMODULE km_h_mod = LoadLibraryA("windows.media.mediacontrol.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateRenderAudioStateMonitor")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(audiostatemonitor) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(audiostatemonitor);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)audiostatemonitor;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -208,10 +257,17 @@ static Napi::Value windowssys_windows_win32_media_audio_createRenderAudioStateMo
         HMODULE km_h_mod = LoadLibraryA("windows.media.mediacontrol.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateRenderAudioStateMonitorForCategory")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(category, audiostatemonitor) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(category, audiostatemonitor);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)category;
     (void)audiostatemonitor;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -229,11 +285,18 @@ static Napi::Value windowssys_windows_win32_media_audio_createRenderAudioStateMo
         HMODULE km_h_mod = LoadLibraryA("windows.media.mediacontrol.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateRenderAudioStateMonitorForCategoryAndDeviceId")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(category, deviceid, audiostatemonitor) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(category, deviceid, audiostatemonitor);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)category;
     (void)deviceid;
     (void)audiostatemonitor;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -251,11 +314,18 @@ static Napi::Value windowssys_windows_win32_media_audio_createRenderAudioStateMo
         HMODULE km_h_mod = LoadLibraryA("windows.media.mediacontrol.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateRenderAudioStateMonitorForCategoryAndDeviceRole")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(category, role, audiostatemonitor) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(category, role, audiostatemonitor);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)category;
     (void)role;
     (void)audiostatemonitor;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -273,11 +343,18 @@ static Napi::Value windowssys_windows_win32_media_audio_playSoundA_napi(const Na
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PlaySoundA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszsound, hmod, fdwsound) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszsound, hmod, fdwsound);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszsound;
     (void)hmod;
     (void)fdwsound;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -295,11 +372,18 @@ static Napi::Value windowssys_windows_win32_media_audio_playSoundW_napi(const Na
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PlaySoundW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszsound, hmod, fdwsound) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszsound, hmod, fdwsound);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszsound;
     (void)hmod;
     (void)fdwsound;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -319,13 +403,20 @@ static Napi::Value windowssys_windows_win32_media_audio_acmDriverAddA_napi(const
         HMODULE km_h_mod = LoadLibraryA("msacm32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "acmDriverAddA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(phadid, hinstmodule, lparam, dwpriority, fdwadd) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(phadid, hinstmodule, lparam, dwpriority, fdwadd);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)phadid;
     (void)hinstmodule;
     (void)lparam;
     (void)dwpriority;
     (void)fdwadd;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -345,13 +436,20 @@ static Napi::Value windowssys_windows_win32_media_audio_acmDriverAddW_napi(const
         HMODULE km_h_mod = LoadLibraryA("msacm32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "acmDriverAddW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(phadid, hinstmodule, lparam, dwpriority, fdwadd) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(phadid, hinstmodule, lparam, dwpriority, fdwadd);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)phadid;
     (void)hinstmodule;
     (void)lparam;
     (void)dwpriority;
     (void)fdwadd;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -368,10 +466,17 @@ static Napi::Value windowssys_windows_win32_media_audio_acmDriverClose_napi(cons
         HMODULE km_h_mod = LoadLibraryA("msacm32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "acmDriverClose")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(had, fdwclose) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(had, fdwclose);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)had;
     (void)fdwclose;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -389,11 +494,18 @@ static Napi::Value windowssys_windows_win32_media_audio_acmDriverDetailsA_napi(c
         HMODULE km_h_mod = LoadLibraryA("msacm32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "acmDriverDetailsA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hadid, padd, fdwdetails) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hadid, padd, fdwdetails);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hadid;
     (void)padd;
     (void)fdwdetails;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -411,11 +523,18 @@ static Napi::Value windowssys_windows_win32_media_audio_acmDriverDetailsW_napi(c
         HMODULE km_h_mod = LoadLibraryA("msacm32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "acmDriverDetailsW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hadid, padd, fdwdetails) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hadid, padd, fdwdetails);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hadid;
     (void)padd;
     (void)fdwdetails;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -433,11 +552,18 @@ static Napi::Value windowssys_windows_win32_media_audio_acmDriverEnum_napi(const
         HMODULE km_h_mod = LoadLibraryA("msacm32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "acmDriverEnum")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(fncallback, dwinstance, fdwenum) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(fncallback, dwinstance, fdwenum);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)fncallback;
     (void)dwinstance;
     (void)fdwenum;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -455,11 +581,18 @@ static Napi::Value windowssys_windows_win32_media_audio_acmDriverID_napi(const N
         HMODULE km_h_mod = LoadLibraryA("msacm32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "acmDriverID")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hao, phadid, fdwdriverid) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hao, phadid, fdwdriverid);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hao;
     (void)phadid;
     (void)fdwdriverid;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -478,12 +611,19 @@ static Napi::Value windowssys_windows_win32_media_audio_acmDriverMessage_napi(co
         HMODULE km_h_mod = LoadLibraryA("msacm32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "acmDriverMessage")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(had, umsg, lparam1, lparam2) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(had, umsg, lparam1, lparam2);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)had;
     (void)umsg;
     (void)lparam1;
     (void)lparam2;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -501,11 +641,18 @@ static Napi::Value windowssys_windows_win32_media_audio_acmDriverOpen_napi(const
         HMODULE km_h_mod = LoadLibraryA("msacm32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "acmDriverOpen")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(phad, hadid, fdwopen) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(phad, hadid, fdwopen);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)phad;
     (void)hadid;
     (void)fdwopen;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -523,11 +670,18 @@ static Napi::Value windowssys_windows_win32_media_audio_acmDriverPriority_napi(c
         HMODULE km_h_mod = LoadLibraryA("msacm32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "acmDriverPriority")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hadid, dwpriority, fdwpriority) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hadid, dwpriority, fdwpriority);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hadid;
     (void)dwpriority;
     (void)fdwpriority;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -544,10 +698,17 @@ static Napi::Value windowssys_windows_win32_media_audio_acmDriverRemove_napi(con
         HMODULE km_h_mod = LoadLibraryA("msacm32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "acmDriverRemove")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hadid, fdwremove) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hadid, fdwremove);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hadid;
     (void)fdwremove;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -563,9 +724,16 @@ static Napi::Value windowssys_windows_win32_media_audio_acmFilterChooseA_napi(co
         HMODULE km_h_mod = LoadLibraryA("msacm32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "acmFilterChooseA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pafltrc) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pafltrc);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pafltrc;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -581,9 +749,16 @@ static Napi::Value windowssys_windows_win32_media_audio_acmFilterChooseW_napi(co
         HMODULE km_h_mod = LoadLibraryA("msacm32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "acmFilterChooseW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pafltrc) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pafltrc);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pafltrc;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -601,11 +776,18 @@ static Napi::Value windowssys_windows_win32_media_audio_acmFilterDetailsA_napi(c
         HMODULE km_h_mod = LoadLibraryA("msacm32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "acmFilterDetailsA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(had, pafd, fdwdetails) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(had, pafd, fdwdetails);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)had;
     (void)pafd;
     (void)fdwdetails;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -623,11 +805,18 @@ static Napi::Value windowssys_windows_win32_media_audio_acmFilterDetailsW_napi(c
         HMODULE km_h_mod = LoadLibraryA("msacm32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "acmFilterDetailsW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(had, pafd, fdwdetails) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(had, pafd, fdwdetails);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)had;
     (void)pafd;
     (void)fdwdetails;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -647,13 +836,20 @@ static Napi::Value windowssys_windows_win32_media_audio_acmFilterEnumA_napi(cons
         HMODULE km_h_mod = LoadLibraryA("msacm32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "acmFilterEnumA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(had, pafd, fncallback, dwinstance, fdwenum) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(had, pafd, fncallback, dwinstance, fdwenum);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)had;
     (void)pafd;
     (void)fncallback;
     (void)dwinstance;
     (void)fdwenum;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -673,13 +869,20 @@ static Napi::Value windowssys_windows_win32_media_audio_acmFilterEnumW_napi(cons
         HMODULE km_h_mod = LoadLibraryA("msacm32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "acmFilterEnumW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(had, pafd, fncallback, dwinstance, fdwenum) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(had, pafd, fncallback, dwinstance, fdwenum);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)had;
     (void)pafd;
     (void)fncallback;
     (void)dwinstance;
     (void)fdwenum;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -697,11 +900,18 @@ static Napi::Value windowssys_windows_win32_media_audio_acmFilterTagDetailsA_nap
         HMODULE km_h_mod = LoadLibraryA("msacm32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "acmFilterTagDetailsA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(had, paftd, fdwdetails) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(had, paftd, fdwdetails);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)had;
     (void)paftd;
     (void)fdwdetails;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -719,11 +929,18 @@ static Napi::Value windowssys_windows_win32_media_audio_acmFilterTagDetailsW_nap
         HMODULE km_h_mod = LoadLibraryA("msacm32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "acmFilterTagDetailsW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(had, paftd, fdwdetails) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(had, paftd, fdwdetails);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)had;
     (void)paftd;
     (void)fdwdetails;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -743,13 +960,20 @@ static Napi::Value windowssys_windows_win32_media_audio_acmFilterTagEnumA_napi(c
         HMODULE km_h_mod = LoadLibraryA("msacm32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "acmFilterTagEnumA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(had, paftd, fncallback, dwinstance, fdwenum) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(had, paftd, fncallback, dwinstance, fdwenum);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)had;
     (void)paftd;
     (void)fncallback;
     (void)dwinstance;
     (void)fdwenum;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -769,13 +993,20 @@ static Napi::Value windowssys_windows_win32_media_audio_acmFilterTagEnumW_napi(c
         HMODULE km_h_mod = LoadLibraryA("msacm32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "acmFilterTagEnumW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(had, paftd, fncallback, dwinstance, fdwenum) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(had, paftd, fncallback, dwinstance, fdwenum);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)had;
     (void)paftd;
     (void)fncallback;
     (void)dwinstance;
     (void)fdwenum;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -791,9 +1022,16 @@ static Napi::Value windowssys_windows_win32_media_audio_acmFormatChooseA_napi(co
         HMODULE km_h_mod = LoadLibraryA("msacm32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "acmFormatChooseA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pafmtc) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pafmtc);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pafmtc;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -809,9 +1047,16 @@ static Napi::Value windowssys_windows_win32_media_audio_acmFormatChooseW_napi(co
         HMODULE km_h_mod = LoadLibraryA("msacm32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "acmFormatChooseW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pafmtc) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pafmtc);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pafmtc;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -829,11 +1074,18 @@ static Napi::Value windowssys_windows_win32_media_audio_acmFormatDetailsA_napi(c
         HMODULE km_h_mod = LoadLibraryA("msacm32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "acmFormatDetailsA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(had, pafd, fdwdetails) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(had, pafd, fdwdetails);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)had;
     (void)pafd;
     (void)fdwdetails;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -851,11 +1103,18 @@ static Napi::Value windowssys_windows_win32_media_audio_acmFormatDetailsW_napi(c
         HMODULE km_h_mod = LoadLibraryA("msacm32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "acmFormatDetailsW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(had, pafd, fdwdetails) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(had, pafd, fdwdetails);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)had;
     (void)pafd;
     (void)fdwdetails;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -875,13 +1134,20 @@ static Napi::Value windowssys_windows_win32_media_audio_acmFormatEnumA_napi(cons
         HMODULE km_h_mod = LoadLibraryA("msacm32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "acmFormatEnumA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(had, pafd, fncallback, dwinstance, fdwenum) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(had, pafd, fncallback, dwinstance, fdwenum);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)had;
     (void)pafd;
     (void)fncallback;
     (void)dwinstance;
     (void)fdwenum;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -901,13 +1167,20 @@ static Napi::Value windowssys_windows_win32_media_audio_acmFormatEnumW_napi(cons
         HMODULE km_h_mod = LoadLibraryA("msacm32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "acmFormatEnumW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(had, pafd, fncallback, dwinstance, fdwenum) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(had, pafd, fncallback, dwinstance, fdwenum);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)had;
     (void)pafd;
     (void)fncallback;
     (void)dwinstance;
     (void)fdwenum;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -927,13 +1200,20 @@ static Napi::Value windowssys_windows_win32_media_audio_acmFormatSuggest_napi(co
         HMODULE km_h_mod = LoadLibraryA("msacm32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "acmFormatSuggest")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(had, pwfxsrc, pwfxdst, cbwfxdst, fdwsuggest) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(had, pwfxsrc, pwfxdst, cbwfxdst, fdwsuggest);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)had;
     (void)pwfxsrc;
     (void)pwfxdst;
     (void)cbwfxdst;
     (void)fdwsuggest;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -951,11 +1231,18 @@ static Napi::Value windowssys_windows_win32_media_audio_acmFormatTagDetailsA_nap
         HMODULE km_h_mod = LoadLibraryA("msacm32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "acmFormatTagDetailsA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(had, paftd, fdwdetails) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(had, paftd, fdwdetails);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)had;
     (void)paftd;
     (void)fdwdetails;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -973,11 +1260,18 @@ static Napi::Value windowssys_windows_win32_media_audio_acmFormatTagDetailsW_nap
         HMODULE km_h_mod = LoadLibraryA("msacm32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "acmFormatTagDetailsW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(had, paftd, fdwdetails) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(had, paftd, fdwdetails);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)had;
     (void)paftd;
     (void)fdwdetails;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -997,13 +1291,20 @@ static Napi::Value windowssys_windows_win32_media_audio_acmFormatTagEnumA_napi(c
         HMODULE km_h_mod = LoadLibraryA("msacm32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "acmFormatTagEnumA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(had, paftd, fncallback, dwinstance, fdwenum) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(had, paftd, fncallback, dwinstance, fdwenum);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)had;
     (void)paftd;
     (void)fncallback;
     (void)dwinstance;
     (void)fdwenum;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1023,13 +1324,20 @@ static Napi::Value windowssys_windows_win32_media_audio_acmFormatTagEnumW_napi(c
         HMODULE km_h_mod = LoadLibraryA("msacm32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "acmFormatTagEnumW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(had, paftd, fncallback, dwinstance, fdwenum) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(had, paftd, fncallback, dwinstance, fdwenum);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)had;
     (void)paftd;
     (void)fncallback;
     (void)dwinstance;
     (void)fdwenum;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1044,8 +1352,15 @@ static Napi::Value windowssys_windows_win32_media_audio_acmGetVersion_napi(const
         HMODULE km_h_mod = LoadLibraryA("msacm32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "acmGetVersion")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1063,11 +1378,18 @@ static Napi::Value windowssys_windows_win32_media_audio_acmMetrics_napi(const Na
         HMODULE km_h_mod = LoadLibraryA("msacm32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "acmMetrics")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hao, umetric, pmetric) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hao, umetric, pmetric);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hao;
     (void)umetric;
     (void)pmetric;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1084,10 +1406,17 @@ static Napi::Value windowssys_windows_win32_media_audio_acmStreamClose_napi(cons
         HMODULE km_h_mod = LoadLibraryA("msacm32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "acmStreamClose")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(has, fdwclose) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(has, fdwclose);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)has;
     (void)fdwclose;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1105,11 +1434,18 @@ static Napi::Value windowssys_windows_win32_media_audio_acmStreamConvert_napi(co
         HMODULE km_h_mod = LoadLibraryA("msacm32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "acmStreamConvert")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(has, pash, fdwconvert) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(has, pash, fdwconvert);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)has;
     (void)pash;
     (void)fdwconvert;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1128,12 +1464,19 @@ static Napi::Value windowssys_windows_win32_media_audio_acmStreamMessage_napi(co
         HMODULE km_h_mod = LoadLibraryA("msacm32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "acmStreamMessage")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(has, umsg, lparam1, lparam2) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(has, umsg, lparam1, lparam2);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)has;
     (void)umsg;
     (void)lparam1;
     (void)lparam2;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1156,7 +1499,13 @@ static Napi::Value windowssys_windows_win32_media_audio_acmStreamOpen_napi(const
         HMODULE km_h_mod = LoadLibraryA("msacm32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "acmStreamOpen")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(phas, had, pwfxsrc, pwfxdst, pwfltr, dwcallback, dwinstance, fdwopen) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(phas, had, pwfxsrc, pwfxdst, pwfltr, dwcallback, dwinstance, fdwopen);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)phas;
     (void)had;
@@ -1166,6 +1515,7 @@ static Napi::Value windowssys_windows_win32_media_audio_acmStreamOpen_napi(const
     (void)dwcallback;
     (void)dwinstance;
     (void)fdwopen;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1183,11 +1533,18 @@ static Napi::Value windowssys_windows_win32_media_audio_acmStreamPrepareHeader_n
         HMODULE km_h_mod = LoadLibraryA("msacm32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "acmStreamPrepareHeader")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(has, pash, fdwprepare) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(has, pash, fdwprepare);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)has;
     (void)pash;
     (void)fdwprepare;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1204,10 +1561,17 @@ static Napi::Value windowssys_windows_win32_media_audio_acmStreamReset_napi(cons
         HMODULE km_h_mod = LoadLibraryA("msacm32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "acmStreamReset")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(has, fdwreset) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(has, fdwreset);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)has;
     (void)fdwreset;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1226,12 +1590,19 @@ static Napi::Value windowssys_windows_win32_media_audio_acmStreamSize_napi(const
         HMODULE km_h_mod = LoadLibraryA("msacm32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "acmStreamSize")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(has, cbinput, pdwoutputbytes, fdwsize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(has, cbinput, pdwoutputbytes, fdwsize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)has;
     (void)cbinput;
     (void)pdwoutputbytes;
     (void)fdwsize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1249,11 +1620,18 @@ static Napi::Value windowssys_windows_win32_media_audio_acmStreamUnprepareHeader
         HMODULE km_h_mod = LoadLibraryA("msacm32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "acmStreamUnprepareHeader")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(has, pash, fdwunprepare) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(has, pash, fdwunprepare);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)has;
     (void)pash;
     (void)fdwunprepare;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1271,11 +1649,18 @@ static Napi::Value windowssys_windows_win32_media_audio_auxGetDevCapsA_napi(cons
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "auxGetDevCapsA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(udeviceid, pac, cbac) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(udeviceid, pac, cbac);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)udeviceid;
     (void)pac;
     (void)cbac;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1293,11 +1678,18 @@ static Napi::Value windowssys_windows_win32_media_audio_auxGetDevCapsW_napi(cons
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "auxGetDevCapsW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(udeviceid, pac, cbac) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(udeviceid, pac, cbac);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)udeviceid;
     (void)pac;
     (void)cbac;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1312,8 +1704,15 @@ static Napi::Value windowssys_windows_win32_media_audio_auxGetNumDevs_napi(const
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "auxGetNumDevs")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1330,10 +1729,17 @@ static Napi::Value windowssys_windows_win32_media_audio_auxGetVolume_napi(const 
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "auxGetVolume")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(udeviceid, pdwvolume) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(udeviceid, pdwvolume);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)udeviceid;
     (void)pdwvolume;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1352,12 +1758,19 @@ static Napi::Value windowssys_windows_win32_media_audio_auxOutMessage_napi(const
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "auxOutMessage")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(udeviceid, umsg, dw1, dw2) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(udeviceid, umsg, dw1, dw2);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)udeviceid;
     (void)umsg;
     (void)dw1;
     (void)dw2;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1374,10 +1787,17 @@ static Napi::Value windowssys_windows_win32_media_audio_auxSetVolume_napi(const 
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "auxSetVolume")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(udeviceid, dwvolume) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(udeviceid, dwvolume);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)udeviceid;
     (void)dwvolume;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1395,11 +1815,18 @@ static Napi::Value windowssys_windows_win32_media_audio_midiConnect_napi(const N
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "midiConnect")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmi, hmo, preserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmi, hmo, preserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmi;
     (void)hmo;
     (void)preserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1417,11 +1844,18 @@ static Napi::Value windowssys_windows_win32_media_audio_midiDisconnect_napi(cons
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "midiDisconnect")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmi, hmo, preserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmi, hmo, preserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmi;
     (void)hmo;
     (void)preserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1439,11 +1873,18 @@ static Napi::Value windowssys_windows_win32_media_audio_midiInAddBuffer_napi(con
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "midiInAddBuffer")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmi, pmh, cbmh) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmi, pmh, cbmh);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmi;
     (void)pmh;
     (void)cbmh;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1459,9 +1900,16 @@ static Napi::Value windowssys_windows_win32_media_audio_midiInClose_napi(const N
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "midiInClose")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmi) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmi);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmi;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1479,11 +1927,18 @@ static Napi::Value windowssys_windows_win32_media_audio_midiInGetDevCapsA_napi(c
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "midiInGetDevCapsA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(udeviceid, pmic, cbmic) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(udeviceid, pmic, cbmic);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)udeviceid;
     (void)pmic;
     (void)cbmic;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1501,11 +1956,18 @@ static Napi::Value windowssys_windows_win32_media_audio_midiInGetDevCapsW_napi(c
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "midiInGetDevCapsW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(udeviceid, pmic, cbmic) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(udeviceid, pmic, cbmic);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)udeviceid;
     (void)pmic;
     (void)cbmic;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1523,11 +1985,18 @@ static Napi::Value windowssys_windows_win32_media_audio_midiInGetErrorTextA_napi
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "midiInGetErrorTextA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(mmrerror, psztext, cchtext) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(mmrerror, psztext, cchtext);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)mmrerror;
     (void)psztext;
     (void)cchtext;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1545,11 +2014,18 @@ static Napi::Value windowssys_windows_win32_media_audio_midiInGetErrorTextW_napi
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "midiInGetErrorTextW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(mmrerror, psztext, cchtext) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(mmrerror, psztext, cchtext);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)mmrerror;
     (void)psztext;
     (void)cchtext;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1566,10 +2042,17 @@ static Napi::Value windowssys_windows_win32_media_audio_midiInGetID_napi(const N
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "midiInGetID")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmi, pudeviceid) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmi, pudeviceid);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmi;
     (void)pudeviceid;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1584,8 +2067,15 @@ static Napi::Value windowssys_windows_win32_media_audio_midiInGetNumDevs_napi(co
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "midiInGetNumDevs")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1604,12 +2094,19 @@ static Napi::Value windowssys_windows_win32_media_audio_midiInMessage_napi(const
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "midiInMessage")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmi, umsg, dw1, dw2) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmi, umsg, dw1, dw2);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmi;
     (void)umsg;
     (void)dw1;
     (void)dw2;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1629,13 +2126,20 @@ static Napi::Value windowssys_windows_win32_media_audio_midiInOpen_napi(const Na
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "midiInOpen")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(phmi, udeviceid, dwcallback, dwinstance, fdwopen) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(phmi, udeviceid, dwcallback, dwinstance, fdwopen);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)phmi;
     (void)udeviceid;
     (void)dwcallback;
     (void)dwinstance;
     (void)fdwopen;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1653,11 +2157,18 @@ static Napi::Value windowssys_windows_win32_media_audio_midiInPrepareHeader_napi
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "midiInPrepareHeader")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmi, pmh, cbmh) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmi, pmh, cbmh);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmi;
     (void)pmh;
     (void)cbmh;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1673,9 +2184,16 @@ static Napi::Value windowssys_windows_win32_media_audio_midiInReset_napi(const N
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "midiInReset")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmi) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmi);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmi;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1691,9 +2209,16 @@ static Napi::Value windowssys_windows_win32_media_audio_midiInStart_napi(const N
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "midiInStart")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmi) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmi);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmi;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1709,9 +2234,16 @@ static Napi::Value windowssys_windows_win32_media_audio_midiInStop_napi(const Na
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "midiInStop")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmi) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmi);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmi;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1729,11 +2261,18 @@ static Napi::Value windowssys_windows_win32_media_audio_midiInUnprepareHeader_na
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "midiInUnprepareHeader")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmi, pmh, cbmh) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmi, pmh, cbmh);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmi;
     (void)pmh;
     (void)cbmh;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1752,12 +2291,19 @@ static Napi::Value windowssys_windows_win32_media_audio_midiOutCacheDrumPatches_
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "midiOutCacheDrumPatches")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmo, upatch, pwkya, fucache) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmo, upatch, pwkya, fucache);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmo;
     (void)upatch;
     (void)pwkya;
     (void)fucache;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1776,12 +2322,19 @@ static Napi::Value windowssys_windows_win32_media_audio_midiOutCachePatches_napi
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "midiOutCachePatches")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmo, ubank, pwpa, fucache) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmo, ubank, pwpa, fucache);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmo;
     (void)ubank;
     (void)pwpa;
     (void)fucache;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1797,9 +2350,16 @@ static Napi::Value windowssys_windows_win32_media_audio_midiOutClose_napi(const 
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "midiOutClose")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1817,11 +2377,18 @@ static Napi::Value windowssys_windows_win32_media_audio_midiOutGetDevCapsA_napi(
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "midiOutGetDevCapsA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(udeviceid, pmoc, cbmoc) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(udeviceid, pmoc, cbmoc);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)udeviceid;
     (void)pmoc;
     (void)cbmoc;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1839,11 +2406,18 @@ static Napi::Value windowssys_windows_win32_media_audio_midiOutGetDevCapsW_napi(
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "midiOutGetDevCapsW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(udeviceid, pmoc, cbmoc) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(udeviceid, pmoc, cbmoc);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)udeviceid;
     (void)pmoc;
     (void)cbmoc;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1861,11 +2435,18 @@ static Napi::Value windowssys_windows_win32_media_audio_midiOutGetErrorTextA_nap
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "midiOutGetErrorTextA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(mmrerror, psztext, cchtext) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(mmrerror, psztext, cchtext);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)mmrerror;
     (void)psztext;
     (void)cchtext;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1883,11 +2464,18 @@ static Napi::Value windowssys_windows_win32_media_audio_midiOutGetErrorTextW_nap
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "midiOutGetErrorTextW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(mmrerror, psztext, cchtext) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(mmrerror, psztext, cchtext);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)mmrerror;
     (void)psztext;
     (void)cchtext;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1904,10 +2492,17 @@ static Napi::Value windowssys_windows_win32_media_audio_midiOutGetID_napi(const 
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "midiOutGetID")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmo, pudeviceid) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmo, pudeviceid);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmo;
     (void)pudeviceid;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1922,8 +2517,15 @@ static Napi::Value windowssys_windows_win32_media_audio_midiOutGetNumDevs_napi(c
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "midiOutGetNumDevs")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1940,10 +2542,17 @@ static Napi::Value windowssys_windows_win32_media_audio_midiOutGetVolume_napi(co
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "midiOutGetVolume")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmo, pdwvolume) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmo, pdwvolume);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmo;
     (void)pdwvolume;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1961,11 +2570,18 @@ static Napi::Value windowssys_windows_win32_media_audio_midiOutLongMsg_napi(cons
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "midiOutLongMsg")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmo, pmh, cbmh) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmo, pmh, cbmh);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmo;
     (void)pmh;
     (void)cbmh;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1984,12 +2600,19 @@ static Napi::Value windowssys_windows_win32_media_audio_midiOutMessage_napi(cons
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "midiOutMessage")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmo, umsg, dw1, dw2) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmo, umsg, dw1, dw2);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmo;
     (void)umsg;
     (void)dw1;
     (void)dw2;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2009,13 +2632,20 @@ static Napi::Value windowssys_windows_win32_media_audio_midiOutOpen_napi(const N
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "midiOutOpen")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(phmo, udeviceid, dwcallback, dwinstance, fdwopen) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(phmo, udeviceid, dwcallback, dwinstance, fdwopen);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)phmo;
     (void)udeviceid;
     (void)dwcallback;
     (void)dwinstance;
     (void)fdwopen;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2033,11 +2663,18 @@ static Napi::Value windowssys_windows_win32_media_audio_midiOutPrepareHeader_nap
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "midiOutPrepareHeader")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmo, pmh, cbmh) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmo, pmh, cbmh);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmo;
     (void)pmh;
     (void)cbmh;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2053,9 +2690,16 @@ static Napi::Value windowssys_windows_win32_media_audio_midiOutReset_napi(const 
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "midiOutReset")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2072,10 +2716,17 @@ static Napi::Value windowssys_windows_win32_media_audio_midiOutSetVolume_napi(co
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "midiOutSetVolume")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmo, dwvolume) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmo, dwvolume);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmo;
     (void)dwvolume;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2092,10 +2743,17 @@ static Napi::Value windowssys_windows_win32_media_audio_midiOutShortMsg_napi(con
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "midiOutShortMsg")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmo, dwmsg) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmo, dwmsg);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmo;
     (void)dwmsg;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2113,11 +2771,18 @@ static Napi::Value windowssys_windows_win32_media_audio_midiOutUnprepareHeader_n
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "midiOutUnprepareHeader")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmo, pmh, cbmh) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmo, pmh, cbmh);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmo;
     (void)pmh;
     (void)cbmh;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2133,9 +2798,16 @@ static Napi::Value windowssys_windows_win32_media_audio_midiStreamClose_napi(con
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "midiStreamClose")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hms) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hms);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hms;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2156,7 +2828,13 @@ static Napi::Value windowssys_windows_win32_media_audio_midiStreamOpen_napi(cons
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "midiStreamOpen")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(phms, pudeviceid, cmidi, dwcallback, dwinstance, fdwopen) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(phms, pudeviceid, cmidi, dwcallback, dwinstance, fdwopen);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)phms;
     (void)pudeviceid;
@@ -2164,6 +2842,7 @@ static Napi::Value windowssys_windows_win32_media_audio_midiStreamOpen_napi(cons
     (void)dwcallback;
     (void)dwinstance;
     (void)fdwopen;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2181,11 +2860,18 @@ static Napi::Value windowssys_windows_win32_media_audio_midiStreamOut_napi(const
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "midiStreamOut")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hms, pmh, cbmh) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hms, pmh, cbmh);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hms;
     (void)pmh;
     (void)cbmh;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2201,9 +2887,16 @@ static Napi::Value windowssys_windows_win32_media_audio_midiStreamPause_napi(con
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "midiStreamPause")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hms) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hms);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hms;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2221,11 +2914,18 @@ static Napi::Value windowssys_windows_win32_media_audio_midiStreamPosition_napi(
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "midiStreamPosition")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hms, lpmmt, cbmmt) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hms, lpmmt, cbmmt);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hms;
     (void)lpmmt;
     (void)cbmmt;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2243,11 +2943,18 @@ static Napi::Value windowssys_windows_win32_media_audio_midiStreamProperty_napi(
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "midiStreamProperty")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hms, lppropdata, dwproperty) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hms, lppropdata, dwproperty);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hms;
     (void)lppropdata;
     (void)dwproperty;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2263,9 +2970,16 @@ static Napi::Value windowssys_windows_win32_media_audio_midiStreamRestart_napi(c
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "midiStreamRestart")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hms) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hms);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hms;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2281,9 +2995,16 @@ static Napi::Value windowssys_windows_win32_media_audio_midiStreamStop_napi(cons
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "midiStreamStop")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hms) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hms);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hms;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2299,9 +3020,16 @@ static Napi::Value windowssys_windows_win32_media_audio_mixerClose_napi(const Na
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "mixerClose")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmx) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmx);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmx;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2319,11 +3047,18 @@ static Napi::Value windowssys_windows_win32_media_audio_mixerGetControlDetailsA_
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "mixerGetControlDetailsA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmxobj, pmxcd, fdwdetails) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmxobj, pmxcd, fdwdetails);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmxobj;
     (void)pmxcd;
     (void)fdwdetails;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2341,11 +3076,18 @@ static Napi::Value windowssys_windows_win32_media_audio_mixerGetControlDetailsW_
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "mixerGetControlDetailsW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmxobj, pmxcd, fdwdetails) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmxobj, pmxcd, fdwdetails);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmxobj;
     (void)pmxcd;
     (void)fdwdetails;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2363,11 +3105,18 @@ static Napi::Value windowssys_windows_win32_media_audio_mixerGetDevCapsA_napi(co
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "mixerGetDevCapsA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(umxid, pmxcaps, cbmxcaps) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(umxid, pmxcaps, cbmxcaps);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)umxid;
     (void)pmxcaps;
     (void)cbmxcaps;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2385,11 +3134,18 @@ static Napi::Value windowssys_windows_win32_media_audio_mixerGetDevCapsW_napi(co
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "mixerGetDevCapsW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(umxid, pmxcaps, cbmxcaps) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(umxid, pmxcaps, cbmxcaps);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)umxid;
     (void)pmxcaps;
     (void)cbmxcaps;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2407,11 +3163,18 @@ static Napi::Value windowssys_windows_win32_media_audio_mixerGetID_napi(const Na
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "mixerGetID")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmxobj, pumxid, fdwid) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmxobj, pumxid, fdwid);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmxobj;
     (void)pumxid;
     (void)fdwid;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2429,11 +3192,18 @@ static Napi::Value windowssys_windows_win32_media_audio_mixerGetLineControlsA_na
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "mixerGetLineControlsA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmxobj, pmxlc, fdwcontrols) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmxobj, pmxlc, fdwcontrols);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmxobj;
     (void)pmxlc;
     (void)fdwcontrols;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2451,11 +3221,18 @@ static Napi::Value windowssys_windows_win32_media_audio_mixerGetLineControlsW_na
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "mixerGetLineControlsW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmxobj, pmxlc, fdwcontrols) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmxobj, pmxlc, fdwcontrols);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmxobj;
     (void)pmxlc;
     (void)fdwcontrols;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2473,11 +3250,18 @@ static Napi::Value windowssys_windows_win32_media_audio_mixerGetLineInfoA_napi(c
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "mixerGetLineInfoA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmxobj, pmxl, fdwinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmxobj, pmxl, fdwinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmxobj;
     (void)pmxl;
     (void)fdwinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2495,11 +3279,18 @@ static Napi::Value windowssys_windows_win32_media_audio_mixerGetLineInfoW_napi(c
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "mixerGetLineInfoW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmxobj, pmxl, fdwinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmxobj, pmxl, fdwinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmxobj;
     (void)pmxl;
     (void)fdwinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2514,8 +3305,15 @@ static Napi::Value windowssys_windows_win32_media_audio_mixerGetNumDevs_napi(con
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "mixerGetNumDevs")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2534,12 +3332,19 @@ static Napi::Value windowssys_windows_win32_media_audio_mixerMessage_napi(const 
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "mixerMessage")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmx, umsg, dwparam1, dwparam2) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmx, umsg, dwparam1, dwparam2);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmx;
     (void)umsg;
     (void)dwparam1;
     (void)dwparam2;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2559,13 +3364,20 @@ static Napi::Value windowssys_windows_win32_media_audio_mixerOpen_napi(const Nap
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "mixerOpen")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(phmx, umxid, dwcallback, dwinstance, fdwopen) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(phmx, umxid, dwcallback, dwinstance, fdwopen);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)phmx;
     (void)umxid;
     (void)dwcallback;
     (void)dwinstance;
     (void)fdwopen;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2583,11 +3395,18 @@ static Napi::Value windowssys_windows_win32_media_audio_mixerSetControlDetails_n
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "mixerSetControlDetails")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmxobj, pmxcd, fdwdetails) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmxobj, pmxcd, fdwdetails);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmxobj;
     (void)pmxcd;
     (void)fdwdetails;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2604,10 +3423,17 @@ static Napi::Value windowssys_windows_win32_media_audio_sndPlaySoundA_napi(const
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "sndPlaySoundA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszsound, fusound) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszsound, fusound);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszsound;
     (void)fusound;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2624,10 +3450,17 @@ static Napi::Value windowssys_windows_win32_media_audio_sndPlaySoundW_napi(const
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "sndPlaySoundW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszsound, fusound) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszsound, fusound);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszsound;
     (void)fusound;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2645,11 +3478,18 @@ static Napi::Value windowssys_windows_win32_media_audio_waveInAddBuffer_napi(con
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "waveInAddBuffer")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwi, pwh, cbwh) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwi, pwh, cbwh);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hwi;
     (void)pwh;
     (void)cbwh;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2665,9 +3505,16 @@ static Napi::Value windowssys_windows_win32_media_audio_waveInClose_napi(const N
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "waveInClose")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwi) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwi);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hwi;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2685,11 +3532,18 @@ static Napi::Value windowssys_windows_win32_media_audio_waveInGetDevCapsA_napi(c
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "waveInGetDevCapsA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(udeviceid, pwic, cbwic) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(udeviceid, pwic, cbwic);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)udeviceid;
     (void)pwic;
     (void)cbwic;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2707,11 +3561,18 @@ static Napi::Value windowssys_windows_win32_media_audio_waveInGetDevCapsW_napi(c
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "waveInGetDevCapsW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(udeviceid, pwic, cbwic) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(udeviceid, pwic, cbwic);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)udeviceid;
     (void)pwic;
     (void)cbwic;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2729,11 +3590,18 @@ static Napi::Value windowssys_windows_win32_media_audio_waveInGetErrorTextA_napi
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "waveInGetErrorTextA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(mmrerror, psztext, cchtext) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(mmrerror, psztext, cchtext);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)mmrerror;
     (void)psztext;
     (void)cchtext;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2751,11 +3619,18 @@ static Napi::Value windowssys_windows_win32_media_audio_waveInGetErrorTextW_napi
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "waveInGetErrorTextW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(mmrerror, psztext, cchtext) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(mmrerror, psztext, cchtext);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)mmrerror;
     (void)psztext;
     (void)cchtext;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2772,10 +3647,17 @@ static Napi::Value windowssys_windows_win32_media_audio_waveInGetID_napi(const N
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "waveInGetID")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwi, pudeviceid) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwi, pudeviceid);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hwi;
     (void)pudeviceid;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2790,8 +3672,15 @@ static Napi::Value windowssys_windows_win32_media_audio_waveInGetNumDevs_napi(co
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "waveInGetNumDevs")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2809,11 +3698,18 @@ static Napi::Value windowssys_windows_win32_media_audio_waveInGetPosition_napi(c
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "waveInGetPosition")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwi, pmmt, cbmmt) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwi, pmmt, cbmmt);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hwi;
     (void)pmmt;
     (void)cbmmt;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2832,12 +3728,19 @@ static Napi::Value windowssys_windows_win32_media_audio_waveInMessage_napi(const
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "waveInMessage")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwi, umsg, dw1, dw2) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwi, umsg, dw1, dw2);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hwi;
     (void)umsg;
     (void)dw1;
     (void)dw2;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2858,7 +3761,13 @@ static Napi::Value windowssys_windows_win32_media_audio_waveInOpen_napi(const Na
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "waveInOpen")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(phwi, udeviceid, pwfx, dwcallback, dwinstance, fdwopen) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(phwi, udeviceid, pwfx, dwcallback, dwinstance, fdwopen);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)phwi;
     (void)udeviceid;
@@ -2866,6 +3775,7 @@ static Napi::Value windowssys_windows_win32_media_audio_waveInOpen_napi(const Na
     (void)dwcallback;
     (void)dwinstance;
     (void)fdwopen;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2883,11 +3793,18 @@ static Napi::Value windowssys_windows_win32_media_audio_waveInPrepareHeader_napi
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "waveInPrepareHeader")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwi, pwh, cbwh) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwi, pwh, cbwh);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hwi;
     (void)pwh;
     (void)cbwh;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2903,9 +3820,16 @@ static Napi::Value windowssys_windows_win32_media_audio_waveInReset_napi(const N
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "waveInReset")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwi) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwi);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hwi;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2921,9 +3845,16 @@ static Napi::Value windowssys_windows_win32_media_audio_waveInStart_napi(const N
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "waveInStart")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwi) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwi);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hwi;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2939,9 +3870,16 @@ static Napi::Value windowssys_windows_win32_media_audio_waveInStop_napi(const Na
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "waveInStop")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwi) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwi);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hwi;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2959,11 +3897,18 @@ static Napi::Value windowssys_windows_win32_media_audio_waveInUnprepareHeader_na
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "waveInUnprepareHeader")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwi, pwh, cbwh) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwi, pwh, cbwh);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hwi;
     (void)pwh;
     (void)cbwh;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2979,9 +3924,16 @@ static Napi::Value windowssys_windows_win32_media_audio_waveOutBreakLoop_napi(co
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "waveOutBreakLoop")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hwo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2997,9 +3949,16 @@ static Napi::Value windowssys_windows_win32_media_audio_waveOutClose_napi(const 
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "waveOutClose")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hwo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3017,11 +3976,18 @@ static Napi::Value windowssys_windows_win32_media_audio_waveOutGetDevCapsA_napi(
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "waveOutGetDevCapsA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(udeviceid, pwoc, cbwoc) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(udeviceid, pwoc, cbwoc);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)udeviceid;
     (void)pwoc;
     (void)cbwoc;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3039,11 +4005,18 @@ static Napi::Value windowssys_windows_win32_media_audio_waveOutGetDevCapsW_napi(
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "waveOutGetDevCapsW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(udeviceid, pwoc, cbwoc) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(udeviceid, pwoc, cbwoc);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)udeviceid;
     (void)pwoc;
     (void)cbwoc;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3061,11 +4034,18 @@ static Napi::Value windowssys_windows_win32_media_audio_waveOutGetErrorTextA_nap
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "waveOutGetErrorTextA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(mmrerror, psztext, cchtext) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(mmrerror, psztext, cchtext);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)mmrerror;
     (void)psztext;
     (void)cchtext;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3083,11 +4063,18 @@ static Napi::Value windowssys_windows_win32_media_audio_waveOutGetErrorTextW_nap
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "waveOutGetErrorTextW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(mmrerror, psztext, cchtext) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(mmrerror, psztext, cchtext);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)mmrerror;
     (void)psztext;
     (void)cchtext;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3104,10 +4091,17 @@ static Napi::Value windowssys_windows_win32_media_audio_waveOutGetID_napi(const 
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "waveOutGetID")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwo, pudeviceid) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwo, pudeviceid);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hwo;
     (void)pudeviceid;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3122,8 +4116,15 @@ static Napi::Value windowssys_windows_win32_media_audio_waveOutGetNumDevs_napi(c
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "waveOutGetNumDevs")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3140,10 +4141,17 @@ static Napi::Value windowssys_windows_win32_media_audio_waveOutGetPitch_napi(con
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "waveOutGetPitch")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwo, pdwpitch) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwo, pdwpitch);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hwo;
     (void)pdwpitch;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3160,10 +4168,17 @@ static Napi::Value windowssys_windows_win32_media_audio_waveOutGetPlaybackRate_n
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "waveOutGetPlaybackRate")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwo, pdwrate) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwo, pdwrate);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hwo;
     (void)pdwrate;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3181,11 +4196,18 @@ static Napi::Value windowssys_windows_win32_media_audio_waveOutGetPosition_napi(
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "waveOutGetPosition")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwo, pmmt, cbmmt) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwo, pmmt, cbmmt);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hwo;
     (void)pmmt;
     (void)cbmmt;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3202,10 +4224,17 @@ static Napi::Value windowssys_windows_win32_media_audio_waveOutGetVolume_napi(co
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "waveOutGetVolume")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwo, pdwvolume) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwo, pdwvolume);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hwo;
     (void)pdwvolume;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3224,12 +4253,19 @@ static Napi::Value windowssys_windows_win32_media_audio_waveOutMessage_napi(cons
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "waveOutMessage")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwo, umsg, dw1, dw2) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwo, umsg, dw1, dw2);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hwo;
     (void)umsg;
     (void)dw1;
     (void)dw2;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3250,7 +4286,13 @@ static Napi::Value windowssys_windows_win32_media_audio_waveOutOpen_napi(const N
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "waveOutOpen")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(phwo, udeviceid, pwfx, dwcallback, dwinstance, fdwopen) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(phwo, udeviceid, pwfx, dwcallback, dwinstance, fdwopen);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)phwo;
     (void)udeviceid;
@@ -3258,6 +4300,7 @@ static Napi::Value windowssys_windows_win32_media_audio_waveOutOpen_napi(const N
     (void)dwcallback;
     (void)dwinstance;
     (void)fdwopen;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3273,9 +4316,16 @@ static Napi::Value windowssys_windows_win32_media_audio_waveOutPause_napi(const 
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "waveOutPause")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hwo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3293,11 +4343,18 @@ static Napi::Value windowssys_windows_win32_media_audio_waveOutPrepareHeader_nap
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "waveOutPrepareHeader")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwo, pwh, cbwh) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwo, pwh, cbwh);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hwo;
     (void)pwh;
     (void)cbwh;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3313,9 +4370,16 @@ static Napi::Value windowssys_windows_win32_media_audio_waveOutReset_napi(const 
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "waveOutReset")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hwo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3331,9 +4395,16 @@ static Napi::Value windowssys_windows_win32_media_audio_waveOutRestart_napi(cons
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "waveOutRestart")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hwo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3350,10 +4421,17 @@ static Napi::Value windowssys_windows_win32_media_audio_waveOutSetPitch_napi(con
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "waveOutSetPitch")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwo, dwpitch) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwo, dwpitch);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hwo;
     (void)dwpitch;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3370,10 +4448,17 @@ static Napi::Value windowssys_windows_win32_media_audio_waveOutSetPlaybackRate_n
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "waveOutSetPlaybackRate")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwo, dwrate) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwo, dwrate);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hwo;
     (void)dwrate;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3390,10 +4475,17 @@ static Napi::Value windowssys_windows_win32_media_audio_waveOutSetVolume_napi(co
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "waveOutSetVolume")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwo, dwvolume) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwo, dwvolume);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hwo;
     (void)dwvolume;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3411,11 +4503,18 @@ static Napi::Value windowssys_windows_win32_media_audio_waveOutUnprepareHeader_n
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "waveOutUnprepareHeader")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwo, pwh, cbwh) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwo, pwh, cbwh);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hwo;
     (void)pwh;
     (void)cbwh;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3433,11 +4532,18 @@ static Napi::Value windowssys_windows_win32_media_audio_waveOutWrite_napi(const 
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "waveOutWrite")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwo, pwh, cbwh) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwo, pwh, cbwh);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hwo;
     (void)pwh;
     (void)cbwh;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

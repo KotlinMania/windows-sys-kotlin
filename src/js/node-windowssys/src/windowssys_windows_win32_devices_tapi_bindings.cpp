@@ -63,11 +63,18 @@ static Napi::Value windowssys_windows_win32_devices_tapi_getTnefStreamCodepage_n
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetTnefStreamCodepage")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpstream, lpulcodepage, lpulsubcodepage) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpstream, lpulcodepage, lpulsubcodepage);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpstream;
     (void)lpulcodepage;
     (void)lpulsubcodepage;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -89,7 +96,13 @@ static Napi::Value windowssys_windows_win32_devices_tapi_openTnefStream_napi(con
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OpenTnefStream")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpvsupport, lpstream, lpszstreamname, ulflags, lpmessage, wkeyval, lpptnef) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpvsupport, lpstream, lpszstreamname, ulflags, lpmessage, wkeyval, lpptnef);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpvsupport;
     (void)lpstream;
@@ -98,6 +111,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_openTnefStream_napi(con
     (void)lpmessage;
     (void)wkeyval;
     (void)lpptnef;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -120,7 +134,13 @@ static Napi::Value windowssys_windows_win32_devices_tapi_openTnefStreamEx_napi(c
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OpenTnefStreamEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpvsupport, lpstream, lpszstreamname, ulflags, lpmessage, wkeyval, lpadressbook, lpptnef) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpvsupport, lpstream, lpszstreamname, ulflags, lpmessage, wkeyval, lpadressbook, lpptnef);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpvsupport;
     (void)lpstream;
@@ -130,6 +150,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_openTnefStreamEx_napi(c
     (void)wkeyval;
     (void)lpadressbook;
     (void)lpptnef;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -147,11 +168,18 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineAccept_napi(const N
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineAccept")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcall, lpsuseruserinfo, dwsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcall, lpsuseruserinfo, dwsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcall;
     (void)lpsuseruserinfo;
     (void)dwsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -169,11 +197,18 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineAddProvider_napi(co
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineAddProvider")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszproviderfilename, hwndowner, lpdwpermanentproviderid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszproviderfilename, hwndowner, lpdwpermanentproviderid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszproviderfilename;
     (void)hwndowner;
     (void)lpdwpermanentproviderid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -191,11 +226,18 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineAddProviderA_napi(c
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineAddProviderA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszproviderfilename, hwndowner, lpdwpermanentproviderid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszproviderfilename, hwndowner, lpdwpermanentproviderid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszproviderfilename;
     (void)hwndowner;
     (void)lpdwpermanentproviderid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -213,11 +255,18 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineAddProviderW_napi(c
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineAddProviderW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszproviderfilename, hwndowner, lpdwpermanentproviderid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszproviderfilename, hwndowner, lpdwpermanentproviderid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszproviderfilename;
     (void)hwndowner;
     (void)lpdwpermanentproviderid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -234,10 +283,17 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineAddToConference_nap
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineAddToConference")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hconfcall, hconsultcall) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hconfcall, hconsultcall);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hconfcall;
     (void)hconsultcall;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -257,13 +313,20 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineAgentSpecific_napi(
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineAgentSpecific")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hline, dwaddressid, dwagentextensionidindex, lpparams, dwsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hline, dwaddressid, dwagentextensionidindex, lpparams, dwsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hline;
     (void)dwaddressid;
     (void)dwagentextensionidindex;
     (void)lpparams;
     (void)dwsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -281,11 +344,18 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineAnswer_napi(const N
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineAnswer")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcall, lpsuseruserinfo, dwsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcall, lpsuseruserinfo, dwsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcall;
     (void)lpsuseruserinfo;
     (void)dwsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -303,11 +373,18 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineBlindTransfer_napi(
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineBlindTransfer")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcall, lpszdestaddress, dwcountrycode) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcall, lpszdestaddress, dwcountrycode);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcall;
     (void)lpszdestaddress;
     (void)dwcountrycode;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -325,11 +402,18 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineBlindTransferA_napi
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineBlindTransferA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcall, lpszdestaddress, dwcountrycode) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcall, lpszdestaddress, dwcountrycode);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcall;
     (void)lpszdestaddress;
     (void)dwcountrycode;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -347,11 +431,18 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineBlindTransferW_napi
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineBlindTransferW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcall, lpszdestaddressw, dwcountrycode) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcall, lpszdestaddressw, dwcountrycode);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcall;
     (void)lpszdestaddressw;
     (void)dwcountrycode;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -367,9 +458,16 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineClose_napi(const Na
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineClose")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hline) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hline);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hline;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -388,12 +486,19 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineCompleteCall_napi(c
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineCompleteCall")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcall, lpdwcompletionid, dwcompletionmode, dwmessageid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcall, lpdwcompletionid, dwcompletionmode, dwmessageid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcall;
     (void)lpdwcompletionid;
     (void)dwcompletionmode;
     (void)dwmessageid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -412,12 +517,19 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineCompleteTransfer_na
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineCompleteTransfer")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcall, hconsultcall, lphconfcall, dwtransfermode) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcall, hconsultcall, lphconfcall, dwtransfermode);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcall;
     (void)hconsultcall;
     (void)lphconfcall;
     (void)dwtransfermode;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -435,11 +547,18 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineConfigDialog_napi(c
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineConfigDialog")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwdeviceid, hwndowner, lpszdeviceclass) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwdeviceid, hwndowner, lpszdeviceclass);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwdeviceid;
     (void)hwndowner;
     (void)lpszdeviceclass;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -457,11 +576,18 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineConfigDialogA_napi(
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineConfigDialogA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwdeviceid, hwndowner, lpszdeviceclass) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwdeviceid, hwndowner, lpszdeviceclass);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwdeviceid;
     (void)hwndowner;
     (void)lpszdeviceclass;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -482,7 +608,13 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineConfigDialogEdit_na
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineConfigDialogEdit")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwdeviceid, hwndowner, lpszdeviceclass, lpdeviceconfigin, dwsize, lpdeviceconfigout) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwdeviceid, hwndowner, lpszdeviceclass, lpdeviceconfigin, dwsize, lpdeviceconfigout);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwdeviceid;
     (void)hwndowner;
@@ -490,6 +622,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineConfigDialogEdit_na
     (void)lpdeviceconfigin;
     (void)dwsize;
     (void)lpdeviceconfigout;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -510,7 +643,13 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineConfigDialogEditA_n
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineConfigDialogEditA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwdeviceid, hwndowner, lpszdeviceclass, lpdeviceconfigin, dwsize, lpdeviceconfigout) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwdeviceid, hwndowner, lpszdeviceclass, lpdeviceconfigin, dwsize, lpdeviceconfigout);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwdeviceid;
     (void)hwndowner;
@@ -518,6 +657,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineConfigDialogEditA_n
     (void)lpdeviceconfigin;
     (void)dwsize;
     (void)lpdeviceconfigout;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -538,7 +678,13 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineConfigDialogEditW_n
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineConfigDialogEditW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwdeviceid, hwndowner, lpszdeviceclass, lpdeviceconfigin, dwsize, lpdeviceconfigout) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwdeviceid, hwndowner, lpszdeviceclass, lpdeviceconfigin, dwsize, lpdeviceconfigout);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwdeviceid;
     (void)hwndowner;
@@ -546,6 +692,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineConfigDialogEditW_n
     (void)lpdeviceconfigin;
     (void)dwsize;
     (void)lpdeviceconfigout;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -563,11 +710,18 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineConfigDialogW_napi(
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineConfigDialogW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwdeviceid, hwndowner, lpszdeviceclass) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwdeviceid, hwndowner, lpszdeviceclass);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwdeviceid;
     (void)hwndowner;
     (void)lpszdeviceclass;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -584,10 +738,17 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineConfigProvider_napi
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineConfigProvider")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwndowner, dwpermanentproviderid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwndowner, dwpermanentproviderid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwndowner;
     (void)dwpermanentproviderid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -606,12 +767,19 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineCreateAgentA_napi(c
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineCreateAgentA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hline, lpszagentid, lpszagentpin, lphagent) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hline, lpszagentid, lpszagentpin, lphagent);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hline;
     (void)lpszagentid;
     (void)lpszagentpin;
     (void)lphagent;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -632,7 +800,13 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineCreateAgentSessionA
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineCreateAgentSessionA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hline, hagent, lpszagentpin, dwworkingaddressid, lpgroupid, lphagentsession) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hline, hagent, lpszagentpin, dwworkingaddressid, lpgroupid, lphagentsession);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hline;
     (void)hagent;
@@ -640,6 +814,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineCreateAgentSessionA
     (void)dwworkingaddressid;
     (void)lpgroupid;
     (void)lphagentsession;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -660,7 +835,13 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineCreateAgentSessionW
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineCreateAgentSessionW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hline, hagent, lpszagentpin, dwworkingaddressid, lpgroupid, lphagentsession) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hline, hagent, lpszagentpin, dwworkingaddressid, lpgroupid, lphagentsession);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hline;
     (void)hagent;
@@ -668,6 +849,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineCreateAgentSessionW
     (void)dwworkingaddressid;
     (void)lpgroupid;
     (void)lphagentsession;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -686,12 +868,19 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineCreateAgentW_napi(c
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineCreateAgentW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hline, lpszagentid, lpszagentpin, lphagent) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hline, lpszagentid, lpszagentpin, lphagent);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hline;
     (void)lpszagentid;
     (void)lpszagentpin;
     (void)lphagent;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -707,9 +896,16 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineDeallocateCall_napi
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineDeallocateCall")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcall) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcall);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcall;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -729,13 +925,20 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineDevSpecific_napi(co
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineDevSpecific")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hline, dwaddressid, hcall, lpparams, dwsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hline, dwaddressid, hcall, lpparams, dwsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hline;
     (void)dwaddressid;
     (void)hcall;
     (void)lpparams;
     (void)dwsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -754,12 +957,19 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineDevSpecificFeature_
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineDevSpecificFeature")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hline, dwfeature, lpparams, dwsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hline, dwfeature, lpparams, dwsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hline;
     (void)dwfeature;
     (void)lpparams;
     (void)dwsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -777,11 +987,18 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineDial_napi(const Nap
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineDial")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcall, lpszdestaddress, dwcountrycode) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcall, lpszdestaddress, dwcountrycode);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcall;
     (void)lpszdestaddress;
     (void)dwcountrycode;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -799,11 +1016,18 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineDialA_napi(const Na
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineDialA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcall, lpszdestaddress, dwcountrycode) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcall, lpszdestaddress, dwcountrycode);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcall;
     (void)lpszdestaddress;
     (void)dwcountrycode;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -821,11 +1045,18 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineDialW_napi(const Na
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineDialW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcall, lpszdestaddress, dwcountrycode) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcall, lpszdestaddress, dwcountrycode);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcall;
     (void)lpszdestaddress;
     (void)dwcountrycode;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -843,11 +1074,18 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineDrop_napi(const Nap
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineDrop")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcall, lpsuseruserinfo, dwsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcall, lpsuseruserinfo, dwsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcall;
     (void)lpsuseruserinfo;
     (void)dwsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -869,7 +1107,13 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineForward_napi(const 
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineForward")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hline, balladdresses, dwaddressid, lpforwardlist, dwnumringsnoanswer, lphconsultcall, lpcallparams) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hline, balladdresses, dwaddressid, lpforwardlist, dwnumringsnoanswer, lphconsultcall, lpcallparams);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hline;
     (void)balladdresses;
@@ -878,6 +1122,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineForward_napi(const 
     (void)dwnumringsnoanswer;
     (void)lphconsultcall;
     (void)lpcallparams;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -899,7 +1144,13 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineForwardA_napi(const
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineForwardA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hline, balladdresses, dwaddressid, lpforwardlist, dwnumringsnoanswer, lphconsultcall, lpcallparams) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hline, balladdresses, dwaddressid, lpforwardlist, dwnumringsnoanswer, lphconsultcall, lpcallparams);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hline;
     (void)balladdresses;
@@ -908,6 +1159,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineForwardA_napi(const
     (void)dwnumringsnoanswer;
     (void)lphconsultcall;
     (void)lpcallparams;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -929,7 +1181,13 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineForwardW_napi(const
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineForwardW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hline, balladdresses, dwaddressid, lpforwardlist, dwnumringsnoanswer, lphconsultcall, lpcallparams) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hline, balladdresses, dwaddressid, lpforwardlist, dwnumringsnoanswer, lphconsultcall, lpcallparams);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hline;
     (void)balladdresses;
@@ -938,6 +1196,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineForwardW_napi(const
     (void)dwnumringsnoanswer;
     (void)lphconsultcall;
     (void)lpcallparams;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -959,7 +1218,13 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGatherDigits_napi(c
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineGatherDigits")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcall, dwdigitmodes, lpsdigits, dwnumdigits, lpszterminationdigits, dwfirstdigittimeout, dwinterdigittimeout) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcall, dwdigitmodes, lpsdigits, dwnumdigits, lpszterminationdigits, dwfirstdigittimeout, dwinterdigittimeout);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcall;
     (void)dwdigitmodes;
@@ -968,6 +1233,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGatherDigits_napi(c
     (void)lpszterminationdigits;
     (void)dwfirstdigittimeout;
     (void)dwinterdigittimeout;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -989,7 +1255,13 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGatherDigitsA_napi(
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineGatherDigitsA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcall, dwdigitmodes, lpsdigits, dwnumdigits, lpszterminationdigits, dwfirstdigittimeout, dwinterdigittimeout) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcall, dwdigitmodes, lpsdigits, dwnumdigits, lpszterminationdigits, dwfirstdigittimeout, dwinterdigittimeout);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcall;
     (void)dwdigitmodes;
@@ -998,6 +1270,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGatherDigitsA_napi(
     (void)lpszterminationdigits;
     (void)dwfirstdigittimeout;
     (void)dwinterdigittimeout;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1019,7 +1292,13 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGatherDigitsW_napi(
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineGatherDigitsW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcall, dwdigitmodes, lpsdigits, dwnumdigits, lpszterminationdigits, dwfirstdigittimeout, dwinterdigittimeout) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcall, dwdigitmodes, lpsdigits, dwnumdigits, lpszterminationdigits, dwfirstdigittimeout, dwinterdigittimeout);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcall;
     (void)dwdigitmodes;
@@ -1028,6 +1307,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGatherDigitsW_napi(
     (void)lpszterminationdigits;
     (void)dwfirstdigittimeout;
     (void)dwinterdigittimeout;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1046,12 +1326,19 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGenerateDigits_napi
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineGenerateDigits")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcall, dwdigitmode, lpszdigits, dwduration) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcall, dwdigitmode, lpszdigits, dwduration);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcall;
     (void)dwdigitmode;
     (void)lpszdigits;
     (void)dwduration;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1070,12 +1357,19 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGenerateDigitsA_nap
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineGenerateDigitsA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcall, dwdigitmode, lpszdigits, dwduration) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcall, dwdigitmode, lpszdigits, dwduration);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcall;
     (void)dwdigitmode;
     (void)lpszdigits;
     (void)dwduration;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1094,12 +1388,19 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGenerateDigitsW_nap
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineGenerateDigitsW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcall, dwdigitmode, lpszdigits, dwduration) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcall, dwdigitmode, lpszdigits, dwduration);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcall;
     (void)dwdigitmode;
     (void)lpszdigits;
     (void)dwduration;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1119,13 +1420,20 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGenerateTone_napi(c
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineGenerateTone")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcall, dwtonemode, dwduration, dwnumtones, lptones) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcall, dwtonemode, dwduration, dwnumtones, lptones);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcall;
     (void)dwtonemode;
     (void)dwduration;
     (void)dwnumtones;
     (void)lptones;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1146,7 +1454,13 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetAddressCaps_napi
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineGetAddressCaps")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hlineapp, dwdeviceid, dwaddressid, dwapiversion, dwextversion, lpaddresscaps) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hlineapp, dwdeviceid, dwaddressid, dwapiversion, dwextversion, lpaddresscaps);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hlineapp;
     (void)dwdeviceid;
@@ -1154,6 +1468,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetAddressCaps_napi
     (void)dwapiversion;
     (void)dwextversion;
     (void)lpaddresscaps;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1174,7 +1489,13 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetAddressCapsA_nap
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineGetAddressCapsA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hlineapp, dwdeviceid, dwaddressid, dwapiversion, dwextversion, lpaddresscaps) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hlineapp, dwdeviceid, dwaddressid, dwapiversion, dwextversion, lpaddresscaps);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hlineapp;
     (void)dwdeviceid;
@@ -1182,6 +1503,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetAddressCapsA_nap
     (void)dwapiversion;
     (void)dwextversion;
     (void)lpaddresscaps;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1202,7 +1524,13 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetAddressCapsW_nap
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineGetAddressCapsW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hlineapp, dwdeviceid, dwaddressid, dwapiversion, dwextversion, lpaddresscaps) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hlineapp, dwdeviceid, dwaddressid, dwapiversion, dwextversion, lpaddresscaps);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hlineapp;
     (void)dwdeviceid;
@@ -1210,6 +1538,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetAddressCapsW_nap
     (void)dwapiversion;
     (void)dwextversion;
     (void)lpaddresscaps;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1229,13 +1558,20 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetAddressID_napi(c
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineGetAddressID")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hline, lpdwaddressid, dwaddressmode, lpsaddress, dwsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hline, lpdwaddressid, dwaddressmode, lpsaddress, dwsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hline;
     (void)lpdwaddressid;
     (void)dwaddressmode;
     (void)lpsaddress;
     (void)dwsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1255,13 +1591,20 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetAddressIDA_napi(
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineGetAddressIDA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hline, lpdwaddressid, dwaddressmode, lpsaddress, dwsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hline, lpdwaddressid, dwaddressmode, lpsaddress, dwsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hline;
     (void)lpdwaddressid;
     (void)dwaddressmode;
     (void)lpsaddress;
     (void)dwsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1281,13 +1624,20 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetAddressIDW_napi(
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineGetAddressIDW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hline, lpdwaddressid, dwaddressmode, lpsaddress, dwsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hline, lpdwaddressid, dwaddressmode, lpsaddress, dwsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hline;
     (void)lpdwaddressid;
     (void)dwaddressmode;
     (void)lpsaddress;
     (void)dwsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1305,11 +1655,18 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetAddressStatus_na
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineGetAddressStatus")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hline, dwaddressid, lpaddressstatus) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hline, dwaddressid, lpaddressstatus);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hline;
     (void)dwaddressid;
     (void)lpaddressstatus;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1327,11 +1684,18 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetAddressStatusA_n
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineGetAddressStatusA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hline, dwaddressid, lpaddressstatus) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hline, dwaddressid, lpaddressstatus);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hline;
     (void)dwaddressid;
     (void)lpaddressstatus;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1349,11 +1713,18 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetAddressStatusW_n
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineGetAddressStatusW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hline, dwaddressid, lpaddressstatus) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hline, dwaddressid, lpaddressstatus);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hline;
     (void)dwaddressid;
     (void)lpaddressstatus;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1371,11 +1742,18 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetAgentActivityLis
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineGetAgentActivityListA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hline, dwaddressid, lpagentactivitylist) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hline, dwaddressid, lpagentactivitylist);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hline;
     (void)dwaddressid;
     (void)lpagentactivitylist;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1393,11 +1771,18 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetAgentActivityLis
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineGetAgentActivityListW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hline, dwaddressid, lpagentactivitylist) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hline, dwaddressid, lpagentactivitylist);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hline;
     (void)dwaddressid;
     (void)lpagentactivitylist;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1417,13 +1802,20 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetAgentCapsA_napi(
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineGetAgentCapsA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hlineapp, dwdeviceid, dwaddressid, dwappapiversion, lpagentcaps) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hlineapp, dwdeviceid, dwaddressid, dwappapiversion, lpagentcaps);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hlineapp;
     (void)dwdeviceid;
     (void)dwaddressid;
     (void)dwappapiversion;
     (void)lpagentcaps;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1443,13 +1835,20 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetAgentCapsW_napi(
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineGetAgentCapsW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hlineapp, dwdeviceid, dwaddressid, dwappapiversion, lpagentcaps) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hlineapp, dwdeviceid, dwaddressid, dwappapiversion, lpagentcaps);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hlineapp;
     (void)dwdeviceid;
     (void)dwaddressid;
     (void)dwappapiversion;
     (void)lpagentcaps;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1467,11 +1866,18 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetAgentGroupListA_
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineGetAgentGroupListA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hline, dwaddressid, lpagentgrouplist) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hline, dwaddressid, lpagentgrouplist);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hline;
     (void)dwaddressid;
     (void)lpagentgrouplist;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1489,11 +1895,18 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetAgentGroupListW_
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineGetAgentGroupListW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hline, dwaddressid, lpagentgrouplist) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hline, dwaddressid, lpagentgrouplist);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hline;
     (void)dwaddressid;
     (void)lpagentgrouplist;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1511,11 +1924,18 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetAgentInfo_napi(c
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineGetAgentInfo")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hline, hagent, lpagentinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hline, hagent, lpagentinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hline;
     (void)hagent;
     (void)lpagentinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1533,11 +1953,18 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetAgentSessionInfo
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineGetAgentSessionInfo")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hline, hagentsession, lpagentsessioninfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hline, hagentsession, lpagentsessioninfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hline;
     (void)hagentsession;
     (void)lpagentsessioninfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1555,11 +1982,18 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetAgentSessionList
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineGetAgentSessionList")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hline, hagent, lpagentsessionlist) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hline, hagent, lpagentsessionlist);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hline;
     (void)hagent;
     (void)lpagentsessionlist;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1577,11 +2011,18 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetAgentStatusA_nap
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineGetAgentStatusA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hline, dwaddressid, lpagentstatus) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hline, dwaddressid, lpagentstatus);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hline;
     (void)dwaddressid;
     (void)lpagentstatus;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1599,11 +2040,18 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetAgentStatusW_nap
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineGetAgentStatusW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hline, dwaddressid, lpagentstatus) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hline, dwaddressid, lpagentstatus);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hline;
     (void)dwaddressid;
     (void)lpagentstatus;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1624,7 +2072,13 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetAppPriority_napi
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineGetAppPriority")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszappfilename, dwmediamode, lpextensionid, dwrequestmode, lpextensionname, lpdwpriority) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszappfilename, dwmediamode, lpextensionid, dwrequestmode, lpextensionname, lpdwpriority);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszappfilename;
     (void)dwmediamode;
@@ -1632,6 +2086,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetAppPriority_napi
     (void)dwrequestmode;
     (void)lpextensionname;
     (void)lpdwpriority;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1652,7 +2107,13 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetAppPriorityA_nap
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineGetAppPriorityA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszappfilename, dwmediamode, lpextensionid, dwrequestmode, lpextensionname, lpdwpriority) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszappfilename, dwmediamode, lpextensionid, dwrequestmode, lpextensionname, lpdwpriority);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszappfilename;
     (void)dwmediamode;
@@ -1660,6 +2121,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetAppPriorityA_nap
     (void)dwrequestmode;
     (void)lpextensionname;
     (void)lpdwpriority;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1680,7 +2142,13 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetAppPriorityW_nap
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineGetAppPriorityW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszappfilename, dwmediamode, lpextensionid, dwrequestmode, lpextensionname, lpdwpriority) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszappfilename, dwmediamode, lpextensionid, dwrequestmode, lpextensionname, lpdwpriority);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszappfilename;
     (void)dwmediamode;
@@ -1688,6 +2156,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetAppPriorityW_nap
     (void)dwrequestmode;
     (void)lpextensionname;
     (void)lpdwpriority;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1704,10 +2173,17 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetCallInfo_napi(co
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineGetCallInfo")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcall, lpcallinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcall, lpcallinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcall;
     (void)lpcallinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1724,10 +2200,17 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetCallInfoA_napi(c
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineGetCallInfoA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcall, lpcallinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcall, lpcallinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcall;
     (void)lpcallinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1744,10 +2227,17 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetCallInfoW_napi(c
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineGetCallInfoW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcall, lpcallinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcall, lpcallinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcall;
     (void)lpcallinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1764,10 +2254,17 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetCallStatus_napi(
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineGetCallStatus")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcall, lpcallstatus) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcall, lpcallstatus);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcall;
     (void)lpcallstatus;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1784,10 +2281,17 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetConfRelatedCalls
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineGetConfRelatedCalls")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcall, lpcalllist) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcall, lpcalllist);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcall;
     (void)lpcalllist;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1805,11 +2309,18 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetCountry_napi(con
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineGetCountry")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwcountryid, dwapiversion, lplinecountrylist) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwcountryid, dwapiversion, lplinecountrylist);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwcountryid;
     (void)dwapiversion;
     (void)lplinecountrylist;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1827,11 +2338,18 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetCountryA_napi(co
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineGetCountryA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwcountryid, dwapiversion, lplinecountrylist) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwcountryid, dwapiversion, lplinecountrylist);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwcountryid;
     (void)dwapiversion;
     (void)lplinecountrylist;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1849,11 +2367,18 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetCountryW_napi(co
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineGetCountryW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwcountryid, dwapiversion, lplinecountrylist) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwcountryid, dwapiversion, lplinecountrylist);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwcountryid;
     (void)dwapiversion;
     (void)lplinecountrylist;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1873,13 +2398,20 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetDevCaps_napi(con
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineGetDevCaps")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hlineapp, dwdeviceid, dwapiversion, dwextversion, lplinedevcaps) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hlineapp, dwdeviceid, dwapiversion, dwextversion, lplinedevcaps);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hlineapp;
     (void)dwdeviceid;
     (void)dwapiversion;
     (void)dwextversion;
     (void)lplinedevcaps;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1899,13 +2431,20 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetDevCapsA_napi(co
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineGetDevCapsA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hlineapp, dwdeviceid, dwapiversion, dwextversion, lplinedevcaps) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hlineapp, dwdeviceid, dwapiversion, dwextversion, lplinedevcaps);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hlineapp;
     (void)dwdeviceid;
     (void)dwapiversion;
     (void)dwextversion;
     (void)lplinedevcaps;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1925,13 +2464,20 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetDevCapsW_napi(co
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineGetDevCapsW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hlineapp, dwdeviceid, dwapiversion, dwextversion, lplinedevcaps) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hlineapp, dwdeviceid, dwapiversion, dwextversion, lplinedevcaps);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hlineapp;
     (void)dwdeviceid;
     (void)dwapiversion;
     (void)dwextversion;
     (void)lplinedevcaps;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1949,11 +2495,18 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetDevConfig_napi(c
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineGetDevConfig")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwdeviceid, lpdeviceconfig, lpszdeviceclass) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwdeviceid, lpdeviceconfig, lpszdeviceclass);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwdeviceid;
     (void)lpdeviceconfig;
     (void)lpszdeviceclass;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1971,11 +2524,18 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetDevConfigA_napi(
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineGetDevConfigA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwdeviceid, lpdeviceconfig, lpszdeviceclass) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwdeviceid, lpdeviceconfig, lpszdeviceclass);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwdeviceid;
     (void)lpdeviceconfig;
     (void)lpszdeviceclass;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1993,11 +2553,18 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetDevConfigW_napi(
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineGetDevConfigW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwdeviceid, lpdeviceconfig, lpszdeviceclass) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwdeviceid, lpdeviceconfig, lpszdeviceclass);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwdeviceid;
     (void)lpdeviceconfig;
     (void)lpszdeviceclass;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2014,10 +2581,17 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetGroupListA_napi(
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineGetGroupListA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hline, lpgrouplist) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hline, lpgrouplist);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hline;
     (void)lpgrouplist;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2034,10 +2608,17 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetGroupListW_napi(
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineGetGroupListW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hline, lpgrouplist) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hline, lpgrouplist);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hline;
     (void)lpgrouplist;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2058,7 +2639,13 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetID_napi(const Na
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineGetID")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hline, dwaddressid, hcall, dwselect, lpdeviceid, lpszdeviceclass) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hline, dwaddressid, hcall, dwselect, lpdeviceid, lpszdeviceclass);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hline;
     (void)dwaddressid;
@@ -2066,6 +2653,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetID_napi(const Na
     (void)dwselect;
     (void)lpdeviceid;
     (void)lpszdeviceclass;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2086,7 +2674,13 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetIDA_napi(const N
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineGetIDA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hline, dwaddressid, hcall, dwselect, lpdeviceid, lpszdeviceclass) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hline, dwaddressid, hcall, dwselect, lpdeviceid, lpszdeviceclass);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hline;
     (void)dwaddressid;
@@ -2094,6 +2688,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetIDA_napi(const N
     (void)dwselect;
     (void)lpdeviceid;
     (void)lpszdeviceclass;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2114,7 +2709,13 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetIDW_napi(const N
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineGetIDW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hline, dwaddressid, hcall, dwselect, lpdeviceid, lpszdeviceclass) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hline, dwaddressid, hcall, dwselect, lpdeviceid, lpszdeviceclass);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hline;
     (void)dwaddressid;
@@ -2122,6 +2723,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetIDW_napi(const N
     (void)dwselect;
     (void)lpdeviceid;
     (void)lpszdeviceclass;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2139,11 +2741,18 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetIcon_napi(const 
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineGetIcon")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwdeviceid, lpszdeviceclass, lphicon) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwdeviceid, lpszdeviceclass, lphicon);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwdeviceid;
     (void)lpszdeviceclass;
     (void)lphicon;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2161,11 +2770,18 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetIconA_napi(const
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineGetIconA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwdeviceid, lpszdeviceclass, lphicon) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwdeviceid, lpszdeviceclass, lphicon);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwdeviceid;
     (void)lpszdeviceclass;
     (void)lphicon;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2183,11 +2799,18 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetIconW_napi(const
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineGetIconW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwdeviceid, lpszdeviceclass, lphicon) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwdeviceid, lpszdeviceclass, lphicon);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwdeviceid;
     (void)lpszdeviceclass;
     (void)lphicon;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2204,10 +2827,17 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetLineDevStatus_na
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineGetLineDevStatus")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hline, lplinedevstatus) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hline, lplinedevstatus);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hline;
     (void)lplinedevstatus;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2224,10 +2854,17 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetLineDevStatusA_n
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineGetLineDevStatusA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hline, lplinedevstatus) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hline, lplinedevstatus);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hline;
     (void)lplinedevstatus;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2244,10 +2881,17 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetLineDevStatusW_n
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineGetLineDevStatusW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hline, lplinedevstatus) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hline, lplinedevstatus);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hline;
     (void)lplinedevstatus;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2265,11 +2909,18 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetMessage_napi(con
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineGetMessage")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hlineapp, lpmessage, dwtimeout) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hlineapp, lpmessage, dwtimeout);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hlineapp;
     (void)lpmessage;
     (void)dwtimeout;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2288,12 +2939,19 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetNewCalls_napi(co
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineGetNewCalls")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hline, dwaddressid, dwselect, lpcalllist) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hline, dwaddressid, dwselect, lpcalllist);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hline;
     (void)dwaddressid;
     (void)dwselect;
     (void)lpcalllist;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2311,11 +2969,18 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetNumRings_napi(co
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineGetNumRings")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hline, dwaddressid, lpdwnumrings) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hline, dwaddressid, lpdwnumrings);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hline;
     (void)dwaddressid;
     (void)lpdwnumrings;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2332,10 +2997,17 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetProviderList_nap
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineGetProviderList")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwapiversion, lpproviderlist) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwapiversion, lpproviderlist);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwapiversion;
     (void)lpproviderlist;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2352,10 +3024,17 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetProviderListA_na
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineGetProviderListA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwapiversion, lpproviderlist) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwapiversion, lpproviderlist);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwapiversion;
     (void)lpproviderlist;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2372,10 +3051,17 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetProviderListW_na
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineGetProviderListW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwapiversion, lpproviderlist) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwapiversion, lpproviderlist);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwapiversion;
     (void)lpproviderlist;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2394,12 +3080,19 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetProxyStatus_napi
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineGetProxyStatus")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hlineapp, dwdeviceid, dwappapiversion, lplineproxyreqestlist) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hlineapp, dwdeviceid, dwappapiversion, lplineproxyreqestlist);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hlineapp;
     (void)dwdeviceid;
     (void)dwappapiversion;
     (void)lplineproxyreqestlist;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2417,11 +3110,18 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetQueueInfo_napi(c
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineGetQueueInfo")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hline, dwqueueid, lplinequeueinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hline, dwqueueid, lplinequeueinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hline;
     (void)dwqueueid;
     (void)lplinequeueinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2439,11 +3139,18 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetQueueListA_napi(
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineGetQueueListA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hline, lpgroupid, lpqueuelist) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hline, lpgroupid, lpqueuelist);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hline;
     (void)lpgroupid;
     (void)lpqueuelist;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2461,11 +3168,18 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetQueueListW_napi(
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineGetQueueListW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hline, lpgroupid, lpqueuelist) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hline, lpgroupid, lpqueuelist);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hline;
     (void)lpgroupid;
     (void)lpqueuelist;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2483,11 +3197,18 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetRequest_napi(con
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineGetRequest")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hlineapp, dwrequestmode, lprequestbuffer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hlineapp, dwrequestmode, lprequestbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hlineapp;
     (void)dwrequestmode;
     (void)lprequestbuffer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2505,11 +3226,18 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetRequestA_napi(co
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineGetRequestA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hlineapp, dwrequestmode, lprequestbuffer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hlineapp, dwrequestmode, lprequestbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hlineapp;
     (void)dwrequestmode;
     (void)lprequestbuffer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2527,11 +3255,18 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetRequestW_napi(co
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineGetRequestW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hlineapp, dwrequestmode, lprequestbuffer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hlineapp, dwrequestmode, lprequestbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hlineapp;
     (void)dwrequestmode;
     (void)lprequestbuffer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2549,11 +3284,18 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetStatusMessages_n
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineGetStatusMessages")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hline, lpdwlinestates, lpdwaddressstates) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hline, lpdwlinestates, lpdwaddressstates);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hline;
     (void)lpdwlinestates;
     (void)lpdwaddressstates;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2571,11 +3313,18 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetTranslateCaps_na
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineGetTranslateCaps")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hlineapp, dwapiversion, lptranslatecaps) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hlineapp, dwapiversion, lptranslatecaps);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hlineapp;
     (void)dwapiversion;
     (void)lptranslatecaps;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2593,11 +3342,18 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetTranslateCapsA_n
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineGetTranslateCapsA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hlineapp, dwapiversion, lptranslatecaps) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hlineapp, dwapiversion, lptranslatecaps);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hlineapp;
     (void)dwapiversion;
     (void)lptranslatecaps;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2615,11 +3371,18 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineGetTranslateCapsW_n
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineGetTranslateCapsW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hlineapp, dwapiversion, lptranslatecaps) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hlineapp, dwapiversion, lptranslatecaps);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hlineapp;
     (void)dwapiversion;
     (void)lptranslatecaps;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2637,11 +3400,18 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineHandoff_napi(const 
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineHandoff")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcall, lpszfilename, dwmediamode) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcall, lpszfilename, dwmediamode);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcall;
     (void)lpszfilename;
     (void)dwmediamode;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2659,11 +3429,18 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineHandoffA_napi(const
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineHandoffA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcall, lpszfilename, dwmediamode) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcall, lpszfilename, dwmediamode);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcall;
     (void)lpszfilename;
     (void)dwmediamode;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2681,11 +3458,18 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineHandoffW_napi(const
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineHandoffW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcall, lpszfilename, dwmediamode) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcall, lpszfilename, dwmediamode);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcall;
     (void)lpszfilename;
     (void)dwmediamode;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2701,9 +3485,16 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineHold_napi(const Nap
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineHold")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcall) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcall);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcall;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2723,13 +3514,20 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineInitialize_napi(con
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineInitialize")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lphlineapp, hinstance, lpfncallback, lpszappname, lpdwnumdevs) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lphlineapp, hinstance, lpfncallback, lpszappname, lpdwnumdevs);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lphlineapp;
     (void)hinstance;
     (void)lpfncallback;
     (void)lpszappname;
     (void)lpdwnumdevs;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2751,7 +3549,13 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineInitializeExA_napi(
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineInitializeExA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lphlineapp, hinstance, lpfncallback, lpszfriendlyappname, lpdwnumdevs, lpdwapiversion, lplineinitializeexparams) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lphlineapp, hinstance, lpfncallback, lpszfriendlyappname, lpdwnumdevs, lpdwapiversion, lplineinitializeexparams);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lphlineapp;
     (void)hinstance;
@@ -2760,6 +3564,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineInitializeExA_napi(
     (void)lpdwnumdevs;
     (void)lpdwapiversion;
     (void)lplineinitializeexparams;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2781,7 +3586,13 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineInitializeExW_napi(
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineInitializeExW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lphlineapp, hinstance, lpfncallback, lpszfriendlyappname, lpdwnumdevs, lpdwapiversion, lplineinitializeexparams) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lphlineapp, hinstance, lpfncallback, lpszfriendlyappname, lpdwnumdevs, lpdwapiversion, lplineinitializeexparams);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lphlineapp;
     (void)hinstance;
@@ -2790,6 +3601,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineInitializeExW_napi(
     (void)lpdwnumdevs;
     (void)lpdwapiversion;
     (void)lplineinitializeexparams;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2809,13 +3621,20 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineMakeCall_napi(const
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineMakeCall")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hline, lphcall, lpszdestaddress, dwcountrycode, lpcallparams) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hline, lphcall, lpszdestaddress, dwcountrycode, lpcallparams);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hline;
     (void)lphcall;
     (void)lpszdestaddress;
     (void)dwcountrycode;
     (void)lpcallparams;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2835,13 +3654,20 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineMakeCallA_napi(cons
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineMakeCallA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hline, lphcall, lpszdestaddress, dwcountrycode, lpcallparams) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hline, lphcall, lpszdestaddress, dwcountrycode, lpcallparams);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hline;
     (void)lphcall;
     (void)lpszdestaddress;
     (void)dwcountrycode;
     (void)lpcallparams;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2861,13 +3687,20 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineMakeCallW_napi(cons
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineMakeCallW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hline, lphcall, lpszdestaddress, dwcountrycode, lpcallparams) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hline, lphcall, lpszdestaddress, dwcountrycode, lpcallparams);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hline;
     (void)lphcall;
     (void)lpszdestaddress;
     (void)dwcountrycode;
     (void)lpcallparams;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2884,10 +3717,17 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineMonitorDigits_napi(
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineMonitorDigits")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcall, dwdigitmodes) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcall, dwdigitmodes);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcall;
     (void)dwdigitmodes;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2904,10 +3744,17 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineMonitorMedia_napi(c
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineMonitorMedia")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcall, dwmediamodes) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcall, dwmediamodes);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcall;
     (void)dwmediamodes;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2925,11 +3772,18 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineMonitorTones_napi(c
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineMonitorTones")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcall, lptonelist, dwnumentries) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcall, lptonelist, dwnumentries);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcall;
     (void)lptonelist;
     (void)dwnumentries;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2950,7 +3804,13 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineNegotiateAPIVersion
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineNegotiateAPIVersion")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hlineapp, dwdeviceid, dwapilowversion, dwapihighversion, lpdwapiversion, lpextensionid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hlineapp, dwdeviceid, dwapilowversion, dwapihighversion, lpdwapiversion, lpextensionid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hlineapp;
     (void)dwdeviceid;
@@ -2958,6 +3818,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineNegotiateAPIVersion
     (void)dwapihighversion;
     (void)lpdwapiversion;
     (void)lpextensionid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2978,7 +3839,13 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineNegotiateExtVersion
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineNegotiateExtVersion")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hlineapp, dwdeviceid, dwapiversion, dwextlowversion, dwexthighversion, lpdwextversion) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hlineapp, dwdeviceid, dwapiversion, dwextlowversion, dwexthighversion, lpdwextversion);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hlineapp;
     (void)dwdeviceid;
@@ -2986,6 +3853,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineNegotiateExtVersion
     (void)dwextlowversion;
     (void)dwexthighversion;
     (void)lpdwextversion;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3009,7 +3877,13 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineOpen_napi(const Nap
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineOpen")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hlineapp, dwdeviceid, lphline, dwapiversion, dwextversion, dwcallbackinstance, dwprivileges, dwmediamodes, lpcallparams) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hlineapp, dwdeviceid, lphline, dwapiversion, dwextversion, dwcallbackinstance, dwprivileges, dwmediamodes, lpcallparams);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hlineapp;
     (void)dwdeviceid;
@@ -3020,6 +3894,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineOpen_napi(const Nap
     (void)dwprivileges;
     (void)dwmediamodes;
     (void)lpcallparams;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3043,7 +3918,13 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineOpenA_napi(const Na
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineOpenA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hlineapp, dwdeviceid, lphline, dwapiversion, dwextversion, dwcallbackinstance, dwprivileges, dwmediamodes, lpcallparams) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hlineapp, dwdeviceid, lphline, dwapiversion, dwextversion, dwcallbackinstance, dwprivileges, dwmediamodes, lpcallparams);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hlineapp;
     (void)dwdeviceid;
@@ -3054,6 +3935,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineOpenA_napi(const Na
     (void)dwprivileges;
     (void)dwmediamodes;
     (void)lpcallparams;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3077,7 +3959,13 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineOpenW_napi(const Na
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineOpenW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hlineapp, dwdeviceid, lphline, dwapiversion, dwextversion, dwcallbackinstance, dwprivileges, dwmediamodes, lpcallparams) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hlineapp, dwdeviceid, lphline, dwapiversion, dwextversion, dwcallbackinstance, dwprivileges, dwmediamodes, lpcallparams);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hlineapp;
     (void)dwdeviceid;
@@ -3088,6 +3976,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineOpenW_napi(const Na
     (void)dwprivileges;
     (void)dwmediamodes;
     (void)lpcallparams;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3106,12 +3995,19 @@ static Napi::Value windowssys_windows_win32_devices_tapi_linePark_napi(const Nap
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "linePark")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcall, dwparkmode, lpszdiraddress, lpnondiraddress) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcall, dwparkmode, lpszdiraddress, lpnondiraddress);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcall;
     (void)dwparkmode;
     (void)lpszdiraddress;
     (void)lpnondiraddress;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3130,12 +4026,19 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineParkA_napi(const Na
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineParkA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcall, dwparkmode, lpszdiraddress, lpnondiraddress) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcall, dwparkmode, lpszdiraddress, lpnondiraddress);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcall;
     (void)dwparkmode;
     (void)lpszdiraddress;
     (void)lpnondiraddress;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3154,12 +4057,19 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineParkW_napi(const Na
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineParkW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcall, dwparkmode, lpszdiraddress, lpnondiraddress) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcall, dwparkmode, lpszdiraddress, lpnondiraddress);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcall;
     (void)dwparkmode;
     (void)lpszdiraddress;
     (void)lpnondiraddress;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3179,13 +4089,20 @@ static Napi::Value windowssys_windows_win32_devices_tapi_linePickup_napi(const N
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "linePickup")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hline, dwaddressid, lphcall, lpszdestaddress, lpszgroupid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hline, dwaddressid, lphcall, lpszdestaddress, lpszgroupid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hline;
     (void)dwaddressid;
     (void)lphcall;
     (void)lpszdestaddress;
     (void)lpszgroupid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3205,13 +4122,20 @@ static Napi::Value windowssys_windows_win32_devices_tapi_linePickupA_napi(const 
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "linePickupA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hline, dwaddressid, lphcall, lpszdestaddress, lpszgroupid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hline, dwaddressid, lphcall, lpszdestaddress, lpszgroupid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hline;
     (void)dwaddressid;
     (void)lphcall;
     (void)lpszdestaddress;
     (void)lpszgroupid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3231,13 +4155,20 @@ static Napi::Value windowssys_windows_win32_devices_tapi_linePickupW_napi(const 
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "linePickupW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hline, dwaddressid, lphcall, lpszdestaddress, lpszgroupid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hline, dwaddressid, lphcall, lpszdestaddress, lpszgroupid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hline;
     (void)dwaddressid;
     (void)lphcall;
     (void)lpszdestaddress;
     (void)lpszgroupid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3255,11 +4186,18 @@ static Napi::Value windowssys_windows_win32_devices_tapi_linePrepareAddToConfere
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "linePrepareAddToConference")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hconfcall, lphconsultcall, lpcallparams) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hconfcall, lphconsultcall, lpcallparams);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hconfcall;
     (void)lphconsultcall;
     (void)lpcallparams;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3277,11 +4215,18 @@ static Napi::Value windowssys_windows_win32_devices_tapi_linePrepareAddToConfere
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "linePrepareAddToConferenceA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hconfcall, lphconsultcall, lpcallparams) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hconfcall, lphconsultcall, lpcallparams);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hconfcall;
     (void)lphconsultcall;
     (void)lpcallparams;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3299,11 +4244,18 @@ static Napi::Value windowssys_windows_win32_devices_tapi_linePrepareAddToConfere
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "linePrepareAddToConferenceW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hconfcall, lphconsultcall, lpcallparams) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hconfcall, lphconsultcall, lpcallparams);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hconfcall;
     (void)lphconsultcall;
     (void)lpcallparams;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3324,7 +4276,13 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineProxyMessage_napi(c
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineProxyMessage")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hline, hcall, dwmsg, dwparam1, dwparam2, dwparam3) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hline, hcall, dwmsg, dwparam1, dwparam2, dwparam3);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hline;
     (void)hcall;
@@ -3332,6 +4290,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineProxyMessage_napi(c
     (void)dwparam1;
     (void)dwparam2;
     (void)dwparam3;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3349,11 +4308,18 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineProxyResponse_napi(
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineProxyResponse")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hline, lpproxyrequest, dwresult) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hline, lpproxyrequest, dwresult);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hline;
     (void)lpproxyrequest;
     (void)dwresult;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3371,11 +4337,18 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineRedirect_napi(const
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineRedirect")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcall, lpszdestaddress, dwcountrycode) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcall, lpszdestaddress, dwcountrycode);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcall;
     (void)lpszdestaddress;
     (void)dwcountrycode;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3393,11 +4366,18 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineRedirectA_napi(cons
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineRedirectA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcall, lpszdestaddress, dwcountrycode) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcall, lpszdestaddress, dwcountrycode);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcall;
     (void)lpszdestaddress;
     (void)dwcountrycode;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3415,11 +4395,18 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineRedirectW_napi(cons
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineRedirectW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcall, lpszdestaddress, dwcountrycode) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcall, lpszdestaddress, dwcountrycode);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcall;
     (void)lpszdestaddress;
     (void)dwcountrycode;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3438,12 +4425,19 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineRegisterRequestReci
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineRegisterRequestRecipient")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hlineapp, dwregistrationinstance, dwrequestmode, benable) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hlineapp, dwregistrationinstance, dwrequestmode, benable);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hlineapp;
     (void)dwregistrationinstance;
     (void)dwrequestmode;
     (void)benable;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3459,9 +4453,16 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineReleaseUserUserInfo
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineReleaseUserUserInfo")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcall) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcall);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcall;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3477,9 +4478,16 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineRemoveFromConferenc
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineRemoveFromConference")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcall) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcall);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcall;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3496,10 +4504,17 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineRemoveProvider_napi
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineRemoveProvider")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwpermanentproviderid, hwndowner) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwpermanentproviderid, hwndowner);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwpermanentproviderid;
     (void)hwndowner;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3515,9 +4530,16 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineSecureCall_napi(con
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineSecureCall")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcall) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcall);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcall;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3535,11 +4557,18 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineSendUserUserInfo_na
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineSendUserUserInfo")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcall, lpsuseruserinfo, dwsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcall, lpsuseruserinfo, dwsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcall;
     (void)lpsuseruserinfo;
     (void)dwsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3557,11 +4586,18 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineSetAgentActivity_na
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineSetAgentActivity")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hline, dwaddressid, dwactivityid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hline, dwaddressid, dwactivityid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hline;
     (void)dwaddressid;
     (void)dwactivityid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3579,11 +4615,18 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineSetAgentGroup_napi(
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineSetAgentGroup")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hline, dwaddressid, lpagentgrouplist) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hline, dwaddressid, lpagentgrouplist);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hline;
     (void)dwaddressid;
     (void)lpagentgrouplist;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3601,11 +4644,18 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineSetAgentMeasurement
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineSetAgentMeasurementPeriod")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hline, hagent, dwmeasurementperiod) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hline, hagent, dwmeasurementperiod);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hline;
     (void)hagent;
     (void)dwmeasurementperiod;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3624,12 +4674,19 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineSetAgentSessionStat
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineSetAgentSessionState")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hline, hagentsession, dwagentsessionstate, dwnextagentsessionstate) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hline, hagentsession, dwagentsessionstate, dwnextagentsessionstate);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hline;
     (void)hagentsession;
     (void)dwagentsessionstate;
     (void)dwnextagentsessionstate;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3648,12 +4705,19 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineSetAgentState_napi(
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineSetAgentState")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hline, dwaddressid, dwagentstate, dwnextagentstate) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hline, dwaddressid, dwagentstate, dwnextagentstate);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hline;
     (void)dwaddressid;
     (void)dwagentstate;
     (void)dwnextagentstate;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3672,12 +4736,19 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineSetAgentStateEx_nap
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineSetAgentStateEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hline, hagent, dwagentstate, dwnextagentstate) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hline, hagent, dwagentstate, dwnextagentstate);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hline;
     (void)hagent;
     (void)dwagentstate;
     (void)dwnextagentstate;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3698,7 +4769,13 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineSetAppPriority_napi
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineSetAppPriority")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszappfilename, dwmediamode, lpextensionid, dwrequestmode, lpszextensionname, dwpriority) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszappfilename, dwmediamode, lpextensionid, dwrequestmode, lpszextensionname, dwpriority);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszappfilename;
     (void)dwmediamode;
@@ -3706,6 +4783,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineSetAppPriority_napi
     (void)dwrequestmode;
     (void)lpszextensionname;
     (void)dwpriority;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3726,7 +4804,13 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineSetAppPriorityA_nap
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineSetAppPriorityA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszappfilename, dwmediamode, lpextensionid, dwrequestmode, lpszextensionname, dwpriority) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszappfilename, dwmediamode, lpextensionid, dwrequestmode, lpszextensionname, dwpriority);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszappfilename;
     (void)dwmediamode;
@@ -3734,6 +4818,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineSetAppPriorityA_nap
     (void)dwrequestmode;
     (void)lpszextensionname;
     (void)dwpriority;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3754,7 +4839,13 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineSetAppPriorityW_nap
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineSetAppPriorityW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszappfilename, dwmediamode, lpextensionid, dwrequestmode, lpszextensionname, dwpriority) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszappfilename, dwmediamode, lpextensionid, dwrequestmode, lpszextensionname, dwpriority);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszappfilename;
     (void)dwmediamode;
@@ -3762,6 +4853,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineSetAppPriorityW_nap
     (void)dwrequestmode;
     (void)lpszextensionname;
     (void)dwpriority;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3778,10 +4870,17 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineSetAppSpecific_napi
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineSetAppSpecific")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcall, dwappspecific) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcall, dwappspecific);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcall;
     (void)dwappspecific;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3799,11 +4898,18 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineSetCallData_napi(co
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineSetCallData")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcall, lpcalldata, dwsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcall, lpcalldata, dwsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcall;
     (void)lpcalldata;
     (void)dwsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3823,13 +4929,20 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineSetCallParams_napi(
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineSetCallParams")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcall, dwbearermode, dwminrate, dwmaxrate, lpdialparams) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcall, dwbearermode, dwminrate, dwmaxrate, lpdialparams);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcall;
     (void)dwbearermode;
     (void)dwminrate;
     (void)dwmaxrate;
     (void)lpdialparams;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3846,10 +4959,17 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineSetCallPrivilege_na
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineSetCallPrivilege")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcall, dwcallprivilege) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcall, dwcallprivilege);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcall;
     (void)dwcallprivilege;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3869,13 +4989,20 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineSetCallQualityOfSer
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineSetCallQualityOfService")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcall, lpsendingflowspec, dwsendingflowspecsize, lpreceivingflowspec, dwreceivingflowspecsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcall, lpsendingflowspec, dwsendingflowspecsize, lpreceivingflowspec, dwreceivingflowspecsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcall;
     (void)lpsendingflowspec;
     (void)dwsendingflowspecsize;
     (void)lpreceivingflowspec;
     (void)dwreceivingflowspecsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3892,10 +5019,17 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineSetCallTreatment_na
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineSetCallTreatment")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcall, dwtreatment) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcall, dwtreatment);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcall;
     (void)dwtreatment;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3912,10 +5046,17 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineSetCurrentLocation_
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineSetCurrentLocation")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hlineapp, dwlocation) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hlineapp, dwlocation);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hlineapp;
     (void)dwlocation;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3934,12 +5075,19 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineSetDevConfig_napi(c
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineSetDevConfig")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwdeviceid, lpdeviceconfig, dwsize, lpszdeviceclass) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwdeviceid, lpdeviceconfig, dwsize, lpszdeviceclass);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwdeviceid;
     (void)lpdeviceconfig;
     (void)dwsize;
     (void)lpszdeviceclass;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3958,12 +5106,19 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineSetDevConfigA_napi(
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineSetDevConfigA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwdeviceid, lpdeviceconfig, dwsize, lpszdeviceclass) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwdeviceid, lpdeviceconfig, dwsize, lpszdeviceclass);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwdeviceid;
     (void)lpdeviceconfig;
     (void)dwsize;
     (void)lpszdeviceclass;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3982,12 +5137,19 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineSetDevConfigW_napi(
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineSetDevConfigW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwdeviceid, lpdeviceconfig, dwsize, lpszdeviceclass) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwdeviceid, lpdeviceconfig, dwsize, lpszdeviceclass);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwdeviceid;
     (void)lpdeviceconfig;
     (void)dwsize;
     (void)lpszdeviceclass;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4005,11 +5167,18 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineSetLineDevStatus_na
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineSetLineDevStatus")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hline, dwstatustochange, fstatus) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hline, dwstatustochange, fstatus);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hline;
     (void)dwstatustochange;
     (void)fstatus;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4036,7 +5205,13 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineSetMediaControl_nap
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineSetMediaControl")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hline, dwaddressid, hcall, dwselect, lpdigitlist, dwdigitnumentries, lpmedialist, dwmedianumentries, lptonelist, dwtonenumentries, lpcallstatelist, dwcallstatenumentries) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hline, dwaddressid, hcall, dwselect, lpdigitlist, dwdigitnumentries, lpmedialist, dwmedianumentries, lptonelist, dwtonenumentries, lpcallstatelist, dwcallstatenumentries);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hline;
     (void)dwaddressid;
@@ -4050,6 +5225,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineSetMediaControl_nap
     (void)dwtonenumentries;
     (void)lpcallstatelist;
     (void)dwcallstatenumentries;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4066,10 +5242,17 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineSetMediaMode_napi(c
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineSetMediaMode")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcall, dwmediamodes) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcall, dwmediamodes);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcall;
     (void)dwmediamodes;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4087,11 +5270,18 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineSetNumRings_napi(co
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineSetNumRings")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hline, dwaddressid, dwnumrings) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hline, dwaddressid, dwnumrings);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hline;
     (void)dwaddressid;
     (void)dwnumrings;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4109,11 +5299,18 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineSetQueueMeasurement
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineSetQueueMeasurementPeriod")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hline, dwqueueid, dwmeasurementperiod) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hline, dwqueueid, dwmeasurementperiod);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hline;
     (void)dwqueueid;
     (void)dwmeasurementperiod;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4131,11 +5328,18 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineSetStatusMessages_n
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineSetStatusMessages")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hline, dwlinestates, dwaddressstates) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hline, dwlinestates, dwaddressstates);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hline;
     (void)dwlinestates;
     (void)dwaddressstates;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4157,7 +5361,13 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineSetTerminal_napi(co
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineSetTerminal")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hline, dwaddressid, hcall, dwselect, dwterminalmodes, dwterminalid, benable) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hline, dwaddressid, hcall, dwselect, dwterminalmodes, dwterminalid, benable);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hline;
     (void)dwaddressid;
@@ -4166,6 +5376,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineSetTerminal_napi(co
     (void)dwterminalmodes;
     (void)dwterminalid;
     (void)benable;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4184,12 +5395,19 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineSetTollList_napi(co
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineSetTollList")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hlineapp, dwdeviceid, lpszaddressin, dwtolllistoption) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hlineapp, dwdeviceid, lpszaddressin, dwtolllistoption);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hlineapp;
     (void)dwdeviceid;
     (void)lpszaddressin;
     (void)dwtolllistoption;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4208,12 +5426,19 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineSetTollListA_napi(c
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineSetTollListA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hlineapp, dwdeviceid, lpszaddressin, dwtolllistoption) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hlineapp, dwdeviceid, lpszaddressin, dwtolllistoption);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hlineapp;
     (void)dwdeviceid;
     (void)lpszaddressin;
     (void)dwtolllistoption;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4232,12 +5457,19 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineSetTollListW_napi(c
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineSetTollListW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hlineapp, dwdeviceid, lpszaddressinw, dwtolllistoption) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hlineapp, dwdeviceid, lpszaddressinw, dwtolllistoption);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hlineapp;
     (void)dwdeviceid;
     (void)lpszaddressinw;
     (void)dwtolllistoption;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4258,7 +5490,13 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineSetupConference_nap
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineSetupConference")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcall, hline, lphconfcall, lphconsultcall, dwnumparties, lpcallparams) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcall, hline, lphconfcall, lphconsultcall, dwnumparties, lpcallparams);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcall;
     (void)hline;
@@ -4266,6 +5504,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineSetupConference_nap
     (void)lphconsultcall;
     (void)dwnumparties;
     (void)lpcallparams;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4286,7 +5525,13 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineSetupConferenceA_na
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineSetupConferenceA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcall, hline, lphconfcall, lphconsultcall, dwnumparties, lpcallparams) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcall, hline, lphconfcall, lphconsultcall, dwnumparties, lpcallparams);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcall;
     (void)hline;
@@ -4294,6 +5539,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineSetupConferenceA_na
     (void)lphconsultcall;
     (void)dwnumparties;
     (void)lpcallparams;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4314,7 +5560,13 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineSetupConferenceW_na
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineSetupConferenceW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcall, hline, lphconfcall, lphconsultcall, dwnumparties, lpcallparams) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcall, hline, lphconfcall, lphconsultcall, dwnumparties, lpcallparams);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcall;
     (void)hline;
@@ -4322,6 +5574,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineSetupConferenceW_na
     (void)lphconsultcall;
     (void)dwnumparties;
     (void)lpcallparams;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4339,11 +5592,18 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineSetupTransfer_napi(
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineSetupTransfer")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcall, lphconsultcall, lpcallparams) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcall, lphconsultcall, lpcallparams);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcall;
     (void)lphconsultcall;
     (void)lpcallparams;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4361,11 +5621,18 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineSetupTransferA_napi
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineSetupTransferA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcall, lphconsultcall, lpcallparams) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcall, lphconsultcall, lpcallparams);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcall;
     (void)lphconsultcall;
     (void)lpcallparams;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4383,11 +5650,18 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineSetupTransferW_napi
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineSetupTransferW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcall, lphconsultcall, lpcallparams) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcall, lphconsultcall, lpcallparams);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcall;
     (void)lphconsultcall;
     (void)lpcallparams;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4403,9 +5677,16 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineShutdown_napi(const
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineShutdown")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hlineapp) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hlineapp);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hlineapp;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4422,10 +5703,17 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineSwapHold_napi(const
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineSwapHold")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hactivecall, hheldcall) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hactivecall, hheldcall);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hactivecall;
     (void)hheldcall;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4447,7 +5735,13 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineTranslateAddress_na
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineTranslateAddress")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hlineapp, dwdeviceid, dwapiversion, lpszaddressin, dwcard, dwtranslateoptions, lptranslateoutput) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hlineapp, dwdeviceid, dwapiversion, lpszaddressin, dwcard, dwtranslateoptions, lptranslateoutput);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hlineapp;
     (void)dwdeviceid;
@@ -4456,6 +5750,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineTranslateAddress_na
     (void)dwcard;
     (void)dwtranslateoptions;
     (void)lptranslateoutput;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4477,7 +5772,13 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineTranslateAddressA_n
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineTranslateAddressA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hlineapp, dwdeviceid, dwapiversion, lpszaddressin, dwcard, dwtranslateoptions, lptranslateoutput) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hlineapp, dwdeviceid, dwapiversion, lpszaddressin, dwcard, dwtranslateoptions, lptranslateoutput);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hlineapp;
     (void)dwdeviceid;
@@ -4486,6 +5787,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineTranslateAddressA_n
     (void)dwcard;
     (void)dwtranslateoptions;
     (void)lptranslateoutput;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4507,7 +5809,13 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineTranslateAddressW_n
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineTranslateAddressW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hlineapp, dwdeviceid, dwapiversion, lpszaddressin, dwcard, dwtranslateoptions, lptranslateoutput) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hlineapp, dwdeviceid, dwapiversion, lpszaddressin, dwcard, dwtranslateoptions, lptranslateoutput);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hlineapp;
     (void)dwdeviceid;
@@ -4516,6 +5824,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineTranslateAddressW_n
     (void)dwcard;
     (void)dwtranslateoptions;
     (void)lptranslateoutput;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4535,13 +5844,20 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineTranslateDialog_nap
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineTranslateDialog")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hlineapp, dwdeviceid, dwapiversion, hwndowner, lpszaddressin) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hlineapp, dwdeviceid, dwapiversion, hwndowner, lpszaddressin);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hlineapp;
     (void)dwdeviceid;
     (void)dwapiversion;
     (void)hwndowner;
     (void)lpszaddressin;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4561,13 +5877,20 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineTranslateDialogA_na
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineTranslateDialogA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hlineapp, dwdeviceid, dwapiversion, hwndowner, lpszaddressin) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hlineapp, dwdeviceid, dwapiversion, hwndowner, lpszaddressin);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hlineapp;
     (void)dwdeviceid;
     (void)dwapiversion;
     (void)hwndowner;
     (void)lpszaddressin;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4587,13 +5910,20 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineTranslateDialogW_na
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineTranslateDialogW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hlineapp, dwdeviceid, dwapiversion, hwndowner, lpszaddressin) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hlineapp, dwdeviceid, dwapiversion, hwndowner, lpszaddressin);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hlineapp;
     (void)dwdeviceid;
     (void)dwapiversion;
     (void)hwndowner;
     (void)lpszaddressin;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4610,10 +5940,17 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineUncompleteCall_napi
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineUncompleteCall")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hline, dwcompletionid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hline, dwcompletionid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hline;
     (void)dwcompletionid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4629,9 +5966,16 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineUnhold_napi(const N
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineUnhold")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcall) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcall);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcall;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4650,12 +5994,19 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineUnpark_napi(const N
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineUnpark")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hline, dwaddressid, lphcall, lpszdestaddress) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hline, dwaddressid, lphcall, lpszdestaddress);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hline;
     (void)dwaddressid;
     (void)lphcall;
     (void)lpszdestaddress;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4674,12 +6025,19 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineUnparkA_napi(const 
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineUnparkA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hline, dwaddressid, lphcall, lpszdestaddress) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hline, dwaddressid, lphcall, lpszdestaddress);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hline;
     (void)dwaddressid;
     (void)lphcall;
     (void)lpszdestaddress;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4698,12 +6056,19 @@ static Napi::Value windowssys_windows_win32_devices_tapi_lineUnparkW_napi(const 
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "lineUnparkW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hline, dwaddressid, lphcall, lpszdestaddress) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hline, dwaddressid, lphcall, lpszdestaddress);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hline;
     (void)dwaddressid;
     (void)lphcall;
     (void)lpszdestaddress;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4719,9 +6084,16 @@ static Napi::Value windowssys_windows_win32_devices_tapi_phoneClose_napi(const N
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "phoneClose")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hphone) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hphone);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hphone;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4739,11 +6111,18 @@ static Napi::Value windowssys_windows_win32_devices_tapi_phoneConfigDialog_napi(
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "phoneConfigDialog")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwdeviceid, hwndowner, lpszdeviceclass) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwdeviceid, hwndowner, lpszdeviceclass);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwdeviceid;
     (void)hwndowner;
     (void)lpszdeviceclass;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4761,11 +6140,18 @@ static Napi::Value windowssys_windows_win32_devices_tapi_phoneConfigDialogA_napi
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "phoneConfigDialogA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwdeviceid, hwndowner, lpszdeviceclass) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwdeviceid, hwndowner, lpszdeviceclass);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwdeviceid;
     (void)hwndowner;
     (void)lpszdeviceclass;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4783,11 +6169,18 @@ static Napi::Value windowssys_windows_win32_devices_tapi_phoneConfigDialogW_napi
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "phoneConfigDialogW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwdeviceid, hwndowner, lpszdeviceclass) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwdeviceid, hwndowner, lpszdeviceclass);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwdeviceid;
     (void)hwndowner;
     (void)lpszdeviceclass;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4805,11 +6198,18 @@ static Napi::Value windowssys_windows_win32_devices_tapi_phoneDevSpecific_napi(c
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "phoneDevSpecific")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hphone, lpparams, dwsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hphone, lpparams, dwsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hphone;
     (void)lpparams;
     (void)dwsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4827,11 +6227,18 @@ static Napi::Value windowssys_windows_win32_devices_tapi_phoneGetButtonInfo_napi
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "phoneGetButtonInfo")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hphone, dwbuttonlampid, lpbuttoninfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hphone, dwbuttonlampid, lpbuttoninfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hphone;
     (void)dwbuttonlampid;
     (void)lpbuttoninfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4849,11 +6256,18 @@ static Napi::Value windowssys_windows_win32_devices_tapi_phoneGetButtonInfoA_nap
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "phoneGetButtonInfoA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hphone, dwbuttonlampid, lpbuttoninfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hphone, dwbuttonlampid, lpbuttoninfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hphone;
     (void)dwbuttonlampid;
     (void)lpbuttoninfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4871,11 +6285,18 @@ static Napi::Value windowssys_windows_win32_devices_tapi_phoneGetButtonInfoW_nap
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "phoneGetButtonInfoW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hphone, dwbuttonlampid, lpbuttoninfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hphone, dwbuttonlampid, lpbuttoninfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hphone;
     (void)dwbuttonlampid;
     (void)lpbuttoninfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4894,12 +6315,19 @@ static Napi::Value windowssys_windows_win32_devices_tapi_phoneGetData_napi(const
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "phoneGetData")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hphone, dwdataid, lpdata, dwsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hphone, dwdataid, lpdata, dwsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hphone;
     (void)dwdataid;
     (void)lpdata;
     (void)dwsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4919,13 +6347,20 @@ static Napi::Value windowssys_windows_win32_devices_tapi_phoneGetDevCaps_napi(co
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "phoneGetDevCaps")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hphoneapp, dwdeviceid, dwapiversion, dwextversion, lpphonecaps) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hphoneapp, dwdeviceid, dwapiversion, dwextversion, lpphonecaps);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hphoneapp;
     (void)dwdeviceid;
     (void)dwapiversion;
     (void)dwextversion;
     (void)lpphonecaps;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4945,13 +6380,20 @@ static Napi::Value windowssys_windows_win32_devices_tapi_phoneGetDevCapsA_napi(c
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "phoneGetDevCapsA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hphoneapp, dwdeviceid, dwapiversion, dwextversion, lpphonecaps) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hphoneapp, dwdeviceid, dwapiversion, dwextversion, lpphonecaps);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hphoneapp;
     (void)dwdeviceid;
     (void)dwapiversion;
     (void)dwextversion;
     (void)lpphonecaps;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4971,13 +6413,20 @@ static Napi::Value windowssys_windows_win32_devices_tapi_phoneGetDevCapsW_napi(c
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "phoneGetDevCapsW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hphoneapp, dwdeviceid, dwapiversion, dwextversion, lpphonecaps) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hphoneapp, dwdeviceid, dwapiversion, dwextversion, lpphonecaps);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hphoneapp;
     (void)dwdeviceid;
     (void)dwapiversion;
     (void)dwextversion;
     (void)lpphonecaps;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4994,10 +6443,17 @@ static Napi::Value windowssys_windows_win32_devices_tapi_phoneGetDisplay_napi(co
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "phoneGetDisplay")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hphone, lpdisplay) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hphone, lpdisplay);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hphone;
     (void)lpdisplay;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5015,11 +6471,18 @@ static Napi::Value windowssys_windows_win32_devices_tapi_phoneGetGain_napi(const
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "phoneGetGain")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hphone, dwhookswitchdev, lpdwgain) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hphone, dwhookswitchdev, lpdwgain);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hphone;
     (void)dwhookswitchdev;
     (void)lpdwgain;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5036,10 +6499,17 @@ static Napi::Value windowssys_windows_win32_devices_tapi_phoneGetHookSwitch_napi
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "phoneGetHookSwitch")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hphone, lpdwhookswitchdevs) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hphone, lpdwhookswitchdevs);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hphone;
     (void)lpdwhookswitchdevs;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5057,11 +6527,18 @@ static Napi::Value windowssys_windows_win32_devices_tapi_phoneGetID_napi(const N
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "phoneGetID")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hphone, lpdeviceid, lpszdeviceclass) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hphone, lpdeviceid, lpszdeviceclass);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hphone;
     (void)lpdeviceid;
     (void)lpszdeviceclass;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5079,11 +6556,18 @@ static Napi::Value windowssys_windows_win32_devices_tapi_phoneGetIDA_napi(const 
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "phoneGetIDA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hphone, lpdeviceid, lpszdeviceclass) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hphone, lpdeviceid, lpszdeviceclass);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hphone;
     (void)lpdeviceid;
     (void)lpszdeviceclass;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5101,11 +6585,18 @@ static Napi::Value windowssys_windows_win32_devices_tapi_phoneGetIDW_napi(const 
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "phoneGetIDW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hphone, lpdeviceid, lpszdeviceclass) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hphone, lpdeviceid, lpszdeviceclass);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hphone;
     (void)lpdeviceid;
     (void)lpszdeviceclass;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5123,11 +6614,18 @@ static Napi::Value windowssys_windows_win32_devices_tapi_phoneGetIcon_napi(const
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "phoneGetIcon")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwdeviceid, lpszdeviceclass, lphicon) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwdeviceid, lpszdeviceclass, lphicon);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwdeviceid;
     (void)lpszdeviceclass;
     (void)lphicon;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5145,11 +6643,18 @@ static Napi::Value windowssys_windows_win32_devices_tapi_phoneGetIconA_napi(cons
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "phoneGetIconA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwdeviceid, lpszdeviceclass, lphicon) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwdeviceid, lpszdeviceclass, lphicon);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwdeviceid;
     (void)lpszdeviceclass;
     (void)lphicon;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5167,11 +6672,18 @@ static Napi::Value windowssys_windows_win32_devices_tapi_phoneGetIconW_napi(cons
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "phoneGetIconW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwdeviceid, lpszdeviceclass, lphicon) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwdeviceid, lpszdeviceclass, lphicon);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwdeviceid;
     (void)lpszdeviceclass;
     (void)lphicon;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5189,11 +6701,18 @@ static Napi::Value windowssys_windows_win32_devices_tapi_phoneGetLamp_napi(const
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "phoneGetLamp")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hphone, dwbuttonlampid, lpdwlampmode) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hphone, dwbuttonlampid, lpdwlampmode);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hphone;
     (void)dwbuttonlampid;
     (void)lpdwlampmode;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5211,11 +6730,18 @@ static Napi::Value windowssys_windows_win32_devices_tapi_phoneGetMessage_napi(co
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "phoneGetMessage")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hphoneapp, lpmessage, dwtimeout) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hphoneapp, lpmessage, dwtimeout);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hphoneapp;
     (void)lpmessage;
     (void)dwtimeout;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5233,11 +6759,18 @@ static Napi::Value windowssys_windows_win32_devices_tapi_phoneGetRing_napi(const
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "phoneGetRing")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hphone, lpdwringmode, lpdwvolume) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hphone, lpdwringmode, lpdwvolume);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hphone;
     (void)lpdwringmode;
     (void)lpdwvolume;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5254,10 +6787,17 @@ static Napi::Value windowssys_windows_win32_devices_tapi_phoneGetStatus_napi(con
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "phoneGetStatus")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hphone, lpphonestatus) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hphone, lpphonestatus);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hphone;
     (void)lpphonestatus;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5274,10 +6814,17 @@ static Napi::Value windowssys_windows_win32_devices_tapi_phoneGetStatusA_napi(co
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "phoneGetStatusA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hphone, lpphonestatus) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hphone, lpphonestatus);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hphone;
     (void)lpphonestatus;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5296,12 +6843,19 @@ static Napi::Value windowssys_windows_win32_devices_tapi_phoneGetStatusMessages_
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "phoneGetStatusMessages")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hphone, lpdwphonestates, lpdwbuttonmodes, lpdwbuttonstates) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hphone, lpdwphonestates, lpdwbuttonmodes, lpdwbuttonstates);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hphone;
     (void)lpdwphonestates;
     (void)lpdwbuttonmodes;
     (void)lpdwbuttonstates;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5318,10 +6872,17 @@ static Napi::Value windowssys_windows_win32_devices_tapi_phoneGetStatusW_napi(co
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "phoneGetStatusW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hphone, lpphonestatus) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hphone, lpphonestatus);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hphone;
     (void)lpphonestatus;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5339,11 +6900,18 @@ static Napi::Value windowssys_windows_win32_devices_tapi_phoneGetVolume_napi(con
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "phoneGetVolume")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hphone, dwhookswitchdev, lpdwvolume) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hphone, dwhookswitchdev, lpdwvolume);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hphone;
     (void)dwhookswitchdev;
     (void)lpdwvolume;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5363,13 +6931,20 @@ static Napi::Value windowssys_windows_win32_devices_tapi_phoneInitialize_napi(co
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "phoneInitialize")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lphphoneapp, hinstance, lpfncallback, lpszappname, lpdwnumdevs) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lphphoneapp, hinstance, lpfncallback, lpszappname, lpdwnumdevs);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lphphoneapp;
     (void)hinstance;
     (void)lpfncallback;
     (void)lpszappname;
     (void)lpdwnumdevs;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5391,7 +6966,13 @@ static Napi::Value windowssys_windows_win32_devices_tapi_phoneInitializeExA_napi
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "phoneInitializeExA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lphphoneapp, hinstance, lpfncallback, lpszfriendlyappname, lpdwnumdevs, lpdwapiversion, lpphoneinitializeexparams) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lphphoneapp, hinstance, lpfncallback, lpszfriendlyappname, lpdwnumdevs, lpdwapiversion, lpphoneinitializeexparams);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lphphoneapp;
     (void)hinstance;
@@ -5400,6 +6981,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_phoneInitializeExA_napi
     (void)lpdwnumdevs;
     (void)lpdwapiversion;
     (void)lpphoneinitializeexparams;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5421,7 +7003,13 @@ static Napi::Value windowssys_windows_win32_devices_tapi_phoneInitializeExW_napi
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "phoneInitializeExW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lphphoneapp, hinstance, lpfncallback, lpszfriendlyappname, lpdwnumdevs, lpdwapiversion, lpphoneinitializeexparams) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lphphoneapp, hinstance, lpfncallback, lpszfriendlyappname, lpdwnumdevs, lpdwapiversion, lpphoneinitializeexparams);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lphphoneapp;
     (void)hinstance;
@@ -5430,6 +7018,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_phoneInitializeExW_napi
     (void)lpdwnumdevs;
     (void)lpdwapiversion;
     (void)lpphoneinitializeexparams;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5450,7 +7039,13 @@ static Napi::Value windowssys_windows_win32_devices_tapi_phoneNegotiateAPIVersio
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "phoneNegotiateAPIVersion")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hphoneapp, dwdeviceid, dwapilowversion, dwapihighversion, lpdwapiversion, lpextensionid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hphoneapp, dwdeviceid, dwapilowversion, dwapihighversion, lpdwapiversion, lpextensionid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hphoneapp;
     (void)dwdeviceid;
@@ -5458,6 +7053,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_phoneNegotiateAPIVersio
     (void)dwapihighversion;
     (void)lpdwapiversion;
     (void)lpextensionid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5478,7 +7074,13 @@ static Napi::Value windowssys_windows_win32_devices_tapi_phoneNegotiateExtVersio
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "phoneNegotiateExtVersion")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hphoneapp, dwdeviceid, dwapiversion, dwextlowversion, dwexthighversion, lpdwextversion) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hphoneapp, dwdeviceid, dwapiversion, dwextlowversion, dwexthighversion, lpdwextversion);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hphoneapp;
     (void)dwdeviceid;
@@ -5486,6 +7088,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_phoneNegotiateExtVersio
     (void)dwextlowversion;
     (void)dwexthighversion;
     (void)lpdwextversion;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5507,7 +7110,13 @@ static Napi::Value windowssys_windows_win32_devices_tapi_phoneOpen_napi(const Na
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "phoneOpen")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hphoneapp, dwdeviceid, lphphone, dwapiversion, dwextversion, dwcallbackinstance, dwprivilege) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hphoneapp, dwdeviceid, lphphone, dwapiversion, dwextversion, dwcallbackinstance, dwprivilege);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hphoneapp;
     (void)dwdeviceid;
@@ -5516,6 +7125,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_phoneOpen_napi(const Na
     (void)dwextversion;
     (void)dwcallbackinstance;
     (void)dwprivilege;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5533,11 +7143,18 @@ static Napi::Value windowssys_windows_win32_devices_tapi_phoneSetButtonInfo_napi
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "phoneSetButtonInfo")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hphone, dwbuttonlampid, lpbuttoninfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hphone, dwbuttonlampid, lpbuttoninfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hphone;
     (void)dwbuttonlampid;
     (void)lpbuttoninfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5555,11 +7172,18 @@ static Napi::Value windowssys_windows_win32_devices_tapi_phoneSetButtonInfoA_nap
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "phoneSetButtonInfoA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hphone, dwbuttonlampid, lpbuttoninfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hphone, dwbuttonlampid, lpbuttoninfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hphone;
     (void)dwbuttonlampid;
     (void)lpbuttoninfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5577,11 +7201,18 @@ static Napi::Value windowssys_windows_win32_devices_tapi_phoneSetButtonInfoW_nap
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "phoneSetButtonInfoW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hphone, dwbuttonlampid, lpbuttoninfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hphone, dwbuttonlampid, lpbuttoninfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hphone;
     (void)dwbuttonlampid;
     (void)lpbuttoninfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5600,12 +7231,19 @@ static Napi::Value windowssys_windows_win32_devices_tapi_phoneSetData_napi(const
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "phoneSetData")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hphone, dwdataid, lpdata, dwsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hphone, dwdataid, lpdata, dwsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hphone;
     (void)dwdataid;
     (void)lpdata;
     (void)dwsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5625,13 +7263,20 @@ static Napi::Value windowssys_windows_win32_devices_tapi_phoneSetDisplay_napi(co
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "phoneSetDisplay")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hphone, dwrow, dwcolumn, lpsdisplay, dwsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hphone, dwrow, dwcolumn, lpsdisplay, dwsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hphone;
     (void)dwrow;
     (void)dwcolumn;
     (void)lpsdisplay;
     (void)dwsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5649,11 +7294,18 @@ static Napi::Value windowssys_windows_win32_devices_tapi_phoneSetGain_napi(const
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "phoneSetGain")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hphone, dwhookswitchdev, dwgain) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hphone, dwhookswitchdev, dwgain);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hphone;
     (void)dwhookswitchdev;
     (void)dwgain;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5671,11 +7323,18 @@ static Napi::Value windowssys_windows_win32_devices_tapi_phoneSetHookSwitch_napi
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "phoneSetHookSwitch")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hphone, dwhookswitchdevs, dwhookswitchmode) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hphone, dwhookswitchdevs, dwhookswitchmode);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hphone;
     (void)dwhookswitchdevs;
     (void)dwhookswitchmode;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5693,11 +7352,18 @@ static Napi::Value windowssys_windows_win32_devices_tapi_phoneSetLamp_napi(const
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "phoneSetLamp")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hphone, dwbuttonlampid, dwlampmode) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hphone, dwbuttonlampid, dwlampmode);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hphone;
     (void)dwbuttonlampid;
     (void)dwlampmode;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5715,11 +7381,18 @@ static Napi::Value windowssys_windows_win32_devices_tapi_phoneSetRing_napi(const
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "phoneSetRing")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hphone, dwringmode, dwvolume) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hphone, dwringmode, dwvolume);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hphone;
     (void)dwringmode;
     (void)dwvolume;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5738,12 +7411,19 @@ static Napi::Value windowssys_windows_win32_devices_tapi_phoneSetStatusMessages_
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "phoneSetStatusMessages")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hphone, dwphonestates, dwbuttonmodes, dwbuttonstates) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hphone, dwphonestates, dwbuttonmodes, dwbuttonstates);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hphone;
     (void)dwphonestates;
     (void)dwbuttonmodes;
     (void)dwbuttonstates;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5761,11 +7441,18 @@ static Napi::Value windowssys_windows_win32_devices_tapi_phoneSetVolume_napi(con
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "phoneSetVolume")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hphone, dwhookswitchdev, dwvolume) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hphone, dwhookswitchdev, dwvolume);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hphone;
     (void)dwhookswitchdev;
     (void)dwvolume;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5781,9 +7468,16 @@ static Napi::Value windowssys_windows_win32_devices_tapi_phoneShutdown_napi(cons
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "phoneShutdown")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hphoneapp) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hphoneapp);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hphoneapp;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5800,10 +7494,17 @@ static Napi::Value windowssys_windows_win32_devices_tapi_tapiGetLocationInfo_nap
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "tapiGetLocationInfo")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszcountrycode, lpszcitycode) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszcountrycode, lpszcitycode);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszcountrycode;
     (void)lpszcitycode;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5820,10 +7521,17 @@ static Napi::Value windowssys_windows_win32_devices_tapi_tapiGetLocationInfoA_na
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "tapiGetLocationInfoA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszcountrycode, lpszcitycode) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszcountrycode, lpszcitycode);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszcountrycode;
     (void)lpszcitycode;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5840,10 +7548,17 @@ static Napi::Value windowssys_windows_win32_devices_tapi_tapiGetLocationInfoW_na
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "tapiGetLocationInfoW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszcountrycodew, lpszcitycodew) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszcountrycodew, lpszcitycodew);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszcountrycodew;
     (void)lpszcitycodew;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5860,10 +7575,17 @@ static Napi::Value windowssys_windows_win32_devices_tapi_tapiRequestDrop_napi(co
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "tapiRequestDrop")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, wrequestid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, wrequestid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)wrequestid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5882,12 +7604,19 @@ static Napi::Value windowssys_windows_win32_devices_tapi_tapiRequestMakeCall_nap
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "tapiRequestMakeCall")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszdestaddress, lpszappname, lpszcalledparty, lpszcomment) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszdestaddress, lpszappname, lpszcalledparty, lpszcomment);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszdestaddress;
     (void)lpszappname;
     (void)lpszcalledparty;
     (void)lpszcomment;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5906,12 +7635,19 @@ static Napi::Value windowssys_windows_win32_devices_tapi_tapiRequestMakeCallA_na
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "tapiRequestMakeCallA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszdestaddress, lpszappname, lpszcalledparty, lpszcomment) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszdestaddress, lpszappname, lpszcalledparty, lpszcomment);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszdestaddress;
     (void)lpszappname;
     (void)lpszcalledparty;
     (void)lpszcomment;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5930,12 +7666,19 @@ static Napi::Value windowssys_windows_win32_devices_tapi_tapiRequestMakeCallW_na
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "tapiRequestMakeCallW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszdestaddress, lpszappname, lpszcalledparty, lpszcomment) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszdestaddress, lpszappname, lpszcalledparty, lpszcomment);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszdestaddress;
     (void)lpszappname;
     (void)lpszcalledparty;
     (void)lpszcomment;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5960,7 +7703,13 @@ static Napi::Value windowssys_windows_win32_devices_tapi_tapiRequestMediaCall_na
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "tapiRequestMediaCall")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, wrequestid, lpszdeviceclass, lpdeviceid, dwsize, dwsecure, lpszdestaddress, lpszappname, lpszcalledparty, lpszcomment) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, wrequestid, lpszdeviceclass, lpdeviceid, dwsize, dwsecure, lpszdestaddress, lpszappname, lpszcalledparty, lpszcomment);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)wrequestid;
@@ -5972,6 +7721,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_tapiRequestMediaCall_na
     (void)lpszappname;
     (void)lpszcalledparty;
     (void)lpszcomment;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5996,7 +7746,13 @@ static Napi::Value windowssys_windows_win32_devices_tapi_tapiRequestMediaCallA_n
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "tapiRequestMediaCallA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, wrequestid, lpszdeviceclass, lpdeviceid, dwsize, dwsecure, lpszdestaddress, lpszappname, lpszcalledparty, lpszcomment) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, wrequestid, lpszdeviceclass, lpdeviceid, dwsize, dwsecure, lpszdestaddress, lpszappname, lpszcalledparty, lpszcomment);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)wrequestid;
@@ -6008,6 +7764,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_tapiRequestMediaCallA_n
     (void)lpszappname;
     (void)lpszcalledparty;
     (void)lpszcomment;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6032,7 +7789,13 @@ static Napi::Value windowssys_windows_win32_devices_tapi_tapiRequestMediaCallW_n
         HMODULE km_h_mod = LoadLibraryA("tapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "tapiRequestMediaCallW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, wrequestid, lpszdeviceclass, lpdeviceid, dwsize, dwsecure, lpszdestaddress, lpszappname, lpszcalledparty, lpszcomment) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, wrequestid, lpszdeviceclass, lpdeviceid, dwsize, dwsecure, lpszdestaddress, lpszappname, lpszcalledparty, lpszcomment);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)wrequestid;
@@ -6044,6 +7807,7 @@ static Napi::Value windowssys_windows_win32_devices_tapi_tapiRequestMediaCallW_n
     (void)lpszappname;
     (void)lpszcalledparty;
     (void)lpszcomment;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

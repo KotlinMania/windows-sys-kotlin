@@ -61,9 +61,16 @@ static Napi::Value windowssys_windows_win32_system_restore_sRRemoveRestorePoint_
         HMODULE km_h_mod = LoadLibraryA("srclient.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SRRemoveRestorePoint")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwrpnum) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwrpnum);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dwrpnum;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -80,10 +87,17 @@ static Napi::Value windowssys_windows_win32_system_restore_sRSetRestorePointA_na
         HMODULE km_h_mod = LoadLibraryA("sfc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SRSetRestorePointA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(prestoreptspec, psmgrstatus) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(prestoreptspec, psmgrstatus);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)prestoreptspec;
     (void)psmgrstatus;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -100,10 +114,17 @@ static Napi::Value windowssys_windows_win32_system_restore_sRSetRestorePointW_na
         HMODULE km_h_mod = LoadLibraryA("sfc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SRSetRestorePointW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(prestoreptspec, psmgrstatus) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(prestoreptspec, psmgrstatus);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)prestoreptspec;
     (void)psmgrstatus;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

@@ -64,12 +64,19 @@ static Napi::Value windowssys_windows_win32_devices_portabledevices_dMProcessCon
         HMODULE km_h_mod = LoadLibraryA("dmprocessxmlfiltered.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DMProcessConfigXMLFiltered")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszxmlin, rgszallowedcspnodes, dwnumallowedcspnodes, pbstrxmlout) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszxmlin, rgszallowedcspnodes, dwnumallowedcspnodes, pbstrxmlout);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszxmlin;
     (void)rgszallowedcspnodes;
     (void)dwnumallowedcspnodes;
     (void)pbstrxmlout;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

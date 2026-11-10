@@ -5,6 +5,7 @@
 #include <stdbool.h>
 #include <stddef.h>
 #include <stdint.h>
+#include <stdlib.h>
 #include <errno.h>
 #ifdef _WIN32
 #ifndef WIN32_LEAN_AND_MEAN
@@ -28,9 +29,14 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("websocket.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WebSocketAbortHandle");
     }
-    if (km_fn_ptr != NULL) km_fn_ptr((void*)(uintptr_t)hwebsocket);
+    if (km_fn_ptr != NULL) {
+        km_fn_ptr((void*)(uintptr_t)hwebsocket);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)hwebsocket;
+    errno = ENOSYS;
 #endif
 }
 
@@ -44,7 +50,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("websocket.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WebSocketBeginClientHandshake");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hwebsocket, (void*)(uintptr_t)pszsubprotocols, (uint32_t)ulsubprotocolcount, (void*)(uintptr_t)pszextensions, (uint32_t)ulextensioncount, (void*)(uintptr_t)pinitialheaders, (uint32_t)ulinitialheadercount, (void*)(uintptr_t)padditionalheaders, (void*)(uintptr_t)puladditionalheadercount) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hwebsocket, (void*)(uintptr_t)pszsubprotocols, (uint32_t)ulsubprotocolcount, (void*)(uintptr_t)pszextensions, (uint32_t)ulextensioncount, (void*)(uintptr_t)pinitialheaders, (uint32_t)ulinitialheadercount, (void*)(uintptr_t)padditionalheaders, (void*)(uintptr_t)puladditionalheadercount);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwebsocket;
     (void)pszsubprotocols;
@@ -55,6 +67,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)ulinitialheadercount;
     (void)padditionalheaders;
     (void)puladditionalheadercount;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -70,7 +83,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("websocket.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WebSocketBeginServerHandshake");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hwebsocket, (void*)(uintptr_t)pszsubprotocolselected, (void*)(uintptr_t)pszextensionselected, (uint32_t)ulextensionselectedcount, (void*)(uintptr_t)prequestheaders, (uint32_t)ulrequestheadercount, (void*)(uintptr_t)presponseheaders, (void*)(uintptr_t)pulresponseheadercount) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hwebsocket, (void*)(uintptr_t)pszsubprotocolselected, (void*)(uintptr_t)pszextensionselected, (uint32_t)ulextensionselectedcount, (void*)(uintptr_t)prequestheaders, (uint32_t)ulrequestheadercount, (void*)(uintptr_t)presponseheaders, (void*)(uintptr_t)pulresponseheadercount);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwebsocket;
     (void)pszsubprotocolselected;
@@ -80,6 +99,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)ulrequestheadercount;
     (void)presponseheaders;
     (void)pulresponseheadercount;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -95,11 +115,16 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("websocket.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WebSocketCompleteAction");
     }
-    if (km_fn_ptr != NULL) km_fn_ptr((void*)(uintptr_t)hwebsocket, (void*)(uintptr_t)pvactioncontext, (uint32_t)ulbytestransferred);
+    if (km_fn_ptr != NULL) {
+        km_fn_ptr((void*)(uintptr_t)hwebsocket, (void*)(uintptr_t)pvactioncontext, (uint32_t)ulbytestransferred);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)hwebsocket;
     (void)pvactioncontext;
     (void)ulbytestransferred;
+    errno = ENOSYS;
 #endif
 }
 
@@ -113,11 +138,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("websocket.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WebSocketCreateClientHandle");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pproperties, (uint32_t)ulpropertycount, (void*)(uintptr_t)phwebsocket) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pproperties, (uint32_t)ulpropertycount, (void*)(uintptr_t)phwebsocket);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pproperties;
     (void)ulpropertycount;
     (void)phwebsocket;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -133,11 +165,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("websocket.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WebSocketCreateServerHandle");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pproperties, (uint32_t)ulpropertycount, (void*)(uintptr_t)phwebsocket) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pproperties, (uint32_t)ulpropertycount, (void*)(uintptr_t)phwebsocket);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pproperties;
     (void)ulpropertycount;
     (void)phwebsocket;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -153,9 +192,14 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("websocket.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WebSocketDeleteHandle");
     }
-    if (km_fn_ptr != NULL) km_fn_ptr((void*)(uintptr_t)hwebsocket);
+    if (km_fn_ptr != NULL) {
+        km_fn_ptr((void*)(uintptr_t)hwebsocket);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)hwebsocket;
+    errno = ENOSYS;
 #endif
 }
 
@@ -169,7 +213,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("websocket.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WebSocketEndClientHandshake");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hwebsocket, (void*)(uintptr_t)presponseheaders, (uint32_t)ulreponseheadercount, (void*)(uintptr_t)pulselectedextensions, (void*)(uintptr_t)pulselectedextensioncount, (void*)(uintptr_t)pulselectedsubprotocol) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hwebsocket, (void*)(uintptr_t)presponseheaders, (uint32_t)ulreponseheadercount, (void*)(uintptr_t)pulselectedextensions, (void*)(uintptr_t)pulselectedextensioncount, (void*)(uintptr_t)pulselectedsubprotocol);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwebsocket;
     (void)presponseheaders;
@@ -177,6 +227,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)pulselectedextensions;
     (void)pulselectedextensioncount;
     (void)pulselectedsubprotocol;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -192,9 +243,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("websocket.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WebSocketEndServerHandshake");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hwebsocket) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hwebsocket);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwebsocket;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -210,7 +268,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("websocket.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WebSocketGetAction");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hwebsocket, (int32_t)eactionqueue, (void*)(uintptr_t)pdatabuffers, (void*)(uintptr_t)puldatabuffercount, (void*)(uintptr_t)paction, (void*)(uintptr_t)pbuffertype, (void*)(uintptr_t)pvapplicationcontext, (void*)(uintptr_t)pvactioncontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hwebsocket, (int32_t)eactionqueue, (void*)(uintptr_t)pdatabuffers, (void*)(uintptr_t)puldatabuffercount, (void*)(uintptr_t)paction, (void*)(uintptr_t)pbuffertype, (void*)(uintptr_t)pvapplicationcontext, (void*)(uintptr_t)pvactioncontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwebsocket;
     (void)eactionqueue;
@@ -220,6 +284,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)pbuffertype;
     (void)pvapplicationcontext;
     (void)pvactioncontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -235,11 +300,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("websocket.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WebSocketGetGlobalProperty");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int32_t)etype, (void*)(uintptr_t)pvvalue, (void*)(uintptr_t)ulsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int32_t)etype, (void*)(uintptr_t)pvvalue, (void*)(uintptr_t)ulsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)etype;
     (void)pvvalue;
     (void)ulsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -255,11 +327,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("websocket.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WebSocketReceive");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hwebsocket, (void*)(uintptr_t)pbuffer, (void*)(uintptr_t)pvcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hwebsocket, (void*)(uintptr_t)pbuffer, (void*)(uintptr_t)pvcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwebsocket;
     (void)pbuffer;
     (void)pvcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -275,12 +354,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("websocket.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WebSocketSend");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hwebsocket, (int32_t)buffertype, (void*)(uintptr_t)pbuffer, (void*)(uintptr_t)context) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hwebsocket, (int32_t)buffertype, (void*)(uintptr_t)pbuffer, (void*)(uintptr_t)context);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwebsocket;
     (void)buffertype;
     (void)pbuffer;
     (void)context;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;

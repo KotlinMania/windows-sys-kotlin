@@ -61,9 +61,14 @@ static Napi::Value windowssys_windows_win32_devices_devicequery_devCloseObjectQu
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-devices-query-l1-1-0.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DevCloseObjectQuery")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(hdevquery);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(hdevquery);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)hdevquery;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -86,7 +91,13 @@ static Napi::Value windowssys_windows_win32_devices_devicequery_devCreateObjectQ
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-devices-query-l1-1-0.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DevCreateObjectQuery")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(objecttype, queryflags, crequestedproperties, prequestedproperties, cfilterexpressioncount, pfilter, pcallback, pcontext, phdevquery) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(objecttype, queryflags, crequestedproperties, prequestedproperties, cfilterexpressioncount, pfilter, pcallback, pcontext, phdevquery);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)objecttype;
     (void)queryflags;
@@ -97,6 +108,7 @@ static Napi::Value windowssys_windows_win32_devices_devicequery_devCreateObjectQ
     (void)pcallback;
     (void)pcontext;
     (void)phdevquery;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -122,7 +134,13 @@ static Napi::Value windowssys_windows_win32_devices_devicequery_devCreateObjectQ
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-devices-query-l1-1-1.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DevCreateObjectQueryEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(objecttype, queryflags, crequestedproperties, prequestedproperties, cfilterexpressioncount, pfilter, cextendedparametercount, pextendedparameters, pcallback, pcontext, phdevquery) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(objecttype, queryflags, crequestedproperties, prequestedproperties, cfilterexpressioncount, pfilter, cextendedparametercount, pextendedparameters, pcallback, pcontext, phdevquery);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)objecttype;
     (void)queryflags;
@@ -135,6 +153,7 @@ static Napi::Value windowssys_windows_win32_devices_devicequery_devCreateObjectQ
     (void)pcallback;
     (void)pcontext;
     (void)phdevquery;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -159,7 +178,13 @@ static Napi::Value windowssys_windows_win32_devices_devicequery_devCreateObjectQ
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-devices-query-l1-1-0.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DevCreateObjectQueryFromId")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(objecttype, pszobjectid, queryflags, crequestedproperties, prequestedproperties, cfilterexpressioncount, pfilter, pcallback, pcontext, phdevquery) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(objecttype, pszobjectid, queryflags, crequestedproperties, prequestedproperties, cfilterexpressioncount, pfilter, pcallback, pcontext, phdevquery);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)objecttype;
     (void)pszobjectid;
@@ -171,6 +196,7 @@ static Napi::Value windowssys_windows_win32_devices_devicequery_devCreateObjectQ
     (void)pcallback;
     (void)pcontext;
     (void)phdevquery;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -197,7 +223,13 @@ static Napi::Value windowssys_windows_win32_devices_devicequery_devCreateObjectQ
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-devices-query-l1-1-1.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DevCreateObjectQueryFromIdEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(objecttype, pszobjectid, queryflags, crequestedproperties, prequestedproperties, cfilterexpressioncount, pfilter, cextendedparametercount, pextendedparameters, pcallback, pcontext, phdevquery) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(objecttype, pszobjectid, queryflags, crequestedproperties, prequestedproperties, cfilterexpressioncount, pfilter, cextendedparametercount, pextendedparameters, pcallback, pcontext, phdevquery);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)objecttype;
     (void)pszobjectid;
@@ -211,6 +243,7 @@ static Napi::Value windowssys_windows_win32_devices_devicequery_devCreateObjectQ
     (void)pcallback;
     (void)pcontext;
     (void)phdevquery;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -235,7 +268,13 @@ static Napi::Value windowssys_windows_win32_devices_devicequery_devCreateObjectQ
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-devices-query-l1-1-0.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DevCreateObjectQueryFromIds")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(objecttype, pszzobjectids, queryflags, crequestedproperties, prequestedproperties, cfilterexpressioncount, pfilter, pcallback, pcontext, phdevquery) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(objecttype, pszzobjectids, queryflags, crequestedproperties, prequestedproperties, cfilterexpressioncount, pfilter, pcallback, pcontext, phdevquery);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)objecttype;
     (void)pszzobjectids;
@@ -247,6 +286,7 @@ static Napi::Value windowssys_windows_win32_devices_devicequery_devCreateObjectQ
     (void)pcallback;
     (void)pcontext;
     (void)phdevquery;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -273,7 +313,13 @@ static Napi::Value windowssys_windows_win32_devices_devicequery_devCreateObjectQ
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-devices-query-l1-1-1.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DevCreateObjectQueryFromIdsEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(objecttype, pszzobjectids, queryflags, crequestedproperties, prequestedproperties, cfilterexpressioncount, pfilter, cextendedparametercount, pextendedparameters, pcallback, pcontext, phdevquery) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(objecttype, pszzobjectids, queryflags, crequestedproperties, prequestedproperties, cfilterexpressioncount, pfilter, cextendedparametercount, pextendedparameters, pcallback, pcontext, phdevquery);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)objecttype;
     (void)pszzobjectids;
@@ -287,6 +333,7 @@ static Napi::Value windowssys_windows_win32_devices_devicequery_devCreateObjectQ
     (void)pcallback;
     (void)pcontext;
     (void)phdevquery;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -306,14 +353,21 @@ static Napi::Value windowssys_windows_win32_devices_devicequery_devFindProperty_
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-devices-query-l1-1-0.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DevFindProperty")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pkey, store, pszlocalename, cproperties, pproperties) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pkey, store, pszlocalename, cproperties, pproperties);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pkey;
     (void)store;
     (void)pszlocalename;
     (void)cproperties;
     (void)pproperties;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -329,10 +383,15 @@ static Napi::Value windowssys_windows_win32_devices_devicequery_devFreeObjectPro
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-devices-query-l1-1-0.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DevFreeObjectProperties")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(cpropertycount, pproperties);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(cpropertycount, pproperties);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)cpropertycount;
     (void)pproperties;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -348,10 +407,15 @@ static Napi::Value windowssys_windows_win32_devices_devicequery_devFreeObjects_n
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-devices-query-l1-1-0.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DevFreeObjects")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(cobjectcount, pobjects);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(cobjectcount, pobjects);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)cobjectcount;
     (void)pobjects;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -372,7 +436,13 @@ static Napi::Value windowssys_windows_win32_devices_devicequery_devGetObjectProp
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-devices-query-l1-1-0.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DevGetObjectProperties")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(objecttype, pszobjectid, queryflags, crequestedproperties, prequestedproperties, pcpropertycount, ppproperties) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(objecttype, pszobjectid, queryflags, crequestedproperties, prequestedproperties, pcpropertycount, ppproperties);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)objecttype;
     (void)pszobjectid;
@@ -381,6 +451,7 @@ static Napi::Value windowssys_windows_win32_devices_devicequery_devGetObjectProp
     (void)prequestedproperties;
     (void)pcpropertycount;
     (void)ppproperties;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -404,7 +475,13 @@ static Napi::Value windowssys_windows_win32_devices_devicequery_devGetObjectProp
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-devices-query-l1-1-1.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DevGetObjectPropertiesEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(objecttype, pszobjectid, queryflags, crequestedproperties, prequestedproperties, cextendedparametercount, pextendedparameters, pcpropertycount, ppproperties) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(objecttype, pszobjectid, queryflags, crequestedproperties, prequestedproperties, cextendedparametercount, pextendedparameters, pcpropertycount, ppproperties);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)objecttype;
     (void)pszobjectid;
@@ -415,6 +492,7 @@ static Napi::Value windowssys_windows_win32_devices_devicequery_devGetObjectProp
     (void)pextendedparameters;
     (void)pcpropertycount;
     (void)ppproperties;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -437,7 +515,13 @@ static Napi::Value windowssys_windows_win32_devices_devicequery_devGetObjects_na
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-devices-query-l1-1-0.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DevGetObjects")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(objecttype, queryflags, crequestedproperties, prequestedproperties, cfilterexpressioncount, pfilter, pcobjectcount, ppobjects) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(objecttype, queryflags, crequestedproperties, prequestedproperties, cfilterexpressioncount, pfilter, pcobjectcount, ppobjects);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)objecttype;
     (void)queryflags;
@@ -447,6 +531,7 @@ static Napi::Value windowssys_windows_win32_devices_devicequery_devGetObjects_na
     (void)pfilter;
     (void)pcobjectcount;
     (void)ppobjects;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -471,7 +556,13 @@ static Napi::Value windowssys_windows_win32_devices_devicequery_devGetObjectsEx_
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-devices-query-l1-1-1.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DevGetObjectsEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(objecttype, queryflags, crequestedproperties, prequestedproperties, cfilterexpressioncount, pfilter, cextendedparametercount, pextendedparameters, pcobjectcount, ppobjects) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(objecttype, queryflags, crequestedproperties, prequestedproperties, cfilterexpressioncount, pfilter, cextendedparametercount, pextendedparameters, pcobjectcount, ppobjects);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)objecttype;
     (void)queryflags;
@@ -483,6 +574,7 @@ static Napi::Value windowssys_windows_win32_devices_devicequery_devGetObjectsEx_
     (void)pextendedparameters;
     (void)pcobjectcount;
     (void)ppobjects;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

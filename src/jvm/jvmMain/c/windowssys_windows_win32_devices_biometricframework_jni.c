@@ -5,6 +5,7 @@
 #include <stdbool.h>
 #include <stddef.h>
 #include <stdint.h>
+#include <stdlib.h>
 #include <errno.h>
 #ifdef _WIN32
 #ifndef WIN32_LEAN_AND_MEAN
@@ -28,8 +29,15 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioAcquireFocus");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr() : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -45,10 +53,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioAsyncEnumBiometricUnits");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)frameworkhandle, (uint32_t)factor) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)frameworkhandle, (uint32_t)factor);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)frameworkhandle;
     (void)factor;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -64,10 +79,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioAsyncEnumDatabases");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)frameworkhandle, (uint32_t)factor) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)frameworkhandle, (uint32_t)factor);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)frameworkhandle;
     (void)factor;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -83,10 +105,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioAsyncEnumServiceProviders");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)frameworkhandle, (uint32_t)factor) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)frameworkhandle, (uint32_t)factor);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)frameworkhandle;
     (void)factor;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -102,10 +131,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioAsyncMonitorFrameworkChanges");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)frameworkhandle, (uint32_t)changetypes) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)frameworkhandle, (uint32_t)changetypes);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)frameworkhandle;
     (void)changetypes;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -121,7 +157,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioAsyncOpenFramework");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int32_t)notificationmethod, (void*)(uintptr_t)targetwindow, (uint32_t)messagecode, (void*)(uintptr_t)callbackroutine, (void*)(uintptr_t)userdata, (int32_t)asynchronousopen, (void*)(uintptr_t)frameworkhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int32_t)notificationmethod, (void*)(uintptr_t)targetwindow, (uint32_t)messagecode, (void*)(uintptr_t)callbackroutine, (void*)(uintptr_t)userdata, (int32_t)asynchronousopen, (void*)(uintptr_t)frameworkhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)notificationmethod;
     (void)targetwindow;
@@ -130,6 +172,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     (void)userdata;
     (void)asynchronousopen;
     (void)frameworkhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -145,7 +188,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioAsyncOpenSession");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)factor, (uint32_t)pooltype, (uint32_t)flags, (void*)(uintptr_t)unitarray, (uint64_t)unitcount, (void*)(uintptr_t)databaseid, (int32_t)notificationmethod, (void*)(uintptr_t)targetwindow, (uint32_t)messagecode, (void*)(uintptr_t)callbackroutine, (void*)(uintptr_t)userdata, (int32_t)asynchronousopen, (void*)(uintptr_t)sessionhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)factor, (uint32_t)pooltype, (uint32_t)flags, (void*)(uintptr_t)unitarray, (uint64_t)unitcount, (void*)(uintptr_t)databaseid, (int32_t)notificationmethod, (void*)(uintptr_t)targetwindow, (uint32_t)messagecode, (void*)(uintptr_t)callbackroutine, (void*)(uintptr_t)userdata, (int32_t)asynchronousopen, (void*)(uintptr_t)sessionhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)factor;
     (void)pooltype;
@@ -160,6 +209,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     (void)userdata;
     (void)asynchronousopen;
     (void)sessionhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -175,9 +225,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioCancel");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)sessionhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)sessionhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sessionhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -193,7 +250,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioCaptureSample");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)sessionhandle, (uint8_t)purpose, (uint8_t)flags, (void*)(uintptr_t)unitid, (void*)(uintptr_t)sample, (void*)(uintptr_t)samplesize, (void*)(uintptr_t)rejectdetail) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)sessionhandle, (uint8_t)purpose, (uint8_t)flags, (void*)(uintptr_t)unitid, (void*)(uintptr_t)sample, (void*)(uintptr_t)samplesize, (void*)(uintptr_t)rejectdetail);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sessionhandle;
     (void)purpose;
@@ -202,6 +265,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     (void)sample;
     (void)samplesize;
     (void)rejectdetail;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -217,13 +281,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioCaptureSampleWithCallback");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)sessionhandle, (uint8_t)purpose, (uint8_t)flags, (void*)(uintptr_t)capturecallback, (void*)(uintptr_t)capturecallbackcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)sessionhandle, (uint8_t)purpose, (uint8_t)flags, (void*)(uintptr_t)capturecallback, (void*)(uintptr_t)capturecallbackcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sessionhandle;
     (void)purpose;
     (void)flags;
     (void)capturecallback;
     (void)capturecallbackcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -239,9 +310,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioCloseFramework");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)frameworkhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)frameworkhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)frameworkhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -257,9 +335,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioCloseSession");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)sessionhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)sessionhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sessionhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -275,7 +360,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioControlUnit");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)sessionhandle, (uint32_t)unitid, (uint32_t)component, (uint32_t)controlcode, (void*)(uintptr_t)sendbuffer, (uint64_t)sendbuffersize, (void*)(uintptr_t)receivebuffer, (uint64_t)receivebuffersize, (void*)(uintptr_t)receivedatasize, (void*)(uintptr_t)operationstatus) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)sessionhandle, (uint32_t)unitid, (uint32_t)component, (uint32_t)controlcode, (void*)(uintptr_t)sendbuffer, (uint64_t)sendbuffersize, (void*)(uintptr_t)receivebuffer, (uint64_t)receivebuffersize, (void*)(uintptr_t)receivedatasize, (void*)(uintptr_t)operationstatus);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sessionhandle;
     (void)unitid;
@@ -287,6 +378,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     (void)receivebuffersize;
     (void)receivedatasize;
     (void)operationstatus;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -302,7 +394,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioControlUnitPrivileged");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)sessionhandle, (uint32_t)unitid, (uint32_t)component, (uint32_t)controlcode, (void*)(uintptr_t)sendbuffer, (uint64_t)sendbuffersize, (void*)(uintptr_t)receivebuffer, (uint64_t)receivebuffersize, (void*)(uintptr_t)receivedatasize, (void*)(uintptr_t)operationstatus) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)sessionhandle, (uint32_t)unitid, (uint32_t)component, (uint32_t)controlcode, (void*)(uintptr_t)sendbuffer, (uint64_t)sendbuffersize, (void*)(uintptr_t)receivebuffer, (uint64_t)receivebuffersize, (void*)(uintptr_t)receivedatasize, (void*)(uintptr_t)operationstatus);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sessionhandle;
     (void)unitid;
@@ -314,6 +412,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     (void)receivebuffersize;
     (void)receivedatasize;
     (void)operationstatus;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -329,12 +428,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioDeleteTemplate");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)sessionhandle, (uint32_t)unitid, (void*)(uintptr_t)identity, (uint8_t)subfactor) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)sessionhandle, (uint32_t)unitid, (void*)(uintptr_t)identity, (uint8_t)subfactor);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sessionhandle;
     (void)unitid;
     (void)identity;
     (void)subfactor;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -350,11 +456,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioEnrollBegin");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)sessionhandle, (uint8_t)subfactor, (uint32_t)unitid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)sessionhandle, (uint8_t)subfactor, (uint32_t)unitid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sessionhandle;
     (void)subfactor;
     (void)unitid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -370,10 +483,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioEnrollCapture");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)sessionhandle, (void*)(uintptr_t)rejectdetail) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)sessionhandle, (void*)(uintptr_t)rejectdetail);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sessionhandle;
     (void)rejectdetail;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -389,11 +509,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioEnrollCaptureWithCallback");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)sessionhandle, (void*)(uintptr_t)enrollcallback, (void*)(uintptr_t)enrollcallbackcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)sessionhandle, (void*)(uintptr_t)enrollcallback, (void*)(uintptr_t)enrollcallbackcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sessionhandle;
     (void)enrollcallback;
     (void)enrollcallbackcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -409,11 +536,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioEnrollCommit");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)sessionhandle, (void*)(uintptr_t)identity, (void*)(uintptr_t)isnewtemplate) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)sessionhandle, (void*)(uintptr_t)identity, (void*)(uintptr_t)isnewtemplate);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sessionhandle;
     (void)identity;
     (void)isnewtemplate;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -429,9 +563,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioEnrollDiscard");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)sessionhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)sessionhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sessionhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -447,10 +588,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioEnrollSelect");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)sessionhandle, (uint64_t)selectorvalue) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)sessionhandle, (uint64_t)selectorvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sessionhandle;
     (void)selectorvalue;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -466,11 +614,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioEnumBiometricUnits");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)factor, (void*)(uintptr_t)unitschemaarray, (void*)(uintptr_t)unitcount) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)factor, (void*)(uintptr_t)unitschemaarray, (void*)(uintptr_t)unitcount);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)factor;
     (void)unitschemaarray;
     (void)unitcount;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -486,11 +641,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioEnumDatabases");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)factor, (void*)(uintptr_t)storageschemaarray, (void*)(uintptr_t)storagecount) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)factor, (void*)(uintptr_t)storageschemaarray, (void*)(uintptr_t)storagecount);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)factor;
     (void)storageschemaarray;
     (void)storagecount;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -506,13 +668,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioEnumEnrollments");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)sessionhandle, (uint32_t)unitid, (void*)(uintptr_t)identity, (void*)(uintptr_t)subfactorarray, (void*)(uintptr_t)subfactorcount) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)sessionhandle, (uint32_t)unitid, (void*)(uintptr_t)identity, (void*)(uintptr_t)subfactorarray, (void*)(uintptr_t)subfactorcount);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sessionhandle;
     (void)unitid;
     (void)identity;
     (void)subfactorarray;
     (void)subfactorcount;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -528,11 +697,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioEnumServiceProviders");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)factor, (void*)(uintptr_t)bspschemaarray, (void*)(uintptr_t)bspcount) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)factor, (void*)(uintptr_t)bspschemaarray, (void*)(uintptr_t)bspcount);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)factor;
     (void)bspschemaarray;
     (void)bspcount;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -548,9 +724,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioFree");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)address) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)address);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)address;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -566,10 +749,15 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioGetDomainLogonSetting");
     }
-    if (km_fn_ptr != NULL) km_fn_ptr((void*)(uintptr_t)value, (void*)(uintptr_t)source);
+    if (km_fn_ptr != NULL) {
+        km_fn_ptr((void*)(uintptr_t)value, (void*)(uintptr_t)source);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)value;
     (void)source;
+    errno = ENOSYS;
 #endif
 }
 
@@ -583,10 +771,15 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioGetEnabledSetting");
     }
-    if (km_fn_ptr != NULL) km_fn_ptr((void*)(uintptr_t)value, (void*)(uintptr_t)source);
+    if (km_fn_ptr != NULL) {
+        km_fn_ptr((void*)(uintptr_t)value, (void*)(uintptr_t)source);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)value;
     (void)source;
+    errno = ENOSYS;
 #endif
 }
 
@@ -600,10 +793,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioGetEnrolledFactors");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)accountowner, (void*)(uintptr_t)enrolledfactors) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)accountowner, (void*)(uintptr_t)enrolledfactors);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)accountowner;
     (void)enrolledfactors;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -619,10 +819,15 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioGetLogonSetting");
     }
-    if (km_fn_ptr != NULL) km_fn_ptr((void*)(uintptr_t)value, (void*)(uintptr_t)source);
+    if (km_fn_ptr != NULL) {
+        km_fn_ptr((void*)(uintptr_t)value, (void*)(uintptr_t)source);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)value;
     (void)source;
+    errno = ENOSYS;
 #endif
 }
 
@@ -636,7 +841,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioGetProperty");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)sessionhandle, (uint32_t)propertytype, (uint32_t)propertyid, (uint32_t)unitid, (void*)(uintptr_t)identity, (uint8_t)subfactor, (void*)(uintptr_t)propertybuffer, (void*)(uintptr_t)propertybuffersize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)sessionhandle, (uint32_t)propertytype, (uint32_t)propertyid, (uint32_t)unitid, (void*)(uintptr_t)identity, (uint8_t)subfactor, (void*)(uintptr_t)propertybuffer, (void*)(uintptr_t)propertybuffersize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sessionhandle;
     (void)propertytype;
@@ -646,6 +857,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     (void)subfactor;
     (void)propertybuffer;
     (void)propertybuffersize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -661,13 +873,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioIdentify");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)sessionhandle, (void*)(uintptr_t)unitid, (void*)(uintptr_t)identity, (void*)(uintptr_t)subfactor, (void*)(uintptr_t)rejectdetail) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)sessionhandle, (void*)(uintptr_t)unitid, (void*)(uintptr_t)identity, (void*)(uintptr_t)subfactor, (void*)(uintptr_t)rejectdetail);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sessionhandle;
     (void)unitid;
     (void)identity;
     (void)subfactor;
     (void)rejectdetail;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -683,11 +902,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioIdentifyWithCallback");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)sessionhandle, (void*)(uintptr_t)identifycallback, (void*)(uintptr_t)identifycallbackcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)sessionhandle, (void*)(uintptr_t)identifycallback, (void*)(uintptr_t)identifycallbackcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sessionhandle;
     (void)identifycallback;
     (void)identifycallbackcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -703,10 +929,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioImproveBegin");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)sessionhandle, (uint32_t)unitid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)sessionhandle, (uint32_t)unitid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sessionhandle;
     (void)unitid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -722,9 +955,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioImproveEnd");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)sessionhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)sessionhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sessionhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -740,10 +980,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioLocateSensor");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)sessionhandle, (void*)(uintptr_t)unitid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)sessionhandle, (void*)(uintptr_t)unitid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sessionhandle;
     (void)unitid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -759,11 +1006,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioLocateSensorWithCallback");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)sessionhandle, (void*)(uintptr_t)locatecallback, (void*)(uintptr_t)locatecallbackcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)sessionhandle, (void*)(uintptr_t)locatecallback, (void*)(uintptr_t)locatecallbackcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sessionhandle;
     (void)locatecallback;
     (void)locatecallbackcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -779,10 +1033,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioLockUnit");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)sessionhandle, (uint32_t)unitid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)sessionhandle, (uint32_t)unitid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sessionhandle;
     (void)unitid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -798,9 +1059,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioLogonIdentifiedUser");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)sessionhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)sessionhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sessionhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -816,10 +1084,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioMonitorPresence");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)sessionhandle, (uint32_t)unitid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)sessionhandle, (uint32_t)unitid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sessionhandle;
     (void)unitid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -835,7 +1110,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioOpenSession");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)factor, (uint32_t)pooltype, (uint32_t)flags, (void*)(uintptr_t)unitarray, (uint64_t)unitcount, (void*)(uintptr_t)databaseid, (void*)(uintptr_t)sessionhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)factor, (uint32_t)pooltype, (uint32_t)flags, (void*)(uintptr_t)unitarray, (uint64_t)unitcount, (void*)(uintptr_t)databaseid, (void*)(uintptr_t)sessionhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)factor;
     (void)pooltype;
@@ -844,6 +1125,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     (void)unitcount;
     (void)databaseid;
     (void)sessionhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -859,12 +1141,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioRegisterEventMonitor");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)sessionhandle, (uint32_t)eventmask, (void*)(uintptr_t)eventcallback, (void*)(uintptr_t)eventcallbackcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)sessionhandle, (uint32_t)eventmask, (void*)(uintptr_t)eventcallback, (void*)(uintptr_t)eventcallbackcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sessionhandle;
     (void)eventmask;
     (void)eventcallback;
     (void)eventcallbackcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -880,8 +1169,15 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioReleaseFocus");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr() : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -897,8 +1193,15 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioRemoveAllCredentials");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr() : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -914,8 +1217,15 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioRemoveAllDomainCredentials");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr() : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -931,12 +1241,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioSetCredential");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int32_t)type, (void*)(uintptr_t)credential, (uint64_t)credentialsize, (int32_t)format) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int32_t)type, (void*)(uintptr_t)credential, (uint64_t)credentialsize, (int32_t)format);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)type;
     (void)credential;
     (void)credentialsize;
     (void)format;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -952,7 +1269,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioSetProperty");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)sessionhandle, (uint32_t)propertytype, (uint32_t)propertyid, (uint32_t)unitid, (void*)(uintptr_t)identity, (uint8_t)subfactor, (void*)(uintptr_t)propertybuffer, (uint64_t)propertybuffersize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)sessionhandle, (uint32_t)propertytype, (uint32_t)propertyid, (uint32_t)unitid, (void*)(uintptr_t)identity, (uint8_t)subfactor, (void*)(uintptr_t)propertybuffer, (uint64_t)propertybuffersize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sessionhandle;
     (void)propertytype;
@@ -962,6 +1285,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     (void)subfactor;
     (void)propertybuffer;
     (void)propertybuffersize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -977,10 +1301,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioUnlockUnit");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)sessionhandle, (uint32_t)unitid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)sessionhandle, (uint32_t)unitid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sessionhandle;
     (void)unitid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -996,9 +1327,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioUnregisterEventMonitor");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)sessionhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)sessionhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sessionhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1014,7 +1352,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioVerify");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)sessionhandle, (void*)(uintptr_t)identity, (uint8_t)subfactor, (void*)(uintptr_t)unitid, (void*)(uintptr_t)match, (void*)(uintptr_t)rejectdetail) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)sessionhandle, (void*)(uintptr_t)identity, (uint8_t)subfactor, (void*)(uintptr_t)unitid, (void*)(uintptr_t)match, (void*)(uintptr_t)rejectdetail);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sessionhandle;
     (void)identity;
@@ -1022,6 +1366,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     (void)unitid;
     (void)match;
     (void)rejectdetail;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1037,13 +1382,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioVerifyWithCallback");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)sessionhandle, (void*)(uintptr_t)identity, (uint8_t)subfactor, (void*)(uintptr_t)verifycallback, (void*)(uintptr_t)verifycallbackcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)sessionhandle, (void*)(uintptr_t)identity, (uint8_t)subfactor, (void*)(uintptr_t)verifycallback, (void*)(uintptr_t)verifycallbackcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sessionhandle;
     (void)identity;
     (void)subfactor;
     (void)verifycallback;
     (void)verifycallbackcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1059,9 +1411,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinBioWait");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)sessionhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)sessionhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sessionhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;

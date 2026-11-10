@@ -5,6 +5,7 @@
 #include <stdbool.h>
 #include <stddef.h>
 #include <stdint.h>
+#include <stdlib.h>
 #include <errno.h>
 #ifdef _WIN32
 #ifndef WIN32_LEAN_AND_MEAN
@@ -28,13 +29,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("rstrtmgr.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "RmAddFilter");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwsessionhandle, (void*)(uintptr_t)strmodulename, (void*)(uintptr_t)pprocess, (void*)(uintptr_t)strserviceshortname, (int32_t)filteraction) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwsessionhandle, (void*)(uintptr_t)strmodulename, (void*)(uintptr_t)pprocess, (void*)(uintptr_t)strserviceshortname, (int32_t)filteraction);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dwsessionhandle;
     (void)strmodulename;
     (void)pprocess;
     (void)strserviceshortname;
     (void)filteraction;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -50,9 +58,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("rstrtmgr.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "RmCancelCurrentTask");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwsessionhandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwsessionhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dwsessionhandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -68,9 +83,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("rstrtmgr.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "RmEndSession");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwsessionhandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwsessionhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dwsessionhandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -86,12 +108,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("rstrtmgr.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "RmGetFilterList");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwsessionhandle, (void*)(uintptr_t)pbfilterbuf, (uint32_t)cbfilterbuf, (void*)(uintptr_t)cbfilterbufneeded) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwsessionhandle, (void*)(uintptr_t)pbfilterbuf, (uint32_t)cbfilterbuf, (void*)(uintptr_t)cbfilterbufneeded);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dwsessionhandle;
     (void)pbfilterbuf;
     (void)cbfilterbuf;
     (void)cbfilterbufneeded;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -107,13 +136,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("rstrtmgr.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "RmGetList");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwsessionhandle, (void*)(uintptr_t)pnprocinfoneeded, (void*)(uintptr_t)pnprocinfo, (void*)(uintptr_t)rgaffectedapps, (void*)(uintptr_t)lpdwrebootreasons) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwsessionhandle, (void*)(uintptr_t)pnprocinfoneeded, (void*)(uintptr_t)pnprocinfo, (void*)(uintptr_t)rgaffectedapps, (void*)(uintptr_t)lpdwrebootreasons);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dwsessionhandle;
     (void)pnprocinfoneeded;
     (void)pnprocinfo;
     (void)rgaffectedapps;
     (void)lpdwrebootreasons;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -129,10 +165,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("rstrtmgr.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "RmJoinSession");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)psessionhandle, (void*)(uintptr_t)strsessionkey) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)psessionhandle, (void*)(uintptr_t)strsessionkey);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)psessionhandle;
     (void)strsessionkey;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -148,7 +191,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("rstrtmgr.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "RmRegisterResources");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwsessionhandle, (uint32_t)nfiles, (void*)(uintptr_t)rgsfilenames, (uint32_t)napplications, (void*)(uintptr_t)rgapplications, (uint32_t)nservices, (void*)(uintptr_t)rgsservicenames) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwsessionhandle, (uint32_t)nfiles, (void*)(uintptr_t)rgsfilenames, (uint32_t)napplications, (void*)(uintptr_t)rgapplications, (uint32_t)nservices, (void*)(uintptr_t)rgsservicenames);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dwsessionhandle;
     (void)nfiles;
@@ -157,6 +206,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     (void)rgapplications;
     (void)nservices;
     (void)rgsservicenames;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -172,12 +222,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("rstrtmgr.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "RmRemoveFilter");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwsessionhandle, (void*)(uintptr_t)strmodulename, (void*)(uintptr_t)pprocess, (void*)(uintptr_t)strserviceshortname) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwsessionhandle, (void*)(uintptr_t)strmodulename, (void*)(uintptr_t)pprocess, (void*)(uintptr_t)strserviceshortname);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dwsessionhandle;
     (void)strmodulename;
     (void)pprocess;
     (void)strserviceshortname;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -193,11 +250,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("rstrtmgr.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "RmRestart");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwsessionhandle, (uint32_t)dwrestartflags, (void*)(uintptr_t)fnstatus) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwsessionhandle, (uint32_t)dwrestartflags, (void*)(uintptr_t)fnstatus);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dwsessionhandle;
     (void)dwrestartflags;
     (void)fnstatus;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -213,11 +277,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("rstrtmgr.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "RmShutdown");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwsessionhandle, (uint32_t)lactionflags, (void*)(uintptr_t)fnstatus) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwsessionhandle, (uint32_t)lactionflags, (void*)(uintptr_t)fnstatus);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dwsessionhandle;
     (void)lactionflags;
     (void)fnstatus;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -233,11 +304,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("rstrtmgr.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "RmStartSession");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)psessionhandle, (uint32_t)dwsessionflags, (void*)(uintptr_t)strsessionkey) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)psessionhandle, (uint32_t)dwsessionflags, (void*)(uintptr_t)strsessionkey);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)psessionhandle;
     (void)dwsessionflags;
     (void)strsessionkey;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;

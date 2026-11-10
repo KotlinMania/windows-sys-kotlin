@@ -62,10 +62,17 @@ static Napi::Value windowssys_windows_win32_media_windowsmediaformat_wMCreateBac
         HMODULE km_h_mod = LoadLibraryA("wmvcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WMCreateBackupRestorer")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pcallback, ppbackup) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pcallback, ppbackup);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pcallback;
     (void)ppbackup;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -81,9 +88,16 @@ static Napi::Value windowssys_windows_win32_media_windowsmediaformat_wMCreateEdi
         HMODULE km_h_mod = LoadLibraryA("wmvcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WMCreateEditor")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ppeditor) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ppeditor);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ppeditor;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -99,9 +113,16 @@ static Napi::Value windowssys_windows_win32_media_windowsmediaformat_wMCreateInd
         HMODULE km_h_mod = LoadLibraryA("wmvcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WMCreateIndexer")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ppindexer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ppindexer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ppindexer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -117,9 +138,16 @@ static Napi::Value windowssys_windows_win32_media_windowsmediaformat_wMCreatePro
         HMODULE km_h_mod = LoadLibraryA("wmvcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WMCreateProfileManager")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ppprofilemanager) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ppprofilemanager);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ppprofilemanager;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -137,11 +165,18 @@ static Napi::Value windowssys_windows_win32_media_windowsmediaformat_wMCreateRea
         HMODULE km_h_mod = LoadLibraryA("wmvcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WMCreateReader")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(punkcert, dwrights, ppreader) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(punkcert, dwrights, ppreader);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)punkcert;
     (void)dwrights;
     (void)ppreader;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -159,11 +194,18 @@ static Napi::Value windowssys_windows_win32_media_windowsmediaformat_wMCreateSyn
         HMODULE km_h_mod = LoadLibraryA("wmvcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WMCreateSyncReader")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(punkcert, dwrights, ppsyncreader) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(punkcert, dwrights, ppsyncreader);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)punkcert;
     (void)dwrights;
     (void)ppsyncreader;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -180,10 +222,17 @@ static Napi::Value windowssys_windows_win32_media_windowsmediaformat_wMCreateWri
         HMODULE km_h_mod = LoadLibraryA("wmvcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WMCreateWriter")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(punkcert, ppwriter) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(punkcert, ppwriter);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)punkcert;
     (void)ppwriter;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -199,9 +248,16 @@ static Napi::Value windowssys_windows_win32_media_windowsmediaformat_wMCreateWri
         HMODULE km_h_mod = LoadLibraryA("wmvcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WMCreateWriterFileSink")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ppsink) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ppsink);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ppsink;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -217,9 +273,16 @@ static Napi::Value windowssys_windows_win32_media_windowsmediaformat_wMCreateWri
         HMODULE km_h_mod = LoadLibraryA("wmvcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WMCreateWriterNetworkSink")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ppsink) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ppsink);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ppsink;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -235,9 +298,16 @@ static Napi::Value windowssys_windows_win32_media_windowsmediaformat_wMCreateWri
         HMODULE km_h_mod = LoadLibraryA("wmvcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WMCreateWriterPushSink")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ppsink) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ppsink);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ppsink;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -254,10 +324,17 @@ static Napi::Value windowssys_windows_win32_media_windowsmediaformat_wMIsContent
         HMODULE km_h_mod = LoadLibraryA("wmvcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WMIsContentProtected")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pwszfilename, pfisprotected) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pwszfilename, pfisprotected);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pwszfilename;
     (void)pfisprotected;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

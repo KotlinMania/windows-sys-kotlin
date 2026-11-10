@@ -61,9 +61,16 @@ static Napi::Value windowssys_windows_win32_system_securitycenter_wscGetAntiMalw
         HMODULE km_h_mod = LoadLibraryA("wscapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WscGetAntiMalwareUri")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ppszuri) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ppszuri);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ppszuri;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -80,10 +87,17 @@ static Napi::Value windowssys_windows_win32_system_securitycenter_wscGetSecurity
         HMODULE km_h_mod = LoadLibraryA("wscapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WscGetSecurityProviderHealth")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(providers, phealth) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(providers, phealth);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)providers;
     (void)phealth;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -98,8 +112,15 @@ static Napi::Value windowssys_windows_win32_system_securitycenter_wscQueryAntiMa
         HMODULE km_h_mod = LoadLibraryA("wscapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WscQueryAntiMalwareUri")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -118,12 +139,19 @@ static Napi::Value windowssys_windows_win32_system_securitycenter_wscRegisterFor
         HMODULE km_h_mod = LoadLibraryA("wscapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WscRegisterForChanges")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(reserved, phcallbackregistration, lpcallbackaddress, pcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(reserved, phcallbackregistration, lpcallbackaddress, pcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)reserved;
     (void)phcallbackregistration;
     (void)lpcallbackaddress;
     (void)pcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -138,8 +166,15 @@ static Napi::Value windowssys_windows_win32_system_securitycenter_wscRegisterFor
         HMODULE km_h_mod = LoadLibraryA("wscapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WscRegisterForUserNotifications")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -155,9 +190,16 @@ static Napi::Value windowssys_windows_win32_system_securitycenter_wscUnRegisterC
         HMODULE km_h_mod = LoadLibraryA("wscapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WscUnRegisterChanges")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hregistrationhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hregistrationhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hregistrationhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

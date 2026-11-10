@@ -61,9 +61,16 @@ static Napi::Value windowssys_windows_win32_system_mapi_mAPIFreeBuffer_napi(cons
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MAPIFreeBuffer")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pv) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pv);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pv;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

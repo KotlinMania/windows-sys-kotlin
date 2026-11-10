@@ -63,11 +63,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpAddFilter
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpAddFilterV4")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, addfilterinfo, forceflag) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, addfilterinfo, forceflag);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)addfilterinfo;
     (void)forceflag;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -83,9 +90,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpAddSecuri
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpAddSecurityGroup")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pserver) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pserver);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pserver;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -105,13 +119,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpAddServer
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpAddServer")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(flags, idinfo, newserver, callbackfn, callbackdata) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(flags, idinfo, newserver, callbackfn, callbackdata);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)flags;
     (void)idinfo;
     (void)newserver;
     (void)callbackfn;
     (void)callbackdata;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -129,11 +150,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpAddSubnet
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpAddSubnetElement")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, subnetaddress, addelementinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, subnetaddress, addelementinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)subnetaddress;
     (void)addelementinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -151,11 +179,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpAddSubnet
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpAddSubnetElementV4")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, subnetaddress, addelementinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, subnetaddress, addelementinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)subnetaddress;
     (void)addelementinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -173,11 +208,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpAddSubnet
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpAddSubnetElementV5")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, subnetaddress, addelementinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, subnetaddress, addelementinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)subnetaddress;
     (void)addelementinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -198,7 +240,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpAuditLogG
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpAuditLogGetParams")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, flags, auditlogdir, diskcheckinterval, maxlogfilessize, minspaceondisk) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, flags, auditlogdir, diskcheckinterval, maxlogfilessize, minspaceondisk);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)flags;
@@ -206,6 +254,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpAuditLogG
     (void)diskcheckinterval;
     (void)maxlogfilessize;
     (void)minspaceondisk;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -226,7 +275,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpAuditLogS
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpAuditLogSetParams")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, flags, auditlogdir, diskcheckinterval, maxlogfilessize, minspaceondisk) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, flags, auditlogdir, diskcheckinterval, maxlogfilessize, minspaceondisk);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)flags;
@@ -234,6 +289,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpAuditLogS
     (void)diskcheckinterval;
     (void)maxlogfilessize;
     (void)minspaceondisk;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -248,8 +304,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpCApiClean
         HMODULE km_h_mod = LoadLibraryA("dhcpcsvc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpCApiCleanup")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr();
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+    }
 #else
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -264,9 +325,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpCApiIniti
         HMODULE km_h_mod = LoadLibraryA("dhcpcsvc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpCApiInitialize")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(version) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(version);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)version;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -284,11 +352,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpCreateCla
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpCreateClass")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, reservedmustbezero, classinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, reservedmustbezero, classinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)reservedmustbezero;
     (void)classinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -306,11 +381,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpCreateCla
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpCreateClassV6")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, reservedmustbezero, classinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, reservedmustbezero, classinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)reservedmustbezero;
     (void)classinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -327,10 +409,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpCreateCli
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpCreateClientInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, clientinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, clientinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)clientinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -347,10 +436,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpCreateCli
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpCreateClientInfoV4")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, clientinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, clientinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)clientinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -367,10 +463,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpCreateCli
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpCreateClientInfoVQ")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, clientinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, clientinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)clientinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -388,11 +491,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpCreateOpt
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpCreateOption")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, optionid, optioninfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, optionid, optioninfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)optionid;
     (void)optioninfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -413,7 +523,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpCreateOpt
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpCreateOptionV5")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, flags, optionid, classname, vendorname, optioninfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, flags, optionid, classname, vendorname, optioninfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)flags;
@@ -421,6 +537,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpCreateOpt
     (void)classname;
     (void)vendorname;
     (void)optioninfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -441,7 +558,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpCreateOpt
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpCreateOptionV6")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, flags, optionid, classname, vendorname, optioninfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, flags, optionid, classname, vendorname, optioninfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)flags;
@@ -449,6 +572,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpCreateOpt
     (void)classname;
     (void)vendorname;
     (void)optioninfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -466,11 +590,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpCreateSub
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpCreateSubnet")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, subnetaddress, subnetinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, subnetaddress, subnetinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)subnetaddress;
     (void)subnetinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -488,11 +619,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpCreateSub
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpCreateSubnetVQ")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, subnetaddress, subnetinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, subnetaddress, subnetinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)subnetaddress;
     (void)subnetinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -510,11 +648,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpDeRegiste
         HMODULE km_h_mod = LoadLibraryA("dhcpcsvc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpDeRegisterParamChange")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(flags, reserved, event) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(flags, reserved, event);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)flags;
     (void)reserved;
     (void)event;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -532,11 +677,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpDeleteCla
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpDeleteClass")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, reservedmustbezero, classname) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, reservedmustbezero, classname);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)reservedmustbezero;
     (void)classname;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -554,11 +706,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpDeleteCla
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpDeleteClassV6")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, reservedmustbezero, classname) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, reservedmustbezero, classname);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)reservedmustbezero;
     (void)classname;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -575,10 +734,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpDeleteCli
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpDeleteClientInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, clientinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, clientinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)clientinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -595,10 +761,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpDeleteCli
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpDeleteClientInfoV6")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, clientinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, clientinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)clientinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -615,10 +788,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpDeleteFil
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpDeleteFilterV4")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, deletefilterinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, deletefilterinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)deletefilterinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -638,13 +818,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpDeleteSer
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpDeleteServer")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(flags, idinfo, newserver, callbackfn, callbackdata) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(flags, idinfo, newserver, callbackfn, callbackdata);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)flags;
     (void)idinfo;
     (void)newserver;
     (void)callbackfn;
     (void)callbackdata;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -662,11 +849,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpDeleteSub
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpDeleteSubnet")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, subnetaddress, forceflag) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, subnetaddress, forceflag);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)subnetaddress;
     (void)forceflag;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -683,10 +877,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpDeleteSup
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpDeleteSuperScopeV4")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, superscopename) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, superscopename);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)superscopename;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -701,8 +902,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpDsCleanup
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpDsCleanup")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr();
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+    }
 #else
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -716,8 +922,15 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpDsInit_na
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpDsInit")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -739,7 +952,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumClass
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpEnumClasses")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, reservedmustbezero, resumehandle, preferredmaximum, classinfoarray, nread, ntotal) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, reservedmustbezero, resumehandle, preferredmaximum, classinfoarray, nread, ntotal);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)reservedmustbezero;
@@ -748,6 +967,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumClass
     (void)classinfoarray;
     (void)nread;
     (void)ntotal;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -769,7 +989,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumClass
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpEnumClassesV6")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, reservedmustbezero, resumehandle, preferredmaximum, classinfoarray, nread, ntotal) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, reservedmustbezero, resumehandle, preferredmaximum, classinfoarray, nread, ntotal);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)reservedmustbezero;
@@ -778,6 +1004,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumClass
     (void)classinfoarray;
     (void)nread;
     (void)ntotal;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -799,7 +1026,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumFilte
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpEnumFilterV4")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, resumehandle, preferredmaximum, listtype, enumfilterinfo, elementsread, elementstotal) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, resumehandle, preferredmaximum, listtype, enumfilterinfo, elementsread, elementstotal);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)resumehandle;
@@ -808,6 +1041,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumFilte
     (void)enumfilterinfo;
     (void)elementsread;
     (void)elementstotal;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -829,7 +1063,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumOptio
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpEnumOptionValues")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, scopeinfo, resumehandle, preferredmaximum, optionvalues, optionsread, optionstotal) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, scopeinfo, resumehandle, preferredmaximum, optionvalues, optionsread, optionstotal);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)scopeinfo;
@@ -838,6 +1078,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumOptio
     (void)optionvalues;
     (void)optionsread;
     (void)optionstotal;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -862,7 +1103,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumOptio
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpEnumOptionValuesV5")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, flags, classname, vendorname, scopeinfo, resumehandle, preferredmaximum, optionvalues, optionsread, optionstotal) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, flags, classname, vendorname, scopeinfo, resumehandle, preferredmaximum, optionvalues, optionsread, optionstotal);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)flags;
@@ -874,6 +1121,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumOptio
     (void)optionvalues;
     (void)optionsread;
     (void)optionstotal;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -898,7 +1146,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumOptio
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpEnumOptionValuesV6")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, flags, classname, vendorname, scopeinfo, resumehandle, preferredmaximum, optionvalues, optionsread, optionstotal) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, flags, classname, vendorname, scopeinfo, resumehandle, preferredmaximum, optionvalues, optionsread, optionstotal);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)flags;
@@ -910,6 +1164,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumOptio
     (void)optionvalues;
     (void)optionsread;
     (void)optionstotal;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -930,7 +1185,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumOptio
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpEnumOptions")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, resumehandle, preferredmaximum, options, optionsread, optionstotal) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, resumehandle, preferredmaximum, options, optionsread, optionstotal);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)resumehandle;
@@ -938,6 +1199,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumOptio
     (void)options;
     (void)optionsread;
     (void)optionstotal;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -961,7 +1223,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumOptio
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpEnumOptionsV5")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, flags, classname, vendorname, resumehandle, preferredmaximum, options, optionsread, optionstotal) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, flags, classname, vendorname, resumehandle, preferredmaximum, options, optionsread, optionstotal);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)flags;
@@ -972,6 +1240,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumOptio
     (void)options;
     (void)optionsread;
     (void)optionstotal;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -995,7 +1264,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumOptio
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpEnumOptionsV6")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, flags, classname, vendorname, resumehandle, preferredmaximum, options, optionsread, optionstotal) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, flags, classname, vendorname, resumehandle, preferredmaximum, options, optionsread, optionstotal);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)flags;
@@ -1006,6 +1281,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumOptio
     (void)options;
     (void)optionsread;
     (void)optionstotal;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1025,13 +1301,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumServe
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpEnumServers")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(flags, idinfo, servers, callbackfn, callbackdata) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(flags, idinfo, servers, callbackfn, callbackdata);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)flags;
     (void)idinfo;
     (void)servers;
     (void)callbackfn;
     (void)callbackdata;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1053,7 +1336,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumSubne
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpEnumSubnetClients")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, subnetaddress, resumehandle, preferredmaximum, clientinfo, clientsread, clientstotal) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, subnetaddress, resumehandle, preferredmaximum, clientinfo, clientsread, clientstotal);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)subnetaddress;
@@ -1062,6 +1351,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumSubne
     (void)clientinfo;
     (void)clientsread;
     (void)clientstotal;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1083,7 +1373,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumSubne
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpEnumSubnetClientsFilterStatusInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, subnetaddress, resumehandle, preferredmaximum, clientinfo, clientsread, clientstotal) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, subnetaddress, resumehandle, preferredmaximum, clientinfo, clientsread, clientstotal);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)subnetaddress;
@@ -1092,6 +1388,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumSubne
     (void)clientinfo;
     (void)clientsread;
     (void)clientstotal;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1113,7 +1410,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumSubne
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpEnumSubnetClientsV4")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, subnetaddress, resumehandle, preferredmaximum, clientinfo, clientsread, clientstotal) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, subnetaddress, resumehandle, preferredmaximum, clientinfo, clientsread, clientstotal);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)subnetaddress;
@@ -1122,6 +1425,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumSubne
     (void)clientinfo;
     (void)clientsread;
     (void)clientstotal;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1143,7 +1447,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumSubne
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpEnumSubnetClientsV5")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, subnetaddress, resumehandle, preferredmaximum, clientinfo, clientsread, clientstotal) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, subnetaddress, resumehandle, preferredmaximum, clientinfo, clientsread, clientstotal);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)subnetaddress;
@@ -1152,6 +1462,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumSubne
     (void)clientinfo;
     (void)clientsread;
     (void)clientstotal;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1173,7 +1484,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumSubne
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpEnumSubnetClientsVQ")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, subnetaddress, resumehandle, preferredmaximum, clientinfo, clientsread, clientstotal) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, subnetaddress, resumehandle, preferredmaximum, clientinfo, clientsread, clientstotal);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)subnetaddress;
@@ -1182,6 +1499,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumSubne
     (void)clientinfo;
     (void)clientsread;
     (void)clientstotal;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1204,7 +1522,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumSubne
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpEnumSubnetElements")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, subnetaddress, enumelementtype, resumehandle, preferredmaximum, enumelementinfo, elementsread, elementstotal) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, subnetaddress, enumelementtype, resumehandle, preferredmaximum, enumelementinfo, elementsread, elementstotal);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)subnetaddress;
@@ -1214,6 +1538,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumSubne
     (void)enumelementinfo;
     (void)elementsread;
     (void)elementstotal;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1236,7 +1561,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumSubne
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpEnumSubnetElementsV4")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, subnetaddress, enumelementtype, resumehandle, preferredmaximum, enumelementinfo, elementsread, elementstotal) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, subnetaddress, enumelementtype, resumehandle, preferredmaximum, enumelementinfo, elementsread, elementstotal);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)subnetaddress;
@@ -1246,6 +1577,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumSubne
     (void)enumelementinfo;
     (void)elementsread;
     (void)elementstotal;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1268,7 +1600,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumSubne
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpEnumSubnetElementsV5")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, subnetaddress, enumelementtype, resumehandle, preferredmaximum, enumelementinfo, elementsread, elementstotal) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, subnetaddress, enumelementtype, resumehandle, preferredmaximum, enumelementinfo, elementsread, elementstotal);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)subnetaddress;
@@ -1278,6 +1616,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumSubne
     (void)enumelementinfo;
     (void)elementsread;
     (void)elementstotal;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1298,7 +1637,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumSubne
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpEnumSubnets")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, resumehandle, preferredmaximum, enuminfo, elementsread, elementstotal) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, resumehandle, preferredmaximum, enuminfo, elementsread, elementstotal);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)resumehandle;
@@ -1306,6 +1651,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumSubne
     (void)enuminfo;
     (void)elementsread;
     (void)elementstotal;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1326,7 +1672,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumSubne
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpEnumSubnetsV6")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, resumehandle, preferredmaximum, enuminfo, elementsread, elementstotal) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, resumehandle, preferredmaximum, enuminfo, elementsread, elementstotal);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)resumehandle;
@@ -1334,6 +1686,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpEnumSubne
     (void)enuminfo;
     (void)elementsread;
     (void)elementstotal;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1352,12 +1705,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpGetAllOpt
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpGetAllOptionValues")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, flags, scopeinfo, values) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, flags, scopeinfo, values);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)flags;
     (void)scopeinfo;
     (void)values;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1376,12 +1736,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpGetAllOpt
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpGetAllOptionValuesV6")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, flags, scopeinfo, values) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, flags, scopeinfo, values);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)flags;
     (void)scopeinfo;
     (void)values;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1399,11 +1766,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpGetAllOpt
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpGetAllOptions")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, flags, optionstruct) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, flags, optionstruct);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)flags;
     (void)optionstruct;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1421,11 +1795,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpGetAllOpt
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpGetAllOptionsV6")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, flags, optionstruct) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, flags, optionstruct);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)flags;
     (void)optionstruct;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1444,12 +1825,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpGetClassI
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpGetClassInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, reservedmustbezero, partialclassinfo, filledclassinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, reservedmustbezero, partialclassinfo, filledclassinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)reservedmustbezero;
     (void)partialclassinfo;
     (void)filledclassinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1467,11 +1855,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpGetClient
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpGetClientInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, searchinfo, clientinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, searchinfo, clientinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)searchinfo;
     (void)clientinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1489,11 +1884,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpGetClient
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpGetClientInfoV4")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, searchinfo, clientinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, searchinfo, clientinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)searchinfo;
     (void)clientinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1511,11 +1913,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpGetClient
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpGetClientInfoV6")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, searchinfo, clientinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, searchinfo, clientinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)searchinfo;
     (void)clientinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1533,11 +1942,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpGetClient
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpGetClientInfoVQ")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, searchinfo, clientinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, searchinfo, clientinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)searchinfo;
     (void)clientinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1556,12 +1972,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpGetClient
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpGetClientOptions")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, clientipaddress, clientsubnetmask, clientoptions) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, clientipaddress, clientsubnetmask, clientoptions);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)clientipaddress;
     (void)clientsubnetmask;
     (void)clientoptions;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1578,10 +2001,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpGetFilter
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpGetFilterV4")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, globalfilterinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, globalfilterinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)globalfilterinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1598,10 +2028,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpGetMibInf
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpGetMibInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, mibinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, mibinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)mibinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1618,10 +2055,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpGetMibInf
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpGetMibInfoV5")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, mibinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, mibinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)mibinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1638,10 +2082,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpGetMibInf
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpGetMibInfoV6")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, mibinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, mibinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)mibinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1659,11 +2110,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpGetOption
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpGetOptionInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, optionid, optioninfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, optionid, optioninfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)optionid;
     (void)optioninfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1684,7 +2142,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpGetOption
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpGetOptionInfoV5")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, flags, optionid, classname, vendorname, optioninfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, flags, optionid, classname, vendorname, optioninfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)flags;
@@ -1692,6 +2156,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpGetOption
     (void)classname;
     (void)vendorname;
     (void)optioninfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1712,7 +2177,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpGetOption
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpGetOptionInfoV6")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, flags, optionid, classname, vendorname, optioninfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, flags, optionid, classname, vendorname, optioninfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)flags;
@@ -1720,6 +2191,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpGetOption
     (void)classname;
     (void)vendorname;
     (void)optioninfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1738,12 +2210,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpGetOption
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpGetOptionValue")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, optionid, scopeinfo, optionvalue) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, optionid, scopeinfo, optionvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)optionid;
     (void)scopeinfo;
     (void)optionvalue;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1765,7 +2244,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpGetOption
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpGetOptionValueV5")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, flags, optionid, classname, vendorname, scopeinfo, optionvalue) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, flags, optionid, classname, vendorname, scopeinfo, optionvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)flags;
@@ -1774,6 +2259,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpGetOption
     (void)vendorname;
     (void)scopeinfo;
     (void)optionvalue;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1795,7 +2281,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpGetOption
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpGetOptionValueV6")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, flags, optionid, classname, vendorname, scopeinfo, optionvalue) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, flags, optionid, classname, vendorname, scopeinfo, optionvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)flags;
@@ -1804,6 +2296,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpGetOption
     (void)vendorname;
     (void)scopeinfo;
     (void)optionvalue;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1820,10 +2313,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpGetOrigin
         HMODULE km_h_mod = LoadLibraryA("dhcpcsvc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpGetOriginalSubnetMask")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sadaptername, dwsubnetmask) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sadaptername, dwsubnetmask);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)sadaptername;
     (void)dwsubnetmask;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1841,11 +2341,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpGetServer
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpGetServerBindingInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, flags, bindelementsinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, flags, bindelementsinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)flags;
     (void)bindelementsinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1863,11 +2370,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpGetServer
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpGetServerBindingInfoV6")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, flags, bindelementsinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, flags, bindelementsinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)flags;
     (void)bindelementsinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1884,10 +2398,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpGetServer
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpGetServerSpecificStrings")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, serverspecificstrings) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, serverspecificstrings);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)serverspecificstrings;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1905,11 +2426,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpGetSubnet
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpGetSubnetDelayOffer")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, subnetaddress, timedelayinmilliseconds) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, subnetaddress, timedelayinmilliseconds);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)subnetaddress;
     (void)timedelayinmilliseconds;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1927,11 +2455,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpGetSubnet
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpGetSubnetInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, subnetaddress, subnetinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, subnetaddress, subnetinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)subnetaddress;
     (void)subnetinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1949,11 +2484,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpGetSubnet
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpGetSubnetInfoVQ")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, subnetaddress, subnetinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, subnetaddress, subnetinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)subnetaddress;
     (void)subnetinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1970,10 +2512,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpGetSuperS
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpGetSuperScopeInfoV4")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, superscopetable) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, superscopetable);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)superscopetable;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1990,10 +2539,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpGetThread
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpGetThreadOptions")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pflags, reserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pflags, reserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pflags;
     (void)reserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2011,11 +2567,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpGetVersio
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpGetVersion")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, majorversion, minorversion) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, majorversion, minorversion);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)majorversion;
     (void)minorversion;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2040,7 +2603,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprAddV4
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpHlprAddV4PolicyCondition")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(policy, parentexpr, type, optionid, suboptionid, vendorname, arg_6_operator, value, valuelength, conditionindex) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(policy, parentexpr, type, optionid, suboptionid, vendorname, arg_6_operator, value, valuelength, conditionindex);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)policy;
     (void)parentexpr;
@@ -2052,6 +2621,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprAddV4
     (void)value;
     (void)valuelength;
     (void)conditionindex;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2070,12 +2640,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprAddV4
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpHlprAddV4PolicyExpr")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(policy, parentexpr, arg_2_operator, exprindex) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(policy, parentexpr, arg_2_operator, exprindex);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)policy;
     (void)parentexpr;
     (void)arg_2_operator;
     (void)exprindex;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2092,10 +2669,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprAddV4
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpHlprAddV4PolicyRange")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(policy, range) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(policy, range);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)policy;
     (void)range;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2118,7 +2702,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprCreat
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpHlprCreateV4Policy")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(policyname, fglobalpolicy, subnet, processingorder, rootoperator, description, enabled, policy) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(policyname, fglobalpolicy, subnet, processingorder, rootoperator, description, enabled, policy);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)policyname;
     (void)fglobalpolicy;
@@ -2128,6 +2718,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprCreat
     (void)description;
     (void)enabled;
     (void)policy;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2150,7 +2741,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprCreat
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpHlprCreateV4PolicyEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(policyname, fglobalpolicy, subnet, processingorder, rootoperator, description, enabled, policy) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(policyname, fglobalpolicy, subnet, processingorder, rootoperator, description, enabled, policy);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)policyname;
     (void)fglobalpolicy;
@@ -2160,6 +2757,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprCreat
     (void)description;
     (void)enabled;
     (void)policy;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2177,12 +2775,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprFindV
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpHlprFindV4DhcpProperty")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(propertyarray, id, type) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(propertyarray, id, type);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)propertyarray;
     (void)id;
     (void)type;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -2197,9 +2802,14 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprFreeV
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpHlprFreeV4DhcpProperty")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(property);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(property);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)property;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -2214,9 +2824,14 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprFreeV
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpHlprFreeV4DhcpPropertyArray")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(propertyarray);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(propertyarray);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)propertyarray;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -2231,9 +2846,14 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprFreeV
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpHlprFreeV4Policy")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(policy);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(policy);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)policy;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -2248,9 +2868,14 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprFreeV
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpHlprFreeV4PolicyArray")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(policyarray);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(policyarray);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)policyarray;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -2265,9 +2890,14 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprFreeV
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpHlprFreeV4PolicyEx")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(policyex);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(policyex);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)policyex;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -2282,9 +2912,14 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprFreeV
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpHlprFreeV4PolicyExArray")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(policyexarray);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(policyexarray);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)policyexarray;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -2299,9 +2934,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprIsV4P
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpHlprIsV4PolicySingleUC")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(policy) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(policy);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)policy;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2317,9 +2959,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprIsV4P
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpHlprIsV4PolicyValid")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ppolicy) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ppolicy);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ppolicy;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2335,9 +2984,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprIsV4P
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpHlprIsV4PolicyWellFormed")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ppolicy) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ppolicy);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ppolicy;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2354,10 +3010,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprModif
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpHlprModifyV4PolicyExpr")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(policy, arg_1_operator) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(policy, arg_1_operator);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)policy;
     (void)arg_1_operator;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2373,9 +3036,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpHlprReset
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpHlprResetV4PolicyExpr")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(policy) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(policy);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)policy;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2393,11 +3063,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpModifyCla
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpModifyClass")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, reservedmustbezero, classinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, reservedmustbezero, classinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)reservedmustbezero;
     (void)classinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2415,11 +3092,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpModifyCla
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpModifyClassV6")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, reservedmustbezero, classinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, reservedmustbezero, classinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)reservedmustbezero;
     (void)classinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2434,8 +3118,15 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpRemoveDNS
         HMODULE km_h_mod = LoadLibraryA("dhcpcsvc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpRemoveDNSRegistrations")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2452,10 +3143,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpRemoveOpt
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpRemoveOption")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, optionid) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, optionid);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)optionid;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2475,13 +3173,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpRemoveOpt
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpRemoveOptionV5")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, flags, optionid, classname, vendorname) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, flags, optionid, classname, vendorname);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)flags;
     (void)optionid;
     (void)classname;
     (void)vendorname;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2501,13 +3206,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpRemoveOpt
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpRemoveOptionV6")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, flags, optionid, classname, vendorname) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, flags, optionid, classname, vendorname);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)flags;
     (void)optionid;
     (void)classname;
     (void)vendorname;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2525,11 +3237,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpRemoveOpt
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpRemoveOptionValue")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, optionid, scopeinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, optionid, scopeinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)optionid;
     (void)scopeinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2550,7 +3269,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpRemoveOpt
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpRemoveOptionValueV5")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, flags, optionid, classname, vendorname, scopeinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, flags, optionid, classname, vendorname, scopeinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)flags;
@@ -2558,6 +3283,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpRemoveOpt
     (void)classname;
     (void)vendorname;
     (void)scopeinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2578,7 +3304,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpRemoveOpt
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpRemoveOptionValueV6")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, flags, optionid, classname, vendorname, scopeinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, flags, optionid, classname, vendorname, scopeinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)flags;
@@ -2586,6 +3318,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpRemoveOpt
     (void)classname;
     (void)vendorname;
     (void)scopeinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2604,12 +3337,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpRemoveSub
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpRemoveSubnetElement")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, subnetaddress, removeelementinfo, forceflag) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, subnetaddress, removeelementinfo, forceflag);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)subnetaddress;
     (void)removeelementinfo;
     (void)forceflag;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2628,12 +3368,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpRemoveSub
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpRemoveSubnetElementV4")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, subnetaddress, removeelementinfo, forceflag) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, subnetaddress, removeelementinfo, forceflag);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)subnetaddress;
     (void)removeelementinfo;
     (void)forceflag;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2652,12 +3399,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpRemoveSub
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpRemoveSubnetElementV5")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, subnetaddress, removeelementinfo, forceflag) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, subnetaddress, removeelementinfo, forceflag);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)subnetaddress;
     (void)removeelementinfo;
     (void)forceflag;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2673,9 +3427,14 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpRpcFreeMe
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpRpcFreeMemory")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(bufferpointer);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(bufferpointer);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)bufferpointer;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -2693,12 +3452,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpScanDatab
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpScanDatabase")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, subnetaddress, fixflag, scanlist) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, subnetaddress, fixflag, scanlist);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)subnetaddress;
     (void)fixflag;
     (void)scanlist;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2714,9 +3480,14 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpServerAud
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpServerAuditlogParamsFree")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(configinfo);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(configinfo);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)configinfo;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -2732,10 +3503,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpServerBac
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpServerBackupDatabase")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, path) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, path);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)path;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2752,10 +3530,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpServerGet
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpServerGetConfig")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, configinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, configinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)configinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2772,10 +3557,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpServerGet
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpServerGetConfigV4")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, configinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, configinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)configinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2793,11 +3585,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpServerGet
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpServerGetConfigV6")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, scopeinfo, configinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, scopeinfo, configinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)scopeinfo;
     (void)configinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2814,10 +3613,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpServerGet
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpServerGetConfigVQ")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, configinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, configinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)configinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2836,12 +3642,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpServerQue
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpServerQueryAttribute")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddr, dwreserved, dhcpattribid, pdhcpattrib) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddr, dwreserved, dhcpattribid, pdhcpattrib);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddr;
     (void)dwreserved;
     (void)dhcpattribid;
     (void)pdhcpattrib;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2861,13 +3674,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpServerQue
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpServerQueryAttributes")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddr, dwreserved, dwattribcount, pdhcpattribs, pdhcpattribarr) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddr, dwreserved, dwattribcount, pdhcpattribs, pdhcpattribarr);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddr;
     (void)dwreserved;
     (void)dwattribcount;
     (void)pdhcpattribs;
     (void)pdhcpattribarr;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2887,13 +3707,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpServerQue
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpServerQueryDnsRegCredentials")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, unamesize, uname, domainsize, domain) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, unamesize, uname, domainsize, domain);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)unamesize;
     (void)uname;
     (void)domainsize;
     (void)domain;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2910,10 +3737,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpServerRed
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpServerRedoAuthorization")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddr, dwreserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddr, dwreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddr;
     (void)dwreserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2930,10 +3764,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpServerRes
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpServerRestoreDatabase")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, path) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, path);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)path;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2951,11 +3792,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpServerSet
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpServerSetConfig")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, fieldstoset, configinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, fieldstoset, configinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)fieldstoset;
     (void)configinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2973,11 +3821,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpServerSet
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpServerSetConfigV4")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, fieldstoset, configinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, fieldstoset, configinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)fieldstoset;
     (void)configinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2996,12 +3851,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpServerSet
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpServerSetConfigV6")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, scopeinfo, fieldstoset, configinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, scopeinfo, fieldstoset, configinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)scopeinfo;
     (void)fieldstoset;
     (void)configinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3019,11 +3881,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpServerSet
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpServerSetConfigVQ")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, fieldstoset, configinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, fieldstoset, configinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)fieldstoset;
     (void)configinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3042,12 +3911,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpServerSet
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpServerSetDnsRegCredentials")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, uname, domain, passwd) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, uname, domain, passwd);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)uname;
     (void)domain;
     (void)passwd;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3066,12 +3942,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpServerSet
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpServerSetDnsRegCredentialsV5")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, uname, domain, passwd) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, uname, domain, passwd);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)uname;
     (void)domain;
     (void)passwd;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3088,10 +3971,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpSetClient
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpSetClientInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, clientinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, clientinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)clientinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3108,10 +3998,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpSetClient
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpSetClientInfoV4")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, clientinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, clientinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)clientinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3128,10 +4025,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpSetClient
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpSetClientInfoV6")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, clientinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, clientinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)clientinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3148,10 +4052,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpSetClient
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpSetClientInfoVQ")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, clientinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, clientinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)clientinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3168,10 +4079,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpSetFilter
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpSetFilterV4")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, globalfilterinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, globalfilterinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)globalfilterinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3189,11 +4107,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpSetOption
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpSetOptionInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, optionid, optioninfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, optionid, optioninfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)optionid;
     (void)optioninfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3214,7 +4139,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpSetOption
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpSetOptionInfoV5")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, flags, optionid, classname, vendorname, optioninfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, flags, optionid, classname, vendorname, optioninfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)flags;
@@ -3222,6 +4153,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpSetOption
     (void)classname;
     (void)vendorname;
     (void)optioninfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3242,7 +4174,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpSetOption
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpSetOptionInfoV6")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, flags, optionid, classname, vendorname, optioninfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, flags, optionid, classname, vendorname, optioninfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)flags;
@@ -3250,6 +4188,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpSetOption
     (void)classname;
     (void)vendorname;
     (void)optioninfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3268,12 +4207,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpSetOption
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpSetOptionValue")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, optionid, scopeinfo, optionvalue) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, optionid, scopeinfo, optionvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)optionid;
     (void)scopeinfo;
     (void)optionvalue;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3295,7 +4241,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpSetOption
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpSetOptionValueV5")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, flags, optionid, classname, vendorname, scopeinfo, optionvalue) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, flags, optionid, classname, vendorname, scopeinfo, optionvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)flags;
@@ -3304,6 +4256,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpSetOption
     (void)vendorname;
     (void)scopeinfo;
     (void)optionvalue;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3325,7 +4278,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpSetOption
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpSetOptionValueV6")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, flags, optionid, classname, vendorname, scopeinfo, optionvalue) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, flags, optionid, classname, vendorname, scopeinfo, optionvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)flags;
@@ -3334,6 +4293,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpSetOption
     (void)vendorname;
     (void)scopeinfo;
     (void)optionvalue;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3351,11 +4311,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpSetOption
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpSetOptionValues")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, scopeinfo, optionvalues) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, scopeinfo, optionvalues);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)scopeinfo;
     (void)optionvalues;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3376,7 +4343,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpSetOption
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpSetOptionValuesV5")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, flags, classname, vendorname, scopeinfo, optionvalues) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, flags, classname, vendorname, scopeinfo, optionvalues);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)flags;
@@ -3384,6 +4357,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpSetOption
     (void)vendorname;
     (void)scopeinfo;
     (void)optionvalues;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3401,11 +4375,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpSetServer
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpSetServerBindingInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, flags, bindelementinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, flags, bindelementinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)flags;
     (void)bindelementinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3423,11 +4404,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpSetServer
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpSetServerBindingInfoV6")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, flags, bindelementinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, flags, bindelementinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)flags;
     (void)bindelementinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3445,11 +4433,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpSetSubnet
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpSetSubnetDelayOffer")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, subnetaddress, timedelayinmilliseconds) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, subnetaddress, timedelayinmilliseconds);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)subnetaddress;
     (void)timedelayinmilliseconds;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3467,11 +4462,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpSetSubnet
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpSetSubnetInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, subnetaddress, subnetinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, subnetaddress, subnetinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)subnetaddress;
     (void)subnetinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3489,11 +4491,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpSetSubnet
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpSetSubnetInfoVQ")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, subnetaddress, subnetinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, subnetaddress, subnetinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)subnetaddress;
     (void)subnetinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3512,12 +4521,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpSetSuperS
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpSetSuperScopeV4")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, subnetaddress, superscopename, changeexisting) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, subnetaddress, superscopename, changeexisting);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)subnetaddress;
     (void)superscopename;
     (void)changeexisting;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3534,10 +4550,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpSetThread
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpSetThreadOptions")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(flags, reserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(flags, reserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)flags;
     (void)reserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3556,12 +4579,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpUndoReque
         HMODULE km_h_mod = LoadLibraryA("dhcpcsvc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpUndoRequestParams")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(flags, reserved, adaptername, requestidstr) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(flags, reserved, adaptername, requestidstr);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)flags;
     (void)reserved;
     (void)adaptername;
     (void)requestidstr;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3580,12 +4610,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpV4AddPoli
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpV4AddPolicyRange")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, subnetaddress, policyname, range) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, subnetaddress, policyname, range);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)subnetaddress;
     (void)policyname;
     (void)range;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3602,10 +4639,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpV4CreateC
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpV4CreateClientInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, clientinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, clientinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)clientinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3622,10 +4666,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpV4CreateC
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpV4CreateClientInfoEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, clientinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, clientinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)clientinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3642,10 +4693,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpV4CreateP
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpV4CreatePolicy")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, ppolicy) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, ppolicy);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)ppolicy;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3662,10 +4720,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpV4CreateP
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpV4CreatePolicyEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, policyex) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, policyex);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)policyex;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3684,12 +4749,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpV4DeleteP
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpV4DeletePolicy")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, fglobalpolicy, subnetaddress, policyname) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, fglobalpolicy, subnetaddress, policyname);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)fglobalpolicy;
     (void)subnetaddress;
     (void)policyname;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3712,7 +4784,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpV4EnumPol
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpV4EnumPolicies")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, resumehandle, preferredmaximum, fglobalpolicy, subnetaddress, enuminfo, elementsread, elementstotal) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, resumehandle, preferredmaximum, fglobalpolicy, subnetaddress, enuminfo, elementsread, elementstotal);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)resumehandle;
@@ -3722,6 +4800,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpV4EnumPol
     (void)enuminfo;
     (void)elementsread;
     (void)elementstotal;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3744,7 +4823,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpV4EnumPol
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpV4EnumPoliciesEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, resumehandle, preferredmaximum, globalpolicy, subnetaddress, enuminfo, elementsread, elementstotal) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, resumehandle, preferredmaximum, globalpolicy, subnetaddress, enuminfo, elementsread, elementstotal);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)resumehandle;
@@ -3754,6 +4839,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpV4EnumPol
     (void)enuminfo;
     (void)elementsread;
     (void)elementstotal;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3775,7 +4861,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpV4EnumSub
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpV4EnumSubnetClients")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, subnetaddress, resumehandle, preferredmaximum, clientinfo, clientsread, clientstotal) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, subnetaddress, resumehandle, preferredmaximum, clientinfo, clientsread, clientstotal);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)subnetaddress;
@@ -3784,6 +4876,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpV4EnumSub
     (void)clientinfo;
     (void)clientsread;
     (void)clientstotal;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3805,7 +4898,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpV4EnumSub
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpV4EnumSubnetClientsEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, subnetaddress, resumehandle, preferredmaximum, clientinfo, clientsread, clientstotal) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, subnetaddress, resumehandle, preferredmaximum, clientinfo, clientsread, clientstotal);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)subnetaddress;
@@ -3814,6 +4913,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpV4EnumSub
     (void)clientinfo;
     (void)clientsread;
     (void)clientstotal;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3835,7 +4935,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpV4EnumSub
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpV4EnumSubnetReservations")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, subnetaddress, resumehandle, preferredmaximum, enumelementinfo, elementsread, elementstotal) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, subnetaddress, resumehandle, preferredmaximum, enumelementinfo, elementsread, elementstotal);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)subnetaddress;
@@ -3844,6 +4950,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpV4EnumSub
     (void)enumelementinfo;
     (void)elementsread;
     (void)elementstotal;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3860,10 +4967,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpV4Failove
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpV4FailoverAddScopeToRelationship")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, prelationship) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, prelationship);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)prelationship;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3880,10 +4994,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpV4Failove
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpV4FailoverCreateRelationship")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, prelationship) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, prelationship);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)prelationship;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3900,10 +5021,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpV4Failove
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpV4FailoverDeleteRelationship")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, prelationshipname) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, prelationshipname);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)prelationshipname;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3920,10 +5048,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpV4Failove
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpV4FailoverDeleteScopeFromRelationship")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, prelationship) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, prelationship);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)prelationship;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3944,7 +5079,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpV4Failove
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpV4FailoverEnumRelationship")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, resumehandle, preferredmaximum, prelationship, relationshipread, relationshiptotal) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, resumehandle, preferredmaximum, prelationship, relationshipread, relationshiptotal);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)resumehandle;
@@ -3952,6 +5093,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpV4Failove
     (void)prelationship;
     (void)relationshipread;
     (void)relationshiptotal;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3969,11 +5111,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpV4Failove
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpV4FailoverGetAddressStatus")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, subnetaddress, pstatus) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, subnetaddress, pstatus);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)subnetaddress;
     (void)pstatus;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3991,11 +5140,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpV4Failove
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpV4FailoverGetClientInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, searchinfo, clientinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, searchinfo, clientinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)searchinfo;
     (void)clientinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4013,11 +5169,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpV4Failove
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpV4FailoverGetRelationship")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, prelationshipname, prelationship) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, prelationshipname, prelationship);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)prelationshipname;
     (void)prelationship;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4035,11 +5198,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpV4Failove
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpV4FailoverGetScopeRelationship")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, scopeid, prelationship) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, scopeid, prelationship);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)scopeid;
     (void)prelationship;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4057,11 +5227,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpV4Failove
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpV4FailoverGetScopeStatistics")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, scopeid, pstats) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, scopeid, pstats);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)scopeid;
     (void)pstats;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4079,11 +5256,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpV4Failove
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpV4FailoverGetSystemTime")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, ptime, pmaxalloweddeltatime) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, ptime, pmaxalloweddeltatime);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)ptime;
     (void)pmaxalloweddeltatime;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4101,11 +5285,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpV4Failove
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpV4FailoverSetRelationship")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, flags, prelationship) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, flags, prelationship);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)flags;
     (void)prelationship;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4122,10 +5313,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpV4Failove
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpV4FailoverTriggerAddrAllocation")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, pfailrelname) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, pfailrelname);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)pfailrelname;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4144,12 +5342,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpV4GetAllO
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpV4GetAllOptionValues")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, flags, scopeinfo, values) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, flags, scopeinfo, values);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)flags;
     (void)scopeinfo;
     (void)values;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4167,11 +5372,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpV4GetClie
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpV4GetClientInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, searchinfo, clientinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, searchinfo, clientinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)searchinfo;
     (void)clientinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4189,11 +5401,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpV4GetClie
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpV4GetClientInfoEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, searchinfo, clientinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, searchinfo, clientinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)searchinfo;
     (void)clientinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4214,7 +5433,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpV4GetFree
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpV4GetFreeIPAddress")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, scopeid, startip, endip, numfreeaddrreq, ipaddrlist) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, scopeid, startip, endip, numfreeaddrreq, ipaddrlist);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)scopeid;
@@ -4222,6 +5447,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpV4GetFree
     (void)endip;
     (void)numfreeaddrreq;
     (void)ipaddrlist;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4243,7 +5469,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpV4GetOpti
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpV4GetOptionValue")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, flags, optionid, policyname, vendorname, scopeinfo, optionvalue) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, flags, optionid, policyname, vendorname, scopeinfo, optionvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)flags;
@@ -4252,6 +5484,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpV4GetOpti
     (void)vendorname;
     (void)scopeinfo;
     (void)optionvalue;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4271,13 +5504,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpV4GetPoli
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpV4GetPolicy")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, fglobalpolicy, subnetaddress, policyname, policy) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, fglobalpolicy, subnetaddress, policyname, policy);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)fglobalpolicy;
     (void)subnetaddress;
     (void)policyname;
     (void)policy;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4297,13 +5537,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpV4GetPoli
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpV4GetPolicyEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, globalpolicy, subnetaddress, policyname, policy) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, globalpolicy, subnetaddress, policyname, policy);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)globalpolicy;
     (void)subnetaddress;
     (void)policyname;
     (void)policy;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4322,12 +5569,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpV4QueryPo
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpV4QueryPolicyEnforcement")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, fglobalpolicy, subnetaddress, enabled) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, fglobalpolicy, subnetaddress, enabled);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)fglobalpolicy;
     (void)subnetaddress;
     (void)enabled;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4348,7 +5602,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpV4RemoveO
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpV4RemoveOptionValue")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, flags, optionid, policyname, vendorname, scopeinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, flags, optionid, policyname, vendorname, scopeinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)flags;
@@ -4356,6 +5616,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpV4RemoveO
     (void)policyname;
     (void)vendorname;
     (void)scopeinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4374,12 +5635,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpV4RemoveP
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpV4RemovePolicyRange")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, subnetaddress, policyname, range) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, subnetaddress, policyname, range);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)subnetaddress;
     (void)policyname;
     (void)range;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4401,7 +5669,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpV4SetOpti
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpV4SetOptionValue")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, flags, optionid, policyname, vendorname, scopeinfo, optionvalue) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, flags, optionid, policyname, vendorname, scopeinfo, optionvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)flags;
@@ -4410,6 +5684,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpV4SetOpti
     (void)vendorname;
     (void)scopeinfo;
     (void)optionvalue;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4430,7 +5705,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpV4SetOpti
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpV4SetOptionValues")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, flags, policyname, vendorname, scopeinfo, optionvalues) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, flags, policyname, vendorname, scopeinfo, optionvalues);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)flags;
@@ -4438,6 +5719,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpV4SetOpti
     (void)vendorname;
     (void)scopeinfo;
     (void)optionvalues;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4458,7 +5740,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpV4SetPoli
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpV4SetPolicy")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, fieldsmodified, fglobalpolicy, subnetaddress, policyname, policy) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, fieldsmodified, fglobalpolicy, subnetaddress, policyname, policy);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)fieldsmodified;
@@ -4466,6 +5754,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpV4SetPoli
     (void)subnetaddress;
     (void)policyname;
     (void)policy;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4484,12 +5773,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpV4SetPoli
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpV4SetPolicyEnforcement")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, fglobalpolicy, subnetaddress, enable) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, fglobalpolicy, subnetaddress, enable);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)fglobalpolicy;
     (void)subnetaddress;
     (void)enable;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4510,7 +5806,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpV4SetPoli
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpV4SetPolicyEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, fieldsmodified, globalpolicy, subnetaddress, policyname, policy) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, fieldsmodified, globalpolicy, subnetaddress, policyname, policy);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)fieldsmodified;
@@ -4518,6 +5820,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpV4SetPoli
     (void)subnetaddress;
     (void)policyname;
     (void)policy;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4534,10 +5837,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpV6CreateC
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpV6CreateClientInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, clientinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, clientinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)clientinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4554,10 +5864,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpV6GetStat
         HMODULE km_h_mod = LoadLibraryA("dhcpsapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DhcpV6GetStatelessStatistics")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serveripaddress, statelessstats) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serveripaddress, statelessstats);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serveripaddress;
     (void)statelessstats;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4572,8 +5889,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpv6CApiCle
         HMODULE km_h_mod = LoadLibraryA("dhcpcsvc6.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "Dhcpv6CApiCleanup")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr();
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+    }
 #else
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -4588,9 +5910,14 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpv6CApiIni
         HMODULE km_h_mod = LoadLibraryA("dhcpcsvc6.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "Dhcpv6CApiInitialize")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(version);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(version);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)version;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -4607,11 +5934,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpv6Release
         HMODULE km_h_mod = LoadLibraryA("dhcpcsvc6.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "Dhcpv6ReleasePrefix")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(adaptername, classid, leaseinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(adaptername, classid, leaseinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)adaptername;
     (void)classid;
     (void)leaseinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4631,13 +5965,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpv6RenewPr
         HMODULE km_h_mod = LoadLibraryA("dhcpcsvc6.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "Dhcpv6RenewPrefix")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(adaptername, pclassid, prefixleaseinfo, pdwtimetowait, bvalidateprefix) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(adaptername, pclassid, prefixleaseinfo, pdwtimetowait, bvalidateprefix);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)adaptername;
     (void)pclassid;
     (void)prefixleaseinfo;
     (void)pdwtimetowait;
     (void)bvalidateprefix;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4656,12 +5997,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_dhcp_dhcpv6Request
         HMODULE km_h_mod = LoadLibraryA("dhcpcsvc6.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "Dhcpv6RequestPrefix")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(adaptername, pclassid, prefixleaseinfo, pdwtimetowait) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(adaptername, pclassid, prefixleaseinfo, pdwtimetowait);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)adaptername;
     (void)pclassid;
     (void)prefixleaseinfo;
     (void)pdwtimetowait;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

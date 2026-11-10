@@ -62,10 +62,17 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_pxeAsyncRe
         HMODULE km_h_mod = LoadLibraryA("wdspxe.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PxeAsyncRecvDone")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hclientrequest, action) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hclientrequest, action);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclientrequest;
     (void)action;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -86,7 +93,13 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_pxeDhcpApp
         HMODULE km_h_mod = LoadLibraryA("wdspxe.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PxeDhcpAppendOption")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(preplypacket, umaxreplypacketlen, pureplypacketlen, boption, boptionlen, pvalue) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(preplypacket, umaxreplypacketlen, pureplypacketlen, boption, boptionlen, pvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)preplypacket;
     (void)umaxreplypacketlen;
@@ -94,6 +107,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_pxeDhcpApp
     (void)boption;
     (void)boptionlen;
     (void)pvalue;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -113,13 +127,20 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_pxeDhcpApp
         HMODULE km_h_mod = LoadLibraryA("wdspxe.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PxeDhcpAppendOptionRaw")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(preplypacket, umaxreplypacketlen, pureplypacketlen, ubufferlen, pbuffer) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(preplypacket, umaxreplypacketlen, pureplypacketlen, ubufferlen, pbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)preplypacket;
     (void)umaxreplypacketlen;
     (void)pureplypacketlen;
     (void)ubufferlen;
     (void)pbuffer;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -140,7 +161,13 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_pxeDhcpGet
         HMODULE km_h_mod = LoadLibraryA("wdspxe.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PxeDhcpGetOptionValue")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ppacket, upacketlen, uinstance, boption, pboptionlen, ppoptionvalue) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ppacket, upacketlen, uinstance, boption, pboptionlen, ppoptionvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ppacket;
     (void)upacketlen;
@@ -148,6 +175,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_pxeDhcpGet
     (void)boption;
     (void)pboptionlen;
     (void)ppoptionvalue;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -168,7 +196,13 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_pxeDhcpGet
         HMODULE km_h_mod = LoadLibraryA("wdspxe.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PxeDhcpGetVendorOptionValue")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ppacket, upacketlen, boption, uinstance, pboptionlen, ppoptionvalue) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ppacket, upacketlen, boption, uinstance, pboptionlen, ppoptionvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ppacket;
     (void)upacketlen;
@@ -176,6 +210,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_pxeDhcpGet
     (void)uinstance;
     (void)pboptionlen;
     (void)ppoptionvalue;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -195,13 +230,20 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_pxeDhcpIni
         HMODULE km_h_mod = LoadLibraryA("wdspxe.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PxeDhcpInitialize")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(precvpacket, urecvpacketlen, preplypacket, umaxreplypacketlen, pureplypacketlen) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(precvpacket, urecvpacketlen, preplypacket, umaxreplypacketlen, pureplypacketlen);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)precvpacket;
     (void)urecvpacketlen;
     (void)preplypacket;
     (void)umaxreplypacketlen;
     (void)pureplypacketlen;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -220,12 +262,19 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_pxeDhcpIsV
         HMODULE km_h_mod = LoadLibraryA("wdspxe.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PxeDhcpIsValid")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ppacket, upacketlen, brequestpacket, pbpxeoptionpresent) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ppacket, upacketlen, brequestpacket, pbpxeoptionpresent);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ppacket;
     (void)upacketlen;
     (void)brequestpacket;
     (void)pbpxeoptionpresent;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -246,7 +295,13 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_pxeDhcpv6A
         HMODULE km_h_mod = LoadLibraryA("wdspxe.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PxeDhcpv6AppendOption")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(preply, cbreply, pcbreplyused, woptiontype, cboption, poption) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(preply, cbreply, pcbreplyused, woptiontype, cboption, poption);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)preply;
     (void)cbreply;
@@ -254,6 +309,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_pxeDhcpv6A
     (void)woptiontype;
     (void)cboption;
     (void)poption;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -273,13 +329,20 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_pxeDhcpv6A
         HMODULE km_h_mod = LoadLibraryA("wdspxe.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PxeDhcpv6AppendOptionRaw")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(preply, cbreply, pcbreplyused, cbbuffer, pbuffer) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(preply, cbreply, pcbreplyused, cbbuffer, pbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)preply;
     (void)cbreply;
     (void)pcbreplyused;
     (void)cbbuffer;
     (void)pbuffer;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -301,7 +364,13 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_pxeDhcpv6C
         HMODULE km_h_mod = LoadLibraryA("wdspxe.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PxeDhcpv6CreateRelayRepl")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(prelaymessages, nrelaymessages, pinnerpacket, cbinnerpacket, preplybuffer, cbreplybuffer, pcbreplybuffer) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(prelaymessages, nrelaymessages, pinnerpacket, cbinnerpacket, preplybuffer, cbreplybuffer, pcbreplybuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)prelaymessages;
     (void)nrelaymessages;
@@ -310,6 +379,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_pxeDhcpv6C
     (void)preplybuffer;
     (void)cbreplybuffer;
     (void)pcbreplybuffer;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -330,7 +400,13 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_pxeDhcpv6G
         HMODULE km_h_mod = LoadLibraryA("wdspxe.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PxeDhcpv6GetOptionValue")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ppacket, upacketlen, uinstance, woption, pwoptionlen, ppoptionvalue) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ppacket, upacketlen, uinstance, woption, pwoptionlen, ppoptionvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ppacket;
     (void)upacketlen;
@@ -338,6 +414,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_pxeDhcpv6G
     (void)woption;
     (void)pwoptionlen;
     (void)ppoptionvalue;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -359,7 +436,13 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_pxeDhcpv6G
         HMODULE km_h_mod = LoadLibraryA("wdspxe.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PxeDhcpv6GetVendorOptionValue")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ppacket, upacketlen, dwenterprisenumber, woption, uinstance, pwoptionlen, ppoptionvalue) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ppacket, upacketlen, dwenterprisenumber, woption, uinstance, pwoptionlen, ppoptionvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ppacket;
     (void)upacketlen;
@@ -368,6 +451,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_pxeDhcpv6G
     (void)uinstance;
     (void)pwoptionlen;
     (void)ppoptionvalue;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -387,13 +471,20 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_pxeDhcpv6I
         HMODULE km_h_mod = LoadLibraryA("wdspxe.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PxeDhcpv6Initialize")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(prequest, cbrequest, preply, cbreply, pcbreplyused) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(prequest, cbrequest, preply, cbreply, pcbreplyused);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)prequest;
     (void)cbrequest;
     (void)preply;
     (void)cbreply;
     (void)pcbreplyused;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -412,12 +503,19 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_pxeDhcpv6I
         HMODULE km_h_mod = LoadLibraryA("wdspxe.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PxeDhcpv6IsValid")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ppacket, upacketlen, brequestpacket, pbpxeoptionpresent) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ppacket, upacketlen, brequestpacket, pbpxeoptionpresent);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ppacket;
     (void)upacketlen;
     (void)brequestpacket;
     (void)pbpxeoptionpresent;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -439,7 +537,13 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_pxeDhcpv6P
         HMODULE km_h_mod = LoadLibraryA("wdspxe.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PxeDhcpv6ParseRelayForw")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(prelayforwpacket, urelayforwpacketlen, prelaymessages, nrelaymessages, pnrelaymessages, ppinnerpacket, pcbinnerpacket) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(prelayforwpacket, urelayforwpacketlen, prelaymessages, nrelaymessages, pnrelaymessages, ppinnerpacket, pcbinnerpacket);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)prelayforwpacket;
     (void)urelayforwpacketlen;
@@ -448,6 +552,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_pxeDhcpv6P
     (void)pnrelaymessages;
     (void)ppinnerpacket;
     (void)pcbinnerpacket;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -465,11 +570,18 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_pxeGetServ
         HMODULE km_h_mod = LoadLibraryA("wdspxe.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PxeGetServerInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(uinfotype, pbuffer, ubufferlen) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(uinfotype, pbuffer, ubufferlen);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)uinfotype;
     (void)pbuffer;
     (void)ubufferlen;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -488,12 +600,19 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_pxeGetServ
         HMODULE km_h_mod = LoadLibraryA("wdspxe.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PxeGetServerInfoEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(uinfotype, pbuffer, ubufferlen, pubufferused) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(uinfotype, pbuffer, ubufferlen, pubufferused);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)uinfotype;
     (void)pbuffer;
     (void)ubufferlen;
     (void)pubufferused;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -511,12 +630,19 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_pxePacketA
         HMODULE km_h_mod = LoadLibraryA("wdspxe.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PxePacketAllocate")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprovider, hclientrequest, usize) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprovider, hclientrequest, usize);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hprovider;
     (void)hclientrequest;
     (void)usize;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -533,11 +659,18 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_pxePacketF
         HMODULE km_h_mod = LoadLibraryA("wdspxe.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PxePacketFree")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprovider, hclientrequest, ppacket) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprovider, hclientrequest, ppacket);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hprovider;
     (void)hclientrequest;
     (void)ppacket;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -553,9 +686,16 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_pxeProvide
         HMODULE km_h_mod = LoadLibraryA("wdspxe.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PxeProviderEnumClose")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(henum) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(henum);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)henum;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -571,9 +711,16 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_pxeProvide
         HMODULE km_h_mod = LoadLibraryA("wdspxe.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PxeProviderEnumFirst")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(phenum) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(phenum);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)phenum;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -590,10 +737,17 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_pxeProvide
         HMODULE km_h_mod = LoadLibraryA("wdspxe.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PxeProviderEnumNext")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(henum, ppprovider) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(henum, ppprovider);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)henum;
     (void)ppprovider;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -609,9 +763,16 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_pxeProvide
         HMODULE km_h_mod = LoadLibraryA("wdspxe.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PxeProviderFreeInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pprovider) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pprovider);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pprovider;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -628,10 +789,17 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_pxeProvide
         HMODULE km_h_mod = LoadLibraryA("wdspxe.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PxeProviderQueryIndex")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszprovidername, puindex) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszprovidername, puindex);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pszprovidername;
     (void)puindex;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -651,13 +819,20 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_pxeProvide
         HMODULE km_h_mod = LoadLibraryA("wdspxe.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PxeProviderRegister")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszprovidername, pszmodulepath, arg_2_index, biscritical, phproviderkey) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszprovidername, pszmodulepath, arg_2_index, biscritical, phproviderkey);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pszprovidername;
     (void)pszmodulepath;
     (void)arg_2_index;
     (void)biscritical;
     (void)phproviderkey;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -676,12 +851,19 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_pxeProvide
         HMODULE km_h_mod = LoadLibraryA("wdspxe.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PxeProviderSetAttribute")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprovider, attribute, pparameterbuffer, uparamlen) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprovider, attribute, pparameterbuffer, uparamlen);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hprovider;
     (void)attribute;
     (void)pparameterbuffer;
     (void)uparamlen;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -697,9 +879,16 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_pxeProvide
         HMODULE km_h_mod = LoadLibraryA("wdspxe.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PxeProviderUnRegister")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszprovidername) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszprovidername);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pszprovidername;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -718,12 +907,19 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_pxeRegiste
         HMODULE km_h_mod = LoadLibraryA("wdspxe.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PxeRegisterCallback")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprovider, callbacktype, pcallbackfunction, pcontext) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprovider, callbacktype, pcallbackfunction, pcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hprovider;
     (void)callbacktype;
     (void)pcallbackfunction;
     (void)pcontext;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -742,12 +938,19 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_pxeSendRep
         HMODULE km_h_mod = LoadLibraryA("wdspxe.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PxeSendReply")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hclientrequest, ppacket, upacketlen, paddress) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hclientrequest, ppacket, upacketlen, paddress);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclientrequest;
     (void)ppacket;
     (void)upacketlen;
     (void)paddress;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -779,12 +982,15 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_pxeTrace_n
             case 3: km_res = km_fn_ptr(hprovider, severity, pszformat, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2)); break;
             default: km_res = km_fn_ptr(hprovider, severity, pszformat, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2), static_cast<intptr_t>(km_va3)); break;
         }
+    } else {
+        errno = ENOSYS;
     }
 #else
     (void)hprovider;
     (void)severity;
     (void)pszformat;
     (void)km_vac; (void)km_va0; (void)km_va1; (void)km_va2; (void)km_va3;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -803,12 +1009,19 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_pxeTraceV_
         HMODULE km_h_mod = LoadLibraryA("wdspxe.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PxeTraceV")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprovider, severity, pszformat, params) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprovider, severity, pszformat, params);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hprovider;
     (void)severity;
     (void)pszformat;
     (void)params;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -827,12 +1040,19 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsBpAddOp
         HMODULE km_h_mod = LoadLibraryA("wdsbp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WdsBpAddOption")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hhandle, uoption, uvaluelen, pvalue) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hhandle, uoption, uvaluelen, pvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hhandle;
     (void)uoption;
     (void)uvaluelen;
     (void)pvalue;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -848,9 +1068,16 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsBpClose
         HMODULE km_h_mod = LoadLibraryA("wdsbp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WdsBpCloseHandle")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hhandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hhandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -869,12 +1096,19 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsBpGetOp
         HMODULE km_h_mod = LoadLibraryA("wdsbp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WdsBpGetOptionBuffer")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hhandle, ubufferlen, pbuffer, pubytes) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hhandle, ubufferlen, pbuffer, pubytes);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hhandle;
     (void)ubufferlen;
     (void)pbuffer;
     (void)pubytes;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -891,10 +1125,17 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsBpIniti
         HMODULE km_h_mod = LoadLibraryA("wdsbp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WdsBpInitialize")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bpackettype, phhandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bpackettype, phhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)bpackettype;
     (void)phhandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -913,12 +1154,19 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsBpParse
         HMODULE km_h_mod = LoadLibraryA("wdsbp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WdsBpParseInitialize")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ppacket, upacketlen, pbpackettype, phhandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ppacket, upacketlen, pbpackettype, phhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ppacket;
     (void)upacketlen;
     (void)pbpackettype;
     (void)phhandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -937,12 +1185,19 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsBpParse
         HMODULE km_h_mod = LoadLibraryA("wdsbp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WdsBpParseInitializev6")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ppacket, upacketlen, pbpackettype, phhandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ppacket, upacketlen, pbpackettype, phhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ppacket;
     (void)upacketlen;
     (void)pbpackettype;
     (void)phhandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -962,13 +1217,20 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsBpQuery
         HMODULE km_h_mod = LoadLibraryA("wdsbp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WdsBpQueryOption")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hhandle, uoption, uvaluelen, pvalue, pubytes) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hhandle, uoption, uvaluelen, pvalue, pubytes);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hhandle;
     (void)uoption;
     (void)uvaluelen;
     (void)pvalue;
     (void)pubytes;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -985,10 +1247,17 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliAuth
         HMODULE km_h_mod = LoadLibraryA("wdsclientapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WdsCliAuthorizeSession")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hsession, pcred) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hsession, pcred);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hsession;
     (void)pcred;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1004,9 +1273,16 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliCanc
         HMODULE km_h_mod = LoadLibraryA("wdsclientapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WdsCliCancelTransfer")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(htransfer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(htransfer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)htransfer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1022,9 +1298,16 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliClos
         HMODULE km_h_mod = LoadLibraryA("wdsclientapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WdsCliClose")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(handle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(handle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)handle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1042,11 +1325,18 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliCrea
         HMODULE km_h_mod = LoadLibraryA("wdsclientapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WdsCliCreateSession")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pwszserver, pcred, phsession) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pwszserver, pcred, phsession);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pwszserver;
     (void)pcred;
     (void)phsession;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1063,10 +1353,17 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliFind
         HMODULE km_h_mod = LoadLibraryA("wdsclientapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WdsCliFindFirstImage")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hsession, phfindhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hsession, phfindhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hsession;
     (void)phfindhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1082,9 +1379,16 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliFind
         HMODULE km_h_mod = LoadLibraryA("wdsclientapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WdsCliFindNextImage")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(handle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(handle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)handle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1101,10 +1405,17 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliFree
         HMODULE km_h_mod = LoadLibraryA("wdsclientapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WdsCliFreeStringArray")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ppwszarray, ulcount) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ppwszarray, ulcount);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ppwszarray;
     (void)ulcount;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1121,10 +1432,17 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliGetD
         HMODULE km_h_mod = LoadLibraryA("wdsclientapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WdsCliGetDriverQueryXml")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pwszwindirpath, ppwszdriverquery) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pwszwindirpath, ppwszdriverquery);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pwszwindirpath;
     (void)ppwszdriverquery;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1141,10 +1459,17 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliGetE
         HMODULE km_h_mod = LoadLibraryA("wdsclientapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WdsCliGetEnumerationFlags")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(handle, pdwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(handle, pdwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)handle;
     (void)pdwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1161,10 +1486,17 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliGetI
         HMODULE km_h_mod = LoadLibraryA("wdsclientapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WdsCliGetImageArchitecture")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hifh, pdwvalue) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hifh, pdwvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hifh;
     (void)pdwvalue;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1181,10 +1513,17 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliGetI
         HMODULE km_h_mod = LoadLibraryA("wdsclientapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WdsCliGetImageDescription")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hifh, ppwszvalue) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hifh, ppwszvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hifh;
     (void)ppwszvalue;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1202,11 +1541,18 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliGetI
         HMODULE km_h_mod = LoadLibraryA("wdsclientapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WdsCliGetImageFiles")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hifh, pppwszfiles, pdwcount) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hifh, pppwszfiles, pdwcount);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hifh;
     (void)pppwszfiles;
     (void)pdwcount;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1223,10 +1569,17 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliGetI
         HMODULE km_h_mod = LoadLibraryA("wdsclientapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WdsCliGetImageGroup")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hifh, ppwszvalue) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hifh, ppwszvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hifh;
     (void)ppwszvalue;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1243,10 +1596,17 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliGetI
         HMODULE km_h_mod = LoadLibraryA("wdsclientapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WdsCliGetImageHalName")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hifh, ppwszvalue) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hifh, ppwszvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hifh;
     (void)ppwszvalue;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1263,10 +1623,17 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliGetI
         HMODULE km_h_mod = LoadLibraryA("wdsclientapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WdsCliGetImageHandleFromFindHandle")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(findhandle, phimagehandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(findhandle, phimagehandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)findhandle;
     (void)phimagehandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1283,10 +1650,17 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliGetI
         HMODULE km_h_mod = LoadLibraryA("wdsclientapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WdsCliGetImageHandleFromTransferHandle")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(htransfer, phimagehandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(htransfer, phimagehandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)htransfer;
     (void)phimagehandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1303,10 +1677,17 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliGetI
         HMODULE km_h_mod = LoadLibraryA("wdsclientapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WdsCliGetImageIndex")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hifh, pdwvalue) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hifh, pdwvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hifh;
     (void)pdwvalue;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1323,10 +1704,17 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliGetI
         HMODULE km_h_mod = LoadLibraryA("wdsclientapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WdsCliGetImageLanguage")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hifh, ppwszvalue) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hifh, ppwszvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hifh;
     (void)ppwszvalue;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1344,11 +1732,18 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliGetI
         HMODULE km_h_mod = LoadLibraryA("wdsclientapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WdsCliGetImageLanguages")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hifh, pppszvalues, pdwnumvalues) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hifh, pppszvalues, pdwnumvalues);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hifh;
     (void)pppszvalues;
     (void)pdwnumvalues;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1365,10 +1760,17 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliGetI
         HMODULE km_h_mod = LoadLibraryA("wdsclientapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WdsCliGetImageLastModifiedTime")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hifh, ppsystimevalue) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hifh, ppsystimevalue);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hifh;
     (void)ppsystimevalue;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1385,10 +1787,17 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliGetI
         HMODULE km_h_mod = LoadLibraryA("wdsclientapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WdsCliGetImageName")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hifh, ppwszvalue) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hifh, ppwszvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hifh;
     (void)ppwszvalue;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1405,10 +1814,17 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliGetI
         HMODULE km_h_mod = LoadLibraryA("wdsclientapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WdsCliGetImageNamespace")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hifh, ppwszvalue) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hifh, ppwszvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hifh;
     (void)ppwszvalue;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1427,12 +1843,19 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliGetI
         HMODULE km_h_mod = LoadLibraryA("wdsclientapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WdsCliGetImageParameter")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hifh, paramtype, presponse, uresponselen) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hifh, paramtype, presponse, uresponselen);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hifh;
     (void)paramtype;
     (void)presponse;
     (void)uresponselen;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1449,10 +1872,17 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliGetI
         HMODULE km_h_mod = LoadLibraryA("wdsclientapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WdsCliGetImagePath")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hifh, ppwszvalue) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hifh, ppwszvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hifh;
     (void)ppwszvalue;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1469,10 +1899,17 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliGetI
         HMODULE km_h_mod = LoadLibraryA("wdsclientapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WdsCliGetImageSize")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hifh, pullvalue) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hifh, pullvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hifh;
     (void)pullvalue;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1489,10 +1926,17 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliGetI
         HMODULE km_h_mod = LoadLibraryA("wdsclientapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WdsCliGetImageType")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hifh, pimagetype) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hifh, pimagetype);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hifh;
     (void)pimagetype;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1509,10 +1953,17 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliGetI
         HMODULE km_h_mod = LoadLibraryA("wdsclientapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WdsCliGetImageVersion")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hifh, ppwszvalue) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hifh, ppwszvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hifh;
     (void)ppwszvalue;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1529,10 +1980,17 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliGetT
         HMODULE km_h_mod = LoadLibraryA("wdsclientapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WdsCliGetTransferSize")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hifh, pullvalue) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hifh, pullvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hifh;
     (void)pullvalue;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1551,12 +2009,19 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliInit
         HMODULE km_h_mod = LoadLibraryA("wdsclientapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WdsCliInitializeLog")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hsession, ulclientarchitecture, pwszclientid, pwszclientaddress) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hsession, ulclientarchitecture, pwszclientid, pwszclientaddress);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hsession;
     (void)ulclientarchitecture;
     (void)pwszclientid;
     (void)pwszclientaddress;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1588,12 +2053,15 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliLog_
             case 3: km_res = km_fn_ptr(hsession, ulloglevel, ulmessagecode, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2)); break;
             default: km_res = km_fn_ptr(hsession, ulloglevel, ulmessagecode, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2), static_cast<intptr_t>(km_va3)); break;
         }
+    } else {
+        errno = ENOSYS;
     }
 #else
     (void)hsession;
     (void)ulloglevel;
     (void)ulmessagecode;
     (void)km_vac; (void)km_va0; (void)km_va1; (void)km_va2; (void)km_va3;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1612,12 +2080,19 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliObta
         HMODULE km_h_mod = LoadLibraryA("wdsclientapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WdsCliObtainDriverPackages")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(himage, ppwszservername, pppwszdriverpackages, pulcount) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(himage, ppwszservername, pppwszdriverpackages, pulcount);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)himage;
     (void)ppwszservername;
     (void)pppwszdriverpackages;
     (void)pulcount;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1637,13 +2112,20 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliObta
         HMODULE km_h_mod = LoadLibraryA("wdsclientapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WdsCliObtainDriverPackagesEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hsession, pwszmachineinfo, ppwszservername, pppwszdriverpackages, pulcount) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hsession, pwszmachineinfo, ppwszservername, pppwszdriverpackages, pulcount);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hsession;
     (void)pwszmachineinfo;
     (void)ppwszservername;
     (void)pppwszdriverpackages;
     (void)pulcount;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1659,9 +2141,16 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliRegi
         HMODULE km_h_mod = LoadLibraryA("wdsclientapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WdsCliRegisterTrace")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pfn) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pfn);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pfn;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1677,9 +2166,14 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliSetT
         HMODULE km_h_mod = LoadLibraryA("wdsclientapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WdsCliSetTransferBufferSize")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(ulsizeinbytes);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(ulsizeinbytes);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)ulsizeinbytes;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -1702,7 +2196,13 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliTran
         HMODULE km_h_mod = LoadLibraryA("wdsclientapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WdsCliTransferFile")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pwszserver, pwsznamespace, pwszremotefilepath, pwszlocalfilepath, dwflags, dwreserved, pfnwdsclicallback, pvuserdata, phtransfer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pwszserver, pwsznamespace, pwszremotefilepath, pwszlocalfilepath, dwflags, dwreserved, pfnwdsclicallback, pvuserdata, phtransfer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pwszserver;
     (void)pwsznamespace;
@@ -1713,6 +2213,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliTran
     (void)pfnwdsclicallback;
     (void)pvuserdata;
     (void)phtransfer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1734,7 +2235,13 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliTran
         HMODULE km_h_mod = LoadLibraryA("wdsclientapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WdsCliTransferImage")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(himage, pwszlocalpath, dwflags, dwreserved, pfnwdsclicallback, pvuserdata, phtransfer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(himage, pwszlocalpath, dwflags, dwreserved, pfnwdsclicallback, pvuserdata, phtransfer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)himage;
     (void)pwszlocalpath;
@@ -1743,6 +2250,7 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliTran
     (void)pfnwdsclicallback;
     (void)pvuserdata;
     (void)phtransfer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1758,9 +2266,16 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsCliWait
         HMODULE km_h_mod = LoadLibraryA("wdsclientapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WdsCliWaitForTransfer")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(htransfer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(htransfer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)htransfer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1776,9 +2291,16 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsTranspo
         HMODULE km_h_mod = LoadLibraryA("wdstptc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WdsTransportClientAddRefBuffer")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pvbuffer) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pvbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pvbuffer;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1794,9 +2316,16 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsTranspo
         HMODULE km_h_mod = LoadLibraryA("wdstptc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WdsTransportClientCancelSession")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hsessionkey) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hsessionkey);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hsessionkey;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1813,10 +2342,17 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsTranspo
         HMODULE km_h_mod = LoadLibraryA("wdstptc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WdsTransportClientCancelSessionEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hsessionkey, dwerrorcode) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hsessionkey, dwerrorcode);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hsessionkey;
     (void)dwerrorcode;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1832,9 +2368,16 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsTranspo
         HMODULE km_h_mod = LoadLibraryA("wdstptc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WdsTransportClientCloseSession")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hsessionkey) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hsessionkey);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hsessionkey;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1852,11 +2395,18 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsTranspo
         HMODULE km_h_mod = LoadLibraryA("wdstptc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WdsTransportClientCompleteReceive")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hsessionkey, ulsize, pulloffset) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hsessionkey, ulsize, pulloffset);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hsessionkey;
     (void)ulsize;
     (void)pulloffset;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1871,8 +2421,15 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsTranspo
         HMODULE km_h_mod = LoadLibraryA("wdstptc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WdsTransportClientInitialize")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1890,11 +2447,18 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsTranspo
         HMODULE km_h_mod = LoadLibraryA("wdstptc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WdsTransportClientInitializeSession")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(psessionrequest, pcallerdata, hsessionkey) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(psessionrequest, pcallerdata, hsessionkey);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)psessionrequest;
     (void)pcallerdata;
     (void)hsessionkey;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1912,11 +2476,18 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsTranspo
         HMODULE km_h_mod = LoadLibraryA("wdstptc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WdsTransportClientQueryStatus")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hsessionkey, pustatus, puerrorcode) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hsessionkey, pustatus, puerrorcode);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hsessionkey;
     (void)pustatus;
     (void)puerrorcode;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1934,11 +2505,18 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsTranspo
         HMODULE km_h_mod = LoadLibraryA("wdstptc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WdsTransportClientRegisterCallback")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hsessionkey, callbackid, pfncallback) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hsessionkey, callbackid, pfncallback);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hsessionkey;
     (void)callbackid;
     (void)pfncallback;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1954,9 +2532,16 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsTranspo
         HMODULE km_h_mod = LoadLibraryA("wdstptc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WdsTransportClientReleaseBuffer")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pvbuffer) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pvbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pvbuffer;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1971,8 +2556,15 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsTranspo
         HMODULE km_h_mod = LoadLibraryA("wdstptc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WdsTransportClientShutdown")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1988,9 +2580,16 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsTranspo
         HMODULE km_h_mod = LoadLibraryA("wdstptc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WdsTransportClientStartSession")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hsessionkey) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hsessionkey);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hsessionkey;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2007,10 +2606,17 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsTranspo
         HMODULE km_h_mod = LoadLibraryA("wdstptc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WdsTransportClientWaitForCompletion")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hsessionkey, utimeout) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hsessionkey, utimeout);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hsessionkey;
     (void)utimeout;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2027,11 +2633,18 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsTranspo
         HMODULE km_h_mod = LoadLibraryA("wdsmc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WdsTransportServerAllocateBuffer")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprovider, ulbuffersize) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprovider, ulbuffersize);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hprovider;
     (void)ulbuffersize;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -2049,12 +2662,19 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsTranspo
         HMODULE km_h_mod = LoadLibraryA("wdsmc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WdsTransportServerCompleteRead")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprovider, ulbytesread, pvuserdata, hreadresult) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprovider, ulbytesread, pvuserdata, hreadresult);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprovider;
     (void)ulbytesread;
     (void)pvuserdata;
     (void)hreadresult;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2071,10 +2691,17 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsTranspo
         HMODULE km_h_mod = LoadLibraryA("wdsmc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WdsTransportServerFreeBuffer")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprovider, pvbuffer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprovider, pvbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprovider;
     (void)pvbuffer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2092,11 +2719,18 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsTranspo
         HMODULE km_h_mod = LoadLibraryA("wdsmc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WdsTransportServerRegisterCallback")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprovider, callbackid, pfncallback) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprovider, callbackid, pfncallback);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprovider;
     (void)callbackid;
     (void)pfncallback;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2128,12 +2762,15 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsTranspo
             case 3: km_res = km_fn_ptr(hprovider, severity, pwszformat, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2)); break;
             default: km_res = km_fn_ptr(hprovider, severity, pwszformat, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2), static_cast<intptr_t>(km_va3)); break;
         }
+    } else {
+        errno = ENOSYS;
     }
 #else
     (void)hprovider;
     (void)severity;
     (void)pwszformat;
     (void)km_vac; (void)km_va0; (void)km_va1; (void)km_va2; (void)km_va3;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2152,12 +2789,19 @@ static Napi::Value windowssys_windows_win32_system_deploymentservices_wdsTranspo
         HMODULE km_h_mod = LoadLibraryA("wdsmc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WdsTransportServerTraceV")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprovider, severity, pwszformat, params) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprovider, severity, pwszformat, params);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprovider;
     (void)severity;
     (void)pwszformat;
     (void)params;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

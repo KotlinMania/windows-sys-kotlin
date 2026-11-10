@@ -63,11 +63,18 @@ static Napi::Value windowssys_windows_win32_system_componentservices_coCreateAct
         HMODULE km_h_mod = LoadLibraryA("comsvcs.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoCreateActivity")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(piunknown, riid, ppobj) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(piunknown, riid, ppobj);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)piunknown;
     (void)riid;
     (void)ppobj;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -83,9 +90,16 @@ static Napi::Value windowssys_windows_win32_system_componentservices_coEnterServ
         HMODULE km_h_mod = LoadLibraryA("comsvcs.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoEnterServiceDomain")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pconfigobject) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pconfigobject);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pconfigobject;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -103,11 +117,18 @@ static Napi::Value windowssys_windows_win32_system_componentservices_coGetDefaul
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoGetDefaultContext")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(apttype, riid, ppv) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(apttype, riid, ppv);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)apttype;
     (void)riid;
     (void)ppv;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -123,9 +144,14 @@ static Napi::Value windowssys_windows_win32_system_componentservices_coLeaveServ
         HMODULE km_h_mod = LoadLibraryA("comsvcs.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoLeaveServiceDomain")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(punkstatus);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(punkstatus);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)punkstatus;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -140,9 +166,16 @@ static Napi::Value windowssys_windows_win32_system_componentservices_getDispense
         HMODULE km_h_mod = LoadLibraryA("mtxdm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetDispenserManager")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)param0;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -158,9 +191,16 @@ static Napi::Value windowssys_windows_win32_system_componentservices_getManagedE
         HMODULE km_h_mod = LoadLibraryA("comsvcs.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetManagedExtensions")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwexts) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwexts);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwexts;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -177,10 +217,17 @@ static Napi::Value windowssys_windows_win32_system_componentservices_mTSCreateAc
         HMODULE km_h_mod = LoadLibraryA("comsvcs.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MTSCreateActivity")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(riid, ppobj) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(riid, ppobj);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)riid;
     (void)ppobj;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -196,9 +243,16 @@ static Napi::Value windowssys_windows_win32_system_componentservices_recycleSurr
         HMODULE km_h_mod = LoadLibraryA("comsvcs.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RecycleSurrogate")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lreasoncode) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lreasoncode);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lreasoncode;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -215,11 +269,18 @@ static Napi::Value windowssys_windows_win32_system_componentservices_safeRef_nap
         HMODULE km_h_mod = LoadLibraryA("comsvcs.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SafeRef")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rid, punk) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rid, punk);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)rid;
     (void)punk;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }

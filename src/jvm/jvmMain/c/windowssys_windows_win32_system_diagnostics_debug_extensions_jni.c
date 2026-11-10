@@ -5,6 +5,7 @@
 #include <stdbool.h>
 #include <stddef.h>
 #include <stdint.h>
+#include <stdlib.h>
 #include <errno.h>
 #ifdef _WIN32
 #ifndef WIN32_LEAN_AND_MEAN
@@ -28,10 +29,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("dbgmodel.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CreateDataModelManager");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)debughost, (void*)(uintptr_t)manager) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)debughost, (void*)(uintptr_t)manager);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)debughost;
     (void)manager;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -47,11 +55,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("dbgeng.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DebugConnect");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)remoteoptions, (void*)(uintptr_t)interfaceid, (void*)(uintptr_t)arg_2_interface) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)remoteoptions, (void*)(uintptr_t)interfaceid, (void*)(uintptr_t)arg_2_interface);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)remoteoptions;
     (void)interfaceid;
     (void)arg_2_interface;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -67,11 +82,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("dbgeng.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DebugConnectWide");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)remoteoptions, (void*)(uintptr_t)interfaceid, (void*)(uintptr_t)arg_2_interface) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)remoteoptions, (void*)(uintptr_t)interfaceid, (void*)(uintptr_t)arg_2_interface);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)remoteoptions;
     (void)interfaceid;
     (void)arg_2_interface;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -87,10 +109,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("dbgeng.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DebugCreate");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)interfaceid, (void*)(uintptr_t)arg_1_interface) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)interfaceid, (void*)(uintptr_t)arg_1_interface);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)interfaceid;
     (void)arg_1_interface;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -106,11 +135,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("dbgeng.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DebugCreateEx");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)interfaceid, (uint32_t)dbgengoptions, (void*)(uintptr_t)arg_2_interface) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)interfaceid, (uint32_t)dbgengoptions, (void*)(uintptr_t)arg_2_interface);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)interfaceid;
     (void)dbgengoptions;
     (void)arg_2_interface;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;

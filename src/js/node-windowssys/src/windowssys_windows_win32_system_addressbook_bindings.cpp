@@ -70,7 +70,13 @@ static Napi::Value windowssys_windows_win32_system_addressbook_buildDisplayTable
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "BuildDisplayTable")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpallocatebuffer, lpallocatemore, lpfreebuffer, lpmalloc, hinstance, cpages, lppage, ulflags, lpptable, lpptbldata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpallocatebuffer, lpallocatemore, lpfreebuffer, lpmalloc, hinstance, cpages, lppage, ulflags, lpptable, lpptbldata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpallocatebuffer;
     (void)lpallocatemore;
@@ -82,6 +88,7 @@ static Napi::Value windowssys_windows_win32_system_addressbook_buildDisplayTable
     (void)ulflags;
     (void)lpptable;
     (void)lpptbldata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -103,7 +110,11 @@ static Napi::Value windowssys_windows_win32_system_addressbook_changeIdleRoutine
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ChangeIdleRoutine")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(ftg, lpfnidle, lpvidleparam, priidle, csecidle, iroidle, ircidle);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(ftg, lpfnidle, lpvidleparam, priidle, csecidle, iroidle, ircidle);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)ftg;
     (void)lpfnidle;
@@ -112,6 +123,7 @@ static Napi::Value windowssys_windows_win32_system_addressbook_changeIdleRoutine
     (void)csecidle;
     (void)iroidle;
     (void)ircidle;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -131,7 +143,13 @@ static Napi::Value windowssys_windows_win32_system_addressbook_createIProp_napi(
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateIProp")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpinterface, lpallocatebuffer, lpallocatemore, lpfreebuffer, lpvreserved, lpppropdata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpinterface, lpallocatebuffer, lpallocatemore, lpfreebuffer, lpvreserved, lpppropdata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpinterface;
     (void)lpallocatebuffer;
@@ -139,6 +157,7 @@ static Napi::Value windowssys_windows_win32_system_addressbook_createIProp_napi(
     (void)lpfreebuffer;
     (void)lpvreserved;
     (void)lpppropdata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -162,7 +181,13 @@ static Napi::Value windowssys_windows_win32_system_addressbook_createTable_napi(
         HMODULE km_h_mod = LoadLibraryA("rtm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateTable")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpinterface, lpallocatebuffer, lpallocatemore, lpfreebuffer, lpvreserved, ultabletype, ulproptagindexcolumn, lpsproptagarraycolumns, lpptabledata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpinterface, lpallocatebuffer, lpallocatemore, lpfreebuffer, lpvreserved, ultabletype, ulproptagindexcolumn, lpsproptagarraycolumns, lpptabledata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpinterface;
     (void)lpallocatebuffer;
@@ -173,6 +198,7 @@ static Napi::Value windowssys_windows_win32_system_addressbook_createTable_napi(
     (void)ulproptagindexcolumn;
     (void)lpsproptagarraycolumns;
     (void)lpptabledata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -187,8 +213,13 @@ static Napi::Value windowssys_windows_win32_system_addressbook_deinitMapiUtil_na
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DeinitMapiUtil")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr();
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+    }
 #else
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -203,9 +234,14 @@ static Napi::Value windowssys_windows_win32_system_addressbook_deregisterIdleRou
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DeregisterIdleRoutine")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(ftg);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(ftg);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)ftg;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -221,10 +257,15 @@ static Napi::Value windowssys_windows_win32_system_addressbook_enableIdleRoutine
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EnableIdleRoutine")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(ftg, fenable);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(ftg, fenable);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)ftg;
     (void)fenable;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -240,10 +281,17 @@ static Napi::Value windowssys_windows_win32_system_addressbook_fEqualNames_napi(
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FEqualNames")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpname1, lpname2) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpname1, lpname2);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpname1;
     (void)lpname2;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -261,11 +309,18 @@ static Napi::Value windowssys_windows_win32_system_addressbook_fPropCompareProp_
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FPropCompareProp")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpspropvalue1, ulrelop, lpspropvalue2) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpspropvalue1, ulrelop, lpspropvalue2);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpspropvalue1;
     (void)ulrelop;
     (void)lpspropvalue2;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -283,11 +338,18 @@ static Napi::Value windowssys_windows_win32_system_addressbook_fPropContainsProp
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FPropContainsProp")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpspropvaluedst, lpspropvaluesrc, ulfuzzylevel) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpspropvaluedst, lpspropvaluesrc, ulfuzzylevel);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpspropvaluedst;
     (void)lpspropvaluesrc;
     (void)ulfuzzylevel;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -304,10 +366,17 @@ static Napi::Value windowssys_windows_win32_system_addressbook_fPropExists_napi(
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FPropExists")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpmapiprop, ulproptag) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpmapiprop, ulproptag);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpmapiprop;
     (void)ulproptag;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -323,9 +392,14 @@ static Napi::Value windowssys_windows_win32_system_addressbook_freePadrlist_napi
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FreePadrlist")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(lpadrlist);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(lpadrlist);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)lpadrlist;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -340,9 +414,14 @@ static Napi::Value windowssys_windows_win32_system_addressbook_freeProws_napi(co
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FreeProws")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(lprows);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(lprows);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)lprows;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -361,14 +440,21 @@ static Napi::Value windowssys_windows_win32_system_addressbook_ftgRegisterIdleRo
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FtgRegisterIdleRoutine")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpfnidle, lpvidleparam, priidle, csecidle, iroidle) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpfnidle, lpvidleparam, priidle, csecidle, iroidle);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)lpfnidle;
     (void)lpvidleparam;
     (void)priidle;
     (void)csecidle;
     (void)iroidle;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -386,12 +472,19 @@ static Napi::Value windowssys_windows_win32_system_addressbook_hrAddColumns_napi
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HrAddColumns")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lptbl, lpproptagcolumnsnew, lpallocatebuffer, lpfreebuffer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lptbl, lpproptagcolumnsnew, lpallocatebuffer, lpfreebuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lptbl;
     (void)lpproptagcolumnsnew;
     (void)lpallocatebuffer;
     (void)lpfreebuffer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -411,13 +504,20 @@ static Napi::Value windowssys_windows_win32_system_addressbook_hrAddColumnsEx_na
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HrAddColumnsEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lptbl, lpproptagcolumnsnew, lpallocatebuffer, lpfreebuffer, lpfnfiltercolumns) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lptbl, lpproptagcolumnsnew, lpallocatebuffer, lpfreebuffer, lpfnfiltercolumns);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lptbl;
     (void)lpproptagcolumnsnew;
     (void)lpallocatebuffer;
     (void)lpfreebuffer;
     (void)lpfnfiltercolumns;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -435,11 +535,18 @@ static Napi::Value windowssys_windows_win32_system_addressbook_hrAllocAdviseSink
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HrAllocAdviseSink")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpfncallback, lpvcontext, lppadvisesink) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpfncallback, lpvcontext, lppadvisesink);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpfncallback;
     (void)lpvcontext;
     (void)lppadvisesink;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -455,9 +562,16 @@ static Napi::Value windowssys_windows_win32_system_addressbook_hrDispatchNotific
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HrDispatchNotifications")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ulflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ulflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -475,11 +589,18 @@ static Napi::Value windowssys_windows_win32_system_addressbook_hrGetOneProp_napi
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HrGetOneProp")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpmapiprop, ulproptag, lppprop) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpmapiprop, ulproptag, lppprop);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpmapiprop;
     (void)ulproptag;
     (void)lppprop;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -498,12 +619,19 @@ static Napi::Value windowssys_windows_win32_system_addressbook_hrIStorageFromStr
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HrIStorageFromStream")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpunkin, lpinterface, ulflags, lppstorageout) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpunkin, lpinterface, ulflags, lppstorageout);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpunkin;
     (void)lpinterface;
     (void)ulflags;
     (void)lppstorageout;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -524,7 +652,13 @@ static Napi::Value windowssys_windows_win32_system_addressbook_hrQueryAllRows_na
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HrQueryAllRows")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lptable, lpproptags, lprestriction, lpsortorderset, crowsmax, lpprows) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lptable, lpproptags, lprestriction, lpsortorderset, crowsmax, lpprows);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lptable;
     (void)lpproptags;
@@ -532,6 +666,7 @@ static Napi::Value windowssys_windows_win32_system_addressbook_hrQueryAllRows_na
     (void)lpsortorderset;
     (void)crowsmax;
     (void)lpprows;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -548,10 +683,17 @@ static Napi::Value windowssys_windows_win32_system_addressbook_hrSetOneProp_napi
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HrSetOneProp")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpmapiprop, lpprop) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpmapiprop, lpprop);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpmapiprop;
     (void)lpprop;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -568,10 +710,17 @@ static Napi::Value windowssys_windows_win32_system_addressbook_hrThisThreadAdvis
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HrThisThreadAdviseSink")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpadvisesink, lppadvisesink) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpadvisesink, lppadvisesink);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpadvisesink;
     (void)lppadvisesink;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -588,10 +737,17 @@ static Napi::Value windowssys_windows_win32_system_addressbook_lPropCompareProp_
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LPropCompareProp")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpspropvaluea, lpspropvalueb) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpspropvaluea, lpspropvalueb);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpspropvaluea;
     (void)lpspropvalueb;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -609,12 +765,19 @@ static Napi::Value windowssys_windows_win32_system_addressbook_lpValFindProp_nap
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LpValFindProp")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ulproptag, cvalues, lpproparray) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ulproptag, cvalues, lpproparray);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)ulproptag;
     (void)cvalues;
     (void)lpproparray;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -628,8 +791,13 @@ static Napi::Value windowssys_windows_win32_system_addressbook_mAPIDeinitIdle_na
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MAPIDeinitIdle")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr();
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+    }
 #else
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -643,9 +811,16 @@ static Napi::Value windowssys_windows_win32_system_addressbook_mAPIGetDefaultMal
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MAPIGetDefaultMalloc")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -660,9 +835,16 @@ static Napi::Value windowssys_windows_win32_system_addressbook_mAPIInitIdle_napi
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MAPIInitIdle")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpvreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpvreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpvreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -683,7 +865,13 @@ static Napi::Value windowssys_windows_win32_system_addressbook_openStreamOnFile_
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OpenStreamOnFile")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpallocatebuffer, lpfreebuffer, ulflags, lpszfilename, lpszprefix, lppstream) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpallocatebuffer, lpfreebuffer, ulflags, lpszfilename, lpszprefix, lppstream);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpallocatebuffer;
     (void)lpfreebuffer;
@@ -691,6 +879,7 @@ static Napi::Value windowssys_windows_win32_system_addressbook_openStreamOnFile_
     (void)lpszfilename;
     (void)lpszprefix;
     (void)lppstream;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -708,12 +897,19 @@ static Napi::Value windowssys_windows_win32_system_addressbook_ppropFindProp_nap
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PpropFindProp")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpproparray, cvalues, ulproptag) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpproparray, cvalues, ulproptag);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)lpproparray;
     (void)cvalues;
     (void)ulproptag;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -731,12 +927,19 @@ static Napi::Value windowssys_windows_win32_system_addressbook_propCopyMore_napi
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PropCopyMore")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpspropvaluedest, lpspropvaluesrc, lpfallocmore, lpvobject) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpspropvaluedest, lpspropvaluesrc, lpfallocmore, lpvobject);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpspropvaluedest;
     (void)lpspropvaluesrc;
     (void)lpfallocmore;
     (void)lpvobject;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -754,11 +957,18 @@ static Napi::Value windowssys_windows_win32_system_addressbook_rTFSync_napi(cons
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RTFSync")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpmessage, ulflags, lpfmessageupdated) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpmessage, ulflags, lpfmessageupdated);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpmessage;
     (void)ulflags;
     (void)lpfmessageupdated;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -777,12 +987,19 @@ static Napi::Value windowssys_windows_win32_system_addressbook_scCopyNotificatio
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ScCopyNotifications")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(cnotification, lpnotifications, lpvdst, lpcb) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(cnotification, lpnotifications, lpvdst, lpcb);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)cnotification;
     (void)lpnotifications;
     (void)lpvdst;
     (void)lpcb;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -801,12 +1018,19 @@ static Napi::Value windowssys_windows_win32_system_addressbook_scCopyProps_napi(
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ScCopyProps")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(cvalues, lpproparray, lpvdst, lpcb) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(cvalues, lpproparray, lpvdst, lpcb);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)cvalues;
     (void)lpproparray;
     (void)lpvdst;
     (void)lpcb;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -824,11 +1048,18 @@ static Napi::Value windowssys_windows_win32_system_addressbook_scCountNotificati
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ScCountNotifications")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(cnotifications, lpnotifications, lpcb) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(cnotifications, lpnotifications, lpcb);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)cnotifications;
     (void)lpnotifications;
     (void)lpcb;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -846,11 +1077,18 @@ static Napi::Value windowssys_windows_win32_system_addressbook_scCountProps_napi
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ScCountProps")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(cvalues, lpproparray, lpcb) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(cvalues, lpproparray, lpcb);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)cvalues;
     (void)lpproparray;
     (void)lpcb;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -869,12 +1107,19 @@ static Napi::Value windowssys_windows_win32_system_addressbook_scCreateConversat
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ScCreateConversationIndex")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(cbparent, lpbparent, lpcbconvindex, lppbconvindex) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(cbparent, lpbparent, lpcbconvindex, lppbconvindex);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)cbparent;
     (void)lpbparent;
     (void)lpcbconvindex;
     (void)lppbconvindex;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -893,12 +1138,19 @@ static Napi::Value windowssys_windows_win32_system_addressbook_scDupPropset_napi
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ScDupPropset")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(cvalues, lpproparray, lpallocatebuffer, lppproparray) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(cvalues, lpproparray, lpallocatebuffer, lppproparray);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)cvalues;
     (void)lpproparray;
     (void)lpallocatebuffer;
     (void)lppproparray;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -914,9 +1166,16 @@ static Napi::Value windowssys_windows_win32_system_addressbook_scInitMapiUtil_na
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ScInitMapiUtil")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ulflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ulflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -934,11 +1193,18 @@ static Napi::Value windowssys_windows_win32_system_addressbook_scLocalPathFromUN
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ScLocalPathFromUNC")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszunc, lpszlocal, cchlocal) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszunc, lpszlocal, cchlocal);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszunc;
     (void)lpszlocal;
     (void)cchlocal;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -958,13 +1224,20 @@ static Napi::Value windowssys_windows_win32_system_addressbook_scRelocNotificati
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ScRelocNotifications")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(cnotification, lpnotifications, lpvbaseold, lpvbasenew, lpcb) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(cnotification, lpnotifications, lpvbaseold, lpvbasenew, lpcb);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)cnotification;
     (void)lpnotifications;
     (void)lpvbaseold;
     (void)lpvbasenew;
     (void)lpcb;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -984,13 +1257,20 @@ static Napi::Value windowssys_windows_win32_system_addressbook_scRelocProps_napi
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ScRelocProps")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(cvalues, lpproparray, lpvbaseold, lpvbasenew, lpcb) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(cvalues, lpproparray, lpvbaseold, lpvbasenew, lpcb);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)cvalues;
     (void)lpproparray;
     (void)lpvbaseold;
     (void)lpvbasenew;
     (void)lpcb;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1008,11 +1288,18 @@ static Napi::Value windowssys_windows_win32_system_addressbook_scUNCFromLocalPat
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ScUNCFromLocalPath")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszlocal, lpszunc, cchunc) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszlocal, lpszunc, cchunc);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszlocal;
     (void)lpszunc;
     (void)cchunc;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1029,11 +1316,18 @@ static Napi::Value windowssys_windows_win32_system_addressbook_szFindCh_napi(con
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SzFindCh")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpsz, ch) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpsz, ch);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)lpsz;
     (void)ch;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1049,11 +1343,18 @@ static Napi::Value windowssys_windows_win32_system_addressbook_szFindLastCh_napi
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SzFindLastCh")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpsz, ch) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpsz, ch);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)lpsz;
     (void)ch;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1069,11 +1370,18 @@ static Napi::Value windowssys_windows_win32_system_addressbook_szFindSz_napi(con
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SzFindSz")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpsz, lpszkey) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpsz, lpszkey);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)lpsz;
     (void)lpszkey;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1088,9 +1396,16 @@ static Napi::Value windowssys_windows_win32_system_addressbook_uFromSz_napi(cons
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UFromSz")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpsz) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpsz);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpsz;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1106,9 +1421,16 @@ static Napi::Value windowssys_windows_win32_system_addressbook_ulAddRef_napi(con
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UlAddRef")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpunk) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpunk);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpunk;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1124,9 +1446,16 @@ static Napi::Value windowssys_windows_win32_system_addressbook_ulPropSize_napi(c
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UlPropSize")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpspropvalue) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpspropvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpspropvalue;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1142,9 +1471,16 @@ static Napi::Value windowssys_windows_win32_system_addressbook_ulRelease_napi(co
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UlRelease")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpunk) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpunk);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpunk;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1162,11 +1498,18 @@ static Napi::Value windowssys_windows_win32_system_addressbook_wrapCompressedRTF
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WrapCompressedRTFStream")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpcompressedrtfstream, ulflags, lpuncompressedrtfstream) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpcompressedrtfstream, ulflags, lpuncompressedrtfstream);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpcompressedrtfstream;
     (void)ulflags;
     (void)lpuncompressedrtfstream;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1187,7 +1530,13 @@ static Napi::Value windowssys_windows_win32_system_addressbook_wrapStoreEntryID_
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WrapStoreEntryID")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ulflags, lpszdllname, cborigentry, lporigentry, lpcbwrappedentry, lppwrappedentry) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ulflags, lpszdllname, cborigentry, lporigentry, lpcbwrappedentry, lppwrappedentry);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ulflags;
     (void)lpszdllname;
@@ -1195,6 +1544,7 @@ static Napi::Value windowssys_windows_win32_system_addressbook_wrapStoreEntryID_
     (void)lporigentry;
     (void)lpcbwrappedentry;
     (void)lppwrappedentry;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

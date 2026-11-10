@@ -64,12 +64,19 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_processsnapshotti
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PssCaptureSnapshot")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(processhandle, captureflags, threadcontextflags, snapshothandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(processhandle, captureflags, threadcontextflags, snapshothandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)processhandle;
     (void)captureflags;
     (void)threadcontextflags;
     (void)snapshothandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -89,13 +96,20 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_processsnapshotti
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PssDuplicateSnapshot")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sourceprocesshandle, snapshothandle, targetprocesshandle, targetsnapshothandle, flags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sourceprocesshandle, snapshothandle, targetprocesshandle, targetsnapshothandle, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)sourceprocesshandle;
     (void)snapshothandle;
     (void)targetprocesshandle;
     (void)targetsnapshothandle;
     (void)flags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -112,10 +126,17 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_processsnapshotti
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PssFreeSnapshot")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(processhandle, snapshothandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(processhandle, snapshothandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)processhandle;
     (void)snapshothandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -134,12 +155,19 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_processsnapshotti
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PssQuerySnapshot")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(snapshothandle, informationclass, buffer, bufferlength) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(snapshothandle, informationclass, buffer, bufferlength);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)snapshothandle;
     (void)informationclass;
     (void)buffer;
     (void)bufferlength;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -156,10 +184,17 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_processsnapshotti
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PssWalkMarkerCreate")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(allocator, walkmarkerhandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(allocator, walkmarkerhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)allocator;
     (void)walkmarkerhandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -175,9 +210,16 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_processsnapshotti
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PssWalkMarkerFree")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(walkmarkerhandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(walkmarkerhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)walkmarkerhandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -194,10 +236,17 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_processsnapshotti
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PssWalkMarkerGetPosition")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(walkmarkerhandle, position) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(walkmarkerhandle, position);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)walkmarkerhandle;
     (void)position;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -213,9 +262,16 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_processsnapshotti
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PssWalkMarkerSeekToBeginning")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(walkmarkerhandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(walkmarkerhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)walkmarkerhandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -232,10 +288,17 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_processsnapshotti
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PssWalkMarkerSetPosition")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(walkmarkerhandle, position) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(walkmarkerhandle, position);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)walkmarkerhandle;
     (void)position;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -255,13 +318,20 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_processsnapshotti
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PssWalkSnapshot")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(snapshothandle, informationclass, walkmarkerhandle, buffer, bufferlength) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(snapshothandle, informationclass, walkmarkerhandle, buffer, bufferlength);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)snapshothandle;
     (void)informationclass;
     (void)walkmarkerhandle;
     (void)buffer;
     (void)bufferlength;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

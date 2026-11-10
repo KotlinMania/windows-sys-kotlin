@@ -5,6 +5,7 @@
 #include <stdbool.h>
 #include <stddef.h>
 #include <stdint.h>
+#include <stdlib.h>
 #include <errno.h>
 #ifdef _WIN32
 #ifndef WIN32_LEAN_AND_MEAN
@@ -28,11 +29,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptCATAdminAcquireContext");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)phcatadmin, (void*)(uintptr_t)pgsubsystem, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)phcatadmin, (void*)(uintptr_t)pgsubsystem, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)phcatadmin;
     (void)pgsubsystem;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -48,13 +56,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptCATAdminAcquireContext2");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)phcatadmin, (void*)(uintptr_t)pgsubsystem, (void*)(uintptr_t)pwszhashalgorithm, (void*)(uintptr_t)pstronghashpolicy, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)phcatadmin, (void*)(uintptr_t)pgsubsystem, (void*)(uintptr_t)pwszhashalgorithm, (void*)(uintptr_t)pstronghashpolicy, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)phcatadmin;
     (void)pgsubsystem;
     (void)pwszhashalgorithm;
     (void)pstronghashpolicy;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -70,12 +85,19 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptCATAdminAddCatalog");
     }
-    int64_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)hcatadmin, (void*)(uintptr_t)pwszcatalogfile, (void*)(uintptr_t)pwszselectbasename, (uint32_t)dwflags) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int64_t)hcatadmin, (void*)(uintptr_t)pwszcatalogfile, (void*)(uintptr_t)pwszselectbasename, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcatadmin;
     (void)pwszcatalogfile;
     (void)pwszselectbasename;
     (void)dwflags;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return (jlong)km_res;
@@ -91,12 +113,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptCATAdminCalcHashFromFileHandle");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hfile, (void*)(uintptr_t)pcbhash, (void*)(uintptr_t)pbhash, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hfile, (void*)(uintptr_t)pcbhash, (void*)(uintptr_t)pbhash, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hfile;
     (void)pcbhash;
     (void)pbhash;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -112,13 +141,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptCATAdminCalcHashFromFileHandle2");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)hcatadmin, (void*)(uintptr_t)hfile, (void*)(uintptr_t)pcbhash, (void*)(uintptr_t)pbhash, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int64_t)hcatadmin, (void*)(uintptr_t)hfile, (void*)(uintptr_t)pcbhash, (void*)(uintptr_t)pbhash, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcatadmin;
     (void)hfile;
     (void)pcbhash;
     (void)pbhash;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -134,13 +170,20 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptCATAdminEnumCatalogFromHash");
     }
-    int64_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)hcatadmin, (void*)(uintptr_t)pbhash, (uint32_t)cbhash, (uint32_t)dwflags, (void*)(uintptr_t)phprevcatinfo) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int64_t)hcatadmin, (void*)(uintptr_t)pbhash, (uint32_t)cbhash, (uint32_t)dwflags, (void*)(uintptr_t)phprevcatinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcatadmin;
     (void)pbhash;
     (void)cbhash;
     (void)dwflags;
     (void)phprevcatinfo;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return (jlong)km_res;
@@ -156,10 +199,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptCATAdminPauseServiceForBackup");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwflags, (int32_t)fresume) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwflags, (int32_t)fresume);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwflags;
     (void)fresume;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -175,11 +225,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptCATAdminReleaseCatalogContext");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)hcatadmin, (int64_t)hcatinfo, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int64_t)hcatadmin, (int64_t)hcatinfo, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcatadmin;
     (void)hcatinfo;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -195,10 +252,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptCATAdminReleaseContext");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)hcatadmin, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int64_t)hcatadmin, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcatadmin;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -214,11 +278,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptCATAdminRemoveCatalog");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)hcatadmin, (void*)(uintptr_t)pwszcatalogfile, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int64_t)hcatadmin, (void*)(uintptr_t)pwszcatalogfile, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcatadmin;
     (void)pwszcatalogfile;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -234,12 +305,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptCATAdminResolveCatalogPath");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)hcatadmin, (void*)(uintptr_t)pwszcatalogfile, (void*)(uintptr_t)pscatinfo, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int64_t)hcatadmin, (void*)(uintptr_t)pwszcatalogfile, (void*)(uintptr_t)pscatinfo, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcatadmin;
     (void)pwszcatalogfile;
     (void)pscatinfo;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -255,10 +333,17 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptCATAllocSortedMemberInfo");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hcatalog, (void*)(uintptr_t)pwszreferencetag) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hcatalog, (void*)(uintptr_t)pwszreferencetag);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)hcatalog;
     (void)pwszreferencetag;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -274,9 +359,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptCATCDFClose");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pcdf) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pcdf);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pcdf;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -292,12 +384,19 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptCATCDFEnumAttributes");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pcdf, (void*)(uintptr_t)pmember, (void*)(uintptr_t)pprevattr, (void*)(uintptr_t)pfnparseerror) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pcdf, (void*)(uintptr_t)pmember, (void*)(uintptr_t)pprevattr, (void*)(uintptr_t)pfnparseerror);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)pcdf;
     (void)pmember;
     (void)pprevattr;
     (void)pfnparseerror;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -313,13 +412,20 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptCATCDFEnumAttributesWithCDFTag");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pcdf, (void*)(uintptr_t)pwszmembertag, (void*)(uintptr_t)pmember, (void*)(uintptr_t)pprevattr, (void*)(uintptr_t)pfnparseerror) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pcdf, (void*)(uintptr_t)pwszmembertag, (void*)(uintptr_t)pmember, (void*)(uintptr_t)pprevattr, (void*)(uintptr_t)pfnparseerror);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)pcdf;
     (void)pwszmembertag;
     (void)pmember;
     (void)pprevattr;
     (void)pfnparseerror;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -335,11 +441,18 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptCATCDFEnumCatAttributes");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pcdf, (void*)(uintptr_t)pprevattr, (void*)(uintptr_t)pfnparseerror) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pcdf, (void*)(uintptr_t)pprevattr, (void*)(uintptr_t)pfnparseerror);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)pcdf;
     (void)pprevattr;
     (void)pfnparseerror;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -355,11 +468,18 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptCATCDFEnumMembers");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pcdf, (void*)(uintptr_t)pprevmember, (void*)(uintptr_t)pfnparseerror) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pcdf, (void*)(uintptr_t)pprevmember, (void*)(uintptr_t)pfnparseerror);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)pcdf;
     (void)pprevmember;
     (void)pfnparseerror;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -375,7 +495,13 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptCATCDFEnumMembersByCDFTagEx");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pcdf, (void*)(uintptr_t)pwszprevcdftag, (void*)(uintptr_t)pfnparseerror, (void*)(uintptr_t)ppmember, (int32_t)fcontinueonerror, (void*)(uintptr_t)pvreserved) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pcdf, (void*)(uintptr_t)pwszprevcdftag, (void*)(uintptr_t)pfnparseerror, (void*)(uintptr_t)ppmember, (int32_t)fcontinueonerror, (void*)(uintptr_t)pvreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)pcdf;
     (void)pwszprevcdftag;
@@ -383,6 +509,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
     (void)ppmember;
     (void)fcontinueonerror;
     (void)pvreserved;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -398,10 +525,17 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptCATCDFOpen");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pwszfilepath, (void*)(uintptr_t)pfnparseerror) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pwszfilepath, (void*)(uintptr_t)pfnparseerror);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)pwszfilepath;
     (void)pfnparseerror;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -417,11 +551,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptCATCatalogInfoFromContext");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)hcatinfo, (void*)(uintptr_t)pscatinfo, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int64_t)hcatinfo, (void*)(uintptr_t)pscatinfo, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcatinfo;
     (void)pscatinfo;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -437,9 +578,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptCATClose");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hcatalog) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hcatalog);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcatalog;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -455,11 +603,18 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptCATEnumerateAttr");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hcatalog, (void*)(uintptr_t)pcatmember, (void*)(uintptr_t)pprevattr) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hcatalog, (void*)(uintptr_t)pcatmember, (void*)(uintptr_t)pprevattr);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)hcatalog;
     (void)pcatmember;
     (void)pprevattr;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -475,10 +630,17 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptCATEnumerateCatAttr");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hcatalog, (void*)(uintptr_t)pprevattr) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hcatalog, (void*)(uintptr_t)pprevattr);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)hcatalog;
     (void)pprevattr;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -494,10 +656,17 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptCATEnumerateMember");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hcatalog, (void*)(uintptr_t)pprevmember) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hcatalog, (void*)(uintptr_t)pprevmember);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)hcatalog;
     (void)pprevmember;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -513,10 +682,15 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptCATFreeSortedMemberInfo");
     }
-    if (km_fn_ptr != NULL) km_fn_ptr((void*)(uintptr_t)hcatalog, (void*)(uintptr_t)pcatmember);
+    if (km_fn_ptr != NULL) {
+        km_fn_ptr((void*)(uintptr_t)hcatalog, (void*)(uintptr_t)pcatmember);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)hcatalog;
     (void)pcatmember;
+    errno = ENOSYS;
 #endif
 }
 
@@ -530,11 +704,18 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptCATGetAttrInfo");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hcatalog, (void*)(uintptr_t)pcatmember, (void*)(uintptr_t)pwszreferencetag) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hcatalog, (void*)(uintptr_t)pcatmember, (void*)(uintptr_t)pwszreferencetag);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)hcatalog;
     (void)pcatmember;
     (void)pwszreferencetag;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -550,10 +731,17 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptCATGetCatAttrInfo");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hcatalog, (void*)(uintptr_t)pwszreferencetag) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hcatalog, (void*)(uintptr_t)pwszreferencetag);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)hcatalog;
     (void)pwszreferencetag;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -569,10 +757,17 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptCATGetMemberInfo");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hcatalog, (void*)(uintptr_t)pwszreferencetag) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hcatalog, (void*)(uintptr_t)pwszreferencetag);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)hcatalog;
     (void)pwszreferencetag;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -588,9 +783,16 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptCATHandleFromStore");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pcatstore) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pcatstore);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)pcatstore;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -606,13 +808,20 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptCATOpen");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pwszfilename, (uint32_t)fdwopenflags, (uint64_t)hprov, (uint32_t)dwpublicversion, (uint32_t)dwencodingtype) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pwszfilename, (uint32_t)fdwopenflags, (uint64_t)hprov, (uint32_t)dwpublicversion, (uint32_t)dwencodingtype);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)pwszfilename;
     (void)fdwopenflags;
     (void)hprov;
     (void)dwpublicversion;
     (void)dwencodingtype;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -628,9 +837,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptCATPersistStore");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hcatalog) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hcatalog);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcatalog;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -646,7 +862,13 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptCATPutAttrInfo");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hcatalog, (void*)(uintptr_t)pcatmember, (void*)(uintptr_t)pwszreferencetag, (uint32_t)dwattrtypeandaction, (uint32_t)cbdata, (void*)(uintptr_t)pbdata) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hcatalog, (void*)(uintptr_t)pcatmember, (void*)(uintptr_t)pwszreferencetag, (uint32_t)dwattrtypeandaction, (uint32_t)cbdata, (void*)(uintptr_t)pbdata);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)hcatalog;
     (void)pcatmember;
@@ -654,6 +876,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
     (void)dwattrtypeandaction;
     (void)cbdata;
     (void)pbdata;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -669,13 +892,20 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptCATPutCatAttrInfo");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hcatalog, (void*)(uintptr_t)pwszreferencetag, (uint32_t)dwattrtypeandaction, (uint32_t)cbdata, (void*)(uintptr_t)pbdata) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hcatalog, (void*)(uintptr_t)pwszreferencetag, (uint32_t)dwattrtypeandaction, (uint32_t)cbdata, (void*)(uintptr_t)pbdata);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)hcatalog;
     (void)pwszreferencetag;
     (void)dwattrtypeandaction;
     (void)cbdata;
     (void)pbdata;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -691,7 +921,13 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptCATPutMemberInfo");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hcatalog, (void*)(uintptr_t)pwszfilename, (void*)(uintptr_t)pwszreferencetag, (void*)(uintptr_t)pgsubjecttype, (uint32_t)dwcertversion, (uint32_t)cbsipindirectdata, (void*)(uintptr_t)pbsipindirectdata) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hcatalog, (void*)(uintptr_t)pwszfilename, (void*)(uintptr_t)pwszreferencetag, (void*)(uintptr_t)pgsubjecttype, (uint32_t)dwcertversion, (uint32_t)cbsipindirectdata, (void*)(uintptr_t)pbsipindirectdata);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)hcatalog;
     (void)pwszfilename;
@@ -700,6 +936,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
     (void)dwcertversion;
     (void)cbsipindirectdata;
     (void)pbsipindirectdata;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -715,9 +952,16 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptCATStoreFromHandle");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hcatalog) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hcatalog);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)hcatalog;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -733,10 +977,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "IsCatalogFile");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hfile, (void*)(uintptr_t)pwszfilename) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hfile, (void*)(uintptr_t)pwszfilename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hfile;
     (void)pwszfilename;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;

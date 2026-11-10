@@ -5,6 +5,7 @@
 #include <stdbool.h>
 #include <stddef.h>
 #include <stdint.h>
+#include <stdlib.h>
 #include <errno.h>
 #ifdef _WIN32
 #ifndef WIN32_LEAN_AND_MEAN
@@ -28,11 +29,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
         HMODULE km_h_mod = LoadLibraryA("query.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BindIFilterFromStorage");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pstg, (void*)(uintptr_t)punkouter, (void*)(uintptr_t)ppiunk) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pstg, (void*)(uintptr_t)punkouter, (void*)(uintptr_t)ppiunk);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pstg;
     (void)punkouter;
     (void)ppiunk;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -48,11 +56,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
         HMODULE km_h_mod = LoadLibraryA("query.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BindIFilterFromStream");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pstm, (void*)(uintptr_t)punkouter, (void*)(uintptr_t)ppiunk) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pstm, (void*)(uintptr_t)punkouter, (void*)(uintptr_t)ppiunk);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pstm;
     (void)punkouter;
     (void)ppiunk;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -68,11 +83,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
         HMODULE km_h_mod = LoadLibraryA("query.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "LoadIFilter");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pwcspath, (void*)(uintptr_t)punkouter, (void*)(uintptr_t)ppiunk) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pwcspath, (void*)(uintptr_t)punkouter, (void*)(uintptr_t)ppiunk);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pwcspath;
     (void)punkouter;
     (void)ppiunk;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -88,12 +110,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
         HMODULE km_h_mod = LoadLibraryA("query.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "LoadIFilterEx");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pwcspath, (uint32_t)dwflags, (void*)(uintptr_t)riid, (void*)(uintptr_t)ppiunk) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pwcspath, (uint32_t)dwflags, (void*)(uintptr_t)riid, (void*)(uintptr_t)ppiunk);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pwcspath;
     (void)dwflags;
     (void)riid;
     (void)ppiunk;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;

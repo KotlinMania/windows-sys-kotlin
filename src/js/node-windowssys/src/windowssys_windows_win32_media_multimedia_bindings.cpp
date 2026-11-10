@@ -63,11 +63,18 @@ static Napi::Value windowssys_windows_win32_media_multimedia_aVIBuildFilterA_nap
         HMODULE km_h_mod = LoadLibraryA("avifil32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AVIBuildFilterA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszfilter, cbfilter, fsaving) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszfilter, cbfilter, fsaving);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszfilter;
     (void)cbfilter;
     (void)fsaving;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -85,11 +92,18 @@ static Napi::Value windowssys_windows_win32_media_multimedia_aVIBuildFilterW_nap
         HMODULE km_h_mod = LoadLibraryA("avifil32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AVIBuildFilterW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszfilter, cbfilter, fsaving) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszfilter, cbfilter, fsaving);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszfilter;
     (void)cbfilter;
     (void)fsaving;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -104,8 +118,15 @@ static Napi::Value windowssys_windows_win32_media_multimedia_aVIClearClipboard_n
         HMODULE km_h_mod = LoadLibraryA("avifil32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AVIClearClipboard")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -121,9 +142,16 @@ static Napi::Value windowssys_windows_win32_media_multimedia_aVIFileAddRef_napi(
         HMODULE km_h_mod = LoadLibraryA("avifil32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AVIFileAddRef")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pfile) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pfile);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pfile;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -141,11 +169,18 @@ static Napi::Value windowssys_windows_win32_media_multimedia_aVIFileCreateStream
         HMODULE km_h_mod = LoadLibraryA("avifil32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AVIFileCreateStreamA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pfile, ppavi, psi) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pfile, ppavi, psi);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pfile;
     (void)ppavi;
     (void)psi;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -163,11 +198,18 @@ static Napi::Value windowssys_windows_win32_media_multimedia_aVIFileCreateStream
         HMODULE km_h_mod = LoadLibraryA("avifil32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AVIFileCreateStreamW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pfile, ppavi, psi) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pfile, ppavi, psi);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pfile;
     (void)ppavi;
     (void)psi;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -183,9 +225,16 @@ static Napi::Value windowssys_windows_win32_media_multimedia_aVIFileEndRecord_na
         HMODULE km_h_mod = LoadLibraryA("avifil32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AVIFileEndRecord")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pfile) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pfile);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pfile;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -200,8 +249,13 @@ static Napi::Value windowssys_windows_win32_media_multimedia_aVIFileExit_napi(co
         HMODULE km_h_mod = LoadLibraryA("avifil32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AVIFileExit")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr();
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+    }
 #else
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -219,12 +273,19 @@ static Napi::Value windowssys_windows_win32_media_multimedia_aVIFileGetStream_na
         HMODULE km_h_mod = LoadLibraryA("avifil32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AVIFileGetStream")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pfile, ppavi, fcctype, lparam) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pfile, ppavi, fcctype, lparam);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pfile;
     (void)ppavi;
     (void)fcctype;
     (void)lparam;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -242,11 +303,18 @@ static Napi::Value windowssys_windows_win32_media_multimedia_aVIFileInfoA_napi(c
         HMODULE km_h_mod = LoadLibraryA("avifil32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AVIFileInfoA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pfile, pfi, lsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pfile, pfi, lsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pfile;
     (void)pfi;
     (void)lsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -264,11 +332,18 @@ static Napi::Value windowssys_windows_win32_media_multimedia_aVIFileInfoW_napi(c
         HMODULE km_h_mod = LoadLibraryA("avifil32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AVIFileInfoW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pfile, pfi, lsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pfile, pfi, lsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pfile;
     (void)pfi;
     (void)lsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -283,8 +358,13 @@ static Napi::Value windowssys_windows_win32_media_multimedia_aVIFileInit_napi(co
         HMODULE km_h_mod = LoadLibraryA("avifil32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AVIFileInit")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr();
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+    }
 #else
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -302,12 +382,19 @@ static Napi::Value windowssys_windows_win32_media_multimedia_aVIFileOpenA_napi(c
         HMODULE km_h_mod = LoadLibraryA("avifil32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AVIFileOpenA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ppfile, szfile, umode, lphandler) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ppfile, szfile, umode, lphandler);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ppfile;
     (void)szfile;
     (void)umode;
     (void)lphandler;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -326,12 +413,19 @@ static Napi::Value windowssys_windows_win32_media_multimedia_aVIFileOpenW_napi(c
         HMODULE km_h_mod = LoadLibraryA("avifil32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AVIFileOpenW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ppfile, szfile, umode, lphandler) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ppfile, szfile, umode, lphandler);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ppfile;
     (void)szfile;
     (void)umode;
     (void)lphandler;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -350,12 +444,19 @@ static Napi::Value windowssys_windows_win32_media_multimedia_aVIFileReadData_nap
         HMODULE km_h_mod = LoadLibraryA("avifil32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AVIFileReadData")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pfile, ckid, lpdata, lpcbdata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pfile, ckid, lpdata, lpcbdata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pfile;
     (void)ckid;
     (void)lpdata;
     (void)lpcbdata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -371,9 +472,16 @@ static Napi::Value windowssys_windows_win32_media_multimedia_aVIFileRelease_napi
         HMODULE km_h_mod = LoadLibraryA("avifil32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AVIFileRelease")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pfile) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pfile);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pfile;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -392,12 +500,19 @@ static Napi::Value windowssys_windows_win32_media_multimedia_aVIFileWriteData_na
         HMODULE km_h_mod = LoadLibraryA("avifil32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AVIFileWriteData")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pfile, ckid, lpdata, cbdata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pfile, ckid, lpdata, cbdata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pfile;
     (void)ckid;
     (void)lpdata;
     (void)cbdata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -413,9 +528,16 @@ static Napi::Value windowssys_windows_win32_media_multimedia_aVIGetFromClipboard
         HMODULE km_h_mod = LoadLibraryA("avifil32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AVIGetFromClipboard")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lppf) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lppf);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lppf;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -434,12 +556,19 @@ static Napi::Value windowssys_windows_win32_media_multimedia_aVIMakeCompressedSt
         HMODULE km_h_mod = LoadLibraryA("avifil32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AVIMakeCompressedStream")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ppscompressed, ppssource, lpoptions, pclsidhandler) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ppscompressed, ppssource, lpoptions, pclsidhandler);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ppscompressed;
     (void)ppssource;
     (void)lpoptions;
     (void)pclsidhandler;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -457,11 +586,18 @@ static Napi::Value windowssys_windows_win32_media_multimedia_aVIMakeFileFromStre
         HMODULE km_h_mod = LoadLibraryA("avifil32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AVIMakeFileFromStreams")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ppfile, nstreams, papstreams) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ppfile, nstreams, papstreams);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ppfile;
     (void)nstreams;
     (void)papstreams;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -479,11 +615,18 @@ static Napi::Value windowssys_windows_win32_media_multimedia_aVIMakeStreamFromCl
         HMODULE km_h_mod = LoadLibraryA("avifil32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AVIMakeStreamFromClipboard")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(cfformat, hglobal, ppstream) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(cfformat, hglobal, ppstream);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)cfformat;
     (void)hglobal;
     (void)ppstream;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -499,9 +642,16 @@ static Napi::Value windowssys_windows_win32_media_multimedia_aVIPutFileOnClipboa
         HMODULE km_h_mod = LoadLibraryA("avifil32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AVIPutFileOnClipboard")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pf) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pf);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pf;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -536,6 +686,8 @@ static Napi::Value windowssys_windows_win32_media_multimedia_aVISaveA_napi(const
             case 3: km_res = km_fn_ptr(szfile, pclsidhandler, lpfncallback, nstreams, pfile, lpoptions, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2)); break;
             default: km_res = km_fn_ptr(szfile, pclsidhandler, lpfncallback, nstreams, pfile, lpoptions, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2), static_cast<intptr_t>(km_va3)); break;
         }
+    } else {
+        errno = ENOSYS;
     }
 #else
     (void)szfile;
@@ -545,6 +697,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_aVISaveA_napi(const
     (void)pfile;
     (void)lpoptions;
     (void)km_vac; (void)km_va0; (void)km_va1; (void)km_va2; (void)km_va3;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -564,13 +717,20 @@ static Napi::Value windowssys_windows_win32_media_multimedia_aVISaveOptions_napi
         HMODULE km_h_mod = LoadLibraryA("avifil32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AVISaveOptions")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, uiflags, nstreams, ppavi, plpoptions) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, uiflags, nstreams, ppavi, plpoptions);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)uiflags;
     (void)nstreams;
     (void)ppavi;
     (void)plpoptions;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -587,10 +747,17 @@ static Napi::Value windowssys_windows_win32_media_multimedia_aVISaveOptionsFree_
         HMODULE km_h_mod = LoadLibraryA("avifil32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AVISaveOptionsFree")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(nstreams, plpoptions) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(nstreams, plpoptions);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)nstreams;
     (void)plpoptions;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -611,7 +778,13 @@ static Napi::Value windowssys_windows_win32_media_multimedia_aVISaveVA_napi(cons
         HMODULE km_h_mod = LoadLibraryA("avifil32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AVISaveVA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szfile, pclsidhandler, lpfncallback, nstreams, ppavi, plpoptions) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szfile, pclsidhandler, lpfncallback, nstreams, ppavi, plpoptions);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)szfile;
     (void)pclsidhandler;
@@ -619,6 +792,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_aVISaveVA_napi(cons
     (void)nstreams;
     (void)ppavi;
     (void)plpoptions;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -639,7 +813,13 @@ static Napi::Value windowssys_windows_win32_media_multimedia_aVISaveVW_napi(cons
         HMODULE km_h_mod = LoadLibraryA("avifil32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AVISaveVW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szfile, pclsidhandler, lpfncallback, nstreams, ppavi, plpoptions) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szfile, pclsidhandler, lpfncallback, nstreams, ppavi, plpoptions);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)szfile;
     (void)pclsidhandler;
@@ -647,6 +827,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_aVISaveVW_napi(cons
     (void)nstreams;
     (void)ppavi;
     (void)plpoptions;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -681,6 +862,8 @@ static Napi::Value windowssys_windows_win32_media_multimedia_aVISaveW_napi(const
             case 3: km_res = km_fn_ptr(szfile, pclsidhandler, lpfncallback, nstreams, pfile, lpoptions, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2)); break;
             default: km_res = km_fn_ptr(szfile, pclsidhandler, lpfncallback, nstreams, pfile, lpoptions, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2), static_cast<intptr_t>(km_va3)); break;
         }
+    } else {
+        errno = ENOSYS;
     }
 #else
     (void)szfile;
@@ -690,6 +873,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_aVISaveW_napi(const
     (void)pfile;
     (void)lpoptions;
     (void)km_vac; (void)km_va0; (void)km_va1; (void)km_va2; (void)km_va3;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -705,9 +889,16 @@ static Napi::Value windowssys_windows_win32_media_multimedia_aVIStreamAddRef_nap
         HMODULE km_h_mod = LoadLibraryA("avifil32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AVIStreamAddRef")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pavi) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pavi);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pavi;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -726,12 +917,19 @@ static Napi::Value windowssys_windows_win32_media_multimedia_aVIStreamBeginStrea
         HMODULE km_h_mod = LoadLibraryA("avifil32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AVIStreamBeginStreaming")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pavi, lstart, lend, lrate) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pavi, lstart, lend, lrate);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pavi;
     (void)lstart;
     (void)lend;
     (void)lrate;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -750,12 +948,19 @@ static Napi::Value windowssys_windows_win32_media_multimedia_aVIStreamCreate_nap
         HMODULE km_h_mod = LoadLibraryA("avifil32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AVIStreamCreate")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ppavi, lparam1, lparam2, pclsidhandler) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ppavi, lparam1, lparam2, pclsidhandler);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ppavi;
     (void)lparam1;
     (void)lparam2;
     (void)pclsidhandler;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -771,9 +976,16 @@ static Napi::Value windowssys_windows_win32_media_multimedia_aVIStreamEndStreami
         HMODULE km_h_mod = LoadLibraryA("avifil32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AVIStreamEndStreaming")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pavi) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pavi);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pavi;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -791,11 +1003,18 @@ static Napi::Value windowssys_windows_win32_media_multimedia_aVIStreamFindSample
         HMODULE km_h_mod = LoadLibraryA("avifil32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AVIStreamFindSample")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pavi, lpos, lflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pavi, lpos, lflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pavi;
     (void)lpos;
     (void)lflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -812,11 +1031,18 @@ static Napi::Value windowssys_windows_win32_media_multimedia_aVIStreamGetFrame_n
         HMODULE km_h_mod = LoadLibraryA("avifil32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AVIStreamGetFrame")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pg, lpos) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pg, lpos);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pg;
     (void)lpos;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -831,9 +1057,16 @@ static Napi::Value windowssys_windows_win32_media_multimedia_aVIStreamGetFrameCl
         HMODULE km_h_mod = LoadLibraryA("avifil32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AVIStreamGetFrameClose")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pg) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pg);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pg;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -850,11 +1083,18 @@ static Napi::Value windowssys_windows_win32_media_multimedia_aVIStreamGetFrameOp
         HMODULE km_h_mod = LoadLibraryA("avifil32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AVIStreamGetFrameOpen")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pavi, lpbiwanted) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pavi, lpbiwanted);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pavi;
     (void)lpbiwanted;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -871,11 +1111,18 @@ static Napi::Value windowssys_windows_win32_media_multimedia_aVIStreamInfoA_napi
         HMODULE km_h_mod = LoadLibraryA("avifil32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AVIStreamInfoA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pavi, psi, lsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pavi, psi, lsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pavi;
     (void)psi;
     (void)lsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -893,11 +1140,18 @@ static Napi::Value windowssys_windows_win32_media_multimedia_aVIStreamInfoW_napi
         HMODULE km_h_mod = LoadLibraryA("avifil32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AVIStreamInfoW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pavi, psi, lsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pavi, psi, lsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pavi;
     (void)psi;
     (void)lsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -913,9 +1167,16 @@ static Napi::Value windowssys_windows_win32_media_multimedia_aVIStreamLength_nap
         HMODULE km_h_mod = LoadLibraryA("avifil32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AVIStreamLength")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pavi) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pavi);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pavi;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -936,7 +1197,13 @@ static Napi::Value windowssys_windows_win32_media_multimedia_aVIStreamOpenFromFi
         HMODULE km_h_mod = LoadLibraryA("avifil32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AVIStreamOpenFromFileA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ppavi, szfile, fcctype, lparam, mode, pclsidhandler) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ppavi, szfile, fcctype, lparam, mode, pclsidhandler);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ppavi;
     (void)szfile;
@@ -944,6 +1211,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_aVIStreamOpenFromFi
     (void)lparam;
     (void)mode;
     (void)pclsidhandler;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -964,7 +1232,13 @@ static Napi::Value windowssys_windows_win32_media_multimedia_aVIStreamOpenFromFi
         HMODULE km_h_mod = LoadLibraryA("avifil32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AVIStreamOpenFromFileW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ppavi, szfile, fcctype, lparam, mode, pclsidhandler) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ppavi, szfile, fcctype, lparam, mode, pclsidhandler);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ppavi;
     (void)szfile;
@@ -972,6 +1246,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_aVIStreamOpenFromFi
     (void)lparam;
     (void)mode;
     (void)pclsidhandler;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -993,7 +1268,13 @@ static Napi::Value windowssys_windows_win32_media_multimedia_aVIStreamRead_napi(
         HMODULE km_h_mod = LoadLibraryA("avifil32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AVIStreamRead")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pavi, lstart, lsamples, lpbuffer, cbbuffer, plbytes, plsamples) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pavi, lstart, lsamples, lpbuffer, cbbuffer, plbytes, plsamples);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pavi;
     (void)lstart;
@@ -1002,6 +1283,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_aVIStreamRead_napi(
     (void)cbbuffer;
     (void)plbytes;
     (void)plsamples;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1020,12 +1302,19 @@ static Napi::Value windowssys_windows_win32_media_multimedia_aVIStreamReadData_n
         HMODULE km_h_mod = LoadLibraryA("avifil32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AVIStreamReadData")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pavi, fcc, lp, lpcb) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pavi, fcc, lp, lpcb);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pavi;
     (void)fcc;
     (void)lp;
     (void)lpcb;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1044,12 +1333,19 @@ static Napi::Value windowssys_windows_win32_media_multimedia_aVIStreamReadFormat
         HMODULE km_h_mod = LoadLibraryA("avifil32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AVIStreamReadFormat")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pavi, lpos, lpformat, lpcbformat) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pavi, lpos, lpformat, lpcbformat);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pavi;
     (void)lpos;
     (void)lpformat;
     (void)lpcbformat;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1065,9 +1361,16 @@ static Napi::Value windowssys_windows_win32_media_multimedia_aVIStreamRelease_na
         HMODULE km_h_mod = LoadLibraryA("avifil32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AVIStreamRelease")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pavi) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pavi);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pavi;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1084,10 +1387,17 @@ static Napi::Value windowssys_windows_win32_media_multimedia_aVIStreamSampleToTi
         HMODULE km_h_mod = LoadLibraryA("avifil32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AVIStreamSampleToTime")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pavi, lsample) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pavi, lsample);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pavi;
     (void)lsample;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1106,12 +1416,19 @@ static Napi::Value windowssys_windows_win32_media_multimedia_aVIStreamSetFormat_
         HMODULE km_h_mod = LoadLibraryA("avifil32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AVIStreamSetFormat")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pavi, lpos, lpformat, cbformat) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pavi, lpos, lpformat, cbformat);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pavi;
     (void)lpos;
     (void)lpformat;
     (void)cbformat;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1127,9 +1444,16 @@ static Napi::Value windowssys_windows_win32_media_multimedia_aVIStreamStart_napi
         HMODULE km_h_mod = LoadLibraryA("avifil32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AVIStreamStart")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pavi) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pavi);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pavi;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1146,10 +1470,17 @@ static Napi::Value windowssys_windows_win32_media_multimedia_aVIStreamTimeToSamp
         HMODULE km_h_mod = LoadLibraryA("avifil32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AVIStreamTimeToSample")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pavi, ltime) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pavi, ltime);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pavi;
     (void)ltime;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1172,7 +1503,13 @@ static Napi::Value windowssys_windows_win32_media_multimedia_aVIStreamWrite_napi
         HMODULE km_h_mod = LoadLibraryA("avifil32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AVIStreamWrite")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pavi, lstart, lsamples, lpbuffer, cbbuffer, dwflags, plsampwritten, plbyteswritten) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pavi, lstart, lsamples, lpbuffer, cbbuffer, dwflags, plsampwritten, plbyteswritten);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pavi;
     (void)lstart;
@@ -1182,6 +1519,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_aVIStreamWrite_napi
     (void)dwflags;
     (void)plsampwritten;
     (void)plbyteswritten;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1200,12 +1538,19 @@ static Napi::Value windowssys_windows_win32_media_multimedia_aVIStreamWriteData_
         HMODULE km_h_mod = LoadLibraryA("avifil32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AVIStreamWriteData")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pavi, fcc, lp, cb) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pavi, fcc, lp, cb);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pavi;
     (void)fcc;
     (void)lp;
     (void)cb;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1223,11 +1568,18 @@ static Napi::Value windowssys_windows_win32_media_multimedia_closeDriver_napi(co
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CloseDriver")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdriver, lparam1, lparam2) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdriver, lparam1, lparam2);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdriver;
     (void)lparam1;
     (void)lparam2;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -1244,10 +1596,17 @@ static Napi::Value windowssys_windows_win32_media_multimedia_createEditableStrea
         HMODULE km_h_mod = LoadLibraryA("avifil32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateEditableStream")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ppseditable, pssource) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ppseditable, pssource);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ppseditable;
     (void)pssource;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1267,13 +1626,20 @@ static Napi::Value windowssys_windows_win32_media_multimedia_defDriverProc_napi(
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DefDriverProc")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwdriveridentifier, hdrvr, umsg, lparam1, lparam2) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwdriveridentifier, hdrvr, umsg, lparam1, lparam2);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwdriveridentifier;
     (void)hdrvr;
     (void)umsg;
     (void)lparam1;
     (void)lparam2;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -1296,7 +1662,13 @@ static Napi::Value windowssys_windows_win32_media_multimedia_drawDibBegin_napi(c
         HMODULE km_h_mod = LoadLibraryA("msvfw32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DrawDibBegin")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdd, hdc, dxdst, dydst, lpbi, dxsrc, dysrc, wflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdd, hdc, dxdst, dydst, lpbi, dxsrc, dysrc, wflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdd;
     (void)hdc;
@@ -1306,6 +1678,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_drawDibBegin_napi(c
     (void)dxsrc;
     (void)dysrc;
     (void)wflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1324,12 +1697,19 @@ static Napi::Value windowssys_windows_win32_media_multimedia_drawDibChangePalett
         HMODULE km_h_mod = LoadLibraryA("msvfw32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DrawDibChangePalette")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdd, istart, ilen, lppe) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdd, istart, ilen, lppe);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdd;
     (void)istart;
     (void)ilen;
     (void)lppe;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1345,9 +1725,16 @@ static Napi::Value windowssys_windows_win32_media_multimedia_drawDibClose_napi(c
         HMODULE km_h_mod = LoadLibraryA("msvfw32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DrawDibClose")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdd) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdd);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdd;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1375,7 +1762,13 @@ static Napi::Value windowssys_windows_win32_media_multimedia_drawDibDraw_napi(co
         HMODULE km_h_mod = LoadLibraryA("msvfw32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DrawDibDraw")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdd, hdc, xdst, ydst, dxdst, dydst, lpbi, lpbits, xsrc, ysrc, dxsrc, dysrc, wflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdd, hdc, xdst, ydst, dxdst, dydst, lpbi, lpbits, xsrc, ysrc, dxsrc, dysrc, wflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdd;
     (void)hdc;
@@ -1390,6 +1783,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_drawDibDraw_napi(co
     (void)dxsrc;
     (void)dysrc;
     (void)wflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1405,9 +1799,16 @@ static Napi::Value windowssys_windows_win32_media_multimedia_drawDibEnd_napi(con
         HMODULE km_h_mod = LoadLibraryA("msvfw32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DrawDibEnd")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdd) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdd);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdd;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1426,13 +1827,20 @@ static Napi::Value windowssys_windows_win32_media_multimedia_drawDibGetBuffer_na
         HMODULE km_h_mod = LoadLibraryA("msvfw32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DrawDibGetBuffer")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdd, lpbi, dwsize, dwflags) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdd, lpbi, dwsize, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hdd;
     (void)lpbi;
     (void)dwsize;
     (void)dwflags;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1447,10 +1855,17 @@ static Napi::Value windowssys_windows_win32_media_multimedia_drawDibGetPalette_n
         HMODULE km_h_mod = LoadLibraryA("msvfw32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DrawDibGetPalette")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdd) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdd);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hdd;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1464,8 +1879,15 @@ static Napi::Value windowssys_windows_win32_media_multimedia_drawDibOpen_napi(co
         HMODULE km_h_mod = LoadLibraryA("msvfw32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DrawDibOpen")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -1481,9 +1903,16 @@ static Napi::Value windowssys_windows_win32_media_multimedia_drawDibProfileDispl
         HMODULE km_h_mod = LoadLibraryA("msvfw32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DrawDibProfileDisplay")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpbi) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpbi);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpbi;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -1501,11 +1930,18 @@ static Napi::Value windowssys_windows_win32_media_multimedia_drawDibRealize_napi
         HMODULE km_h_mod = LoadLibraryA("msvfw32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DrawDibRealize")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdd, hdc, fbackground) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdd, hdc, fbackground);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hdd;
     (void)hdc;
     (void)fbackground;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1522,10 +1958,17 @@ static Napi::Value windowssys_windows_win32_media_multimedia_drawDibSetPalette_n
         HMODULE km_h_mod = LoadLibraryA("msvfw32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DrawDibSetPalette")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdd, hpal) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdd, hpal);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdd;
     (void)hpal;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1542,10 +1985,17 @@ static Napi::Value windowssys_windows_win32_media_multimedia_drawDibStart_napi(c
         HMODULE km_h_mod = LoadLibraryA("msvfw32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DrawDibStart")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdd, rate) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdd, rate);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdd;
     (void)rate;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1561,9 +2011,16 @@ static Napi::Value windowssys_windows_win32_media_multimedia_drawDibStop_napi(co
         HMODULE km_h_mod = LoadLibraryA("msvfw32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DrawDibStop")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdd) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdd);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdd;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1580,10 +2037,17 @@ static Napi::Value windowssys_windows_win32_media_multimedia_drawDibTime_napi(co
         HMODULE km_h_mod = LoadLibraryA("msvfw32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DrawDibTime")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdd, lpddtime) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdd, lpddtime);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdd;
     (void)lpddtime;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1605,7 +2069,13 @@ static Napi::Value windowssys_windows_win32_media_multimedia_driverCallback_napi
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DriverCallback")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwcallback, dwflags, hdevice, dwmsg, dwuser, dwparam1, dwparam2) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwcallback, dwflags, hdevice, dwmsg, dwuser, dwparam1, dwparam2);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwcallback;
     (void)dwflags;
@@ -1614,6 +2084,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_driverCallback_napi
     (void)dwuser;
     (void)dwparam1;
     (void)dwparam2;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1629,10 +2100,17 @@ static Napi::Value windowssys_windows_win32_media_multimedia_drvGetModuleHandle_
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DrvGetModuleHandle")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdriver) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdriver);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hdriver;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1648,10 +2126,17 @@ static Napi::Value windowssys_windows_win32_media_multimedia_editStreamClone_nap
         HMODULE km_h_mod = LoadLibraryA("avifil32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EditStreamClone")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pavi, ppresult) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pavi, ppresult);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pavi;
     (void)ppresult;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1670,12 +2155,19 @@ static Napi::Value windowssys_windows_win32_media_multimedia_editStreamCopy_napi
         HMODULE km_h_mod = LoadLibraryA("avifil32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EditStreamCopy")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pavi, plstart, pllength, ppresult) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pavi, plstart, pllength, ppresult);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pavi;
     (void)plstart;
     (void)pllength;
     (void)ppresult;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1694,12 +2186,19 @@ static Napi::Value windowssys_windows_win32_media_multimedia_editStreamCut_napi(
         HMODULE km_h_mod = LoadLibraryA("avifil32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EditStreamCut")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pavi, plstart, pllength, ppresult) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pavi, plstart, pllength, ppresult);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pavi;
     (void)plstart;
     (void)pllength;
     (void)ppresult;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1720,7 +2219,13 @@ static Napi::Value windowssys_windows_win32_media_multimedia_editStreamPaste_nap
         HMODULE km_h_mod = LoadLibraryA("avifil32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EditStreamPaste")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pavi, plpos, pllength, pstream, lstart, lend) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pavi, plpos, pllength, pstream, lstart, lend);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pavi;
     (void)plpos;
@@ -1728,6 +2233,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_editStreamPaste_nap
     (void)pstream;
     (void)lstart;
     (void)lend;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1745,11 +2251,18 @@ static Napi::Value windowssys_windows_win32_media_multimedia_editStreamSetInfoA_
         HMODULE km_h_mod = LoadLibraryA("avifil32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EditStreamSetInfoA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pavi, lpinfo, cbinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pavi, lpinfo, cbinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pavi;
     (void)lpinfo;
     (void)cbinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1767,11 +2280,18 @@ static Napi::Value windowssys_windows_win32_media_multimedia_editStreamSetInfoW_
         HMODULE km_h_mod = LoadLibraryA("avifil32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EditStreamSetInfoW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pavi, lpinfo, cbinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pavi, lpinfo, cbinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pavi;
     (void)lpinfo;
     (void)cbinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1788,10 +2308,17 @@ static Napi::Value windowssys_windows_win32_media_multimedia_editStreamSetNameA_
         HMODULE km_h_mod = LoadLibraryA("avifil32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EditStreamSetNameA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pavi, lpszname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pavi, lpszname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pavi;
     (void)lpszname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1808,10 +2335,17 @@ static Napi::Value windowssys_windows_win32_media_multimedia_editStreamSetNameW_
         HMODULE km_h_mod = LoadLibraryA("avifil32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EditStreamSetNameW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pavi, lpszname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pavi, lpszname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pavi;
     (void)lpszname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1827,10 +2361,17 @@ static Napi::Value windowssys_windows_win32_media_multimedia_getDriverModuleHand
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetDriverModuleHandle")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdriver) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdriver);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hdriver;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1845,9 +2386,16 @@ static Napi::Value windowssys_windows_win32_media_multimedia_getOpenFileNamePrev
         HMODULE km_h_mod = LoadLibraryA("msvfw32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetOpenFileNamePreviewA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpofn) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpofn);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpofn;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1863,9 +2411,16 @@ static Napi::Value windowssys_windows_win32_media_multimedia_getOpenFileNamePrev
         HMODULE km_h_mod = LoadLibraryA("msvfw32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetOpenFileNamePreviewW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpofn) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpofn);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpofn;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1881,9 +2436,16 @@ static Napi::Value windowssys_windows_win32_media_multimedia_getSaveFileNamePrev
         HMODULE km_h_mod = LoadLibraryA("msvfw32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetSaveFileNamePreviewA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpofn) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpofn);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpofn;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1899,9 +2461,16 @@ static Napi::Value windowssys_windows_win32_media_multimedia_getSaveFileNamePrev
         HMODULE km_h_mod = LoadLibraryA("msvfw32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetSaveFileNamePreviewW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpofn) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpofn);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpofn;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1917,9 +2486,16 @@ static Napi::Value windowssys_windows_win32_media_multimedia_iCClose_napi(const 
         HMODULE km_h_mod = LoadLibraryA("msvfw32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ICClose")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hic) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hic);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hic;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -1947,7 +2523,13 @@ static Napi::Value windowssys_windows_win32_media_multimedia_iCCompress_napi(con
         HMODULE km_h_mod = LoadLibraryA("msvfw32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ICCompress")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hic, dwflags, lpbioutput, lpdata, lpbiinput, lpbits, lpckid, lpdwflags, lframenum, dwframesize, dwquality, lpbiprev, lpprev) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hic, dwflags, lpbioutput, lpdata, lpbiinput, lpbits, lpckid, lpdwflags, lframenum, dwframesize, dwquality, lpbiprev, lpprev);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hic;
     (void)dwflags;
@@ -1962,6 +2544,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_iCCompress_napi(con
     (void)dwquality;
     (void)lpbiprev;
     (void)lpprev;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1982,7 +2565,13 @@ static Napi::Value windowssys_windows_win32_media_multimedia_iCCompressorChoose_
         HMODULE km_h_mod = LoadLibraryA("msvfw32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ICCompressorChoose")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, uiflags, pvin, lpdata, pc, lpsztitle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, uiflags, pvin, lpdata, pc, lpsztitle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)uiflags;
@@ -1990,6 +2579,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_iCCompressorChoose_
     (void)lpdata;
     (void)pc;
     (void)lpsztitle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2005,9 +2595,14 @@ static Napi::Value windowssys_windows_win32_media_multimedia_iCCompressorFree_na
         HMODULE km_h_mod = LoadLibraryA("msvfw32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ICCompressorFree")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pc);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pc);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pc;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -2027,7 +2622,13 @@ static Napi::Value windowssys_windows_win32_media_multimedia_iCDecompress_napi(c
         HMODULE km_h_mod = LoadLibraryA("msvfw32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ICDecompress")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hic, dwflags, lpbiformat, lpdata, lpbi, lpbits) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hic, dwflags, lpbiformat, lpdata, lpbi, lpbits);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hic;
     (void)dwflags;
@@ -2035,6 +2636,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_iCDecompress_napi(c
     (void)lpdata;
     (void)lpbi;
     (void)lpbits;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2055,7 +2657,13 @@ static Napi::Value windowssys_windows_win32_media_multimedia_iCDraw_napi(const N
         HMODULE km_h_mod = LoadLibraryA("msvfw32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ICDraw")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hic, dwflags, lpformat, lpdata, cbdata, ltime) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hic, dwflags, lpformat, lpdata, cbdata, ltime);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hic;
     (void)dwflags;
@@ -2063,6 +2671,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_iCDraw_napi(const N
     (void)lpdata;
     (void)cbdata;
     (void)ltime;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2093,7 +2702,13 @@ static Napi::Value windowssys_windows_win32_media_multimedia_iCDrawBegin_napi(co
         HMODULE km_h_mod = LoadLibraryA("msvfw32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ICDrawBegin")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hic, dwflags, hpal, hwnd, hdc, xdst, ydst, dxdst, dydst, lpbi, xsrc, ysrc, dxsrc, dysrc, dwrate, dwscale) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hic, dwflags, hpal, hwnd, hdc, xdst, ydst, dxdst, dydst, lpbi, xsrc, ysrc, dxsrc, dysrc, dwrate, dwscale);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hic;
     (void)dwflags;
@@ -2111,6 +2726,7 @@ static Napi::Value windowssys_windows_win32_media_multimedia_iCDrawBegin_napi(co
     (void)dysrc;
     (void)dwrate;
     (void)dwscale;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2131,7 +2747,13 @@ static Napi::Value windowssys_windows_win32_media_multimedia_iCGetDisplayFormat_
         HMODULE km_h_mod = LoadLibraryA("msvfw32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ICGetDisplayFormat")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hic, lpbiin, lpbiout, bitdepth, dx, dy) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hic, lpbiin, lpbiout, bitdepth, dx, dy);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hic;
     (void)lpbiin;
@@ -2139,7 +2761,8 @@ static Napi::Value windowssys_windows_win32_media_multimedia_iCGetDisplayFormat_
     (void)bitdepth;
     (void)dx;
     (void)dy;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -2156,11 +2779,18 @@ static Napi::Value windowssys_windows_win32_media_multimedia_iCGetInfo_napi(cons
         HMODULE km_h_mod = LoadLibraryA("msvfw32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ICGetInfo")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hic, picinfo, cb) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hic, picinfo, cb);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hic;
     (void)picinfo;
     (void)cb;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -2182,7 +2812,13 @@ static Napi::Value windowssys_windows_win32_media_multimedia_iCImageCompress_nap
         HMODULE km_h_mod = LoadLibraryA("msvfw32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ICImageCompress")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hic, uiflags, lpbiin, lpbits, lpbiout, lquality, plsize) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hic, uiflags, lpbiin, lpbits, lpbiout, lquality, plsize);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hic;
     (void)uiflags;
@@ -2191,7 +2827,8 @@ static Napi::Value windowssys_windows_win32_media_multimedia_iCImageCompress_nap
     (void)lpbiout;
     (void)lquality;
     (void)plsize;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -2210,14 +2847,21 @@ static Napi::Value windowssys_windows_win32_media_multimedia_iCImageDecompress_n
         HMODULE km_h_mod = LoadLibraryA("msvfw32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ICImageDecompress")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hic, uiflags, lpbiin, lpbits, lpbiout) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hic, uiflags, lpbiin, lpbits, lpbiout);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hic;
     (void)uiflags;
     (void)lpbiin;
     (void)lpbits;
     (void)lpbiout;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -2234,11 +2878,18 @@ static Napi::Value windowssys_windows_win32_media_multimedia_iCInfo_napi(const N
         HMODULE km_h_mod = LoadLibraryA("msvfw32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ICInfo")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(fcctype, fcchandler, lpicinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(fcctype, fcchandler, lpicinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)fcctype;
     (void)fcchandler;
     (void)lpicinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2258,13 +2909,20 @@ static Napi::Value windowssys_windows_win32_media_multimedia_iCInstall_napi(cons
         HMODULE km_h_mod = LoadLibraryA("msvfw32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ICInstall")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(fcctype, fcchandler, lparam, szdesc, wflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(fcctype, fcchandler, lparam, szdesc, wflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)fcctype;
     (void)fcchandler;
     (void)lparam;
     (void)szdesc;
     (void)wflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2284,14 +2942,21 @@ static Napi::Value windowssys_windows_win32_media_multimedia_iCLocate_napi(const
         HMODULE km_h_mod = LoadLibraryA("msvfw32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ICLocate")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(fcctype, fcchandler, lpbiin, lpbiout, wflags) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(fcctype, fcchandler, lpbiin, lpbiout, wflags);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)fcctype;
     (void)fcchandler;
     (void)lpbiin;
     (void)lpbiout;
     (void)wflags;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -2308,12 +2973,19 @@ static Napi::Value windowssys_windows_win32_media_multimedia_iCOpen_napi(const N
         HMODULE km_h_mod = LoadLibraryA("msvfw32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ICOpen")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(fcctype, fcchandler, wmode) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(fcctype, fcchandler, wmode);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)fcctype;
     (void)fcchandler;
     (void)wmode;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -2330,11 +3002,18 @@ static Napi::Value windowssys_windows_win32_media_multimedia_iCRemove_napi(const
         HMODULE km_h_mod = LoadLibraryA("msvfw32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ICRemove")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(fcctype, fcchandler, wflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(fcctype, fcchandler, wflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)fcctype;
     (void)fcchandler;
     (void)wflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2353,12 +3032,19 @@ static Napi::Value windowssys_windows_win32_media_multimedia_iCSendMessage_napi(
         HMODULE km_h_mod = LoadLibraryA("msvfw32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ICSendMessage")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hic, msg, dw1, dw2) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hic, msg, dw1, dw2);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hic;
     (void)msg;
     (void)dw1;
     (void)dw2;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -2378,14 +3064,21 @@ static Napi::Value windowssys_windows_win32_media_multimedia_iCSeqCompressFrame_
         HMODULE km_h_mod = LoadLibraryA("msvfw32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ICSeqCompressFrame")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pc, uiflags, lpbits, pfkey, plsize) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pc, uiflags, lpbits, pfkey, plsize);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pc;
     (void)uiflags;
     (void)lpbits;
     (void)pfkey;
     (void)plsize;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -2400,9 +3093,14 @@ static Napi::Value windowssys_windows_win32_media_multimedia_iCSeqCompressFrameE
         HMODULE km_h_mod = LoadLibraryA("msvfw32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ICSeqCompressFrameEnd")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pc);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pc);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pc;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -2418,10 +3116,17 @@ static Napi::Value windowssys_windows_win32_media_multimedia_iCSeqCompressFrameS
         HMODULE km_h_mod = LoadLibraryA("msvfw32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ICSeqCompressFrameStart")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pc, lpbiin) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pc, lpbiin);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pc;
     (void)lpbiin;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2440,13 +3145,20 @@ static Napi::Value windowssys_windows_win32_media_multimedia_mCIWndCreateA_napi(
         HMODULE km_h_mod = LoadLibraryA("msvfw32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MCIWndCreateA")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwndparent, hinstance, dwstyle, szfile) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwndparent, hinstance, dwstyle, szfile);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hwndparent;
     (void)hinstance;
     (void)dwstyle;
     (void)szfile;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -2464,13 +3176,20 @@ static Napi::Value windowssys_windows_win32_media_multimedia_mCIWndCreateW_napi(
         HMODULE km_h_mod = LoadLibraryA("msvfw32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MCIWndCreateW")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwndparent, hinstance, dwstyle, szfile) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwndparent, hinstance, dwstyle, szfile);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hwndparent;
     (void)hinstance;
     (void)dwstyle;
     (void)szfile;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -2484,8 +3203,15 @@ static Napi::Value windowssys_windows_win32_media_multimedia_mCIWndRegisterClass
         HMODULE km_h_mod = LoadLibraryA("msvfw32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MCIWndRegisterClass")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2503,12 +3229,19 @@ static Napi::Value windowssys_windows_win32_media_multimedia_openDriver_napi(con
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OpenDriver")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szdrivername, szsectionname, lparam2) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szdrivername, szsectionname, lparam2);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)szdrivername;
     (void)szsectionname;
     (void)lparam2;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -2526,12 +3259,19 @@ static Napi::Value windowssys_windows_win32_media_multimedia_sendDriverMessage_n
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SendDriverMessage")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdriver, message, lparam1, lparam2) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdriver, message, lparam1, lparam2);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdriver;
     (void)message;
     (void)lparam1;
     (void)lparam2;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -2546,8 +3286,15 @@ static Napi::Value windowssys_windows_win32_media_multimedia_videoForWindowsVers
         HMODULE km_h_mod = LoadLibraryA("msvfw32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "VideoForWindowsVersion")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2570,7 +3317,13 @@ static Napi::Value windowssys_windows_win32_media_multimedia_capCreateCaptureWin
         HMODULE km_h_mod = LoadLibraryA("avicap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "capCreateCaptureWindowA")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszwindowname, dwstyle, x, y, nwidth, nheight, hwndparent, nid) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszwindowname, dwstyle, x, y, nwidth, nheight, hwndparent, nid);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)lpszwindowname;
     (void)dwstyle;
@@ -2580,7 +3333,8 @@ static Napi::Value windowssys_windows_win32_media_multimedia_capCreateCaptureWin
     (void)nheight;
     (void)hwndparent;
     (void)nid;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -2602,7 +3356,13 @@ static Napi::Value windowssys_windows_win32_media_multimedia_capCreateCaptureWin
         HMODULE km_h_mod = LoadLibraryA("avicap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "capCreateCaptureWindowW")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszwindowname, dwstyle, x, y, nwidth, nheight, hwndparent, nid) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszwindowname, dwstyle, x, y, nwidth, nheight, hwndparent, nid);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)lpszwindowname;
     (void)dwstyle;
@@ -2612,7 +3372,8 @@ static Napi::Value windowssys_windows_win32_media_multimedia_capCreateCaptureWin
     (void)nheight;
     (void)hwndparent;
     (void)nid;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -2631,13 +3392,20 @@ static Napi::Value windowssys_windows_win32_media_multimedia_capGetDriverDescrip
         HMODULE km_h_mod = LoadLibraryA("avicap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "capGetDriverDescriptionA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(wdriverindex, lpszname, cbname, lpszver, cbver) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(wdriverindex, lpszname, cbname, lpszver, cbver);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)wdriverindex;
     (void)lpszname;
     (void)cbname;
     (void)lpszver;
     (void)cbver;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2657,13 +3425,20 @@ static Napi::Value windowssys_windows_win32_media_multimedia_capGetDriverDescrip
         HMODULE km_h_mod = LoadLibraryA("avicap32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "capGetDriverDescriptionW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(wdriverindex, lpszname, cbname, lpszver, cbver) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(wdriverindex, lpszname, cbname, lpszver, cbver);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)wdriverindex;
     (void)lpszname;
     (void)cbname;
     (void)lpszver;
     (void)cbver;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2681,11 +3456,18 @@ static Napi::Value windowssys_windows_win32_media_multimedia_joyGetDevCapsA_napi
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "joyGetDevCapsA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ujoyid, pjc, cbjc) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ujoyid, pjc, cbjc);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ujoyid;
     (void)pjc;
     (void)cbjc;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2703,11 +3485,18 @@ static Napi::Value windowssys_windows_win32_media_multimedia_joyGetDevCapsW_napi
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "joyGetDevCapsW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ujoyid, pjc, cbjc) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ujoyid, pjc, cbjc);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ujoyid;
     (void)pjc;
     (void)cbjc;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2722,8 +3511,15 @@ static Napi::Value windowssys_windows_win32_media_multimedia_joyGetNumDevs_napi(
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "joyGetNumDevs")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2740,10 +3536,17 @@ static Napi::Value windowssys_windows_win32_media_multimedia_joyGetPos_napi(cons
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "joyGetPos")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ujoyid, pji) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ujoyid, pji);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ujoyid;
     (void)pji;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2760,10 +3563,17 @@ static Napi::Value windowssys_windows_win32_media_multimedia_joyGetPosEx_napi(co
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "joyGetPosEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ujoyid, pji) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ujoyid, pji);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ujoyid;
     (void)pji;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2780,10 +3590,17 @@ static Napi::Value windowssys_windows_win32_media_multimedia_joyGetThreshold_nap
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "joyGetThreshold")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ujoyid, puthreshold) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ujoyid, puthreshold);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ujoyid;
     (void)puthreshold;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2799,9 +3616,16 @@ static Napi::Value windowssys_windows_win32_media_multimedia_joyReleaseCapture_n
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "joyReleaseCapture")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ujoyid) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ujoyid);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ujoyid;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2820,12 +3644,19 @@ static Napi::Value windowssys_windows_win32_media_multimedia_joySetCapture_napi(
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "joySetCapture")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, ujoyid, uperiod, fchanged) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, ujoyid, uperiod, fchanged);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hwnd;
     (void)ujoyid;
     (void)uperiod;
     (void)fchanged;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2842,10 +3673,17 @@ static Napi::Value windowssys_windows_win32_media_multimedia_joySetThreshold_nap
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "joySetThreshold")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ujoyid, uthreshold) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ujoyid, uthreshold);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ujoyid;
     (void)uthreshold;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2863,11 +3701,18 @@ static Napi::Value windowssys_windows_win32_media_multimedia_mciDriverNotify_nap
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "mciDriverNotify")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwndcallback, wdeviceid, ustatus) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwndcallback, wdeviceid, ustatus);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwndcallback;
     (void)wdeviceid;
     (void)ustatus;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2883,9 +3728,16 @@ static Napi::Value windowssys_windows_win32_media_multimedia_mciDriverYield_napi
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "mciDriverYield")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(wdeviceid) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(wdeviceid);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)wdeviceid;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2901,9 +3753,16 @@ static Napi::Value windowssys_windows_win32_media_multimedia_mciFreeCommandResou
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "mciFreeCommandResource")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(wtable) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(wtable);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)wtable;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2919,10 +3778,17 @@ static Napi::Value windowssys_windows_win32_media_multimedia_mciGetCreatorTask_n
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "mciGetCreatorTask")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(mciid) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(mciid);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)mciid;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -2937,9 +3803,16 @@ static Napi::Value windowssys_windows_win32_media_multimedia_mciGetDeviceIDA_nap
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "mciGetDeviceIDA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszdevice) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszdevice);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pszdevice;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2956,10 +3829,17 @@ static Napi::Value windowssys_windows_win32_media_multimedia_mciGetDeviceIDFromE
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "mciGetDeviceIDFromElementIDA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwelementid, lpstrtype) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwelementid, lpstrtype);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dwelementid;
     (void)lpstrtype;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2976,10 +3856,17 @@ static Napi::Value windowssys_windows_win32_media_multimedia_mciGetDeviceIDFromE
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "mciGetDeviceIDFromElementIDW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwelementid, lpstrtype) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwelementid, lpstrtype);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dwelementid;
     (void)lpstrtype;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2995,9 +3882,16 @@ static Napi::Value windowssys_windows_win32_media_multimedia_mciGetDeviceIDW_nap
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "mciGetDeviceIDW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszdevice) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszdevice);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pszdevice;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3013,9 +3907,16 @@ static Napi::Value windowssys_windows_win32_media_multimedia_mciGetDriverData_na
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "mciGetDriverData")));
     }
-    uint64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(wdeviceid) : 0;
+    uint64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(wdeviceid);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)wdeviceid;
+    errno = ENOSYS;
     uint64_t km_res = 0;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
@@ -3033,11 +3934,18 @@ static Napi::Value windowssys_windows_win32_media_multimedia_mciGetErrorStringA_
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "mciGetErrorStringA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(mcierr, psztext, cchtext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(mcierr, psztext, cchtext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)mcierr;
     (void)psztext;
     (void)cchtext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3055,11 +3963,18 @@ static Napi::Value windowssys_windows_win32_media_multimedia_mciGetErrorStringW_
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "mciGetErrorStringW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(mcierr, psztext, cchtext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(mcierr, psztext, cchtext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)mcierr;
     (void)psztext;
     (void)cchtext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3076,11 +3991,18 @@ static Napi::Value windowssys_windows_win32_media_multimedia_mciGetYieldProc_nap
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "mciGetYieldProc")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(mciid, pdwyielddata) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(mciid, pdwyielddata);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)mciid;
     (void)pdwyielddata;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -3097,11 +4019,18 @@ static Napi::Value windowssys_windows_win32_media_multimedia_mciLoadCommandResou
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "mciLoadCommandResource")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hinstance, lpresname, wtype) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hinstance, lpresname, wtype);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hinstance;
     (void)lpresname;
     (void)wtype;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3120,12 +4049,19 @@ static Napi::Value windowssys_windows_win32_media_multimedia_mciSendCommandA_nap
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "mciSendCommandA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(mciid, umsg, dwparam1, dwparam2) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(mciid, umsg, dwparam1, dwparam2);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)mciid;
     (void)umsg;
     (void)dwparam1;
     (void)dwparam2;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3144,12 +4080,19 @@ static Napi::Value windowssys_windows_win32_media_multimedia_mciSendCommandW_nap
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "mciSendCommandW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(mciid, umsg, dwparam1, dwparam2) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(mciid, umsg, dwparam1, dwparam2);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)mciid;
     (void)umsg;
     (void)dwparam1;
     (void)dwparam2;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3168,12 +4111,19 @@ static Napi::Value windowssys_windows_win32_media_multimedia_mciSendStringA_napi
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "mciSendStringA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpstrcommand, lpstrreturnstring, ureturnlength, hwndcallback) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpstrcommand, lpstrreturnstring, ureturnlength, hwndcallback);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpstrcommand;
     (void)lpstrreturnstring;
     (void)ureturnlength;
     (void)hwndcallback;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3192,12 +4142,19 @@ static Napi::Value windowssys_windows_win32_media_multimedia_mciSendStringW_napi
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "mciSendStringW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpstrcommand, lpstrreturnstring, ureturnlength, hwndcallback) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpstrcommand, lpstrreturnstring, ureturnlength, hwndcallback);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpstrcommand;
     (void)lpstrreturnstring;
     (void)ureturnlength;
     (void)hwndcallback;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3214,10 +4171,17 @@ static Napi::Value windowssys_windows_win32_media_multimedia_mciSetDriverData_na
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "mciSetDriverData")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(wdeviceid, dwdata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(wdeviceid, dwdata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)wdeviceid;
     (void)dwdata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3235,11 +4199,18 @@ static Napi::Value windowssys_windows_win32_media_multimedia_mciSetYieldProc_nap
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "mciSetYieldProc")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(mciid, fpyieldproc, dwyielddata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(mciid, fpyieldproc, dwyielddata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)mciid;
     (void)fpyieldproc;
     (void)dwyielddata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3258,12 +4229,19 @@ static Napi::Value windowssys_windows_win32_media_multimedia_mmDrvInstall_napi(c
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "mmDrvInstall")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdriver, wszdrventry, drvmessage, wflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdriver, wszdrventry, drvmessage, wflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hdriver;
     (void)wszdrventry;
     (void)drvmessage;
     (void)wflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3278,8 +4256,15 @@ static Napi::Value windowssys_windows_win32_media_multimedia_mmGetCurrentTask_na
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "mmGetCurrentTask")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3295,9 +4280,14 @@ static Napi::Value windowssys_windows_win32_media_multimedia_mmTaskBlock_napi(co
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "mmTaskBlock")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(h);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(h);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)h;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -3314,11 +4304,18 @@ static Napi::Value windowssys_windows_win32_media_multimedia_mmTaskCreate_napi(c
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "mmTaskCreate")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpfn, lph, dwinst) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpfn, lph, dwinst);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpfn;
     (void)lph;
     (void)dwinst;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3334,9 +4331,16 @@ static Napi::Value windowssys_windows_win32_media_multimedia_mmTaskSignal_napi(c
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "mmTaskSignal")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(h) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(h);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)h;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3351,8 +4355,13 @@ static Napi::Value windowssys_windows_win32_media_multimedia_mmTaskYield_napi(co
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "mmTaskYield")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr();
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+    }
 #else
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -3369,11 +4378,18 @@ static Napi::Value windowssys_windows_win32_media_multimedia_mmioAdvance_napi(co
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "mmioAdvance")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmmio, pmmioinfo, fuadvance) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmmio, pmmioinfo, fuadvance);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmmio;
     (void)pmmioinfo;
     (void)fuadvance;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3391,11 +4407,18 @@ static Napi::Value windowssys_windows_win32_media_multimedia_mmioAscend_napi(con
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "mmioAscend")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmmio, pmmcki, fuascend) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmmio, pmmcki, fuascend);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmmio;
     (void)pmmcki;
     (void)fuascend;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3412,10 +4435,17 @@ static Napi::Value windowssys_windows_win32_media_multimedia_mmioClose_napi(cons
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "mmioClose")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmmio, fuclose) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmmio, fuclose);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmmio;
     (void)fuclose;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3433,11 +4463,18 @@ static Napi::Value windowssys_windows_win32_media_multimedia_mmioCreateChunk_nap
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "mmioCreateChunk")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmmio, pmmcki, fucreate) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmmio, pmmcki, fucreate);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmmio;
     (void)pmmcki;
     (void)fucreate;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3456,12 +4493,19 @@ static Napi::Value windowssys_windows_win32_media_multimedia_mmioDescend_napi(co
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "mmioDescend")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmmio, pmmcki, pmmckiparent, fudescend) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmmio, pmmcki, pmmckiparent, fudescend);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmmio;
     (void)pmmcki;
     (void)pmmckiparent;
     (void)fudescend;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3478,10 +4522,17 @@ static Napi::Value windowssys_windows_win32_media_multimedia_mmioFlush_napi(cons
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "mmioFlush")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmmio, fuflush) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmmio, fuflush);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmmio;
     (void)fuflush;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3499,11 +4550,18 @@ static Napi::Value windowssys_windows_win32_media_multimedia_mmioGetInfo_napi(co
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "mmioGetInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmmio, pmmioinfo, fuinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmmio, pmmioinfo, fuinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmmio;
     (void)pmmioinfo;
     (void)fuinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3521,12 +4579,19 @@ static Napi::Value windowssys_windows_win32_media_multimedia_mmioInstallIOProcA_
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "mmioInstallIOProcA")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(fccioproc, pioproc, dwflags) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(fccioproc, pioproc, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)fccioproc;
     (void)pioproc;
     (void)dwflags;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -3543,12 +4608,19 @@ static Napi::Value windowssys_windows_win32_media_multimedia_mmioInstallIOProcW_
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "mmioInstallIOProcW")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(fccioproc, pioproc, dwflags) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(fccioproc, pioproc, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)fccioproc;
     (void)pioproc;
     (void)dwflags;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -3565,12 +4637,19 @@ static Napi::Value windowssys_windows_win32_media_multimedia_mmioOpenA_napi(cons
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "mmioOpenA")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszfilename, pmmioinfo, fdwopen) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszfilename, pmmioinfo, fdwopen);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pszfilename;
     (void)pmmioinfo;
     (void)fdwopen;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -3587,12 +4666,19 @@ static Napi::Value windowssys_windows_win32_media_multimedia_mmioOpenW_napi(cons
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "mmioOpenW")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszfilename, pmmioinfo, fdwopen) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszfilename, pmmioinfo, fdwopen);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pszfilename;
     (void)pmmioinfo;
     (void)fdwopen;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -3609,11 +4695,18 @@ static Napi::Value windowssys_windows_win32_media_multimedia_mmioRead_napi(const
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "mmioRead")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmmio, pch, cch) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmmio, pch, cch);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hmmio;
     (void)pch;
     (void)cch;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3632,12 +4725,19 @@ static Napi::Value windowssys_windows_win32_media_multimedia_mmioRenameA_napi(co
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "mmioRenameA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszfilename, psznewfilename, pmmioinfo, fdwrename) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszfilename, psznewfilename, pmmioinfo, fdwrename);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pszfilename;
     (void)psznewfilename;
     (void)pmmioinfo;
     (void)fdwrename;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3656,12 +4756,19 @@ static Napi::Value windowssys_windows_win32_media_multimedia_mmioRenameW_napi(co
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "mmioRenameW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszfilename, psznewfilename, pmmioinfo, fdwrename) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszfilename, psznewfilename, pmmioinfo, fdwrename);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pszfilename;
     (void)psznewfilename;
     (void)pmmioinfo;
     (void)fdwrename;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3679,11 +4786,18 @@ static Napi::Value windowssys_windows_win32_media_multimedia_mmioSeek_napi(const
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "mmioSeek")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmmio, loffset, iorigin) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmmio, loffset, iorigin);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hmmio;
     (void)loffset;
     (void)iorigin;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3702,12 +4816,19 @@ static Napi::Value windowssys_windows_win32_media_multimedia_mmioSendMessage_nap
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "mmioSendMessage")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmmio, umsg, lparam1, lparam2) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmmio, umsg, lparam1, lparam2);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hmmio;
     (void)umsg;
     (void)lparam1;
     (void)lparam2;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -3726,12 +4847,19 @@ static Napi::Value windowssys_windows_win32_media_multimedia_mmioSetBuffer_napi(
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "mmioSetBuffer")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmmio, pchbuffer, cchbuffer, fubuffer) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmmio, pchbuffer, cchbuffer, fubuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmmio;
     (void)pchbuffer;
     (void)cchbuffer;
     (void)fubuffer;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3749,11 +4877,18 @@ static Napi::Value windowssys_windows_win32_media_multimedia_mmioSetInfo_napi(co
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "mmioSetInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmmio, pmmioinfo, fuinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmmio, pmmioinfo, fuinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmmio;
     (void)pmmioinfo;
     (void)fuinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3770,10 +4905,17 @@ static Napi::Value windowssys_windows_win32_media_multimedia_mmioStringToFOURCCA
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "mmioStringToFOURCCA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sz, uflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sz, uflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)sz;
     (void)uflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3790,10 +4932,17 @@ static Napi::Value windowssys_windows_win32_media_multimedia_mmioStringToFOURCCW
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "mmioStringToFOURCCW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sz, uflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sz, uflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)sz;
     (void)uflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3811,11 +4960,18 @@ static Napi::Value windowssys_windows_win32_media_multimedia_mmioWrite_napi(cons
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "mmioWrite")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmmio, pch, cch) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmmio, pch, cch);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hmmio;
     (void)pch;
     (void)cch;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3834,12 +4990,19 @@ static Napi::Value windowssys_windows_win32_media_multimedia_sndOpenSound_napi(c
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-mm-misc-l1-1-1.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "sndOpenSound")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(eventname, appname, flags, filehandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(eventname, appname, flags, filehandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)eventname;
     (void)appname;
     (void)flags;
     (void)filehandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

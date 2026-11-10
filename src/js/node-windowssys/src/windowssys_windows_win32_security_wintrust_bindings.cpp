@@ -61,9 +61,16 @@ static Napi::Value windowssys_windows_win32_security_wintrust_openPersonalTrustD
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OpenPersonalTrustDBDialog")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwndparent) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwndparent);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwndparent;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -81,11 +88,18 @@ static Napi::Value windowssys_windows_win32_security_wintrust_openPersonalTrustD
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OpenPersonalTrustDBDialogEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwndparent, dwflags, pvreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwndparent, dwflags, pvreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwndparent;
     (void)dwflags;
     (void)pvreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -101,9 +115,16 @@ static Napi::Value windowssys_windows_win32_security_wintrust_wTHelperCertCheckV
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WTHelperCertCheckValidSignature")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pprovdata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pprovdata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pprovdata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -120,10 +141,17 @@ static Napi::Value windowssys_windows_win32_security_wintrust_wTHelperCertIsSelf
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WTHelperCertIsSelfSigned")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwencoding, pcert) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwencoding, pcert);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwencoding;
     (void)pcert;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -140,11 +168,18 @@ static Napi::Value windowssys_windows_win32_security_wintrust_wTHelperGetProvCer
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WTHelperGetProvCertFromChain")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(psgnr, idxcert) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(psgnr, idxcert);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)psgnr;
     (void)idxcert;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -160,11 +195,18 @@ static Napi::Value windowssys_windows_win32_security_wintrust_wTHelperGetProvPri
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WTHelperGetProvPrivateDataFromChain")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pprovdata, pgproviderid) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pprovdata, pgproviderid);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pprovdata;
     (void)pgproviderid;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -182,13 +224,20 @@ static Napi::Value windowssys_windows_win32_security_wintrust_wTHelperGetProvSig
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WTHelperGetProvSignerFromChain")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pprovdata, idxsigner, fcountersigner, idxcountersigner) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pprovdata, idxsigner, fcountersigner, idxcountersigner);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pprovdata;
     (void)idxsigner;
     (void)fcountersigner;
     (void)idxcountersigner;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -203,10 +252,17 @@ static Napi::Value windowssys_windows_win32_security_wintrust_wTHelperProvDataFr
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WTHelperProvDataFromStateData")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hstatedata) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hstatedata);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hstatedata;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -223,11 +279,18 @@ static Napi::Value windowssys_windows_win32_security_wintrust_winVerifyTrust_nap
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinVerifyTrust")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, pgactionid, pwvtdata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, pgactionid, pwvtdata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)pgactionid;
     (void)pwvtdata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -245,11 +308,18 @@ static Napi::Value windowssys_windows_win32_security_wintrust_winVerifyTrustEx_n
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinVerifyTrustEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, pgactionid, pwintrustdata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, pgactionid, pwintrustdata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)pgactionid;
     (void)pwintrustdata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -267,11 +337,18 @@ static Napi::Value windowssys_windows_win32_security_wintrust_wintrustAddActionI
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WintrustAddActionID")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pgactionid, fdwflags, psprovinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pgactionid, fdwflags, psprovinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pgactionid;
     (void)fdwflags;
     (void)psprovinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -288,10 +365,17 @@ static Napi::Value windowssys_windows_win32_security_wintrust_wintrustAddDefault
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WintrustAddDefaultForUsage")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszusageoid, psdefusage) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszusageoid, psdefusage);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszusageoid;
     (void)psdefusage;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -309,11 +393,18 @@ static Napi::Value windowssys_windows_win32_security_wintrust_wintrustGetDefault
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WintrustGetDefaultForUsage")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwaction, pszusageoid, psusage) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwaction, pszusageoid, psusage);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwaction;
     (void)pszusageoid;
     (void)psusage;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -329,9 +420,14 @@ static Napi::Value windowssys_windows_win32_security_wintrust_wintrustGetRegPoli
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WintrustGetRegPolicyFlags")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pdwpolicyflags);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pdwpolicyflags);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pdwpolicyflags;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -347,10 +443,17 @@ static Napi::Value windowssys_windows_win32_security_wintrust_wintrustLoadFuncti
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WintrustLoadFunctionPointers")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pgactionid, ppfns) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pgactionid, ppfns);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pgactionid;
     (void)ppfns;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -366,9 +469,16 @@ static Napi::Value windowssys_windows_win32_security_wintrust_wintrustRemoveActi
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WintrustRemoveActionID")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pgactionid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pgactionid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pgactionid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -384,9 +494,14 @@ static Napi::Value windowssys_windows_win32_security_wintrust_wintrustSetDefault
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WintrustSetDefaultIncludePEPageHashes")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(fincludepepagehashes);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(fincludepepagehashes);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)fincludepepagehashes;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -401,9 +516,16 @@ static Napi::Value windowssys_windows_win32_security_wintrust_wintrustSetRegPoli
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WintrustSetRegPolicyFlags")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwpolicyflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwpolicyflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwpolicyflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

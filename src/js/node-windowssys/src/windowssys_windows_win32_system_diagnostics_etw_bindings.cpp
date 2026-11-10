@@ -62,10 +62,17 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_createTraceIn
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateTraceInstanceId")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(reghandle, instinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(reghandle, instinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)reghandle;
     (void)instinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -82,10 +89,17 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_cveEventWrite
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CveEventWrite")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(cveid, additionaldetails) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(cveid, additionaldetails);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)cveid;
     (void)additionaldetails;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -103,11 +117,18 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_enumerateTrac
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EnumerateTraceGuids")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(guidpropertiesarray, propertyarraycount, guidcount) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(guidpropertiesarray, propertyarraycount, guidcount);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)guidpropertiesarray;
     (void)propertyarraycount;
     (void)guidcount;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -128,7 +149,13 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_enumerateTrac
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EnumerateTraceGuidsEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(tracequeryinfoclass, inbuffer, inbuffersize, outbuffer, outbuffersize, returnlength) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(tracequeryinfoclass, inbuffer, inbuffersize, outbuffer, outbuffersize, returnlength);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)tracequeryinfoclass;
     (void)inbuffer;
@@ -136,6 +163,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_enumerateTrac
     (void)outbuffer;
     (void)outbuffersize;
     (void)returnlength;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -155,13 +183,20 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_eventAccessCo
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EventAccessControl")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(guid, operation, sid, rights, allowordeny) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(guid, operation, sid, rights, allowordeny);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)guid;
     (void)operation;
     (void)sid;
     (void)rights;
     (void)allowordeny;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -179,11 +214,18 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_eventAccessQu
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EventAccessQuery")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(guid, buffer, buffersize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(guid, buffer, buffersize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)guid;
     (void)buffer;
     (void)buffersize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -199,9 +241,16 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_eventAccessRe
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EventAccessRemove")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(guid) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(guid);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)guid;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -218,10 +267,17 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_eventActivity
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EventActivityIdControl")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(controlcode, activityid) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(controlcode, activityid);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)controlcode;
     (void)activityid;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -238,10 +294,17 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_eventEnabled_
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EventEnabled")));
     }
-    bool km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(reghandle, eventdescriptor) : false;
+    bool km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(reghandle, eventdescriptor);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)reghandle;
     (void)eventdescriptor;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return Napi::Boolean::New(km_env, km_res);
@@ -259,11 +322,18 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_eventProvider
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EventProviderEnabled")));
     }
-    bool km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(reghandle, level, keyword) : false;
+    bool km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(reghandle, level, keyword);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)reghandle;
     (void)level;
     (void)keyword;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return Napi::Boolean::New(km_env, km_res);
@@ -282,12 +352,19 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_eventRegister
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EventRegister")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(providerid, enablecallback, callbackcontext, reghandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(providerid, enablecallback, callbackcontext, reghandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)providerid;
     (void)enablecallback;
     (void)callbackcontext;
     (void)reghandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -306,12 +383,19 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_eventSetInfor
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EventSetInformation")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(reghandle, informationclass, eventinformation, informationlength) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(reghandle, informationclass, eventinformation, informationlength);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)reghandle;
     (void)informationclass;
     (void)eventinformation;
     (void)informationlength;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -327,9 +411,16 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_eventUnregist
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EventUnregister")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(reghandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(reghandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)reghandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -348,12 +439,19 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_eventWrite_na
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EventWrite")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(reghandle, eventdescriptor, userdatacount, userdata) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(reghandle, eventdescriptor, userdatacount, userdata);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)reghandle;
     (void)eventdescriptor;
     (void)userdatacount;
     (void)userdata;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -376,7 +474,13 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_eventWriteEx_
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EventWriteEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(reghandle, eventdescriptor, filter, flags, activityid, relatedactivityid, userdatacount, userdata) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(reghandle, eventdescriptor, filter, flags, activityid, relatedactivityid, userdatacount, userdata);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)reghandle;
     (void)eventdescriptor;
@@ -386,6 +490,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_eventWriteEx_
     (void)relatedactivityid;
     (void)userdatacount;
     (void)userdata;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -404,12 +509,19 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_eventWriteStr
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EventWriteString")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(reghandle, level, keyword, string) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(reghandle, level, keyword, string);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)reghandle;
     (void)level;
     (void)keyword;
     (void)string;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -430,7 +542,13 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_eventWriteTra
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EventWriteTransfer")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(reghandle, eventdescriptor, activityid, relatedactivityid, userdatacount, userdata) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(reghandle, eventdescriptor, activityid, relatedactivityid, userdatacount, userdata);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)reghandle;
     (void)eventdescriptor;
@@ -438,6 +556,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_eventWriteTra
     (void)relatedactivityid;
     (void)userdatacount;
     (void)userdata;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -453,9 +572,16 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_getTraceEnabl
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetTraceEnableFlags")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(tracehandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(tracehandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)tracehandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -471,9 +597,16 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_getTraceEnabl
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetTraceEnableLevel")));
     }
-    uint8_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(tracehandle) : 0;
+    uint8_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(tracehandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)tracehandle;
+    errno = ENOSYS;
     uint8_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -489,9 +622,16 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_getTraceLogge
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetTraceLoggerHandle")));
     }
-    uint64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(buffer) : 0;
+    uint64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(buffer);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)buffer;
+    errno = ENOSYS;
     uint64_t km_res = 0;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
@@ -509,11 +649,18 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_openTraceFrom
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OpenTraceFromBufferStream")));
     }
-    uint64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(options, buffercompletioncallback, buffercompletioncontext) : 0;
+    uint64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(options, buffercompletioncallback, buffercompletioncontext);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)options;
     (void)buffercompletioncallback;
     (void)buffercompletioncontext;
+    errno = ENOSYS;
     uint64_t km_res = 0;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
@@ -531,11 +678,18 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_openTraceFrom
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OpenTraceFromFile")));
     }
-    uint64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(logfilename, options, logfileheader) : 0;
+    uint64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(logfilename, options, logfileheader);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)logfilename;
     (void)options;
     (void)logfileheader;
+    errno = ENOSYS;
     uint64_t km_res = 0;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
@@ -553,11 +707,18 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_openTraceFrom
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OpenTraceFromRealTimeLogger")));
     }
-    uint64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(loggername, options, logfileheader) : 0;
+    uint64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(loggername, options, logfileheader);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)loggername;
     (void)options;
     (void)logfileheader;
+    errno = ENOSYS;
     uint64_t km_res = 0;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
@@ -577,13 +738,20 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_openTraceFrom
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OpenTraceFromRealTimeLoggerWithAllocationOptions")));
     }
-    uint64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(loggername, options, allocationsize, memorypartitionhandle, logfileheader) : 0;
+    uint64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(loggername, options, allocationsize, memorypartitionhandle, logfileheader);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)loggername;
     (void)options;
     (void)allocationsize;
     (void)memorypartitionhandle;
     (void)logfileheader;
+    errno = ENOSYS;
     uint64_t km_res = 0;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
@@ -602,12 +770,19 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_processTrace_
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ProcessTrace")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(handlearray, handlecount, starttime, endtime) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(handlearray, handlecount, starttime, endtime);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)handlearray;
     (void)handlecount;
     (void)starttime;
     (void)endtime;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -625,11 +800,18 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_processTraceA
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ProcessTraceAddBufferToBufferStream")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(tracehandle, buffer, buffersize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(tracehandle, buffer, buffersize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)tracehandle;
     (void)buffer;
     (void)buffersize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -645,9 +827,16 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_processTraceB
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ProcessTraceBufferDecrementReference")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(buffer) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(buffer);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)buffer;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -664,10 +853,17 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_processTraceB
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ProcessTraceBufferIncrementReference")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(tracehandle, buffer) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(tracehandle, buffer);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)tracehandle;
     (void)buffer;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -685,11 +881,18 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_queryAllTrace
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "QueryAllTracesA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(propertyarray, propertyarraycount, loggercount) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(propertyarray, propertyarraycount, loggercount);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)propertyarray;
     (void)propertyarraycount;
     (void)loggercount;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -707,11 +910,18 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_queryAllTrace
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "QueryAllTracesW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(propertyarray, propertyarraycount, loggercount) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(propertyarray, propertyarraycount, loggercount);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)propertyarray;
     (void)propertyarraycount;
     (void)loggercount;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -734,7 +944,13 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_registerTrace
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegisterTraceGuidsA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(requestaddress, requestcontext, controlguid, guidcount, traceguidreg, mofimagepath, mofresourcename, registrationhandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(requestaddress, requestcontext, controlguid, guidcount, traceguidreg, mofimagepath, mofresourcename, registrationhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)requestaddress;
     (void)requestcontext;
@@ -744,6 +960,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_registerTrace
     (void)mofimagepath;
     (void)mofresourcename;
     (void)registrationhandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -766,7 +983,13 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_registerTrace
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegisterTraceGuidsW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(requestaddress, requestcontext, controlguid, guidcount, traceguidreg, mofimagepath, mofresourcename, registrationhandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(requestaddress, requestcontext, controlguid, guidcount, traceguidreg, mofimagepath, mofresourcename, registrationhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)requestaddress;
     (void)requestcontext;
@@ -776,6 +999,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_registerTrace
     (void)mofimagepath;
     (void)mofresourcename;
     (void)registrationhandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -791,9 +1015,16 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_removeTraceCa
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RemoveTraceCallback")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pguid) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pguid);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pguid;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -810,10 +1041,17 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_setTraceCallb
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetTraceCallback")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pguid, eventcallback) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pguid, eventcallback);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pguid;
     (void)eventcallback;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -831,11 +1069,18 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_startTraceA_n
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "StartTraceA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(tracehandle, instancename, properties) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(tracehandle, instancename, properties);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)tracehandle;
     (void)instancename;
     (void)properties;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -853,11 +1098,18 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_startTraceW_n
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "StartTraceW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(tracehandle, instancename, properties) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(tracehandle, instancename, properties);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)tracehandle;
     (void)instancename;
     (void)properties;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -876,12 +1128,19 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_tdhAggregateP
         HMODULE km_h_mod = LoadLibraryA("tdh.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TdhAggregatePayloadFilters")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(payloadfiltercount, payloadfilterptrs, eventmatchallflags, eventfilterdescriptor) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(payloadfiltercount, payloadfilterptrs, eventmatchallflags, eventfilterdescriptor);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)payloadfiltercount;
     (void)payloadfilterptrs;
     (void)eventmatchallflags;
     (void)eventfilterdescriptor;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -897,9 +1156,16 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_tdhCleanupPay
         HMODULE km_h_mod = LoadLibraryA("tdh.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TdhCleanupPayloadEventFilterDescriptor")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(eventfilterdescriptor) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(eventfilterdescriptor);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)eventfilterdescriptor;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -915,9 +1181,16 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_tdhCloseDecod
         HMODULE km_h_mod = LoadLibraryA("tdh.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TdhCloseDecodingHandle")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(handle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(handle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)handle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -938,7 +1211,13 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_tdhCreatePayl
         HMODULE km_h_mod = LoadLibraryA("tdh.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TdhCreatePayloadFilter")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(providerguid, eventdescriptor, eventmatchany, payloadpredicatecount, payloadpredicates, payloadfilter) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(providerguid, eventdescriptor, eventmatchany, payloadpredicatecount, payloadpredicates, payloadfilter);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)providerguid;
     (void)eventdescriptor;
@@ -946,6 +1225,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_tdhCreatePayl
     (void)payloadpredicatecount;
     (void)payloadpredicates;
     (void)payloadfilter;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -961,9 +1241,16 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_tdhDeletePayl
         HMODULE km_h_mod = LoadLibraryA("tdh.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TdhDeletePayloadFilter")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(payloadfilter) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(payloadfilter);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)payloadfilter;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -981,11 +1268,18 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_tdhEnumerateM
         HMODULE km_h_mod = LoadLibraryA("tdh.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TdhEnumerateManifestProviderEvents")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(providerguid, buffer, buffersize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(providerguid, buffer, buffersize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)providerguid;
     (void)buffer;
     (void)buffersize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1004,12 +1298,19 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_tdhEnumerateP
         HMODULE km_h_mod = LoadLibraryA("tdh.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TdhEnumerateProviderFieldInformation")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pguid, eventfieldtype, pbuffer, pbuffersize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pguid, eventfieldtype, pbuffer, pbuffersize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pguid;
     (void)eventfieldtype;
     (void)pbuffer;
     (void)pbuffersize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1030,7 +1331,13 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_tdhEnumerateP
         HMODULE km_h_mod = LoadLibraryA("tdh.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TdhEnumerateProviderFilters")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(guid, tdhcontextcount, tdhcontext, filtercount, buffer, buffersize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(guid, tdhcontextcount, tdhcontext, filtercount, buffer, buffersize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)guid;
     (void)tdhcontextcount;
@@ -1038,6 +1345,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_tdhEnumerateP
     (void)filtercount;
     (void)buffer;
     (void)buffersize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1054,10 +1362,17 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_tdhEnumerateP
         HMODULE km_h_mod = LoadLibraryA("tdh.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TdhEnumerateProviders")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pbuffer, pbuffersize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pbuffer, pbuffersize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pbuffer;
     (void)pbuffersize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1076,12 +1391,19 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_tdhEnumerateP
         HMODULE km_h_mod = LoadLibraryA("tdh.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TdhEnumerateProvidersForDecodingSource")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(filter, buffer, buffersize, bufferrequired) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(filter, buffer, buffersize, bufferrequired);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)filter;
     (void)buffer;
     (void)buffersize;
     (void)bufferrequired;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1107,7 +1429,13 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_tdhFormatProp
         HMODULE km_h_mod = LoadLibraryA("tdh.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TdhFormatProperty")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(eventinfo, mapinfo, pointersize, propertyintype, propertyouttype, propertylength, userdatalength, userdata, buffersize, buffer, userdataconsumed) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(eventinfo, mapinfo, pointersize, propertyintype, propertyouttype, propertylength, userdatalength, userdata, buffersize, buffer, userdataconsumed);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)eventinfo;
     (void)mapinfo;
@@ -1120,6 +1448,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_tdhFormatProp
     (void)buffersize;
     (void)buffer;
     (void)userdataconsumed;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1136,10 +1465,17 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_tdhGetDecodin
         HMODULE km_h_mod = LoadLibraryA("tdh.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TdhGetDecodingParameter")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(handle, tdhcontext) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(handle, tdhcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)handle;
     (void)tdhcontext;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1159,13 +1495,20 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_tdhGetEventIn
         HMODULE km_h_mod = LoadLibraryA("tdh.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TdhGetEventInformation")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(event, tdhcontextcount, tdhcontext, buffer, buffersize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(event, tdhcontextcount, tdhcontext, buffer, buffersize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)event;
     (void)tdhcontextcount;
     (void)tdhcontext;
     (void)buffer;
     (void)buffersize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1184,12 +1527,19 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_tdhGetEventMa
         HMODULE km_h_mod = LoadLibraryA("tdh.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TdhGetEventMapInformation")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pevent, pmapname, pbuffer, pbuffersize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pevent, pmapname, pbuffer, pbuffersize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pevent;
     (void)pmapname;
     (void)pbuffer;
     (void)pbuffersize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1208,12 +1558,19 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_tdhGetManifes
         HMODULE km_h_mod = LoadLibraryA("tdh.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TdhGetManifestEventInformation")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(providerguid, eventdescriptor, buffer, buffersize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(providerguid, eventdescriptor, buffer, buffersize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)providerguid;
     (void)eventdescriptor;
     (void)buffer;
     (void)buffersize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1235,7 +1592,13 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_tdhGetPropert
         HMODULE km_h_mod = LoadLibraryA("tdh.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TdhGetProperty")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pevent, tdhcontextcount, ptdhcontext, propertydatacount, ppropertydata, buffersize, pbuffer) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pevent, tdhcontextcount, ptdhcontext, propertydatacount, ppropertydata, buffersize, pbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pevent;
     (void)tdhcontextcount;
@@ -1244,6 +1607,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_tdhGetPropert
     (void)ppropertydata;
     (void)buffersize;
     (void)pbuffer;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1264,7 +1628,13 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_tdhGetPropert
         HMODULE km_h_mod = LoadLibraryA("tdh.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TdhGetPropertySize")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pevent, tdhcontextcount, ptdhcontext, propertydatacount, ppropertydata, ppropertysize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pevent, tdhcontextcount, ptdhcontext, propertydatacount, ppropertydata, ppropertysize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pevent;
     (void)tdhcontextcount;
@@ -1272,6 +1642,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_tdhGetPropert
     (void)propertydatacount;
     (void)ppropertydata;
     (void)ppropertysize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1290,12 +1661,19 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_tdhGetWppMess
         HMODULE km_h_mod = LoadLibraryA("tdh.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TdhGetWppMessage")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(handle, eventrecord, buffersize, buffer) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(handle, eventrecord, buffersize, buffer);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)handle;
     (void)eventrecord;
     (void)buffersize;
     (void)buffer;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1315,13 +1693,20 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_tdhGetWppProp
         HMODULE km_h_mod = LoadLibraryA("tdh.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TdhGetWppProperty")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(handle, eventrecord, propertyname, buffersize, buffer) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(handle, eventrecord, propertyname, buffersize, buffer);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)handle;
     (void)eventrecord;
     (void)propertyname;
     (void)buffersize;
     (void)buffer;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1337,9 +1722,16 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_tdhLoadManife
         HMODULE km_h_mod = LoadLibraryA("tdh.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TdhLoadManifest")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(manifest) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(manifest);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)manifest;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1355,9 +1747,16 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_tdhLoadManife
         HMODULE km_h_mod = LoadLibraryA("tdh.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TdhLoadManifestFromBinary")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(binarypath) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(binarypath);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)binarypath;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1374,10 +1773,17 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_tdhLoadManife
         HMODULE km_h_mod = LoadLibraryA("tdh.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TdhLoadManifestFromMemory")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pdata, cbdata) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pdata, cbdata);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pdata;
     (void)cbdata;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1393,9 +1799,16 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_tdhOpenDecodi
         HMODULE km_h_mod = LoadLibraryA("tdh.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TdhOpenDecodingHandle")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(handle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(handle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)handle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1415,13 +1828,20 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_tdhQueryProvi
         HMODULE km_h_mod = LoadLibraryA("tdh.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TdhQueryProviderFieldInformation")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pguid, eventfieldvalue, eventfieldtype, pbuffer, pbuffersize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pguid, eventfieldvalue, eventfieldtype, pbuffer, pbuffersize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pguid;
     (void)eventfieldvalue;
     (void)eventfieldtype;
     (void)pbuffer;
     (void)pbuffersize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1438,10 +1858,17 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_tdhSetDecodin
         HMODULE km_h_mod = LoadLibraryA("tdh.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TdhSetDecodingParameter")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(handle, tdhcontext) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(handle, tdhcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)handle;
     (void)tdhcontext;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1457,9 +1884,16 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_tdhUnloadMani
         HMODULE km_h_mod = LoadLibraryA("tdh.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TdhUnloadManifest")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(manifest) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(manifest);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)manifest;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1476,10 +1910,17 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_tdhUnloadMani
         HMODULE km_h_mod = LoadLibraryA("tdh.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TdhUnloadManifestFromMemory")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pdata, cbdata) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pdata, cbdata);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pdata;
     (void)cbdata;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1496,10 +1937,17 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_traceEvent_na
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TraceEvent")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(tracehandle, eventtrace) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(tracehandle, eventtrace);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)tracehandle;
     (void)eventtrace;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1518,12 +1966,19 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_traceEventIns
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TraceEventInstance")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(tracehandle, eventtrace, instinfo, parentinstinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(tracehandle, eventtrace, instinfo, parentinstinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)tracehandle;
     (void)eventtrace;
     (void)instinfo;
     (void)parentinstinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1556,6 +2011,8 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_traceMessage_
             case 3: km_res = km_fn_ptr(loggerhandle, messageflags, messageguid, messagenumber, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2)); break;
             default: km_res = km_fn_ptr(loggerhandle, messageflags, messageguid, messagenumber, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2), static_cast<intptr_t>(km_va3)); break;
         }
+    } else {
+        errno = ENOSYS;
     }
 #else
     (void)loggerhandle;
@@ -1563,6 +2020,7 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_traceMessage_
     (void)messageguid;
     (void)messagenumber;
     (void)km_vac; (void)km_va0; (void)km_va1; (void)km_va2; (void)km_va3;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1582,13 +2040,20 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_traceMessageV
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TraceMessageVa")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(loggerhandle, messageflags, messageguid, messagenumber, messagearglist) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(loggerhandle, messageflags, messageguid, messagenumber, messagearglist);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)loggerhandle;
     (void)messageflags;
     (void)messageguid;
     (void)messagenumber;
     (void)messagearglist;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1604,9 +2069,16 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_etw_unregisterTra
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UnregisterTraceGuids")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(registrationhandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(registrationhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)registrationhandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

@@ -5,6 +5,7 @@
 #include <stdbool.h>
 #include <stddef.h>
 #include <stdint.h>
+#include <stdlib.h>
 #include <errno.h>
 #ifdef _WIN32
 #ifndef WIN32_LEAN_AND_MEAN
@@ -28,11 +29,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("licenseprotection.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "RegisterLicenseKeyWithExpiration");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)licensekey, (uint32_t)validityindays, (void*)(uintptr_t)status) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)licensekey, (uint32_t)validityindays, (void*)(uintptr_t)status);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)licensekey;
     (void)validityindays;
     (void)status;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -48,12 +56,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("licenseprotection.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ValidateLicenseKeyProtection");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)licensekey, (void*)(uintptr_t)notvalidbefore, (void*)(uintptr_t)notvalidafter, (void*)(uintptr_t)status) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)licensekey, (void*)(uintptr_t)notvalidbefore, (void*)(uintptr_t)notvalidafter, (void*)(uintptr_t)status);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)licensekey;
     (void)notvalidbefore;
     (void)notvalidafter;
     (void)status;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;

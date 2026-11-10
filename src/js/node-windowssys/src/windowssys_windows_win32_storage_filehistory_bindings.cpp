@@ -61,9 +61,16 @@ static Napi::Value windowssys_windows_win32_storage_filehistory_fhServiceBlockBa
         HMODULE km_h_mod = LoadLibraryA("fhsvcctl.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FhServiceBlockBackup")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(arg_0_pipe) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(arg_0_pipe);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)arg_0_pipe;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -79,9 +86,16 @@ static Napi::Value windowssys_windows_win32_storage_filehistory_fhServiceClosePi
         HMODULE km_h_mod = LoadLibraryA("fhsvcctl.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FhServiceClosePipe")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(arg_0_pipe) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(arg_0_pipe);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)arg_0_pipe;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -98,10 +112,17 @@ static Napi::Value windowssys_windows_win32_storage_filehistory_fhServiceOpenPip
         HMODULE km_h_mod = LoadLibraryA("fhsvcctl.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FhServiceOpenPipe")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(startserviceifstopped, arg_1_pipe) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(startserviceifstopped, arg_1_pipe);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)startserviceifstopped;
     (void)arg_1_pipe;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -117,9 +138,16 @@ static Napi::Value windowssys_windows_win32_storage_filehistory_fhServiceReloadC
         HMODULE km_h_mod = LoadLibraryA("fhsvcctl.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FhServiceReloadConfiguration")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(arg_0_pipe) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(arg_0_pipe);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)arg_0_pipe;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -136,10 +164,17 @@ static Napi::Value windowssys_windows_win32_storage_filehistory_fhServiceStartBa
         HMODULE km_h_mod = LoadLibraryA("fhsvcctl.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FhServiceStartBackup")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(arg_0_pipe, lowpriorityio) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(arg_0_pipe, lowpriorityio);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)arg_0_pipe;
     (void)lowpriorityio;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -156,10 +191,17 @@ static Napi::Value windowssys_windows_win32_storage_filehistory_fhServiceStopBac
         HMODULE km_h_mod = LoadLibraryA("fhsvcctl.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FhServiceStopBackup")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(arg_0_pipe, stoptracking) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(arg_0_pipe, stoptracking);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)arg_0_pipe;
     (void)stoptracking;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -175,9 +217,16 @@ static Napi::Value windowssys_windows_win32_storage_filehistory_fhServiceUnblock
         HMODULE km_h_mod = LoadLibraryA("fhsvcctl.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FhServiceUnblockBackup")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(arg_0_pipe) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(arg_0_pipe);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)arg_0_pipe;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

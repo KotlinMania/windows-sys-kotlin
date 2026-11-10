@@ -65,13 +65,20 @@ static Napi::Value windowssys_windows_win32_system_restartmanager_rmAddFilter_na
         HMODULE km_h_mod = LoadLibraryA("rstrtmgr.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RmAddFilter")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwsessionhandle, strmodulename, pprocess, strserviceshortname, filteraction) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwsessionhandle, strmodulename, pprocess, strserviceshortname, filteraction);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dwsessionhandle;
     (void)strmodulename;
     (void)pprocess;
     (void)strserviceshortname;
     (void)filteraction;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -87,9 +94,16 @@ static Napi::Value windowssys_windows_win32_system_restartmanager_rmCancelCurren
         HMODULE km_h_mod = LoadLibraryA("rstrtmgr.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RmCancelCurrentTask")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwsessionhandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwsessionhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dwsessionhandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -105,9 +119,16 @@ static Napi::Value windowssys_windows_win32_system_restartmanager_rmEndSession_n
         HMODULE km_h_mod = LoadLibraryA("rstrtmgr.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RmEndSession")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwsessionhandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwsessionhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dwsessionhandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -126,12 +147,19 @@ static Napi::Value windowssys_windows_win32_system_restartmanager_rmGetFilterLis
         HMODULE km_h_mod = LoadLibraryA("rstrtmgr.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RmGetFilterList")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwsessionhandle, pbfilterbuf, cbfilterbuf, cbfilterbufneeded) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwsessionhandle, pbfilterbuf, cbfilterbuf, cbfilterbufneeded);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dwsessionhandle;
     (void)pbfilterbuf;
     (void)cbfilterbuf;
     (void)cbfilterbufneeded;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -151,13 +179,20 @@ static Napi::Value windowssys_windows_win32_system_restartmanager_rmGetList_napi
         HMODULE km_h_mod = LoadLibraryA("rstrtmgr.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RmGetList")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwsessionhandle, pnprocinfoneeded, pnprocinfo, rgaffectedapps, lpdwrebootreasons) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwsessionhandle, pnprocinfoneeded, pnprocinfo, rgaffectedapps, lpdwrebootreasons);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dwsessionhandle;
     (void)pnprocinfoneeded;
     (void)pnprocinfo;
     (void)rgaffectedapps;
     (void)lpdwrebootreasons;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -174,10 +209,17 @@ static Napi::Value windowssys_windows_win32_system_restartmanager_rmJoinSession_
         HMODULE km_h_mod = LoadLibraryA("rstrtmgr.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RmJoinSession")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(psessionhandle, strsessionkey) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(psessionhandle, strsessionkey);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)psessionhandle;
     (void)strsessionkey;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -199,7 +241,13 @@ static Napi::Value windowssys_windows_win32_system_restartmanager_rmRegisterReso
         HMODULE km_h_mod = LoadLibraryA("rstrtmgr.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RmRegisterResources")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwsessionhandle, nfiles, rgsfilenames, napplications, rgapplications, nservices, rgsservicenames) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwsessionhandle, nfiles, rgsfilenames, napplications, rgapplications, nservices, rgsservicenames);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dwsessionhandle;
     (void)nfiles;
@@ -208,6 +256,7 @@ static Napi::Value windowssys_windows_win32_system_restartmanager_rmRegisterReso
     (void)rgapplications;
     (void)nservices;
     (void)rgsservicenames;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -226,12 +275,19 @@ static Napi::Value windowssys_windows_win32_system_restartmanager_rmRemoveFilter
         HMODULE km_h_mod = LoadLibraryA("rstrtmgr.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RmRemoveFilter")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwsessionhandle, strmodulename, pprocess, strserviceshortname) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwsessionhandle, strmodulename, pprocess, strserviceshortname);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dwsessionhandle;
     (void)strmodulename;
     (void)pprocess;
     (void)strserviceshortname;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -249,11 +305,18 @@ static Napi::Value windowssys_windows_win32_system_restartmanager_rmRestart_napi
         HMODULE km_h_mod = LoadLibraryA("rstrtmgr.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RmRestart")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwsessionhandle, dwrestartflags, fnstatus) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwsessionhandle, dwrestartflags, fnstatus);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dwsessionhandle;
     (void)dwrestartflags;
     (void)fnstatus;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -271,11 +334,18 @@ static Napi::Value windowssys_windows_win32_system_restartmanager_rmShutdown_nap
         HMODULE km_h_mod = LoadLibraryA("rstrtmgr.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RmShutdown")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwsessionhandle, lactionflags, fnstatus) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwsessionhandle, lactionflags, fnstatus);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dwsessionhandle;
     (void)lactionflags;
     (void)fnstatus;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -293,11 +363,18 @@ static Napi::Value windowssys_windows_win32_system_restartmanager_rmStartSession
         HMODULE km_h_mod = LoadLibraryA("rstrtmgr.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RmStartSession")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(psessionhandle, dwsessionflags, strsessionkey) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(psessionhandle, dwsessionflags, strsessionkey);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)psessionhandle;
     (void)dwsessionflags;
     (void)strsessionkey;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

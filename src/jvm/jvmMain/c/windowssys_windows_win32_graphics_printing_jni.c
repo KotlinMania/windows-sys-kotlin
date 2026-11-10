@@ -5,6 +5,7 @@
 #include <stdbool.h>
 #include <stddef.h>
 #include <stdint.h>
+#include <stdlib.h>
 #include <errno.h>
 #ifdef _WIN32
 #ifndef WIN32_LEAN_AND_MEAN
@@ -28,11 +29,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "AddMonitorA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pname, (uint32_t)level, (void*)(uintptr_t)pmonitors) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pname, (uint32_t)level, (void*)(uintptr_t)pmonitors);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pname;
     (void)level;
     (void)pmonitors;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -48,11 +56,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "AddMonitorW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pname, (uint32_t)level, (void*)(uintptr_t)pmonitors) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pname, (uint32_t)level, (void*)(uintptr_t)pmonitors);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pname;
     (void)level;
     (void)pmonitors;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -68,11 +83,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "AddPortA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pname, (void*)(uintptr_t)hwnd, (void*)(uintptr_t)pmonitorname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pname, (void*)(uintptr_t)hwnd, (void*)(uintptr_t)pmonitorname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pname;
     (void)hwnd;
     (void)pmonitorname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -88,11 +110,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "AddPortW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pname, (void*)(uintptr_t)hwnd, (void*)(uintptr_t)pmonitorname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pname, (void*)(uintptr_t)hwnd, (void*)(uintptr_t)pmonitorname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pname;
     (void)hwnd;
     (void)pmonitorname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -108,12 +137,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "AddPrintProcessorA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pname, (void*)(uintptr_t)penvironment, (void*)(uintptr_t)ppathname, (void*)(uintptr_t)pprintprocessorname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pname, (void*)(uintptr_t)penvironment, (void*)(uintptr_t)ppathname, (void*)(uintptr_t)pprintprocessorname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pname;
     (void)penvironment;
     (void)ppathname;
     (void)pprintprocessorname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -129,12 +165,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "AddPrintProcessorW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pname, (void*)(uintptr_t)penvironment, (void*)(uintptr_t)ppathname, (void*)(uintptr_t)pprintprocessorname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pname, (void*)(uintptr_t)penvironment, (void*)(uintptr_t)ppathname, (void*)(uintptr_t)pprintprocessorname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pname;
     (void)penvironment;
     (void)ppathname;
     (void)pprintprocessorname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -150,11 +193,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "AddPrintProvidorA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pname, (uint32_t)level, (void*)(uintptr_t)pprovidorinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pname, (uint32_t)level, (void*)(uintptr_t)pprovidorinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pname;
     (void)level;
     (void)pprovidorinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -170,11 +220,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "AddPrintProvidorW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pname, (uint32_t)level, (void*)(uintptr_t)pprovidorinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pname, (uint32_t)level, (void*)(uintptr_t)pprovidorinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pname;
     (void)level;
     (void)pprovidorinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -190,11 +247,18 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_grap
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "AddPrinterA");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pname, (uint32_t)level, (void*)(uintptr_t)pprinter) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pname, (uint32_t)level, (void*)(uintptr_t)pprinter);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)pname;
     (void)level;
     (void)pprinter;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -210,12 +274,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "AddPrinterConnection2A");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hwnd, (void*)(uintptr_t)pszname, (uint32_t)dwlevel, (void*)(uintptr_t)pconnectioninfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hwnd, (void*)(uintptr_t)pszname, (uint32_t)dwlevel, (void*)(uintptr_t)pconnectioninfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)pszname;
     (void)dwlevel;
     (void)pconnectioninfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -231,12 +302,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "AddPrinterConnection2W");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hwnd, (void*)(uintptr_t)pszname, (uint32_t)dwlevel, (void*)(uintptr_t)pconnectioninfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hwnd, (void*)(uintptr_t)pszname, (uint32_t)dwlevel, (void*)(uintptr_t)pconnectioninfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)pszname;
     (void)dwlevel;
     (void)pconnectioninfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -252,9 +330,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "AddPrinterConnectionA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -270,9 +355,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "AddPrinterConnectionW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -288,11 +380,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "AddPrinterDriverA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pname, (uint32_t)level, (void*)(uintptr_t)pdriverinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pname, (uint32_t)level, (void*)(uintptr_t)pdriverinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pname;
     (void)level;
     (void)pdriverinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -308,12 +407,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "AddPrinterDriverExA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pname, (uint32_t)level, (void*)(uintptr_t)lpbdriverinfo, (uint32_t)dwfilecopyflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pname, (uint32_t)level, (void*)(uintptr_t)lpbdriverinfo, (uint32_t)dwfilecopyflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pname;
     (void)level;
     (void)lpbdriverinfo;
     (void)dwfilecopyflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -329,12 +435,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "AddPrinterDriverExW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pname, (uint32_t)level, (void*)(uintptr_t)lpbdriverinfo, (uint32_t)dwfilecopyflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pname, (uint32_t)level, (void*)(uintptr_t)lpbdriverinfo, (uint32_t)dwfilecopyflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pname;
     (void)level;
     (void)lpbdriverinfo;
     (void)dwfilecopyflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -350,11 +463,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "AddPrinterDriverW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pname, (uint32_t)level, (void*)(uintptr_t)pdriverinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pname, (uint32_t)level, (void*)(uintptr_t)pdriverinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pname;
     (void)level;
     (void)pdriverinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -370,11 +490,18 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_grap
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "AddPrinterW");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pname, (uint32_t)level, (void*)(uintptr_t)pprinter) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pname, (uint32_t)level, (void*)(uintptr_t)pprinter);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)pname;
     (void)level;
     (void)pprinter;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -390,11 +517,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("spoolss.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "AppendPrinterNotifyInfoData");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pinfodest, (void*)(uintptr_t)pdatasrc, (uint32_t)fdwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pinfodest, (void*)(uintptr_t)pdatasrc, (uint32_t)fdwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pinfodest;
     (void)pdatasrc;
     (void)fdwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -410,13 +544,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("spoolss.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CallRouterFindFirstPrinterChangeNotification");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hprinterrpc, (uint32_t)fdwfilterflags, (uint32_t)fdwoptions, (void*)(uintptr_t)hnotify, (void*)(uintptr_t)pprinternotifyoptions) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hprinterrpc, (uint32_t)fdwfilterflags, (uint32_t)fdwoptions, (void*)(uintptr_t)hnotify, (void*)(uintptr_t)pprinternotifyoptions);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hprinterrpc;
     (void)fdwfilterflags;
     (void)fdwoptions;
     (void)hnotify;
     (void)pprinternotifyoptions;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -432,12 +573,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("compstui.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CommonPropertySheetUIA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hwndowner, (void*)(uintptr_t)pfnpropsheetui, (int64_t)lparam, (void*)(uintptr_t)presult) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hwndowner, (void*)(uintptr_t)pfnpropsheetui, (int64_t)lparam, (void*)(uintptr_t)presult);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwndowner;
     (void)pfnpropsheetui;
     (void)lparam;
     (void)presult;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -453,12 +601,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("compstui.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CommonPropertySheetUIW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hwndowner, (void*)(uintptr_t)pfnpropsheetui, (int64_t)lparam, (void*)(uintptr_t)presult) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hwndowner, (void*)(uintptr_t)pfnpropsheetui, (int64_t)lparam, (void*)(uintptr_t)presult);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwndowner;
     (void)pfnpropsheetui;
     (void)lparam;
     (void)presult;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -474,11 +629,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ConfigurePortA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pname, (void*)(uintptr_t)hwnd, (void*)(uintptr_t)pportname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pname, (void*)(uintptr_t)hwnd, (void*)(uintptr_t)pportname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pname;
     (void)hwnd;
     (void)pportname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -494,11 +656,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ConfigurePortW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pname, (void*)(uintptr_t)hwnd, (void*)(uintptr_t)pportname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pname, (void*)(uintptr_t)hwnd, (void*)(uintptr_t)pportname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pname;
     (void)hwnd;
     (void)pportname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -514,10 +683,17 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_grap
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ConnectToPrinterDlg");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hwnd, (uint32_t)flags) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hwnd, (uint32_t)flags);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)hwnd;
     (void)flags;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -533,7 +709,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CreatePrintAsyncNotifyChannel");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pszname, (void*)(uintptr_t)pnotificationtype, (int32_t)euserfilter, (int32_t)econversationstyle, (void*)(uintptr_t)pcallback, (void*)(uintptr_t)ppiasynchnotification) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pszname, (void*)(uintptr_t)pnotificationtype, (int32_t)euserfilter, (int32_t)econversationstyle, (void*)(uintptr_t)pcallback, (void*)(uintptr_t)ppiasynchnotification);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszname;
     (void)pnotificationtype;
@@ -541,6 +723,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     (void)econversationstyle;
     (void)pcallback;
     (void)ppiasynchnotification;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -556,11 +739,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DeleteMonitorA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pname, (void*)(uintptr_t)penvironment, (void*)(uintptr_t)pmonitorname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pname, (void*)(uintptr_t)penvironment, (void*)(uintptr_t)pmonitorname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pname;
     (void)penvironment;
     (void)pmonitorname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -576,11 +766,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DeleteMonitorW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pname, (void*)(uintptr_t)penvironment, (void*)(uintptr_t)pmonitorname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pname, (void*)(uintptr_t)penvironment, (void*)(uintptr_t)pmonitorname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pname;
     (void)penvironment;
     (void)pmonitorname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -596,11 +793,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DeletePortA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pname, (void*)(uintptr_t)hwnd, (void*)(uintptr_t)pportname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pname, (void*)(uintptr_t)hwnd, (void*)(uintptr_t)pportname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pname;
     (void)hwnd;
     (void)pportname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -616,11 +820,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DeletePortW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pname, (void*)(uintptr_t)hwnd, (void*)(uintptr_t)pportname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pname, (void*)(uintptr_t)hwnd, (void*)(uintptr_t)pportname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pname;
     (void)hwnd;
     (void)pportname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -636,11 +847,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DeletePrintProcessorA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pname, (void*)(uintptr_t)penvironment, (void*)(uintptr_t)pprintprocessorname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pname, (void*)(uintptr_t)penvironment, (void*)(uintptr_t)pprintprocessorname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pname;
     (void)penvironment;
     (void)pprintprocessorname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -656,11 +874,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DeletePrintProcessorW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pname, (void*)(uintptr_t)penvironment, (void*)(uintptr_t)pprintprocessorname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pname, (void*)(uintptr_t)penvironment, (void*)(uintptr_t)pprintprocessorname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pname;
     (void)penvironment;
     (void)pprintprocessorname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -676,11 +901,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DeletePrintProvidorA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pname, (void*)(uintptr_t)penvironment, (void*)(uintptr_t)pprintprovidorname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pname, (void*)(uintptr_t)penvironment, (void*)(uintptr_t)pprintprovidorname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pname;
     (void)penvironment;
     (void)pprintprovidorname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -696,11 +928,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DeletePrintProvidorW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pname, (void*)(uintptr_t)penvironment, (void*)(uintptr_t)pprintprovidorname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pname, (void*)(uintptr_t)penvironment, (void*)(uintptr_t)pprintprovidorname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pname;
     (void)penvironment;
     (void)pprintprovidorname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -716,9 +955,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DeletePrinterConnectionA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -734,9 +980,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DeletePrinterConnectionW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -752,11 +1005,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DeletePrinterDriverA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pname, (void*)(uintptr_t)penvironment, (void*)(uintptr_t)pdrivername) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pname, (void*)(uintptr_t)penvironment, (void*)(uintptr_t)pdrivername);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pname;
     (void)penvironment;
     (void)pdrivername;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -772,13 +1032,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DeletePrinterDriverExA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pname, (void*)(uintptr_t)penvironment, (void*)(uintptr_t)pdrivername, (uint32_t)dwdeleteflag, (uint32_t)dwversionflag) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pname, (void*)(uintptr_t)penvironment, (void*)(uintptr_t)pdrivername, (uint32_t)dwdeleteflag, (uint32_t)dwversionflag);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pname;
     (void)penvironment;
     (void)pdrivername;
     (void)dwdeleteflag;
     (void)dwversionflag;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -794,13 +1061,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DeletePrinterDriverExW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pname, (void*)(uintptr_t)penvironment, (void*)(uintptr_t)pdrivername, (uint32_t)dwdeleteflag, (uint32_t)dwversionflag) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pname, (void*)(uintptr_t)penvironment, (void*)(uintptr_t)pdrivername, (uint32_t)dwdeleteflag, (uint32_t)dwversionflag);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pname;
     (void)penvironment;
     (void)pdrivername;
     (void)dwdeleteflag;
     (void)dwversionflag;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -816,11 +1090,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DeletePrinterDriverPackageA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pszserver, (void*)(uintptr_t)pszinfpath, (void*)(uintptr_t)pszenvironment) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pszserver, (void*)(uintptr_t)pszinfpath, (void*)(uintptr_t)pszenvironment);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszserver;
     (void)pszinfpath;
     (void)pszenvironment;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -836,11 +1117,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DeletePrinterDriverPackageW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pszserver, (void*)(uintptr_t)pszinfpath, (void*)(uintptr_t)pszenvironment) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pszserver, (void*)(uintptr_t)pszinfpath, (void*)(uintptr_t)pszenvironment);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszserver;
     (void)pszinfpath;
     (void)pszenvironment;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -856,11 +1144,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DeletePrinterDriverW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pname, (void*)(uintptr_t)penvironment, (void*)(uintptr_t)pdrivername) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pname, (void*)(uintptr_t)penvironment, (void*)(uintptr_t)pdrivername);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pname;
     (void)penvironment;
     (void)pdrivername;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -876,9 +1171,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DeletePrinterIC");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hprinteric) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hprinteric);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprinteric;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -894,9 +1196,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DevQueryPrintEx");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pdqpinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pdqpinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pdqpinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -912,7 +1221,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "EnumMonitorsA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pname, (uint32_t)level, (void*)(uintptr_t)pmonitor, (uint32_t)cbbuf, (void*)(uintptr_t)pcbneeded, (void*)(uintptr_t)pcreturned) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pname, (uint32_t)level, (void*)(uintptr_t)pmonitor, (uint32_t)cbbuf, (void*)(uintptr_t)pcbneeded, (void*)(uintptr_t)pcreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pname;
     (void)level;
@@ -920,6 +1235,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     (void)cbbuf;
     (void)pcbneeded;
     (void)pcreturned;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -935,7 +1251,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "EnumMonitorsW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pname, (uint32_t)level, (void*)(uintptr_t)pmonitor, (uint32_t)cbbuf, (void*)(uintptr_t)pcbneeded, (void*)(uintptr_t)pcreturned) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pname, (uint32_t)level, (void*)(uintptr_t)pmonitor, (uint32_t)cbbuf, (void*)(uintptr_t)pcbneeded, (void*)(uintptr_t)pcreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pname;
     (void)level;
@@ -943,6 +1265,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     (void)cbbuf;
     (void)pcbneeded;
     (void)pcreturned;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -958,7 +1281,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "EnumPortsA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pname, (uint32_t)level, (void*)(uintptr_t)pport, (uint32_t)cbbuf, (void*)(uintptr_t)pcbneeded, (void*)(uintptr_t)pcreturned) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pname, (uint32_t)level, (void*)(uintptr_t)pport, (uint32_t)cbbuf, (void*)(uintptr_t)pcbneeded, (void*)(uintptr_t)pcreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pname;
     (void)level;
@@ -966,6 +1295,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     (void)cbbuf;
     (void)pcbneeded;
     (void)pcreturned;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -981,7 +1311,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "EnumPortsW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pname, (uint32_t)level, (void*)(uintptr_t)pport, (uint32_t)cbbuf, (void*)(uintptr_t)pcbneeded, (void*)(uintptr_t)pcreturned) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pname, (uint32_t)level, (void*)(uintptr_t)pport, (uint32_t)cbbuf, (void*)(uintptr_t)pcbneeded, (void*)(uintptr_t)pcreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pname;
     (void)level;
@@ -989,6 +1325,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     (void)cbbuf;
     (void)pcbneeded;
     (void)pcreturned;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1004,7 +1341,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "EnumPrintProcessorDatatypesA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pname, (void*)(uintptr_t)pprintprocessorname, (uint32_t)level, (void*)(uintptr_t)pdatatypes, (uint32_t)cbbuf, (void*)(uintptr_t)pcbneeded, (void*)(uintptr_t)pcreturned) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pname, (void*)(uintptr_t)pprintprocessorname, (uint32_t)level, (void*)(uintptr_t)pdatatypes, (uint32_t)cbbuf, (void*)(uintptr_t)pcbneeded, (void*)(uintptr_t)pcreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pname;
     (void)pprintprocessorname;
@@ -1013,6 +1356,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     (void)cbbuf;
     (void)pcbneeded;
     (void)pcreturned;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1028,7 +1372,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "EnumPrintProcessorDatatypesW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pname, (void*)(uintptr_t)pprintprocessorname, (uint32_t)level, (void*)(uintptr_t)pdatatypes, (uint32_t)cbbuf, (void*)(uintptr_t)pcbneeded, (void*)(uintptr_t)pcreturned) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pname, (void*)(uintptr_t)pprintprocessorname, (uint32_t)level, (void*)(uintptr_t)pdatatypes, (uint32_t)cbbuf, (void*)(uintptr_t)pcbneeded, (void*)(uintptr_t)pcreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pname;
     (void)pprintprocessorname;
@@ -1037,6 +1387,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     (void)cbbuf;
     (void)pcbneeded;
     (void)pcreturned;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1052,7 +1403,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "EnumPrintProcessorsA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pname, (void*)(uintptr_t)penvironment, (uint32_t)level, (void*)(uintptr_t)pprintprocessorinfo, (uint32_t)cbbuf, (void*)(uintptr_t)pcbneeded, (void*)(uintptr_t)pcreturned) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pname, (void*)(uintptr_t)penvironment, (uint32_t)level, (void*)(uintptr_t)pprintprocessorinfo, (uint32_t)cbbuf, (void*)(uintptr_t)pcbneeded, (void*)(uintptr_t)pcreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pname;
     (void)penvironment;
@@ -1061,6 +1418,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     (void)cbbuf;
     (void)pcbneeded;
     (void)pcreturned;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1076,7 +1434,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "EnumPrintProcessorsW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pname, (void*)(uintptr_t)penvironment, (uint32_t)level, (void*)(uintptr_t)pprintprocessorinfo, (uint32_t)cbbuf, (void*)(uintptr_t)pcbneeded, (void*)(uintptr_t)pcreturned) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pname, (void*)(uintptr_t)penvironment, (uint32_t)level, (void*)(uintptr_t)pprintprocessorinfo, (uint32_t)cbbuf, (void*)(uintptr_t)pcbneeded, (void*)(uintptr_t)pcreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pname;
     (void)penvironment;
@@ -1085,6 +1449,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     (void)cbbuf;
     (void)pcbneeded;
     (void)pcreturned;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1100,7 +1465,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "EnumPrinterDriversA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pname, (void*)(uintptr_t)penvironment, (uint32_t)level, (void*)(uintptr_t)pdriverinfo, (uint32_t)cbbuf, (void*)(uintptr_t)pcbneeded, (void*)(uintptr_t)pcreturned) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pname, (void*)(uintptr_t)penvironment, (uint32_t)level, (void*)(uintptr_t)pdriverinfo, (uint32_t)cbbuf, (void*)(uintptr_t)pcbneeded, (void*)(uintptr_t)pcreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pname;
     (void)penvironment;
@@ -1109,6 +1480,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     (void)cbbuf;
     (void)pcbneeded;
     (void)pcreturned;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1124,7 +1496,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "EnumPrinterDriversW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pname, (void*)(uintptr_t)penvironment, (uint32_t)level, (void*)(uintptr_t)pdriverinfo, (uint32_t)cbbuf, (void*)(uintptr_t)pcbneeded, (void*)(uintptr_t)pcreturned) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pname, (void*)(uintptr_t)penvironment, (uint32_t)level, (void*)(uintptr_t)pdriverinfo, (uint32_t)cbbuf, (void*)(uintptr_t)pcbneeded, (void*)(uintptr_t)pcreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pname;
     (void)penvironment;
@@ -1133,6 +1511,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     (void)cbbuf;
     (void)pcbneeded;
     (void)pcreturned;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1148,7 +1527,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "EnumPrintersA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)flags, (void*)(uintptr_t)name, (uint32_t)level, (void*)(uintptr_t)pprinterenum, (uint32_t)cbbuf, (void*)(uintptr_t)pcbneeded, (void*)(uintptr_t)pcreturned) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)flags, (void*)(uintptr_t)name, (uint32_t)level, (void*)(uintptr_t)pprinterenum, (uint32_t)cbbuf, (void*)(uintptr_t)pcbneeded, (void*)(uintptr_t)pcreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)flags;
     (void)name;
@@ -1157,6 +1542,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     (void)cbbuf;
     (void)pcbneeded;
     (void)pcreturned;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1172,7 +1558,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "EnumPrintersW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)flags, (void*)(uintptr_t)name, (uint32_t)level, (void*)(uintptr_t)pprinterenum, (uint32_t)cbbuf, (void*)(uintptr_t)pcbneeded, (void*)(uintptr_t)pcreturned) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)flags, (void*)(uintptr_t)name, (uint32_t)level, (void*)(uintptr_t)pprinterenum, (uint32_t)cbbuf, (void*)(uintptr_t)pcbneeded, (void*)(uintptr_t)pcreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)flags;
     (void)name;
@@ -1181,6 +1573,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     (void)cbbuf;
     (void)pcbneeded;
     (void)pcreturned;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1196,7 +1589,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ExtDeviceMode");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hwnd, (void*)(uintptr_t)hinst, (void*)(uintptr_t)pdevmodeoutput, (void*)(uintptr_t)pdevicename, (void*)(uintptr_t)pport, (void*)(uintptr_t)pdevmodeinput, (void*)(uintptr_t)pprofile, (uint32_t)fmode) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hwnd, (void*)(uintptr_t)hinst, (void*)(uintptr_t)pdevmodeoutput, (void*)(uintptr_t)pdevicename, (void*)(uintptr_t)pport, (void*)(uintptr_t)pdevmodeinput, (void*)(uintptr_t)pprofile, (uint32_t)fmode);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)hinst;
@@ -1206,6 +1605,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     (void)pdevmodeinput;
     (void)pprofile;
     (void)fmode;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1221,9 +1621,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "FindClosePrinterChangeNotification");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hchange) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hchange);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hchange;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1239,12 +1646,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "FindNextPrinterChangeNotification");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hchange, (void*)(uintptr_t)pdwchange, (void*)(uintptr_t)pvreserved, (void*)(uintptr_t)ppprinternotifyinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hchange, (void*)(uintptr_t)pdwchange, (void*)(uintptr_t)pvreserved, (void*)(uintptr_t)ppprinternotifyinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hchange;
     (void)pdwchange;
     (void)pvreserved;
     (void)ppprinternotifyinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1260,10 +1674,15 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "FreePrintNamedPropertyArray");
     }
-    if (km_fn_ptr != NULL) km_fn_ptr((uint32_t)cproperties, (void*)(uintptr_t)ppproperties);
+    if (km_fn_ptr != NULL) {
+        km_fn_ptr((uint32_t)cproperties, (void*)(uintptr_t)ppproperties);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)cproperties;
     (void)ppproperties;
+    errno = ENOSYS;
 #endif
 }
 
@@ -1277,9 +1696,14 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "FreePrintPropertyValue");
     }
-    if (km_fn_ptr != NULL) km_fn_ptr((void*)(uintptr_t)pvalue);
+    if (km_fn_ptr != NULL) {
+        km_fn_ptr((void*)(uintptr_t)pvalue);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pvalue;
+    errno = ENOSYS;
 #endif
 }
 
@@ -1293,9 +1717,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "FreePrinterNotifyInfo");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pprinternotifyinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pprinternotifyinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pprinternotifyinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1311,9 +1742,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GdiDeleteSpoolFileHandle");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)spoolfilehandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)spoolfilehandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)spoolfilehandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1329,9 +1767,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GdiEndDocEMF");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)spoolfilehandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)spoolfilehandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)spoolfilehandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1347,10 +1792,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GdiEndPageEMF");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)spoolfilehandle, (uint32_t)dwoptimization) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)spoolfilehandle, (uint32_t)dwoptimization);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)spoolfilehandle;
     (void)dwoptimization;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1366,9 +1818,16 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_grap
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GdiGetDC");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)spoolfilehandle) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)spoolfilehandle);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)spoolfilehandle;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -1384,12 +1843,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GdiGetDevmodeForPage");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)spoolfilehandle, (uint32_t)dwpagenumber, (void*)(uintptr_t)pcurrdm, (void*)(uintptr_t)plastdm) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)spoolfilehandle, (uint32_t)dwpagenumber, (void*)(uintptr_t)pcurrdm, (void*)(uintptr_t)plastdm);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)spoolfilehandle;
     (void)dwpagenumber;
     (void)pcurrdm;
     (void)plastdm;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1405,9 +1871,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GdiGetPageCount");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)spoolfilehandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)spoolfilehandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)spoolfilehandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -1423,11 +1896,18 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_grap
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GdiGetPageHandle");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)spoolfilehandle, (uint32_t)page, (void*)(uintptr_t)pdwpagetype) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)spoolfilehandle, (uint32_t)page, (void*)(uintptr_t)pdwpagetype);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)spoolfilehandle;
     (void)page;
     (void)pdwpagetype;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -1443,11 +1923,18 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_grap
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GdiGetSpoolFileHandle");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pwszprintername, (void*)(uintptr_t)pdevmode, (void*)(uintptr_t)pwszdocname) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pwszprintername, (void*)(uintptr_t)pdevmode, (void*)(uintptr_t)pwszdocname);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)pwszprintername;
     (void)pdevmode;
     (void)pwszdocname;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -1463,13 +1950,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GdiPlayPageEMF");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)spoolfilehandle, (void*)(uintptr_t)hemf, (void*)(uintptr_t)prectdocument, (void*)(uintptr_t)prectborder, (void*)(uintptr_t)prectclip) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)spoolfilehandle, (void*)(uintptr_t)hemf, (void*)(uintptr_t)prectdocument, (void*)(uintptr_t)prectborder, (void*)(uintptr_t)prectclip);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)spoolfilehandle;
     (void)hemf;
     (void)prectdocument;
     (void)prectborder;
     (void)prectclip;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1485,10 +1979,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GdiResetDCEMF");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)spoolfilehandle, (void*)(uintptr_t)pcurrdm) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)spoolfilehandle, (void*)(uintptr_t)pcurrdm);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)spoolfilehandle;
     (void)pcurrdm;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1504,10 +2005,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GdiStartDocEMF");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)spoolfilehandle, (void*)(uintptr_t)pdocinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)spoolfilehandle, (void*)(uintptr_t)pdocinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)spoolfilehandle;
     (void)pdocinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1523,9 +2031,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GdiStartPageEMF");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)spoolfilehandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)spoolfilehandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)spoolfilehandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1541,7 +2056,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GenerateCopyFilePaths");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pszprintername, (void*)(uintptr_t)pszdirectory, (void*)(uintptr_t)psplclientinfo, (uint32_t)dwlevel, (void*)(uintptr_t)pszsourcedir, (void*)(uintptr_t)pcchsourcedirsize, (void*)(uintptr_t)psztargetdir, (void*)(uintptr_t)pcchtargetdirsize, (uint32_t)dwflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pszprintername, (void*)(uintptr_t)pszdirectory, (void*)(uintptr_t)psplclientinfo, (uint32_t)dwlevel, (void*)(uintptr_t)pszsourcedir, (void*)(uintptr_t)pcchsourcedirsize, (void*)(uintptr_t)psztargetdir, (void*)(uintptr_t)pcchtargetdirsize, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pszprintername;
     (void)pszdirectory;
@@ -1552,6 +2073,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     (void)psztargetdir;
     (void)pcchtargetdirsize;
     (void)dwflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -1567,9 +2089,16 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_grap
         HMODULE km_h_mod = LoadLibraryA("compstui.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetCPSUIUserData");
     }
-    uint64_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hdlg) : 0;
+    uint64_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hdlg);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hdlg;
+    errno = ENOSYS;
     uint64_t km_res = 0;
 #endif
     return (jlong)km_res;
@@ -1585,13 +2114,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetCorePrinterDriversA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pszserver, (void*)(uintptr_t)pszenvironment, (void*)(uintptr_t)pszzcoredriverdependencies, (uint32_t)ccoreprinterdrivers, (void*)(uintptr_t)pcoreprinterdrivers) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pszserver, (void*)(uintptr_t)pszenvironment, (void*)(uintptr_t)pszzcoredriverdependencies, (uint32_t)ccoreprinterdrivers, (void*)(uintptr_t)pcoreprinterdrivers);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszserver;
     (void)pszenvironment;
     (void)pszzcoredriverdependencies;
     (void)ccoreprinterdrivers;
     (void)pcoreprinterdrivers;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1607,13 +2143,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetCorePrinterDriversW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pszserver, (void*)(uintptr_t)pszenvironment, (void*)(uintptr_t)pszzcoredriverdependencies, (uint32_t)ccoreprinterdrivers, (void*)(uintptr_t)pcoreprinterdrivers) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pszserver, (void*)(uintptr_t)pszenvironment, (void*)(uintptr_t)pszzcoredriverdependencies, (uint32_t)ccoreprinterdrivers, (void*)(uintptr_t)pcoreprinterdrivers);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszserver;
     (void)pszenvironment;
     (void)pszzcoredriverdependencies;
     (void)ccoreprinterdrivers;
     (void)pcoreprinterdrivers;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1629,10 +2172,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetDefaultPrinterA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pszbuffer, (void*)(uintptr_t)pcchbuffer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pszbuffer, (void*)(uintptr_t)pcchbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszbuffer;
     (void)pcchbuffer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1648,10 +2198,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetDefaultPrinterW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pszbuffer, (void*)(uintptr_t)pcchbuffer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pszbuffer, (void*)(uintptr_t)pcchbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszbuffer;
     (void)pcchbuffer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1667,11 +2224,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("spoolss.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetJobAttributes");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pprintername, (void*)(uintptr_t)pdevmode, (void*)(uintptr_t)pattributeinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pprintername, (void*)(uintptr_t)pdevmode, (void*)(uintptr_t)pattributeinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pprintername;
     (void)pdevmode;
     (void)pattributeinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1687,7 +2251,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("spoolss.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetJobAttributesEx");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pprintername, (void*)(uintptr_t)pdevmode, (uint32_t)dwlevel, (void*)(uintptr_t)pattributeinfo, (uint32_t)nsize, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pprintername, (void*)(uintptr_t)pdevmode, (uint32_t)dwlevel, (void*)(uintptr_t)pattributeinfo, (uint32_t)nsize, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pprintername;
     (void)pdevmode;
@@ -1695,6 +2265,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     (void)pattributeinfo;
     (void)nsize;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1710,9 +2281,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetPrintExecutionData");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pdata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pdata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pdata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1728,12 +2306,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetPrintOutputInfo");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hwnd, (void*)(uintptr_t)pszprinter, (void*)(uintptr_t)phfile, (void*)(uintptr_t)ppszoutputfile) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hwnd, (void*)(uintptr_t)pszprinter, (void*)(uintptr_t)phfile, (void*)(uintptr_t)ppszoutputfile);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)pszprinter;
     (void)phfile;
     (void)ppszoutputfile;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1749,7 +2334,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetPrintProcessorDirectoryA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pname, (void*)(uintptr_t)penvironment, (uint32_t)level, (void*)(uintptr_t)pprintprocessorinfo, (uint32_t)cbbuf, (void*)(uintptr_t)pcbneeded) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pname, (void*)(uintptr_t)penvironment, (uint32_t)level, (void*)(uintptr_t)pprintprocessorinfo, (uint32_t)cbbuf, (void*)(uintptr_t)pcbneeded);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pname;
     (void)penvironment;
@@ -1757,6 +2348,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     (void)pprintprocessorinfo;
     (void)cbbuf;
     (void)pcbneeded;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1772,7 +2364,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetPrintProcessorDirectoryW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pname, (void*)(uintptr_t)penvironment, (uint32_t)level, (void*)(uintptr_t)pprintprocessorinfo, (uint32_t)cbbuf, (void*)(uintptr_t)pcbneeded) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pname, (void*)(uintptr_t)penvironment, (uint32_t)level, (void*)(uintptr_t)pprintprocessorinfo, (uint32_t)cbbuf, (void*)(uintptr_t)pcbneeded);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pname;
     (void)penvironment;
@@ -1780,6 +2378,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     (void)pprintprocessorinfo;
     (void)cbbuf;
     (void)pcbneeded;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1795,7 +2394,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetPrinterDriverDirectoryA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pname, (void*)(uintptr_t)penvironment, (uint32_t)level, (void*)(uintptr_t)pdriverdirectory, (uint32_t)cbbuf, (void*)(uintptr_t)pcbneeded) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pname, (void*)(uintptr_t)penvironment, (uint32_t)level, (void*)(uintptr_t)pdriverdirectory, (uint32_t)cbbuf, (void*)(uintptr_t)pcbneeded);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pname;
     (void)penvironment;
@@ -1803,6 +2408,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     (void)pdriverdirectory;
     (void)cbbuf;
     (void)pcbneeded;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1818,7 +2424,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetPrinterDriverDirectoryW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pname, (void*)(uintptr_t)penvironment, (uint32_t)level, (void*)(uintptr_t)pdriverdirectory, (uint32_t)cbbuf, (void*)(uintptr_t)pcbneeded) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pname, (void*)(uintptr_t)penvironment, (uint32_t)level, (void*)(uintptr_t)pdriverdirectory, (uint32_t)cbbuf, (void*)(uintptr_t)pcbneeded);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pname;
     (void)penvironment;
@@ -1826,6 +2438,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     (void)pdriverdirectory;
     (void)cbbuf;
     (void)pcbneeded;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1841,7 +2454,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetPrinterDriverPackagePathA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pszserver, (void*)(uintptr_t)pszenvironment, (void*)(uintptr_t)pszlanguage, (void*)(uintptr_t)pszpackageid, (void*)(uintptr_t)pszdriverpackagecab, (uint32_t)cchdriverpackagecab, (void*)(uintptr_t)pcchrequiredsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pszserver, (void*)(uintptr_t)pszenvironment, (void*)(uintptr_t)pszlanguage, (void*)(uintptr_t)pszpackageid, (void*)(uintptr_t)pszdriverpackagecab, (uint32_t)cchdriverpackagecab, (void*)(uintptr_t)pcchrequiredsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszserver;
     (void)pszenvironment;
@@ -1850,6 +2469,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     (void)pszdriverpackagecab;
     (void)cchdriverpackagecab;
     (void)pcchrequiredsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1865,7 +2485,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetPrinterDriverPackagePathW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pszserver, (void*)(uintptr_t)pszenvironment, (void*)(uintptr_t)pszlanguage, (void*)(uintptr_t)pszpackageid, (void*)(uintptr_t)pszdriverpackagecab, (uint32_t)cchdriverpackagecab, (void*)(uintptr_t)pcchrequiredsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pszserver, (void*)(uintptr_t)pszenvironment, (void*)(uintptr_t)pszlanguage, (void*)(uintptr_t)pszpackageid, (void*)(uintptr_t)pszdriverpackagecab, (uint32_t)cchdriverpackagecab, (void*)(uintptr_t)pcchrequiredsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszserver;
     (void)pszenvironment;
@@ -1874,6 +2500,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     (void)pszdriverpackagecab;
     (void)cchdriverpackagecab;
     (void)pcchrequiredsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1889,9 +2516,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("spoolss.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ImpersonatePrinterClient");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)htoken) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)htoken);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)htoken;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1907,13 +2541,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "InstallPrinterDriverFromPackageA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pszserver, (void*)(uintptr_t)pszinfpath, (void*)(uintptr_t)pszdrivername, (void*)(uintptr_t)pszenvironment, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pszserver, (void*)(uintptr_t)pszinfpath, (void*)(uintptr_t)pszdrivername, (void*)(uintptr_t)pszenvironment, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszserver;
     (void)pszinfpath;
     (void)pszdrivername;
     (void)pszenvironment;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1929,13 +2570,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "InstallPrinterDriverFromPackageW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pszserver, (void*)(uintptr_t)pszinfpath, (void*)(uintptr_t)pszdrivername, (void*)(uintptr_t)pszenvironment, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pszserver, (void*)(uintptr_t)pszinfpath, (void*)(uintptr_t)pszdrivername, (void*)(uintptr_t)pszenvironment, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszserver;
     (void)pszinfpath;
     (void)pszdrivername;
     (void)pszenvironment;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1951,10 +2599,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "IsValidDevmodeA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pdevmode, (uint64_t)devmodesize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pdevmode, (uint64_t)devmodesize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pdevmode;
     (void)devmodesize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1970,10 +2625,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "IsValidDevmodeW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pdevmode, (uint64_t)devmodesize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pdevmode, (uint64_t)devmodesize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pdevmode;
     (void)devmodesize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1989,12 +2651,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OpenPrinter2A");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pprintername, (void*)(uintptr_t)phprinter, (void*)(uintptr_t)pdefault, (void*)(uintptr_t)poptions) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pprintername, (void*)(uintptr_t)phprinter, (void*)(uintptr_t)pdefault, (void*)(uintptr_t)poptions);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pprintername;
     (void)phprinter;
     (void)pdefault;
     (void)poptions;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -2010,12 +2679,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OpenPrinter2W");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pprintername, (void*)(uintptr_t)phprinter, (void*)(uintptr_t)pdefault, (void*)(uintptr_t)poptions) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pprintername, (void*)(uintptr_t)phprinter, (void*)(uintptr_t)pdefault, (void*)(uintptr_t)poptions);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pprintername;
     (void)phprinter;
     (void)pdefault;
     (void)poptions;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -2031,11 +2707,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OpenPrinterA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pprintername, (void*)(uintptr_t)phprinter, (void*)(uintptr_t)pdefault) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pprintername, (void*)(uintptr_t)phprinter, (void*)(uintptr_t)pdefault);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pprintername;
     (void)phprinter;
     (void)pdefault;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -2051,11 +2734,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OpenPrinterW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pprintername, (void*)(uintptr_t)phprinter, (void*)(uintptr_t)pdefault) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pprintername, (void*)(uintptr_t)phprinter, (void*)(uintptr_t)pdefault);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pprintername;
     (void)phprinter;
     (void)pdefault;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -2071,7 +2761,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PlayGdiScriptOnPrinterIC");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hprinteric, (void*)(uintptr_t)pin, (uint32_t)cin, (void*)(uintptr_t)pout, (uint32_t)cout, (uint32_t)ul) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hprinteric, (void*)(uintptr_t)pin, (uint32_t)cin, (void*)(uintptr_t)pout, (uint32_t)cout, (uint32_t)ul);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprinteric;
     (void)pin;
@@ -2079,6 +2775,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     (void)pout;
     (void)cout;
     (void)ul;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -2094,7 +2791,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "RegisterForPrintAsyncNotifications");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pszname, (void*)(uintptr_t)pnotificationtype, (int32_t)euserfilter, (int32_t)econversationstyle, (void*)(uintptr_t)pcallback, (void*)(uintptr_t)phnotify) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pszname, (void*)(uintptr_t)pnotificationtype, (int32_t)euserfilter, (int32_t)econversationstyle, (void*)(uintptr_t)pcallback, (void*)(uintptr_t)phnotify);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszname;
     (void)pnotificationtype;
@@ -2102,6 +2805,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     (void)econversationstyle;
     (void)pcallback;
     (void)phnotify;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -2117,9 +2821,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("spoolss.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "RemovePrintDeviceObject");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hdeviceobject) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hdeviceobject);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdeviceobject;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -2135,13 +2846,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("spoolss.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ReplyPrinterChangeNotificationEx");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hnotify, (uint32_t)dwcolor, (uint32_t)fdwflags, (void*)(uintptr_t)pdwresult, (void*)(uintptr_t)pprinternotifyinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hnotify, (uint32_t)dwcolor, (uint32_t)fdwflags, (void*)(uintptr_t)pdwresult, (void*)(uintptr_t)pprinternotifyinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hnotify;
     (void)dwcolor;
     (void)fdwflags;
     (void)pdwresult;
     (void)pprinternotifyinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -2157,12 +2875,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ReportJobProcessingProgress");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)printerhandle, (uint32_t)jobid, (int32_t)joboperation, (int32_t)jobprogress) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)printerhandle, (uint32_t)jobid, (int32_t)joboperation, (int32_t)jobprogress);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)printerhandle;
     (void)jobid;
     (void)joboperation;
     (void)jobprogress;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -2178,8 +2903,15 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_grap
         HMODULE km_h_mod = LoadLibraryA("spoolss.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "RevertToPrinterSelf");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr() : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -2195,9 +2927,16 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_grap
         HMODULE km_h_mod = LoadLibraryA("spoolss.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "RouterAllocBidiMem");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)numbytes) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)numbytes);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)numbytes;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -2213,9 +2952,16 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_grap
         HMODULE km_h_mod = LoadLibraryA("spoolss.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "RouterAllocBidiResponseContainer");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)count) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)count);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)count;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -2231,9 +2977,16 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_grap
         HMODULE km_h_mod = LoadLibraryA("spoolss.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "RouterAllocPrinterNotifyInfo");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)cprinternotifyinfodata) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)cprinternotifyinfodata);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)cprinternotifyinfodata;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -2249,9 +3002,14 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("spoolss.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "RouterFreeBidiMem");
     }
-    if (km_fn_ptr != NULL) km_fn_ptr((void*)(uintptr_t)pmempointer);
+    if (km_fn_ptr != NULL) {
+        km_fn_ptr((void*)(uintptr_t)pmempointer);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pmempointer;
+    errno = ENOSYS;
 #endif
 }
 
@@ -2265,9 +3023,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "RouterFreeBidiResponseContainer");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pdata) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pdata);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pdata;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -2283,9 +3048,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("spoolss.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "RouterFreePrinterNotifyInfo");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -2301,10 +3073,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("compstui.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SetCPSUIUserData");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hdlg, (uint64_t)cpsuiuserdata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hdlg, (uint64_t)cpsuiuserdata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdlg;
     (void)cpsuiuserdata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -2320,9 +3099,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SetDefaultPrinterA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pszprinter) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pszprinter);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszprinter;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -2338,9 +3124,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SetDefaultPrinterW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pszprinter) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pszprinter);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszprinter;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -2356,12 +3149,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SetPortA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pname, (void*)(uintptr_t)pportname, (uint32_t)dwlevel, (void*)(uintptr_t)pportinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pname, (void*)(uintptr_t)pportname, (uint32_t)dwlevel, (void*)(uintptr_t)pportinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pname;
     (void)pportname;
     (void)dwlevel;
     (void)pportinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -2377,12 +3177,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SetPortW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pname, (void*)(uintptr_t)pportname, (uint32_t)dwlevel, (void*)(uintptr_t)pportinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pname, (void*)(uintptr_t)pportname, (uint32_t)dwlevel, (void*)(uintptr_t)pportinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pname;
     (void)pportname;
     (void)dwlevel;
     (void)pportinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -2398,11 +3205,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SpoolerCopyFileEvent");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pszprintername, (void*)(uintptr_t)pszkey, (uint32_t)dwcopyfileevent) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pszprintername, (void*)(uintptr_t)pszkey, (uint32_t)dwcopyfileevent);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszprintername;
     (void)pszkey;
     (void)dwcopyfileevent;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -2418,9 +3232,14 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("spoolss.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SpoolerFreePrinterNotifyInfo");
     }
-    if (km_fn_ptr != NULL) km_fn_ptr((void*)(uintptr_t)pinfo);
+    if (km_fn_ptr != NULL) {
+        km_fn_ptr((void*)(uintptr_t)pinfo);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pinfo;
+    errno = ENOSYS;
 #endif
 }
 
@@ -2434,9 +3253,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "UnRegisterForPrintAsyncNotifications");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)param0) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)param0);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)param0;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -2452,7 +3278,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "UploadPrinterDriverPackageA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pszserver, (void*)(uintptr_t)pszinfpath, (void*)(uintptr_t)pszenvironment, (uint32_t)dwflags, (void*)(uintptr_t)hwnd, (void*)(uintptr_t)pszdestinfpath, (void*)(uintptr_t)pcchdestinfpath) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pszserver, (void*)(uintptr_t)pszinfpath, (void*)(uintptr_t)pszenvironment, (uint32_t)dwflags, (void*)(uintptr_t)hwnd, (void*)(uintptr_t)pszdestinfpath, (void*)(uintptr_t)pcchdestinfpath);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszserver;
     (void)pszinfpath;
@@ -2461,6 +3293,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     (void)hwnd;
     (void)pszdestinfpath;
     (void)pcchdestinfpath;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -2476,7 +3309,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "UploadPrinterDriverPackageW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pszserver, (void*)(uintptr_t)pszinfpath, (void*)(uintptr_t)pszenvironment, (uint32_t)dwflags, (void*)(uintptr_t)hwnd, (void*)(uintptr_t)pszdestinfpath, (void*)(uintptr_t)pcchdestinfpath) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pszserver, (void*)(uintptr_t)pszinfpath, (void*)(uintptr_t)pszenvironment, (uint32_t)dwflags, (void*)(uintptr_t)hwnd, (void*)(uintptr_t)pszdestinfpath, (void*)(uintptr_t)pcchdestinfpath);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszserver;
     (void)pszinfpath;
@@ -2485,6 +3324,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     (void)hwnd;
     (void)pszdestinfpath;
     (void)pcchdestinfpath;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -2500,7 +3340,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
         HMODULE km_h_mod = LoadLibraryA("winspool.drv");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "XcvDataW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hxcv, (void*)(uintptr_t)pszdataname, (void*)(uintptr_t)pinputdata, (uint32_t)cbinputdata, (void*)(uintptr_t)poutputdata, (uint32_t)cboutputdata, (void*)(uintptr_t)pcboutputneeded, (void*)(uintptr_t)pdwstatus) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hxcv, (void*)(uintptr_t)pszdataname, (void*)(uintptr_t)pinputdata, (uint32_t)cbinputdata, (void*)(uintptr_t)poutputdata, (uint32_t)cboutputdata, (void*)(uintptr_t)pcboutputneeded, (void*)(uintptr_t)pdwstatus);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hxcv;
     (void)pszdataname;
@@ -2510,6 +3356,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_graph
     (void)cboutputdata;
     (void)pcboutputneeded;
     (void)pdwstatus;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;

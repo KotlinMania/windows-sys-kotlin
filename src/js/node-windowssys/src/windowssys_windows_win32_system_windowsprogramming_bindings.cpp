@@ -64,12 +64,19 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_addDelBack
         HMODULE km_h_mod = LoadLibraryA("advpack.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AddDelBackupEntryA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpcszfilelist, lpcszbackupdir, lpcszbasename, dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpcszfilelist, lpcszbackupdir, lpcszbasename, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpcszfilelist;
     (void)lpcszbackupdir;
     (void)lpcszbasename;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -88,12 +95,19 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_addDelBack
         HMODULE km_h_mod = LoadLibraryA("advpack.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AddDelBackupEntryW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpcszfilelist, lpcszbackupdir, lpcszbasename, dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpcszfilelist, lpcszbackupdir, lpcszbasename, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpcszfilelist;
     (void)lpcszbackupdir;
     (void)lpcszbasename;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -115,7 +129,13 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_advInstall
         HMODULE km_h_mod = LoadLibraryA("advpack.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AdvInstallFileA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, lpszsourcedir, lpszsourcefile, lpszdestdir, lpszdestfile, dwflags, dwreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, lpszsourcedir, lpszsourcefile, lpszdestdir, lpszdestfile, dwflags, dwreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)lpszsourcedir;
@@ -124,6 +144,7 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_advInstall
     (void)lpszdestfile;
     (void)dwflags;
     (void)dwreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -145,7 +166,13 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_advInstall
         HMODULE km_h_mod = LoadLibraryA("advpack.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AdvInstallFileW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, lpszsourcedir, lpszsourcefile, lpszdestdir, lpszdestfile, dwflags, dwreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, lpszsourcedir, lpszsourcefile, lpszdestdir, lpszdestfile, dwflags, dwreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)lpszsourcedir;
@@ -154,6 +181,7 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_advInstall
     (void)lpszdestfile;
     (void)dwflags;
     (void)dwreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -171,11 +199,18 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_apphelpChe
         HMODULE km_h_mod = LoadLibraryA("apphelp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ApphelpCheckShellObject")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(objectclsid, bshimifnecessary, pullflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(objectclsid, bshimifnecessary, pullflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)objectclsid;
     (void)bshimifnecessary;
     (void)pullflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -191,9 +226,16 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_cancelDevi
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CancelDeviceWakeupRequest")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdevice) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdevice);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdevice;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -209,9 +251,16 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_closeINFEn
         HMODULE km_h_mod = LoadLibraryA("advpack.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CloseINFEngine")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hinf) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hinf);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hinf;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -229,11 +278,18 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_convertAux
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-core-realtime-l1-1-2.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ConvertAuxiliaryCounterToPerformanceCounter")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ullauxiliarycountervalue, lpperformancecountervalue, lpconversionerror) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ullauxiliarycountervalue, lpperformancecountervalue, lpconversionerror);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ullauxiliarycountervalue;
     (void)lpperformancecountervalue;
     (void)lpconversionerror;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -251,11 +307,18 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_convertPer
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-core-realtime-l1-1-2.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ConvertPerformanceCounterToAuxiliaryCounter")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ullperformancecountervalue, lpauxiliarycountervalue, lpconversionerror) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ullperformancecountervalue, lpauxiliarycountervalue, lpconversionerror);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ullperformancecountervalue;
     (void)lpauxiliarycountervalue;
     (void)lpconversionerror;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -275,13 +338,20 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_dCIBeginAc
         HMODULE km_h_mod = LoadLibraryA("dciman32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DCIBeginAccess")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pdci, x, y, dx, dy) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pdci, x, y, dx, dy);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pdci;
     (void)x;
     (void)y;
     (void)dx;
     (void)dy;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -297,9 +367,14 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_dCIClosePr
         HMODULE km_h_mod = LoadLibraryA("dciman32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DCICloseProvider")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(hdc);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(hdc);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)hdc;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -323,7 +398,13 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_dCICreateO
         HMODULE km_h_mod = LoadLibraryA("dciman32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DCICreateOffscreen")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, dwcompression, dwredmask, dwgreenmask, dwbluemask, dwwidth, dwheight, dwdcicaps, dwbitcount, lplpsurface) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, dwcompression, dwredmask, dwgreenmask, dwbluemask, dwwidth, dwheight, dwdcicaps, dwbitcount, lplpsurface);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)dwcompression;
@@ -335,6 +416,7 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_dCICreateO
     (void)dwdcicaps;
     (void)dwbitcount;
     (void)lplpsurface;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -352,11 +434,18 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_dCICreateO
         HMODULE km_h_mod = LoadLibraryA("dciman32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DCICreateOverlay")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, lpoffscreensurf, lplpsurface) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, lpoffscreensurf, lplpsurface);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)lpoffscreensurf;
     (void)lplpsurface;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -373,10 +462,17 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_dCICreateP
         HMODULE km_h_mod = LoadLibraryA("dciman32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DCICreatePrimary")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, lplpsurface) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, lplpsurface);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)lplpsurface;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -392,9 +488,14 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_dCIDestroy
         HMODULE km_h_mod = LoadLibraryA("dciman32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DCIDestroy")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pdci);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pdci);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pdci;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -409,9 +510,16 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_dCIDraw_na
         HMODULE km_h_mod = LoadLibraryA("dciman32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DCIDraw")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pdci) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pdci);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pdci;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -427,9 +535,14 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_dCIEndAcce
         HMODULE km_h_mod = LoadLibraryA("dciman32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DCIEndAccess")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pdci);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pdci);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pdci;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -448,13 +561,20 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_dCIEnum_na
         HMODULE km_h_mod = LoadLibraryA("dciman32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DCIEnum")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, lprdst, lprsrc, lpfncallback, lpcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, lprdst, lprsrc, lpfncallback, lpcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)lprdst;
     (void)lprsrc;
     (void)lpfncallback;
     (void)lpcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -469,9 +589,16 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_dCIOpenPro
         HMODULE km_h_mod = LoadLibraryA("dciman32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DCIOpenProvider")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -487,10 +614,17 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_dCISetClip
         HMODULE km_h_mod = LoadLibraryA("dciman32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DCISetClipList")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pdci, prd) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pdci, prd);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pdci;
     (void)prd;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -508,11 +642,18 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_dCISetDest
         HMODULE km_h_mod = LoadLibraryA("dciman32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DCISetDestination")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pdci, dst, src) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pdci, dst, src);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pdci;
     (void)dst;
     (void)src;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -531,12 +672,19 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_dCISetSrcD
         HMODULE km_h_mod = LoadLibraryA("dciman32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DCISetSrcDestClip")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pdci, srcrc, destrc, prd) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pdci, srcrc, destrc, prd);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pdci;
     (void)srcrc;
     (void)destrc;
     (void)prd;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -553,10 +701,17 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_delNodeA_n
         HMODULE km_h_mod = LoadLibraryA("advpack.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DelNodeA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszfileordirname, dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszfileordirname, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszfileordirname;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -575,12 +730,19 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_delNodeRun
         HMODULE km_h_mod = LoadLibraryA("advpack.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DelNodeRunDLL32W")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, hinstance, pszparms, nshow) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, hinstance, pszparms, nshow);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)hinstance;
     (void)pszparms;
     (void)nshow;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -597,10 +759,17 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_delNodeW_n
         HMODULE km_h_mod = LoadLibraryA("advpack.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DelNodeW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszfileordirname, dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszfileordirname, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszfileordirname;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -618,11 +787,18 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_dnsHostnam
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DnsHostnameToComputerNameA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hostname, computername, nsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hostname, computername, nsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hostname;
     (void)computername;
     (void)nsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -640,11 +816,18 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_dnsHostnam
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DnsHostnameToComputerNameW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hostname, computername, nsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hostname, computername, nsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hostname;
     (void)computername;
     (void)nsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -662,11 +845,18 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_dosDateTim
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DosDateTimeToFileTime")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(wfatdate, wfattime, lpfiletime) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(wfatdate, wfattime, lpfiletime);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)wfatdate;
     (void)wfattime;
     (void)lpfiletime;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -682,9 +872,16 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_enableProc
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EnableProcessOptionalXStateFeatures")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(features) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(features);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)features;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -702,11 +899,18 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_executeCab
         HMODULE km_h_mod = LoadLibraryA("advpack.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ExecuteCabA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, pcab, preserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, pcab, preserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)pcab;
     (void)preserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -724,11 +928,18 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_executeCab
         HMODULE km_h_mod = LoadLibraryA("advpack.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ExecuteCabW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, pcab, preserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, pcab, preserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)pcab;
     (void)preserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -749,7 +960,13 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_extractFil
         HMODULE km_h_mod = LoadLibraryA("advpack.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ExtractFilesA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszcabname, pszexpanddir, dwflags, pszfilelist, lpreserved, dwreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszcabname, pszexpanddir, dwflags, pszfilelist, lpreserved, dwreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszcabname;
     (void)pszexpanddir;
@@ -757,6 +974,7 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_extractFil
     (void)pszfilelist;
     (void)lpreserved;
     (void)dwreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -777,7 +995,13 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_extractFil
         HMODULE km_h_mod = LoadLibraryA("advpack.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ExtractFilesW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszcabname, pszexpanddir, dwflags, pszfilelist, lpreserved, dwreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszcabname, pszexpanddir, dwflags, pszfilelist, lpreserved, dwreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszcabname;
     (void)pszexpanddir;
@@ -785,6 +1009,7 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_extractFil
     (void)pszfilelist;
     (void)lpreserved;
     (void)dwreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -802,11 +1027,18 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_fileSaveMa
         HMODULE km_h_mod = LoadLibraryA("advpack.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FileSaveMarkNotExistA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpfilelist, lpdir, lpbasename) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpfilelist, lpdir, lpbasename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpfilelist;
     (void)lpdir;
     (void)lpbasename;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -824,11 +1056,18 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_fileSaveMa
         HMODULE km_h_mod = LoadLibraryA("advpack.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FileSaveMarkNotExistW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpfilelist, lpdir, lpbasename) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpfilelist, lpdir, lpbasename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpfilelist;
     (void)lpdir;
     (void)lpbasename;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -850,7 +1089,13 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_fileSaveRe
         HMODULE km_h_mod = LoadLibraryA("advpack.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FileSaveRestoreOnINFA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, psztitle, pszinf, pszsection, pszbackupdir, pszbasebackupfile, dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, psztitle, pszinf, pszsection, pszbackupdir, pszbasebackupfile, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)psztitle;
@@ -859,6 +1104,7 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_fileSaveRe
     (void)pszbackupdir;
     (void)pszbasebackupfile;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -880,7 +1126,13 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_fileSaveRe
         HMODULE km_h_mod = LoadLibraryA("advpack.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FileSaveRestoreOnINFW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, psztitle, pszinf, pszsection, pszbackupdir, pszbasebackupfile, dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, psztitle, pszinf, pszsection, pszbackupdir, pszbasebackupfile, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)psztitle;
@@ -889,6 +1141,7 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_fileSaveRe
     (void)pszbackupdir;
     (void)pszbasebackupfile;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -908,13 +1161,20 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_fileSaveRe
         HMODULE km_h_mod = LoadLibraryA("advpack.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FileSaveRestoreW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdlg, lpfilelist, lpdir, lpbasename, dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdlg, lpfilelist, lpdir, lpbasename, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdlg;
     (void)lpfilelist;
     (void)lpdir;
     (void)lpbasename;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -932,11 +1192,18 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_fileTimeTo
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FileTimeToDosDateTime")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpfiletime, lpfatdate, lpfattime) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpfiletime, lpfatdate, lpfattime);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpfiletime;
     (void)lpfatdate;
     (void)lpfattime;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -951,8 +1218,15 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_gdiEntry13
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-dx-d3dkmt-l1-1-0.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GdiEntry13")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -969,10 +1243,17 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_getCompute
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetComputerNameA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpbuffer, nsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpbuffer, nsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpbuffer;
     (void)nsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -989,10 +1270,17 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_getCompute
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetComputerNameW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpbuffer, nsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpbuffer, nsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpbuffer;
     (void)nsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1008,9 +1296,16 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_getCurrent
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetCurrentHwProfileA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lphwprofileinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lphwprofileinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lphwprofileinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1026,9 +1321,16 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_getCurrent
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetCurrentHwProfileW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lphwprofileinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lphwprofileinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lphwprofileinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1046,11 +1348,18 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_getDCRegio
         HMODULE km_h_mod = LoadLibraryA("dciman32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetDCRegionData")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdc, size, prd) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdc, size, prd);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hdc;
     (void)size;
     (void)prd;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1067,10 +1376,17 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_getFeature
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-core-featurestaging-l1-1-0.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetFeatureEnabledState")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(featureid, changetime) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(featureid, changetime);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)featureid;
     (void)changetime;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1089,12 +1405,19 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_getFeature
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-core-featurestaging-l1-1-1.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetFeatureVariant")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(featureid, changetime, payloadid, hasnotification) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(featureid, changetime, payloadid, hasnotification);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)featureid;
     (void)changetime;
     (void)payloadid;
     (void)hasnotification;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1113,12 +1436,19 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_getFirmwar
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetFirmwareEnvironmentVariableA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpname, lpguid, pbuffer, nsize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpname, lpguid, pbuffer, nsize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpname;
     (void)lpguid;
     (void)pbuffer;
     (void)nsize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1138,13 +1468,20 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_getFirmwar
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetFirmwareEnvironmentVariableExA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpname, lpguid, pbuffer, nsize, pdwattribubutes) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpname, lpguid, pbuffer, nsize, pdwattribubutes);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpname;
     (void)lpguid;
     (void)pbuffer;
     (void)nsize;
     (void)pdwattribubutes;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1164,13 +1501,20 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_getFirmwar
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetFirmwareEnvironmentVariableExW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpname, lpguid, pbuffer, nsize, pdwattribubutes) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpname, lpguid, pbuffer, nsize, pdwattribubutes);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpname;
     (void)lpguid;
     (void)pbuffer;
     (void)nsize;
     (void)pdwattribubutes;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1189,12 +1533,19 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_getFirmwar
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetFirmwareEnvironmentVariableW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpname, lpguid, pbuffer, nsize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpname, lpguid, pbuffer, nsize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpname;
     (void)lpguid;
     (void)pbuffer;
     (void)nsize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1213,12 +1564,19 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_getPrivate
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetPrivateProfileIntA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpappname, lpkeyname, ndefault, lpfilename) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpappname, lpkeyname, ndefault, lpfilename);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpappname;
     (void)lpkeyname;
     (void)ndefault;
     (void)lpfilename;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1237,12 +1595,19 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_getPrivate
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetPrivateProfileIntW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpappname, lpkeyname, ndefault, lpfilename) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpappname, lpkeyname, ndefault, lpfilename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpappname;
     (void)lpkeyname;
     (void)ndefault;
     (void)lpfilename;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1261,12 +1626,19 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_getPrivate
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetPrivateProfileSectionA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpappname, lpreturnedstring, nsize, lpfilename) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpappname, lpreturnedstring, nsize, lpfilename);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpappname;
     (void)lpreturnedstring;
     (void)nsize;
     (void)lpfilename;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1284,11 +1656,18 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_getPrivate
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetPrivateProfileSectionNamesA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszreturnbuffer, nsize, lpfilename) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszreturnbuffer, nsize, lpfilename);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpszreturnbuffer;
     (void)nsize;
     (void)lpfilename;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1306,11 +1685,18 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_getPrivate
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetPrivateProfileSectionNamesW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszreturnbuffer, nsize, lpfilename) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszreturnbuffer, nsize, lpfilename);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpszreturnbuffer;
     (void)nsize;
     (void)lpfilename;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1329,12 +1715,19 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_getPrivate
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetPrivateProfileSectionW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpappname, lpreturnedstring, nsize, lpfilename) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpappname, lpreturnedstring, nsize, lpfilename);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpappname;
     (void)lpreturnedstring;
     (void)nsize;
     (void)lpfilename;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1355,7 +1748,13 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_getPrivate
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetPrivateProfileStringA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpappname, lpkeyname, lpdefault, lpreturnedstring, nsize, lpfilename) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpappname, lpkeyname, lpdefault, lpreturnedstring, nsize, lpfilename);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpappname;
     (void)lpkeyname;
@@ -1363,6 +1762,7 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_getPrivate
     (void)lpreturnedstring;
     (void)nsize;
     (void)lpfilename;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1383,7 +1783,13 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_getPrivate
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetPrivateProfileStringW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpappname, lpkeyname, lpdefault, lpreturnedstring, nsize, lpfilename) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpappname, lpkeyname, lpdefault, lpreturnedstring, nsize, lpfilename);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpappname;
     (void)lpkeyname;
@@ -1391,6 +1797,7 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_getPrivate
     (void)lpreturnedstring;
     (void)nsize;
     (void)lpfilename;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1410,13 +1817,20 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_getPrivate
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetPrivateProfileStructA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszsection, lpszkey, lpstruct, usizestruct, szfile) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszsection, lpszkey, lpstruct, usizestruct, szfile);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszsection;
     (void)lpszkey;
     (void)lpstruct;
     (void)usizestruct;
     (void)szfile;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1436,13 +1850,20 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_getPrivate
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetPrivateProfileStructW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszsection, lpszkey, lpstruct, usizestruct, szfile) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszsection, lpszkey, lpstruct, usizestruct, szfile);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszsection;
     (void)lpszkey;
     (void)lpstruct;
     (void)usizestruct;
     (void)szfile;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1460,11 +1881,18 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_getProfile
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetProfileIntA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpappname, lpkeyname, ndefault) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpappname, lpkeyname, ndefault);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpappname;
     (void)lpkeyname;
     (void)ndefault;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1482,11 +1910,18 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_getProfile
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetProfileIntW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpappname, lpkeyname, ndefault) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpappname, lpkeyname, ndefault);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpappname;
     (void)lpkeyname;
     (void)ndefault;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1504,11 +1939,18 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_getProfile
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetProfileSectionA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpappname, lpreturnedstring, nsize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpappname, lpreturnedstring, nsize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpappname;
     (void)lpreturnedstring;
     (void)nsize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1526,11 +1968,18 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_getProfile
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetProfileSectionW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpappname, lpreturnedstring, nsize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpappname, lpreturnedstring, nsize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpappname;
     (void)lpreturnedstring;
     (void)nsize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1550,13 +1999,20 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_getProfile
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetProfileStringA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpappname, lpkeyname, lpdefault, lpreturnedstring, nsize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpappname, lpkeyname, lpdefault, lpreturnedstring, nsize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpappname;
     (void)lpkeyname;
     (void)lpdefault;
     (void)lpreturnedstring;
     (void)nsize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1576,13 +2032,20 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_getProfile
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetProfileStringW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpappname, lpkeyname, lpdefault, lpreturnedstring, nsize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpappname, lpkeyname, lpdefault, lpreturnedstring, nsize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpappname;
     (void)lpkeyname;
     (void)lpdefault;
     (void)lpreturnedstring;
     (void)nsize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1599,10 +2062,17 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_getSystemR
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetSystemRegistryQuota")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pdwquotaallowed, pdwquotaused) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pdwquotaallowed, pdwquotaused);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pdwquotaallowed;
     (void)pdwquotaused;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1617,8 +2087,15 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_getThreadE
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetThreadEnabledXStateFeatures")));
     }
-    uint64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : 0;
+    uint64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
+    errno = ENOSYS;
     uint64_t km_res = 0;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
@@ -1635,10 +2112,17 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_getUserNam
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetUserNameA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpbuffer, pcbbuffer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpbuffer, pcbbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpbuffer;
     (void)pcbbuffer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1655,10 +2139,17 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_getUserNam
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetUserNameW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpbuffer, pcbbuffer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpbuffer, pcbbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpbuffer;
     (void)pcbbuffer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1677,12 +2168,19 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_getVersion
         HMODULE km_h_mod = LoadLibraryA("advpack.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetVersionFromFileA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszfilename, pdwmsver, pdwlsver, bversion) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszfilename, pdwmsver, pdwlsver, bversion);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszfilename;
     (void)pdwmsver;
     (void)pdwlsver;
     (void)bversion;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1701,12 +2199,19 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_getVersion
         HMODULE km_h_mod = LoadLibraryA("advpack.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetVersionFromFileExA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszfilename, pdwmsver, pdwlsver, bversion) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszfilename, pdwmsver, pdwlsver, bversion);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszfilename;
     (void)pdwmsver;
     (void)pdwlsver;
     (void)bversion;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1725,12 +2230,19 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_getVersion
         HMODULE km_h_mod = LoadLibraryA("advpack.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetVersionFromFileExW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszfilename, pdwmsver, pdwlsver, bversion) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszfilename, pdwmsver, pdwlsver, bversion);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszfilename;
     (void)pdwmsver;
     (void)pdwlsver;
     (void)bversion;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1749,12 +2261,19 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_getVersion
         HMODULE km_h_mod = LoadLibraryA("advpack.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetVersionFromFileW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszfilename, pdwmsver, pdwlsver, bversion) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszfilename, pdwmsver, pdwlsver, bversion);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszfilename;
     (void)pdwmsver;
     (void)pdwlsver;
     (void)bversion;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1772,11 +2291,18 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_getWindowR
         HMODULE km_h_mod = LoadLibraryA("dciman32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetWindowRegionData")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, size, prd) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, size, prd);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hwnd;
     (void)size;
     (void)prd;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1792,9 +2318,16 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_globalComp
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GlobalCompact")));
     }
-    uint64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwminfree) : 0;
+    uint64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwminfree);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dwminfree;
+    errno = ENOSYS;
     uint64_t km_res = 0;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
@@ -1810,9 +2343,14 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_globalFix_
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GlobalFix")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(hmem);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(hmem);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)hmem;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -1827,9 +2365,16 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_globalUnWi
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GlobalUnWire")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmem) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmem);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hmem;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1845,9 +2390,14 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_globalUnfi
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GlobalUnfix")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(hmem);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(hmem);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)hmem;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -1862,10 +2412,17 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_globalWire
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GlobalWire")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmem) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmem);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hmem;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1881,10 +2438,17 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_iMPGetIMEA
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IMPGetIMEA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)param0;
     (void)param1;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1901,10 +2465,17 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_iMPGetIMEW
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IMPGetIMEW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)param0;
     (void)param1;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1920,9 +2491,16 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_iMPQueryIM
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IMPQueryIMEA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)param0;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1938,9 +2516,16 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_iMPQueryIM
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IMPQueryIMEW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)param0;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1957,10 +2542,17 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_iMPSetIMEA
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IMPSetIMEA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)param0;
     (void)param1;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1977,10 +2569,17 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_iMPSetIMEW
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IMPSetIMEW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)param0;
     (void)param1;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1996,9 +2595,16 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_isApiSetIm
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-core-apiquery-l2-1-0.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IsApiSetImplemented")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(contract) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(contract);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)contract;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2015,10 +2621,17 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_isBadHugeR
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IsBadHugeReadPtr")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lp, ucb) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lp, ucb);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lp;
     (void)ucb;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2035,10 +2648,17 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_isBadHugeW
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IsBadHugeWritePtr")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lp, ucb) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lp, ucb);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lp;
     (void)ucb;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2055,10 +2675,17 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_isNTAdmin_
         HMODULE km_h_mod = LoadLibraryA("advpack.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IsNTAdmin")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwreserved, lpdwreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwreserved, lpdwreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwreserved;
     (void)lpdwreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2074,9 +2701,16 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_isNativeVh
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IsNativeVhdBoot")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(nativevhdboot) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(nativevhdboot);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)nativevhdboot;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2092,9 +2726,16 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_isTokenUnt
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IsTokenUntrusted")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(tokenhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(tokenhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)tokenhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2113,12 +2754,19 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_launchINFS
         HMODULE km_h_mod = LoadLibraryA("advpack.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LaunchINFSectionExW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, hinstance, pszparms, nshow) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, hinstance, pszparms, nshow);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)hinstance;
     (void)pszparms;
     (void)nshow;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2137,12 +2785,19 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_launchINFS
         HMODULE km_h_mod = LoadLibraryA("advpack.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LaunchINFSectionW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwndowner, hinstance, pszparams, nshow) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwndowner, hinstance, pszparams, nshow);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwndowner;
     (void)hinstance;
     (void)pszparams;
     (void)nshow;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2158,9 +2813,16 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_localCompa
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LocalCompact")));
     }
-    uint64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(uminfree) : 0;
+    uint64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(uminfree);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)uminfree;
+    errno = ENOSYS;
     uint64_t km_res = 0;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
@@ -2177,10 +2839,17 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_localShrin
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LocalShrink")));
     }
-    uint64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmem, cbnewsize) : 0;
+    uint64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmem, cbnewsize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmem;
     (void)cbnewsize;
+    errno = ENOSYS;
     uint64_t km_res = 0;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
@@ -2198,11 +2867,18 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_mulDiv_nap
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MulDiv")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(nnumber, nnumerator, ndenominator) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(nnumber, nnumerator, ndenominator);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)nnumber;
     (void)nnumerator;
     (void)ndenominator;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2218,9 +2894,16 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_needReboot
         HMODULE km_h_mod = LoadLibraryA("advpack.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NeedReboot")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwrebootcheck) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwrebootcheck);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwrebootcheck;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2235,8 +2918,15 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_needReboot
         HMODULE km_h_mod = LoadLibraryA("advpack.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NeedRebootInit")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2256,13 +2946,20 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_openINFEng
         HMODULE km_h_mod = LoadLibraryA("advpack.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OpenINFEngineA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszinffilename, pszinstallsection, dwflags, phinf, pvreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszinffilename, pszinstallsection, dwflags, phinf, pvreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszinffilename;
     (void)pszinstallsection;
     (void)dwflags;
     (void)phinf;
     (void)pvreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2282,13 +2979,20 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_openINFEng
         HMODULE km_h_mod = LoadLibraryA("advpack.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OpenINFEngineW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszinffilename, pszinstallsection, dwflags, phinf, pvreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszinffilename, pszinstallsection, dwflags, phinf, pvreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszinffilename;
     (void)pszinstallsection;
     (void)dwflags;
     (void)phinf;
     (void)pvreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2306,12 +3010,19 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_openMutexA
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OpenMutexA")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwdesiredaccess, binherithandle, lpname) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwdesiredaccess, binherithandle, lpname);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)dwdesiredaccess;
     (void)binherithandle;
     (void)lpname;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -2328,12 +3039,19 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_openSemaph
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OpenSemaphoreA")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwdesiredaccess, binherithandle, lpname) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwdesiredaccess, binherithandle, lpname);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)dwdesiredaccess;
     (void)binherithandle;
     (void)lpname;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -2348,9 +3066,16 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_queryAuxil
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-core-realtime-l1-1-2.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "QueryAuxiliaryCounterFrequency")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpauxiliarycounterfrequency) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpauxiliarycounterfrequency);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpauxiliarycounterfrequency;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2367,10 +3092,17 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_queryIdleP
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "QueryIdleProcessorCycleTime")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bufferlength, processoridlecycletime) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bufferlength, processoridlecycletime);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bufferlength;
     (void)processoridlecycletime;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2388,11 +3120,18 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_queryIdleP
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "QueryIdleProcessorCycleTimeEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(group, bufferlength, processoridlecycletime) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(group, bufferlength, processoridlecycletime);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)group;
     (void)bufferlength;
     (void)processoridlecycletime;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2408,9 +3147,14 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_queryInter
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-core-realtime-l1-1-1.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "QueryInterruptTime")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(lpinterrupttime);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(lpinterrupttime);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)lpinterrupttime;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -2425,9 +3169,14 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_queryInter
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-core-realtime-l1-1-1.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "QueryInterruptTimePrecise")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(lpinterrupttimeprecise);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(lpinterrupttimeprecise);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)lpinterrupttimeprecise;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -2443,10 +3192,17 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_queryProce
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "QueryProcessCycleTime")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(processhandle, cycletime) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(processhandle, cycletime);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)processhandle;
     (void)cycletime;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2463,10 +3219,17 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_queryThrea
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "QueryThreadCycleTime")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(threadhandle, cycletime) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(threadhandle, cycletime);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)threadhandle;
     (void)cycletime;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2482,9 +3245,16 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_queryUnbia
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "QueryUnbiasedInterruptTime")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(unbiasedtime) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(unbiasedtime);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)unbiasedtime;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2500,9 +3270,14 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_queryUnbia
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-core-realtime-l1-1-1.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "QueryUnbiasedInterruptTimePrecise")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(lpunbiasedinterrupttimeprecise);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(lpunbiasedinterrupttimeprecise);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)lpunbiasedinterrupttimeprecise;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -2517,9 +3292,16 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_raiseCusto
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-core-backgroundtask-l1-1-0.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RaiseCustomSystemEventTrigger")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(customsystemeventtriggerconfig) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(customsystemeventtriggerconfig);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)customsystemeventtriggerconfig;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2538,12 +3320,19 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_rebootChec
         HMODULE km_h_mod = LoadLibraryA("advpack.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RebootCheckOnInstallA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, pszinf, pszsec, dwreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, pszinf, pszsec, dwreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)pszinf;
     (void)pszsec;
     (void)dwreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2562,12 +3351,19 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_rebootChec
         HMODULE km_h_mod = LoadLibraryA("advpack.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RebootCheckOnInstallW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, pszinf, pszsec, dwreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, pszinf, pszsec, dwreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)pszinf;
     (void)pszsec;
     (void)dwreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2584,10 +3380,15 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_recordFeat
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-core-featurestaging-l1-1-0.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RecordFeatureError")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(featureid, error);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(featureid, error);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)featureid;
     (void)error;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -2605,12 +3406,17 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_recordFeat
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-core-featurestaging-l1-1-0.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RecordFeatureUsage")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(featureid, kind, addend, originname);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(featureid, kind, addend, originname);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)featureid;
     (void)kind;
     (void)addend;
     (void)originname;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -2627,11 +3433,18 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_regInstall
         HMODULE km_h_mod = LoadLibraryA("advpack.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegInstallA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmod, pszsection, psttable) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmod, pszsection, psttable);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hmod;
     (void)pszsection;
     (void)psttable;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2649,11 +3462,18 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_regInstall
         HMODULE km_h_mod = LoadLibraryA("advpack.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegInstallW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmod, pszsection, psttable) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmod, pszsection, psttable);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hmod;
     (void)pszsection;
     (void)psttable;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2671,11 +3491,18 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_regRestore
         HMODULE km_h_mod = LoadLibraryA("advpack.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegRestoreAllA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, psztitlestring, hkbckupkey) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, psztitlestring, hkbckupkey);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)psztitlestring;
     (void)hkbckupkey;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2693,11 +3520,18 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_regRestore
         HMODULE km_h_mod = LoadLibraryA("advpack.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegRestoreAllW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, psztitlestring, hkbckupkey) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, psztitlestring, hkbckupkey);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)psztitlestring;
     (void)hkbckupkey;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2719,7 +3553,13 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_regSaveRes
         HMODULE km_h_mod = LoadLibraryA("advpack.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegSaveRestoreA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, psztitlestring, hkbckupkey, pcszrootkey, pcszsubkey, pcszvaluename, dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, psztitlestring, hkbckupkey, pcszrootkey, pcszsubkey, pcszvaluename, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)psztitlestring;
@@ -2728,6 +3568,7 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_regSaveRes
     (void)pcszsubkey;
     (void)pcszvaluename;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2749,7 +3590,13 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_regSaveRes
         HMODULE km_h_mod = LoadLibraryA("advpack.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegSaveRestoreOnINFA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, psztitle, pszinf, pszsection, hhklmbackkey, hhkcubackkey, dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, psztitle, pszinf, pszsection, hhklmbackkey, hhkcubackkey, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)psztitle;
@@ -2758,6 +3605,7 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_regSaveRes
     (void)hhklmbackkey;
     (void)hhkcubackkey;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2779,7 +3627,13 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_regSaveRes
         HMODULE km_h_mod = LoadLibraryA("advpack.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegSaveRestoreOnINFW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, psztitle, pszinf, pszsection, hhklmbackkey, hhkcubackkey, dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, psztitle, pszinf, pszsection, hhklmbackkey, hhkcubackkey, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)psztitle;
@@ -2788,6 +3642,7 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_regSaveRes
     (void)hhklmbackkey;
     (void)hhkcubackkey;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2809,7 +3664,13 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_regSaveRes
         HMODULE km_h_mod = LoadLibraryA("advpack.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegSaveRestoreW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, psztitlestring, hkbckupkey, pcszrootkey, pcszsubkey, pcszvaluename, dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, psztitlestring, hkbckupkey, pcszrootkey, pcszsubkey, pcszvaluename, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)psztitlestring;
@@ -2818,6 +3679,7 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_regSaveRes
     (void)pcszsubkey;
     (void)pcszvaluename;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2835,11 +3697,18 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_replacePar
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ReplacePartitionUnit")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(targetpartition, sparepartition, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(targetpartition, sparepartition, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)targetpartition;
     (void)sparepartition;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2855,9 +3724,16 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_requestDev
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RequestDeviceWakeup")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdevice) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdevice);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdevice;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2875,11 +3751,18 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_rtlAnsiStr
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtlAnsiStringToUnicodeString")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(destinationstring, sourcestring, allocatedestinationstring) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(destinationstring, sourcestring, allocatedestinationstring);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)destinationstring;
     (void)sourcestring;
     (void)allocatedestinationstring;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2897,11 +3780,18 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_rtlCharToI
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtlCharToInteger")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(string, base, value) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(string, base, value);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)string;
     (void)base;
     (void)value;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2917,9 +3807,14 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_rtlFreeAns
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtlFreeAnsiString")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(ansistring);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(ansistring);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)ansistring;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -2934,9 +3829,14 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_rtlFreeOem
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtlFreeOemString")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(oemstring);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(oemstring);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)oemstring;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -2951,9 +3851,14 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_rtlFreeUni
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtlFreeUnicodeString")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(unicodestring);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(unicodestring);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)unicodestring;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -2967,8 +3872,15 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_rtlGetRetu
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtlGetReturnAddressHijackTarget")));
     }
-    uint64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : 0;
+    uint64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
+    errno = ENOSYS;
     uint64_t km_res = 0;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
@@ -2985,10 +3897,15 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_rtlInitAns
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtlInitAnsiString")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(destinationstring, sourcestring);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(destinationstring, sourcestring);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)destinationstring;
     (void)sourcestring;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -3004,10 +3921,17 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_rtlInitAns
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtlInitAnsiStringEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(destinationstring, sourcestring) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(destinationstring, sourcestring);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)destinationstring;
     (void)sourcestring;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3024,10 +3948,15 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_rtlInitStr
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtlInitString")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(destinationstring, sourcestring);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(destinationstring, sourcestring);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)destinationstring;
     (void)sourcestring;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -3043,10 +3972,17 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_rtlInitStr
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtlInitStringEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(destinationstring, sourcestring) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(destinationstring, sourcestring);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)destinationstring;
     (void)sourcestring;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3063,10 +3999,15 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_rtlInitUni
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtlInitUnicodeString")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(destinationstring, sourcestring);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(destinationstring, sourcestring);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)destinationstring;
     (void)sourcestring;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -3083,11 +4024,18 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_rtlIsNameL
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtlIsNameLegalDOS8Dot3")));
     }
-    bool km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(name, oemname, namecontainsspaces) : false;
+    bool km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(name, oemname, namecontainsspaces);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)name;
     (void)oemname;
     (void)namecontainsspaces;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return Napi::Boolean::New(km_env, km_res);
@@ -3104,10 +4052,17 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_rtlLocalTi
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtlLocalTimeToSystemTime")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(localtime, systemtime) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(localtime, systemtime);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)localtime;
     (void)systemtime;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3123,9 +4078,16 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_rtlRaiseCu
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtlRaiseCustomSystemEventTrigger")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(triggerconfig) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(triggerconfig);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)triggerconfig;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3142,10 +4104,17 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_rtlTimeToS
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtlTimeToSecondsSince1970")));
     }
-    bool km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(arg_0_time, elapsedseconds) : false;
+    bool km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(arg_0_time, elapsedseconds);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)arg_0_time;
     (void)elapsedseconds;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return Napi::Boolean::New(km_env, km_res);
@@ -3163,11 +4132,18 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_rtlUnicode
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtlUnicodeStringToAnsiString")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(destinationstring, sourcestring, allocatedestinationstring) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(destinationstring, sourcestring, allocatedestinationstring);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)destinationstring;
     (void)sourcestring;
     (void)allocatedestinationstring;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3185,11 +4161,18 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_rtlUnicode
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtlUnicodeStringToOemString")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(destinationstring, sourcestring, allocatedestinationstring) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(destinationstring, sourcestring, allocatedestinationstring);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)destinationstring;
     (void)sourcestring;
     (void)allocatedestinationstring;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3207,11 +4190,18 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_rtlUnicode
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtlUnicodeToMultiByteSize")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bytesinmultibytestring, unicodestring, bytesinunicodestring) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bytesinmultibytestring, unicodestring, bytesinunicodestring);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bytesinmultibytestring;
     (void)unicodestring;
     (void)bytesinunicodestring;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3227,9 +4217,16 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_rtlUniform
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtlUniform")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(seed) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(seed);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)seed;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3252,7 +4249,13 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_runSetupCo
         HMODULE km_h_mod = LoadLibraryA("advpack.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RunSetupCommandA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, szcmdname, szinfsection, szdir, lpsztitle, phexe, dwflags, pvreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, szcmdname, szinfsection, szdir, lpsztitle, phexe, dwflags, pvreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)szcmdname;
@@ -3262,6 +4265,7 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_runSetupCo
     (void)phexe;
     (void)dwflags;
     (void)pvreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3284,7 +4288,13 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_runSetupCo
         HMODULE km_h_mod = LoadLibraryA("advpack.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RunSetupCommandW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, szcmdname, szinfsection, szdir, lpsztitle, phexe, dwflags, pvreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, szcmdname, szinfsection, szdir, lpsztitle, phexe, dwflags, pvreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)szcmdname;
@@ -3294,6 +4304,7 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_runSetupCo
     (void)phexe;
     (void)dwflags;
     (void)pvreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3310,10 +4321,17 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_sendIMEMes
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SendIMEMessageExA")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)param0;
     (void)param1;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -3330,10 +4348,17 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_sendIMEMes
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SendIMEMessageExW")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)param0;
     (void)param1;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -3349,9 +4374,16 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_setEnviron
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetEnvironmentStringsA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(newenvironment) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(newenvironment);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)newenvironment;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3370,12 +4402,19 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_setFirmwar
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetFirmwareEnvironmentVariableA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpname, lpguid, pvalue, nsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpname, lpguid, pvalue, nsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpname;
     (void)lpguid;
     (void)pvalue;
     (void)nsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3395,13 +4434,20 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_setFirmwar
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetFirmwareEnvironmentVariableExA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpname, lpguid, pvalue, nsize, dwattributes) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpname, lpguid, pvalue, nsize, dwattributes);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpname;
     (void)lpguid;
     (void)pvalue;
     (void)nsize;
     (void)dwattributes;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3421,13 +4467,20 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_setFirmwar
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetFirmwareEnvironmentVariableExW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpname, lpguid, pvalue, nsize, dwattributes) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpname, lpguid, pvalue, nsize, dwattributes);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpname;
     (void)lpguid;
     (void)pvalue;
     (void)nsize;
     (void)dwattributes;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3446,12 +4499,19 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_setFirmwar
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetFirmwareEnvironmentVariableW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpname, lpguid, pvalue, nsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpname, lpguid, pvalue, nsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpname;
     (void)lpguid;
     (void)pvalue;
     (void)nsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3467,9 +4527,16 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_setHandleC
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetHandleCount")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(unumber) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(unumber);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)unumber;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3486,10 +4553,17 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_setMessage
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetMessageWaitingIndicator")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmsgindicator, ulmsgcount) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmsgindicator, ulmsgcount);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hmsgindicator;
     (void)ulmsgcount;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3505,9 +4579,16 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_setPerUser
         HMODULE km_h_mod = LoadLibraryA("advpack.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetPerUserSecValuesA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pperuser) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pperuser);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pperuser;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3523,9 +4604,16 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_setPerUser
         HMODULE km_h_mod = LoadLibraryA("advpack.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetPerUserSecValuesW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pperuser) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pperuser);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pperuser;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3543,11 +4631,16 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_subscribeF
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-core-featurestaging-l1-1-0.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SubscribeFeatureStateChangeNotification")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(subscription, callback, context);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(subscription, callback, context);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)subscription;
     (void)callback;
     (void)context;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -3569,7 +4662,13 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_translateI
         HMODULE km_h_mod = LoadLibraryA("advpack.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TranslateInfStringA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszinffilename, pszinstallsection, psztranslatesection, psztranslatekey, pszbuffer, cchbuffer, pdwrequiredsize, pvreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszinffilename, pszinstallsection, psztranslatesection, psztranslatekey, pszbuffer, cchbuffer, pdwrequiredsize, pvreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszinffilename;
     (void)pszinstallsection;
@@ -3579,6 +4678,7 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_translateI
     (void)cchbuffer;
     (void)pdwrequiredsize;
     (void)pvreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3601,7 +4701,13 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_translateI
         HMODULE km_h_mod = LoadLibraryA("advpack.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TranslateInfStringExA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hinf, pszinffilename, psztranslatesection, psztranslatekey, pszbuffer, dwbuffersize, pdwrequiredsize, pvreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hinf, pszinffilename, psztranslatesection, psztranslatekey, pszbuffer, dwbuffersize, pdwrequiredsize, pvreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hinf;
     (void)pszinffilename;
@@ -3611,6 +4717,7 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_translateI
     (void)dwbuffersize;
     (void)pdwrequiredsize;
     (void)pvreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3633,7 +4740,13 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_translateI
         HMODULE km_h_mod = LoadLibraryA("advpack.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TranslateInfStringExW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hinf, pszinffilename, psztranslatesection, psztranslatekey, pszbuffer, dwbuffersize, pdwrequiredsize, pvreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hinf, pszinffilename, psztranslatesection, psztranslatekey, pszbuffer, dwbuffersize, pdwrequiredsize, pvreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hinf;
     (void)pszinffilename;
@@ -3643,6 +4756,7 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_translateI
     (void)dwbuffersize;
     (void)pdwrequiredsize;
     (void)pvreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3665,7 +4779,13 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_translateI
         HMODULE km_h_mod = LoadLibraryA("advpack.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TranslateInfStringW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszinffilename, pszinstallsection, psztranslatesection, psztranslatekey, pszbuffer, cchbuffer, pdwrequiredsize, pvreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszinffilename, pszinstallsection, psztranslatesection, psztranslatekey, pszbuffer, cchbuffer, pdwrequiredsize, pvreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszinffilename;
     (void)pszinstallsection;
@@ -3675,6 +4795,7 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_translateI
     (void)cchbuffer;
     (void)pdwrequiredsize;
     (void)pvreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3690,9 +4811,14 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_unsubscrib
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-core-featurestaging-l1-1-0.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UnsubscribeFeatureStateChangeNotification")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(subscription);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(subscription);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)subscription;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -3710,12 +4836,19 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_userInstSt
         HMODULE km_h_mod = LoadLibraryA("advpack.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UserInstStubWrapperA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, hinstance, pszparms, nshow) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, hinstance, pszparms, nshow);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)hinstance;
     (void)pszparms;
     (void)nshow;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3734,12 +4867,19 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_userInstSt
         HMODULE km_h_mod = LoadLibraryA("advpack.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UserInstStubWrapperW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, hinstance, pszparms, nshow) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, hinstance, pszparms, nshow);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)hinstance;
     (void)pszparms;
     (void)nshow;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3758,12 +4898,19 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_userUnInst
         HMODULE km_h_mod = LoadLibraryA("advpack.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UserUnInstStubWrapperA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, hinstance, pszparms, nshow) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, hinstance, pszparms, nshow);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)hinstance;
     (void)pszparms;
     (void)nshow;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3782,12 +4929,19 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_userUnInst
         HMODULE km_h_mod = LoadLibraryA("advpack.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UserUnInstStubWrapperW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, hinstance, pszparms, nshow) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, hinstance, pszparms, nshow);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)hinstance;
     (void)pszparms;
     (void)nshow;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3804,10 +4958,17 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_wINNLSEnab
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WINNLSEnableIME")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)param0;
     (void)param1;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3823,9 +4984,16 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_wINNLSGetE
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WINNLSGetEnableStatus")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)param0;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3841,9 +5009,16 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_wINNLSGetI
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WINNLSGetIMEHotkey")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)param0;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3859,9 +5034,14 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_winWatchCl
         HMODULE km_h_mod = LoadLibraryA("dciman32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinWatchClose")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(hww);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(hww);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)hww;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -3876,9 +5056,16 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_winWatchDi
         HMODULE km_h_mod = LoadLibraryA("dciman32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinWatchDidStatusChange")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hww) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hww);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hww;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3897,12 +5084,19 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_winWatchGe
         HMODULE km_h_mod = LoadLibraryA("dciman32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinWatchGetClipList")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hww, prc, size, prd) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hww, prc, size, prd);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hww;
     (void)prc;
     (void)size;
     (void)prd;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3920,11 +5114,18 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_winWatchNo
         HMODULE km_h_mod = LoadLibraryA("dciman32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinWatchNotify")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hww, notifycallback, notifyparam) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hww, notifycallback, notifyparam);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hww;
     (void)notifycallback;
     (void)notifyparam;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3940,10 +5141,17 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_winWatchOp
         HMODULE km_h_mod = LoadLibraryA("dciman32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinWatchOpen")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hwnd;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -3963,7 +5171,13 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_wldpCanExe
         HMODULE km_h_mod = LoadLibraryA("wldp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WldpCanExecuteBuffer")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(host, options, buffer, buffersize, auditinfo, result) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(host, options, buffer, buffersize, auditinfo, result);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)host;
     (void)options;
@@ -3971,6 +5185,7 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_wldpCanExe
     (void)buffersize;
     (void)auditinfo;
     (void)result;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3990,13 +5205,20 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_wldpCanExe
         HMODULE km_h_mod = LoadLibraryA("wldp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WldpCanExecuteFile")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(host, options, filehandle, auditinfo, result) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(host, options, filehandle, auditinfo, result);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)host;
     (void)options;
     (void)filehandle;
     (void)auditinfo;
     (void)result;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4016,13 +5238,20 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_wldpCanExe
         HMODULE km_h_mod = LoadLibraryA("wldp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WldpCanExecuteStream")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(host, options, stream, auditinfo, result) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(host, options, stream, auditinfo, result);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)host;
     (void)options;
     (void)stream;
     (void)auditinfo;
     (void)result;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4040,11 +5269,18 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_wldpGetLoc
         HMODULE km_h_mod = LoadLibraryA("wldp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WldpGetLockdownPolicy")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hostinformation, lockdownstate, lockdownflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hostinformation, lockdownstate, lockdownflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hostinformation;
     (void)lockdownstate;
     (void)lockdownflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4063,12 +5299,19 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_wldpIsClas
         HMODULE km_h_mod = LoadLibraryA("wldp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WldpIsClassInApprovedList")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(classid, hostinformation, isapproved, optionalflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(classid, hostinformation, isapproved, optionalflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)classid;
     (void)hostinformation;
     (void)isapproved;
     (void)optionalflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4084,9 +5327,16 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_wldpIsDyna
         HMODULE km_h_mod = LoadLibraryA("wldp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WldpIsDynamicCodePolicyEnabled")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(isenabled) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(isenabled);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)isenabled;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4104,11 +5354,18 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_wldpQueryD
         HMODULE km_h_mod = LoadLibraryA("wldp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WldpQueryDeviceSecurityInformation")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(information, informationlength, returnlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(information, informationlength, returnlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)information;
     (void)informationlength;
     (void)returnlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4126,11 +5383,18 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_wldpQueryD
         HMODULE km_h_mod = LoadLibraryA("wldp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WldpQueryDynamicCodeTrust")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(filehandle, baseimage, imagesize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(filehandle, baseimage, imagesize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)filehandle;
     (void)baseimage;
     (void)imagesize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4146,9 +5410,16 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_wldpSetDyn
         HMODULE km_h_mod = LoadLibraryA("wldp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WldpSetDynamicCodeTrust")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(filehandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(filehandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)filehandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4166,11 +5437,18 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_writePriva
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WritePrivateProfileSectionA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpappname, lpstring, lpfilename) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpappname, lpstring, lpfilename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpappname;
     (void)lpstring;
     (void)lpfilename;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4188,11 +5466,18 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_writePriva
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WritePrivateProfileSectionW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpappname, lpstring, lpfilename) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpappname, lpstring, lpfilename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpappname;
     (void)lpstring;
     (void)lpfilename;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4211,12 +5496,19 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_writePriva
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WritePrivateProfileStringA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpappname, lpkeyname, lpstring, lpfilename) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpappname, lpkeyname, lpstring, lpfilename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpappname;
     (void)lpkeyname;
     (void)lpstring;
     (void)lpfilename;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4235,12 +5527,19 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_writePriva
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WritePrivateProfileStringW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpappname, lpkeyname, lpstring, lpfilename) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpappname, lpkeyname, lpstring, lpfilename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpappname;
     (void)lpkeyname;
     (void)lpstring;
     (void)lpfilename;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4260,13 +5559,20 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_writePriva
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WritePrivateProfileStructA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszsection, lpszkey, lpstruct, usizestruct, szfile) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszsection, lpszkey, lpstruct, usizestruct, szfile);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszsection;
     (void)lpszkey;
     (void)lpstruct;
     (void)usizestruct;
     (void)szfile;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4286,13 +5592,20 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_writePriva
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WritePrivateProfileStructW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszsection, lpszkey, lpstruct, usizestruct, szfile) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszsection, lpszkey, lpstruct, usizestruct, szfile);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszsection;
     (void)lpszkey;
     (void)lpstruct;
     (void)usizestruct;
     (void)szfile;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4309,10 +5622,17 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_writeProfi
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WriteProfileSectionA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpappname, lpstring) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpappname, lpstring);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpappname;
     (void)lpstring;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4329,10 +5649,17 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_writeProfi
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WriteProfileSectionW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpappname, lpstring) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpappname, lpstring);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpappname;
     (void)lpstring;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4350,11 +5677,18 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_writeProfi
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WriteProfileStringA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpappname, lpkeyname, lpstring) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpappname, lpkeyname, lpstring);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpappname;
     (void)lpkeyname;
     (void)lpstring;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4372,11 +5706,18 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_writeProfi
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WriteProfileStringW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpappname, lpkeyname, lpstring) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpappname, lpkeyname, lpstring);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpappname;
     (void)lpkeyname;
     (void)lpstring;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4394,11 +5735,18 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_hread_napi
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "_hread")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hfile, lpbuffer, lbytes) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hfile, lpbuffer, lbytes);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hfile;
     (void)lpbuffer;
     (void)lbytes;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4416,11 +5764,18 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_hwrite_nap
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "_hwrite")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hfile, lpbuffer, lbytes) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hfile, lpbuffer, lbytes);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hfile;
     (void)lpbuffer;
     (void)lbytes;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4436,9 +5791,16 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_lclose_nap
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "_lclose")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hfile) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hfile);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hfile;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4455,10 +5817,17 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_lcreat_nap
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "_lcreat")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lppathname, iattribute) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lppathname, iattribute);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lppathname;
     (void)iattribute;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4476,11 +5845,18 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_llseek_nap
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "_llseek")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hfile, loffset, iorigin) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hfile, loffset, iorigin);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hfile;
     (void)loffset;
     (void)iorigin;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4497,10 +5873,17 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_lopen_napi
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "_lopen")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lppathname, ireadwrite) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lppathname, ireadwrite);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lppathname;
     (void)ireadwrite;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4518,11 +5901,18 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_lread_napi
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "_lread")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hfile, lpbuffer, ubytes) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hfile, lpbuffer, ubytes);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hfile;
     (void)lpbuffer;
     (void)ubytes;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4540,11 +5930,18 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_lwrite_nap
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "_lwrite")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hfile, lpbuffer, ubytes) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hfile, lpbuffer, ubytes);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hfile;
     (void)lpbuffer;
     (void)ubytes;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4561,10 +5958,17 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_uawLstrcmp
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "uaw_lstrcmpW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(string1, string2) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(string1, string2);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)string1;
     (void)string2;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4581,10 +5985,17 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_uawLstrcmp
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "uaw_lstrcmpiW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(string1, string2) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(string1, string2);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)string1;
     (void)string2;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4600,9 +6011,16 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_uawLstrlen
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "uaw_lstrlenW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(string) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(string);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)string;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4619,11 +6037,18 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_uawWcschr_
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "uaw_wcschr")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(string, character) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(string, character);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)string;
     (void)character;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -4639,11 +6064,18 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_uawWcscpy_
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "uaw_wcscpy")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(destination, source) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(destination, source);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)destination;
     (void)source;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -4659,10 +6091,17 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_uawWcsicmp
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "uaw_wcsicmp")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(string1, string2) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(string1, string2);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)string1;
     (void)string2;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4678,9 +6117,16 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_uawWcslen_
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "uaw_wcslen")));
     }
-    uint64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(string) : 0;
+    uint64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(string);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)string;
+    errno = ENOSYS;
     uint64_t km_res = 0;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
@@ -4697,11 +6143,18 @@ static Napi::Value windowssys_windows_win32_system_windowsprogramming_uawWcsrchr
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "uaw_wcsrchr")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(string, character) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(string, character);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)string;
     (void)character;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }

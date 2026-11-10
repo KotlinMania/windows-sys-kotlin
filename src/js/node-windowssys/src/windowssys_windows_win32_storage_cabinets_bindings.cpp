@@ -68,7 +68,13 @@ static Napi::Value windowssys_windows_win32_storage_cabinets_fCIAddFile_napi(con
         HMODULE km_h_mod = LoadLibraryA("cabinet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FCIAddFile")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hfci, pszsourcefile, pszfilename, fexecute, pfnfcignc, pfnfcis, pfnfcigoi, typecompress) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hfci, pszsourcefile, pszfilename, fexecute, pfnfcignc, pfnfcis, pfnfcigoi, typecompress);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hfci;
     (void)pszsourcefile;
@@ -78,6 +84,7 @@ static Napi::Value windowssys_windows_win32_storage_cabinets_fCIAddFile_napi(con
     (void)pfnfcis;
     (void)pfnfcigoi;
     (void)typecompress;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -105,7 +112,13 @@ static Napi::Value windowssys_windows_win32_storage_cabinets_fCICreate_napi(cons
         HMODULE km_h_mod = LoadLibraryA("cabinet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FCICreate")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(perf, pfnfcifp, pfna, pfnf, pfnopen, pfnread, pfnwrite, pfnclose, pfnseek, pfndelete, pfnfcigtf, pccab, pv) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(perf, pfnfcifp, pfna, pfnf, pfnopen, pfnread, pfnwrite, pfnclose, pfnseek, pfndelete, pfnfcigtf, pccab, pv);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)perf;
     (void)pfnfcifp;
@@ -120,7 +133,8 @@ static Napi::Value windowssys_windows_win32_storage_cabinets_fCICreate_napi(cons
     (void)pfnfcigtf;
     (void)pccab;
     (void)pv;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -135,9 +149,16 @@ static Napi::Value windowssys_windows_win32_storage_cabinets_fCIDestroy_napi(con
         HMODULE km_h_mod = LoadLibraryA("cabinet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FCIDestroy")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hfci) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hfci);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hfci;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -156,12 +177,19 @@ static Napi::Value windowssys_windows_win32_storage_cabinets_fCIFlushCabinet_nap
         HMODULE km_h_mod = LoadLibraryA("cabinet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FCIFlushCabinet")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hfci, fgetnextcab, pfnfcignc, pfnfcis) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hfci, fgetnextcab, pfnfcignc, pfnfcis);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hfci;
     (void)fgetnextcab;
     (void)pfnfcignc;
     (void)pfnfcis;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -179,11 +207,18 @@ static Napi::Value windowssys_windows_win32_storage_cabinets_fCIFlushFolder_napi
         HMODULE km_h_mod = LoadLibraryA("cabinet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FCIFlushFolder")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hfci, pfnfcignc, pfnfcis) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hfci, pfnfcignc, pfnfcis);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hfci;
     (void)pfnfcignc;
     (void)pfnfcis;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -205,7 +240,13 @@ static Napi::Value windowssys_windows_win32_storage_cabinets_fDICopy_napi(const 
         HMODULE km_h_mod = LoadLibraryA("cabinet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FDICopy")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hfdi, pszcabinet, pszcabpath, flags, pfnfdin, pfnfdid, pvuser) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hfdi, pszcabinet, pszcabpath, flags, pfnfdin, pfnfdid, pvuser);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hfdi;
     (void)pszcabinet;
@@ -214,6 +255,7 @@ static Napi::Value windowssys_windows_win32_storage_cabinets_fDICopy_napi(const 
     (void)pfnfdin;
     (void)pfnfdid;
     (void)pvuser;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -237,7 +279,13 @@ static Napi::Value windowssys_windows_win32_storage_cabinets_fDICreate_napi(cons
         HMODULE km_h_mod = LoadLibraryA("cabinet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FDICreate")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pfnalloc, pfnfree, pfnopen, pfnread, pfnwrite, pfnclose, pfnseek, cputype, perf) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pfnalloc, pfnfree, pfnopen, pfnread, pfnwrite, pfnclose, pfnseek, cputype, perf);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pfnalloc;
     (void)pfnfree;
@@ -248,7 +296,8 @@ static Napi::Value windowssys_windows_win32_storage_cabinets_fDICreate_napi(cons
     (void)pfnseek;
     (void)cputype;
     (void)perf;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -263,9 +312,16 @@ static Napi::Value windowssys_windows_win32_storage_cabinets_fDIDestroy_napi(con
         HMODULE km_h_mod = LoadLibraryA("cabinet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FDIDestroy")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hfdi) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hfdi);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hfdi;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -283,11 +339,18 @@ static Napi::Value windowssys_windows_win32_storage_cabinets_fDIIsCabinet_napi(c
         HMODULE km_h_mod = LoadLibraryA("cabinet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FDIIsCabinet")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hfdi, hf, pfdici) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hfdi, hf, pfdici);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hfdi;
     (void)hf;
     (void)pfdici;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -305,11 +368,18 @@ static Napi::Value windowssys_windows_win32_storage_cabinets_fDITruncateCabinet_
         HMODULE km_h_mod = LoadLibraryA("cabinet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FDITruncateCabinet")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hfdi, pszcabinetname, ifoldertodelete) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hfdi, pszcabinetname, ifoldertodelete);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hfdi;
     (void)pszcabinetname;
     (void)ifoldertodelete;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

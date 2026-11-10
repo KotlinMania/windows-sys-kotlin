@@ -63,11 +63,16 @@ static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManCloseCo
         HMODULE km_h_mod = LoadLibraryA("wsmsvc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSManCloseCommand")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(commandhandle, flags, async);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(commandhandle, flags, async);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)commandhandle;
     (void)flags;
     (void)async;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -83,10 +88,17 @@ static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManCloseOp
         HMODULE km_h_mod = LoadLibraryA("wsmsvc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSManCloseOperation")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(operationhandle, flags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(operationhandle, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)operationhandle;
     (void)flags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -103,10 +115,17 @@ static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManCloseSe
         HMODULE km_h_mod = LoadLibraryA("wsmsvc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSManCloseSession")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(session, flags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(session, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)session;
     (void)flags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -124,11 +143,16 @@ static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManCloseSh
         HMODULE km_h_mod = LoadLibraryA("wsmsvc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSManCloseShell")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(shellhandle, flags, async);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(shellhandle, flags, async);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)shellhandle;
     (void)flags;
     (void)async;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -150,7 +174,11 @@ static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManConnect
         HMODULE km_h_mod = LoadLibraryA("wsmsvc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSManConnectShell")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(session, flags, resourceuri, shellid, options, connectxml, async, shell);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(session, flags, resourceuri, shellid, options, connectxml, async, shell);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)session;
     (void)flags;
@@ -160,6 +188,7 @@ static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManConnect
     (void)connectxml;
     (void)async;
     (void)shell;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -180,7 +209,11 @@ static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManConnect
         HMODULE km_h_mod = LoadLibraryA("wsmsvc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSManConnectShellCommand")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(shell, flags, commandid, options, connectxml, async, command);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(shell, flags, commandid, options, connectxml, async, command);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)shell;
     (void)flags;
@@ -189,6 +222,7 @@ static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManConnect
     (void)connectxml;
     (void)async;
     (void)command;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -208,7 +242,13 @@ static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManCreateS
         HMODULE km_h_mod = LoadLibraryA("wsmsvc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSManCreateSession")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(apihandle, connection, flags, serverauthenticationcredentials, proxyinfo, session) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(apihandle, connection, flags, serverauthenticationcredentials, proxyinfo, session);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)apihandle;
     (void)connection;
@@ -216,6 +256,7 @@ static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManCreateS
     (void)serverauthenticationcredentials;
     (void)proxyinfo;
     (void)session;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -238,7 +279,11 @@ static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManCreateS
         HMODULE km_h_mod = LoadLibraryA("wsmsvc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSManCreateShell")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(session, flags, resourceuri, startupinfo, options, createxml, async, shell);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(session, flags, resourceuri, startupinfo, options, createxml, async, shell);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)session;
     (void)flags;
@@ -248,6 +293,7 @@ static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManCreateS
     (void)createxml;
     (void)async;
     (void)shell;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -270,7 +316,11 @@ static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManCreateS
         HMODULE km_h_mod = LoadLibraryA("wsmsvc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSManCreateShellEx")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(session, flags, resourceuri, shellid, startupinfo, options, createxml, async, shell);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(session, flags, resourceuri, shellid, startupinfo, options, createxml, async, shell);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)session;
     (void)flags;
@@ -281,6 +331,7 @@ static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManCreateS
     (void)createxml;
     (void)async;
     (void)shell;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -296,10 +347,17 @@ static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManDeiniti
         HMODULE km_h_mod = LoadLibraryA("wsmsvc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSManDeinitialize")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(apihandle, flags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(apihandle, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)apihandle;
     (void)flags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -318,12 +376,17 @@ static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManDisconn
         HMODULE km_h_mod = LoadLibraryA("wsmsvc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSManDisconnectShell")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(shell, flags, disconnectinfo, async);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(shell, flags, disconnectinfo, async);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)shell;
     (void)flags;
     (void)disconnectinfo;
     (void)async;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -344,7 +407,13 @@ static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManGetErro
         HMODULE km_h_mod = LoadLibraryA("wsmsvc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSManGetErrorMessage")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(apihandle, flags, languagecode, errorcode, messagelength, message, messagelengthused) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(apihandle, flags, languagecode, errorcode, messagelength, message, messagelengthused);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)apihandle;
     (void)flags;
@@ -353,6 +422,7 @@ static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManGetErro
     (void)messagelength;
     (void)message;
     (void)messagelengthused;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -370,11 +440,18 @@ static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManGetSess
         HMODULE km_h_mod = LoadLibraryA("wsmsvc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSManGetSessionOptionAsDword")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(session, option, value) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(session, option, value);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)session;
     (void)option;
     (void)value;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -394,13 +471,20 @@ static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManGetSess
         HMODULE km_h_mod = LoadLibraryA("wsmsvc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSManGetSessionOptionAsString")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(session, option, stringlength, string, stringlengthused) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(session, option, stringlength, string, stringlengthused);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)session;
     (void)option;
     (void)stringlength;
     (void)string;
     (void)stringlengthused;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -417,10 +501,17 @@ static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManInitial
         HMODULE km_h_mod = LoadLibraryA("wsmsvc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSManInitialize")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(flags, apihandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(flags, apihandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)flags;
     (void)apihandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -440,13 +531,20 @@ static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManPluginA
         HMODULE km_h_mod = LoadLibraryA("wsmsvc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSManPluginAuthzOperationComplete")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(senderdetails, flags, userauthorizationcontext, errorcode, extendederrorinformation) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(senderdetails, flags, userauthorizationcontext, errorcode, extendederrorinformation);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)senderdetails;
     (void)flags;
     (void)userauthorizationcontext;
     (void)errorcode;
     (void)extendederrorinformation;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -466,13 +564,20 @@ static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManPluginA
         HMODULE km_h_mod = LoadLibraryA("wsmsvc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSManPluginAuthzQueryQuotaComplete")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(senderdetails, flags, quota, errorcode, extendederrorinformation) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(senderdetails, flags, quota, errorcode, extendederrorinformation);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)senderdetails;
     (void)flags;
     (void)quota;
     (void)errorcode;
     (void)extendederrorinformation;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -494,7 +599,13 @@ static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManPluginA
         HMODULE km_h_mod = LoadLibraryA("wsmsvc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSManPluginAuthzUserComplete")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(senderdetails, flags, userauthorizationcontext, impersonationtoken, userisadministrator, errorcode, extendederrorinformation) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(senderdetails, flags, userauthorizationcontext, impersonationtoken, userisadministrator, errorcode, extendederrorinformation);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)senderdetails;
     (void)flags;
@@ -503,6 +614,7 @@ static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManPluginA
     (void)userisadministrator;
     (void)errorcode;
     (void)extendederrorinformation;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -518,9 +630,16 @@ static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManPluginF
         HMODULE km_h_mod = LoadLibraryA("wsmsvc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSManPluginFreeRequestDetails")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(requestdetails) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(requestdetails);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)requestdetails;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -538,11 +657,18 @@ static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManPluginG
         HMODULE km_h_mod = LoadLibraryA("wsmsvc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSManPluginGetConfiguration")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(plugincontext, flags, data) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(plugincontext, flags, data);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)plugincontext;
     (void)flags;
     (void)data;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -560,11 +686,18 @@ static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManPluginG
         HMODULE km_h_mod = LoadLibraryA("wsmsvc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSManPluginGetOperationParameters")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(requestdetails, flags, data) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(requestdetails, flags, data);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)requestdetails;
     (void)flags;
     (void)data;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -583,12 +716,19 @@ static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManPluginO
         HMODULE km_h_mod = LoadLibraryA("wsmsvc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSManPluginOperationComplete")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(requestdetails, flags, errorcode, extendedinformation) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(requestdetails, flags, errorcode, extendedinformation);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)requestdetails;
     (void)flags;
     (void)errorcode;
     (void)extendedinformation;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -609,7 +749,13 @@ static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManPluginR
         HMODULE km_h_mod = LoadLibraryA("wsmsvc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSManPluginReceiveResult")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(requestdetails, flags, stream, streamresult, commandstate, exitcode) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(requestdetails, flags, stream, streamresult, commandstate, exitcode);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)requestdetails;
     (void)flags;
@@ -617,6 +763,7 @@ static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManPluginR
     (void)streamresult;
     (void)commandstate;
     (void)exitcode;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -633,10 +780,17 @@ static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManPluginR
         HMODULE km_h_mod = LoadLibraryA("wsmsvc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSManPluginReportCompletion")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(plugincontext, flags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(plugincontext, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)plugincontext;
     (void)flags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -654,11 +808,18 @@ static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManPluginR
         HMODULE km_h_mod = LoadLibraryA("wsmsvc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSManPluginReportContext")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(requestdetails, flags, context) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(requestdetails, flags, context);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)requestdetails;
     (void)flags;
     (void)context;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -679,7 +840,11 @@ static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManReceive
         HMODULE km_h_mod = LoadLibraryA("wsmsvc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSManReceiveShellOutput")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(shell, command, flags, desiredstreamset, async, receiveoperation);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(shell, command, flags, desiredstreamset, async, receiveoperation);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)shell;
     (void)command;
@@ -687,6 +852,7 @@ static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManReceive
     (void)desiredstreamset;
     (void)async;
     (void)receiveoperation;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -703,11 +869,16 @@ static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManReconne
         HMODULE km_h_mod = LoadLibraryA("wsmsvc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSManReconnectShell")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(shell, flags, async);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(shell, flags, async);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)shell;
     (void)flags;
     (void)async;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -724,11 +895,16 @@ static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManReconne
         HMODULE km_h_mod = LoadLibraryA("wsmsvc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSManReconnectShellCommand")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(commandhandle, flags, async);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(commandhandle, flags, async);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)commandhandle;
     (void)flags;
     (void)async;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -749,7 +925,11 @@ static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManRunShel
         HMODULE km_h_mod = LoadLibraryA("wsmsvc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSManRunShellCommand")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(shell, flags, commandline, args, options, async, command);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(shell, flags, commandline, args, options, async, command);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)shell;
     (void)flags;
@@ -758,6 +938,7 @@ static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManRunShel
     (void)options;
     (void)async;
     (void)command;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -779,7 +960,11 @@ static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManRunShel
         HMODULE km_h_mod = LoadLibraryA("wsmsvc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSManRunShellCommandEx")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(shell, flags, commandid, commandline, args, options, async, command);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(shell, flags, commandid, commandline, args, options, async, command);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)shell;
     (void)flags;
@@ -789,6 +974,7 @@ static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManRunShel
     (void)options;
     (void)async;
     (void)command;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -810,7 +996,11 @@ static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManSendShe
         HMODULE km_h_mod = LoadLibraryA("wsmsvc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSManSendShellInput")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(shell, command, flags, streamid, streamdata, endofstream, async, sendoperation);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(shell, command, flags, streamid, streamdata, endofstream, async, sendoperation);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)shell;
     (void)command;
@@ -820,6 +1010,7 @@ static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManSendShe
     (void)endofstream;
     (void)async;
     (void)sendoperation;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -836,11 +1027,18 @@ static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManSetSess
         HMODULE km_h_mod = LoadLibraryA("wsmsvc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSManSetSessionOption")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(session, option, data) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(session, option, data);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)session;
     (void)option;
     (void)data;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -861,7 +1059,11 @@ static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManSignalS
         HMODULE km_h_mod = LoadLibraryA("wsmsvc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSManSignalShell")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(shell, command, flags, code, async, signaloperation);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(shell, command, flags, code, async, signaloperation);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)shell;
     (void)command;
@@ -869,6 +1071,7 @@ static Napi::Value windowssys_windows_win32_system_remotemanagement_wSManSignalS
     (void)code;
     (void)async;
     (void)signaloperation;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }

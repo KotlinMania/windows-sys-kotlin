@@ -5,6 +5,7 @@
 #include <stdbool.h>
 #include <stddef.h>
 #include <stdint.h>
+#include <stdlib.h>
 #include <errno.h>
 #ifdef _WIN32
 #ifndef WIN32_LEAN_AND_MEAN
@@ -28,7 +29,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("dssec.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DSCreateSecurityPage");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pwszobjectpath, (void*)(uintptr_t)pwszobjectclass, (uint32_t)dwflags, (void*)(uintptr_t)phpage, (void*)(uintptr_t)pfnreadsd, (void*)(uintptr_t)pfnwritesd, (int64_t)lpcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pwszobjectpath, (void*)(uintptr_t)pwszobjectclass, (uint32_t)dwflags, (void*)(uintptr_t)phpage, (void*)(uintptr_t)pfnreadsd, (void*)(uintptr_t)pfnwritesd, (int64_t)lpcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pwszobjectpath;
     (void)pwszobjectclass;
@@ -37,6 +44,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)pfnreadsd;
     (void)pfnwritesd;
     (void)lpcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -52,7 +60,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("dssec.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DSEditSecurity");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hwndowner, (void*)(uintptr_t)pwszobjectpath, (void*)(uintptr_t)pwszobjectclass, (uint32_t)dwflags, (void*)(uintptr_t)pwszcaption, (void*)(uintptr_t)pfnreadsd, (void*)(uintptr_t)pfnwritesd, (int64_t)lpcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hwndowner, (void*)(uintptr_t)pwszobjectpath, (void*)(uintptr_t)pwszobjectclass, (uint32_t)dwflags, (void*)(uintptr_t)pwszcaption, (void*)(uintptr_t)pfnreadsd, (void*)(uintptr_t)pfnwritesd, (int64_t)lpcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwndowner;
     (void)pwszobjectpath;
@@ -62,6 +76,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)pfnreadsd;
     (void)pfnwritesd;
     (void)lpcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;

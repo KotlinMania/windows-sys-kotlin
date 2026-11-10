@@ -63,11 +63,18 @@ static Napi::Value windowssys_windows_win32_ui_input_defRawInputProc_napi(const 
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DefRawInputProc")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(parawinput, ninput, cbsizeheader) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(parawinput, ninput, cbsizeheader);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)parawinput;
     (void)ninput;
     (void)cbsizeheader;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -83,9 +90,16 @@ static Napi::Value windowssys_windows_win32_ui_input_getCIMSSM_napi(const Napi::
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetCIMSSM")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(inputmessagesource) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(inputmessagesource);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)inputmessagesource;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -101,9 +115,16 @@ static Napi::Value windowssys_windows_win32_ui_input_getCurrentInputMessageSourc
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetCurrentInputMessageSource")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(inputmessagesource) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(inputmessagesource);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)inputmessagesource;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -121,11 +142,18 @@ static Napi::Value windowssys_windows_win32_ui_input_getRawInputBuffer_napi(cons
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetRawInputBuffer")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pdata, pcbsize, cbsizeheader) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pdata, pcbsize, cbsizeheader);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pdata;
     (void)pcbsize;
     (void)cbsizeheader;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -145,13 +173,20 @@ static Napi::Value windowssys_windows_win32_ui_input_getRawInputData_napi(const 
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetRawInputData")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hrawinput, uicommand, pdata, pcbsize, cbsizeheader) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hrawinput, uicommand, pdata, pcbsize, cbsizeheader);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hrawinput;
     (void)uicommand;
     (void)pdata;
     (void)pcbsize;
     (void)cbsizeheader;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -170,12 +205,19 @@ static Napi::Value windowssys_windows_win32_ui_input_getRawInputDeviceInfoA_napi
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetRawInputDeviceInfoA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdevice, uicommand, pdata, pcbsize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdevice, uicommand, pdata, pcbsize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hdevice;
     (void)uicommand;
     (void)pdata;
     (void)pcbsize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -194,12 +236,19 @@ static Napi::Value windowssys_windows_win32_ui_input_getRawInputDeviceInfoW_napi
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetRawInputDeviceInfoW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdevice, uicommand, pdata, pcbsize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdevice, uicommand, pdata, pcbsize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hdevice;
     (void)uicommand;
     (void)pdata;
     (void)pcbsize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -217,11 +266,18 @@ static Napi::Value windowssys_windows_win32_ui_input_getRawInputDeviceList_napi(
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetRawInputDeviceList")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(prawinputdevicelist, puinumdevices, cbsize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(prawinputdevicelist, puinumdevices, cbsize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)prawinputdevicelist;
     (void)puinumdevices;
     (void)cbsize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -239,11 +295,18 @@ static Napi::Value windowssys_windows_win32_ui_input_getRegisteredRawInputDevice
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetRegisteredRawInputDevices")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(prawinputdevices, puinumdevices, cbsize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(prawinputdevices, puinumdevices, cbsize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)prawinputdevices;
     (void)puinumdevices;
     (void)cbsize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -261,11 +324,18 @@ static Napi::Value windowssys_windows_win32_ui_input_registerRawInputDevices_nap
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegisterRawInputDevices")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(prawinputdevices, uinumdevices, cbsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(prawinputdevices, uinumdevices, cbsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)prawinputdevices;
     (void)uinumdevices;
     (void)cbsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

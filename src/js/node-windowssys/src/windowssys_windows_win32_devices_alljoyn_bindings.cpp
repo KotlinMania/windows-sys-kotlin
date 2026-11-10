@@ -62,10 +62,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_allJoynAcceptBusConn
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AllJoynAcceptBusConnection")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serverbushandle, abortevent) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serverbushandle, abortevent);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serverbushandle;
     (void)abortevent;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -81,9 +88,16 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_allJoynCloseBusHandl
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AllJoynCloseBusHandle")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bushandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bushandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bushandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -99,10 +113,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_allJoynConnectToBus_
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AllJoynConnectToBus")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(connectionspec) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(connectionspec);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)connectionspec;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -119,12 +140,19 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_allJoynCreateBus_nap
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AllJoynCreateBus")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(outbuffersize, inbuffersize, lpsecurityattributes) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(outbuffersize, inbuffersize, lpsecurityattributes);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)outbuffersize;
     (void)inbuffersize;
     (void)lpsecurityattributes;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -141,11 +169,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_allJoynEnumEvents_na
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AllJoynEnumEvents")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(connectedbushandle, eventtoreset, eventtypes) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(connectedbushandle, eventtoreset, eventtypes);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)connectedbushandle;
     (void)eventtoreset;
     (void)eventtypes;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -163,11 +198,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_allJoynEventSelect_n
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AllJoynEventSelect")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(connectedbushandle, eventhandle, eventtypes) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(connectedbushandle, eventhandle, eventtypes);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)connectedbushandle;
     (void)eventhandle;
     (void)eventtypes;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -187,13 +229,20 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_allJoynReceiveFromBu
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AllJoynReceiveFromBus")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(connectedbushandle, buffer, bytestoread, bytestransferred, reserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(connectedbushandle, buffer, bytestoread, bytestransferred, reserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)connectedbushandle;
     (void)buffer;
     (void)bytestoread;
     (void)bytestransferred;
     (void)reserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -213,13 +262,20 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_allJoynSendToBus_nap
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AllJoynSendToBus")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(connectedbushandle, buffer, bytestowrite, bytestransferred, reserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(connectedbushandle, buffer, bytestowrite, bytestransferred, reserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)connectedbushandle;
     (void)buffer;
     (void)bytestowrite;
     (void)bytestransferred;
     (void)reserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -235,10 +291,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_qccStatusText_napi(c
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "QCC_StatusText")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(status) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(status);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)status;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -253,9 +316,16 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdataCrea
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_aboutdata_create")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(defaultlanguage) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(defaultlanguage);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)defaultlanguage;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -270,8 +340,15 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdataCrea
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_aboutdata_create_empty")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -288,10 +365,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdataCrea
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_aboutdata_create_full")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(arg, language) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(arg, language);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)arg;
     (void)language;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -309,11 +393,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdataCrea
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_aboutdata_createfrommsgarg")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(data, arg, language) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(data, arg, language);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)data;
     (void)arg;
     (void)language;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -330,10 +421,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdataCrea
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_aboutdata_createfromxml")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(data, aboutdataxml) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(data, aboutdataxml);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)data;
     (void)aboutdataxml;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -349,9 +447,14 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdataDest
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_aboutdata_destroy")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(data);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(data);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)data;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -368,11 +471,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGeta
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_aboutdata_getaboutdata")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(data, msgarg, language) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(data, msgarg, language);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)data;
     (void)msgarg;
     (void)language;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -389,10 +499,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGeta
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_aboutdata_getajsoftwareversion")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(data, ajsoftwareversion) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(data, ajsoftwareversion);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)data;
     (void)ajsoftwareversion;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -409,10 +526,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGeta
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_aboutdata_getannouncedaboutdata")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(data, msgarg) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(data, msgarg);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)data;
     (void)msgarg;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -430,11 +554,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGeta
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_aboutdata_getappid")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(data, appid, num) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(data, appid, num);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)data;
     (void)appid;
     (void)num;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -452,11 +583,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGeta
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_aboutdata_getappname")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(data, appname, language) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(data, appname, language);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)data;
     (void)appname;
     (void)language;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -473,10 +611,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetd
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_aboutdata_getdateofmanufacture")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(data, dateofmanufacture) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(data, dateofmanufacture);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)data;
     (void)dateofmanufacture;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -493,10 +638,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetd
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_aboutdata_getdefaultlanguage")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(data, defaultlanguage) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(data, defaultlanguage);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)data;
     (void)defaultlanguage;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -514,11 +666,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetd
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_aboutdata_getdescription")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(data, description, language) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(data, description, language);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)data;
     (void)description;
     (void)language;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -535,10 +694,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetd
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_aboutdata_getdeviceid")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(data, deviceid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(data, deviceid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)data;
     (void)deviceid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -556,11 +722,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetd
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_aboutdata_getdevicename")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(data, devicename, language) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(data, devicename, language);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)data;
     (void)devicename;
     (void)language;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -579,12 +752,19 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetf
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_aboutdata_getfield")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(data, name, value, language) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(data, name, value, language);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)data;
     (void)name;
     (void)value;
     (void)language;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -602,11 +782,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetf
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_aboutdata_getfields")));
     }
-    uint64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(data, fields, num_fields) : 0;
+    uint64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(data, fields, num_fields);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)data;
     (void)fields;
     (void)num_fields;
+    errno = ENOSYS;
     uint64_t km_res = 0;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
@@ -623,11 +810,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetf
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_aboutdata_getfieldsignature")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(data, fieldname) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(data, fieldname);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)data;
     (void)fieldname;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -643,10 +837,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGeth
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_aboutdata_gethardwareversion")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(data, hardwareversion) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(data, hardwareversion);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)data;
     (void)hardwareversion;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -664,11 +865,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetm
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_aboutdata_getmanufacturer")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(data, manufacturer, language) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(data, manufacturer, language);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)data;
     (void)manufacturer;
     (void)language;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -685,10 +893,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGetm
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_aboutdata_getmodelnumber")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(data, modelnumber) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(data, modelnumber);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)data;
     (void)modelnumber;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -705,10 +920,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGets
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_aboutdata_getsoftwareversion")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(data, softwareversion) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(data, softwareversion);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)data;
     (void)softwareversion;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -726,11 +948,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGets
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_aboutdata_getsupportedlanguages")));
     }
-    uint64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(data, languagetags, num) : 0;
+    uint64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(data, languagetags, num);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)data;
     (void)languagetags;
     (void)num;
+    errno = ENOSYS;
     uint64_t km_res = 0;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
@@ -747,10 +976,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdataGets
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_aboutdata_getsupporturl")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(data, supporturl) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(data, supporturl);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)data;
     (void)supporturl;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -767,10 +1003,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdataIsfi
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_aboutdata_isfieldannounced")));
     }
-    uint8_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(data, fieldname) : 0;
+    uint8_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(data, fieldname);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)data;
     (void)fieldname;
+    errno = ENOSYS;
     uint8_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -787,10 +1030,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdataIsfi
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_aboutdata_isfieldlocalized")));
     }
-    uint8_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(data, fieldname) : 0;
+    uint8_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(data, fieldname);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)data;
     (void)fieldname;
+    errno = ENOSYS;
     uint8_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -807,10 +1057,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdataIsfi
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_aboutdata_isfieldrequired")));
     }
-    uint8_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(data, fieldname) : 0;
+    uint8_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(data, fieldname);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)data;
     (void)fieldname;
+    errno = ENOSYS;
     uint8_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -827,10 +1084,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdataIsva
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_aboutdata_isvalid")));
     }
-    uint8_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(data, language) : 0;
+    uint8_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(data, language);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)data;
     (void)language;
+    errno = ENOSYS;
     uint8_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -848,11 +1112,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSeta
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_aboutdata_setappid")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(data, appid, num) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(data, appid, num);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)data;
     (void)appid;
     (void)num;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -869,10 +1140,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSeta
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_aboutdata_setappid_fromstring")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(data, appid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(data, appid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)data;
     (void)appid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -890,11 +1168,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSeta
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_aboutdata_setappname")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(data, appname, language) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(data, appname, language);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)data;
     (void)appname;
     (void)language;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -911,10 +1196,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetd
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_aboutdata_setdateofmanufacture")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(data, dateofmanufacture) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(data, dateofmanufacture);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)data;
     (void)dateofmanufacture;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -931,10 +1223,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetd
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_aboutdata_setdefaultlanguage")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(data, defaultlanguage) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(data, defaultlanguage);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)data;
     (void)defaultlanguage;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -952,11 +1251,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetd
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_aboutdata_setdescription")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(data, description, language) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(data, description, language);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)data;
     (void)description;
     (void)language;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -973,10 +1279,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetd
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_aboutdata_setdeviceid")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(data, deviceid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(data, deviceid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)data;
     (void)deviceid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -994,11 +1307,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetd
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_aboutdata_setdevicename")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(data, devicename, language) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(data, devicename, language);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)data;
     (void)devicename;
     (void)language;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1017,12 +1337,19 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetf
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_aboutdata_setfield")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(data, name, value, language) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(data, name, value, language);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)data;
     (void)name;
     (void)value;
     (void)language;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1039,10 +1366,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSeth
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_aboutdata_sethardwareversion")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(data, hardwareversion) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(data, hardwareversion);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)data;
     (void)hardwareversion;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1060,11 +1394,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetm
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_aboutdata_setmanufacturer")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(data, manufacturer, language) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(data, manufacturer, language);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)data;
     (void)manufacturer;
     (void)language;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1081,10 +1422,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSetm
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_aboutdata_setmodelnumber")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(data, modelnumber) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(data, modelnumber);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)data;
     (void)modelnumber;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1101,10 +1449,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSets
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_aboutdata_setsoftwareversion")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(data, softwareversion) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(data, softwareversion);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)data;
     (void)softwareversion;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1121,10 +1476,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSets
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_aboutdata_setsupportedlanguage")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(data, language) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(data, language);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)data;
     (void)language;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1141,10 +1503,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdataSets
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_aboutdata_setsupporturl")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(data, supporturl) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(data, supporturl);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)data;
     (void)supporturl;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1161,10 +1530,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdatalist
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_aboutdatalistener_create")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(callbacks, context) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(callbacks, context);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)callbacks;
     (void)context;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1180,9 +1556,14 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutdatalist
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_aboutdatalistener_destroy")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(listener);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(listener);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)listener;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -1197,9 +1578,14 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAbouticonClea
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_abouticon_clear")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(icon);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(icon);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)icon;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -1213,8 +1599,15 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAbouticonCrea
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_abouticon_create")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1230,9 +1623,14 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAbouticonDest
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_abouticon_destroy")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(icon);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(icon);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)icon;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -1249,11 +1647,16 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAbouticonGetc
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_abouticon_getcontent")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(icon, data, size);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(icon, data, size);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)icon;
     (void)data;
     (void)size;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -1270,11 +1673,16 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAbouticonGetu
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_abouticon_geturl")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(icon, type, url);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(icon, type, url);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)icon;
     (void)type;
     (void)url;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -1293,13 +1701,20 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAbouticonSetc
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_abouticon_setcontent")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(icon, type, data, csize, ownsdata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(icon, type, data, csize, ownsdata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)icon;
     (void)type;
     (void)data;
     (void)csize;
     (void)ownsdata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1316,10 +1731,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAbouticonSetc
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_abouticon_setcontent_frommsgarg")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(icon, arg) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(icon, arg);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)icon;
     (void)arg;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1337,11 +1759,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAbouticonSetu
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_abouticon_seturl")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(icon, type, url) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(icon, type, url);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)icon;
     (void)type;
     (void)url;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1358,10 +1787,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAbouticonobjC
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_abouticonobj_create")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus, icon) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bus, icon);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bus;
     (void)icon;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1377,9 +1813,14 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAbouticonobjD
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_abouticonobj_destroy")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(icon);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(icon);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)icon;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -1396,11 +1837,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAbouticonprox
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_abouticonproxy_create")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus, busname, sessionid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bus, busname, sessionid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bus;
     (void)busname;
     (void)sessionid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1416,9 +1864,14 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAbouticonprox
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_abouticonproxy_destroy")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(proxy);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(proxy);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)proxy;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -1434,10 +1887,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAbouticonprox
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_abouticonproxy_geticon")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(proxy, icon) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(proxy, icon);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)proxy;
     (void)icon;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1454,10 +1914,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAbouticonprox
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_abouticonproxy_getversion")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(proxy, version) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(proxy, version);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)proxy;
     (void)version;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1474,10 +1941,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutlistener
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_aboutlistener_create")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(callback, context) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(callback, context);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)callback;
     (void)context;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1493,9 +1967,14 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutlistener
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_aboutlistener_destroy")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(listener);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(listener);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)listener;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -1512,11 +1991,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutobjAnnou
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_aboutobj_announce")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(obj, sessionport, aboutdata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(obj, sessionport, aboutdata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)obj;
     (void)sessionport;
     (void)aboutdata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1534,11 +2020,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutobjAnnou
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_aboutobj_announce_using_datalistener")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(obj, sessionport, aboutlistener) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(obj, sessionport, aboutlistener);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)obj;
     (void)sessionport;
     (void)aboutlistener;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1555,10 +2048,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutobjCreat
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_aboutobj_create")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus, isannounced) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bus, isannounced);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bus;
     (void)isannounced;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1574,9 +2074,14 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutobjDestr
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_aboutobj_destroy")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(obj);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(obj);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)obj;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -1591,9 +2096,16 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutobjUnann
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_aboutobj_unannounce")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(obj) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(obj);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)obj;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1609,9 +2121,14 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectde
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_aboutobjectdescription_clear")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(description);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(description);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)description;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -1625,8 +2142,15 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectde
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_aboutobjectdescription_create")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1642,9 +2166,16 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectde
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_aboutobjectdescription_create_full")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(arg) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(arg);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)arg;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1661,10 +2192,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectde
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_aboutobjectdescription_createfrommsgarg")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(description, arg) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(description, arg);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)description;
     (void)arg;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1680,9 +2218,14 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectde
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_aboutobjectdescription_destroy")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(description);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(description);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)description;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -1700,12 +2243,19 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectde
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_aboutobjectdescription_getinterfacepaths")));
     }
-    uint64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(description, interfacename, paths, numpaths) : 0;
+    uint64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(description, interfacename, paths, numpaths);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)description;
     (void)interfacename;
     (void)paths;
     (void)numpaths;
+    errno = ENOSYS;
     uint64_t km_res = 0;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
@@ -1724,12 +2274,19 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectde
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_aboutobjectdescription_getinterfaces")));
     }
-    uint64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(description, path, interfaces, numinterfaces) : 0;
+    uint64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(description, path, interfaces, numinterfaces);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)description;
     (void)path;
     (void)interfaces;
     (void)numinterfaces;
+    errno = ENOSYS;
     uint64_t km_res = 0;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
@@ -1746,10 +2303,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectde
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_aboutobjectdescription_getmsgarg")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(description, msgarg) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(description, msgarg);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)description;
     (void)msgarg;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1767,11 +2331,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectde
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_aboutobjectdescription_getpaths")));
     }
-    uint64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(description, paths, numpaths) : 0;
+    uint64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(description, paths, numpaths);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)description;
     (void)paths;
     (void)numpaths;
+    errno = ENOSYS;
     uint64_t km_res = 0;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
@@ -1788,10 +2359,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectde
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_aboutobjectdescription_hasinterface")));
     }
-    uint8_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(description, interfacename) : 0;
+    uint8_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(description, interfacename);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)description;
     (void)interfacename;
+    errno = ENOSYS;
     uint8_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1809,11 +2387,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectde
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_aboutobjectdescription_hasinterfaceatpath")));
     }
-    uint8_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(description, path, interfacename) : 0;
+    uint8_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(description, path, interfacename);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)description;
     (void)path;
     (void)interfacename;
+    errno = ENOSYS;
     uint8_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1830,10 +2415,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutobjectde
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_aboutobjectdescription_haspath")));
     }
-    uint8_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(description, path) : 0;
+    uint8_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(description, path);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)description;
     (void)path;
+    errno = ENOSYS;
     uint8_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1851,11 +2443,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutproxyCre
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_aboutproxy_create")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus, busname, sessionid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bus, busname, sessionid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bus;
     (void)busname;
     (void)sessionid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1871,9 +2470,14 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutproxyDes
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_aboutproxy_destroy")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(proxy);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(proxy);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)proxy;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -1890,11 +2494,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutproxyGet
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_aboutproxy_getaboutdata")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(proxy, language, data) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(proxy, language, data);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)proxy;
     (void)language;
     (void)data;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1911,10 +2522,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutproxyGet
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_aboutproxy_getobjectdescription")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(proxy, objectdesc) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(proxy, objectdesc);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)proxy;
     (void)objectdesc;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1931,10 +2549,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAboutproxyGet
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_aboutproxy_getversion")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(proxy, version) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(proxy, version);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)proxy;
     (void)version;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1951,10 +2576,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynApplicationst
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_applicationstatelistener_create")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(callbacks, context) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(callbacks, context);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)callbacks;
     (void)context;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1970,9 +2602,14 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynApplicationst
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_applicationstatelistener_destroy")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(listener);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(listener);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)listener;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -1988,10 +2625,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAuthlistenerC
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_authlistener_create")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(callbacks, context) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(callbacks, context);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)callbacks;
     (void)context;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -2007,9 +2651,14 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAuthlistenerD
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_authlistener_destroy")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(listener);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(listener);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)listener;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -2027,12 +2676,19 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAuthlistenerR
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_authlistener_requestcredentialsresponse")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(listener, authcontext, arg_2_accept, credentials) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(listener, authcontext, arg_2_accept, credentials);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)listener;
     (void)authcontext;
     (void)arg_2_accept;
     (void)credentials;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2050,11 +2706,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAuthlistenerS
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_authlistener_setsharedsecret")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(listener, sharedsecret, sharedsecretsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(listener, sharedsecret, sharedsecretsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)listener;
     (void)sharedsecret;
     (void)sharedsecretsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2072,11 +2735,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAuthlistenerV
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_authlistener_verifycredentialsresponse")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(listener, authcontext, arg_2_accept) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(listener, authcontext, arg_2_accept);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)listener;
     (void)authcontext;
     (void)arg_2_accept;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2093,10 +2763,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAuthlistenera
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_authlistenerasync_create")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(callbacks, context) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(callbacks, context);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)callbacks;
     (void)context;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -2112,9 +2789,14 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAuthlistenera
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_authlistenerasync_destroy")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(listener);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(listener);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)listener;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -2131,11 +2813,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAutopingerAdd
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_autopinger_adddestination")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(autopinger, group, destination) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(autopinger, group, destination);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)autopinger;
     (void)group;
     (void)destination;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2154,12 +2843,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAutopingerAdd
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_autopinger_addpinggroup")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(autopinger, group, listener, pinginterval);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(autopinger, group, listener, pinginterval);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)autopinger;
     (void)group;
     (void)listener;
     (void)pinginterval;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -2174,9 +2868,16 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAutopingerCre
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_autopinger_create")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bus);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bus;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2192,9 +2893,14 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAutopingerDes
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_autopinger_destroy")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(autopinger);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(autopinger);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)autopinger;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -2209,9 +2915,14 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAutopingerPau
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_autopinger_pause")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(autopinger);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(autopinger);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)autopinger;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -2229,12 +2940,19 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAutopingerRem
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_autopinger_removedestination")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(autopinger, group, destination, removeall) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(autopinger, group, destination, removeall);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)autopinger;
     (void)group;
     (void)destination;
     (void)removeall;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2251,10 +2969,15 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAutopingerRem
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_autopinger_removepinggroup")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(autopinger, group);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(autopinger, group);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)autopinger;
     (void)group;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -2269,9 +2992,14 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAutopingerRes
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_autopinger_resume")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(autopinger);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(autopinger);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)autopinger;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -2288,11 +3016,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynAutopingerSet
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_autopinger_setpinginterval")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(autopinger, group, pinginterval) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(autopinger, group, pinginterval);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)autopinger;
     (void)group;
     (void)pinginterval;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2311,12 +3046,19 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachment
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_busattachment_addlogonentry")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus, authmechanism, username, password) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bus, authmechanism, username, password);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bus;
     (void)authmechanism;
     (void)username;
     (void)password;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2333,10 +3075,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachment
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_busattachment_addmatch")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus, rule) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bus, rule);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bus;
     (void)rule;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2354,11 +3103,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachment
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_busattachment_advertisename")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus, name, transports) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bus, name, transports);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bus;
     (void)name;
     (void)transports;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2377,12 +3133,19 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachment
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_busattachment_bindsessionport")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus, sessionport, opts, listener) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bus, sessionport, opts, listener);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bus;
     (void)sessionport;
     (void)opts;
     (void)listener;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2400,11 +3163,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachment
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_busattachment_canceladvertisename")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus, name, transports) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bus, name, transports);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bus;
     (void)name;
     (void)transports;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2421,10 +3191,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachment
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_busattachment_cancelfindadvertisedname")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus, nameprefix) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bus, nameprefix);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bus;
     (void)nameprefix;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2442,11 +3219,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachment
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_busattachment_cancelfindadvertisednamebytransport")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus, nameprefix, transports) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bus, nameprefix, transports);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bus;
     (void)nameprefix;
     (void)transports;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2463,10 +3247,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachment
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_busattachment_cancelwhoimplements_interface")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus, implementsinterface) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bus, implementsinterface);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bus;
     (void)implementsinterface;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2484,11 +3275,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachment
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_busattachment_cancelwhoimplements_interfaces")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus, implementsinterfaces, numberinterfaces) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bus, implementsinterfaces, numberinterfaces);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bus;
     (void)implementsinterfaces;
     (void)numberinterfaces;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2505,10 +3303,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachment
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_busattachment_clearkeys")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus, guid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bus, guid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bus;
     (void)guid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2524,9 +3329,14 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachment
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_busattachment_clearkeystore")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(bus);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(bus);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)bus;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -2542,10 +3352,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachment
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_busattachment_connect")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus, connectspec) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bus, connectspec);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bus;
     (void)connectspec;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2562,10 +3379,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachment
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_busattachment_create")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(applicationname, allowremotemessages) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(applicationname, allowremotemessages);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)applicationname;
     (void)allowremotemessages;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -2583,11 +3407,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachment
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_busattachment_create_concurrency")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(applicationname, allowremotemessages, concurrency) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(applicationname, allowremotemessages, concurrency);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)applicationname;
     (void)allowremotemessages;
     (void)concurrency;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -2605,11 +3436,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachment
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_busattachment_createinterface")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus, name, iface) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bus, name, iface);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bus;
     (void)name;
     (void)iface;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2628,12 +3466,19 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachment
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_busattachment_createinterface_secure")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus, name, iface, secpolicy) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bus, name, iface, secpolicy);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bus;
     (void)name;
     (void)iface;
     (void)secpolicy;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2650,10 +3495,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachment
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_busattachment_createinterfacesfromxml")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus, xml) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bus, xml);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bus;
     (void)xml;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2669,9 +3521,16 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachment
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_busattachment_deletedefaultkeystore")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(applicationname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(applicationname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)applicationname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2688,10 +3547,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachment
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_busattachment_deleteinterface")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus, iface) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bus, iface);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bus;
     (void)iface;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2707,9 +3573,14 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachment
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_busattachment_destroy")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(bus);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(bus);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)bus;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -2725,10 +3596,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachment
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_busattachment_disconnect")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus, unused) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bus, unused);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bus;
     (void)unused;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2744,9 +3622,14 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachment
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_busattachment_enableconcurrentcallbacks")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(bus);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(bus);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)bus;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -2765,13 +3648,20 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachment
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_busattachment_enablepeersecurity")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus, authmechanisms, listener, keystorefilename, isshared) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bus, authmechanisms, listener, keystorefilename, isshared);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bus;
     (void)authmechanisms;
     (void)listener;
     (void)keystorefilename;
     (void)isshared;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2792,7 +3682,13 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachment
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_busattachment_enablepeersecuritywithpermissionconfigurationlistener")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus, authmechanisms, authlistener, keystorefilename, isshared, permissionconfigurationlistener) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bus, authmechanisms, authlistener, keystorefilename, isshared, permissionconfigurationlistener);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bus;
     (void)authmechanisms;
@@ -2800,6 +3696,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachment
     (void)keystorefilename;
     (void)isshared;
     (void)permissionconfigurationlistener;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2816,10 +3713,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachment
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_busattachment_findadvertisedname")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus, nameprefix) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bus, nameprefix);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bus;
     (void)nameprefix;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2837,11 +3741,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachment
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_busattachment_findadvertisednamebytransport")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus, nameprefix, transports) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bus, nameprefix, transports);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bus;
     (void)nameprefix;
     (void)transports;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2857,9 +3768,16 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachment
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_busattachment_getalljoyndebugobj")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bus);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bus;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -2875,9 +3793,16 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachment
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_busattachment_getalljoynproxyobj")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bus);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bus;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -2893,9 +3818,16 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachment
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_busattachment_getconcurrency")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bus);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)bus;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2911,10 +3843,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachment
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_busattachment_getconnectspec")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bus);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)bus;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -2929,9 +3868,16 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachment
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_busattachment_getdbusproxyobj")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bus);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bus;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -2947,10 +3893,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachment
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_busattachment_getglobalguidstring")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bus);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)bus;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -2966,10 +3919,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachment
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_busattachment_getinterface")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus, name) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bus, name);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bus;
     (void)name;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2987,11 +3947,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachment
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_busattachment_getinterfaces")));
     }
-    uint64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus, ifaces, numifaces) : 0;
+    uint64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bus, ifaces, numifaces);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)bus;
     (void)ifaces;
     (void)numifaces;
+    errno = ENOSYS;
     uint64_t km_res = 0;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
@@ -3009,11 +3976,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachment
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_busattachment_getkeyexpiration")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus, guid, timeout) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bus, guid, timeout);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bus;
     (void)guid;
     (void)timeout;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3032,12 +4006,19 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachment
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_busattachment_getpeerguid")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus, name, guid, guidsz) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bus, name, guid, guidsz);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bus;
     (void)name;
     (void)guid;
     (void)guidsz;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3053,9 +4034,16 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachment
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_busattachment_getpermissionconfigurator")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bus);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bus;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3070,8 +4058,15 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachment
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_busattachment_gettimestamp")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3087,10 +4082,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachment
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_busattachment_getuniquename")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bus);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)bus;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -3105,9 +4107,16 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachment
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_busattachment_isconnected")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bus);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bus;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3123,9 +4132,16 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachment
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_busattachment_ispeersecurityenabled")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bus);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bus;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3141,9 +4157,16 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachment
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_busattachment_isstarted")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bus);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bus;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3159,9 +4182,16 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachment
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_busattachment_isstopping")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bus);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bus;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3177,9 +4207,16 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachment
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_busattachment_join")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bus);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bus;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3200,7 +4237,13 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachment
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_busattachment_joinsession")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus, sessionhost, sessionport, listener, sessionid, opts) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bus, sessionhost, sessionport, listener, sessionid, opts);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bus;
     (void)sessionhost;
@@ -3208,6 +4251,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachment
     (void)listener;
     (void)sessionid;
     (void)opts;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3229,7 +4273,13 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachment
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_busattachment_joinsessionasync")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus, sessionhost, sessionport, listener, opts, callback, context) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bus, sessionhost, sessionport, listener, opts, callback, context);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bus;
     (void)sessionhost;
@@ -3238,6 +4288,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachment
     (void)opts;
     (void)callback;
     (void)context;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3254,10 +4305,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachment
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_busattachment_leavesession")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus, sessionid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bus, sessionid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bus;
     (void)sessionid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3275,11 +4333,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachment
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_busattachment_namehasowner")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus, name, hasowner) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bus, name, hasowner);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bus;
     (void)name;
     (void)hasowner;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3297,11 +4362,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachment
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_busattachment_ping")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus, name, timeout) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bus, name, timeout);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bus;
     (void)name;
     (void)timeout;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3318,10 +4390,15 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachment
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_busattachment_registeraboutlistener")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(bus, aboutlistener);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(bus, aboutlistener);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)bus;
     (void)aboutlistener;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -3337,10 +4414,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachment
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_busattachment_registerapplicationstatelistener")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus, listener) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bus, listener);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bus;
     (void)listener;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3357,10 +4441,15 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachment
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_busattachment_registerbuslistener")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(bus, listener);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(bus, listener);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)bus;
     (void)listener;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -3376,10 +4465,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachment
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_busattachment_registerbusobject")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus, obj) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bus, obj);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bus;
     (void)obj;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3396,10 +4492,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachment
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_busattachment_registerbusobject_secure")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus, obj) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bus, obj);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bus;
     (void)obj;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3416,10 +4519,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachment
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_busattachment_registerkeystorelistener")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus, listener) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bus, listener);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bus;
     (void)listener;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3436,10 +4546,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachment
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_busattachment_releasename")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus, name) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bus, name);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bus;
     (void)name;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3455,9 +4572,16 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachment
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_busattachment_reloadkeystore")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bus);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bus;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3474,10 +4598,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachment
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_busattachment_removematch")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus, rule) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bus, rule);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bus;
     (void)rule;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3495,11 +4626,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachment
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_busattachment_removesessionmember")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus, sessionid, membername) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bus, sessionid, membername);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bus;
     (void)sessionid;
     (void)membername;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3517,11 +4655,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachment
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_busattachment_requestname")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus, requestedname, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bus, requestedname, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bus;
     (void)requestedname;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3539,11 +4684,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachment
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_busattachment_secureconnection")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus, name, forceauth) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bus, name, forceauth);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bus;
     (void)name;
     (void)forceauth;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3561,11 +4713,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachment
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_busattachment_secureconnectionasync")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus, name, forceauth) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bus, name, forceauth);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bus;
     (void)name;
     (void)forceauth;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3583,11 +4742,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachment
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_busattachment_setdaemondebug")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus, module, level) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bus, module, level);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bus;
     (void)module;
     (void)level;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3605,11 +4771,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachment
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_busattachment_setkeyexpiration")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus, guid, timeout) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bus, guid, timeout);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bus;
     (void)guid;
     (void)timeout;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3627,11 +4800,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachment
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_busattachment_setlinktimeout")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus, sessionid, linktimeout) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bus, sessionid, linktimeout);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bus;
     (void)sessionid;
     (void)linktimeout;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3651,13 +4831,20 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachment
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_busattachment_setlinktimeoutasync")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus, sessionid, linktimeout, callback, context) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bus, sessionid, linktimeout, callback, context);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bus;
     (void)sessionid;
     (void)linktimeout;
     (void)callback;
     (void)context;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3675,11 +4862,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachment
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_busattachment_setsessionlistener")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus, sessionid, listener) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bus, sessionid, listener);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bus;
     (void)sessionid;
     (void)listener;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3695,9 +4889,16 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachment
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_busattachment_start")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bus);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bus;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3713,9 +4914,16 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachment
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_busattachment_stop")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bus);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bus;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3732,10 +4940,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachment
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_busattachment_unbindsessionport")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus, sessionport) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bus, sessionport);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bus;
     (void)sessionport;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3752,10 +4967,15 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachment
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_busattachment_unregisteraboutlistener")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(bus, aboutlistener);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(bus, aboutlistener);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)bus;
     (void)aboutlistener;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -3770,9 +4990,14 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachment
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_busattachment_unregisterallaboutlisteners")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(bus);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(bus);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)bus;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -3787,9 +5012,16 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachment
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_busattachment_unregisterallhandlers")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bus);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bus;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3806,10 +5038,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachment
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_busattachment_unregisterapplicationstatelistener")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus, listener) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bus, listener);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bus;
     (void)listener;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3826,10 +5065,15 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachment
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_busattachment_unregisterbuslistener")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(bus, listener);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(bus, listener);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)bus;
     (void)listener;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -3845,10 +5089,15 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachment
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_busattachment_unregisterbusobject")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(bus, object);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(bus, object);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)bus;
     (void)object;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -3864,10 +5113,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachment
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_busattachment_whoimplements_interface")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus, implementsinterface) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bus, implementsinterface);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bus;
     (void)implementsinterface;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3885,11 +5141,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusattachment
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_busattachment_whoimplements_interfaces")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus, implementsinterfaces, numberinterfaces) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bus, implementsinterfaces, numberinterfaces);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bus;
     (void)implementsinterfaces;
     (void)numberinterfaces;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3906,10 +5169,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBuslistenerCr
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_buslistener_create")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(callbacks, context) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(callbacks, context);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)callbacks;
     (void)context;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3925,9 +5195,14 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBuslistenerDe
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_buslistener_destroy")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(listener);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(listener);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)listener;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -3943,10 +5218,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusobjectAddi
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_busobject_addinterface")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus, iface) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bus, iface);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bus;
     (void)iface;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3963,10 +5245,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusobjectAddi
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_busobject_addinterface_announced")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus, iface) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bus, iface);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bus;
     (void)iface;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3984,11 +5273,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusobjectAddm
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_busobject_addmethodhandlers")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus, entries, numentries) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bus, entries, numentries);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bus;
     (void)entries;
     (void)numentries;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4005,10 +5301,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusobjectCanc
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_busobject_cancelsessionlessmessage")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus, msg) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bus, msg);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bus;
     (void)msg;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4025,10 +5328,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusobjectCanc
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_busobject_cancelsessionlessmessage_serial")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus, serialnumber) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bus, serialnumber);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bus;
     (void)serialnumber;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4047,12 +5357,19 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusobjectCrea
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_busobject_create")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(path, isplaceholder, callbacks_in, context_in) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(path, isplaceholder, callbacks_in, context_in);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)path;
     (void)isplaceholder;
     (void)callbacks_in;
     (void)context_in;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -4068,9 +5385,14 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusobjectDest
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_busobject_destroy")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(bus);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(bus);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)bus;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -4089,13 +5411,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusobjectEmit
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_busobject_emitpropertieschanged")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(bus, ifcname, propnames, numprops, id);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(bus, ifcname, propnames, numprops, id);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)bus;
     (void)ifcname;
     (void)propnames;
     (void)numprops;
     (void)id;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -4114,13 +5441,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusobjectEmit
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_busobject_emitpropertychanged")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(bus, ifcname, propname, val, id);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(bus, ifcname, propname, val, id);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)bus;
     (void)ifcname;
     (void)propname;
     (void)val;
     (void)id;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -4137,11 +5469,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusobjectGeta
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_busobject_getannouncedinterfacenames")));
     }
-    uint64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus, interfaces, numinterfaces) : 0;
+    uint64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bus, interfaces, numinterfaces);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)bus;
     (void)interfaces;
     (void)numinterfaces;
+    errno = ENOSYS;
     uint64_t km_res = 0;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
@@ -4157,9 +5496,16 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusobjectGetb
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_busobject_getbusattachment")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bus);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bus;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -4177,11 +5523,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusobjectGetn
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_busobject_getname")));
     }
-    uint64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus, buffer, buffersz) : 0;
+    uint64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bus, buffer, buffersz);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)bus;
     (void)buffer;
     (void)buffersz;
+    errno = ENOSYS;
     uint64_t km_res = 0;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
@@ -4197,10 +5550,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusobjectGetp
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_busobject_getpath")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bus);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)bus;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -4215,9 +5575,16 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusobjectIsse
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_busobject_issecure")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bus);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bus;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4236,12 +5603,19 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusobjectMeth
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_busobject_methodreply_args")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus, msg, args, numargs) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bus, msg, args, numargs);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bus;
     (void)msg;
     (void)args;
     (void)numargs;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4260,12 +5634,19 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusobjectMeth
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_busobject_methodreply_err")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus, msg, error, errormessage) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bus, msg, error, errormessage);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bus;
     (void)msg;
     (void)error;
     (void)errormessage;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4283,11 +5664,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusobjectMeth
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_busobject_methodreply_status")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus, msg, status) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bus, msg, status);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bus;
     (void)msg;
     (void)status;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4305,11 +5693,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynBusobjectSeta
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_busobject_setannounceflag")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus, iface, isannounced) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bus, iface, isannounced);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bus;
     (void)iface;
     (void)isannounced;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4325,9 +5720,14 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynCredentialsCl
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_credentials_clear")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(cred);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(cred);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)cred;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -4341,8 +5741,15 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynCredentialsCr
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_credentials_create")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -4358,9 +5765,14 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynCredentialsDe
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_credentials_destroy")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(cred);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(cred);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)cred;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -4375,10 +5787,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynCredentialsGe
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_credentials_getcertchain")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(cred) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(cred);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)cred;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -4393,9 +5812,16 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynCredentialsGe
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_credentials_getexpiration")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(cred) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(cred);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)cred;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4411,10 +5837,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynCredentialsGe
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_credentials_getlogonentry")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(cred) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(cred);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)cred;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -4429,10 +5862,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynCredentialsGe
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_credentials_getpassword")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(cred) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(cred);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)cred;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -4447,10 +5887,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynCredentialsGe
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_credentials_getprivateKey")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(cred) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(cred);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)cred;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -4465,10 +5912,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynCredentialsGe
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_credentials_getusername")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(cred) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(cred);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)cred;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -4484,10 +5938,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynCredentialsIs
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_credentials_isset")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(cred, creds) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(cred, creds);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)cred;
     (void)creds;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4504,10 +5965,15 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynCredentialsSe
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_credentials_setcertchain")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(cred, certchain);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(cred, certchain);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)cred;
     (void)certchain;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -4523,10 +5989,15 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynCredentialsSe
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_credentials_setexpiration")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(cred, expiration);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(cred, expiration);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)cred;
     (void)expiration;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -4542,10 +6013,15 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynCredentialsSe
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_credentials_setlogonentry")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(cred, logonentry);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(cred, logonentry);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)cred;
     (void)logonentry;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -4561,10 +6037,15 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynCredentialsSe
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_credentials_setpassword")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(cred, pwd);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(cred, pwd);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)cred;
     (void)pwd;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -4580,10 +6061,15 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynCredentialsSe
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_credentials_setprivatekey")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(cred, pk);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(cred, pk);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)cred;
     (void)pk;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -4599,10 +6085,15 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynCredentialsSe
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_credentials_setusername")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(cred, username);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(cred, username);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)cred;
     (void)username;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -4616,9 +6107,16 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynGetbuildinfo_
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_getbuildinfo")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -4632,8 +6130,15 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynGetnumericver
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_getnumericversion")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4648,9 +6153,16 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynGetversion_na
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_getversion")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -4664,8 +6176,15 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInit_napi(con
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_init")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4681,9 +6200,14 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInterfacedesc
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_interfacedescription_activate")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(iface);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(iface);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)iface;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -4700,11 +6224,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInterfacedesc
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_interfacedescription_addannotation")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(iface, name, value) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(iface, name, value);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)iface;
     (void)name;
     (void)value;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4724,13 +6255,20 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInterfacedesc
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_interfacedescription_addargannotation")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(iface, member, argname, name, value) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(iface, member, argname, name, value);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)iface;
     (void)member;
     (void)argname;
     (void)name;
     (void)value;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4752,7 +6290,13 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInterfacedesc
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_interfacedescription_addmember")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(iface, type, name, inputsig, outsig, argnames, annotation) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(iface, type, name, inputsig, outsig, argnames, annotation);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)iface;
     (void)type;
@@ -4761,6 +6305,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInterfacedesc
     (void)outsig;
     (void)argnames;
     (void)annotation;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4779,12 +6324,19 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInterfacedesc
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_interfacedescription_addmemberannotation")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(iface, member, name, value) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(iface, member, name, value);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)iface;
     (void)member;
     (void)name;
     (void)value;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4806,7 +6358,13 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInterfacedesc
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_interfacedescription_addmethod")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(iface, name, inputsig, outsig, argnames, annotation, accessperms) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(iface, name, inputsig, outsig, argnames, annotation, accessperms);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)iface;
     (void)name;
@@ -4815,6 +6373,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInterfacedesc
     (void)argnames;
     (void)annotation;
     (void)accessperms;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4833,12 +6392,19 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInterfacedesc
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_interfacedescription_addproperty")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(iface, name, signature, access) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(iface, name, signature, access);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)iface;
     (void)name;
     (void)signature;
     (void)access;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4857,12 +6423,19 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInterfacedesc
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_interfacedescription_addpropertyannotation")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(iface, property, name, value) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(iface, property, name, value);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)iface;
     (void)property;
     (void)name;
     (void)value;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4883,7 +6456,13 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInterfacedesc
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_interfacedescription_addsignal")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(iface, name, sig, argnames, annotation, accessperms) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(iface, name, sig, argnames, annotation, accessperms);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)iface;
     (void)name;
@@ -4891,6 +6470,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInterfacedesc
     (void)argnames;
     (void)annotation;
     (void)accessperms;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4907,10 +6487,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInterfacedesc
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_interfacedescription_eql")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(one, other) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(one, other);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)one;
     (void)other;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4929,12 +6516,19 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInterfacedesc
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_interfacedescription_getannotation")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(iface, name, value, value_size) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(iface, name, value, value_size);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)iface;
     (void)name;
     (void)value;
     (void)value_size;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4955,7 +6549,11 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInterfacedesc
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_interfacedescription_getannotationatindex")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(iface, arg_1_index, name, name_size, value, value_size);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(iface, arg_1_index, name, name_size, value, value_size);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)iface;
     (void)arg_1_index;
@@ -4963,6 +6561,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInterfacedesc
     (void)name_size;
     (void)value;
     (void)value_size;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -4977,9 +6576,16 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInterfacedesc
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_interfacedescription_getannotationscount")));
     }
-    uint64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(iface) : 0;
+    uint64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(iface);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)iface;
+    errno = ENOSYS;
     uint64_t km_res = 0;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
@@ -5000,7 +6606,13 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInterfacedesc
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_interfacedescription_getargdescriptionforlanguage")));
     }
-    uint64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(iface, member, arg, description, maxlanguagelength, languagetag) : 0;
+    uint64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(iface, member, arg, description, maxlanguagelength, languagetag);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)iface;
     (void)member;
@@ -5008,6 +6620,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInterfacedesc
     (void)description;
     (void)maxlanguagelength;
     (void)languagetag;
+    errno = ENOSYS;
     uint64_t km_res = 0;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
@@ -5026,12 +6639,19 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInterfacedesc
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_interfacedescription_getdescriptionforlanguage")));
     }
-    uint64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(iface, description, maxlanguagelength, languagetag) : 0;
+    uint64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(iface, description, maxlanguagelength, languagetag);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)iface;
     (void)description;
     (void)maxlanguagelength;
     (void)languagetag;
+    errno = ENOSYS;
     uint64_t km_res = 0;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
@@ -5049,11 +6669,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInterfacedesc
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_interfacedescription_getdescriptionlanguages")));
     }
-    uint64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(iface, languages, size) : 0;
+    uint64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(iface, languages, size);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)iface;
     (void)languages;
     (void)size;
+    errno = ENOSYS;
     uint64_t km_res = 0;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
@@ -5071,11 +6698,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInterfacedesc
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_interfacedescription_getdescriptionlanguages2")));
     }
-    uint64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(iface, languages, languagessize) : 0;
+    uint64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(iface, languages, languagessize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)iface;
     (void)languages;
     (void)languagessize;
+    errno = ENOSYS;
     uint64_t km_res = 0;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
@@ -5091,10 +6725,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInterfacedesc
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_interfacedescription_getdescriptiontranslationcallback")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(iface) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(iface);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)iface;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -5111,11 +6752,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInterfacedesc
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_interfacedescription_getmember")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(iface, name, member) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(iface, name, member);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)iface;
     (void)name;
     (void)member;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5135,13 +6783,20 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInterfacedesc
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_interfacedescription_getmemberannotation")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(iface, member, name, value, value_size) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(iface, member, name, value, value_size);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)iface;
     (void)member;
     (void)name;
     (void)value;
     (void)value_size;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5162,7 +6817,13 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInterfacedesc
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_interfacedescription_getmemberargannotation")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(iface, member, argname, name, value, value_size) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(iface, member, argname, name, value, value_size);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)iface;
     (void)member;
@@ -5170,6 +6831,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInterfacedesc
     (void)name;
     (void)value;
     (void)value_size;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5189,13 +6851,20 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInterfacedesc
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_interfacedescription_getmemberdescriptionforlanguage")));
     }
-    uint64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(iface, member, description, maxlanguagelength, languagetag) : 0;
+    uint64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(iface, member, description, maxlanguagelength, languagetag);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)iface;
     (void)member;
     (void)description;
     (void)maxlanguagelength;
     (void)languagetag;
+    errno = ENOSYS;
     uint64_t km_res = 0;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
@@ -5213,11 +6882,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInterfacedesc
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_interfacedescription_getmembers")));
     }
-    uint64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(iface, members, nummembers) : 0;
+    uint64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(iface, members, nummembers);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)iface;
     (void)members;
     (void)nummembers;
+    errno = ENOSYS;
     uint64_t km_res = 0;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
@@ -5235,11 +6911,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInterfacedesc
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_interfacedescription_getmethod")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(iface, name, member) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(iface, name, member);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)iface;
     (void)name;
     (void)member;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5255,10 +6938,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInterfacedesc
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_interfacedescription_getname")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(iface) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(iface);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)iface;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -5275,11 +6965,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInterfacedesc
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_interfacedescription_getproperties")));
     }
-    uint64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(iface, props, numprops) : 0;
+    uint64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(iface, props, numprops);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)iface;
     (void)props;
     (void)numprops;
+    errno = ENOSYS;
     uint64_t km_res = 0;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
@@ -5297,11 +6994,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInterfacedesc
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_interfacedescription_getproperty")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(iface, name, property) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(iface, name, property);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)iface;
     (void)name;
     (void)property;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5321,13 +7025,20 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInterfacedesc
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_interfacedescription_getpropertyannotation")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(iface, property, name, value, str_size) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(iface, property, name, value, str_size);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)iface;
     (void)property;
     (void)name;
     (void)value;
     (void)str_size;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5347,13 +7058,20 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInterfacedesc
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_interfacedescription_getpropertydescriptionforlanguage")));
     }
-    uint64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(iface, property, description, maxlanguagelength, languagetag) : 0;
+    uint64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(iface, property, description, maxlanguagelength, languagetag);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)iface;
     (void)property;
     (void)description;
     (void)maxlanguagelength;
     (void)languagetag;
+    errno = ENOSYS;
     uint64_t km_res = 0;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
@@ -5369,9 +7087,16 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInterfacedesc
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_interfacedescription_getsecuritypolicy")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(iface) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(iface);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)iface;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5389,11 +7114,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInterfacedesc
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_interfacedescription_getsignal")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(iface, name, member) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(iface, name, member);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)iface;
     (void)name;
     (void)member;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5409,9 +7141,16 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInterfacedesc
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_interfacedescription_hasdescription")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(iface) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(iface);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)iface;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5430,12 +7169,19 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInterfacedesc
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_interfacedescription_hasmember")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(iface, name, insig, outsig) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(iface, name, insig, outsig);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)iface;
     (void)name;
     (void)insig;
     (void)outsig;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5451,9 +7197,16 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInterfacedesc
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_interfacedescription_hasproperties")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(iface) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(iface);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)iface;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5470,10 +7223,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInterfacedesc
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_interfacedescription_hasproperty")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(iface, name) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(iface, name);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)iface;
     (void)name;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5492,12 +7252,19 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInterfacedesc
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_interfacedescription_introspect")));
     }
-    uint64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(iface, str, buf, indent) : 0;
+    uint64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(iface, str, buf, indent);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)iface;
     (void)str;
     (void)buf;
     (void)indent;
+    errno = ENOSYS;
     uint64_t km_res = 0;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
@@ -5513,9 +7280,16 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInterfacedesc
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_interfacedescription_issecure")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(iface) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(iface);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)iface;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5534,12 +7308,19 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInterfacedesc
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_interfacedescription_setargdescription")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(iface, member, argname, description) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(iface, member, argname, description);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)iface;
     (void)member;
     (void)argname;
     (void)description;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5559,13 +7340,20 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInterfacedesc
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_interfacedescription_setargdescriptionforlanguage")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(iface, member, arg, description, languagetag) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(iface, member, arg, description, languagetag);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)iface;
     (void)member;
     (void)arg;
     (void)description;
     (void)languagetag;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5582,10 +7370,15 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInterfacedesc
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_interfacedescription_setdescription")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(iface, description);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(iface, description);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)iface;
     (void)description;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -5602,11 +7395,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInterfacedesc
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_interfacedescription_setdescriptionforlanguage")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(iface, description, languagetag) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(iface, description, languagetag);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)iface;
     (void)description;
     (void)languagetag;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5623,10 +7423,15 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInterfacedesc
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_interfacedescription_setdescriptionlanguage")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(iface, language);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(iface, language);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)iface;
     (void)language;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -5642,10 +7447,15 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInterfacedesc
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_interfacedescription_setdescriptiontranslationcallback")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(iface, translationcallback);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(iface, translationcallback);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)iface;
     (void)translationcallback;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -5662,11 +7472,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInterfacedesc
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_interfacedescription_setmemberdescription")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(iface, member, description) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(iface, member, description);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)iface;
     (void)member;
     (void)description;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5685,12 +7502,19 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInterfacedesc
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_interfacedescription_setmemberdescriptionforlanguage")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(iface, member, description, languagetag) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(iface, member, description, languagetag);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)iface;
     (void)member;
     (void)description;
     (void)languagetag;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5708,11 +7532,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInterfacedesc
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_interfacedescription_setpropertydescription")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(iface, name, description) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(iface, name, description);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)iface;
     (void)name;
     (void)description;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5731,12 +7562,19 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynInterfacedesc
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_interfacedescription_setpropertydescriptionforlanguage")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(iface, name, description, languagetag) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(iface, name, description, languagetag);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)iface;
     (void)name;
     (void)description;
     (void)languagetag;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5753,10 +7591,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynKeystoreliste
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_keystorelistener_create")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(callbacks, context) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(callbacks, context);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)callbacks;
     (void)context;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -5772,9 +7617,14 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynKeystoreliste
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_keystorelistener_destroy")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(listener);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(listener);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)listener;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -5792,12 +7642,19 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynKeystoreliste
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_keystorelistener_getkeys")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(listener, keystore, sink, sink_sz) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(listener, keystore, sink, sink_sz);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)listener;
     (void)keystore;
     (void)sink;
     (void)sink_sz;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5816,12 +7673,19 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynKeystoreliste
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_keystorelistener_putkeys")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(listener, keystore, source, password) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(listener, keystore, source, password);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)listener;
     (void)keystore;
     (void)source;
     (void)password;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5838,10 +7702,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynKeystoreliste
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_keystorelistener_with_synchronization_create")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(callbacks, context) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(callbacks, context);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)callbacks;
     (void)context;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -5857,9 +7728,16 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMessageCreate
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_message_create")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bus);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bus;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -5877,11 +7755,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMessageDescri
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_message_description")));
     }
-    uint64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(msg, str, buf) : 0;
+    uint64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(msg, str, buf);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)msg;
     (void)str;
     (void)buf;
+    errno = ENOSYS;
     uint64_t km_res = 0;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
@@ -5897,9 +7782,14 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMessageDestro
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_message_destroy")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(msg);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(msg);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)msg;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -5915,10 +7805,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMessageEql_na
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_message_eql")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(one, other) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(one, other);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)one;
     (void)other;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5935,10 +7832,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMessageGetarg
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_message_getarg")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(msg, argn) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(msg, argn);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)msg;
     (void)argn;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -5956,11 +7860,16 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMessageGetarg
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_message_getargs")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(msg, numargs, args);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(msg, numargs, args);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)msg;
     (void)numargs;
     (void)args;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -5975,10 +7884,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMessageGetaut
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_message_getauthmechanism")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(msg) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(msg);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)msg;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -5993,9 +7909,16 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMessageGetcal
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_message_getcallserial")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(msg) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(msg);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)msg;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6011,9 +7934,16 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMessageGetcom
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_message_getcompressiontoken")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(msg) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(msg);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)msg;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6029,10 +7959,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMessageGetdes
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_message_getdestination")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(msg) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(msg);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)msg;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -6049,12 +7986,19 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMessageGeterr
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_message_geterrorname")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(msg, errormessage, errormessage_size) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(msg, errormessage, errormessage_size);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)msg;
     (void)errormessage;
     (void)errormessage_size;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -6069,9 +8013,16 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMessageGetfla
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_message_getflags")));
     }
-    uint8_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(msg) : 0;
+    uint8_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(msg);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)msg;
+    errno = ENOSYS;
     uint8_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6087,10 +8038,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMessageGetint
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_message_getinterface")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(msg) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(msg);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)msg;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -6105,10 +8063,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMessageGetmem
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_message_getmembername")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(msg) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(msg);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)msg;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -6123,10 +8088,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMessageGetobj
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_message_getobjectpath")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(msg) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(msg);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)msg;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -6141,10 +8113,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMessageGetrec
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_message_getreceiveendpointname")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(msg) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(msg);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)msg;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -6159,9 +8138,16 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMessageGetrep
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_message_getreplyserial")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(msg) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(msg);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)msg;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6177,10 +8163,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMessageGetsen
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_message_getsender")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(msg) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(msg);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)msg;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -6195,9 +8188,16 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMessageGetses
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_message_getsessionid")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(msg) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(msg);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)msg;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6213,10 +8213,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMessageGetsig
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_message_getsignature")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(msg) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(msg);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)msg;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -6231,9 +8238,16 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMessageGettim
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_message_gettimestamp")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(msg) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(msg);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)msg;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6249,9 +8263,16 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMessageGettyp
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_message_gettype")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(msg) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(msg);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)msg;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6267,9 +8288,16 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMessageIsbroa
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_message_isbroadcastsignal")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(msg) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(msg);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)msg;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6285,9 +8313,16 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMessageIsencr
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_message_isencrypted")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(msg) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(msg);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)msg;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6304,10 +8339,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMessageIsexpi
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_message_isexpired")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(msg, tillexpirems) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(msg, tillexpirems);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)msg;
     (void)tillexpirems;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6323,9 +8365,16 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMessageIsglob
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_message_isglobalbroadcast")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(msg) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(msg);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)msg;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6341,9 +8390,16 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMessageIssess
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_message_issessionless")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(msg) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(msg);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)msg;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6359,9 +8415,16 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMessageIsunre
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_message_isunreliable")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(msg) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(msg);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)msg;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6392,11 +8455,14 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMessageParsea
             case 3: km_res = km_fn_ptr(msg, signature, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2)); break;
             default: km_res = km_fn_ptr(msg, signature, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2), static_cast<intptr_t>(km_va3)); break;
         }
+    } else {
+        errno = ENOSYS;
     }
 #else
     (void)msg;
     (void)signature;
     (void)km_vac; (void)km_va0; (void)km_va1; (void)km_va2; (void)km_va3;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6412,9 +8478,14 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMessageSetend
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_message_setendianess")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(endian);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(endian);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)endian;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -6431,11 +8502,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMessageTostri
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_message_tostring")));
     }
-    uint64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(msg, str, buf) : 0;
+    uint64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(msg, str, buf);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)msg;
     (void)str;
     (void)buf;
+    errno = ENOSYS;
     uint64_t km_res = 0;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
@@ -6451,9 +8529,16 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargArrayCr
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_msgarg_array_create")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(size) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(size);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)size;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -6470,10 +8555,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargArrayEl
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_msgarg_array_element")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(arg, arg_1_index) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(arg, arg_1_index);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)arg;
     (void)arg_1_index;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -6505,12 +8597,15 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargArrayGe
             case 3: km_res = km_fn_ptr(args, numargs, signature, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2)); break;
             default: km_res = km_fn_ptr(args, numargs, signature, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2), static_cast<intptr_t>(km_va3)); break;
         }
+    } else {
+        errno = ENOSYS;
     }
 #else
     (void)args;
     (void)numargs;
     (void)signature;
     (void)km_vac; (void)km_va0; (void)km_va1; (void)km_va2; (void)km_va3;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6542,12 +8637,15 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargArraySe
             case 3: km_res = km_fn_ptr(args, numargs, signature, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2)); break;
             default: km_res = km_fn_ptr(args, numargs, signature, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2), static_cast<intptr_t>(km_va3)); break;
         }
+    } else {
+        errno = ENOSYS;
     }
 #else
     (void)args;
     (void)numargs;
     (void)signature;
     (void)km_vac; (void)km_va0; (void)km_va1; (void)km_va2; (void)km_va3;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6580,6 +8678,8 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargArraySe
             case 3: km_res = km_fn_ptr(args, argoffset, numargs, signature, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2)); break;
             default: km_res = km_fn_ptr(args, argoffset, numargs, signature, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2), static_cast<intptr_t>(km_va3)); break;
         }
+    } else {
+        errno = ENOSYS;
     }
 #else
     (void)args;
@@ -6587,6 +8687,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargArraySe
     (void)numargs;
     (void)signature;
     (void)km_vac; (void)km_va0; (void)km_va1; (void)km_va2; (void)km_va3;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6605,12 +8706,19 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargArraySi
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_msgarg_array_signature")));
     }
-    uint64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(values, numvalues, str, buf) : 0;
+    uint64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(values, numvalues, str, buf);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)values;
     (void)numvalues;
     (void)str;
     (void)buf;
+    errno = ENOSYS;
     uint64_t km_res = 0;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
@@ -6630,13 +8738,20 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargArrayTo
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_msgarg_array_tostring")));
     }
-    uint64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(args, numargs, str, buf, indent) : 0;
+    uint64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(args, numargs, str, buf, indent);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)args;
     (void)numargs;
     (void)str;
     (void)buf;
     (void)indent;
+    errno = ENOSYS;
     uint64_t km_res = 0;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
@@ -6652,9 +8767,14 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargClear_n
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_msgarg_clear")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(arg);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(arg);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)arg;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -6670,10 +8790,15 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargClone_n
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_msgarg_clone")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(destination, source);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(destination, source);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)destination;
     (void)source;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -6688,9 +8813,16 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargCopy_na
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_msgarg_copy")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(source) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(source);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)source;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -6705,8 +8837,15 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargCreate_
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_msgarg_create")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -6736,10 +8875,13 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargCreateA
             case 3: km_res = km_fn_ptr(signature, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2)); break;
             default: km_res = km_fn_ptr(signature, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2), static_cast<intptr_t>(km_va3)); break;
         }
+    } else {
+        errno = ENOSYS;
     }
 #else
     (void)signature;
     (void)km_vac; (void)km_va0; (void)km_va1; (void)km_va2; (void)km_va3;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -6755,9 +8897,14 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargDestroy
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_msgarg_destroy")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(arg);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(arg);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)arg;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -6773,10 +8920,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargEqual_n
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_msgarg_equal")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lhv, rhv) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lhv, rhv);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lhv;
     (void)rhv;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6807,11 +8961,14 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargGet_nap
             case 3: km_res = km_fn_ptr(arg, signature, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2)); break;
             default: km_res = km_fn_ptr(arg, signature, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2), static_cast<intptr_t>(km_va3)); break;
         }
+    } else {
+        errno = ENOSYS;
     }
 #else
     (void)arg;
     (void)signature;
     (void)km_vac; (void)km_va0; (void)km_va1; (void)km_va2; (void)km_va3;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6829,11 +8986,16 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetArra
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_msgarg_get_array_element")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(arg, arg_1_index, element);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(arg, arg_1_index, element);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)arg;
     (void)arg_1_index;
     (void)element;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -6849,11 +9011,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetArra
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_msgarg_get_array_elementsignature")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(arg, arg_1_index) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(arg, arg_1_index);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)arg;
     (void)arg_1_index;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -6868,9 +9037,16 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetArra
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_msgarg_get_array_numberofelements")));
     }
-    uint64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(arg) : 0;
+    uint64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(arg);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)arg;
+    errno = ENOSYS;
     uint64_t km_res = 0;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
@@ -6887,10 +9063,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetBool
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_msgarg_get_bool")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(arg, b) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(arg, b);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)arg;
     (void)b;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6908,11 +9091,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetBool
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_msgarg_get_bool_array")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(arg, length, ab) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(arg, length, ab);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)arg;
     (void)length;
     (void)ab;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6929,10 +9119,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetDoub
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_msgarg_get_double")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(arg, d) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(arg, d);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)arg;
     (void)d;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6950,11 +9147,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetDoub
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_msgarg_get_double_array")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(arg, length, ad) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(arg, length, ad);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)arg;
     (void)length;
     (void)ad;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6971,10 +9175,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetInt1
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_msgarg_get_int16")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(arg, n) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(arg, n);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)arg;
     (void)n;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6992,11 +9203,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetInt1
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_msgarg_get_int16_array")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(arg, length, an) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(arg, length, an);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)arg;
     (void)length;
     (void)an;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7013,10 +9231,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetInt3
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_msgarg_get_int32")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(arg, i) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(arg, i);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)arg;
     (void)i;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7034,11 +9259,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetInt3
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_msgarg_get_int32_array")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(arg, length, ai) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(arg, length, ai);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)arg;
     (void)length;
     (void)ai;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7055,10 +9287,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetInt6
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_msgarg_get_int64")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(arg, x) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(arg, x);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)arg;
     (void)x;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7076,11 +9315,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetInt6
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_msgarg_get_int64_array")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(arg, length, ax) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(arg, length, ax);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)arg;
     (void)length;
     (void)ax;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7097,10 +9343,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetObje
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_msgarg_get_objectpath")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(arg, o) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(arg, o);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)arg;
     (void)o;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7117,10 +9370,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetSign
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_msgarg_get_signature")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(arg, g) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(arg, g);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)arg;
     (void)g;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7137,10 +9397,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetStri
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_msgarg_get_string")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(arg, s) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(arg, s);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)arg;
     (void)s;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7157,10 +9424,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetUint
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_msgarg_get_uint16")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(arg, q) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(arg, q);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)arg;
     (void)q;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7178,11 +9452,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetUint
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_msgarg_get_uint16_array")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(arg, length, aq) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(arg, length, aq);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)arg;
     (void)length;
     (void)aq;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7199,10 +9480,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetUint
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_msgarg_get_uint32")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(arg, u) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(arg, u);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)arg;
     (void)u;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7220,11 +9508,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetUint
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_msgarg_get_uint32_array")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(arg, length, au) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(arg, length, au);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)arg;
     (void)length;
     (void)au;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7241,10 +9536,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetUint
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_msgarg_get_uint64")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(arg, t) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(arg, t);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)arg;
     (void)t;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7262,11 +9564,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetUint
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_msgarg_get_uint64_array")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(arg, length, at) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(arg, length, at);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)arg;
     (void)length;
     (void)at;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7283,10 +9592,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetUint
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_msgarg_get_uint8")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(arg, y) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(arg, y);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)arg;
     (void)y;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7304,11 +9620,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetUint
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_msgarg_get_uint8_array")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(arg, length, ay) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(arg, length, ay);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)arg;
     (void)length;
     (void)ay;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7325,10 +9648,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetVari
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_msgarg_get_variant")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(arg, v) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(arg, v);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)arg;
     (void)v;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7347,12 +9677,19 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetVari
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_msgarg_get_variant_array")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(arg, signature, length, av) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(arg, signature, length, av);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)arg;
     (void)signature;
     (void)length;
     (void)av;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7383,11 +9720,14 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetdict
             case 3: km_res = km_fn_ptr(arg, elemsig, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2)); break;
             default: km_res = km_fn_ptr(arg, elemsig, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2), static_cast<intptr_t>(km_va3)); break;
         }
+    } else {
+        errno = ENOSYS;
     }
 #else
     (void)arg;
     (void)elemsig;
     (void)km_vac; (void)km_va0; (void)km_va1; (void)km_va2; (void)km_va3;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7403,9 +9743,16 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetkey_
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_msgarg_getkey")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(arg) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(arg);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)arg;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -7422,10 +9769,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetmemb
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_msgarg_getmember")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(arg, arg_1_index) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(arg, arg_1_index);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)arg;
     (void)arg_1_index;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -7441,9 +9795,16 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetnumm
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_msgarg_getnummembers")));
     }
-    uint64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(arg) : 0;
+    uint64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(arg);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)arg;
+    errno = ENOSYS;
     uint64_t km_res = 0;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
@@ -7459,9 +9820,16 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargGettype
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_msgarg_gettype")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(arg) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(arg);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)arg;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7477,9 +9845,16 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargGetvalu
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_msgarg_getvalue")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(arg) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(arg);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)arg;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -7496,10 +9871,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargHassign
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_msgarg_hassignature")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(arg, signature) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(arg, signature);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)arg;
     (void)signature;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7530,11 +9912,14 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargSet_nap
             case 3: km_res = km_fn_ptr(arg, signature, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2)); break;
             default: km_res = km_fn_ptr(arg, signature, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2), static_cast<intptr_t>(km_va3)); break;
         }
+    } else {
+        errno = ENOSYS;
     }
 #else
     (void)arg;
     (void)signature;
     (void)km_vac; (void)km_va0; (void)km_va1; (void)km_va2; (void)km_va3;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7565,11 +9950,14 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetAndS
             case 3: km_res = km_fn_ptr(arg, signature, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2)); break;
             default: km_res = km_fn_ptr(arg, signature, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2), static_cast<intptr_t>(km_va3)); break;
         }
+    } else {
+        errno = ENOSYS;
     }
 #else
     (void)arg;
     (void)signature;
     (void)km_vac; (void)km_va0; (void)km_va1; (void)km_va2; (void)km_va3;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7586,10 +9974,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetBool
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_msgarg_set_bool")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(arg, b) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(arg, b);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)arg;
     (void)b;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7607,11 +10002,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetBool
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_msgarg_set_bool_array")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(arg, length, ab) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(arg, length, ab);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)arg;
     (void)length;
     (void)ab;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7628,10 +10030,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetDoub
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_msgarg_set_double")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(arg, d) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(arg, d);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)arg;
     (void)d;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7649,11 +10058,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetDoub
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_msgarg_set_double_array")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(arg, length, ad) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(arg, length, ad);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)arg;
     (void)length;
     (void)ad;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7670,10 +10086,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetInt1
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_msgarg_set_int16")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(arg, n) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(arg, n);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)arg;
     (void)n;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7691,11 +10114,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetInt1
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_msgarg_set_int16_array")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(arg, length, an) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(arg, length, an);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)arg;
     (void)length;
     (void)an;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7712,10 +10142,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetInt3
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_msgarg_set_int32")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(arg, i) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(arg, i);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)arg;
     (void)i;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7733,11 +10170,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetInt3
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_msgarg_set_int32_array")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(arg, length, ai) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(arg, length, ai);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)arg;
     (void)length;
     (void)ai;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7754,10 +10198,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetInt6
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_msgarg_set_int64")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(arg, x) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(arg, x);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)arg;
     (void)x;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7775,11 +10226,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetInt6
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_msgarg_set_int64_array")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(arg, length, ax) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(arg, length, ax);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)arg;
     (void)length;
     (void)ax;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7796,10 +10254,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetObje
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_msgarg_set_objectpath")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(arg, o) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(arg, o);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)arg;
     (void)o;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7817,11 +10282,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetObje
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_msgarg_set_objectpath_array")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(arg, length, ao) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(arg, length, ao);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)arg;
     (void)length;
     (void)ao;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7838,10 +10310,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetSign
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_msgarg_set_signature")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(arg, g) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(arg, g);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)arg;
     (void)g;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7859,11 +10338,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetSign
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_msgarg_set_signature_array")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(arg, length, ag) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(arg, length, ag);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)arg;
     (void)length;
     (void)ag;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7880,10 +10366,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetStri
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_msgarg_set_string")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(arg, s) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(arg, s);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)arg;
     (void)s;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7901,11 +10394,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetStri
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_msgarg_set_string_array")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(arg, length, as) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(arg, length, as);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)arg;
     (void)length;
     (void)as;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7922,10 +10422,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetUint
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_msgarg_set_uint16")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(arg, q) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(arg, q);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)arg;
     (void)q;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7943,11 +10450,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetUint
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_msgarg_set_uint16_array")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(arg, length, aq) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(arg, length, aq);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)arg;
     (void)length;
     (void)aq;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7964,10 +10478,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetUint
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_msgarg_set_uint32")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(arg, u) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(arg, u);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)arg;
     (void)u;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7985,11 +10506,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetUint
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_msgarg_set_uint32_array")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(arg, length, au) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(arg, length, au);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)arg;
     (void)length;
     (void)au;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8006,10 +10534,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetUint
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_msgarg_set_uint64")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(arg, t) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(arg, t);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)arg;
     (void)t;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8027,11 +10562,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetUint
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_msgarg_set_uint64_array")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(arg, length, at) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(arg, length, at);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)arg;
     (void)length;
     (void)at;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8048,10 +10590,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetUint
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_msgarg_set_uint8")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(arg, y) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(arg, y);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)arg;
     (void)y;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8069,11 +10618,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetUint
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_msgarg_set_uint8_array")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(arg, length, ay) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(arg, length, ay);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)arg;
     (void)length;
     (void)ay;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8091,11 +10647,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetdict
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_msgarg_setdictentry")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(arg, key, value) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(arg, key, value);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)arg;
     (void)key;
     (void)value;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8113,11 +10676,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargSetstru
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_msgarg_setstruct")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(arg, struct_members, num_members) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(arg, struct_members, num_members);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)arg;
     (void)struct_members;
     (void)num_members;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8135,11 +10705,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargSignatu
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_msgarg_signature")));
     }
-    uint64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(arg, str, buf) : 0;
+    uint64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(arg, str, buf);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)arg;
     (void)str;
     (void)buf;
+    errno = ENOSYS;
     uint64_t km_res = 0;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
@@ -8155,9 +10732,14 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargStabili
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_msgarg_stabilize")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(arg);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(arg);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)arg;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -8175,12 +10757,19 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynMsgargTostrin
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_msgarg_tostring")));
     }
-    uint64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(arg, str, buf, indent) : 0;
+    uint64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(arg, str, buf, indent);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)arg;
     (void)str;
     (void)buf;
     (void)indent;
+    errno = ENOSYS;
     uint64_t km_res = 0;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
@@ -8198,11 +10787,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynObserverCreat
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_observer_create")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus, mandatoryinterfaces, nummandatoryinterfaces) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bus, mandatoryinterfaces, nummandatoryinterfaces);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bus;
     (void)mandatoryinterfaces;
     (void)nummandatoryinterfaces;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8218,9 +10814,14 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynObserverDestr
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_observer_destroy")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(observer);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(observer);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)observer;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -8237,11 +10838,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynObserverGet_n
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_observer_get")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(observer, uniquebusname, objectpath) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(observer, uniquebusname, objectpath);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)observer;
     (void)uniquebusname;
     (void)objectpath;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -8257,9 +10865,16 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynObserverGetfi
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_observer_getfirst")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(observer) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(observer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)observer;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -8276,10 +10891,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynObserverGetne
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_observer_getnext")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(observer, proxyref) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(observer, proxyref);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)observer;
     (void)proxyref;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -8297,11 +10919,16 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynObserverRegis
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_observer_registerlistener")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(observer, listener, triggeronexisting);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(observer, listener, triggeronexisting);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)observer;
     (void)listener;
     (void)triggeronexisting;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -8316,9 +10943,14 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynObserverUnreg
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_observer_unregisteralllisteners")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(observer);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(observer);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)observer;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -8334,10 +10966,15 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynObserverUnreg
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_observer_unregisterlistener")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(observer, listener);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(observer, listener);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)observer;
     (void)listener;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -8353,10 +10990,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynObserverliste
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_observerlistener_create")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(callback, context) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(callback, context);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)callback;
     (void)context;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8372,9 +11016,14 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynObserverliste
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_observerlistener_destroy")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(listener);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(listener);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)listener;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -8390,10 +11039,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynPasswordmanag
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_passwordmanager_setcredentials")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(authmechanism, password) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(authmechanism, password);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)authmechanism;
     (void)password;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8410,10 +11066,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynPermissioncon
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_permissionconfigurationlistener_create")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(callbacks, context) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(callbacks, context);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)callbacks;
     (void)context;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8429,9 +11092,14 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynPermissioncon
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_permissionconfigurationlistener_destroy")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(listener);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(listener);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)listener;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -8446,9 +11114,14 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynPermissioncon
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_permissionconfigurator_certificatechain_destroy")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(certificatechain);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(certificatechain);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)certificatechain;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -8463,9 +11136,14 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynPermissioncon
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_permissionconfigurator_certificateid_cleanup")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(certificateid);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(certificateid);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)certificateid;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -8480,9 +11158,14 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynPermissioncon
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_permissionconfigurator_certificateidarray_cleanup")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(certificateidarray);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(certificateidarray);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)certificateidarray;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -8504,7 +11187,13 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynPermissioncon
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_permissionconfigurator_claim")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(configurator, cakey, identitycertificatechain, groupid, groupsize, groupauthority, manifestsxmls, manifestscount) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(configurator, cakey, identitycertificatechain, groupid, groupsize, groupauthority, manifestsxmls, manifestscount);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)configurator;
     (void)cakey;
@@ -8514,6 +11203,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynPermissioncon
     (void)groupauthority;
     (void)manifestsxmls;
     (void)manifestscount;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8529,9 +11219,16 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynPermissioncon
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_permissionconfigurator_endmanagement")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(configurator) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(configurator);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)configurator;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8548,10 +11245,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynPermissioncon
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_permissionconfigurator_getapplicationstate")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(configurator, state) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(configurator, state);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)configurator;
     (void)state;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8568,10 +11272,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynPermissioncon
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_permissionconfigurator_getclaimcapabilities")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(configurator, claimcapabilities) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(configurator, claimcapabilities);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)configurator;
     (void)claimcapabilities;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8588,10 +11299,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynPermissioncon
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_permissionconfigurator_getclaimcapabilitiesadditionalinfo")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(configurator, additionalinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(configurator, additionalinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)configurator;
     (void)additionalinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8606,8 +11324,15 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynPermissioncon
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_permissionconfigurator_getdefaultclaimcapabilities")));
     }
-    uint16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : 0;
+    uint16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
+    errno = ENOSYS;
     uint16_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8624,10 +11349,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynPermissioncon
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_permissionconfigurator_getdefaultpolicy")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(configurator, policyxml) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(configurator, policyxml);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)configurator;
     (void)policyxml;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8644,10 +11376,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynPermissioncon
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_permissionconfigurator_getidentity")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(configurator, identitycertificatechain) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(configurator, identitycertificatechain);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)configurator;
     (void)identitycertificatechain;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8664,10 +11403,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynPermissioncon
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_permissionconfigurator_getidentitycertificateid")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(configurator, certificateid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(configurator, certificateid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)configurator;
     (void)certificateid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8684,10 +11430,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynPermissioncon
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_permissionconfigurator_getmanifests")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(configurator, manifestarray) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(configurator, manifestarray);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)configurator;
     (void)manifestarray;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8704,10 +11457,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynPermissioncon
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_permissionconfigurator_getmanifesttemplate")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(configurator, manifesttemplatexml) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(configurator, manifesttemplatexml);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)configurator;
     (void)manifesttemplatexml;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8724,10 +11484,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynPermissioncon
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_permissionconfigurator_getmembershipsummaries")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(configurator, certificateids) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(configurator, certificateids);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)configurator;
     (void)certificateids;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8744,10 +11511,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynPermissioncon
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_permissionconfigurator_getpolicy")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(configurator, policyxml) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(configurator, policyxml);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)configurator;
     (void)policyxml;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8764,10 +11538,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynPermissioncon
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_permissionconfigurator_getpublickey")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(configurator, publickey) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(configurator, publickey);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)configurator;
     (void)publickey;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8786,12 +11567,19 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynPermissioncon
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_permissionconfigurator_installmanifests")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(configurator, manifestsxmls, manifestscount, append) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(configurator, manifestsxmls, manifestscount, append);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)configurator;
     (void)manifestsxmls;
     (void)manifestscount;
     (void)append;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8808,10 +11596,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynPermissioncon
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_permissionconfigurator_installmembership")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(configurator, membershipcertificatechain) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(configurator, membershipcertificatechain);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)configurator;
     (void)membershipcertificatechain;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8827,9 +11622,14 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynPermissioncon
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_permissionconfigurator_manifestarray_cleanup")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(manifestarray);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(manifestarray);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)manifestarray;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -8844,9 +11644,14 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynPermissioncon
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_permissionconfigurator_manifesttemplate_destroy")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(manifesttemplatexml);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(manifesttemplatexml);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)manifesttemplatexml;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -8861,9 +11666,14 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynPermissioncon
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_permissionconfigurator_policy_destroy")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(policyxml);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(policyxml);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)policyxml;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -8878,9 +11688,14 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynPermissioncon
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_permissionconfigurator_publickey_destroy")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(publickey);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(publickey);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)publickey;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -8900,7 +11715,13 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynPermissioncon
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_permissionconfigurator_removemembership")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(configurator, serial, seriallen, issuerpublickey, issueraki, issuerakilen) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(configurator, serial, seriallen, issuerpublickey, issueraki, issuerakilen);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)configurator;
     (void)serial;
@@ -8908,6 +11729,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynPermissioncon
     (void)issuerpublickey;
     (void)issueraki;
     (void)issuerakilen;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8923,9 +11745,16 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynPermissioncon
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_permissionconfigurator_reset")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(configurator) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(configurator);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)configurator;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8941,9 +11770,16 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynPermissioncon
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_permissionconfigurator_resetpolicy")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(configurator) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(configurator);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)configurator;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8960,10 +11796,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynPermissioncon
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_permissionconfigurator_setapplicationstate")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(configurator, state) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(configurator, state);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)configurator;
     (void)state;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8980,10 +11823,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynPermissioncon
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_permissionconfigurator_setclaimcapabilities")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(configurator, claimcapabilities) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(configurator, claimcapabilities);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)configurator;
     (void)claimcapabilities;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9000,10 +11850,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynPermissioncon
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_permissionconfigurator_setclaimcapabilitiesadditionalinfo")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(configurator, additionalinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(configurator, additionalinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)configurator;
     (void)additionalinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9020,10 +11877,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynPermissioncon
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_permissionconfigurator_setmanifesttemplatefromxml")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(configurator, manifesttemplatexml) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(configurator, manifesttemplatexml);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)configurator;
     (void)manifesttemplatexml;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9039,9 +11903,16 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynPermissioncon
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_permissionconfigurator_startmanagement")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(configurator) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(configurator);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)configurator;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9060,12 +11931,19 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynPermissioncon
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_permissionconfigurator_updateidentity")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(configurator, identitycertificatechain, manifestsxmls, manifestscount) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(configurator, identitycertificatechain, manifestsxmls, manifestscount);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)configurator;
     (void)identitycertificatechain;
     (void)manifestsxmls;
     (void)manifestscount;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9082,10 +11960,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynPermissioncon
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_permissionconfigurator_updatepolicy")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(configurator, policyxml) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(configurator, policyxml);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)configurator;
     (void)policyxml;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9102,10 +11987,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynPinglistenerC
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_pinglistener_create")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(callback, context) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(callback, context);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)callback;
     (void)context;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9121,9 +12013,14 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynPinglistenerD
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_pinglistener_destroy")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(listener);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(listener);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)listener;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -9139,10 +12036,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjec
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_proxybusobject_addchild")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(proxyobj, child) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(proxyobj, child);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)proxyobj;
     (void)child;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9159,10 +12063,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjec
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_proxybusobject_addinterface")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(proxyobj, iface) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(proxyobj, iface);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)proxyobj;
     (void)iface;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9179,10 +12090,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjec
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_proxybusobject_addinterface_by_name")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(proxyobj, name) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(proxyobj, name);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)proxyobj;
     (void)name;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9198,9 +12116,16 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjec
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_proxybusobject_copy")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(source) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(source);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)source;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -9219,12 +12144,19 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjec
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_proxybusobject_create")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus, service, path, sessionid) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bus, service, path, sessionid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bus;
     (void)service;
     (void)path;
     (void)sessionid;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -9243,12 +12175,19 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjec
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_proxybusobject_create_secure")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus, service, path, sessionid) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bus, service, path, sessionid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bus;
     (void)service;
     (void)path;
     (void)sessionid;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -9264,9 +12203,14 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjec
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_proxybusobject_destroy")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(proxyobj);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(proxyobj);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)proxyobj;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -9281,9 +12225,14 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjec
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_proxybusobject_enablepropertycaching")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(proxyobj);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(proxyobj);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)proxyobj;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -9300,11 +12249,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjec
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_proxybusobject_getallproperties")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(proxyobj, iface, values) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(proxyobj, iface, values);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)proxyobj;
     (void)iface;
     (void)values;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9324,13 +12280,20 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjec
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_proxybusobject_getallpropertiesasync")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(proxyobj, iface, callback, timeout, context) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(proxyobj, iface, callback, timeout, context);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)proxyobj;
     (void)iface;
     (void)callback;
     (void)timeout;
     (void)context;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9347,10 +12310,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjec
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_proxybusobject_getchild")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(proxyobj, path) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(proxyobj, path);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)proxyobj;
     (void)path;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -9368,11 +12338,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjec
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_proxybusobject_getchildren")));
     }
-    uint64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(proxyobj, children, numchildren) : 0;
+    uint64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(proxyobj, children, numchildren);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)proxyobj;
     (void)children;
     (void)numchildren;
+    errno = ENOSYS;
     uint64_t km_res = 0;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
@@ -9389,10 +12366,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjec
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_proxybusobject_getinterface")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(proxyobj, iface) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(proxyobj, iface);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)proxyobj;
     (void)iface;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9410,11 +12394,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjec
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_proxybusobject_getinterfaces")));
     }
-    uint64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(proxyobj, ifaces, numifaces) : 0;
+    uint64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(proxyobj, ifaces, numifaces);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)proxyobj;
     (void)ifaces;
     (void)numifaces;
+    errno = ENOSYS;
     uint64_t km_res = 0;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
@@ -9430,10 +12421,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjec
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_proxybusobject_getpath")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(proxyobj) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(proxyobj);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)proxyobj;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -9451,12 +12449,19 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjec
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_proxybusobject_getproperty")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(proxyobj, iface, property, value) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(proxyobj, iface, property, value);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)proxyobj;
     (void)iface;
     (void)property;
     (void)value;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9477,7 +12482,13 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjec
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_proxybusobject_getpropertyasync")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(proxyobj, iface, property, callback, timeout, context) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(proxyobj, iface, property, callback, timeout, context);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)proxyobj;
     (void)iface;
@@ -9485,6 +12496,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjec
     (void)callback;
     (void)timeout;
     (void)context;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9500,10 +12512,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjec
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_proxybusobject_getservicename")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(proxyobj) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(proxyobj);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)proxyobj;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -9518,9 +12537,16 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjec
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_proxybusobject_getsessionid")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(proxyobj) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(proxyobj);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)proxyobj;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9536,10 +12562,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjec
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_proxybusobject_getuniquename")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(proxyobj) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(proxyobj);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)proxyobj;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -9555,10 +12588,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjec
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_proxybusobject_implementsinterface")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(proxyobj, iface) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(proxyobj, iface);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)proxyobj;
     (void)iface;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9574,9 +12614,16 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjec
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_proxybusobject_introspectremoteobject")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(proxyobj) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(proxyobj);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)proxyobj;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9594,11 +12641,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjec
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_proxybusobject_introspectremoteobjectasync")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(proxyobj, callback, context) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(proxyobj, callback, context);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)proxyobj;
     (void)callback;
     (void)context;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9614,9 +12668,16 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjec
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_proxybusobject_issecure")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(proxyobj) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(proxyobj);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)proxyobj;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9632,9 +12693,16 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjec
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_proxybusobject_isvalid")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(proxyobj) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(proxyobj);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)proxyobj;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9657,7 +12725,13 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjec
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_proxybusobject_methodcall")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(proxyobj, ifacename, methodname, args, numargs, replymsg, timeout, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(proxyobj, ifacename, methodname, args, numargs, replymsg, timeout, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)proxyobj;
     (void)ifacename;
@@ -9667,6 +12741,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjec
     (void)replymsg;
     (void)timeout;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9687,7 +12762,13 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjec
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_proxybusobject_methodcall_noreply")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(proxyobj, ifacename, methodname, args, numargs, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(proxyobj, ifacename, methodname, args, numargs, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)proxyobj;
     (void)ifacename;
@@ -9695,6 +12776,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjec
     (void)args;
     (void)numargs;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9718,7 +12800,13 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjec
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_proxybusobject_methodcallasync")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(proxyobj, ifacename, methodname, replyfunc, args, numargs, context, timeout, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(proxyobj, ifacename, methodname, replyfunc, args, numargs, context, timeout, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)proxyobj;
     (void)ifacename;
@@ -9729,6 +12817,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjec
     (void)context;
     (void)timeout;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9746,11 +12835,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjec
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_proxybusobject_parsexml")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(proxyobj, xml, identifier) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(proxyobj, xml, identifier);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)proxyobj;
     (void)xml;
     (void)identifier;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9766,9 +12862,16 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjec
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_proxybusobject_ref_create")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(proxy) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(proxy);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)proxy;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -9784,9 +12887,14 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjec
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_proxybusobject_ref_decref")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(ref);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(ref);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)ref;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -9801,9 +12909,16 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjec
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_proxybusobject_ref_get")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ref) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ref);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ref;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -9819,9 +12934,14 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjec
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_proxybusobject_ref_incref")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(ref);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(ref);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)ref;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -9841,7 +12961,13 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjec
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_proxybusobject_registerpropertieschangedlistener")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(proxyobj, iface, properties, numproperties, callback, context) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(proxyobj, iface, properties, numproperties, callback, context);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)proxyobj;
     (void)iface;
@@ -9849,6 +12975,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjec
     (void)numproperties;
     (void)callback;
     (void)context;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9865,10 +12992,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjec
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_proxybusobject_removechild")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(proxyobj, path) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(proxyobj, path);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)proxyobj;
     (void)path;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9885,10 +13019,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjec
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_proxybusobject_secureconnection")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(proxyobj, forceauth) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(proxyobj, forceauth);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)proxyobj;
     (void)forceauth;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9905,10 +13046,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjec
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_proxybusobject_secureconnectionasync")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(proxyobj, forceauth) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(proxyobj, forceauth);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)proxyobj;
     (void)forceauth;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9927,12 +13075,19 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjec
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_proxybusobject_setproperty")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(proxyobj, iface, property, value) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(proxyobj, iface, property, value);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)proxyobj;
     (void)iface;
     (void)property;
     (void)value;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9954,7 +13109,13 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjec
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_proxybusobject_setpropertyasync")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(proxyobj, iface, property, value, callback, timeout, context) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(proxyobj, iface, property, value, callback, timeout, context);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)proxyobj;
     (void)iface;
@@ -9963,6 +13124,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjec
     (void)callback;
     (void)timeout;
     (void)context;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9980,11 +13142,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynProxybusobjec
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_proxybusobject_unregisterpropertieschangedlistener")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(proxyobj, iface, callback) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(proxyobj, iface, callback);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)proxyobj;
     (void)iface;
     (void)callback;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9999,8 +13168,15 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynRouterinit_na
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_routerinit")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -10016,9 +13192,16 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynRouterinitwit
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_routerinitwithconfig")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(configxml) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(configxml);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)configxml;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -10033,8 +13216,15 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynRoutershutdow
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_routershutdown")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -10057,7 +13247,13 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynSecurityappli
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_securityapplicationproxy_claim")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(proxy, cakey, identitycertificatechain, groupid, groupsize, groupauthority, manifestsxmls, manifestscount) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(proxy, cakey, identitycertificatechain, groupid, groupsize, groupauthority, manifestsxmls, manifestscount);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)proxy;
     (void)cakey;
@@ -10067,6 +13263,7 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynSecurityappli
     (void)groupauthority;
     (void)manifestsxmls;
     (void)manifestscount;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -10085,12 +13282,19 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynSecurityappli
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_securityapplicationproxy_computemanifestdigest")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(unsignedmanifestxml, identitycertificatepem, digest, digestsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(unsignedmanifestxml, identitycertificatepem, digest, digestsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)unsignedmanifestxml;
     (void)identitycertificatepem;
     (void)digest;
     (void)digestsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -10108,11 +13312,18 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynSecurityappli
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_securityapplicationproxy_create")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bus, appbusname, sessionid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bus, appbusname, sessionid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bus;
     (void)appbusname;
     (void)sessionid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -10128,9 +13339,14 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynSecurityappli
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_securityapplicationproxy_destroy")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(proxy);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(proxy);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)proxy;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -10145,9 +13361,14 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynSecurityappli
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_securityapplicationproxy_digest_destroy")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(digest);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(digest);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)digest;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -10162,9 +13383,14 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynSecurityappli
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_securityapplicationproxy_eccpublickey_destroy")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(eccpublickey);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(eccpublickey);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)eccpublickey;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -10179,9 +13405,16 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynSecurityappli
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_securityapplicationproxy_endmanagement")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(proxy) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(proxy);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)proxy;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -10198,10 +13431,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynSecurityappli
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_securityapplicationproxy_getapplicationstate")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(proxy, applicationstate) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(proxy, applicationstate);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)proxy;
     (void)applicationstate;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -10218,10 +13458,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynSecurityappli
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_securityapplicationproxy_getclaimcapabilities")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(proxy, capabilities) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(proxy, capabilities);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)proxy;
     (void)capabilities;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -10238,10 +13485,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynSecurityappli
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_securityapplicationproxy_getclaimcapabilitiesadditionalinfo")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(proxy, additionalinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(proxy, additionalinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)proxy;
     (void)additionalinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -10258,10 +13512,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynSecurityappli
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_securityapplicationproxy_getdefaultpolicy")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(proxy, policyxml) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(proxy, policyxml);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)proxy;
     (void)policyxml;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -10278,10 +13539,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynSecurityappli
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_securityapplicationproxy_geteccpublickey")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(proxy, eccpublickey) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(proxy, eccpublickey);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)proxy;
     (void)eccpublickey;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -10298,10 +13566,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynSecurityappli
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_securityapplicationproxy_getmanifesttemplate")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(proxy, manifesttemplatexml) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(proxy, manifesttemplatexml);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)proxy;
     (void)manifesttemplatexml;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -10316,8 +13591,15 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynSecurityappli
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_securityapplicationproxy_getpermissionmanagementsessionport")));
     }
-    uint16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : 0;
+    uint16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
+    errno = ENOSYS;
     uint16_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -10334,10 +13616,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynSecurityappli
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_securityapplicationproxy_getpolicy")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(proxy, policyxml) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(proxy, policyxml);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)proxy;
     (void)policyxml;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -10354,10 +13643,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynSecurityappli
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_securityapplicationproxy_installmembership")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(proxy, membershipcertificatechain) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(proxy, membershipcertificatechain);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)proxy;
     (void)membershipcertificatechain;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -10373,9 +13669,14 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynSecurityappli
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_securityapplicationproxy_manifest_destroy")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(signedmanifestxml);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(signedmanifestxml);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)signedmanifestxml;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -10390,9 +13691,14 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynSecurityappli
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_securityapplicationproxy_manifesttemplate_destroy")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(manifesttemplatexml);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(manifesttemplatexml);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)manifesttemplatexml;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -10407,9 +13713,14 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynSecurityappli
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_securityapplicationproxy_policy_destroy")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(policyxml);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(policyxml);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)policyxml;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -10424,9 +13735,16 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynSecurityappli
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_securityapplicationproxy_reset")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(proxy) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(proxy);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)proxy;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -10442,9 +13760,16 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynSecurityappli
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_securityapplicationproxy_resetpolicy")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(proxy) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(proxy);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)proxy;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -10464,13 +13789,20 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynSecurityappli
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_securityapplicationproxy_setmanifestsignature")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(unsignedmanifestxml, identitycertificatepem, signature, signaturesize, signedmanifestxml) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(unsignedmanifestxml, identitycertificatepem, signature, signaturesize, signedmanifestxml);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)unsignedmanifestxml;
     (void)identitycertificatepem;
     (void)signature;
     (void)signaturesize;
     (void)signedmanifestxml;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -10489,12 +13821,19 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynSecurityappli
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_securityapplicationproxy_signmanifest")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(unsignedmanifestxml, identitycertificatepem, signingprivatekeypem, signedmanifestxml) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(unsignedmanifestxml, identitycertificatepem, signingprivatekeypem, signedmanifestxml);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)unsignedmanifestxml;
     (void)identitycertificatepem;
     (void)signingprivatekeypem;
     (void)signedmanifestxml;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -10510,9 +13849,16 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynSecurityappli
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_securityapplicationproxy_startmanagement")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(proxy) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(proxy);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)proxy;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -10531,12 +13877,19 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynSecurityappli
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_securityapplicationproxy_updateidentity")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(proxy, identitycertificatechain, manifestsxmls, manifestscount) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(proxy, identitycertificatechain, manifestsxmls, manifestscount);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)proxy;
     (void)identitycertificatechain;
     (void)manifestsxmls;
     (void)manifestscount;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -10553,10 +13906,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynSecurityappli
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_securityapplicationproxy_updatepolicy")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(proxy, policyxml) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(proxy, policyxml);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)proxy;
     (void)policyxml;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -10573,10 +13933,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynSessionlisten
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_sessionlistener_create")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(callbacks, context) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(callbacks, context);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)callbacks;
     (void)context;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -10592,9 +13959,14 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynSessionlisten
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_sessionlistener_destroy")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(listener);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(listener);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)listener;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -10610,10 +13982,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsCm
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_sessionopts_cmp")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(one, other) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(one, other);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)one;
     (void)other;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -10632,12 +14011,19 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsCr
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_sessionopts_create")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(traffic, ismultipoint, proximity, transports) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(traffic, ismultipoint, proximity, transports);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)traffic;
     (void)ismultipoint;
     (void)proximity;
     (void)transports;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -10653,9 +14039,14 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsDe
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_sessionopts_destroy")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(opts);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(opts);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)opts;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -10670,9 +14061,16 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsGe
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_sessionopts_get_multipoint")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(opts) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(opts);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)opts;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -10688,9 +14086,16 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsGe
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_sessionopts_get_proximity")));
     }
-    uint8_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(opts) : 0;
+    uint8_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(opts);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)opts;
+    errno = ENOSYS;
     uint8_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -10706,9 +14111,16 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsGe
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_sessionopts_get_traffic")));
     }
-    uint8_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(opts) : 0;
+    uint8_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(opts);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)opts;
+    errno = ENOSYS;
     uint8_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -10724,9 +14136,16 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsGe
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_sessionopts_get_transports")));
     }
-    uint16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(opts) : 0;
+    uint16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(opts);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)opts;
+    errno = ENOSYS;
     uint16_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -10743,10 +14162,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsIs
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_sessionopts_iscompatible")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(one, other) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(one, other);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)one;
     (void)other;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -10763,10 +14189,15 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsSe
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_sessionopts_set_multipoint")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(opts, ismultipoint);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(opts, ismultipoint);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)opts;
     (void)ismultipoint;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -10782,10 +14213,15 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsSe
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_sessionopts_set_proximity")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(opts, proximity);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(opts, proximity);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)opts;
     (void)proximity;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -10801,10 +14237,15 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsSe
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_sessionopts_set_traffic")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(opts, traffic);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(opts, traffic);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)opts;
     (void)traffic;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -10820,10 +14261,15 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynSessionoptsSe
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_sessionopts_set_transports")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(opts, transports);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(opts, transports);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)opts;
     (void)transports;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -10839,10 +14285,17 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynSessionportli
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_sessionportlistener_create")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(callbacks, context) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(callbacks, context);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)callbacks;
     (void)context;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -10858,9 +14311,14 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynSessionportli
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_sessionportlistener_destroy")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(listener);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(listener);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)listener;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -10874,8 +14332,15 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynShutdown_napi
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_shutdown")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -10890,8 +14355,15 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynUnityDeferred
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_unity_deferred_callbacks_process")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -10907,9 +14379,14 @@ static Napi::Value windowssys_windows_win32_devices_alljoyn_alljoynUnitySetDefer
         HMODULE km_h_mod = LoadLibraryA("msajapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "alljoyn_unity_set_deferred_callback_mainthread_only")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(mainthread_only);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(mainthread_only);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)mainthread_only;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }

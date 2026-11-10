@@ -5,6 +5,7 @@
 #include <stdbool.h>
 #include <stddef.h>
 #include <stdint.h>
+#include <stdlib.h>
 #include <errno.h>
 #ifdef _WIN32
 #ifndef WIN32_LEAN_AND_MEAN
@@ -28,9 +29,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
         HMODULE km_h_mod = LoadLibraryA("cabinet.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CloseCompressor");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)compressorhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)compressorhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)compressorhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -46,9 +54,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
         HMODULE km_h_mod = LoadLibraryA("cabinet.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CloseDecompressor");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)decompressorhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)decompressorhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)decompressorhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -64,7 +79,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
         HMODULE km_h_mod = LoadLibraryA("cabinet.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "Compress");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)compressorhandle, (void*)(uintptr_t)uncompresseddata, (uint64_t)uncompresseddatasize, (void*)(uintptr_t)compressedbuffer, (uint64_t)compressedbuffersize, (void*)(uintptr_t)compresseddatasize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)compressorhandle, (void*)(uintptr_t)uncompresseddata, (uint64_t)uncompresseddatasize, (void*)(uintptr_t)compressedbuffer, (uint64_t)compressedbuffersize, (void*)(uintptr_t)compresseddatasize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)compressorhandle;
     (void)uncompresseddata;
@@ -72,6 +93,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     (void)compressedbuffer;
     (void)compressedbuffersize;
     (void)compresseddatasize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -87,11 +109,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
         HMODULE km_h_mod = LoadLibraryA("cabinet.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CreateCompressor");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)algorithm, (void*)(uintptr_t)allocationroutines, (void*)(uintptr_t)compressorhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)algorithm, (void*)(uintptr_t)allocationroutines, (void*)(uintptr_t)compressorhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)algorithm;
     (void)allocationroutines;
     (void)compressorhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -107,11 +136,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
         HMODULE km_h_mod = LoadLibraryA("cabinet.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CreateDecompressor");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)algorithm, (void*)(uintptr_t)allocationroutines, (void*)(uintptr_t)decompressorhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)algorithm, (void*)(uintptr_t)allocationroutines, (void*)(uintptr_t)decompressorhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)algorithm;
     (void)allocationroutines;
     (void)decompressorhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -127,7 +163,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
         HMODULE km_h_mod = LoadLibraryA("cabinet.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "Decompress");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)decompressorhandle, (void*)(uintptr_t)compresseddata, (uint64_t)compresseddatasize, (void*)(uintptr_t)uncompressedbuffer, (uint64_t)uncompressedbuffersize, (void*)(uintptr_t)uncompresseddatasize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)decompressorhandle, (void*)(uintptr_t)compresseddata, (uint64_t)compresseddatasize, (void*)(uintptr_t)uncompressedbuffer, (uint64_t)uncompressedbuffersize, (void*)(uintptr_t)uncompresseddatasize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)decompressorhandle;
     (void)compresseddata;
@@ -135,6 +177,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
     (void)uncompressedbuffer;
     (void)uncompressedbuffersize;
     (void)uncompresseddatasize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -150,12 +193,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
         HMODULE km_h_mod = LoadLibraryA("cabinet.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "QueryCompressorInformation");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)compressorhandle, (int32_t)compressinformationclass, (void*)(uintptr_t)compressinformation, (uint64_t)compressinformationsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)compressorhandle, (int32_t)compressinformationclass, (void*)(uintptr_t)compressinformation, (uint64_t)compressinformationsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)compressorhandle;
     (void)compressinformationclass;
     (void)compressinformation;
     (void)compressinformationsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -171,12 +221,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
         HMODULE km_h_mod = LoadLibraryA("cabinet.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "QueryDecompressorInformation");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)decompressorhandle, (int32_t)compressinformationclass, (void*)(uintptr_t)compressinformation, (uint64_t)compressinformationsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)decompressorhandle, (int32_t)compressinformationclass, (void*)(uintptr_t)compressinformation, (uint64_t)compressinformationsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)decompressorhandle;
     (void)compressinformationclass;
     (void)compressinformation;
     (void)compressinformationsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -192,9 +249,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
         HMODULE km_h_mod = LoadLibraryA("cabinet.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ResetCompressor");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)compressorhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)compressorhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)compressorhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -210,9 +274,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
         HMODULE km_h_mod = LoadLibraryA("cabinet.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ResetDecompressor");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)decompressorhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)decompressorhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)decompressorhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -228,12 +299,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
         HMODULE km_h_mod = LoadLibraryA("cabinet.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SetCompressorInformation");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)compressorhandle, (int32_t)compressinformationclass, (void*)(uintptr_t)compressinformation, (uint64_t)compressinformationsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)compressorhandle, (int32_t)compressinformationclass, (void*)(uintptr_t)compressinformation, (uint64_t)compressinformationsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)compressorhandle;
     (void)compressinformationclass;
     (void)compressinformation;
     (void)compressinformationsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -249,12 +327,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
         HMODULE km_h_mod = LoadLibraryA("cabinet.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SetDecompressorInformation");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)decompressorhandle, (int32_t)compressinformationclass, (void*)(uintptr_t)compressinformation, (uint64_t)compressinformationsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)decompressorhandle, (int32_t)compressinformationclass, (void*)(uintptr_t)compressinformation, (uint64_t)compressinformationsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)decompressorhandle;
     (void)compressinformationclass;
     (void)compressinformation;
     (void)compressinformationsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;

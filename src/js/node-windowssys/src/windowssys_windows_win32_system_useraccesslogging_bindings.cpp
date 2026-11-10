@@ -61,9 +61,16 @@ static Napi::Value windowssys_windows_win32_system_useraccesslogging_ualInstrume
         HMODULE km_h_mod = LoadLibraryA("ualapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UalInstrument")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(data) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(data);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)data;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -81,11 +88,18 @@ static Napi::Value windowssys_windows_win32_system_useraccesslogging_ualRegister
         HMODULE km_h_mod = LoadLibraryA("ualapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UalRegisterProduct")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(wszproductname, wszrolename, wszguid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(wszproductname, wszrolename, wszguid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)wszproductname;
     (void)wszrolename;
     (void)wszguid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -101,9 +115,16 @@ static Napi::Value windowssys_windows_win32_system_useraccesslogging_ualStart_na
         HMODULE km_h_mod = LoadLibraryA("ualapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UalStart")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(data) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(data);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)data;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -119,9 +140,16 @@ static Napi::Value windowssys_windows_win32_system_useraccesslogging_ualStop_nap
         HMODULE km_h_mod = LoadLibraryA("ualapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UalStop")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(data) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(data);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)data;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

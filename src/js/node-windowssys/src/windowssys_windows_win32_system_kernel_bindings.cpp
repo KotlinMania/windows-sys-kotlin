@@ -61,10 +61,17 @@ static Napi::Value windowssys_windows_win32_system_kernel_rtlFirstEntrySList_nap
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtlFirstEntrySList")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(listhead) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(listhead);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)listhead;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -79,9 +86,14 @@ static Napi::Value windowssys_windows_win32_system_kernel_rtlInitializeSListHead
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtlInitializeSListHead")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(listhead);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(listhead);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)listhead;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -96,10 +108,17 @@ static Napi::Value windowssys_windows_win32_system_kernel_rtlInterlockedFlushSLi
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtlInterlockedFlushSList")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(listhead) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(listhead);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)listhead;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -114,10 +133,17 @@ static Napi::Value windowssys_windows_win32_system_kernel_rtlInterlockedPopEntry
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtlInterlockedPopEntrySList")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(listhead) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(listhead);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)listhead;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -133,11 +159,18 @@ static Napi::Value windowssys_windows_win32_system_kernel_rtlInterlockedPushEntr
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtlInterlockedPushEntrySList")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(listhead, listentry) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(listhead, listentry);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)listhead;
     (void)listentry;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -155,13 +188,20 @@ static Napi::Value windowssys_windows_win32_system_kernel_rtlInterlockedPushList
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtlInterlockedPushListSListEx")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(listhead, list, listend, count) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(listhead, list, listend, count);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)listhead;
     (void)list;
     (void)listend;
     (void)count;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -176,9 +216,16 @@ static Napi::Value windowssys_windows_win32_system_kernel_rtlQueryDepthSList_nap
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtlQueryDepthSList")));
     }
-    uint16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(listhead) : 0;
+    uint16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(listhead);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)listhead;
+    errno = ENOSYS;
     uint16_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

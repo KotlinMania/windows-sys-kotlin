@@ -62,10 +62,17 @@ static Napi::Value windowssys_windows_win32_devices_usb_winUsbAbortPipe_napi(con
         HMODULE km_h_mod = LoadLibraryA("winusb.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinUsb_AbortPipe")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(interfacehandle, pipeid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(interfacehandle, pipeid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)interfacehandle;
     (void)pipeid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -82,10 +89,17 @@ static Napi::Value windowssys_windows_win32_devices_usb_winUsbFlushPipe_napi(con
         HMODULE km_h_mod = LoadLibraryA("winusb.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinUsb_FlushPipe")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(interfacehandle, pipeid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(interfacehandle, pipeid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)interfacehandle;
     (void)pipeid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -101,9 +115,16 @@ static Napi::Value windowssys_windows_win32_devices_usb_winUsbFree_napi(const Na
         HMODULE km_h_mod = LoadLibraryA("winusb.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinUsb_Free")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(interfacehandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(interfacehandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)interfacehandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -120,10 +141,17 @@ static Napi::Value windowssys_windows_win32_devices_usb_winUsbGetAdjustedFrameNu
         HMODULE km_h_mod = LoadLibraryA("winusb.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinUsb_GetAdjustedFrameNumber")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(currentframenumber, timestamp) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(currentframenumber, timestamp);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)currentframenumber;
     (void)timestamp;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -141,11 +169,18 @@ static Napi::Value windowssys_windows_win32_devices_usb_winUsbGetAssociatedInter
         HMODULE km_h_mod = LoadLibraryA("winusb.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinUsb_GetAssociatedInterface")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(interfacehandle, associatedinterfaceindex, associatedinterfacehandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(interfacehandle, associatedinterfaceindex, associatedinterfacehandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)interfacehandle;
     (void)associatedinterfaceindex;
     (void)associatedinterfacehandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -162,10 +197,17 @@ static Napi::Value windowssys_windows_win32_devices_usb_winUsbGetCurrentAlternat
         HMODULE km_h_mod = LoadLibraryA("winusb.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinUsb_GetCurrentAlternateSetting")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(interfacehandle, settingnumber) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(interfacehandle, settingnumber);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)interfacehandle;
     (void)settingnumber;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -183,11 +225,18 @@ static Napi::Value windowssys_windows_win32_devices_usb_winUsbGetCurrentFrameNum
         HMODULE km_h_mod = LoadLibraryA("winusb.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinUsb_GetCurrentFrameNumber")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(interfacehandle, currentframenumber, timestamp) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(interfacehandle, currentframenumber, timestamp);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)interfacehandle;
     (void)currentframenumber;
     (void)timestamp;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -204,10 +253,17 @@ static Napi::Value windowssys_windows_win32_devices_usb_winUsbGetCurrentFrameNum
         HMODULE km_h_mod = LoadLibraryA("winusb.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinUsb_GetCurrentFrameNumberAndQpc")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(interfacehandle, frameqpcinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(interfacehandle, frameqpcinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)interfacehandle;
     (void)frameqpcinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -229,7 +285,13 @@ static Napi::Value windowssys_windows_win32_devices_usb_winUsbGetDescriptor_napi
         HMODULE km_h_mod = LoadLibraryA("winusb.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinUsb_GetDescriptor")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(interfacehandle, descriptortype, arg_2_index, languageid, buffer, bufferlength, lengthtransferred) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(interfacehandle, descriptortype, arg_2_index, languageid, buffer, bufferlength, lengthtransferred);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)interfacehandle;
     (void)descriptortype;
@@ -238,6 +300,7 @@ static Napi::Value windowssys_windows_win32_devices_usb_winUsbGetDescriptor_napi
     (void)buffer;
     (void)bufferlength;
     (void)lengthtransferred;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -256,12 +319,19 @@ static Napi::Value windowssys_windows_win32_devices_usb_winUsbGetOverlappedResul
         HMODULE km_h_mod = LoadLibraryA("winusb.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinUsb_GetOverlappedResult")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(interfacehandle, lpoverlapped, lpnumberofbytestransferred, bwait) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(interfacehandle, lpoverlapped, lpnumberofbytestransferred, bwait);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)interfacehandle;
     (void)lpoverlapped;
     (void)lpnumberofbytestransferred;
     (void)bwait;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -281,13 +351,20 @@ static Napi::Value windowssys_windows_win32_devices_usb_winUsbGetPipePolicy_napi
         HMODULE km_h_mod = LoadLibraryA("winusb.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinUsb_GetPipePolicy")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(interfacehandle, pipeid, policytype, valuelength, value) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(interfacehandle, pipeid, policytype, valuelength, value);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)interfacehandle;
     (void)pipeid;
     (void)policytype;
     (void)valuelength;
     (void)value;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -306,12 +383,19 @@ static Napi::Value windowssys_windows_win32_devices_usb_winUsbGetPowerPolicy_nap
         HMODULE km_h_mod = LoadLibraryA("winusb.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinUsb_GetPowerPolicy")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(interfacehandle, policytype, valuelength, value) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(interfacehandle, policytype, valuelength, value);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)interfacehandle;
     (void)policytype;
     (void)valuelength;
     (void)value;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -328,10 +412,17 @@ static Napi::Value windowssys_windows_win32_devices_usb_winUsbInitialize_napi(co
         HMODULE km_h_mod = LoadLibraryA("winusb.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinUsb_Initialize")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(devicehandle, interfacehandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(devicehandle, interfacehandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)devicehandle;
     (void)interfacehandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -353,7 +444,13 @@ static Napi::Value windowssys_windows_win32_devices_usb_winUsbParseConfiguration
         HMODULE km_h_mod = LoadLibraryA("winusb.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinUsb_ParseConfigurationDescriptor")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(configurationdescriptor, startposition, interfacenumber, alternatesetting, interfaceclass, interfacesubclass, interfaceprotocol) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(configurationdescriptor, startposition, interfacenumber, alternatesetting, interfaceclass, interfacesubclass, interfaceprotocol);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)configurationdescriptor;
     (void)startposition;
@@ -362,7 +459,8 @@ static Napi::Value windowssys_windows_win32_devices_usb_winUsbParseConfiguration
     (void)interfaceclass;
     (void)interfacesubclass;
     (void)interfaceprotocol;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -380,13 +478,20 @@ static Napi::Value windowssys_windows_win32_devices_usb_winUsbParseDescriptors_n
         HMODULE km_h_mod = LoadLibraryA("winusb.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinUsb_ParseDescriptors")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(descriptorbuffer, totallength, startposition, descriptortype) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(descriptorbuffer, totallength, startposition, descriptortype);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)descriptorbuffer;
     (void)totallength;
     (void)startposition;
     (void)descriptortype;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -404,12 +509,19 @@ static Napi::Value windowssys_windows_win32_devices_usb_winUsbQueryDeviceInforma
         HMODULE km_h_mod = LoadLibraryA("winusb.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinUsb_QueryDeviceInformation")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(interfacehandle, informationtype, bufferlength, buffer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(interfacehandle, informationtype, bufferlength, buffer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)interfacehandle;
     (void)informationtype;
     (void)bufferlength;
     (void)buffer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -427,11 +539,18 @@ static Napi::Value windowssys_windows_win32_devices_usb_winUsbQueryInterfaceSett
         HMODULE km_h_mod = LoadLibraryA("winusb.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinUsb_QueryInterfaceSettings")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(interfacehandle, alternateinterfacenumber, usbaltinterfacedescriptor) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(interfacehandle, alternateinterfacenumber, usbaltinterfacedescriptor);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)interfacehandle;
     (void)alternateinterfacenumber;
     (void)usbaltinterfacedescriptor;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -450,12 +569,19 @@ static Napi::Value windowssys_windows_win32_devices_usb_winUsbQueryPipe_napi(con
         HMODULE km_h_mod = LoadLibraryA("winusb.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinUsb_QueryPipe")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(interfacehandle, alternateinterfacenumber, pipeindex, pipeinformation) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(interfacehandle, alternateinterfacenumber, pipeindex, pipeinformation);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)interfacehandle;
     (void)alternateinterfacenumber;
     (void)pipeindex;
     (void)pipeinformation;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -474,12 +600,19 @@ static Napi::Value windowssys_windows_win32_devices_usb_winUsbQueryPipeEx_napi(c
         HMODULE km_h_mod = LoadLibraryA("winusb.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinUsb_QueryPipeEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(interfacehandle, alternatesettingnumber, pipeindex, pipeinformationex) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(interfacehandle, alternatesettingnumber, pipeindex, pipeinformationex);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)interfacehandle;
     (void)alternatesettingnumber;
     (void)pipeindex;
     (void)pipeinformationex;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -501,7 +634,13 @@ static Napi::Value windowssys_windows_win32_devices_usb_winUsbReadIsochPipe_napi
         HMODULE km_h_mod = LoadLibraryA("winusb.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinUsb_ReadIsochPipe")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bufferhandle, offset, length, framenumber, numberofpackets, isopacketdescriptors, overlapped) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bufferhandle, offset, length, framenumber, numberofpackets, isopacketdescriptors, overlapped);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bufferhandle;
     (void)offset;
@@ -510,6 +649,7 @@ static Napi::Value windowssys_windows_win32_devices_usb_winUsbReadIsochPipe_napi
     (void)numberofpackets;
     (void)isopacketdescriptors;
     (void)overlapped;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -531,7 +671,13 @@ static Napi::Value windowssys_windows_win32_devices_usb_winUsbReadIsochPipeAsap_
         HMODULE km_h_mod = LoadLibraryA("winusb.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinUsb_ReadIsochPipeAsap")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bufferhandle, offset, length, continuestream, numberofpackets, isopacketdescriptors, overlapped) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bufferhandle, offset, length, continuestream, numberofpackets, isopacketdescriptors, overlapped);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bufferhandle;
     (void)offset;
@@ -540,6 +686,7 @@ static Napi::Value windowssys_windows_win32_devices_usb_winUsbReadIsochPipeAsap_
     (void)numberofpackets;
     (void)isopacketdescriptors;
     (void)overlapped;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -560,7 +707,13 @@ static Napi::Value windowssys_windows_win32_devices_usb_winUsbReadPipe_napi(cons
         HMODULE km_h_mod = LoadLibraryA("winusb.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinUsb_ReadPipe")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(interfacehandle, pipeid, buffer, bufferlength, lengthtransferred, overlapped) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(interfacehandle, pipeid, buffer, bufferlength, lengthtransferred, overlapped);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)interfacehandle;
     (void)pipeid;
@@ -568,6 +721,7 @@ static Napi::Value windowssys_windows_win32_devices_usb_winUsbReadPipe_napi(cons
     (void)bufferlength;
     (void)lengthtransferred;
     (void)overlapped;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -587,13 +741,20 @@ static Napi::Value windowssys_windows_win32_devices_usb_winUsbRegisterIsochBuffe
         HMODULE km_h_mod = LoadLibraryA("winusb.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinUsb_RegisterIsochBuffer")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(interfacehandle, pipeid, buffer, bufferlength, isochbufferhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(interfacehandle, pipeid, buffer, bufferlength, isochbufferhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)interfacehandle;
     (void)pipeid;
     (void)buffer;
     (void)bufferlength;
     (void)isochbufferhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -610,10 +771,17 @@ static Napi::Value windowssys_windows_win32_devices_usb_winUsbResetPipe_napi(con
         HMODULE km_h_mod = LoadLibraryA("winusb.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinUsb_ResetPipe")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(interfacehandle, pipeid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(interfacehandle, pipeid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)interfacehandle;
     (void)pipeid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -630,10 +798,17 @@ static Napi::Value windowssys_windows_win32_devices_usb_winUsbSetCurrentAlternat
         HMODULE km_h_mod = LoadLibraryA("winusb.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinUsb_SetCurrentAlternateSetting")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(interfacehandle, settingnumber) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(interfacehandle, settingnumber);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)interfacehandle;
     (void)settingnumber;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -653,13 +828,20 @@ static Napi::Value windowssys_windows_win32_devices_usb_winUsbSetPipePolicy_napi
         HMODULE km_h_mod = LoadLibraryA("winusb.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinUsb_SetPipePolicy")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(interfacehandle, pipeid, policytype, valuelength, value) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(interfacehandle, pipeid, policytype, valuelength, value);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)interfacehandle;
     (void)pipeid;
     (void)policytype;
     (void)valuelength;
     (void)value;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -678,12 +860,19 @@ static Napi::Value windowssys_windows_win32_devices_usb_winUsbSetPowerPolicy_nap
         HMODULE km_h_mod = LoadLibraryA("winusb.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinUsb_SetPowerPolicy")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(interfacehandle, policytype, valuelength, value) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(interfacehandle, policytype, valuelength, value);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)interfacehandle;
     (void)policytype;
     (void)valuelength;
     (void)value;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -700,10 +889,17 @@ static Napi::Value windowssys_windows_win32_devices_usb_winUsbStartTrackingForTi
         HMODULE km_h_mod = LoadLibraryA("winusb.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinUsb_StartTrackingForTimeSync")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(interfacehandle, starttrackinginfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(interfacehandle, starttrackinginfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)interfacehandle;
     (void)starttrackinginfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -720,10 +916,17 @@ static Napi::Value windowssys_windows_win32_devices_usb_winUsbStopTrackingForTim
         HMODULE km_h_mod = LoadLibraryA("winusb.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinUsb_StopTrackingForTimeSync")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(interfacehandle, stoptrackinginfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(interfacehandle, stoptrackinginfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)interfacehandle;
     (void)stoptrackinginfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -739,9 +942,16 @@ static Napi::Value windowssys_windows_win32_devices_usb_winUsbUnregisterIsochBuf
         HMODULE km_h_mod = LoadLibraryA("winusb.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinUsb_UnregisterIsochBuffer")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(isochbufferhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(isochbufferhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)isochbufferhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -761,13 +971,20 @@ static Napi::Value windowssys_windows_win32_devices_usb_winUsbWriteIsochPipe_nap
         HMODULE km_h_mod = LoadLibraryA("winusb.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinUsb_WriteIsochPipe")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bufferhandle, offset, length, framenumber, overlapped) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bufferhandle, offset, length, framenumber, overlapped);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bufferhandle;
     (void)offset;
     (void)length;
     (void)framenumber;
     (void)overlapped;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -787,13 +1004,20 @@ static Napi::Value windowssys_windows_win32_devices_usb_winUsbWriteIsochPipeAsap
         HMODULE km_h_mod = LoadLibraryA("winusb.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinUsb_WriteIsochPipeAsap")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bufferhandle, offset, length, continuestream, overlapped) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bufferhandle, offset, length, continuestream, overlapped);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bufferhandle;
     (void)offset;
     (void)length;
     (void)continuestream;
     (void)overlapped;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -814,7 +1038,13 @@ static Napi::Value windowssys_windows_win32_devices_usb_winUsbWritePipe_napi(con
         HMODULE km_h_mod = LoadLibraryA("winusb.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinUsb_WritePipe")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(interfacehandle, pipeid, buffer, bufferlength, lengthtransferred, overlapped) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(interfacehandle, pipeid, buffer, bufferlength, lengthtransferred, overlapped);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)interfacehandle;
     (void)pipeid;
@@ -822,6 +1052,7 @@ static Napi::Value windowssys_windows_win32_devices_usb_winUsbWritePipe_napi(con
     (void)bufferlength;
     (void)lengthtransferred;
     (void)overlapped;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

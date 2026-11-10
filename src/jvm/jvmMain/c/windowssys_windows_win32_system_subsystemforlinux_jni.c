@@ -5,6 +5,7 @@
 #include <stdbool.h>
 #include <stddef.h>
 #include <stdint.h>
+#include <stdlib.h>
 #include <errno.h>
 #ifdef _WIN32
 #ifndef WIN32_LEAN_AND_MEAN
@@ -28,11 +29,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-wsl-api-l1-1-0.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WslConfigureDistribution");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)distributionname, (uint32_t)defaultuid, (int32_t)wsldistributionflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)distributionname, (uint32_t)defaultuid, (int32_t)wsldistributionflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)distributionname;
     (void)defaultuid;
     (void)wsldistributionflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -48,7 +56,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-wsl-api-l1-1-0.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WslGetDistributionConfiguration");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)distributionname, (void*)(uintptr_t)distributionversion, (void*)(uintptr_t)defaultuid, (void*)(uintptr_t)wsldistributionflags, (void*)(uintptr_t)defaultenvironmentvariables, (void*)(uintptr_t)defaultenvironmentvariablecount) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)distributionname, (void*)(uintptr_t)distributionversion, (void*)(uintptr_t)defaultuid, (void*)(uintptr_t)wsldistributionflags, (void*)(uintptr_t)defaultenvironmentvariables, (void*)(uintptr_t)defaultenvironmentvariablecount);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)distributionname;
     (void)distributionversion;
@@ -56,6 +70,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     (void)wsldistributionflags;
     (void)defaultenvironmentvariables;
     (void)defaultenvironmentvariablecount;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -71,9 +86,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-wsl-api-l1-1-0.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WslIsDistributionRegistered");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)distributionname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)distributionname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)distributionname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -89,7 +111,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-wsl-api-l1-1-0.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WslLaunch");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)distributionname, (void*)(uintptr_t)command, (int32_t)usecurrentworkingdirectory, (void*)(uintptr_t)arg_3_stdin, (void*)(uintptr_t)arg_4_stdout, (void*)(uintptr_t)arg_5_stderr, (void*)(uintptr_t)process) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)distributionname, (void*)(uintptr_t)command, (int32_t)usecurrentworkingdirectory, (void*)(uintptr_t)arg_3_stdin, (void*)(uintptr_t)arg_4_stdout, (void*)(uintptr_t)arg_5_stderr, (void*)(uintptr_t)process);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)distributionname;
     (void)command;
@@ -98,6 +126,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     (void)arg_4_stdout;
     (void)arg_5_stderr;
     (void)process;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -113,12 +142,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-wsl-api-l1-1-0.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WslLaunchInteractive");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)distributionname, (void*)(uintptr_t)command, (int32_t)usecurrentworkingdirectory, (void*)(uintptr_t)exitcode) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)distributionname, (void*)(uintptr_t)command, (int32_t)usecurrentworkingdirectory, (void*)(uintptr_t)exitcode);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)distributionname;
     (void)command;
     (void)usecurrentworkingdirectory;
     (void)exitcode;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -134,10 +170,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-wsl-api-l1-1-0.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WslRegisterDistribution");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)distributionname, (void*)(uintptr_t)targzfilename) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)distributionname, (void*)(uintptr_t)targzfilename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)distributionname;
     (void)targzfilename;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -153,9 +196,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-wsl-api-l1-1-0.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WslUnregisterDistribution");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)distributionname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)distributionname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)distributionname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;

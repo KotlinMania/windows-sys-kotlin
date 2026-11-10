@@ -61,9 +61,14 @@ static Napi::Value windowssys_windows_win32_networkmanagement_windowsfirewall_nc
         HMODULE km_h_mod = LoadLibraryA("netshell.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NcFreeNetconProperties")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pprops);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pprops);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pprops;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -78,9 +83,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_windowsfirewall_nc
         HMODULE km_h_mod = LoadLibraryA("netshell.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NcIsValidConnectionName")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszwname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszwname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszwname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -97,10 +109,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_windowsfirewall_ne
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-net-isolation-l1-1-0.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetworkIsolationDiagnoseConnectFailureAndGetInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(wszservername, netisoerror) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(wszservername, netisoerror);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)wszservername;
     (void)netisoerror;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -118,11 +137,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_windowsfirewall_ne
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-net-isolation-l1-1-0.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetworkIsolationEnumAppContainers")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(flags, pdwnumpublicappcs, pppublicappcs) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(flags, pdwnumpublicappcs, pppublicappcs);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)flags;
     (void)pdwnumpublicappcs;
     (void)pppublicappcs;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -138,9 +164,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_windowsfirewall_ne
         HMODULE km_h_mod = LoadLibraryA("firewallapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetworkIsolationEnumerateAppContainerRules")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(newenum) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(newenum);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)newenum;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -156,9 +189,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_windowsfirewall_ne
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-net-isolation-l1-1-0.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetworkIsolationFreeAppContainers")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ppublicappcs) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ppublicappcs);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ppublicappcs;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -175,10 +215,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_windowsfirewall_ne
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-net-isolation-l1-1-0.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetworkIsolationGetAppContainerConfig")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pdwnumpublicappcs, appcontainersids) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pdwnumpublicappcs, appcontainersids);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pdwnumpublicappcs;
     (void)appcontainersids;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -198,13 +245,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_windowsfirewall_ne
         HMODULE km_h_mod = LoadLibraryA("firewallapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetworkIsolationGetEnterpriseIdAsync")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(wszservername, dwflags, context, callback, hoperation) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(wszservername, dwflags, context, callback, hoperation);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)wszservername;
     (void)dwflags;
     (void)context;
     (void)callback;
     (void)hoperation;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -221,10 +275,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_windowsfirewall_ne
         HMODULE km_h_mod = LoadLibraryA("firewallapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetworkIsolationGetEnterpriseIdClose")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hoperation, bwaitforoperation) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hoperation, bwaitforoperation);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hoperation;
     (void)bwaitforoperation;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -243,12 +304,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_windowsfirewall_ne
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-net-isolation-l1-1-0.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetworkIsolationRegisterForAppContainerChanges")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(flags, callback, context, registrationobject) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(flags, callback, context, registrationobject);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)flags;
     (void)callback;
     (void)context;
     (void)registrationobject;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -265,10 +333,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_windowsfirewall_ne
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-net-isolation-l1-1-0.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetworkIsolationSetAppContainerConfig")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwnumpublicappcs, appcontainersids) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwnumpublicappcs, appcontainersids);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dwnumpublicappcs;
     (void)appcontainersids;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -290,7 +365,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_windowsfirewall_ne
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-net-isolation-l1-1-0.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetworkIsolationSetupAppContainerBinaries")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(applicationcontainersid, packagefullname, packagefolder, displayname, bbinariesfullycomputed, binaries, binariescount) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(applicationcontainersid, packagefullname, packagefolder, displayname, bbinariesfullycomputed, binaries, binariescount);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)applicationcontainersid;
     (void)packagefullname;
@@ -299,6 +380,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_windowsfirewall_ne
     (void)bbinariesfullycomputed;
     (void)binaries;
     (void)binariescount;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -314,9 +396,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_windowsfirewall_ne
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-net-isolation-l1-1-0.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetworkIsolationUnregisterForAppContainerChanges")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(registrationobject) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(registrationobject);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)registrationobject;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

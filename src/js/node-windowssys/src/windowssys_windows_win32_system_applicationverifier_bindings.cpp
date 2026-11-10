@@ -65,13 +65,20 @@ static Napi::Value windowssys_windows_win32_system_applicationverifier_verifierE
         HMODULE km_h_mod = LoadLibraryA("verifier.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "VerifierEnumerateResource")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(process, flags, resourcetype, resourcecallback, enumerationcontext) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(process, flags, resourcetype, resourcecallback, enumerationcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)process;
     (void)flags;
     (void)resourcetype;
     (void)resourcecallback;
     (void)enumerationcontext;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

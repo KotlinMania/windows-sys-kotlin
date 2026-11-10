@@ -66,7 +66,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_webdav_davAddConne
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DavAddConnection")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(connectionhandle, remotename, username, password, clientcert, certsize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(connectionhandle, remotename, username, password, clientcert, certsize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)connectionhandle;
     (void)remotename;
@@ -74,6 +80,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_webdav_davAddConne
     (void)password;
     (void)clientcert;
     (void)certsize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -90,10 +97,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_webdav_davCancelCo
         HMODULE km_h_mod = LoadLibraryA("davclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DavCancelConnectionsToServer")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpname, fforce) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpname, fforce);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpname;
     (void)fforce;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -109,9 +123,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_webdav_davDeleteCo
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DavDeleteConnection")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(connectionhandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(connectionhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)connectionhandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -127,9 +148,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_webdav_davFlushFil
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DavFlushFile")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hfile) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hfile);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hfile;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -148,12 +176,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_webdav_davGetExten
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DavGetExtendedError")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hfile, exterror, exterrorstring, cchsize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hfile, exterror, exterrorstring, cchsize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hfile;
     (void)exterror;
     (void)exterrorstring;
     (void)cchsize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -171,11 +206,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_webdav_davGetHTTPF
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DavGetHTTPFromUNCPath")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(uncpath, url, lpsize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(uncpath, url, lpsize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)uncpath;
     (void)url;
     (void)lpsize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -193,11 +235,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_webdav_davGetTheLo
         HMODULE km_h_mod = LoadLibraryA("davclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DavGetTheLockOwnerOfTheFile")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(filename, lockownername, lockownernamelengthinbytes) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(filename, lockownername, lockownernamelengthinbytes);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)filename;
     (void)lockownername;
     (void)lockownernamelengthinbytes;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -215,11 +264,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_webdav_davGetUNCFr
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DavGetUNCFromHTTPPath")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(url, uncpath, lpsize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(url, uncpath, lpsize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)url;
     (void)uncpath;
     (void)lpsize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -235,9 +291,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_webdav_davInvalida
         HMODULE km_h_mod = LoadLibraryA("davclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DavInvalidateCache")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(urlname) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(urlname);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)urlname;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -254,10 +317,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_webdav_davRegister
         HMODULE km_h_mod = LoadLibraryA("davclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DavRegisterAuthCallback")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(callback, version) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(callback, version);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)callback;
     (void)version;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -273,9 +343,14 @@ static Napi::Value windowssys_windows_win32_networkmanagement_webdav_davUnregist
         HMODULE km_h_mod = LoadLibraryA("davclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DavUnregisterAuthCallback")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(hcallback);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(hcallback);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)hcallback;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }

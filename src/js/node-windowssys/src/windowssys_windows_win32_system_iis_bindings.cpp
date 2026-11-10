@@ -61,9 +61,16 @@ static Napi::Value windowssys_windows_win32_system_iis_getExtensionVersion_napi(
         HMODULE km_h_mod = LoadLibraryA("rpcproxy.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetExtensionVersion")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pver) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pver);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pver;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -79,9 +86,16 @@ static Napi::Value windowssys_windows_win32_system_iis_getFilterVersion_napi(con
         HMODULE km_h_mod = LoadLibraryA("rpcproxy.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetFilterVersion")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pver) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pver);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pver;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -97,9 +111,16 @@ static Napi::Value windowssys_windows_win32_system_iis_httpExtensionProc_napi(co
         HMODULE km_h_mod = LoadLibraryA("rpcproxy.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HttpExtensionProc")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pecb) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pecb);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pecb;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -117,11 +138,18 @@ static Napi::Value windowssys_windows_win32_system_iis_httpFilterProc_napi(const
         HMODULE km_h_mod = LoadLibraryA("rpcproxy.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HttpFilterProc")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pfc, notificationtype, pvnotification) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pfc, notificationtype, pvnotification);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pfc;
     (void)notificationtype;
     (void)pvnotification;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

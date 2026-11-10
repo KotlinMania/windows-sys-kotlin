@@ -62,10 +62,17 @@ static Napi::Value windowssys_windows_win32_ui_interactioncontext_addPointerInte
         HMODULE km_h_mod = LoadLibraryA("ninput.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AddPointerInteractionContext")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(interactioncontext, pointerid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(interactioncontext, pointerid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)interactioncontext;
     (void)pointerid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -83,11 +90,18 @@ static Napi::Value windowssys_windows_win32_ui_interactioncontext_bufferPointerP
         HMODULE km_h_mod = LoadLibraryA("ninput.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "BufferPointerPacketsInteractionContext")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(interactioncontext, entriescount, pointerinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(interactioncontext, entriescount, pointerinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)interactioncontext;
     (void)entriescount;
     (void)pointerinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -103,9 +117,16 @@ static Napi::Value windowssys_windows_win32_ui_interactioncontext_createInteract
         HMODULE km_h_mod = LoadLibraryA("ninput.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateInteractionContext")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(interactioncontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(interactioncontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)interactioncontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -121,9 +142,16 @@ static Napi::Value windowssys_windows_win32_ui_interactioncontext_destroyInterac
         HMODULE km_h_mod = LoadLibraryA("ninput.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DestroyInteractionContext")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(interactioncontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(interactioncontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)interactioncontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -141,11 +169,18 @@ static Napi::Value windowssys_windows_win32_ui_interactioncontext_getCrossSlideP
         HMODULE km_h_mod = LoadLibraryA("ninput.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetCrossSlideParameterInteractionContext")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(interactioncontext, threshold, distance) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(interactioncontext, threshold, distance);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)interactioncontext;
     (void)threshold;
     (void)distance;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -163,11 +198,18 @@ static Napi::Value windowssys_windows_win32_ui_interactioncontext_getHoldParamet
         HMODULE km_h_mod = LoadLibraryA("ninput.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetHoldParameterInteractionContext")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(interactioncontext, parameter, value) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(interactioncontext, parameter, value);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)interactioncontext;
     (void)parameter;
     (void)value;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -185,11 +227,18 @@ static Napi::Value windowssys_windows_win32_ui_interactioncontext_getInertiaPara
         HMODULE km_h_mod = LoadLibraryA("ninput.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetInertiaParameterInteractionContext")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(interactioncontext, inertiaparameter, value) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(interactioncontext, inertiaparameter, value);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)interactioncontext;
     (void)inertiaparameter;
     (void)value;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -207,11 +256,18 @@ static Napi::Value windowssys_windows_win32_ui_interactioncontext_getInteraction
         HMODULE km_h_mod = LoadLibraryA("ninput.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetInteractionConfigurationInteractionContext")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(interactioncontext, configurationcount, configuration) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(interactioncontext, configurationcount, configuration);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)interactioncontext;
     (void)configurationcount;
     (void)configuration;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -229,11 +285,18 @@ static Napi::Value windowssys_windows_win32_ui_interactioncontext_getMouseWheelP
         HMODULE km_h_mod = LoadLibraryA("ninput.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetMouseWheelParameterInteractionContext")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(interactioncontext, parameter, value) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(interactioncontext, parameter, value);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)interactioncontext;
     (void)parameter;
     (void)value;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -251,11 +314,18 @@ static Napi::Value windowssys_windows_win32_ui_interactioncontext_getPropertyInt
         HMODULE km_h_mod = LoadLibraryA("ninput.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetPropertyInteractionContext")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(interactioncontext, contextproperty, value) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(interactioncontext, contextproperty, value);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)interactioncontext;
     (void)contextproperty;
     (void)value;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -273,11 +343,18 @@ static Napi::Value windowssys_windows_win32_ui_interactioncontext_getStateIntera
         HMODULE km_h_mod = LoadLibraryA("ninput.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetStateInteractionContext")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(interactioncontext, pointerinfo, state) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(interactioncontext, pointerinfo, state);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)interactioncontext;
     (void)pointerinfo;
     (void)state;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -295,11 +372,18 @@ static Napi::Value windowssys_windows_win32_ui_interactioncontext_getTapParamete
         HMODULE km_h_mod = LoadLibraryA("ninput.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetTapParameterInteractionContext")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(interactioncontext, parameter, value) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(interactioncontext, parameter, value);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)interactioncontext;
     (void)parameter;
     (void)value;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -317,11 +401,18 @@ static Napi::Value windowssys_windows_win32_ui_interactioncontext_getTranslation
         HMODULE km_h_mod = LoadLibraryA("ninput.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetTranslationParameterInteractionContext")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(interactioncontext, parameter, value) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(interactioncontext, parameter, value);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)interactioncontext;
     (void)parameter;
     (void)value;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -337,9 +428,16 @@ static Napi::Value windowssys_windows_win32_ui_interactioncontext_processBuffere
         HMODULE km_h_mod = LoadLibraryA("ninput.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ProcessBufferedPacketsInteractionContext")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(interactioncontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(interactioncontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)interactioncontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -355,9 +453,16 @@ static Napi::Value windowssys_windows_win32_ui_interactioncontext_processInertia
         HMODULE km_h_mod = LoadLibraryA("ninput.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ProcessInertiaInteractionContext")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(interactioncontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(interactioncontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)interactioncontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -376,12 +481,19 @@ static Napi::Value windowssys_windows_win32_ui_interactioncontext_processPointer
         HMODULE km_h_mod = LoadLibraryA("ninput.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ProcessPointerFramesInteractionContext")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(interactioncontext, entriescount, pointercount, pointerinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(interactioncontext, entriescount, pointercount, pointerinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)interactioncontext;
     (void)entriescount;
     (void)pointercount;
     (void)pointerinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -399,11 +511,18 @@ static Napi::Value windowssys_windows_win32_ui_interactioncontext_registerOutput
         HMODULE km_h_mod = LoadLibraryA("ninput.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegisterOutputCallbackInteractionContext")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(interactioncontext, outputcallback, clientdata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(interactioncontext, outputcallback, clientdata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)interactioncontext;
     (void)outputcallback;
     (void)clientdata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -421,11 +540,18 @@ static Napi::Value windowssys_windows_win32_ui_interactioncontext_registerOutput
         HMODULE km_h_mod = LoadLibraryA("ninput.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegisterOutputCallbackInteractionContext2")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(interactioncontext, outputcallback, clientdata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(interactioncontext, outputcallback, clientdata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)interactioncontext;
     (void)outputcallback;
     (void)clientdata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -442,10 +568,17 @@ static Napi::Value windowssys_windows_win32_ui_interactioncontext_removePointerI
         HMODULE km_h_mod = LoadLibraryA("ninput.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RemovePointerInteractionContext")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(interactioncontext, pointerid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(interactioncontext, pointerid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)interactioncontext;
     (void)pointerid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -461,9 +594,16 @@ static Napi::Value windowssys_windows_win32_ui_interactioncontext_resetInteracti
         HMODULE km_h_mod = LoadLibraryA("ninput.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResetInteractionContext")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(interactioncontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(interactioncontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)interactioncontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -481,11 +621,18 @@ static Napi::Value windowssys_windows_win32_ui_interactioncontext_setCrossSlideP
         HMODULE km_h_mod = LoadLibraryA("ninput.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetCrossSlideParametersInteractionContext")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(interactioncontext, parametercount, crossslideparameters) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(interactioncontext, parametercount, crossslideparameters);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)interactioncontext;
     (void)parametercount;
     (void)crossslideparameters;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -503,11 +650,18 @@ static Napi::Value windowssys_windows_win32_ui_interactioncontext_setHoldParamet
         HMODULE km_h_mod = LoadLibraryA("ninput.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetHoldParameterInteractionContext")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(interactioncontext, parameter, value) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(interactioncontext, parameter, value);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)interactioncontext;
     (void)parameter;
     (void)value;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -525,11 +679,18 @@ static Napi::Value windowssys_windows_win32_ui_interactioncontext_setInertiaPara
         HMODULE km_h_mod = LoadLibraryA("ninput.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetInertiaParameterInteractionContext")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(interactioncontext, inertiaparameter, value) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(interactioncontext, inertiaparameter, value);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)interactioncontext;
     (void)inertiaparameter;
     (void)value;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -547,11 +708,18 @@ static Napi::Value windowssys_windows_win32_ui_interactioncontext_setInteraction
         HMODULE km_h_mod = LoadLibraryA("ninput.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetInteractionConfigurationInteractionContext")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(interactioncontext, configurationcount, configuration) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(interactioncontext, configurationcount, configuration);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)interactioncontext;
     (void)configurationcount;
     (void)configuration;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -569,11 +737,18 @@ static Napi::Value windowssys_windows_win32_ui_interactioncontext_setMouseWheelP
         HMODULE km_h_mod = LoadLibraryA("ninput.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetMouseWheelParameterInteractionContext")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(interactioncontext, parameter, value) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(interactioncontext, parameter, value);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)interactioncontext;
     (void)parameter;
     (void)value;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -592,12 +767,19 @@ static Napi::Value windowssys_windows_win32_ui_interactioncontext_setPivotIntera
         HMODULE km_h_mod = LoadLibraryA("ninput.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetPivotInteractionContext")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(interactioncontext, x, y, radius) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(interactioncontext, x, y, radius);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)interactioncontext;
     (void)x;
     (void)y;
     (void)radius;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -615,11 +797,18 @@ static Napi::Value windowssys_windows_win32_ui_interactioncontext_setPropertyInt
         HMODULE km_h_mod = LoadLibraryA("ninput.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetPropertyInteractionContext")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(interactioncontext, contextproperty, value) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(interactioncontext, contextproperty, value);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)interactioncontext;
     (void)contextproperty;
     (void)value;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -637,11 +826,18 @@ static Napi::Value windowssys_windows_win32_ui_interactioncontext_setTapParamete
         HMODULE km_h_mod = LoadLibraryA("ninput.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetTapParameterInteractionContext")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(interactioncontext, parameter, value) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(interactioncontext, parameter, value);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)interactioncontext;
     (void)parameter;
     (void)value;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -659,11 +855,18 @@ static Napi::Value windowssys_windows_win32_ui_interactioncontext_setTranslation
         HMODULE km_h_mod = LoadLibraryA("ninput.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetTranslationParameterInteractionContext")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(interactioncontext, parameter, value) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(interactioncontext, parameter, value);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)interactioncontext;
     (void)parameter;
     (void)value;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -679,9 +882,16 @@ static Napi::Value windowssys_windows_win32_ui_interactioncontext_stopInteractio
         HMODULE km_h_mod = LoadLibraryA("ninput.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "StopInteractionContext")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(interactioncontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(interactioncontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)interactioncontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

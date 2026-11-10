@@ -63,11 +63,18 @@ static Napi::Value windowssys_windows_win32_system_subsystemforlinux_wslConfigur
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-wsl-api-l1-1-0.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WslConfigureDistribution")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(distributionname, defaultuid, wsldistributionflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(distributionname, defaultuid, wsldistributionflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)distributionname;
     (void)defaultuid;
     (void)wsldistributionflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -88,7 +95,13 @@ static Napi::Value windowssys_windows_win32_system_subsystemforlinux_wslGetDistr
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-wsl-api-l1-1-0.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WslGetDistributionConfiguration")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(distributionname, distributionversion, defaultuid, wsldistributionflags, defaultenvironmentvariables, defaultenvironmentvariablecount) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(distributionname, distributionversion, defaultuid, wsldistributionflags, defaultenvironmentvariables, defaultenvironmentvariablecount);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)distributionname;
     (void)distributionversion;
@@ -96,6 +109,7 @@ static Napi::Value windowssys_windows_win32_system_subsystemforlinux_wslGetDistr
     (void)wsldistributionflags;
     (void)defaultenvironmentvariables;
     (void)defaultenvironmentvariablecount;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -111,9 +125,16 @@ static Napi::Value windowssys_windows_win32_system_subsystemforlinux_wslIsDistri
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-wsl-api-l1-1-0.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WslIsDistributionRegistered")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(distributionname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(distributionname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)distributionname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -135,7 +156,13 @@ static Napi::Value windowssys_windows_win32_system_subsystemforlinux_wslLaunch_n
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-wsl-api-l1-1-0.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WslLaunch")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(distributionname, command, usecurrentworkingdirectory, arg_3_stdin, arg_4_stdout, arg_5_stderr, process) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(distributionname, command, usecurrentworkingdirectory, arg_3_stdin, arg_4_stdout, arg_5_stderr, process);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)distributionname;
     (void)command;
@@ -144,6 +171,7 @@ static Napi::Value windowssys_windows_win32_system_subsystemforlinux_wslLaunch_n
     (void)arg_4_stdout;
     (void)arg_5_stderr;
     (void)process;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -162,12 +190,19 @@ static Napi::Value windowssys_windows_win32_system_subsystemforlinux_wslLaunchIn
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-wsl-api-l1-1-0.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WslLaunchInteractive")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(distributionname, command, usecurrentworkingdirectory, exitcode) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(distributionname, command, usecurrentworkingdirectory, exitcode);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)distributionname;
     (void)command;
     (void)usecurrentworkingdirectory;
     (void)exitcode;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -184,10 +219,17 @@ static Napi::Value windowssys_windows_win32_system_subsystemforlinux_wslRegister
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-wsl-api-l1-1-0.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WslRegisterDistribution")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(distributionname, targzfilename) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(distributionname, targzfilename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)distributionname;
     (void)targzfilename;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -203,9 +245,16 @@ static Napi::Value windowssys_windows_win32_system_subsystemforlinux_wslUnregist
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-wsl-api-l1-1-0.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WslUnregisterDistribution")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(distributionname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(distributionname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)distributionname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

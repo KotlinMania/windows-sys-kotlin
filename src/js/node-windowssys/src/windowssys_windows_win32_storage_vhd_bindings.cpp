@@ -62,10 +62,17 @@ static Napi::Value windowssys_windows_win32_storage_vhd_addVirtualDiskParent_nap
         HMODULE km_h_mod = LoadLibraryA("virtdisk.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AddVirtualDiskParent")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(virtualdiskhandle, parentpath) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(virtualdiskhandle, parentpath);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)virtualdiskhandle;
     (void)parentpath;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -83,11 +90,18 @@ static Napi::Value windowssys_windows_win32_storage_vhd_applySnapshotVhdSet_napi
         HMODULE km_h_mod = LoadLibraryA("virtdisk.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ApplySnapshotVhdSet")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(virtualdiskhandle, parameters, flags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(virtualdiskhandle, parameters, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)virtualdiskhandle;
     (void)parameters;
     (void)flags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -108,7 +122,13 @@ static Napi::Value windowssys_windows_win32_storage_vhd_attachVirtualDisk_napi(c
         HMODULE km_h_mod = LoadLibraryA("virtdisk.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AttachVirtualDisk")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(virtualdiskhandle, securitydescriptor, flags, providerspecificflags, parameters, overlapped) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(virtualdiskhandle, securitydescriptor, flags, providerspecificflags, parameters, overlapped);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)virtualdiskhandle;
     (void)securitydescriptor;
@@ -116,6 +136,7 @@ static Napi::Value windowssys_windows_win32_storage_vhd_attachVirtualDisk_napi(c
     (void)providerspecificflags;
     (void)parameters;
     (void)overlapped;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -131,9 +152,16 @@ static Napi::Value windowssys_windows_win32_storage_vhd_breakMirrorVirtualDisk_n
         HMODULE km_h_mod = LoadLibraryA("virtdisk.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "BreakMirrorVirtualDisk")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(virtualdiskhandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(virtualdiskhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)virtualdiskhandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -152,12 +180,19 @@ static Napi::Value windowssys_windows_win32_storage_vhd_compactVirtualDisk_napi(
         HMODULE km_h_mod = LoadLibraryA("virtdisk.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CompactVirtualDisk")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(virtualdiskhandle, flags, parameters, overlapped) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(virtualdiskhandle, flags, parameters, overlapped);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)virtualdiskhandle;
     (void)flags;
     (void)parameters;
     (void)overlapped;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -173,9 +208,16 @@ static Napi::Value windowssys_windows_win32_storage_vhd_completeForkVirtualDisk_
         HMODULE km_h_mod = LoadLibraryA("virtdisk.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CompleteForkVirtualDisk")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(virtualdiskhandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(virtualdiskhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)virtualdiskhandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -199,7 +241,13 @@ static Napi::Value windowssys_windows_win32_storage_vhd_createVirtualDisk_napi(c
         HMODULE km_h_mod = LoadLibraryA("virtdisk.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateVirtualDisk")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(virtualstoragetype, path, virtualdiskaccessmask, securitydescriptor, flags, providerspecificflags, parameters, overlapped, handle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(virtualstoragetype, path, virtualdiskaccessmask, securitydescriptor, flags, providerspecificflags, parameters, overlapped, handle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)virtualstoragetype;
     (void)path;
@@ -210,6 +258,7 @@ static Napi::Value windowssys_windows_win32_storage_vhd_createVirtualDisk_napi(c
     (void)parameters;
     (void)overlapped;
     (void)handle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -227,11 +276,18 @@ static Napi::Value windowssys_windows_win32_storage_vhd_deleteSnapshotVhdSet_nap
         HMODULE km_h_mod = LoadLibraryA("virtdisk.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DeleteSnapshotVhdSet")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(virtualdiskhandle, parameters, flags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(virtualdiskhandle, parameters, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)virtualdiskhandle;
     (void)parameters;
     (void)flags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -248,10 +304,17 @@ static Napi::Value windowssys_windows_win32_storage_vhd_deleteVirtualDiskMetadat
         HMODULE km_h_mod = LoadLibraryA("virtdisk.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DeleteVirtualDiskMetadata")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(virtualdiskhandle, item) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(virtualdiskhandle, item);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)virtualdiskhandle;
     (void)item;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -269,11 +332,18 @@ static Napi::Value windowssys_windows_win32_storage_vhd_detachVirtualDisk_napi(c
         HMODULE km_h_mod = LoadLibraryA("virtdisk.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DetachVirtualDisk")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(virtualdiskhandle, flags, providerspecificflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(virtualdiskhandle, flags, providerspecificflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)virtualdiskhandle;
     (void)flags;
     (void)providerspecificflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -291,11 +361,18 @@ static Napi::Value windowssys_windows_win32_storage_vhd_enumerateVirtualDiskMeta
         HMODULE km_h_mod = LoadLibraryA("virtdisk.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EnumerateVirtualDiskMetadata")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(virtualdiskhandle, numberofitems, items) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(virtualdiskhandle, numberofitems, items);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)virtualdiskhandle;
     (void)numberofitems;
     (void)items;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -314,12 +391,19 @@ static Napi::Value windowssys_windows_win32_storage_vhd_expandVirtualDisk_napi(c
         HMODULE km_h_mod = LoadLibraryA("virtdisk.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ExpandVirtualDisk")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(virtualdiskhandle, flags, parameters, overlapped) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(virtualdiskhandle, flags, parameters, overlapped);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)virtualdiskhandle;
     (void)flags;
     (void)parameters;
     (void)overlapped;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -338,12 +422,19 @@ static Napi::Value windowssys_windows_win32_storage_vhd_forkVirtualDisk_napi(con
         HMODULE km_h_mod = LoadLibraryA("virtdisk.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ForkVirtualDisk")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(virtualdiskhandle, flags, parameters, overlapped) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(virtualdiskhandle, flags, parameters, overlapped);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)virtualdiskhandle;
     (void)flags;
     (void)parameters;
     (void)overlapped;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -360,10 +451,17 @@ static Napi::Value windowssys_windows_win32_storage_vhd_getAllAttachedVirtualDis
         HMODULE km_h_mod = LoadLibraryA("virtdisk.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetAllAttachedVirtualDiskPhysicalPaths")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pathsbuffersizeinbytes, pathsbuffer) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pathsbuffersizeinbytes, pathsbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pathsbuffersizeinbytes;
     (void)pathsbuffer;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -383,13 +481,20 @@ static Napi::Value windowssys_windows_win32_storage_vhd_getStorageDependencyInfo
         HMODULE km_h_mod = LoadLibraryA("virtdisk.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetStorageDependencyInformation")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(objecthandle, flags, storagedependencyinfosize, storagedependencyinfo, sizeused) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(objecthandle, flags, storagedependencyinfosize, storagedependencyinfo, sizeused);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)objecthandle;
     (void)flags;
     (void)storagedependencyinfosize;
     (void)storagedependencyinfo;
     (void)sizeused;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -408,12 +513,19 @@ static Napi::Value windowssys_windows_win32_storage_vhd_getVirtualDiskInformatio
         HMODULE km_h_mod = LoadLibraryA("virtdisk.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetVirtualDiskInformation")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(virtualdiskhandle, virtualdiskinfosize, virtualdiskinfo, sizeused) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(virtualdiskhandle, virtualdiskinfosize, virtualdiskinfo, sizeused);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)virtualdiskhandle;
     (void)virtualdiskinfosize;
     (void)virtualdiskinfo;
     (void)sizeused;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -432,12 +544,19 @@ static Napi::Value windowssys_windows_win32_storage_vhd_getVirtualDiskMetadata_n
         HMODULE km_h_mod = LoadLibraryA("virtdisk.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetVirtualDiskMetadata")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(virtualdiskhandle, item, metadatasize, metadata) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(virtualdiskhandle, item, metadatasize, metadata);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)virtualdiskhandle;
     (void)item;
     (void)metadatasize;
     (void)metadata;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -455,11 +574,18 @@ static Napi::Value windowssys_windows_win32_storage_vhd_getVirtualDiskOperationP
         HMODULE km_h_mod = LoadLibraryA("virtdisk.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetVirtualDiskOperationProgress")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(virtualdiskhandle, overlapped, progress) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(virtualdiskhandle, overlapped, progress);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)virtualdiskhandle;
     (void)overlapped;
     (void)progress;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -477,11 +603,18 @@ static Napi::Value windowssys_windows_win32_storage_vhd_getVirtualDiskPhysicalPa
         HMODULE km_h_mod = LoadLibraryA("virtdisk.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetVirtualDiskPhysicalPath")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(virtualdiskhandle, diskpathsizeinbytes, diskpath) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(virtualdiskhandle, diskpathsizeinbytes, diskpath);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)virtualdiskhandle;
     (void)diskpathsizeinbytes;
     (void)diskpath;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -500,12 +633,19 @@ static Napi::Value windowssys_windows_win32_storage_vhd_mergeVirtualDisk_napi(co
         HMODULE km_h_mod = LoadLibraryA("virtdisk.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MergeVirtualDisk")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(virtualdiskhandle, flags, parameters, overlapped) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(virtualdiskhandle, flags, parameters, overlapped);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)virtualdiskhandle;
     (void)flags;
     (void)parameters;
     (void)overlapped;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -524,12 +664,19 @@ static Napi::Value windowssys_windows_win32_storage_vhd_mirrorVirtualDisk_napi(c
         HMODULE km_h_mod = LoadLibraryA("virtdisk.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MirrorVirtualDisk")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(virtualdiskhandle, flags, parameters, overlapped) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(virtualdiskhandle, flags, parameters, overlapped);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)virtualdiskhandle;
     (void)flags;
     (void)parameters;
     (void)overlapped;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -547,11 +694,18 @@ static Napi::Value windowssys_windows_win32_storage_vhd_modifyVhdSet_napi(const 
         HMODULE km_h_mod = LoadLibraryA("virtdisk.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ModifyVhdSet")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(virtualdiskhandle, parameters, flags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(virtualdiskhandle, parameters, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)virtualdiskhandle;
     (void)parameters;
     (void)flags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -572,7 +726,13 @@ static Napi::Value windowssys_windows_win32_storage_vhd_openVirtualDisk_napi(con
         HMODULE km_h_mod = LoadLibraryA("virtdisk.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OpenVirtualDisk")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(virtualstoragetype, path, virtualdiskaccessmask, flags, parameters, handle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(virtualstoragetype, path, virtualdiskaccessmask, flags, parameters, handle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)virtualstoragetype;
     (void)path;
@@ -580,6 +740,7 @@ static Napi::Value windowssys_windows_win32_storage_vhd_openVirtualDisk_napi(con
     (void)flags;
     (void)parameters;
     (void)handle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -602,7 +763,13 @@ static Napi::Value windowssys_windows_win32_storage_vhd_queryChangesVirtualDisk_
         HMODULE km_h_mod = LoadLibraryA("virtdisk.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "QueryChangesVirtualDisk")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(virtualdiskhandle, changetrackingid, byteoffset, bytelength, flags, ranges, rangecount, processedlength) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(virtualdiskhandle, changetrackingid, byteoffset, bytelength, flags, ranges, rangecount, processedlength);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)virtualdiskhandle;
     (void)changetrackingid;
@@ -612,6 +779,7 @@ static Napi::Value windowssys_windows_win32_storage_vhd_queryChangesVirtualDisk_
     (void)ranges;
     (void)rangecount;
     (void)processedlength;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -630,12 +798,19 @@ static Napi::Value windowssys_windows_win32_storage_vhd_rawSCSIVirtualDisk_napi(
         HMODULE km_h_mod = LoadLibraryA("virtdisk.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RawSCSIVirtualDisk")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(virtualdiskhandle, parameters, flags, response) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(virtualdiskhandle, parameters, flags, response);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)virtualdiskhandle;
     (void)parameters;
     (void)flags;
     (void)response;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -654,12 +829,19 @@ static Napi::Value windowssys_windows_win32_storage_vhd_resizeVirtualDisk_napi(c
         HMODULE km_h_mod = LoadLibraryA("virtdisk.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResizeVirtualDisk")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(virtualdiskhandle, flags, parameters, overlapped) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(virtualdiskhandle, flags, parameters, overlapped);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)virtualdiskhandle;
     (void)flags;
     (void)parameters;
     (void)overlapped;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -676,10 +858,17 @@ static Napi::Value windowssys_windows_win32_storage_vhd_setVirtualDiskInformatio
         HMODULE km_h_mod = LoadLibraryA("virtdisk.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetVirtualDiskInformation")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(virtualdiskhandle, virtualdiskinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(virtualdiskhandle, virtualdiskinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)virtualdiskhandle;
     (void)virtualdiskinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -698,12 +887,19 @@ static Napi::Value windowssys_windows_win32_storage_vhd_setVirtualDiskMetadata_n
         HMODULE km_h_mod = LoadLibraryA("virtdisk.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetVirtualDiskMetadata")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(virtualdiskhandle, item, metadatasize, metadata) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(virtualdiskhandle, item, metadatasize, metadata);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)virtualdiskhandle;
     (void)item;
     (void)metadatasize;
     (void)metadata;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -721,11 +917,18 @@ static Napi::Value windowssys_windows_win32_storage_vhd_takeSnapshotVhdSet_napi(
         HMODULE km_h_mod = LoadLibraryA("virtdisk.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TakeSnapshotVhdSet")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(virtualdiskhandle, parameters, flags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(virtualdiskhandle, parameters, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)virtualdiskhandle;
     (void)parameters;
     (void)flags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

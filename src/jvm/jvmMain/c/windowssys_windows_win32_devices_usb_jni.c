@@ -5,6 +5,7 @@
 #include <stdbool.h>
 #include <stddef.h>
 #include <stdint.h>
+#include <stdlib.h>
 #include <errno.h>
 #ifdef _WIN32
 #ifndef WIN32_LEAN_AND_MEAN
@@ -28,10 +29,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winusb.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinUsb_AbortPipe");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)interfacehandle, (uint8_t)pipeid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)interfacehandle, (uint8_t)pipeid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)interfacehandle;
     (void)pipeid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -47,10 +55,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winusb.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinUsb_FlushPipe");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)interfacehandle, (uint8_t)pipeid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)interfacehandle, (uint8_t)pipeid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)interfacehandle;
     (void)pipeid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -66,9 +81,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winusb.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinUsb_Free");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)interfacehandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)interfacehandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)interfacehandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -84,10 +106,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winusb.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinUsb_GetAdjustedFrameNumber");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)currentframenumber, (int64_t)timestamp) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)currentframenumber, (int64_t)timestamp);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)currentframenumber;
     (void)timestamp;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -103,11 +132,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winusb.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinUsb_GetAssociatedInterface");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)interfacehandle, (uint8_t)associatedinterfaceindex, (void*)(uintptr_t)associatedinterfacehandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)interfacehandle, (uint8_t)associatedinterfaceindex, (void*)(uintptr_t)associatedinterfacehandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)interfacehandle;
     (void)associatedinterfaceindex;
     (void)associatedinterfacehandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -123,10 +159,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winusb.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinUsb_GetCurrentAlternateSetting");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)interfacehandle, (void*)(uintptr_t)settingnumber) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)interfacehandle, (void*)(uintptr_t)settingnumber);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)interfacehandle;
     (void)settingnumber;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -142,11 +185,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winusb.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinUsb_GetCurrentFrameNumber");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)interfacehandle, (void*)(uintptr_t)currentframenumber, (void*)(uintptr_t)timestamp) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)interfacehandle, (void*)(uintptr_t)currentframenumber, (void*)(uintptr_t)timestamp);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)interfacehandle;
     (void)currentframenumber;
     (void)timestamp;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -162,10 +212,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winusb.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinUsb_GetCurrentFrameNumberAndQpc");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)interfacehandle, (void*)(uintptr_t)frameqpcinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)interfacehandle, (void*)(uintptr_t)frameqpcinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)interfacehandle;
     (void)frameqpcinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -181,7 +238,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winusb.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinUsb_GetDescriptor");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)interfacehandle, (uint8_t)descriptortype, (uint8_t)arg_2_index, (uint16_t)languageid, (void*)(uintptr_t)buffer, (uint32_t)bufferlength, (void*)(uintptr_t)lengthtransferred) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)interfacehandle, (uint8_t)descriptortype, (uint8_t)arg_2_index, (uint16_t)languageid, (void*)(uintptr_t)buffer, (uint32_t)bufferlength, (void*)(uintptr_t)lengthtransferred);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)interfacehandle;
     (void)descriptortype;
@@ -190,6 +253,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     (void)buffer;
     (void)bufferlength;
     (void)lengthtransferred;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -205,12 +269,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winusb.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinUsb_GetOverlappedResult");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)interfacehandle, (void*)(uintptr_t)lpoverlapped, (void*)(uintptr_t)lpnumberofbytestransferred, (int32_t)bwait) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)interfacehandle, (void*)(uintptr_t)lpoverlapped, (void*)(uintptr_t)lpnumberofbytestransferred, (int32_t)bwait);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)interfacehandle;
     (void)lpoverlapped;
     (void)lpnumberofbytestransferred;
     (void)bwait;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -226,13 +297,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winusb.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinUsb_GetPipePolicy");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)interfacehandle, (uint8_t)pipeid, (uint32_t)policytype, (void*)(uintptr_t)valuelength, (void*)(uintptr_t)value) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)interfacehandle, (uint8_t)pipeid, (uint32_t)policytype, (void*)(uintptr_t)valuelength, (void*)(uintptr_t)value);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)interfacehandle;
     (void)pipeid;
     (void)policytype;
     (void)valuelength;
     (void)value;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -248,12 +326,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winusb.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinUsb_GetPowerPolicy");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)interfacehandle, (uint32_t)policytype, (void*)(uintptr_t)valuelength, (void*)(uintptr_t)value) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)interfacehandle, (uint32_t)policytype, (void*)(uintptr_t)valuelength, (void*)(uintptr_t)value);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)interfacehandle;
     (void)policytype;
     (void)valuelength;
     (void)value;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -269,10 +354,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winusb.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinUsb_Initialize");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)devicehandle, (void*)(uintptr_t)interfacehandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)devicehandle, (void*)(uintptr_t)interfacehandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)devicehandle;
     (void)interfacehandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -288,7 +380,13 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
         HMODULE km_h_mod = LoadLibraryA("winusb.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinUsb_ParseConfigurationDescriptor");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)configurationdescriptor, (void*)(uintptr_t)startposition, (int32_t)interfacenumber, (int32_t)alternatesetting, (int32_t)interfaceclass, (int32_t)interfacesubclass, (int32_t)interfaceprotocol) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)configurationdescriptor, (void*)(uintptr_t)startposition, (int32_t)interfacenumber, (int32_t)alternatesetting, (int32_t)interfaceclass, (int32_t)interfacesubclass, (int32_t)interfaceprotocol);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)configurationdescriptor;
     (void)startposition;
@@ -297,6 +395,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
     (void)interfaceclass;
     (void)interfacesubclass;
     (void)interfaceprotocol;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -312,12 +411,19 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
         HMODULE km_h_mod = LoadLibraryA("winusb.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinUsb_ParseDescriptors");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)descriptorbuffer, (uint32_t)totallength, (void*)(uintptr_t)startposition, (int32_t)descriptortype) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)descriptorbuffer, (uint32_t)totallength, (void*)(uintptr_t)startposition, (int32_t)descriptortype);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)descriptorbuffer;
     (void)totallength;
     (void)startposition;
     (void)descriptortype;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -333,12 +439,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winusb.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinUsb_QueryDeviceInformation");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)interfacehandle, (uint32_t)informationtype, (void*)(uintptr_t)bufferlength, (void*)(uintptr_t)buffer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)interfacehandle, (uint32_t)informationtype, (void*)(uintptr_t)bufferlength, (void*)(uintptr_t)buffer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)interfacehandle;
     (void)informationtype;
     (void)bufferlength;
     (void)buffer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -354,11 +467,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winusb.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinUsb_QueryInterfaceSettings");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)interfacehandle, (uint8_t)alternateinterfacenumber, (void*)(uintptr_t)usbaltinterfacedescriptor) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)interfacehandle, (uint8_t)alternateinterfacenumber, (void*)(uintptr_t)usbaltinterfacedescriptor);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)interfacehandle;
     (void)alternateinterfacenumber;
     (void)usbaltinterfacedescriptor;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -374,12 +494,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winusb.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinUsb_QueryPipe");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)interfacehandle, (uint8_t)alternateinterfacenumber, (uint8_t)pipeindex, (void*)(uintptr_t)pipeinformation) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)interfacehandle, (uint8_t)alternateinterfacenumber, (uint8_t)pipeindex, (void*)(uintptr_t)pipeinformation);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)interfacehandle;
     (void)alternateinterfacenumber;
     (void)pipeindex;
     (void)pipeinformation;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -395,12 +522,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winusb.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinUsb_QueryPipeEx");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)interfacehandle, (uint8_t)alternatesettingnumber, (uint8_t)pipeindex, (void*)(uintptr_t)pipeinformationex) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)interfacehandle, (uint8_t)alternatesettingnumber, (uint8_t)pipeindex, (void*)(uintptr_t)pipeinformationex);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)interfacehandle;
     (void)alternatesettingnumber;
     (void)pipeindex;
     (void)pipeinformationex;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -416,7 +550,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winusb.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinUsb_ReadIsochPipe");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)bufferhandle, (uint32_t)offset, (uint32_t)length, (void*)(uintptr_t)framenumber, (uint32_t)numberofpackets, (void*)(uintptr_t)isopacketdescriptors, (void*)(uintptr_t)overlapped) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)bufferhandle, (uint32_t)offset, (uint32_t)length, (void*)(uintptr_t)framenumber, (uint32_t)numberofpackets, (void*)(uintptr_t)isopacketdescriptors, (void*)(uintptr_t)overlapped);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bufferhandle;
     (void)offset;
@@ -425,6 +565,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     (void)numberofpackets;
     (void)isopacketdescriptors;
     (void)overlapped;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -440,7 +581,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winusb.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinUsb_ReadIsochPipeAsap");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)bufferhandle, (uint32_t)offset, (uint32_t)length, (int32_t)continuestream, (uint32_t)numberofpackets, (void*)(uintptr_t)isopacketdescriptors, (void*)(uintptr_t)overlapped) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)bufferhandle, (uint32_t)offset, (uint32_t)length, (int32_t)continuestream, (uint32_t)numberofpackets, (void*)(uintptr_t)isopacketdescriptors, (void*)(uintptr_t)overlapped);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bufferhandle;
     (void)offset;
@@ -449,6 +596,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     (void)numberofpackets;
     (void)isopacketdescriptors;
     (void)overlapped;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -464,7 +612,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winusb.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinUsb_ReadPipe");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)interfacehandle, (uint8_t)pipeid, (void*)(uintptr_t)buffer, (uint32_t)bufferlength, (void*)(uintptr_t)lengthtransferred, (void*)(uintptr_t)overlapped) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)interfacehandle, (uint8_t)pipeid, (void*)(uintptr_t)buffer, (uint32_t)bufferlength, (void*)(uintptr_t)lengthtransferred, (void*)(uintptr_t)overlapped);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)interfacehandle;
     (void)pipeid;
@@ -472,6 +626,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     (void)bufferlength;
     (void)lengthtransferred;
     (void)overlapped;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -487,13 +642,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winusb.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinUsb_RegisterIsochBuffer");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)interfacehandle, (uint8_t)pipeid, (void*)(uintptr_t)buffer, (uint32_t)bufferlength, (void*)(uintptr_t)isochbufferhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)interfacehandle, (uint8_t)pipeid, (void*)(uintptr_t)buffer, (uint32_t)bufferlength, (void*)(uintptr_t)isochbufferhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)interfacehandle;
     (void)pipeid;
     (void)buffer;
     (void)bufferlength;
     (void)isochbufferhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -509,10 +671,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winusb.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinUsb_ResetPipe");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)interfacehandle, (uint8_t)pipeid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)interfacehandle, (uint8_t)pipeid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)interfacehandle;
     (void)pipeid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -528,10 +697,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winusb.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinUsb_SetCurrentAlternateSetting");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)interfacehandle, (uint8_t)settingnumber) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)interfacehandle, (uint8_t)settingnumber);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)interfacehandle;
     (void)settingnumber;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -547,13 +723,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winusb.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinUsb_SetPipePolicy");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)interfacehandle, (uint8_t)pipeid, (uint32_t)policytype, (uint32_t)valuelength, (void*)(uintptr_t)value) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)interfacehandle, (uint8_t)pipeid, (uint32_t)policytype, (uint32_t)valuelength, (void*)(uintptr_t)value);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)interfacehandle;
     (void)pipeid;
     (void)policytype;
     (void)valuelength;
     (void)value;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -569,12 +752,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winusb.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinUsb_SetPowerPolicy");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)interfacehandle, (uint32_t)policytype, (uint32_t)valuelength, (void*)(uintptr_t)value) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)interfacehandle, (uint32_t)policytype, (uint32_t)valuelength, (void*)(uintptr_t)value);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)interfacehandle;
     (void)policytype;
     (void)valuelength;
     (void)value;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -590,10 +780,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winusb.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinUsb_StartTrackingForTimeSync");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)interfacehandle, (void*)(uintptr_t)starttrackinginfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)interfacehandle, (void*)(uintptr_t)starttrackinginfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)interfacehandle;
     (void)starttrackinginfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -609,10 +806,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winusb.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinUsb_StopTrackingForTimeSync");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)interfacehandle, (void*)(uintptr_t)stoptrackinginfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)interfacehandle, (void*)(uintptr_t)stoptrackinginfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)interfacehandle;
     (void)stoptrackinginfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -628,9 +832,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winusb.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinUsb_UnregisterIsochBuffer");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)isochbufferhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)isochbufferhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)isochbufferhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -646,13 +857,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winusb.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinUsb_WriteIsochPipe");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)bufferhandle, (uint32_t)offset, (uint32_t)length, (void*)(uintptr_t)framenumber, (void*)(uintptr_t)overlapped) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)bufferhandle, (uint32_t)offset, (uint32_t)length, (void*)(uintptr_t)framenumber, (void*)(uintptr_t)overlapped);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bufferhandle;
     (void)offset;
     (void)length;
     (void)framenumber;
     (void)overlapped;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -668,13 +886,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winusb.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinUsb_WriteIsochPipeAsap");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)bufferhandle, (uint32_t)offset, (uint32_t)length, (int32_t)continuestream, (void*)(uintptr_t)overlapped) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)bufferhandle, (uint32_t)offset, (uint32_t)length, (int32_t)continuestream, (void*)(uintptr_t)overlapped);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bufferhandle;
     (void)offset;
     (void)length;
     (void)continuestream;
     (void)overlapped;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -690,7 +915,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winusb.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WinUsb_WritePipe");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)interfacehandle, (uint8_t)pipeid, (void*)(uintptr_t)buffer, (uint32_t)bufferlength, (void*)(uintptr_t)lengthtransferred, (void*)(uintptr_t)overlapped) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)interfacehandle, (uint8_t)pipeid, (void*)(uintptr_t)buffer, (uint32_t)bufferlength, (void*)(uintptr_t)lengthtransferred, (void*)(uintptr_t)overlapped);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)interfacehandle;
     (void)pipeid;
@@ -698,6 +929,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     (void)bufferlength;
     (void)lengthtransferred;
     (void)overlapped;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;

@@ -65,13 +65,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netshell_matchEnum
         HMODULE km_h_mod = LoadLibraryA("netsh.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MatchEnumTag")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmodule, pwcarg, dwnumarg, penumtable, pdwvalue) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmodule, pwcarg, dwnumarg, penumtable, pdwvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmodule;
     (void)pwcarg;
     (void)dwnumarg;
     (void)penumtable;
     (void)pdwvalue;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -88,10 +95,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netshell_matchToke
         HMODULE km_h_mod = LoadLibraryA("netsh.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MatchToken")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pwszusertoken, pwszcmdtoken) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pwszusertoken, pwszcmdtoken);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pwszusertoken;
     (void)pwszcmdtoken;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -115,7 +129,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netshell_preproces
         HMODULE km_h_mod = LoadLibraryA("netsh.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PreprocessCommand")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmodule, ppwcarguments, dwcurrentindex, dwargcount, ptttags, dwtagcount, dwminargs, dwmaxargs, pdwtagtype) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmodule, ppwcarguments, dwcurrentindex, dwargcount, ptttags, dwtagcount, dwminargs, dwmaxargs, pdwtagtype);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmodule;
     (void)ppwcarguments;
@@ -126,6 +146,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netshell_preproces
     (void)dwminargs;
     (void)dwmaxargs;
     (void)pdwtagtype;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -156,11 +177,14 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netshell_printErro
             case 3: km_res = km_fn_ptr(hmodule, dwerrid, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2)); break;
             default: km_res = km_fn_ptr(hmodule, dwerrid, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2), static_cast<intptr_t>(km_va3)); break;
         }
+    } else {
+        errno = ENOSYS;
     }
 #else
     (void)hmodule;
     (void)dwerrid;
     (void)km_vac; (void)km_va0; (void)km_va1; (void)km_va2; (void)km_va3;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -190,10 +214,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netshell_printMess
             case 3: km_res = km_fn_ptr(pwszformat, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2)); break;
             default: km_res = km_fn_ptr(pwszformat, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2), static_cast<intptr_t>(km_va3)); break;
         }
+    } else {
+        errno = ENOSYS;
     }
 #else
     (void)pwszformat;
     (void)km_vac; (void)km_va0; (void)km_va1; (void)km_va2; (void)km_va3;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -224,11 +251,14 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netshell_printMess
             case 3: km_res = km_fn_ptr(hmodule, dwmsgid, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2)); break;
             default: km_res = km_fn_ptr(hmodule, dwmsgid, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2), static_cast<intptr_t>(km_va3)); break;
         }
+    } else {
+        errno = ENOSYS;
     }
 #else
     (void)hmodule;
     (void)dwmsgid;
     (void)km_vac; (void)km_va0; (void)km_va1; (void)km_va2; (void)km_va3;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -244,9 +274,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netshell_registerC
         HMODULE km_h_mod = LoadLibraryA("netsh.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegisterContext")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pchildcontext) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pchildcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pchildcontext;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -263,10 +300,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netshell_registerH
         HMODULE km_h_mod = LoadLibraryA("netsh.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegisterHelper")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pguidparentcontext, pfnregistersubcontext) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pguidparentcontext, pfnregistersubcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pguidparentcontext;
     (void)pfnregistersubcontext;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

@@ -67,7 +67,13 @@ static Napi::Value windowssys_windows_win32_system_pipes_callNamedPipeA_napi(con
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CallNamedPipeA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpnamedpipename, lpinbuffer, ninbuffersize, lpoutbuffer, noutbuffersize, lpbytesread, ntimeout) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpnamedpipename, lpinbuffer, ninbuffersize, lpoutbuffer, noutbuffersize, lpbytesread, ntimeout);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpnamedpipename;
     (void)lpinbuffer;
@@ -76,6 +82,7 @@ static Napi::Value windowssys_windows_win32_system_pipes_callNamedPipeA_napi(con
     (void)noutbuffersize;
     (void)lpbytesread;
     (void)ntimeout;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -97,7 +104,13 @@ static Napi::Value windowssys_windows_win32_system_pipes_callNamedPipeW_napi(con
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CallNamedPipeW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpnamedpipename, lpinbuffer, ninbuffersize, lpoutbuffer, noutbuffersize, lpbytesread, ntimeout) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpnamedpipename, lpinbuffer, ninbuffersize, lpoutbuffer, noutbuffersize, lpbytesread, ntimeout);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpnamedpipename;
     (void)lpinbuffer;
@@ -106,6 +119,7 @@ static Napi::Value windowssys_windows_win32_system_pipes_callNamedPipeW_napi(con
     (void)noutbuffersize;
     (void)lpbytesread;
     (void)ntimeout;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -122,10 +136,17 @@ static Napi::Value windowssys_windows_win32_system_pipes_connectNamedPipe_napi(c
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ConnectNamedPipe")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hnamedpipe, lpoverlapped) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hnamedpipe, lpoverlapped);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hnamedpipe;
     (void)lpoverlapped;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -148,7 +169,13 @@ static Napi::Value windowssys_windows_win32_system_pipes_createNamedPipeA_napi(c
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateNamedPipeA")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpname, dwopenmode, dwpipemode, nmaxinstances, noutbuffersize, ninbuffersize, ndefaulttimeout, lpsecurityattributes) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpname, dwopenmode, dwpipemode, nmaxinstances, noutbuffersize, ninbuffersize, ndefaulttimeout, lpsecurityattributes);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)lpname;
     (void)dwopenmode;
@@ -158,7 +185,8 @@ static Napi::Value windowssys_windows_win32_system_pipes_createNamedPipeA_napi(c
     (void)ninbuffersize;
     (void)ndefaulttimeout;
     (void)lpsecurityattributes;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -180,7 +208,13 @@ static Napi::Value windowssys_windows_win32_system_pipes_createNamedPipeW_napi(c
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateNamedPipeW")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpname, dwopenmode, dwpipemode, nmaxinstances, noutbuffersize, ninbuffersize, ndefaulttimeout, lpsecurityattributes) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpname, dwopenmode, dwpipemode, nmaxinstances, noutbuffersize, ninbuffersize, ndefaulttimeout, lpsecurityattributes);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)lpname;
     (void)dwopenmode;
@@ -190,7 +224,8 @@ static Napi::Value windowssys_windows_win32_system_pipes_createNamedPipeW_napi(c
     (void)ninbuffersize;
     (void)ndefaulttimeout;
     (void)lpsecurityattributes;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -208,12 +243,19 @@ static Napi::Value windowssys_windows_win32_system_pipes_createPipe_napi(const N
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreatePipe")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hreadpipe, hwritepipe, lppipeattributes, nsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hreadpipe, hwritepipe, lppipeattributes, nsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hreadpipe;
     (void)hwritepipe;
     (void)lppipeattributes;
     (void)nsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -229,9 +271,16 @@ static Napi::Value windowssys_windows_win32_system_pipes_disconnectNamedPipe_nap
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DisconnectNamedPipe")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hnamedpipe) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hnamedpipe);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hnamedpipe;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -249,11 +298,18 @@ static Napi::Value windowssys_windows_win32_system_pipes_getNamedPipeClientCompu
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetNamedPipeClientComputerNameA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(arg_0_pipe, clientcomputername, clientcomputernamelength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(arg_0_pipe, clientcomputername, clientcomputernamelength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)arg_0_pipe;
     (void)clientcomputername;
     (void)clientcomputernamelength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -271,11 +327,18 @@ static Napi::Value windowssys_windows_win32_system_pipes_getNamedPipeClientCompu
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetNamedPipeClientComputerNameW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(arg_0_pipe, clientcomputername, clientcomputernamelength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(arg_0_pipe, clientcomputername, clientcomputernamelength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)arg_0_pipe;
     (void)clientcomputername;
     (void)clientcomputernamelength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -292,10 +355,17 @@ static Napi::Value windowssys_windows_win32_system_pipes_getNamedPipeClientProce
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetNamedPipeClientProcessId")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(arg_0_pipe, clientprocessid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(arg_0_pipe, clientprocessid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)arg_0_pipe;
     (void)clientprocessid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -312,10 +382,17 @@ static Napi::Value windowssys_windows_win32_system_pipes_getNamedPipeClientSessi
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetNamedPipeClientSessionId")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(arg_0_pipe, clientsessionid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(arg_0_pipe, clientsessionid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)arg_0_pipe;
     (void)clientsessionid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -337,7 +414,13 @@ static Napi::Value windowssys_windows_win32_system_pipes_getNamedPipeHandleState
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetNamedPipeHandleStateA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hnamedpipe, lpstate, lpcurinstances, lpmaxcollectioncount, lpcollectdatatimeout, lpusername, nmaxusernamesize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hnamedpipe, lpstate, lpcurinstances, lpmaxcollectioncount, lpcollectdatatimeout, lpusername, nmaxusernamesize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hnamedpipe;
     (void)lpstate;
@@ -346,6 +429,7 @@ static Napi::Value windowssys_windows_win32_system_pipes_getNamedPipeHandleState
     (void)lpcollectdatatimeout;
     (void)lpusername;
     (void)nmaxusernamesize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -367,7 +451,13 @@ static Napi::Value windowssys_windows_win32_system_pipes_getNamedPipeHandleState
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetNamedPipeHandleStateW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hnamedpipe, lpstate, lpcurinstances, lpmaxcollectioncount, lpcollectdatatimeout, lpusername, nmaxusernamesize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hnamedpipe, lpstate, lpcurinstances, lpmaxcollectioncount, lpcollectdatatimeout, lpusername, nmaxusernamesize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hnamedpipe;
     (void)lpstate;
@@ -376,6 +466,7 @@ static Napi::Value windowssys_windows_win32_system_pipes_getNamedPipeHandleState
     (void)lpcollectdatatimeout;
     (void)lpusername;
     (void)nmaxusernamesize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -395,13 +486,20 @@ static Napi::Value windowssys_windows_win32_system_pipes_getNamedPipeInfo_napi(c
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetNamedPipeInfo")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hnamedpipe, lpflags, lpoutbuffersize, lpinbuffersize, lpmaxinstances) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hnamedpipe, lpflags, lpoutbuffersize, lpinbuffersize, lpmaxinstances);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hnamedpipe;
     (void)lpflags;
     (void)lpoutbuffersize;
     (void)lpinbuffersize;
     (void)lpmaxinstances;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -418,10 +516,17 @@ static Napi::Value windowssys_windows_win32_system_pipes_getNamedPipeServerProce
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetNamedPipeServerProcessId")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(arg_0_pipe, serverprocessid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(arg_0_pipe, serverprocessid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)arg_0_pipe;
     (void)serverprocessid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -438,10 +543,17 @@ static Napi::Value windowssys_windows_win32_system_pipes_getNamedPipeServerSessi
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetNamedPipeServerSessionId")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(arg_0_pipe, serversessionid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(arg_0_pipe, serversessionid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)arg_0_pipe;
     (void)serversessionid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -457,9 +569,16 @@ static Napi::Value windowssys_windows_win32_system_pipes_impersonateNamedPipeCli
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ImpersonateNamedPipeClient")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hnamedpipe) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hnamedpipe);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hnamedpipe;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -480,7 +599,13 @@ static Napi::Value windowssys_windows_win32_system_pipes_peekNamedPipe_napi(cons
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PeekNamedPipe")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hnamedpipe, lpbuffer, nbuffersize, lpbytesread, lptotalbytesavail, lpbytesleftthismessage) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hnamedpipe, lpbuffer, nbuffersize, lpbytesread, lptotalbytesavail, lpbytesleftthismessage);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hnamedpipe;
     (void)lpbuffer;
@@ -488,6 +613,7 @@ static Napi::Value windowssys_windows_win32_system_pipes_peekNamedPipe_napi(cons
     (void)lpbytesread;
     (void)lptotalbytesavail;
     (void)lpbytesleftthismessage;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -506,12 +632,19 @@ static Napi::Value windowssys_windows_win32_system_pipes_setNamedPipeHandleState
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetNamedPipeHandleState")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hnamedpipe, lpmode, lpmaxcollectioncount, lpcollectdatatimeout) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hnamedpipe, lpmode, lpmaxcollectioncount, lpcollectdatatimeout);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hnamedpipe;
     (void)lpmode;
     (void)lpmaxcollectioncount;
     (void)lpcollectdatatimeout;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -533,7 +666,13 @@ static Napi::Value windowssys_windows_win32_system_pipes_transactNamedPipe_napi(
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TransactNamedPipe")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hnamedpipe, lpinbuffer, ninbuffersize, lpoutbuffer, noutbuffersize, lpbytesread, lpoverlapped) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hnamedpipe, lpinbuffer, ninbuffersize, lpoutbuffer, noutbuffersize, lpbytesread, lpoverlapped);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hnamedpipe;
     (void)lpinbuffer;
@@ -542,6 +681,7 @@ static Napi::Value windowssys_windows_win32_system_pipes_transactNamedPipe_napi(
     (void)noutbuffersize;
     (void)lpbytesread;
     (void)lpoverlapped;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -558,10 +698,17 @@ static Napi::Value windowssys_windows_win32_system_pipes_waitNamedPipeA_napi(con
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WaitNamedPipeA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpnamedpipename, ntimeout) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpnamedpipename, ntimeout);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpnamedpipename;
     (void)ntimeout;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -578,10 +725,17 @@ static Napi::Value windowssys_windows_win32_system_pipes_waitNamedPipeW_napi(con
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WaitNamedPipeW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpnamedpipename, ntimeout) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpnamedpipename, ntimeout);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpnamedpipename;
     (void)ntimeout;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

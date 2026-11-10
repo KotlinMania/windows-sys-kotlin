@@ -63,11 +63,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_getN
         HMODULE km_h_mod = LoadLibraryA("mstask.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetNetScheduleAccountInformation")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pwszservername, ccaccount, wszaccount) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pwszservername, ccaccount, wszaccount);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pwszservername;
     (void)ccaccount;
     (void)wszaccount;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -87,13 +94,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_iNet
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "I_NetLogonControl2")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servername, functioncode, querylevel, data, buffer) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servername, functioncode, querylevel, data, buffer);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servername;
     (void)functioncode;
     (void)querylevel;
     (void)data;
     (void)buffer;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -112,12 +126,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_logE
         HMODULE km_h_mod = LoadLibraryA("rtutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LogErrorA")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(dwmessageid, cnumberofsubstrings, plpwssubstrings, dwerrorcode);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(dwmessageid, cnumberofsubstrings, plpwssubstrings, dwerrorcode);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)dwmessageid;
     (void)cnumberofsubstrings;
     (void)plpwssubstrings;
     (void)dwerrorcode;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -135,12 +154,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_logE
         HMODULE km_h_mod = LoadLibraryA("rtutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LogErrorW")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(dwmessageid, cnumberofsubstrings, plpwssubstrings, dwerrorcode);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(dwmessageid, cnumberofsubstrings, plpwssubstrings, dwerrorcode);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)dwmessageid;
     (void)cnumberofsubstrings;
     (void)plpwssubstrings;
     (void)dwerrorcode;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -158,12 +182,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_logE
         HMODULE km_h_mod = LoadLibraryA("rtutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LogEventA")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(weventtype, dwmessageid, cnumberofsubstrings, plpwssubstrings);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(weventtype, dwmessageid, cnumberofsubstrings, plpwssubstrings);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)weventtype;
     (void)dwmessageid;
     (void)cnumberofsubstrings;
     (void)plpwssubstrings;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -181,12 +210,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_logE
         HMODULE km_h_mod = LoadLibraryA("rtutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LogEventW")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(weventtype, dwmessageid, cnumberofsubstrings, plpwssubstrings);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(weventtype, dwmessageid, cnumberofsubstrings, plpwssubstrings);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)weventtype;
     (void)dwmessageid;
     (void)cnumberofsubstrings;
     (void)plpwssubstrings;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -203,11 +237,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_mprS
         HMODULE km_h_mod = LoadLibraryA("rtutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprSetupProtocolEnum")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwtransportid, lplpbuffer, lpdwentriesread) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwtransportid, lplpbuffer, lpdwentriesread);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dwtransportid;
     (void)lplpbuffer;
     (void)lpdwentriesread;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -223,9 +264,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_mprS
         HMODULE km_h_mod = LoadLibraryA("rtutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MprSetupProtocolFree")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpbuffer) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpbuffer;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -244,12 +292,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netA
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetAccessAdd")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servername, level, buf, parm_err) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servername, level, buf, parm_err);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servername;
     (void)level;
     (void)buf;
     (void)parm_err;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -266,10 +321,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netA
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetAccessDel")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servername, resource) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servername, resource);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servername;
     (void)resource;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -293,7 +355,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netA
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetAccessEnum")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servername, basepath, recursive, level, bufptr, prefmaxlen, entriesread, totalentries, resume_handle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servername, basepath, recursive, level, bufptr, prefmaxlen, entriesread, totalentries, resume_handle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servername;
     (void)basepath;
@@ -304,6 +372,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netA
     (void)entriesread;
     (void)totalentries;
     (void)resume_handle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -322,12 +391,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netA
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetAccessGetInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servername, resource, level, bufptr) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servername, resource, level, bufptr);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servername;
     (void)resource;
     (void)level;
     (void)bufptr;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -346,12 +422,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netA
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetAccessGetUserPerms")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servername, ugname, resource, perms) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servername, ugname, resource, perms);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servername;
     (void)ugname;
     (void)resource;
     (void)perms;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -371,13 +454,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netA
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetAccessSetInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servername, resource, level, buf, parm_err) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servername, resource, level, buf, parm_err);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servername;
     (void)resource;
     (void)level;
     (void)buf;
     (void)parm_err;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -397,13 +487,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netA
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetAddAlternateComputerName")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(server, alternatename, domainaccount, domainaccountpassword, reserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(server, alternatename, domainaccount, domainaccountpassword, reserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)server;
     (void)alternatename;
     (void)domainaccount;
     (void)domainaccountpassword;
     (void)reserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -422,12 +519,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netA
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetAddServiceAccount")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servername, accountname, password, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servername, accountname, password, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)servername;
     (void)accountname;
     (void)password;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -445,11 +549,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netA
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetAlertRaise")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(alerttype, buffer, buffersize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(alerttype, buffer, buffersize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)alerttype;
     (void)buffer;
     (void)buffersize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -468,12 +579,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netA
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetAlertRaiseEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(alerttype, variableinfo, variableinfosize, servicename) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(alerttype, variableinfo, variableinfosize, servicename);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)alerttype;
     (void)variableinfo;
     (void)variableinfosize;
     (void)servicename;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -490,10 +608,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netA
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetApiBufferAllocate")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bytecount, buffer) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bytecount, buffer);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)bytecount;
     (void)buffer;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -509,9 +634,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netA
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetApiBufferFree")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(buffer) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(buffer);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)buffer;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -529,11 +661,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netA
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetApiBufferReallocate")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(oldbuffer, newbytecount, newbuffer) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(oldbuffer, newbytecount, newbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)oldbuffer;
     (void)newbytecount;
     (void)newbuffer;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -550,10 +689,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netA
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetApiBufferSize")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(buffer, bytecount) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(buffer, bytecount);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)buffer;
     (void)bytecount;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -571,11 +717,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netA
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetAuditClear")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(server, backupfile, service) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(server, backupfile, service);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)server;
     (void)backupfile;
     (void)service;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -601,7 +754,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netA
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetAuditRead")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(server, service, auditloghandle, offset, reserved1, reserved2, offsetflag, bufptr, prefmaxlen, bytesread, totalavailable) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(server, service, auditloghandle, offset, reserved1, reserved2, offsetflag, bufptr, prefmaxlen, bytesread, totalavailable);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)server;
     (void)service;
@@ -614,6 +773,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netA
     (void)prefmaxlen;
     (void)bytesread;
     (void)totalavailable;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -633,13 +793,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netA
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetAuditWrite")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(type, buf, numbytes, service, reserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(type, buf, numbytes, service, reserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)type;
     (void)buf;
     (void)numbytes;
     (void)service;
     (void)reserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -658,12 +825,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netC
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetConfigGet")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(server, component, parameter, bufptr) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(server, component, parameter, bufptr);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)server;
     (void)component;
     (void)parameter;
     (void)bufptr;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -681,11 +855,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netC
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetConfigGetAll")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(server, component, bufptr) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(server, component, bufptr);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)server;
     (void)component;
     (void)bufptr;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -707,7 +888,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netC
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetConfigSet")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(server, reserved1, component, level, reserved2, buf, reserved3) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(server, reserved1, component, level, reserved2, buf, reserved3);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)server;
     (void)reserved1;
@@ -716,6 +903,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netC
     (void)reserved2;
     (void)buf;
     (void)reserved3;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -734,12 +922,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netC
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetCreateProvisioningPackage")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pprovisioningparams, pppackagebindata, pdwpackagebindatasize, pppackagetextdata) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pprovisioningparams, pppackagebindata, pdwpackagebindatasize, pppackagetextdata);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pprovisioningparams;
     (void)pppackagebindata;
     (void)pdwpackagebindatasize;
     (void)pppackagetextdata;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -759,13 +954,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netE
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetEnumerateComputerNames")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(server, nametype, reserved, entrycount, computernames) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(server, nametype, reserved, entrycount, computernames);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)server;
     (void)nametype;
     (void)reserved;
     (void)entrycount;
     (void)computernames;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -784,12 +986,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netE
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetEnumerateServiceAccounts")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servername, flags, accountscount, accounts) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servername, flags, accountscount, accounts);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)servername;
     (void)flags;
     (void)accountscount;
     (void)accounts;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -807,11 +1016,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netE
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetErrorLogClear")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(uncservername, backupfile, reserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(uncservername, backupfile, reserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)uncservername;
     (void)backupfile;
     (void)reserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -837,7 +1053,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netE
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetErrorLogRead")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(uncservername, reserved1, errorloghandle, offset, reserved2, reserved3, offsetflag, bufptr, prefmaxsize, bytesread, totalavailable) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(uncservername, reserved1, errorloghandle, offset, reserved2, reserved3, offsetflag, bufptr, prefmaxsize, bytesread, totalavailable);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)uncservername;
     (void)reserved1;
@@ -850,6 +1072,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netE
     (void)prefmaxsize;
     (void)bytesread;
     (void)totalavailable;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -872,7 +1095,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netE
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetErrorLogWrite")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(reserved1, code, component, buffer, numbytes, msgbuf, strcount, reserved2) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(reserved1, code, component, buffer, numbytes, msgbuf, strcount, reserved2);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)reserved1;
     (void)code;
@@ -882,6 +1111,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netE
     (void)msgbuf;
     (void)strcount;
     (void)reserved2;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -897,9 +1127,14 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netF
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetFreeAadJoinInformation")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pjoininfo);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pjoininfo);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pjoininfo;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -915,10 +1150,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netG
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetGetAadJoinInformation")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pcsztenantid, ppjoininfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pcsztenantid, ppjoininfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pcsztenantid;
     (void)ppjoininfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -936,11 +1178,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netG
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetGetAnyDCName")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servername, domainname, buffer) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servername, domainname, buffer);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servername;
     (void)domainname;
     (void)buffer;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -958,11 +1207,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netG
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetGetDCName")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servername, domainname, buffer) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servername, domainname, buffer);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servername;
     (void)domainname;
     (void)buffer;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -981,12 +1237,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netG
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetGetDisplayInformationIndex")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servername, level, prefix, arg_3_index) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servername, level, prefix, arg_3_index);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servername;
     (void)level;
     (void)prefix;
     (void)arg_3_index;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1004,11 +1267,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netG
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetGetJoinInformation")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpserver, lpnamebuffer, buffertype) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpserver, lpnamebuffer, buffertype);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpserver;
     (void)lpnamebuffer;
     (void)buffertype;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1029,7 +1299,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netG
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetGetJoinableOUs")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpserver, lpdomain, lpaccount, lppassword, oucount, ous) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpserver, lpdomain, lpaccount, lppassword, oucount, ous);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpserver;
     (void)lpdomain;
@@ -1037,6 +1313,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netG
     (void)lppassword;
     (void)oucount;
     (void)ous;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1055,12 +1332,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netG
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetGroupAdd")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servername, level, buf, parm_err) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servername, level, buf, parm_err);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servername;
     (void)level;
     (void)buf;
     (void)parm_err;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1078,11 +1362,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netG
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetGroupAddUser")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servername, groupname, username) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servername, groupname, username);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servername;
     (void)groupname;
     (void)username;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1099,10 +1390,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netG
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetGroupDel")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servername, groupname) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servername, groupname);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servername;
     (void)groupname;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1120,11 +1418,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netG
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetGroupDelUser")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servername, groupname, username) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servername, groupname, username);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servername;
     (void)groupname;
     (void)username;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1146,7 +1451,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netG
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetGroupEnum")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servername, level, bufptr, prefmaxlen, entriesread, totalentries, resume_handle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servername, level, bufptr, prefmaxlen, entriesread, totalentries, resume_handle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servername;
     (void)level;
@@ -1155,6 +1466,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netG
     (void)entriesread;
     (void)totalentries;
     (void)resume_handle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1173,12 +1485,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netG
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetGroupGetInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servername, groupname, level, bufptr) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servername, groupname, level, bufptr);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servername;
     (void)groupname;
     (void)level;
     (void)bufptr;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1201,7 +1520,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netG
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetGroupGetUsers")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servername, groupname, level, bufptr, prefmaxlen, entriesread, totalentries, resumehandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servername, groupname, level, bufptr, prefmaxlen, entriesread, totalentries, resumehandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servername;
     (void)groupname;
@@ -1211,6 +1536,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netG
     (void)entriesread;
     (void)totalentries;
     (void)resumehandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1230,13 +1556,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netG
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetGroupSetInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servername, groupname, level, buf, parm_err) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servername, groupname, level, buf, parm_err);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servername;
     (void)groupname;
     (void)level;
     (void)buf;
     (void)parm_err;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1256,13 +1589,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netG
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetGroupSetUsers")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servername, groupname, level, buf, totalentries) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servername, groupname, level, buf, totalentries);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servername;
     (void)groupname;
     (void)level;
     (void)buf;
     (void)totalentries;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1280,11 +1620,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netI
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetIsServiceAccount")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servername, accountname, isservice) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servername, accountname, isservice);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)servername;
     (void)accountname;
     (void)isservice;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1305,7 +1652,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netJ
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetJoinDomain")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpserver, lpdomain, lpmachineaccountou, lpaccount, lppassword, fjoinoptions) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpserver, lpdomain, lpmachineaccountou, lpaccount, lppassword, fjoinoptions);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpserver;
     (void)lpdomain;
@@ -1313,6 +1666,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netJ
     (void)lpaccount;
     (void)lppassword;
     (void)fjoinoptions;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1331,12 +1685,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netL
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetLocalGroupAdd")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servername, level, buf, parm_err) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servername, level, buf, parm_err);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servername;
     (void)level;
     (void)buf;
     (void)parm_err;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1354,11 +1715,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netL
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetLocalGroupAddMember")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servername, groupname, membersid) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servername, groupname, membersid);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servername;
     (void)groupname;
     (void)membersid;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1378,13 +1746,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netL
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetLocalGroupAddMembers")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servername, groupname, level, buf, totalentries) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servername, groupname, level, buf, totalentries);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servername;
     (void)groupname;
     (void)level;
     (void)buf;
     (void)totalentries;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1401,10 +1776,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netL
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetLocalGroupDel")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servername, groupname) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servername, groupname);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servername;
     (void)groupname;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1422,11 +1804,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netL
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetLocalGroupDelMember")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servername, groupname, membersid) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servername, groupname, membersid);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servername;
     (void)groupname;
     (void)membersid;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1446,13 +1835,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netL
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetLocalGroupDelMembers")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servername, groupname, level, buf, totalentries) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servername, groupname, level, buf, totalentries);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servername;
     (void)groupname;
     (void)level;
     (void)buf;
     (void)totalentries;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1474,7 +1870,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netL
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetLocalGroupEnum")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servername, level, bufptr, prefmaxlen, entriesread, totalentries, resumehandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servername, level, bufptr, prefmaxlen, entriesread, totalentries, resumehandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servername;
     (void)level;
@@ -1483,6 +1885,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netL
     (void)entriesread;
     (void)totalentries;
     (void)resumehandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1501,12 +1904,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netL
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetLocalGroupGetInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servername, groupname, level, bufptr) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servername, groupname, level, bufptr);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servername;
     (void)groupname;
     (void)level;
     (void)bufptr;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1529,7 +1939,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netL
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetLocalGroupGetMembers")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servername, localgroupname, level, bufptr, prefmaxlen, entriesread, totalentries, resumehandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servername, localgroupname, level, bufptr, prefmaxlen, entriesread, totalentries, resumehandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servername;
     (void)localgroupname;
@@ -1539,6 +1955,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netL
     (void)entriesread;
     (void)totalentries;
     (void)resumehandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1558,13 +1975,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netL
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetLocalGroupSetInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servername, groupname, level, buf, parm_err) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servername, groupname, level, buf, parm_err);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servername;
     (void)groupname;
     (void)level;
     (void)buf;
     (void)parm_err;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1584,13 +2008,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netL
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetLocalGroupSetMembers")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servername, groupname, level, buf, totalentries) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servername, groupname, level, buf, totalentries);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servername;
     (void)groupname;
     (void)level;
     (void)buf;
     (void)totalentries;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1610,13 +2041,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netM
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetMessageBufferSend")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servername, msgname, fromname, buf, buflen) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servername, msgname, fromname, buf, buflen);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servername;
     (void)msgname;
     (void)fromname;
     (void)buf;
     (void)buflen;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1633,10 +2071,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netM
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetMessageNameAdd")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servername, msgname) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servername, msgname);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servername;
     (void)msgname;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1653,10 +2098,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netM
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetMessageNameDel")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servername, msgname) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servername, msgname);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servername;
     (void)msgname;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1678,7 +2130,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netM
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetMessageNameEnum")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servername, level, bufptr, prefmaxlen, entriesread, totalentries, resume_handle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servername, level, bufptr, prefmaxlen, entriesread, totalentries, resume_handle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servername;
     (void)level;
@@ -1687,6 +2145,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netM
     (void)entriesread;
     (void)totalentries;
     (void)resume_handle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1705,12 +2164,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netM
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetMessageNameGetInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servername, msgname, level, bufptr) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servername, msgname, level, bufptr);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servername;
     (void)msgname;
     (void)level;
     (void)bufptr;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1733,7 +2199,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netP
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetProvisionComputerAccount")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpdomain, lpmachinename, lpmachineaccountou, lpdcname, dwoptions, pprovisionbindata, pdwprovisionbindatasize, pprovisiontextdata) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpdomain, lpmachinename, lpmachineaccountou, lpdcname, dwoptions, pprovisionbindata, pdwprovisionbindatasize, pprovisiontextdata);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpdomain;
     (void)lpmachinename;
@@ -1743,6 +2215,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netP
     (void)pprovisionbindata;
     (void)pdwprovisionbindatasize;
     (void)pprovisiontextdata;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1764,7 +2237,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netQ
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetQueryDisplayInformation")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servername, level, arg_2_index, entriesrequested, preferredmaximumlength, returnedentrycount, sortedbuffer) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servername, level, arg_2_index, entriesrequested, preferredmaximumlength, returnedentrycount, sortedbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servername;
     (void)level;
@@ -1773,6 +2252,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netQ
     (void)preferredmaximumlength;
     (void)returnedentrycount;
     (void)sortedbuffer;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1791,12 +2271,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netQ
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetQueryServiceAccount")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servername, accountname, infolevel, buffer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servername, accountname, infolevel, buffer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)servername;
     (void)accountname;
     (void)infolevel;
     (void)buffer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1814,11 +2301,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netR
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetRemoteComputerSupports")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(uncservername, optionswanted, optionssupported) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(uncservername, optionswanted, optionssupported);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)uncservername;
     (void)optionswanted;
     (void)optionssupported;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1835,10 +2329,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netR
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetRemoteTOD")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(uncservername, bufferptr) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(uncservername, bufferptr);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)uncservername;
     (void)bufferptr;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1858,13 +2359,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netR
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetRemoveAlternateComputerName")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(server, alternatename, domainaccount, domainaccountpassword, reserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(server, alternatename, domainaccount, domainaccountpassword, reserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)server;
     (void)alternatename;
     (void)domainaccount;
     (void)domainaccountpassword;
     (void)reserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1882,11 +2390,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netR
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetRemoveServiceAccount")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servername, accountname, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servername, accountname, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)servername;
     (void)accountname;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1906,13 +2421,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netR
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetRenameMachineInDomain")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpserver, lpnewmachinename, lpaccount, lppassword, frenameoptions) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpserver, lpnewmachinename, lpaccount, lppassword, frenameoptions);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpserver;
     (void)lpnewmachinename;
     (void)lpaccount;
     (void)lppassword;
     (void)frenameoptions;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1931,12 +2453,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netR
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetReplExportDirAdd")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servername, level, buf, parm_err) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servername, level, buf, parm_err);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servername;
     (void)level;
     (void)buf;
     (void)parm_err;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1953,10 +2482,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netR
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetReplExportDirDel")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servername, dirname) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servername, dirname);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servername;
     (void)dirname;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1978,7 +2514,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netR
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetReplExportDirEnum")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servername, level, bufptr, prefmaxlen, entriesread, totalentries, resumehandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servername, level, bufptr, prefmaxlen, entriesread, totalentries, resumehandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servername;
     (void)level;
@@ -1987,6 +2529,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netR
     (void)entriesread;
     (void)totalentries;
     (void)resumehandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2005,12 +2548,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netR
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetReplExportDirGetInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servername, dirname, level, bufptr) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servername, dirname, level, bufptr);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servername;
     (void)dirname;
     (void)level;
     (void)bufptr;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2027,10 +2577,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netR
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetReplExportDirLock")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servername, dirname) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servername, dirname);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servername;
     (void)dirname;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2050,13 +2607,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netR
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetReplExportDirSetInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servername, dirname, level, buf, parm_err) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servername, dirname, level, buf, parm_err);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servername;
     (void)dirname;
     (void)level;
     (void)buf;
     (void)parm_err;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2074,11 +2638,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netR
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetReplExportDirUnlock")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servername, dirname, unlockforce) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servername, dirname, unlockforce);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servername;
     (void)dirname;
     (void)unlockforce;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2096,11 +2667,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netR
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetReplGetInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servername, level, bufptr) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servername, level, bufptr);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servername;
     (void)level;
     (void)bufptr;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2119,12 +2697,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netR
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetReplImportDirAdd")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servername, level, buf, parm_err) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servername, level, buf, parm_err);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servername;
     (void)level;
     (void)buf;
     (void)parm_err;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2141,10 +2726,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netR
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetReplImportDirDel")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servername, dirname) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servername, dirname);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servername;
     (void)dirname;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2166,7 +2758,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netR
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetReplImportDirEnum")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servername, level, bufptr, prefmaxlen, entriesread, totalentries, resumehandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servername, level, bufptr, prefmaxlen, entriesread, totalentries, resumehandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servername;
     (void)level;
@@ -2175,6 +2773,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netR
     (void)entriesread;
     (void)totalentries;
     (void)resumehandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2193,12 +2792,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netR
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetReplImportDirGetInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servername, dirname, level, bufptr) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servername, dirname, level, bufptr);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servername;
     (void)dirname;
     (void)level;
     (void)bufptr;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2215,10 +2821,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netR
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetReplImportDirLock")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servername, dirname) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servername, dirname);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servername;
     (void)dirname;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2236,11 +2849,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netR
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetReplImportDirUnlock")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servername, dirname, unlockforce) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servername, dirname, unlockforce);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servername;
     (void)dirname;
     (void)unlockforce;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2259,12 +2879,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netR
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetReplSetInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servername, level, buf, parm_err) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servername, level, buf, parm_err);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servername;
     (void)level;
     (void)buf;
     (void)parm_err;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2283,12 +2910,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netR
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetRequestOfflineDomainJoin")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pprovisionbindata, cbprovisionbindatasize, dwoptions, lpwindowspath) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pprovisionbindata, cbprovisionbindatasize, dwoptions, lpwindowspath);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pprovisionbindata;
     (void)cbprovisionbindatasize;
     (void)dwoptions;
     (void)lpwindowspath;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2308,13 +2942,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netR
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetRequestProvisioningPackageInstall")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ppackagebindata, dwpackagebindatasize, dwprovisionoptions, lpwindowspath, pvreserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ppackagebindata, dwpackagebindatasize, dwprovisionoptions, lpwindowspath, pvreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ppackagebindata;
     (void)dwpackagebindatasize;
     (void)dwprovisionoptions;
     (void)lpwindowspath;
     (void)pvreserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2332,11 +2973,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netS
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetScheduleJobAdd")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servername, buffer, jobid) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servername, buffer, jobid);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servername;
     (void)buffer;
     (void)jobid;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2354,11 +3002,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netS
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetScheduleJobDel")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servername, minjobid, maxjobid) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servername, minjobid, maxjobid);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servername;
     (void)minjobid;
     (void)maxjobid;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2379,7 +3034,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netS
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetScheduleJobEnum")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servername, pointertobuffer, prefferedmaximumlength, entriesread, totalentries, resumehandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servername, pointertobuffer, prefferedmaximumlength, entriesread, totalentries, resumehandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servername;
     (void)pointertobuffer;
@@ -2387,6 +3048,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netS
     (void)entriesread;
     (void)totalentries;
     (void)resumehandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2404,11 +3066,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netS
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetScheduleJobGetInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servername, jobid, pointertobuffer) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servername, jobid, pointertobuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servername;
     (void)jobid;
     (void)pointertobuffer;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2426,11 +3095,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netS
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetServerComputerNameAdd")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servername, emulateddomainname, emulatedservername) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servername, emulateddomainname, emulatedservername);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servername;
     (void)emulateddomainname;
     (void)emulatedservername;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2447,10 +3123,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netS
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetServerComputerNameDel")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servername, emulatedservername) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servername, emulatedservername);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servername;
     (void)emulatedservername;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2472,7 +3155,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netS
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetServerDiskEnum")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servername, level, bufptr, prefmaxlen, entriesread, totalentries, resume_handle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servername, level, bufptr, prefmaxlen, entriesread, totalentries, resume_handle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servername;
     (void)level;
@@ -2481,6 +3170,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netS
     (void)entriesread;
     (void)totalentries;
     (void)resume_handle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2504,7 +3194,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netS
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetServerEnum")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servername, level, bufptr, prefmaxlen, entriesread, totalentries, servertype, domain, resume_handle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servername, level, bufptr, prefmaxlen, entriesread, totalentries, servertype, domain, resume_handle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servername;
     (void)level;
@@ -2515,6 +3211,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netS
     (void)servertype;
     (void)domain;
     (void)resume_handle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2532,11 +3229,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netS
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetServerGetInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servername, level, bufptr) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servername, level, bufptr);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servername;
     (void)level;
     (void)bufptr;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2555,12 +3259,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netS
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetServerSetInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servername, level, buf, parmerror) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servername, level, buf, parmerror);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servername;
     (void)level;
     (void)buf;
     (void)parmerror;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2578,11 +3289,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netS
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetServerTransportAdd")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servername, level, bufptr) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servername, level, bufptr);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servername;
     (void)level;
     (void)bufptr;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2600,11 +3318,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netS
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetServerTransportAddEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servername, level, bufptr) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servername, level, bufptr);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servername;
     (void)level;
     (void)bufptr;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2622,11 +3347,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netS
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetServerTransportDel")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servername, level, bufptr) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servername, level, bufptr);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servername;
     (void)level;
     (void)bufptr;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2648,7 +3380,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netS
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetServerTransportEnum")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servername, level, bufptr, prefmaxlen, entriesread, totalentries, resume_handle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servername, level, bufptr, prefmaxlen, entriesread, totalentries, resume_handle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servername;
     (void)level;
@@ -2657,6 +3395,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netS
     (void)entriesread;
     (void)totalentries;
     (void)resume_handle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2676,13 +3415,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netS
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetServiceControl")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servername, service, opcode, arg, bufptr) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servername, service, opcode, arg, bufptr);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servername;
     (void)service;
     (void)opcode;
     (void)arg;
     (void)bufptr;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2704,7 +3450,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netS
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetServiceEnum")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servername, level, bufptr, prefmaxlen, entriesread, totalentries, resume_handle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servername, level, bufptr, prefmaxlen, entriesread, totalentries, resume_handle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servername;
     (void)level;
@@ -2713,6 +3465,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netS
     (void)entriesread;
     (void)totalentries;
     (void)resume_handle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2731,12 +3484,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netS
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetServiceGetInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servername, service, level, bufptr) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servername, service, level, bufptr);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servername;
     (void)service;
     (void)level;
     (void)bufptr;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2756,13 +3516,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netS
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetServiceInstall")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servername, service, argc, argv, bufptr) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servername, service, argc, argv, bufptr);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servername;
     (void)service;
     (void)argc;
     (void)argv;
     (void)bufptr;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2782,13 +3549,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netS
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetSetPrimaryComputerName")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(server, primaryname, domainaccount, domainaccountpassword, reserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(server, primaryname, domainaccount, domainaccountpassword, reserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)server;
     (void)primaryname;
     (void)domainaccount;
     (void)domainaccountpassword;
     (void)reserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2807,12 +3581,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netU
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetUnjoinDomain")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpserver, lpaccount, lppassword, funjoinoptions) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpserver, lpaccount, lppassword, funjoinoptions);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpserver;
     (void)lpaccount;
     (void)lppassword;
     (void)funjoinoptions;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2831,12 +3612,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netU
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetUseAdd")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servername, levelflags, buf, parm_err) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servername, levelflags, buf, parm_err);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servername;
     (void)levelflags;
     (void)buf;
     (void)parm_err;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2854,11 +3642,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netU
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetUseDel")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(uncservername, usename, forcelevelflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(uncservername, usename, forcelevelflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)uncservername;
     (void)usename;
     (void)forcelevelflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2880,7 +3675,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netU
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetUseEnum")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(uncservername, levelflags, bufptr, preferedmaximumsize, entriesread, totalentries, resumehandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(uncservername, levelflags, bufptr, preferedmaximumsize, entriesread, totalentries, resumehandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)uncservername;
     (void)levelflags;
@@ -2889,6 +3690,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netU
     (void)entriesread;
     (void)totalentries;
     (void)resumehandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2907,12 +3709,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netU
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetUseGetInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(uncservername, usename, levelflags, bufptr) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(uncservername, usename, levelflags, bufptr);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)uncservername;
     (void)usename;
     (void)levelflags;
     (void)bufptr;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2931,12 +3740,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netU
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetUserAdd")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servername, level, buf, parm_err) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servername, level, buf, parm_err);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servername;
     (void)level;
     (void)buf;
     (void)parm_err;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2955,12 +3771,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netU
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetUserChangePassword")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(domainname, username, oldpassword, newpassword) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(domainname, username, oldpassword, newpassword);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)domainname;
     (void)username;
     (void)oldpassword;
     (void)newpassword;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2977,10 +3800,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netU
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetUserDel")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servername, username) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servername, username);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servername;
     (void)username;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3003,7 +3833,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netU
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetUserEnum")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servername, level, filter, bufptr, prefmaxlen, entriesread, totalentries, resume_handle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servername, level, filter, bufptr, prefmaxlen, entriesread, totalentries, resume_handle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servername;
     (void)level;
@@ -3013,6 +3849,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netU
     (void)entriesread;
     (void)totalentries;
     (void)resume_handle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3034,7 +3871,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netU
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetUserGetGroups")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servername, username, level, bufptr, prefmaxlen, entriesread, totalentries) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servername, username, level, bufptr, prefmaxlen, entriesread, totalentries);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servername;
     (void)username;
@@ -3043,6 +3886,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netU
     (void)prefmaxlen;
     (void)entriesread;
     (void)totalentries;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3061,12 +3905,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netU
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetUserGetInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servername, username, level, bufptr) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servername, username, level, bufptr);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servername;
     (void)username;
     (void)level;
     (void)bufptr;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3089,7 +3940,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netU
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetUserGetLocalGroups")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servername, username, level, flags, bufptr, prefmaxlen, entriesread, totalentries) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servername, username, level, flags, bufptr, prefmaxlen, entriesread, totalentries);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servername;
     (void)username;
@@ -3099,6 +3956,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netU
     (void)prefmaxlen;
     (void)entriesread;
     (void)totalentries;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3116,11 +3974,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netU
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetUserModalsGet")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servername, level, bufptr) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servername, level, bufptr);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servername;
     (void)level;
     (void)bufptr;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3139,12 +4004,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netU
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetUserModalsSet")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servername, level, buf, parm_err) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servername, level, buf, parm_err);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servername;
     (void)level;
     (void)buf;
     (void)parm_err;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3164,13 +4036,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netU
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetUserSetGroups")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servername, username, level, buf, num_entries) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servername, username, level, buf, num_entries);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servername;
     (void)username;
     (void)level;
     (void)buf;
     (void)num_entries;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3190,13 +4069,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netU
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetUserSetInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servername, username, level, buf, parm_err) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servername, username, level, buf, parm_err);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servername;
     (void)username;
     (void)level;
     (void)buf;
     (void)parm_err;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3216,13 +4102,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netV
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetValidateName")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpserver, lpname, lpaccount, lppassword, nametype) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpserver, lpname, lpaccount, lppassword, nametype);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpserver;
     (void)lpname;
     (void)lpaccount;
     (void)lppassword;
     (void)nametype;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3242,13 +4135,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netV
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetValidatePasswordPolicy")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servername, qualifier, validationtype, inputarg, outputarg) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servername, qualifier, validationtype, inputarg, outputarg);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servername;
     (void)qualifier;
     (void)validationtype;
     (void)inputarg;
     (void)outputarg;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3264,9 +4164,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netV
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetValidatePasswordPolicyFree")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(outputarg) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(outputarg);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)outputarg;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3284,11 +4191,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netW
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetWkstaGetInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servername, level, bufptr) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servername, level, bufptr);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servername;
     (void)level;
     (void)bufptr;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3307,12 +4221,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netW
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetWkstaSetInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servername, level, buffer, parm_err) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servername, level, buffer, parm_err);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servername;
     (void)level;
     (void)buffer;
     (void)parm_err;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3331,12 +4252,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netW
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetWkstaTransportAdd")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servername, level, buf, parm_err) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servername, level, buf, parm_err);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servername;
     (void)level;
     (void)buf;
     (void)parm_err;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3354,11 +4282,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netW
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetWkstaTransportDel")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servername, transportname, ucond) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servername, transportname, ucond);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servername;
     (void)transportname;
     (void)ucond;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3380,7 +4315,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netW
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetWkstaTransportEnum")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servername, level, bufptr, prefmaxlen, entriesread, totalentries, resume_handle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servername, level, bufptr, prefmaxlen, entriesread, totalentries, resume_handle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servername;
     (void)level;
@@ -3389,6 +4330,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netW
     (void)entriesread;
     (void)totalentries;
     (void)resume_handle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3410,7 +4352,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netW
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetWkstaUserEnum")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servername, level, bufptr, prefmaxlen, entriesread, totalentries, resumehandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servername, level, bufptr, prefmaxlen, entriesread, totalentries, resumehandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servername;
     (void)level;
@@ -3419,6 +4367,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netW
     (void)entriesread;
     (void)totalentries;
     (void)resumehandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3436,11 +4385,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netW
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetWkstaUserGetInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(reserved, level, bufptr) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(reserved, level, bufptr);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)reserved;
     (void)level;
     (void)bufptr;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3459,12 +4415,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_netW
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NetWkstaUserSetInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(reserved, level, buf, parm_err) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(reserved, level, buf, parm_err);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)reserved;
     (void)level;
     (void)buf;
     (void)parm_err;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3483,12 +4446,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_rout
         HMODULE km_h_mod = LoadLibraryA("rtutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RouterAssert")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pszfailedassertion, pszfilename, dwlinenumber, pszmessage);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pszfailedassertion, pszfilename, dwlinenumber, pszmessage);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pszfailedassertion;
     (void)pszfilename;
     (void)dwlinenumber;
     (void)pszmessage;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -3504,10 +4472,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_rout
         HMODULE km_h_mod = LoadLibraryA("rtutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RouterGetErrorStringA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwerrorcode, lplpszerrorstring) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwerrorcode, lplpszerrorstring);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dwerrorcode;
     (void)lplpszerrorstring;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3524,10 +4499,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_rout
         HMODULE km_h_mod = LoadLibraryA("rtutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RouterGetErrorStringW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwerrorcode, lplpwszerrorstring) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwerrorcode, lplpwszerrorstring);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dwerrorcode;
     (void)lplpwszerrorstring;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3543,9 +4525,14 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_rout
         HMODULE km_h_mod = LoadLibraryA("rtutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RouterLogDeregisterA")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(hloghandle);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(hloghandle);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)hloghandle;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -3560,9 +4547,14 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_rout
         HMODULE km_h_mod = LoadLibraryA("rtutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RouterLogDeregisterW")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(hloghandle);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(hloghandle);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)hloghandle;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -3582,7 +4574,11 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_rout
         HMODULE km_h_mod = LoadLibraryA("rtutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RouterLogEventA")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(hloghandle, dweventtype, dwmessageid, dwsubstringcount, plpszsubstringarray, dwerrorcode);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(hloghandle, dweventtype, dwmessageid, dwsubstringcount, plpszsubstringarray, dwerrorcode);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)hloghandle;
     (void)dweventtype;
@@ -3590,6 +4586,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_rout
     (void)dwsubstringcount;
     (void)plpszsubstringarray;
     (void)dwerrorcode;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -3610,7 +4607,11 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_rout
         HMODULE km_h_mod = LoadLibraryA("rtutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RouterLogEventDataA")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(hloghandle, dweventtype, dwmessageid, dwsubstringcount, plpszsubstringarray, dwdatabytes, lpdatabytes);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(hloghandle, dweventtype, dwmessageid, dwsubstringcount, plpszsubstringarray, dwdatabytes, lpdatabytes);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)hloghandle;
     (void)dweventtype;
@@ -3619,6 +4620,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_rout
     (void)plpszsubstringarray;
     (void)dwdatabytes;
     (void)lpdatabytes;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -3639,7 +4641,11 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_rout
         HMODULE km_h_mod = LoadLibraryA("rtutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RouterLogEventDataW")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(hloghandle, dweventtype, dwmessageid, dwsubstringcount, plpszsubstringarray, dwdatabytes, lpdatabytes);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(hloghandle, dweventtype, dwmessageid, dwsubstringcount, plpszsubstringarray, dwdatabytes, lpdatabytes);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)hloghandle;
     (void)dweventtype;
@@ -3648,6 +4654,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_rout
     (void)plpszsubstringarray;
     (void)dwdatabytes;
     (void)lpdatabytes;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -3679,6 +4686,8 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_rout
             case 3: km_fn_ptr(hloghandle, dweventtype, dwerrorcode, dwmessageid, ptszformat, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2)); break;
             default: km_fn_ptr(hloghandle, dweventtype, dwerrorcode, dwmessageid, ptszformat, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2), static_cast<intptr_t>(km_va3)); break;
         }
+    } else {
+        errno = ENOSYS;
     }
 #else
     (void)hloghandle;
@@ -3687,6 +4696,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_rout
     (void)dwmessageid;
     (void)ptszformat;
     (void)km_vac; (void)km_va0; (void)km_va1; (void)km_va2; (void)km_va3;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -3718,6 +4728,8 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_rout
             case 3: km_fn_ptr(hloghandle, dweventtype, dwerrorcode, dwmessageid, ptszformat, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2)); break;
             default: km_fn_ptr(hloghandle, dweventtype, dwerrorcode, dwmessageid, ptszformat, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2), static_cast<intptr_t>(km_va3)); break;
         }
+    } else {
+        errno = ENOSYS;
     }
 #else
     (void)hloghandle;
@@ -3726,6 +4738,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_rout
     (void)dwmessageid;
     (void)ptszformat;
     (void)km_vac; (void)km_va0; (void)km_va1; (void)km_va2; (void)km_va3;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -3746,7 +4759,11 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_rout
         HMODULE km_h_mod = LoadLibraryA("rtutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RouterLogEventStringA")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(hloghandle, dweventtype, dwmessageid, dwsubstringcount, plpszsubstringarray, dwerrorcode, dwerrorindex);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(hloghandle, dweventtype, dwmessageid, dwsubstringcount, plpszsubstringarray, dwerrorcode, dwerrorindex);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)hloghandle;
     (void)dweventtype;
@@ -3755,6 +4772,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_rout
     (void)plpszsubstringarray;
     (void)dwerrorcode;
     (void)dwerrorindex;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -3775,7 +4793,11 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_rout
         HMODULE km_h_mod = LoadLibraryA("rtutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RouterLogEventStringW")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(hloghandle, dweventtype, dwmessageid, dwsubstringcount, plpszsubstringarray, dwerrorcode, dwerrorindex);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(hloghandle, dweventtype, dwmessageid, dwsubstringcount, plpszsubstringarray, dwerrorcode, dwerrorindex);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)hloghandle;
     (void)dweventtype;
@@ -3784,6 +4806,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_rout
     (void)plpszsubstringarray;
     (void)dwerrorcode;
     (void)dwerrorindex;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -3803,7 +4826,11 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_rout
         HMODULE km_h_mod = LoadLibraryA("rtutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RouterLogEventValistExA")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(hloghandle, dweventtype, dwerrorcode, dwmessageid, ptszformat, arglist);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(hloghandle, dweventtype, dwerrorcode, dwmessageid, ptszformat, arglist);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)hloghandle;
     (void)dweventtype;
@@ -3811,6 +4838,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_rout
     (void)dwmessageid;
     (void)ptszformat;
     (void)arglist;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -3830,7 +4858,11 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_rout
         HMODULE km_h_mod = LoadLibraryA("rtutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RouterLogEventValistExW")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(hloghandle, dweventtype, dwerrorcode, dwmessageid, ptszformat, arglist);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(hloghandle, dweventtype, dwerrorcode, dwmessageid, ptszformat, arglist);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)hloghandle;
     (void)dweventtype;
@@ -3838,6 +4870,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_rout
     (void)dwmessageid;
     (void)ptszformat;
     (void)arglist;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -3857,7 +4890,11 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_rout
         HMODULE km_h_mod = LoadLibraryA("rtutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RouterLogEventW")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(hloghandle, dweventtype, dwmessageid, dwsubstringcount, plpszsubstringarray, dwerrorcode);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(hloghandle, dweventtype, dwmessageid, dwsubstringcount, plpszsubstringarray, dwerrorcode);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)hloghandle;
     (void)dweventtype;
@@ -3865,6 +4902,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_rout
     (void)dwsubstringcount;
     (void)plpszsubstringarray;
     (void)dwerrorcode;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -3879,10 +4917,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_rout
         HMODULE km_h_mod = LoadLibraryA("rtutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RouterLogRegisterA")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszsource) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszsource);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)lpszsource;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -3897,10 +4942,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_rout
         HMODULE km_h_mod = LoadLibraryA("rtutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RouterLogRegisterW")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszsource) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszsource);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)lpszsource;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -3917,11 +4969,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_setN
         HMODULE km_h_mod = LoadLibraryA("mstask.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetNetScheduleAccountInformation")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pwszservername, pwszaccount, pwszpassword) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pwszservername, pwszaccount, pwszpassword);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pwszservername;
     (void)pwszaccount;
     (void)pwszpassword;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3937,9 +4996,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_trac
         HMODULE km_h_mod = LoadLibraryA("rtutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TraceDeregisterA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwtraceid) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwtraceid);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dwtraceid;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3956,10 +5022,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_trac
         HMODULE km_h_mod = LoadLibraryA("rtutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TraceDeregisterExA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwtraceid, dwflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwtraceid, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dwtraceid;
     (void)dwflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3976,10 +5049,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_trac
         HMODULE km_h_mod = LoadLibraryA("rtutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TraceDeregisterExW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwtraceid, dwflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwtraceid, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dwtraceid;
     (void)dwflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3995,9 +5075,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_trac
         HMODULE km_h_mod = LoadLibraryA("rtutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TraceDeregisterW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwtraceid) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwtraceid);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dwtraceid;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4019,7 +5106,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_trac
         HMODULE km_h_mod = LoadLibraryA("rtutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TraceDumpExA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwtraceid, dwflags, lpbbytes, dwbytecount, dwgroupsize, baddressprefix, lpszprefix) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwtraceid, dwflags, lpbbytes, dwbytecount, dwgroupsize, baddressprefix, lpszprefix);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dwtraceid;
     (void)dwflags;
@@ -4028,6 +5121,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_trac
     (void)dwgroupsize;
     (void)baddressprefix;
     (void)lpszprefix;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4049,7 +5143,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_trac
         HMODULE km_h_mod = LoadLibraryA("rtutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TraceDumpExW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwtraceid, dwflags, lpbbytes, dwbytecount, dwgroupsize, baddressprefix, lpszprefix) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwtraceid, dwflags, lpbbytes, dwbytecount, dwgroupsize, baddressprefix, lpszprefix);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dwtraceid;
     (void)dwflags;
@@ -4058,6 +5158,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_trac
     (void)dwgroupsize;
     (void)baddressprefix;
     (void)lpszprefix;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4074,10 +5175,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_trac
         HMODULE km_h_mod = LoadLibraryA("rtutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TraceGetConsoleA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwtraceid, lphconsole) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwtraceid, lphconsole);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dwtraceid;
     (void)lphconsole;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4094,10 +5202,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_trac
         HMODULE km_h_mod = LoadLibraryA("rtutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TraceGetConsoleW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwtraceid, lphconsole) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwtraceid, lphconsole);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dwtraceid;
     (void)lphconsole;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4128,11 +5243,14 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_trac
             case 3: km_res = km_fn_ptr(dwtraceid, lpszformat, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2)); break;
             default: km_res = km_fn_ptr(dwtraceid, lpszformat, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2), static_cast<intptr_t>(km_va3)); break;
         }
+    } else {
+        errno = ENOSYS;
     }
 #else
     (void)dwtraceid;
     (void)lpszformat;
     (void)km_vac; (void)km_va0; (void)km_va1; (void)km_va2; (void)km_va3;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4164,12 +5282,15 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_trac
             case 3: km_res = km_fn_ptr(dwtraceid, dwflags, lpszformat, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2)); break;
             default: km_res = km_fn_ptr(dwtraceid, dwflags, lpszformat, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2), static_cast<intptr_t>(km_va3)); break;
         }
+    } else {
+        errno = ENOSYS;
     }
 #else
     (void)dwtraceid;
     (void)dwflags;
     (void)lpszformat;
     (void)km_vac; (void)km_va0; (void)km_va1; (void)km_va2; (void)km_va3;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4201,12 +5322,15 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_trac
             case 3: km_res = km_fn_ptr(dwtraceid, dwflags, lpszformat, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2)); break;
             default: km_res = km_fn_ptr(dwtraceid, dwflags, lpszformat, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2), static_cast<intptr_t>(km_va3)); break;
         }
+    } else {
+        errno = ENOSYS;
     }
 #else
     (void)dwtraceid;
     (void)dwflags;
     (void)lpszformat;
     (void)km_vac; (void)km_va0; (void)km_va1; (void)km_va2; (void)km_va3;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4237,11 +5361,14 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_trac
             case 3: km_res = km_fn_ptr(dwtraceid, lpszformat, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2)); break;
             default: km_res = km_fn_ptr(dwtraceid, lpszformat, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2), static_cast<intptr_t>(km_va3)); break;
         }
+    } else {
+        errno = ENOSYS;
     }
 #else
     (void)dwtraceid;
     (void)lpszformat;
     (void)km_vac; (void)km_va0; (void)km_va1; (void)km_va2; (void)km_va3;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4259,11 +5386,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_trac
         HMODULE km_h_mod = LoadLibraryA("rtutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TracePutsExA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwtraceid, dwflags, lpszstring) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwtraceid, dwflags, lpszstring);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dwtraceid;
     (void)dwflags;
     (void)lpszstring;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4281,11 +5415,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_trac
         HMODULE km_h_mod = LoadLibraryA("rtutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TracePutsExW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwtraceid, dwflags, lpszstring) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwtraceid, dwflags, lpszstring);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dwtraceid;
     (void)dwflags;
     (void)lpszstring;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4302,10 +5443,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_trac
         HMODULE km_h_mod = LoadLibraryA("rtutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TraceRegisterExA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszcallername, dwflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszcallername, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpszcallername;
     (void)dwflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4322,10 +5470,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_trac
         HMODULE km_h_mod = LoadLibraryA("rtutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TraceRegisterExW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszcallername, dwflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszcallername, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpszcallername;
     (void)dwflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4344,12 +5499,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_trac
         HMODULE km_h_mod = LoadLibraryA("rtutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TraceVprintfExA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwtraceid, dwflags, lpszformat, arglist) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwtraceid, dwflags, lpszformat, arglist);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dwtraceid;
     (void)dwflags;
     (void)lpszformat;
     (void)arglist;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4368,12 +5530,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_netmanagement_trac
         HMODULE km_h_mod = LoadLibraryA("rtutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TraceVprintfExW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwtraceid, dwflags, lpszformat, arglist) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwtraceid, dwflags, lpszformat, arglist);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dwtraceid;
     (void)dwflags;
     (void)lpszformat;
     (void)arglist;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

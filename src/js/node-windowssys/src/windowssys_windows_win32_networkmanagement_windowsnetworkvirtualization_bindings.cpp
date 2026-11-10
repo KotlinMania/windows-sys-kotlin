@@ -60,9 +60,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_windowsnetworkvirt
         HMODULE km_h_mod = LoadLibraryA("wnvapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WnvOpen")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -80,12 +87,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_windowsnetworkvirt
         HMODULE km_h_mod = LoadLibraryA("wnvapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WnvRequestNotification")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(wnvhandle, notificationparam, overlapped, bytestransferred) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(wnvhandle, notificationparam, overlapped, bytestransferred);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)wnvhandle;
     (void)notificationparam;
     (void)overlapped;
     (void)bytestransferred;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

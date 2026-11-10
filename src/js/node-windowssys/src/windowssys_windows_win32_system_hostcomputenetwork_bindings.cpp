@@ -61,9 +61,16 @@ static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_hcnCloseEn
         HMODULE km_h_mod = LoadLibraryA("computenetwork.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HcnCloseEndpoint")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(endpoint) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(endpoint);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)endpoint;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -79,9 +86,16 @@ static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_hcnCloseGu
         HMODULE km_h_mod = LoadLibraryA("computenetwork.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HcnCloseGuestNetworkService")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(guestnetworkservice) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(guestnetworkservice);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)guestnetworkservice;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -97,9 +111,16 @@ static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_hcnCloseLo
         HMODULE km_h_mod = LoadLibraryA("computenetwork.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HcnCloseLoadBalancer")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(loadbalancer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(loadbalancer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)loadbalancer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -115,9 +136,16 @@ static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_hcnCloseNa
         HMODULE km_h_mod = LoadLibraryA("computenetwork.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HcnCloseNamespace")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(arg_0_namespace) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(arg_0_namespace);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)arg_0_namespace;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -133,9 +161,16 @@ static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_hcnCloseNe
         HMODULE km_h_mod = LoadLibraryA("computenetwork.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HcnCloseNetwork")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(network) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(network);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)network;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -155,13 +190,20 @@ static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_hcnCreateE
         HMODULE km_h_mod = LoadLibraryA("computenetwork.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HcnCreateEndpoint")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(network, id, settings, endpoint, errorrecord) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(network, id, settings, endpoint, errorrecord);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)network;
     (void)id;
     (void)settings;
     (void)endpoint;
     (void)errorrecord;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -180,12 +222,19 @@ static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_hcnCreateG
         HMODULE km_h_mod = LoadLibraryA("computenetwork.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HcnCreateGuestNetworkService")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(id, settings, guestnetworkservice, errorrecord) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(id, settings, guestnetworkservice, errorrecord);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)id;
     (void)settings;
     (void)guestnetworkservice;
     (void)errorrecord;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -204,12 +253,19 @@ static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_hcnCreateL
         HMODULE km_h_mod = LoadLibraryA("computenetwork.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HcnCreateLoadBalancer")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(id, settings, loadbalancer, errorrecord) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(id, settings, loadbalancer, errorrecord);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)id;
     (void)settings;
     (void)loadbalancer;
     (void)errorrecord;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -228,12 +284,19 @@ static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_hcnCreateN
         HMODULE km_h_mod = LoadLibraryA("computenetwork.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HcnCreateNamespace")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(id, settings, arg_2_namespace, errorrecord) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(id, settings, arg_2_namespace, errorrecord);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)id;
     (void)settings;
     (void)arg_2_namespace;
     (void)errorrecord;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -252,12 +315,19 @@ static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_hcnCreateN
         HMODULE km_h_mod = LoadLibraryA("computenetwork.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HcnCreateNetwork")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(id, settings, network, errorrecord) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(id, settings, network, errorrecord);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)id;
     (void)settings;
     (void)network;
     (void)errorrecord;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -274,10 +344,17 @@ static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_hcnDeleteE
         HMODULE km_h_mod = LoadLibraryA("computenetwork.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HcnDeleteEndpoint")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(id, errorrecord) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(id, errorrecord);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)id;
     (void)errorrecord;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -294,10 +371,17 @@ static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_hcnDeleteG
         HMODULE km_h_mod = LoadLibraryA("computenetwork.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HcnDeleteGuestNetworkService")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(id, errorrecord) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(id, errorrecord);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)id;
     (void)errorrecord;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -314,10 +398,17 @@ static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_hcnDeleteL
         HMODULE km_h_mod = LoadLibraryA("computenetwork.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HcnDeleteLoadBalancer")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(id, errorrecord) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(id, errorrecord);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)id;
     (void)errorrecord;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -334,10 +425,17 @@ static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_hcnDeleteN
         HMODULE km_h_mod = LoadLibraryA("computenetwork.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HcnDeleteNamespace")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(id, errorrecord) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(id, errorrecord);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)id;
     (void)errorrecord;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -354,10 +452,17 @@ static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_hcnDeleteN
         HMODULE km_h_mod = LoadLibraryA("computenetwork.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HcnDeleteNetwork")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(id, errorrecord) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(id, errorrecord);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)id;
     (void)errorrecord;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -375,11 +480,18 @@ static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_hcnEnumera
         HMODULE km_h_mod = LoadLibraryA("computenetwork.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HcnEnumerateEndpoints")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(query, endpoints, errorrecord) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(query, endpoints, errorrecord);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)query;
     (void)endpoints;
     (void)errorrecord;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -396,10 +508,17 @@ static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_hcnEnumera
         HMODULE km_h_mod = LoadLibraryA("computenetwork.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HcnEnumerateGuestNetworkPortReservations")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(returncount, portentries) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(returncount, portentries);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)returncount;
     (void)portentries;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -417,11 +536,18 @@ static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_hcnEnumera
         HMODULE km_h_mod = LoadLibraryA("computenetwork.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HcnEnumerateLoadBalancers")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(query, loadbalancer, errorrecord) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(query, loadbalancer, errorrecord);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)query;
     (void)loadbalancer;
     (void)errorrecord;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -439,11 +565,18 @@ static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_hcnEnumera
         HMODULE km_h_mod = LoadLibraryA("computenetwork.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HcnEnumerateNamespaces")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(query, namespaces, errorrecord) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(query, namespaces, errorrecord);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)query;
     (void)namespaces;
     (void)errorrecord;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -461,11 +594,18 @@ static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_hcnEnumera
         HMODULE km_h_mod = LoadLibraryA("computenetwork.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HcnEnumerateNetworks")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(query, networks, errorrecord) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(query, networks, errorrecord);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)query;
     (void)networks;
     (void)errorrecord;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -481,9 +621,14 @@ static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_hcnFreeGue
         HMODULE km_h_mod = LoadLibraryA("computenetwork.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HcnFreeGuestNetworkPortReservations")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(portentries);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(portentries);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)portentries;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -500,11 +645,18 @@ static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_hcnModifyE
         HMODULE km_h_mod = LoadLibraryA("computenetwork.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HcnModifyEndpoint")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(endpoint, settings, errorrecord) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(endpoint, settings, errorrecord);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)endpoint;
     (void)settings;
     (void)errorrecord;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -522,11 +674,18 @@ static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_hcnModifyG
         HMODULE km_h_mod = LoadLibraryA("computenetwork.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HcnModifyGuestNetworkService")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(guestnetworkservice, settings, errorrecord) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(guestnetworkservice, settings, errorrecord);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)guestnetworkservice;
     (void)settings;
     (void)errorrecord;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -544,11 +703,18 @@ static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_hcnModifyL
         HMODULE km_h_mod = LoadLibraryA("computenetwork.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HcnModifyLoadBalancer")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(loadbalancer, settings, errorrecord) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(loadbalancer, settings, errorrecord);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)loadbalancer;
     (void)settings;
     (void)errorrecord;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -566,11 +732,18 @@ static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_hcnModifyN
         HMODULE km_h_mod = LoadLibraryA("computenetwork.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HcnModifyNamespace")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(arg_0_namespace, settings, errorrecord) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(arg_0_namespace, settings, errorrecord);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)arg_0_namespace;
     (void)settings;
     (void)errorrecord;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -588,11 +761,18 @@ static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_hcnModifyN
         HMODULE km_h_mod = LoadLibraryA("computenetwork.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HcnModifyNetwork")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(network, settings, errorrecord) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(network, settings, errorrecord);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)network;
     (void)settings;
     (void)errorrecord;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -610,11 +790,18 @@ static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_hcnOpenEnd
         HMODULE km_h_mod = LoadLibraryA("computenetwork.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HcnOpenEndpoint")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(id, endpoint, errorrecord) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(id, endpoint, errorrecord);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)id;
     (void)endpoint;
     (void)errorrecord;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -632,11 +819,18 @@ static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_hcnOpenLoa
         HMODULE km_h_mod = LoadLibraryA("computenetwork.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HcnOpenLoadBalancer")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(id, loadbalancer, errorrecord) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(id, loadbalancer, errorrecord);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)id;
     (void)loadbalancer;
     (void)errorrecord;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -654,11 +848,18 @@ static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_hcnOpenNam
         HMODULE km_h_mod = LoadLibraryA("computenetwork.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HcnOpenNamespace")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(id, arg_1_namespace, errorrecord) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(id, arg_1_namespace, errorrecord);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)id;
     (void)arg_1_namespace;
     (void)errorrecord;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -676,11 +877,18 @@ static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_hcnOpenNet
         HMODULE km_h_mod = LoadLibraryA("computenetwork.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HcnOpenNetwork")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(id, network, errorrecord) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(id, network, errorrecord);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)id;
     (void)network;
     (void)errorrecord;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -699,12 +907,19 @@ static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_hcnQueryEn
         HMODULE km_h_mod = LoadLibraryA("computenetwork.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HcnQueryEndpointAddresses")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(endpoint, query, addresses, errorrecord) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(endpoint, query, addresses, errorrecord);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)endpoint;
     (void)query;
     (void)addresses;
     (void)errorrecord;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -723,12 +938,19 @@ static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_hcnQueryEn
         HMODULE km_h_mod = LoadLibraryA("computenetwork.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HcnQueryEndpointProperties")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(endpoint, query, properties, errorrecord) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(endpoint, query, properties, errorrecord);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)endpoint;
     (void)query;
     (void)properties;
     (void)errorrecord;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -747,12 +969,19 @@ static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_hcnQueryEn
         HMODULE km_h_mod = LoadLibraryA("computenetwork.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HcnQueryEndpointStats")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(endpoint, query, stats, errorrecord) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(endpoint, query, stats, errorrecord);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)endpoint;
     (void)query;
     (void)stats;
     (void)errorrecord;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -771,12 +1000,19 @@ static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_hcnQueryLo
         HMODULE km_h_mod = LoadLibraryA("computenetwork.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HcnQueryLoadBalancerProperties")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(loadbalancer, query, properties, errorrecord) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(loadbalancer, query, properties, errorrecord);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)loadbalancer;
     (void)query;
     (void)properties;
     (void)errorrecord;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -795,12 +1031,19 @@ static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_hcnQueryNa
         HMODULE km_h_mod = LoadLibraryA("computenetwork.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HcnQueryNamespaceProperties")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(arg_0_namespace, query, properties, errorrecord) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(arg_0_namespace, query, properties, errorrecord);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)arg_0_namespace;
     (void)query;
     (void)properties;
     (void)errorrecord;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -819,12 +1062,19 @@ static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_hcnQueryNe
         HMODULE km_h_mod = LoadLibraryA("computenetwork.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HcnQueryNetworkProperties")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(network, query, properties, errorrecord) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(network, query, properties, errorrecord);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)network;
     (void)query;
     (void)properties;
     (void)errorrecord;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -843,12 +1093,19 @@ static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_hcnRegiste
         HMODULE km_h_mod = LoadLibraryA("computenetwork.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HcnRegisterGuestNetworkServiceCallback")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(guestnetworkservice, callback, context, callbackhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(guestnetworkservice, callback, context, callbackhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)guestnetworkservice;
     (void)callback;
     (void)context;
     (void)callbackhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -866,11 +1123,18 @@ static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_hcnRegiste
         HMODULE km_h_mod = LoadLibraryA("computenetwork.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HcnRegisterServiceCallback")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(callback, context, callbackhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(callback, context, callbackhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)callback;
     (void)context;
     (void)callbackhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -886,9 +1150,16 @@ static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_hcnRelease
         HMODULE km_h_mod = LoadLibraryA("computenetwork.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HcnReleaseGuestNetworkServicePortReservationHandle")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(portreservationhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(portreservationhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)portreservationhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -908,13 +1179,20 @@ static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_hcnReserve
         HMODULE km_h_mod = LoadLibraryA("computenetwork.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HcnReserveGuestNetworkServicePort")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(guestnetworkservice, protocol, access, port, portreservationhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(guestnetworkservice, protocol, access, port, portreservationhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)guestnetworkservice;
     (void)protocol;
     (void)access;
     (void)port;
     (void)portreservationhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -933,12 +1211,19 @@ static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_hcnReserve
         HMODULE km_h_mod = LoadLibraryA("computenetwork.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HcnReserveGuestNetworkServicePortRange")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(guestnetworkservice, portcount, portrangereservation, portreservationhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(guestnetworkservice, portcount, portrangereservation, portreservationhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)guestnetworkservice;
     (void)portcount;
     (void)portrangereservation;
     (void)portreservationhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -954,9 +1239,16 @@ static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_hcnUnregis
         HMODULE km_h_mod = LoadLibraryA("computenetwork.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HcnUnregisterGuestNetworkServiceCallback")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(callbackhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(callbackhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)callbackhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -972,9 +1264,16 @@ static Napi::Value windowssys_windows_win32_system_hostcomputenetwork_hcnUnregis
         HMODULE km_h_mod = LoadLibraryA("computenetwork.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HcnUnregisterServiceCallback")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(callbackhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(callbackhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)callbackhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

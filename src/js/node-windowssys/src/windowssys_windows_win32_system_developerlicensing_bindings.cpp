@@ -62,10 +62,17 @@ static Napi::Value windowssys_windows_win32_system_developerlicensing_acquireDev
         HMODULE km_h_mod = LoadLibraryA("wsclient.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AcquireDeveloperLicense")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwndparent, pexpiration) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwndparent, pexpiration);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwndparent;
     (void)pexpiration;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -81,9 +88,16 @@ static Napi::Value windowssys_windows_win32_system_developerlicensing_checkDevel
         HMODULE km_h_mod = LoadLibraryA("wsclient.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CheckDeveloperLicense")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pexpiration) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pexpiration);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pexpiration;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -99,9 +113,16 @@ static Napi::Value windowssys_windows_win32_system_developerlicensing_removeDeve
         HMODULE km_h_mod = LoadLibraryA("wsclient.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RemoveDeveloperLicense")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwndparent) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwndparent);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwndparent;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

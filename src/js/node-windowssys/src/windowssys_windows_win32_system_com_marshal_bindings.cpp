@@ -62,10 +62,15 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_bstrUserFree_napi
         HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "BSTR_UserFree")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(param0, param1);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(param0, param1);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)param0;
     (void)param1;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -81,10 +86,15 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_bstrUserFree64_na
         HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "BSTR_UserFree64")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(param0, param1);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(param0, param1);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)param0;
     (void)param1;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -101,12 +111,19 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_bstrUserMarshal_n
         HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "BSTR_UserMarshal")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -123,12 +140,19 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_bstrUserMarshal64
         HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "BSTR_UserMarshal64")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -145,11 +169,18 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_bstrUserSize_napi
         HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "BSTR_UserSize")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -167,11 +198,18 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_bstrUserSize64_na
         HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "BSTR_UserSize64")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -189,12 +227,19 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_bstrUserUnmarshal
         HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "BSTR_UserUnmarshal")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -211,12 +256,19 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_bstrUserUnmarshal
         HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "BSTR_UserUnmarshal64")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -232,10 +284,15 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_clipformatUserFre
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CLIPFORMAT_UserFree")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(param0, param1);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(param0, param1);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)param0;
     (void)param1;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -251,10 +308,15 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_clipformatUserFre
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CLIPFORMAT_UserFree64")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(param0, param1);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(param0, param1);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)param0;
     (void)param1;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -271,12 +333,19 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_clipformatUserMar
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CLIPFORMAT_UserMarshal")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -293,12 +362,19 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_clipformatUserMar
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CLIPFORMAT_UserMarshal64")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -315,11 +391,18 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_clipformatUserSiz
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CLIPFORMAT_UserSize")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -337,11 +420,18 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_clipformatUserSiz
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CLIPFORMAT_UserSize64")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -359,12 +449,19 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_clipformatUserUnm
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CLIPFORMAT_UserUnmarshal")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -381,12 +478,19 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_clipformatUserUnm
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CLIPFORMAT_UserUnmarshal64")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -406,7 +510,13 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_coGetMarshalSizeM
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoGetMarshalSizeMax")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pulsize, riid, punk, dwdestcontext, pvdestcontext, mshlflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pulsize, riid, punk, dwdestcontext, pvdestcontext, mshlflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pulsize;
     (void)riid;
@@ -414,6 +524,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_coGetMarshalSizeM
     (void)dwdestcontext;
     (void)pvdestcontext;
     (void)mshlflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -434,7 +545,13 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_coGetStandardMars
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoGetStandardMarshal")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(riid, punk, dwdestcontext, pvdestcontext, mshlflags, ppmarshal) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(riid, punk, dwdestcontext, pvdestcontext, mshlflags, ppmarshal);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)riid;
     (void)punk;
@@ -442,6 +559,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_coGetStandardMars
     (void)pvdestcontext;
     (void)mshlflags;
     (void)ppmarshal;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -459,11 +577,18 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_coGetStdMarshalEx
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoGetStdMarshalEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(punkouter, smexflags, ppunkinner) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(punkouter, smexflags, ppunkinner);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)punkouter;
     (void)smexflags;
     (void)ppunkinner;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -480,10 +605,17 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_coMarshalHresult_
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoMarshalHresult")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pstm, hresult) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pstm, hresult);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pstm;
     (void)hresult;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -501,11 +633,18 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_coMarshalInterThr
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoMarshalInterThreadInterfaceInStream")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(riid, punk, ppstm) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(riid, punk, ppstm);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)riid;
     (void)punk;
     (void)ppstm;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -526,7 +665,13 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_coMarshalInterfac
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoMarshalInterface")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pstm, riid, punk, dwdestcontext, pvdestcontext, mshlflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pstm, riid, punk, dwdestcontext, pvdestcontext, mshlflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pstm;
     (void)riid;
@@ -534,6 +679,7 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_coMarshalInterfac
     (void)dwdestcontext;
     (void)pvdestcontext;
     (void)mshlflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -549,9 +695,16 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_coReleaseMarshalD
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoReleaseMarshalData")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pstm) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pstm);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pstm;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -568,10 +721,17 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_coUnmarshalHresul
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoUnmarshalHresult")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pstm, phresult) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pstm, phresult);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pstm;
     (void)phresult;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -589,11 +749,18 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_coUnmarshalInterf
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoUnmarshalInterface")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pstm, riid, ppv) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pstm, riid, ppv);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pstm;
     (void)riid;
     (void)ppv;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -610,10 +777,15 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_haccelUserFree_na
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HACCEL_UserFree")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(param0, param1);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(param0, param1);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)param0;
     (void)param1;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -629,10 +801,15 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_haccelUserFree64_
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HACCEL_UserFree64")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(param0, param1);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(param0, param1);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)param0;
     (void)param1;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -649,12 +826,19 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_haccelUserMarshal
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HACCEL_UserMarshal")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -671,12 +855,19 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_haccelUserMarshal
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HACCEL_UserMarshal64")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -693,11 +884,18 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_haccelUserSize_na
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HACCEL_UserSize")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -715,11 +913,18 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_haccelUserSize64_
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HACCEL_UserSize64")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -737,12 +942,19 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_haccelUserUnmarsh
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HACCEL_UserUnmarshal")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -759,12 +971,19 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_haccelUserUnmarsh
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HACCEL_UserUnmarshal64")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -780,10 +999,15 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hbitmapUserFree_n
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HBITMAP_UserFree")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(param0, param1);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(param0, param1);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)param0;
     (void)param1;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -799,10 +1023,15 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hbitmapUserFree64
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HBITMAP_UserFree64")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(param0, param1);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(param0, param1);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)param0;
     (void)param1;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -819,12 +1048,19 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hbitmapUserMarsha
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HBITMAP_UserMarshal")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -841,12 +1077,19 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hbitmapUserMarsha
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HBITMAP_UserMarshal64")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -863,11 +1106,18 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hbitmapUserSize_n
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HBITMAP_UserSize")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -885,11 +1135,18 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hbitmapUserSize64
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HBITMAP_UserSize64")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -907,12 +1164,19 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hbitmapUserUnmars
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HBITMAP_UserUnmarshal")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -929,12 +1193,19 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hbitmapUserUnmars
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HBITMAP_UserUnmarshal64")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -950,10 +1221,15 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hdcUserFree_napi(
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HDC_UserFree")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(param0, param1);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(param0, param1);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)param0;
     (void)param1;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -969,10 +1245,15 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hdcUserFree64_nap
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HDC_UserFree64")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(param0, param1);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(param0, param1);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)param0;
     (void)param1;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -989,12 +1270,19 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hdcUserMarshal_na
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HDC_UserMarshal")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1011,12 +1299,19 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hdcUserMarshal64_
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HDC_UserMarshal64")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1033,11 +1328,18 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hdcUserSize_napi(
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HDC_UserSize")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1055,11 +1357,18 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hdcUserSize64_nap
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HDC_UserSize64")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1077,12 +1386,19 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hdcUserUnmarshal_
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HDC_UserUnmarshal")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1099,12 +1415,19 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hdcUserUnmarshal6
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HDC_UserUnmarshal64")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1120,10 +1443,15 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hglobalUserFree_n
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HGLOBAL_UserFree")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(param0, param1);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(param0, param1);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)param0;
     (void)param1;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -1139,10 +1467,15 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hglobalUserFree64
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HGLOBAL_UserFree64")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(param0, param1);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(param0, param1);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)param0;
     (void)param1;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -1159,12 +1492,19 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hglobalUserMarsha
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HGLOBAL_UserMarshal")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1181,12 +1521,19 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hglobalUserMarsha
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HGLOBAL_UserMarshal64")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1203,11 +1550,18 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hglobalUserSize_n
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HGLOBAL_UserSize")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1225,11 +1579,18 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hglobalUserSize64
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HGLOBAL_UserSize64")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1247,12 +1608,19 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hglobalUserUnmars
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HGLOBAL_UserUnmarshal")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1269,12 +1637,19 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hglobalUserUnmars
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HGLOBAL_UserUnmarshal64")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1290,10 +1665,15 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hiconUserFree_nap
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HICON_UserFree")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(param0, param1);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(param0, param1);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)param0;
     (void)param1;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -1309,10 +1689,15 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hiconUserFree64_n
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HICON_UserFree64")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(param0, param1);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(param0, param1);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)param0;
     (void)param1;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -1329,12 +1714,19 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hiconUserMarshal_
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HICON_UserMarshal")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1351,12 +1743,19 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hiconUserMarshal6
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HICON_UserMarshal64")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1373,11 +1772,18 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hiconUserSize_nap
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HICON_UserSize")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1395,11 +1801,18 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hiconUserSize64_n
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HICON_UserSize64")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1417,12 +1830,19 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hiconUserUnmarsha
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HICON_UserUnmarshal")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1439,12 +1859,19 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hiconUserUnmarsha
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HICON_UserUnmarshal64")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1460,10 +1887,15 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hmenuUserFree_nap
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HMENU_UserFree")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(param0, param1);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(param0, param1);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)param0;
     (void)param1;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -1479,10 +1911,15 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hmenuUserFree64_n
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HMENU_UserFree64")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(param0, param1);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(param0, param1);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)param0;
     (void)param1;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -1499,12 +1936,19 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hmenuUserMarshal_
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HMENU_UserMarshal")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1521,12 +1965,19 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hmenuUserMarshal6
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HMENU_UserMarshal64")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1543,11 +1994,18 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hmenuUserSize_nap
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HMENU_UserSize")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1565,11 +2023,18 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hmenuUserSize64_n
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HMENU_UserSize64")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1587,12 +2052,19 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hmenuUserUnmarsha
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HMENU_UserUnmarshal")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1609,12 +2081,19 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hmenuUserUnmarsha
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HMENU_UserUnmarshal64")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1630,10 +2109,15 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hpaletteUserFree_
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HPALETTE_UserFree")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(param0, param1);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(param0, param1);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)param0;
     (void)param1;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -1649,10 +2133,15 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hpaletteUserFree6
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HPALETTE_UserFree64")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(param0, param1);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(param0, param1);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)param0;
     (void)param1;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -1669,12 +2158,19 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hpaletteUserMarsh
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HPALETTE_UserMarshal")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1691,12 +2187,19 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hpaletteUserMarsh
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HPALETTE_UserMarshal64")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1713,11 +2216,18 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hpaletteUserSize_
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HPALETTE_UserSize")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1735,11 +2245,18 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hpaletteUserSize6
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HPALETTE_UserSize64")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1757,12 +2274,19 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hpaletteUserUnmar
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HPALETTE_UserUnmarshal")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1779,12 +2303,19 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hpaletteUserUnmar
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HPALETTE_UserUnmarshal64")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1800,10 +2331,15 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hwndUserFree_napi
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HWND_UserFree")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(param0, param1);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(param0, param1);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)param0;
     (void)param1;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -1819,10 +2355,15 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hwndUserFree64_na
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HWND_UserFree64")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(param0, param1);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(param0, param1);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)param0;
     (void)param1;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -1839,12 +2380,19 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hwndUserMarshal_n
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HWND_UserMarshal")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1861,12 +2409,19 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hwndUserMarshal64
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HWND_UserMarshal64")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1883,11 +2438,18 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hwndUserSize_napi
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HWND_UserSize")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1905,11 +2467,18 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hwndUserSize64_na
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HWND_UserSize64")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1927,12 +2496,19 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hwndUserUnmarshal
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HWND_UserUnmarshal")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1949,12 +2525,19 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_hwndUserUnmarshal
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HWND_UserUnmarshal64")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1970,10 +2553,15 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_lpsafearrayUserFr
         HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LPSAFEARRAY_UserFree")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(param0, param1);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(param0, param1);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)param0;
     (void)param1;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -1989,10 +2577,15 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_lpsafearrayUserFr
         HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LPSAFEARRAY_UserFree64")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(param0, param1);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(param0, param1);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)param0;
     (void)param1;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -2009,12 +2602,19 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_lpsafearrayUserMa
         HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LPSAFEARRAY_UserMarshal")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -2031,12 +2631,19 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_lpsafearrayUserMa
         HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LPSAFEARRAY_UserMarshal64")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -2053,11 +2660,18 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_lpsafearrayUserSi
         HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LPSAFEARRAY_UserSize")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2075,11 +2689,18 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_lpsafearrayUserSi
         HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LPSAFEARRAY_UserSize64")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2097,12 +2718,19 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_lpsafearrayUserUn
         HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LPSAFEARRAY_UserUnmarshal")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -2119,12 +2747,19 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_lpsafearrayUserUn
         HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LPSAFEARRAY_UserUnmarshal64")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -2140,10 +2775,15 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_snbUserFree_napi(
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SNB_UserFree")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(param0, param1);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(param0, param1);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)param0;
     (void)param1;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -2159,10 +2799,15 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_snbUserFree64_nap
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SNB_UserFree64")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(param0, param1);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(param0, param1);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)param0;
     (void)param1;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -2179,12 +2824,19 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_snbUserMarshal_na
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SNB_UserMarshal")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -2201,12 +2853,19 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_snbUserMarshal64_
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SNB_UserMarshal64")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -2223,11 +2882,18 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_snbUserSize_napi(
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SNB_UserSize")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2245,11 +2911,18 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_snbUserSize64_nap
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SNB_UserSize64")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2267,12 +2940,19 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_snbUserUnmarshal_
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SNB_UserUnmarshal")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -2289,12 +2969,19 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_snbUserUnmarshal6
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SNB_UserUnmarshal64")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -2310,10 +2997,15 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_stgmediumUserFree
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "STGMEDIUM_UserFree")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(param0, param1);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(param0, param1);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)param0;
     (void)param1;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -2329,10 +3021,15 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_stgmediumUserFree
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "STGMEDIUM_UserFree64")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(param0, param1);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(param0, param1);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)param0;
     (void)param1;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -2349,12 +3046,19 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_stgmediumUserMars
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "STGMEDIUM_UserMarshal")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -2371,12 +3075,19 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_stgmediumUserMars
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "STGMEDIUM_UserMarshal64")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -2393,11 +3104,18 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_stgmediumUserSize
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "STGMEDIUM_UserSize")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2415,11 +3133,18 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_stgmediumUserSize
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "STGMEDIUM_UserSize64")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2437,12 +3162,19 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_stgmediumUserUnma
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "STGMEDIUM_UserUnmarshal")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -2459,12 +3191,19 @@ static Napi::Value windowssys_windows_win32_system_com_marshal_stgmediumUserUnma
         HMODULE km_h_mod = LoadLibraryA("ole32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "STGMEDIUM_UserUnmarshal64")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }

@@ -61,10 +61,17 @@ static Napi::Value windowssys_windows_win32_devices_display_brushobjHGetColorTra
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "BRUSHOBJ_hGetColorTransform")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pbo) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pbo);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pbo;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -80,11 +87,18 @@ static Napi::Value windowssys_windows_win32_devices_display_brushobjPvAllocRbrus
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "BRUSHOBJ_pvAllocRbrush")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pbo, cj) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pbo, cj);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pbo;
     (void)cj;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -99,10 +113,17 @@ static Napi::Value windowssys_windows_win32_devices_display_brushobjPvGetRbrush_
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "BRUSHOBJ_pvGetRbrush")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pbo) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pbo);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pbo;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -117,9 +138,16 @@ static Napi::Value windowssys_windows_win32_devices_display_brushobjUlGetBrushCo
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "BRUSHOBJ_ulGetBrushColor")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pbo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pbo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pbo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -137,11 +165,18 @@ static Napi::Value windowssys_windows_win32_devices_display_clipobjBEnum_napi(co
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CLIPOBJ_bEnum")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pco, cj, pul) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pco, cj, pul);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pco;
     (void)cj;
     (void)pul;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -161,13 +196,20 @@ static Napi::Value windowssys_windows_win32_devices_display_clipobjCEnumStart_na
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CLIPOBJ_cEnumStart")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pco, ball, itype, idirection, climit) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pco, ball, itype, idirection, climit);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pco;
     (void)ball;
     (void)itype;
     (void)idirection;
     (void)climit;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -183,10 +225,17 @@ static Napi::Value windowssys_windows_win32_devices_display_clipobjPpoGetPath_na
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CLIPOBJ_ppoGetPath")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pco) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pco);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pco;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -203,11 +252,18 @@ static Napi::Value windowssys_windows_win32_devices_display_capabilitiesRequestA
         HMODULE km_h_mod = LoadLibraryA("dxva2.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CapabilitiesRequestAndCapabilitiesReply")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmonitor, pszasciicapabilitiesstring, dwcapabilitiesstringlengthincharacters) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmonitor, pszasciicapabilitiesstring, dwcapabilitiesstringlengthincharacters);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hmonitor;
     (void)pszasciicapabilitiesstring;
     (void)dwcapabilitiesstringlengthincharacters;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -223,9 +279,16 @@ static Napi::Value windowssys_windows_win32_devices_display_degaussMonitor_napi(
         HMODULE km_h_mod = LoadLibraryA("dxva2.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DegaussMonitor")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmonitor) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmonitor);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hmonitor;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -241,9 +304,16 @@ static Napi::Value windowssys_windows_win32_devices_display_destroyPhysicalMonit
         HMODULE km_h_mod = LoadLibraryA("dxva2.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DestroyPhysicalMonitor")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmonitor) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmonitor);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hmonitor;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -260,10 +330,17 @@ static Napi::Value windowssys_windows_win32_devices_display_destroyPhysicalMonit
         HMODULE km_h_mod = LoadLibraryA("dxva2.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DestroyPhysicalMonitors")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwphysicalmonitorarraysize, pphysicalmonitorarray) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwphysicalmonitorarraysize, pphysicalmonitorarray);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwphysicalmonitorarraysize;
     (void)pphysicalmonitorarray;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -279,9 +356,16 @@ static Napi::Value windowssys_windows_win32_devices_display_displayConfigGetDevi
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DisplayConfigGetDeviceInfo")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(requestpacket) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(requestpacket);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)requestpacket;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -297,9 +381,16 @@ static Napi::Value windowssys_windows_win32_devices_display_displayConfigSetDevi
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DisplayConfigSetDeviceInfo")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(setpacket) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(setpacket);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)setpacket;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -315,9 +406,14 @@ static Napi::Value windowssys_windows_win32_devices_display_engAcquireSemaphore_
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EngAcquireSemaphore")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(hsem);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(hsem);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)hsem;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -338,7 +434,13 @@ static Napi::Value windowssys_windows_win32_devices_display_engAlphaBlend_napi(c
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EngAlphaBlend")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(psodest, psosrc, pco, pxlo, prcldest, prclsrc, pblendobj) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(psodest, psosrc, pco, pxlo, prcldest, prclsrc, pblendobj);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)psodest;
     (void)psosrc;
@@ -347,6 +449,7 @@ static Napi::Value windowssys_windows_win32_devices_display_engAlphaBlend_napi(c
     (void)prcldest;
     (void)prclsrc;
     (void)pblendobj;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -364,11 +467,18 @@ static Napi::Value windowssys_windows_win32_devices_display_engAssociateSurface_
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EngAssociateSurface")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hsurf, hdev, flhooks) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hsurf, hdev, flhooks);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hsurf;
     (void)hdev;
     (void)flhooks;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -394,7 +504,13 @@ static Napi::Value windowssys_windows_win32_devices_display_engBitBlt_napi(const
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EngBitBlt")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(psotrg, psosrc, psomask, pco, pxlo, prcltrg, pptlsrc, pptlmask, pbo, pptlbrush, rop4) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(psotrg, psosrc, psomask, pco, pxlo, prcltrg, pptlsrc, pptlmask, pbo, pptlbrush, rop4);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)psotrg;
     (void)psosrc;
@@ -407,6 +523,7 @@ static Napi::Value windowssys_windows_win32_devices_display_engBitBlt_napi(const
     (void)pbo;
     (void)pptlbrush;
     (void)rop4;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -422,9 +539,16 @@ static Napi::Value windowssys_windows_win32_devices_display_engCheckAbort_napi(c
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EngCheckAbort")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pso) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pso);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pso;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -442,12 +566,19 @@ static Napi::Value windowssys_windows_win32_devices_display_engComputeGlyphSet_n
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EngComputeGlyphSet")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ncodepage, nfirstchar, cchars) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ncodepage, nfirstchar, cchars);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)ncodepage;
     (void)nfirstchar;
     (void)cchars;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -467,7 +598,13 @@ static Napi::Value windowssys_windows_win32_devices_display_engCopyBits_napi(con
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EngCopyBits")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(psodest, psosrc, pco, pxlo, prcldest, pptlsrc) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(psodest, psosrc, pco, pxlo, prcldest, pptlsrc);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)psodest;
     (void)psosrc;
@@ -475,6 +612,7 @@ static Napi::Value windowssys_windows_win32_devices_display_engCopyBits_napi(con
     (void)pxlo;
     (void)prcldest;
     (void)pptlsrc;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -489,9 +627,16 @@ static Napi::Value windowssys_windows_win32_devices_display_engCreateClip_napi(c
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EngCreateClip")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -511,7 +656,13 @@ static Napi::Value windowssys_windows_win32_devices_display_engCreatePalette_nap
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EngCreatePalette")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(imode, ccolors, pulcolors, flred, flgreen, flblue) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(imode, ccolors, pulcolors, flred, flgreen, flblue);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)imode;
     (void)ccolors;
@@ -519,7 +670,8 @@ static Napi::Value windowssys_windows_win32_devices_display_engCreatePalette_nap
     (void)flred;
     (void)flgreen;
     (void)flblue;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -533,9 +685,16 @@ static Napi::Value windowssys_windows_win32_devices_display_engCreateSemaphore_n
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EngCreateSemaphore")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -550,9 +709,14 @@ static Napi::Value windowssys_windows_win32_devices_display_engDeleteClip_napi(c
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EngDeleteClip")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pco);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pco);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pco;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -567,9 +731,16 @@ static Napi::Value windowssys_windows_win32_devices_display_engDeletePalette_nap
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EngDeletePalette")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hpal) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hpal);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hpal;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -585,9 +756,14 @@ static Napi::Value windowssys_windows_win32_devices_display_engDeletePath_napi(c
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EngDeletePath")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(ppo);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(ppo);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)ppo;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -602,9 +778,14 @@ static Napi::Value windowssys_windows_win32_devices_display_engDeleteSemaphore_n
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EngDeleteSemaphore")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(hsem);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(hsem);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)hsem;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -619,9 +800,16 @@ static Napi::Value windowssys_windows_win32_devices_display_engDeleteSurface_nap
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EngDeleteSurface")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hsurf) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hsurf);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hsurf;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -639,11 +827,18 @@ static Napi::Value windowssys_windows_win32_devices_display_engEraseSurface_napi
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EngEraseSurface")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pso, prcl, icolor) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pso, prcl, icolor);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pso;
     (void)prcl;
     (void)icolor;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -665,7 +860,13 @@ static Napi::Value windowssys_windows_win32_devices_display_engFillPath_napi(con
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EngFillPath")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pso, ppo, pco, pbo, pptlbrushorg, mix, floptions) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pso, ppo, pco, pbo, pptlbrushorg, mix, floptions);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pso;
     (void)ppo;
@@ -674,6 +875,7 @@ static Napi::Value windowssys_windows_win32_devices_display_engFillPath_napi(con
     (void)pptlbrushorg;
     (void)mix;
     (void)floptions;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -692,13 +894,20 @@ static Napi::Value windowssys_windows_win32_devices_display_engFindResource_napi
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EngFindResource")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(h, iname, itype, pulsize) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(h, iname, itype, pulsize);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)h;
     (void)iname;
     (void)itype;
     (void)pulsize;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -713,9 +922,14 @@ static Napi::Value windowssys_windows_win32_devices_display_engFreeModule_napi(c
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EngFreeModule")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(h);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(h);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)h;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -731,10 +945,15 @@ static Napi::Value windowssys_windows_win32_devices_display_engGetCurrentCodePag
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EngGetCurrentCodePage")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(oemcodepage, ansicodepage);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(oemcodepage, ansicodepage);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)oemcodepage;
     (void)ansicodepage;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -749,10 +968,17 @@ static Napi::Value windowssys_windows_win32_devices_display_engGetDriverName_nap
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EngGetDriverName")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdev) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdev);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hdev;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -767,10 +993,17 @@ static Napi::Value windowssys_windows_win32_devices_display_engGetPrinterDataFil
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EngGetPrinterDataFileName")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdev) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdev);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hdev;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -794,7 +1027,13 @@ static Napi::Value windowssys_windows_win32_devices_display_engGradientFill_napi
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EngGradientFill")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(psodest, pco, pxlo, pvertex, nvertex, pmesh, nmesh, prclextents, pptlditherorg, ulmode) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(psodest, pco, pxlo, pvertex, nvertex, pmesh, nmesh, prclextents, pptlditherorg, ulmode);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)psodest;
     (void)pco;
@@ -806,6 +1045,7 @@ static Napi::Value windowssys_windows_win32_devices_display_engGradientFill_napi
     (void)prclextents;
     (void)pptlditherorg;
     (void)ulmode;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -829,7 +1069,13 @@ static Napi::Value windowssys_windows_win32_devices_display_engLineTo_napi(const
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EngLineTo")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pso, pco, pbo, x1, y1, x2, y2, prclbounds, mix) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pso, pco, pbo, x1, y1, x2, y2, prclbounds, mix);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pso;
     (void)pco;
@@ -840,6 +1086,7 @@ static Napi::Value windowssys_windows_win32_devices_display_engLineTo_napi(const
     (void)y2;
     (void)prclbounds;
     (void)mix;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -855,10 +1102,17 @@ static Napi::Value windowssys_windows_win32_devices_display_engLoadModule_napi(c
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EngLoadModule")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pwsz) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pwsz);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pwsz;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -873,10 +1127,17 @@ static Napi::Value windowssys_windows_win32_devices_display_engLockSurface_napi(
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EngLockSurface")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hsurf) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hsurf);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hsurf;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -891,9 +1152,16 @@ static Napi::Value windowssys_windows_win32_devices_display_engMarkBandingSurfac
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EngMarkBandingSurface")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hsurf) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hsurf);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hsurf;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -913,13 +1181,18 @@ static Napi::Value windowssys_windows_win32_devices_display_engMultiByteToUnicod
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EngMultiByteToUnicodeN")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(unicodestring, maxbytesinunicodestring, bytesinunicodestring, multibytestring, bytesinmultibytestring);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(unicodestring, maxbytesinunicodestring, bytesinunicodestring, multibytestring, bytesinmultibytestring);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)unicodestring;
     (void)maxbytesinunicodestring;
     (void)bytesinunicodestring;
     (void)multibytestring;
     (void)bytesinmultibytestring;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -938,13 +1211,20 @@ static Napi::Value windowssys_windows_win32_devices_display_engMultiByteToWideCh
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EngMultiByteToWideChar")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(codepage, widecharstring, bytesinwidecharstring, multibytestring, bytesinmultibytestring) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(codepage, widecharstring, bytesinwidecharstring, multibytestring, bytesinmultibytestring);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)codepage;
     (void)widecharstring;
     (void)bytesinwidecharstring;
     (void)multibytestring;
     (void)bytesinmultibytestring;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -964,13 +1244,20 @@ static Napi::Value windowssys_windows_win32_devices_display_engPaint_napi(const 
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EngPaint")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pso, pco, pbo, pptlbrushorg, mix) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pso, pco, pbo, pptlbrushorg, mix);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pso;
     (void)pco;
     (void)pbo;
     (void)pptlbrushorg;
     (void)mix;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -996,7 +1283,13 @@ static Napi::Value windowssys_windows_win32_devices_display_engPlgBlt_napi(const
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EngPlgBlt")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(psotrg, psosrc, psomsk, pco, pxlo, pca, pptlbrushorg, pptfx, prcl, pptl, imode) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(psotrg, psosrc, psomsk, pco, pxlo, pca, pptlbrushorg, pptfx, prcl, pptl, imode);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)psotrg;
     (void)psosrc;
@@ -1009,6 +1302,7 @@ static Napi::Value windowssys_windows_win32_devices_display_engPlgBlt_napi(const
     (void)prcl;
     (void)pptl;
     (void)imode;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1025,10 +1319,17 @@ static Napi::Value windowssys_windows_win32_devices_display_engQueryEMFInfo_napi
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EngQueryEMFInfo")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdev, pemfinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdev, pemfinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdev;
     (void)pemfinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1044,9 +1345,14 @@ static Napi::Value windowssys_windows_win32_devices_display_engQueryLocalTime_na
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EngQueryLocalTime")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(param0);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(param0);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)param0;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -1061,9 +1367,14 @@ static Napi::Value windowssys_windows_win32_devices_display_engReleaseSemaphore_
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EngReleaseSemaphore")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(hsem);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(hsem);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)hsem;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -1088,7 +1399,13 @@ static Napi::Value windowssys_windows_win32_devices_display_engStretchBlt_napi(c
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EngStretchBlt")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(psodest, psosrc, psomask, pco, pxlo, pca, pptlhtorg, prcldest, prclsrc, pptlmask, imode) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(psodest, psosrc, psomask, pco, pxlo, pca, pptlhtorg, prcldest, prclsrc, pptlmask, imode);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)psodest;
     (void)psosrc;
@@ -1101,6 +1418,7 @@ static Napi::Value windowssys_windows_win32_devices_display_engStretchBlt_napi(c
     (void)prclsrc;
     (void)pptlmask;
     (void)imode;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1128,7 +1446,13 @@ static Napi::Value windowssys_windows_win32_devices_display_engStretchBltROP_nap
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EngStretchBltROP")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(psodest, psosrc, psomask, pco, pxlo, pca, pptlhtorg, prcldest, prclsrc, pptlmask, imode, pbo, rop4) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(psodest, psosrc, psomask, pco, pxlo, pca, pptlhtorg, prcldest, prclsrc, pptlmask, imode, pbo, rop4);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)psodest;
     (void)psosrc;
@@ -1143,6 +1467,7 @@ static Napi::Value windowssys_windows_win32_devices_display_engStretchBltROP_nap
     (void)imode;
     (void)pbo;
     (void)rop4;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1167,7 +1492,13 @@ static Napi::Value windowssys_windows_win32_devices_display_engStrokeAndFillPath
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EngStrokeAndFillPath")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pso, ppo, pco, pxo, pbostroke, plineattrs, pbofill, pptlbrushorg, mixfill, floptions) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pso, ppo, pco, pxo, pbostroke, plineattrs, pbofill, pptlbrushorg, mixfill, floptions);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pso;
     (void)ppo;
@@ -1179,6 +1510,7 @@ static Napi::Value windowssys_windows_win32_devices_display_engStrokeAndFillPath
     (void)pptlbrushorg;
     (void)mixfill;
     (void)floptions;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1201,7 +1533,13 @@ static Napi::Value windowssys_windows_win32_devices_display_engStrokePath_napi(c
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EngStrokePath")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pso, ppo, pco, pxo, pbo, pptlbrushorg, plineattrs, mix) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pso, ppo, pco, pxo, pbo, pptlbrushorg, plineattrs, mix);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pso;
     (void)ppo;
@@ -1211,6 +1549,7 @@ static Napi::Value windowssys_windows_win32_devices_display_engStrokePath_napi(c
     (void)pptlbrushorg;
     (void)plineattrs;
     (void)mix;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1235,7 +1574,13 @@ static Napi::Value windowssys_windows_win32_devices_display_engTextOut_napi(cons
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EngTextOut")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pso, pstro, pfo, pco, prclextra, prclopaque, pbofore, pboopaque, pptlorg, mix) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pso, pstro, pfo, pco, prclextra, prclopaque, pbofore, pboopaque, pptlorg, mix);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pso;
     (void)pstro;
@@ -1247,6 +1592,7 @@ static Napi::Value windowssys_windows_win32_devices_display_engTextOut_napi(cons
     (void)pboopaque;
     (void)pptlorg;
     (void)mix;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1269,7 +1615,13 @@ static Napi::Value windowssys_windows_win32_devices_display_engTransparentBlt_na
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EngTransparentBlt")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(psodst, psosrc, pco, pxlo, prcldst, prclsrc, transcolor, bcalledfrombitblt) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(psodst, psosrc, pco, pxlo, prcldst, prclsrc, transcolor, bcalledfrombitblt);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)psodst;
     (void)psosrc;
@@ -1279,6 +1631,7 @@ static Napi::Value windowssys_windows_win32_devices_display_engTransparentBlt_na
     (void)prclsrc;
     (void)transcolor;
     (void)bcalledfrombitblt;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1298,13 +1651,18 @@ static Napi::Value windowssys_windows_win32_devices_display_engUnicodeToMultiByt
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EngUnicodeToMultiByteN")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(multibytestring, maxbytesinmultibytestring, bytesinmultibytestring, unicodestring, bytesinunicodestring);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(multibytestring, maxbytesinmultibytestring, bytesinmultibytestring, unicodestring, bytesinunicodestring);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)multibytestring;
     (void)maxbytesinmultibytestring;
     (void)bytesinmultibytestring;
     (void)unicodestring;
     (void)bytesinunicodestring;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -1319,9 +1677,14 @@ static Napi::Value windowssys_windows_win32_devices_display_engUnlockSurface_nap
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EngUnlockSurface")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pso);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pso);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pso;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -1340,13 +1703,20 @@ static Napi::Value windowssys_windows_win32_devices_display_engWideCharToMultiBy
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EngWideCharToMultiByte")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(codepage, widecharstring, bytesinwidecharstring, multibytestring, bytesinmultibytestring) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(codepage, widecharstring, bytesinwidecharstring, multibytestring, bytesinmultibytestring);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)codepage;
     (void)widecharstring;
     (void)bytesinwidecharstring;
     (void)multibytestring;
     (void)bytesinmultibytestring;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1363,10 +1733,17 @@ static Napi::Value windowssys_windows_win32_devices_display_fontobjCGetAllGlyphH
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FONTOBJ_cGetAllGlyphHandles")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pfo, phg) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pfo, phg);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pfo;
     (void)phg;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1386,13 +1763,20 @@ static Napi::Value windowssys_windows_win32_devices_display_fontobjCGetGlyphs_na
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FONTOBJ_cGetGlyphs")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pfo, imode, cglyph, phg, ppvglyph) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pfo, imode, cglyph, phg, ppvglyph);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pfo;
     (void)imode;
     (void)cglyph;
     (void)phg;
     (void)ppvglyph;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1409,11 +1793,18 @@ static Napi::Value windowssys_windows_win32_devices_display_fontobjPQueryGlyphAt
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FONTOBJ_pQueryGlyphAttrs")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pfo, imode) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pfo, imode);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pfo;
     (void)imode;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1428,10 +1819,17 @@ static Napi::Value windowssys_windows_win32_devices_display_fontobjPfdg_napi(con
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FONTOBJ_pfdg")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pfo) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pfo);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pfo;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1446,10 +1844,17 @@ static Napi::Value windowssys_windows_win32_devices_display_fontobjPifi_napi(con
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FONTOBJ_pifi")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pfo) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pfo);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pfo;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1465,11 +1870,18 @@ static Napi::Value windowssys_windows_win32_devices_display_fontobjPvTrueTypeFon
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FONTOBJ_pvTrueTypeFontFile")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pfo, pcjfile) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pfo, pcjfile);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pfo;
     (void)pcjfile;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1484,10 +1896,17 @@ static Napi::Value windowssys_windows_win32_devices_display_fontobjPxoGetXform_n
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FONTOBJ_pxoGetXform")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pfo) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pfo);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pfo;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1504,11 +1923,16 @@ static Napi::Value windowssys_windows_win32_devices_display_fontobjVGetInfo_napi
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FONTOBJ_vGetInfo")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pfo, cjsize, pfi);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pfo, cjsize, pfi);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pfo;
     (void)cjsize;
     (void)pfi;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -1523,9 +1947,16 @@ static Napi::Value windowssys_windows_win32_devices_display_getAutoRotationState
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetAutoRotationState")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pstate) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pstate);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pstate;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1542,10 +1973,17 @@ static Napi::Value windowssys_windows_win32_devices_display_getCapabilitiesStrin
         HMODULE km_h_mod = LoadLibraryA("dxva2.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetCapabilitiesStringLength")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmonitor, pdwcapabilitiesstringlengthincharacters) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmonitor, pdwcapabilitiesstringlengthincharacters);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hmonitor;
     (void)pdwcapabilitiesstringlengthincharacters;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1561,9 +1999,16 @@ static Napi::Value windowssys_windows_win32_devices_display_getDisplayAutoRotati
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetDisplayAutoRotationPreferences")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(porientation) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(porientation);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)porientation;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1581,11 +2026,18 @@ static Napi::Value windowssys_windows_win32_devices_display_getDisplayConfigBuff
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetDisplayConfigBufferSizes")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(flags, numpatharrayelements, nummodeinfoarrayelements) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(flags, numpatharrayelements, nummodeinfoarrayelements);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)flags;
     (void)numpatharrayelements;
     (void)nummodeinfoarrayelements;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1604,12 +2056,19 @@ static Napi::Value windowssys_windows_win32_devices_display_getMonitorBrightness
         HMODULE km_h_mod = LoadLibraryA("dxva2.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetMonitorBrightness")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmonitor, pdwminimumbrightness, pdwcurrentbrightness, pdwmaximumbrightness) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmonitor, pdwminimumbrightness, pdwcurrentbrightness, pdwmaximumbrightness);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hmonitor;
     (void)pdwminimumbrightness;
     (void)pdwcurrentbrightness;
     (void)pdwmaximumbrightness;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1627,11 +2086,18 @@ static Napi::Value windowssys_windows_win32_devices_display_getMonitorCapabiliti
         HMODULE km_h_mod = LoadLibraryA("dxva2.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetMonitorCapabilities")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmonitor, pdwmonitorcapabilities, pdwsupportedcolortemperatures) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmonitor, pdwmonitorcapabilities, pdwsupportedcolortemperatures);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hmonitor;
     (void)pdwmonitorcapabilities;
     (void)pdwsupportedcolortemperatures;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1648,10 +2114,17 @@ static Napi::Value windowssys_windows_win32_devices_display_getMonitorColorTempe
         HMODULE km_h_mod = LoadLibraryA("dxva2.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetMonitorColorTemperature")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmonitor, pctcurrentcolortemperature) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmonitor, pctcurrentcolortemperature);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hmonitor;
     (void)pctcurrentcolortemperature;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1670,12 +2143,19 @@ static Napi::Value windowssys_windows_win32_devices_display_getMonitorContrast_n
         HMODULE km_h_mod = LoadLibraryA("dxva2.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetMonitorContrast")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmonitor, pdwminimumcontrast, pdwcurrentcontrast, pdwmaximumcontrast) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmonitor, pdwminimumcontrast, pdwcurrentcontrast, pdwmaximumcontrast);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hmonitor;
     (void)pdwminimumcontrast;
     (void)pdwcurrentcontrast;
     (void)pdwmaximumcontrast;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1695,13 +2175,20 @@ static Napi::Value windowssys_windows_win32_devices_display_getMonitorDisplayAre
         HMODULE km_h_mod = LoadLibraryA("dxva2.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetMonitorDisplayAreaPosition")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmonitor, ptpositiontype, pdwminimumposition, pdwcurrentposition, pdwmaximumposition) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmonitor, ptpositiontype, pdwminimumposition, pdwcurrentposition, pdwmaximumposition);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hmonitor;
     (void)ptpositiontype;
     (void)pdwminimumposition;
     (void)pdwcurrentposition;
     (void)pdwmaximumposition;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1721,13 +2208,20 @@ static Napi::Value windowssys_windows_win32_devices_display_getMonitorDisplayAre
         HMODULE km_h_mod = LoadLibraryA("dxva2.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetMonitorDisplayAreaSize")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmonitor, stsizetype, pdwminimumwidthorheight, pdwcurrentwidthorheight, pdwmaximumwidthorheight) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmonitor, stsizetype, pdwminimumwidthorheight, pdwcurrentwidthorheight, pdwmaximumwidthorheight);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hmonitor;
     (void)stsizetype;
     (void)pdwminimumwidthorheight;
     (void)pdwcurrentwidthorheight;
     (void)pdwmaximumwidthorheight;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1747,13 +2241,20 @@ static Napi::Value windowssys_windows_win32_devices_display_getMonitorRedGreenOr
         HMODULE km_h_mod = LoadLibraryA("dxva2.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetMonitorRedGreenOrBlueDrive")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmonitor, dtdrivetype, pdwminimumdrive, pdwcurrentdrive, pdwmaximumdrive) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmonitor, dtdrivetype, pdwminimumdrive, pdwcurrentdrive, pdwmaximumdrive);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hmonitor;
     (void)dtdrivetype;
     (void)pdwminimumdrive;
     (void)pdwcurrentdrive;
     (void)pdwmaximumdrive;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1773,13 +2274,20 @@ static Napi::Value windowssys_windows_win32_devices_display_getMonitorRedGreenOr
         HMODULE km_h_mod = LoadLibraryA("dxva2.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetMonitorRedGreenOrBlueGain")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmonitor, gtgaintype, pdwminimumgain, pdwcurrentgain, pdwmaximumgain) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmonitor, gtgaintype, pdwminimumgain, pdwcurrentgain, pdwmaximumgain);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hmonitor;
     (void)gtgaintype;
     (void)pdwminimumgain;
     (void)pdwcurrentgain;
     (void)pdwmaximumgain;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1796,10 +2304,17 @@ static Napi::Value windowssys_windows_win32_devices_display_getMonitorTechnology
         HMODULE km_h_mod = LoadLibraryA("dxva2.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetMonitorTechnologyType")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmonitor, pdtydisplaytechnologytype) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmonitor, pdtydisplaytechnologytype);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hmonitor;
     (void)pdtydisplaytechnologytype;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1816,10 +2331,17 @@ static Napi::Value windowssys_windows_win32_devices_display_getNumberOfPhysicalM
         HMODULE km_h_mod = LoadLibraryA("dxva2.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetNumberOfPhysicalMonitorsFromHMONITOR")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmonitor, pdwnumberofphysicalmonitors) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmonitor, pdwnumberofphysicalmonitors);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hmonitor;
     (void)pdwnumberofphysicalmonitors;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1837,11 +2359,18 @@ static Napi::Value windowssys_windows_win32_devices_display_getPhysicalMonitorsF
         HMODULE km_h_mod = LoadLibraryA("dxva2.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetPhysicalMonitorsFromHMONITOR")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmonitor, dwphysicalmonitorarraysize, pphysicalmonitorarray) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmonitor, dwphysicalmonitorarraysize, pphysicalmonitorarray);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hmonitor;
     (void)dwphysicalmonitorarraysize;
     (void)pphysicalmonitorarray;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1858,10 +2387,17 @@ static Napi::Value windowssys_windows_win32_devices_display_getTimingReport_napi
         HMODULE km_h_mod = LoadLibraryA("dxva2.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetTimingReport")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmonitor, pmtrmonitortimingreport) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmonitor, pmtrmonitortimingreport);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hmonitor;
     (void)pmtrmonitortimingreport;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1881,13 +2417,20 @@ static Napi::Value windowssys_windows_win32_devices_display_getVCPFeatureAndVCPF
         HMODULE km_h_mod = LoadLibraryA("dxva2.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetVCPFeatureAndVCPFeatureReply")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmonitor, bvcpcode, pvct, pdwcurrentvalue, pdwmaximumvalue) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmonitor, bvcpcode, pvct, pdwcurrentvalue, pdwmaximumvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hmonitor;
     (void)bvcpcode;
     (void)pvct;
     (void)pdwcurrentvalue;
     (void)pdwmaximumvalue;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1906,12 +2449,19 @@ static Napi::Value windowssys_windows_win32_devices_display_htGet8BppformatPalet
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HT_Get8BPPFormatPalette")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ppaletteentry, redgamma, greengamma, bluegamma) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ppaletteentry, redgamma, greengamma, bluegamma);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ppaletteentry;
     (void)redgamma;
     (void)greengamma;
     (void)bluegamma;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1932,7 +2482,13 @@ static Napi::Value windowssys_windows_win32_devices_display_htGet8BppmaskPalette
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HT_Get8BPPMaskPalette")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ppaletteentry, use8bppmaskpal, cmymask, redgamma, greengamma, bluegamma) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ppaletteentry, use8bppmaskpal, cmymask, redgamma, greengamma, bluegamma);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ppaletteentry;
     (void)use8bppmaskpal;
@@ -1940,6 +2496,7 @@ static Napi::Value windowssys_windows_win32_devices_display_htGet8BppmaskPalette
     (void)redgamma;
     (void)greengamma;
     (void)bluegamma;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1956,10 +2513,17 @@ static Napi::Value windowssys_windows_win32_devices_display_pathobjBEnum_napi(co
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PATHOBJ_bEnum")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ppo, ppd) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ppo, ppd);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ppo;
     (void)ppd;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1977,11 +2541,18 @@ static Napi::Value windowssys_windows_win32_devices_display_pathobjBEnumClipLine
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PATHOBJ_bEnumClipLines")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ppo, cb, pcl) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ppo, cb, pcl);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ppo;
     (void)cb;
     (void)pcl;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1997,9 +2568,14 @@ static Napi::Value windowssys_windows_win32_devices_display_pathobjVEnumStart_na
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PATHOBJ_vEnumStart")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(ppo);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(ppo);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)ppo;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -2017,12 +2593,17 @@ static Napi::Value windowssys_windows_win32_devices_display_pathobjVEnumStartCli
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PATHOBJ_vEnumStartClipLines")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(ppo, pco, pso, pla);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(ppo, pco, pso, pla);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)ppo;
     (void)pco;
     (void)pso;
     (void)pla;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -2038,10 +2619,15 @@ static Napi::Value windowssys_windows_win32_devices_display_pathobjVGetBounds_na
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PATHOBJ_vGetBounds")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(ppo, prectfx);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(ppo, prectfx);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)ppo;
     (void)prectfx;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -2061,7 +2647,13 @@ static Napi::Value windowssys_windows_win32_devices_display_queryDisplayConfig_n
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "QueryDisplayConfig")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(flags, numpatharrayelements, patharray, nummodeinfoarrayelements, modeinfoarray, currenttopologyid) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(flags, numpatharrayelements, patharray, nummodeinfoarrayelements, modeinfoarray, currenttopologyid);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)flags;
     (void)numpatharrayelements;
@@ -2069,6 +2661,7 @@ static Napi::Value windowssys_windows_win32_devices_display_queryDisplayConfig_n
     (void)nummodeinfoarrayelements;
     (void)modeinfoarray;
     (void)currenttopologyid;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2084,9 +2677,16 @@ static Napi::Value windowssys_windows_win32_devices_display_restoreMonitorFactor
         HMODULE km_h_mod = LoadLibraryA("dxva2.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RestoreMonitorFactoryColorDefaults")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmonitor) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmonitor);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hmonitor;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2102,9 +2702,16 @@ static Napi::Value windowssys_windows_win32_devices_display_restoreMonitorFactor
         HMODULE km_h_mod = LoadLibraryA("dxva2.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RestoreMonitorFactoryDefaults")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmonitor) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmonitor);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hmonitor;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2122,11 +2729,18 @@ static Napi::Value windowssys_windows_win32_devices_display_strobjBEnum_napi(con
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "STROBJ_bEnum")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pstro, pc, ppgpos) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pstro, pc, ppgpos);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pstro;
     (void)pc;
     (void)ppgpos;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2144,11 +2758,18 @@ static Napi::Value windowssys_windows_win32_devices_display_strobjBEnumPositions
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "STROBJ_bEnumPositionsOnly")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pstro, pc, ppgpos) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pstro, pc, ppgpos);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pstro;
     (void)pc;
     (void)ppgpos;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2167,12 +2788,19 @@ static Napi::Value windowssys_windows_win32_devices_display_strobjBGetAdvanceWid
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "STROBJ_bGetAdvanceWidths")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pso, ifirst, c, pptqd) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pso, ifirst, c, pptqd);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pso;
     (void)ifirst;
     (void)c;
     (void)pptqd;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2188,9 +2816,16 @@ static Napi::Value windowssys_windows_win32_devices_display_strobjDwGetCodePage_
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "STROBJ_dwGetCodePage")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pstro) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pstro);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pstro;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2206,9 +2841,14 @@ static Napi::Value windowssys_windows_win32_devices_display_strobjVEnumStart_nap
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "STROBJ_vEnumStart")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pstro);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pstro);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pstro;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -2223,9 +2863,16 @@ static Napi::Value windowssys_windows_win32_devices_display_saveCurrentMonitorSe
         HMODULE km_h_mod = LoadLibraryA("dxva2.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SaveCurrentMonitorSettings")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmonitor) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmonitor);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hmonitor;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2241,9 +2888,16 @@ static Napi::Value windowssys_windows_win32_devices_display_saveCurrentSettings_
         HMODULE km_h_mod = LoadLibraryA("dxva2.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SaveCurrentSettings")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmonitor) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmonitor);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hmonitor;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2259,9 +2913,16 @@ static Napi::Value windowssys_windows_win32_devices_display_setDisplayAutoRotati
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetDisplayAutoRotationPreferences")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(orientation) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(orientation);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)orientation;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2281,13 +2942,20 @@ static Napi::Value windowssys_windows_win32_devices_display_setDisplayConfig_nap
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetDisplayConfig")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(numpatharrayelements, patharray, nummodeinfoarrayelements, modeinfoarray, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(numpatharrayelements, patharray, nummodeinfoarrayelements, modeinfoarray, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)numpatharrayelements;
     (void)patharray;
     (void)nummodeinfoarrayelements;
     (void)modeinfoarray;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2304,10 +2972,17 @@ static Napi::Value windowssys_windows_win32_devices_display_setMonitorBrightness
         HMODULE km_h_mod = LoadLibraryA("dxva2.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetMonitorBrightness")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmonitor, dwnewbrightness) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmonitor, dwnewbrightness);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hmonitor;
     (void)dwnewbrightness;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2324,10 +2999,17 @@ static Napi::Value windowssys_windows_win32_devices_display_setMonitorColorTempe
         HMODULE km_h_mod = LoadLibraryA("dxva2.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetMonitorColorTemperature")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmonitor, ctcurrentcolortemperature) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmonitor, ctcurrentcolortemperature);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hmonitor;
     (void)ctcurrentcolortemperature;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2344,10 +3026,17 @@ static Napi::Value windowssys_windows_win32_devices_display_setMonitorContrast_n
         HMODULE km_h_mod = LoadLibraryA("dxva2.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetMonitorContrast")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmonitor, dwnewcontrast) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmonitor, dwnewcontrast);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hmonitor;
     (void)dwnewcontrast;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2365,11 +3054,18 @@ static Napi::Value windowssys_windows_win32_devices_display_setMonitorDisplayAre
         HMODULE km_h_mod = LoadLibraryA("dxva2.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetMonitorDisplayAreaPosition")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmonitor, ptpositiontype, dwnewposition) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmonitor, ptpositiontype, dwnewposition);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hmonitor;
     (void)ptpositiontype;
     (void)dwnewposition;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2387,11 +3083,18 @@ static Napi::Value windowssys_windows_win32_devices_display_setMonitorDisplayAre
         HMODULE km_h_mod = LoadLibraryA("dxva2.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetMonitorDisplayAreaSize")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmonitor, stsizetype, dwnewdisplayareawidthorheight) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmonitor, stsizetype, dwnewdisplayareawidthorheight);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hmonitor;
     (void)stsizetype;
     (void)dwnewdisplayareawidthorheight;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2409,11 +3112,18 @@ static Napi::Value windowssys_windows_win32_devices_display_setMonitorRedGreenOr
         HMODULE km_h_mod = LoadLibraryA("dxva2.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetMonitorRedGreenOrBlueDrive")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmonitor, dtdrivetype, dwnewdrive) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmonitor, dtdrivetype, dwnewdrive);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hmonitor;
     (void)dtdrivetype;
     (void)dwnewdrive;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2431,11 +3141,18 @@ static Napi::Value windowssys_windows_win32_devices_display_setMonitorRedGreenOr
         HMODULE km_h_mod = LoadLibraryA("dxva2.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetMonitorRedGreenOrBlueGain")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmonitor, gtgaintype, dwnewgain) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmonitor, gtgaintype, dwnewgain);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hmonitor;
     (void)gtgaintype;
     (void)dwnewgain;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2453,11 +3170,18 @@ static Napi::Value windowssys_windows_win32_devices_display_setVCPFeature_napi(c
         HMODULE km_h_mod = LoadLibraryA("dxva2.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetVCPFeature")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmonitor, bvcpcode, dwnewvalue) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmonitor, bvcpcode, dwnewvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hmonitor;
     (void)bvcpcode;
     (void)dwnewvalue;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2477,13 +3201,20 @@ static Napi::Value windowssys_windows_win32_devices_display_xformobjBApplyXform_
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "XFORMOBJ_bApplyXform")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pxo, imode, cpoints, pvin, pvout) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pxo, imode, cpoints, pvin, pvout);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pxo;
     (void)imode;
     (void)cpoints;
     (void)pvin;
     (void)pvout;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2500,10 +3231,17 @@ static Napi::Value windowssys_windows_win32_devices_display_xformobjIGetXform_na
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "XFORMOBJ_iGetXform")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pxo, pxform) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pxo, pxform);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pxo;
     (void)pxform;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2522,12 +3260,19 @@ static Napi::Value windowssys_windows_win32_devices_display_xlateobjCGetPalette_
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "XLATEOBJ_cGetPalette")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pxlo, ipal, cpal, ppal) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pxlo, ipal, cpal, ppal);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pxlo;
     (void)ipal;
     (void)cpal;
     (void)ppal;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2543,10 +3288,17 @@ static Napi::Value windowssys_windows_win32_devices_display_xlateobjHGetColorTra
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "XLATEOBJ_hGetColorTransform")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pxlo) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pxlo);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pxlo;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -2562,10 +3314,17 @@ static Napi::Value windowssys_windows_win32_devices_display_xlateobjIXlate_napi(
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "XLATEOBJ_iXlate")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pxlo, icolor) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pxlo, icolor);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pxlo;
     (void)icolor;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2581,10 +3340,17 @@ static Napi::Value windowssys_windows_win32_devices_display_xlateobjPiVector_nap
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "XLATEOBJ_piVector")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pxlo) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pxlo);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pxlo;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }

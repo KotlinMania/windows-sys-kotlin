@@ -64,13 +64,20 @@ static Napi::Value windowssys_windows_win32_system_mailslots_createMailslotA_nap
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateMailslotA")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpname, nmaxmessagesize, lreadtimeout, lpsecurityattributes) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpname, nmaxmessagesize, lreadtimeout, lpsecurityattributes);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)lpname;
     (void)nmaxmessagesize;
     (void)lreadtimeout;
     (void)lpsecurityattributes;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -88,13 +95,20 @@ static Napi::Value windowssys_windows_win32_system_mailslots_createMailslotW_nap
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateMailslotW")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpname, nmaxmessagesize, lreadtimeout, lpsecurityattributes) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpname, nmaxmessagesize, lreadtimeout, lpsecurityattributes);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)lpname;
     (void)nmaxmessagesize;
     (void)lreadtimeout;
     (void)lpsecurityattributes;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -113,13 +127,20 @@ static Napi::Value windowssys_windows_win32_system_mailslots_getMailslotInfo_nap
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetMailslotInfo")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmailslot, lpmaxmessagesize, lpnextsize, lpmessagecount, lpreadtimeout) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmailslot, lpmaxmessagesize, lpnextsize, lpmessagecount, lpreadtimeout);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hmailslot;
     (void)lpmaxmessagesize;
     (void)lpnextsize;
     (void)lpmessagecount;
     (void)lpreadtimeout;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -136,10 +157,17 @@ static Napi::Value windowssys_windows_win32_system_mailslots_setMailslotInfo_nap
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetMailslotInfo")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmailslot, lreadtimeout) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmailslot, lreadtimeout);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hmailslot;
     (void)lreadtimeout;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

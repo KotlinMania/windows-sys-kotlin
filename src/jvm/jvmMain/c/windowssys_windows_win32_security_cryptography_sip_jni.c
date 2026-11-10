@@ -5,6 +5,7 @@
 #include <stdbool.h>
 #include <stddef.h>
 #include <stdint.h>
+#include <stdlib.h>
 #include <errno.h>
 #ifdef _WIN32
 #ifndef WIN32_LEAN_AND_MEAN
@@ -28,9 +29,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptSIPAddProvider");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)psnewprov) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)psnewprov);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)psnewprov;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -46,11 +54,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptSIPCreateIndirectData");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)psubjectinfo, (void*)(uintptr_t)pcbindirectdata, (void*)(uintptr_t)pindirectdata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)psubjectinfo, (void*)(uintptr_t)pcbindirectdata, (void*)(uintptr_t)pindirectdata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)psubjectinfo;
     (void)pcbindirectdata;
     (void)pindirectdata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -66,10 +81,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptSIPGetCaps");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)psubjinfo, (void*)(uintptr_t)pcaps) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)psubjinfo, (void*)(uintptr_t)pcaps);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)psubjinfo;
     (void)pcaps;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -85,13 +107,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptSIPGetSealedDigest");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)psubjectinfo, (void*)(uintptr_t)psig, (uint32_t)dwsig, (void*)(uintptr_t)pbdigest, (void*)(uintptr_t)pcbdigest) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)psubjectinfo, (void*)(uintptr_t)psig, (uint32_t)dwsig, (void*)(uintptr_t)pbdigest, (void*)(uintptr_t)pcbdigest);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)psubjectinfo;
     (void)psig;
     (void)dwsig;
     (void)pbdigest;
     (void)pcbdigest;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -107,13 +136,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptSIPGetSignedDataMsg");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)psubjectinfo, (void*)(uintptr_t)pdwencodingtype, (uint32_t)dwindex, (void*)(uintptr_t)pcbsigneddatamsg, (void*)(uintptr_t)pbsigneddatamsg) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)psubjectinfo, (void*)(uintptr_t)pdwencodingtype, (uint32_t)dwindex, (void*)(uintptr_t)pcbsigneddatamsg, (void*)(uintptr_t)pbsigneddatamsg);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)psubjectinfo;
     (void)pdwencodingtype;
     (void)dwindex;
     (void)pcbsigneddatamsg;
     (void)pbsigneddatamsg;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -129,11 +165,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptSIPLoad");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pgsubject, (uint32_t)dwflags, (void*)(uintptr_t)psipdispatch) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pgsubject, (uint32_t)dwflags, (void*)(uintptr_t)psipdispatch);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pgsubject;
     (void)dwflags;
     (void)psipdispatch;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -149,13 +192,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptSIPPutSignedDataMsg");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)psubjectinfo, (uint32_t)dwencodingtype, (void*)(uintptr_t)pdwindex, (uint32_t)cbsigneddatamsg, (void*)(uintptr_t)pbsigneddatamsg) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)psubjectinfo, (uint32_t)dwencodingtype, (void*)(uintptr_t)pdwindex, (uint32_t)cbsigneddatamsg, (void*)(uintptr_t)pbsigneddatamsg);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)psubjectinfo;
     (void)dwencodingtype;
     (void)pdwindex;
     (void)cbsigneddatamsg;
     (void)pbsigneddatamsg;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -171,9 +221,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptSIPRemoveProvider");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pgprov) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pgprov);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pgprov;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -189,10 +246,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptSIPRemoveSignedDataMsg");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)psubjectinfo, (uint32_t)dwindex) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)psubjectinfo, (uint32_t)dwindex);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)psubjectinfo;
     (void)dwindex;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -208,11 +272,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptSIPRetrieveSubjectGuid");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)filename, (void*)(uintptr_t)hfilein, (void*)(uintptr_t)pgsubject) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)filename, (void*)(uintptr_t)hfilein, (void*)(uintptr_t)pgsubject);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)filename;
     (void)hfilein;
     (void)pgsubject;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -228,11 +299,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptSIPRetrieveSubjectGuidForCatalogFile");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)filename, (void*)(uintptr_t)hfilein, (void*)(uintptr_t)pgsubject) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)filename, (void*)(uintptr_t)hfilein, (void*)(uintptr_t)pgsubject);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)filename;
     (void)hfilein;
     (void)pgsubject;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -248,10 +326,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptSIPVerifyIndirectData");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)psubjectinfo, (void*)(uintptr_t)pindirectdata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)psubjectinfo, (void*)(uintptr_t)pindirectdata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)psubjectinfo;
     (void)pindirectdata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;

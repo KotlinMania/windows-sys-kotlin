@@ -61,9 +61,14 @@ static Napi::Value windowssys_windows_win32_networkmanagement_windowsconnectionm
         HMODULE km_h_mod = LoadLibraryA("ondemandconnroutehelper.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FreeInterfaceContextTable")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(interfacecontexttable);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(interfacecontexttable);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)interfacecontexttable;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -83,7 +88,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_windowsconnectionm
         HMODULE km_h_mod = LoadLibraryA("ondemandconnroutehelper.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetInterfaceContextTableForHostName")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hostname, proxyname, flags, connectionprofilefilterrawdata, connectionprofilefilterrawdatasize, interfacecontexttable) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hostname, proxyname, flags, connectionprofilefilterrawdata, connectionprofilefilterrawdatasize, interfacecontexttable);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hostname;
     (void)proxyname;
@@ -91,6 +102,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_windowsconnectionm
     (void)connectionprofilefilterrawdata;
     (void)connectionprofilefilterrawdatasize;
     (void)interfacecontexttable;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -107,10 +119,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_windowsconnectionm
         HMODULE km_h_mod = LoadLibraryA("ondemandconnroutehelper.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OnDemandGetRoutingHint")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(destinationhostname, interfaceindex) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(destinationhostname, interfaceindex);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)destinationhostname;
     (void)interfaceindex;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -128,11 +147,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_windowsconnectionm
         HMODULE km_h_mod = LoadLibraryA("ondemandconnroutehelper.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OnDemandRegisterNotification")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(callback, callbackcontext, registrationhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(callback, callbackcontext, registrationhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)callback;
     (void)callbackcontext;
     (void)registrationhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -148,9 +174,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_windowsconnectionm
         HMODULE km_h_mod = LoadLibraryA("ondemandconnroutehelper.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OnDemandUnRegisterNotification")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(registrationhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(registrationhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)registrationhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -166,9 +199,14 @@ static Napi::Value windowssys_windows_win32_networkmanagement_windowsconnectionm
         HMODULE km_h_mod = LoadLibraryA("wcmapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WcmFreeMemory")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pmemory);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pmemory);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pmemory;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -184,10 +222,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_windowsconnectionm
         HMODULE km_h_mod = LoadLibraryA("wcmapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WcmGetProfileList")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(preserved, ppprofilelist) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(preserved, ppprofilelist);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)preserved;
     (void)ppprofilelist;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -208,7 +253,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_windowsconnectionm
         HMODULE km_h_mod = LoadLibraryA("wcmapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WcmQueryProperty")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pinterface, strprofilename, property, preserved, pdwdatasize, ppdata) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pinterface, strprofilename, property, preserved, pdwdatasize, ppdata);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pinterface;
     (void)strprofilename;
@@ -216,6 +267,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_windowsconnectionm
     (void)preserved;
     (void)pdwdatasize;
     (void)ppdata;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -234,12 +286,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_windowsconnectionm
         HMODULE km_h_mod = LoadLibraryA("wcmapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WcmSetProfileList")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pprofilelist, dwposition, fignoreunknownprofiles, preserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pprofilelist, dwposition, fignoreunknownprofiles, preserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pprofilelist;
     (void)dwposition;
     (void)fignoreunknownprofiles;
     (void)preserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -260,7 +319,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_windowsconnectionm
         HMODULE km_h_mod = LoadLibraryA("wcmapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WcmSetProperty")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pinterface, strprofilename, property, preserved, dwdatasize, pbdata) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pinterface, strprofilename, property, preserved, dwdatasize, pbdata);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pinterface;
     (void)strprofilename;
@@ -268,6 +333,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_windowsconnectionm
     (void)preserved;
     (void)dwdatasize;
     (void)pbdata;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

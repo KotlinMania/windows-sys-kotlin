@@ -60,8 +60,15 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpkclnt.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmBfeStateGet0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -80,12 +87,19 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpkclnt.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmBfeStateSubscribeChanges0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(deviceobject, callback, context, changehandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(deviceobject, callback, context, changehandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)deviceobject;
     (void)callback;
     (void)context;
     (void)changehandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -101,9 +115,16 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpkclnt.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmBfeStateUnsubscribeChanges0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(changehandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(changehandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)changehandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -122,12 +143,19 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmCalloutAdd0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, callout, sd, id) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, callout, sd, id);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)callout;
     (void)sd;
     (void)id;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -145,11 +173,18 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmCalloutCreateEnumHandle0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, enumtemplate, enumhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, enumtemplate, enumhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)enumtemplate;
     (void)enumhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -166,10 +201,17 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmCalloutDeleteById0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, id) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, id);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)id;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -186,10 +228,17 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmCalloutDeleteByKey0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, key) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, key);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)key;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -206,10 +255,17 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmCalloutDestroyEnumHandle0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, enumhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, enumhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)enumhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -229,13 +285,20 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmCalloutEnum0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, enumhandle, numentriesrequested, entries, numentriesreturned) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, enumhandle, numentriesrequested, entries, numentriesreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)enumhandle;
     (void)numentriesrequested;
     (void)entries;
     (void)numentriesreturned;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -253,11 +316,18 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmCalloutGetById0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, id, callout) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, id, callout);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)id;
     (void)callout;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -275,11 +345,18 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmCalloutGetByKey0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, key, callout) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, key, callout);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)key;
     (void)callout;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -302,7 +379,13 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmCalloutGetSecurityInfoByKey0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, key, securityinfo, sidowner, sidgroup, dacl, sacl, securitydescriptor) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, key, securityinfo, sidowner, sidgroup, dacl, sacl, securitydescriptor);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)key;
@@ -312,6 +395,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     (void)dacl;
     (void)sacl;
     (void)securitydescriptor;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -333,7 +417,13 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmCalloutSetSecurityInfoByKey0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, key, securityinfo, sidowner, sidgroup, dacl, sacl) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, key, securityinfo, sidowner, sidgroup, dacl, sacl);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)key;
@@ -342,6 +432,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     (void)sidgroup;
     (void)dacl;
     (void)sacl;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -359,11 +450,18 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmConnectionCreateEnumHandle0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, enumtemplate, enumhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, enumtemplate, enumhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)enumtemplate;
     (void)enumhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -380,10 +478,17 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmConnectionDestroyEnumHandle0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, enumhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, enumhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)enumhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -403,13 +508,20 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmConnectionEnum0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, enumhandle, numentriesrequested, entries, numentriesreturned) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, enumhandle, numentriesrequested, entries, numentriesreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)enumhandle;
     (void)numentriesrequested;
     (void)entries;
     (void)numentriesreturned;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -427,11 +539,18 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmConnectionGetById0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, id, connection) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, id, connection);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)id;
     (void)connection;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -453,7 +572,13 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmConnectionGetSecurityInfo0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, securityinfo, sidowner, sidgroup, dacl, sacl, securitydescriptor) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, securityinfo, sidowner, sidgroup, dacl, sacl, securitydescriptor);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)securityinfo;
@@ -462,6 +587,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     (void)dacl;
     (void)sacl;
     (void)securitydescriptor;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -482,7 +608,13 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmConnectionSetSecurityInfo0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, securityinfo, sidowner, sidgroup, dacl, sacl) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, securityinfo, sidowner, sidgroup, dacl, sacl);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)securityinfo;
@@ -490,6 +622,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     (void)sidgroup;
     (void)dacl;
     (void)sacl;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -505,9 +638,16 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmEngineClose0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -525,11 +665,18 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmEngineGetOption0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, option, value) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, option, value);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)option;
     (void)value;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -551,7 +698,13 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmEngineGetSecurityInfo0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, securityinfo, sidowner, sidgroup, dacl, sacl, securitydescriptor) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, securityinfo, sidowner, sidgroup, dacl, sacl, securitydescriptor);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)securityinfo;
@@ -560,6 +713,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     (void)dacl;
     (void)sacl;
     (void)securitydescriptor;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -579,13 +733,20 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmEngineOpen0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servername, authnservice, authidentity, session, enginehandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servername, authnservice, authidentity, session, enginehandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)servername;
     (void)authnservice;
     (void)authidentity;
     (void)session;
     (void)enginehandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -603,11 +764,18 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmEngineSetOption0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, option, newvalue) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, option, newvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)option;
     (void)newvalue;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -628,7 +796,13 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmEngineSetSecurityInfo0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, securityinfo, sidowner, sidgroup, dacl, sacl) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, securityinfo, sidowner, sidgroup, dacl, sacl);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)securityinfo;
@@ -636,6 +810,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     (void)sidgroup;
     (void)dacl;
     (void)sacl;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -654,12 +829,19 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmFilterAdd0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, filter, sd, id) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, filter, sd, id);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)filter;
     (void)sd;
     (void)id;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -677,11 +859,18 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmFilterCreateEnumHandle0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, enumtemplate, enumhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, enumtemplate, enumhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)enumtemplate;
     (void)enumhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -698,10 +887,17 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmFilterDeleteById0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, id) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, id);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)id;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -718,10 +914,17 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmFilterDeleteByKey0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, key) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, key);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)key;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -738,10 +941,17 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmFilterDestroyEnumHandle0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, enumhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, enumhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)enumhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -761,13 +971,20 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmFilterEnum0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, enumhandle, numentriesrequested, entries, numentriesreturned) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, enumhandle, numentriesrequested, entries, numentriesreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)enumhandle;
     (void)numentriesrequested;
     (void)entries;
     (void)numentriesreturned;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -785,11 +1002,18 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmFilterGetById0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, id, filter) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, id, filter);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)id;
     (void)filter;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -807,11 +1031,18 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmFilterGetByKey0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, key, filter) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, key, filter);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)key;
     (void)filter;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -834,7 +1065,13 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmFilterGetSecurityInfoByKey0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, key, securityinfo, sidowner, sidgroup, dacl, sacl, securitydescriptor) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, key, securityinfo, sidowner, sidgroup, dacl, sacl, securitydescriptor);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)key;
@@ -844,6 +1081,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     (void)dacl;
     (void)sacl;
     (void)securitydescriptor;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -865,7 +1103,13 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmFilterSetSecurityInfoByKey0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, key, securityinfo, sidowner, sidgroup, dacl, sacl) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, key, securityinfo, sidowner, sidgroup, dacl, sacl);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)key;
@@ -874,6 +1118,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     (void)sidgroup;
     (void)dacl;
     (void)sacl;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -889,9 +1134,14 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmFreeMemory0")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(p);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(p);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)p;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -912,7 +1162,13 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmIPsecTunnelAdd0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, flags, mainmodepolicy, tunnelpolicy, numfilterconditions, filterconditions, sd) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, flags, mainmodepolicy, tunnelpolicy, numfilterconditions, filterconditions, sd);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)flags;
@@ -921,6 +1177,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     (void)numfilterconditions;
     (void)filterconditions;
     (void)sd;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -943,7 +1200,13 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmIPsecTunnelAdd1")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, flags, mainmodepolicy, tunnelpolicy, numfilterconditions, filterconditions, keymodkey, sd) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, flags, mainmodepolicy, tunnelpolicy, numfilterconditions, filterconditions, keymodkey, sd);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)flags;
@@ -953,6 +1216,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     (void)filterconditions;
     (void)keymodkey;
     (void)sd;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -975,7 +1239,13 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmIPsecTunnelAdd2")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, flags, mainmodepolicy, tunnelpolicy, numfilterconditions, filterconditions, keymodkey, sd) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, flags, mainmodepolicy, tunnelpolicy, numfilterconditions, filterconditions, keymodkey, sd);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)flags;
@@ -985,6 +1255,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     (void)filterconditions;
     (void)keymodkey;
     (void)sd;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1007,7 +1278,13 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmIPsecTunnelAdd3")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, flags, mainmodepolicy, tunnelpolicy, numfilterconditions, filterconditions, keymodkey, sd) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, flags, mainmodepolicy, tunnelpolicy, numfilterconditions, filterconditions, keymodkey, sd);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)flags;
@@ -1017,6 +1294,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     (void)filterconditions;
     (void)keymodkey;
     (void)sd;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1033,10 +1311,17 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmIPsecTunnelDeleteByKey0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, key) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, key);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)key;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1054,11 +1339,18 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmLayerCreateEnumHandle0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, enumtemplate, enumhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, enumtemplate, enumhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)enumtemplate;
     (void)enumhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1075,10 +1367,17 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmLayerDestroyEnumHandle0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, enumhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, enumhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)enumhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1098,13 +1397,20 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmLayerEnum0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, enumhandle, numentriesrequested, entries, numentriesreturned) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, enumhandle, numentriesrequested, entries, numentriesreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)enumhandle;
     (void)numentriesrequested;
     (void)entries;
     (void)numentriesreturned;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1122,11 +1428,18 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmLayerGetById0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, id, layer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, id, layer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)id;
     (void)layer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1144,11 +1457,18 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmLayerGetByKey0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, key, layer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, key, layer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)key;
     (void)layer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1171,7 +1491,13 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmLayerGetSecurityInfoByKey0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, key, securityinfo, sidowner, sidgroup, dacl, sacl, securitydescriptor) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, key, securityinfo, sidowner, sidgroup, dacl, sacl, securitydescriptor);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)key;
@@ -1181,6 +1507,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     (void)dacl;
     (void)sacl;
     (void)securitydescriptor;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1202,7 +1529,13 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmLayerSetSecurityInfoByKey0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, key, securityinfo, sidowner, sidgroup, dacl, sacl) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, key, securityinfo, sidowner, sidgroup, dacl, sacl);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)key;
@@ -1211,6 +1544,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     (void)sidgroup;
     (void)dacl;
     (void)sacl;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1228,11 +1562,18 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmNetEventCreateEnumHandle0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, enumtemplate, enumhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, enumtemplate, enumhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)enumtemplate;
     (void)enumhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1249,10 +1590,17 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmNetEventDestroyEnumHandle0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, enumhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, enumhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)enumhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1272,13 +1620,20 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmNetEventEnum0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, enumhandle, numentriesrequested, entries, numentriesreturned) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, enumhandle, numentriesrequested, entries, numentriesreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)enumhandle;
     (void)numentriesrequested;
     (void)entries;
     (void)numentriesreturned;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1298,13 +1653,20 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmNetEventEnum1")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, enumhandle, numentriesrequested, entries, numentriesreturned) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, enumhandle, numentriesrequested, entries, numentriesreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)enumhandle;
     (void)numentriesrequested;
     (void)entries;
     (void)numentriesreturned;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1324,13 +1686,20 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmNetEventEnum2")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, enumhandle, numentriesrequested, entries, numentriesreturned) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, enumhandle, numentriesrequested, entries, numentriesreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)enumhandle;
     (void)numentriesrequested;
     (void)entries;
     (void)numentriesreturned;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1350,13 +1719,20 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmNetEventEnum3")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, enumhandle, numentriesrequested, entries, numentriesreturned) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, enumhandle, numentriesrequested, entries, numentriesreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)enumhandle;
     (void)numentriesrequested;
     (void)entries;
     (void)numentriesreturned;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1376,13 +1752,20 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmNetEventEnum4")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, enumhandle, numentriesrequested, entries, numentriesreturned) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, enumhandle, numentriesrequested, entries, numentriesreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)enumhandle;
     (void)numentriesrequested;
     (void)entries;
     (void)numentriesreturned;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1402,13 +1785,20 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmNetEventEnum5")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, enumhandle, numentriesrequested, entries, numentriesreturned) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, enumhandle, numentriesrequested, entries, numentriesreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)enumhandle;
     (void)numentriesrequested;
     (void)entries;
     (void)numentriesreturned;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1430,7 +1820,13 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmNetEventsGetSecurityInfo0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, securityinfo, sidowner, sidgroup, dacl, sacl, securitydescriptor) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, securityinfo, sidowner, sidgroup, dacl, sacl, securitydescriptor);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)securityinfo;
@@ -1439,6 +1835,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     (void)dacl;
     (void)sacl;
     (void)securitydescriptor;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1459,7 +1856,13 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmNetEventsSetSecurityInfo0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, securityinfo, sidowner, sidgroup, dacl, sacl) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, securityinfo, sidowner, sidgroup, dacl, sacl);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)securityinfo;
@@ -1467,6 +1870,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     (void)sidgroup;
     (void)dacl;
     (void)sacl;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1484,11 +1888,18 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmProviderAdd0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, provider, sd) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, provider, sd);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)provider;
     (void)sd;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1507,12 +1918,19 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmProviderContextAdd0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, providercontext, sd, id) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, providercontext, sd, id);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)providercontext;
     (void)sd;
     (void)id;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1531,12 +1949,19 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmProviderContextAdd1")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, providercontext, sd, id) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, providercontext, sd, id);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)providercontext;
     (void)sd;
     (void)id;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1555,12 +1980,19 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmProviderContextAdd2")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, providercontext, sd, id) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, providercontext, sd, id);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)providercontext;
     (void)sd;
     (void)id;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1579,12 +2011,19 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmProviderContextAdd3")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, providercontext, sd, id) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, providercontext, sd, id);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)providercontext;
     (void)sd;
     (void)id;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1602,11 +2041,18 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmProviderContextCreateEnumHandle0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, enumtemplate, enumhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, enumtemplate, enumhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)enumtemplate;
     (void)enumhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1623,10 +2069,17 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmProviderContextDeleteById0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, id) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, id);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)id;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1643,10 +2096,17 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmProviderContextDeleteByKey0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, key) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, key);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)key;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1663,10 +2123,17 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmProviderContextDestroyEnumHandle0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, enumhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, enumhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)enumhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1686,13 +2153,20 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmProviderContextEnum0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, enumhandle, numentriesrequested, entries, numentriesreturned) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, enumhandle, numentriesrequested, entries, numentriesreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)enumhandle;
     (void)numentriesrequested;
     (void)entries;
     (void)numentriesreturned;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1712,13 +2186,20 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmProviderContextEnum1")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, enumhandle, numentriesrequested, entries, numentriesreturned) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, enumhandle, numentriesrequested, entries, numentriesreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)enumhandle;
     (void)numentriesrequested;
     (void)entries;
     (void)numentriesreturned;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1738,13 +2219,20 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmProviderContextEnum2")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, enumhandle, numentriesrequested, entries, numentriesreturned) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, enumhandle, numentriesrequested, entries, numentriesreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)enumhandle;
     (void)numentriesrequested;
     (void)entries;
     (void)numentriesreturned;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1764,13 +2252,20 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmProviderContextEnum3")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, enumhandle, numentriesrequested, entries, numentriesreturned) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, enumhandle, numentriesrequested, entries, numentriesreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)enumhandle;
     (void)numentriesrequested;
     (void)entries;
     (void)numentriesreturned;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1788,11 +2283,18 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmProviderContextGetById0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, id, providercontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, id, providercontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)id;
     (void)providercontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1810,11 +2312,18 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmProviderContextGetById1")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, id, providercontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, id, providercontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)id;
     (void)providercontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1832,11 +2341,18 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmProviderContextGetById2")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, id, providercontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, id, providercontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)id;
     (void)providercontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1854,11 +2370,18 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmProviderContextGetById3")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, id, providercontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, id, providercontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)id;
     (void)providercontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1876,11 +2399,18 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmProviderContextGetByKey0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, key, providercontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, key, providercontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)key;
     (void)providercontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1898,11 +2428,18 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmProviderContextGetByKey1")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, key, providercontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, key, providercontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)key;
     (void)providercontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1920,11 +2457,18 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmProviderContextGetByKey2")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, key, providercontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, key, providercontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)key;
     (void)providercontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1942,11 +2486,18 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmProviderContextGetByKey3")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, key, providercontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, key, providercontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)key;
     (void)providercontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1969,7 +2520,13 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmProviderContextGetSecurityInfoByKey0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, key, securityinfo, sidowner, sidgroup, dacl, sacl, securitydescriptor) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, key, securityinfo, sidowner, sidgroup, dacl, sacl, securitydescriptor);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)key;
@@ -1979,6 +2536,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     (void)dacl;
     (void)sacl;
     (void)securitydescriptor;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2000,7 +2558,13 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmProviderContextSetSecurityInfoByKey0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, key, securityinfo, sidowner, sidgroup, dacl, sacl) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, key, securityinfo, sidowner, sidgroup, dacl, sacl);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)key;
@@ -2009,6 +2573,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     (void)sidgroup;
     (void)dacl;
     (void)sacl;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2026,11 +2591,18 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmProviderCreateEnumHandle0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, enumtemplate, enumhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, enumtemplate, enumhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)enumtemplate;
     (void)enumhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2047,10 +2619,17 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmProviderDeleteByKey0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, key) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, key);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)key;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2067,10 +2646,17 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmProviderDestroyEnumHandle0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, enumhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, enumhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)enumhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2090,13 +2676,20 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmProviderEnum0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, enumhandle, numentriesrequested, entries, numentriesreturned) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, enumhandle, numentriesrequested, entries, numentriesreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)enumhandle;
     (void)numentriesrequested;
     (void)entries;
     (void)numentriesreturned;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2114,11 +2707,18 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmProviderGetByKey0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, key, provider) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, key, provider);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)key;
     (void)provider;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2141,7 +2741,13 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmProviderGetSecurityInfoByKey0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, key, securityinfo, sidowner, sidgroup, dacl, sacl, securitydescriptor) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, key, securityinfo, sidowner, sidgroup, dacl, sacl, securitydescriptor);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)key;
@@ -2151,6 +2757,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     (void)dacl;
     (void)sacl;
     (void)securitydescriptor;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2172,7 +2779,13 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmProviderSetSecurityInfoByKey0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, key, securityinfo, sidowner, sidgroup, dacl, sacl) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, key, securityinfo, sidowner, sidgroup, dacl, sacl);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)key;
@@ -2181,6 +2794,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     (void)sidgroup;
     (void)dacl;
     (void)sacl;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2198,11 +2812,18 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmSessionCreateEnumHandle0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, enumtemplate, enumhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, enumtemplate, enumhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)enumtemplate;
     (void)enumhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2219,10 +2840,17 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmSessionDestroyEnumHandle0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, enumhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, enumhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)enumhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2242,13 +2870,20 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmSessionEnum0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, enumhandle, numentriesrequested, entries, numentriesreturned) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, enumhandle, numentriesrequested, entries, numentriesreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)enumhandle;
     (void)numentriesrequested;
     (void)entries;
     (void)numentriesreturned;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2266,11 +2901,18 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmSubLayerAdd0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, sublayer, sd) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, sublayer, sd);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)sublayer;
     (void)sd;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2288,11 +2930,18 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmSubLayerCreateEnumHandle0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, enumtemplate, enumhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, enumtemplate, enumhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)enumtemplate;
     (void)enumhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2309,10 +2958,17 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmSubLayerDeleteByKey0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, key) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, key);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)key;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2329,10 +2985,17 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmSubLayerDestroyEnumHandle0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, enumhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, enumhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)enumhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2352,13 +3015,20 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmSubLayerEnum0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, enumhandle, numentriesrequested, entries, numentriesreturned) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, enumhandle, numentriesrequested, entries, numentriesreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)enumhandle;
     (void)numentriesrequested;
     (void)entries;
     (void)numentriesreturned;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2376,11 +3046,18 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmSubLayerGetByKey0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, key, sublayer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, key, sublayer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)key;
     (void)sublayer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2403,7 +3080,13 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmSubLayerGetSecurityInfoByKey0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, key, securityinfo, sidowner, sidgroup, dacl, sacl, securitydescriptor) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, key, securityinfo, sidowner, sidgroup, dacl, sacl, securitydescriptor);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)key;
@@ -2413,6 +3096,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     (void)dacl;
     (void)sacl;
     (void)securitydescriptor;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2434,7 +3118,13 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmSubLayerSetSecurityInfoByKey0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, key, securityinfo, sidowner, sidgroup, dacl, sacl) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, key, securityinfo, sidowner, sidgroup, dacl, sacl);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)key;
@@ -2443,6 +3133,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     (void)sidgroup;
     (void)dacl;
     (void)sacl;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2458,9 +3149,16 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmTransactionAbort0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2477,10 +3175,17 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmTransactionBegin0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2496,9 +3201,16 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmTransactionCommit0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2520,7 +3232,13 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmvSwitchEventsGetSecurityInfo0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, securityinfo, sidowner, sidgroup, dacl, sacl, securitydescriptor) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, securityinfo, sidowner, sidgroup, dacl, sacl, securitydescriptor);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)securityinfo;
@@ -2529,6 +3247,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     (void)dacl;
     (void)sacl;
     (void)securitydescriptor;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2549,7 +3268,13 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FwpmvSwitchEventsSetSecurityInfo0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, securityinfo, sidowner, sidgroup, dacl, sacl) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, securityinfo, sidowner, sidgroup, dacl, sacl);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)securityinfo;
@@ -2557,6 +3282,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     (void)sidgroup;
     (void)dacl;
     (void)sacl;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2578,7 +3304,13 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IPsecDospGetSecurityInfo0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, securityinfo, sidowner, sidgroup, dacl, sacl, securitydescriptor) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, securityinfo, sidowner, sidgroup, dacl, sacl, securitydescriptor);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)securityinfo;
@@ -2587,6 +3319,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     (void)dacl;
     (void)sacl;
     (void)securitydescriptor;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2603,10 +3336,17 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IPsecDospGetStatistics0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, idpstatistics) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, idpstatistics);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)idpstatistics;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2627,7 +3367,13 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IPsecDospSetSecurityInfo0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, securityinfo, sidowner, sidgroup, dacl, sacl) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, securityinfo, sidowner, sidgroup, dacl, sacl);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)securityinfo;
@@ -2635,6 +3381,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     (void)sidgroup;
     (void)dacl;
     (void)sacl;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2652,11 +3399,18 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IPsecDospStateCreateEnumHandle0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, enumtemplate, enumhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, enumtemplate, enumhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)enumtemplate;
     (void)enumhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2673,10 +3427,17 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IPsecDospStateDestroyEnumHandle0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, enumhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, enumhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)enumhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2696,13 +3457,20 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IPsecDospStateEnum0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, enumhandle, numentriesrequested, entries, numentries) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, enumhandle, numentriesrequested, entries, numentries);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)enumhandle;
     (void)numentriesrequested;
     (void)entries;
     (void)numentries;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2719,10 +3487,17 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IPsecGetStatistics0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, ipsecstatistics) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, ipsecstatistics);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)ipsecstatistics;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2739,10 +3514,17 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IPsecGetStatistics1")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, ipsecstatistics) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, ipsecstatistics);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)ipsecstatistics;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2760,11 +3542,18 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IPsecSaContextAddInbound0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, id, inboundbundle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, id, inboundbundle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)id;
     (void)inboundbundle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2782,11 +3571,18 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IPsecSaContextAddInbound1")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, id, inboundbundle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, id, inboundbundle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)id;
     (void)inboundbundle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2804,11 +3600,18 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IPsecSaContextAddOutbound0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, id, outboundbundle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, id, outboundbundle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)id;
     (void)outboundbundle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2826,11 +3629,18 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IPsecSaContextAddOutbound1")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, id, outboundbundle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, id, outboundbundle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)id;
     (void)outboundbundle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2849,12 +3659,19 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IPsecSaContextCreate0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, outboundtraffic, inboundfilterid, id) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, outboundtraffic, inboundfilterid, id);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)outboundtraffic;
     (void)inboundfilterid;
     (void)id;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2874,13 +3691,20 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IPsecSaContextCreate1")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, outboundtraffic, virtualiftunnelinfo, inboundfilterid, id) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, outboundtraffic, virtualiftunnelinfo, inboundfilterid, id);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)outboundtraffic;
     (void)virtualiftunnelinfo;
     (void)inboundfilterid;
     (void)id;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2898,11 +3722,18 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IPsecSaContextCreateEnumHandle0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, enumtemplate, enumhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, enumtemplate, enumhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)enumtemplate;
     (void)enumhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2919,10 +3750,17 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IPsecSaContextDeleteById0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, id) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, id);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)id;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2939,10 +3777,17 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IPsecSaContextDestroyEnumHandle0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, enumhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, enumhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)enumhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2962,13 +3807,20 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IPsecSaContextEnum0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, enumhandle, numentriesrequested, entries, numentriesreturned) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, enumhandle, numentriesrequested, entries, numentriesreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)enumhandle;
     (void)numentriesrequested;
     (void)entries;
     (void)numentriesreturned;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2988,13 +3840,20 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IPsecSaContextEnum1")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, enumhandle, numentriesrequested, entries, numentriesreturned) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, enumhandle, numentriesrequested, entries, numentriesreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)enumhandle;
     (void)numentriesrequested;
     (void)entries;
     (void)numentriesreturned;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3011,10 +3870,17 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IPsecSaContextExpire0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, id) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, id);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)id;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3032,11 +3898,18 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IPsecSaContextGetById0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, id, sacontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, id, sacontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)id;
     (void)sacontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3054,11 +3927,18 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IPsecSaContextGetById1")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, id, sacontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, id, sacontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)id;
     (void)sacontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3077,12 +3957,19 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IPsecSaContextGetSpi0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, id, getspi, inboundspi) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, id, getspi, inboundspi);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)id;
     (void)getspi;
     (void)inboundspi;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3101,12 +3988,19 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IPsecSaContextGetSpi1")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, id, getspi, inboundspi) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, id, getspi, inboundspi);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)id;
     (void)getspi;
     (void)inboundspi;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3125,12 +4019,19 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IPsecSaContextSetSpi0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, id, getspi, inboundspi) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, id, getspi, inboundspi);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)id;
     (void)getspi;
     (void)inboundspi;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3148,11 +4049,18 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IPsecSaContextUpdate0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, flags, newvalues) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, flags, newvalues);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)flags;
     (void)newvalues;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3170,11 +4078,18 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IPsecSaCreateEnumHandle0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, enumtemplate, enumhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, enumtemplate, enumhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)enumtemplate;
     (void)enumhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3196,7 +4111,13 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IPsecSaDbGetSecurityInfo0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, securityinfo, sidowner, sidgroup, dacl, sacl, securitydescriptor) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, securityinfo, sidowner, sidgroup, dacl, sacl, securitydescriptor);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)securityinfo;
@@ -3205,6 +4126,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     (void)dacl;
     (void)sacl;
     (void)securitydescriptor;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3225,7 +4147,13 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IPsecSaDbSetSecurityInfo0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, securityinfo, sidowner, sidgroup, dacl, sacl) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, securityinfo, sidowner, sidgroup, dacl, sacl);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)securityinfo;
@@ -3233,6 +4161,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     (void)sidgroup;
     (void)dacl;
     (void)sacl;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3249,10 +4178,17 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IPsecSaDestroyEnumHandle0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, enumhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, enumhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)enumhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3272,13 +4208,20 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IPsecSaEnum0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, enumhandle, numentriesrequested, entries, numentriesreturned) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, enumhandle, numentriesrequested, entries, numentriesreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)enumhandle;
     (void)numentriesrequested;
     (void)entries;
     (void)numentriesreturned;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3298,13 +4241,20 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IPsecSaEnum1")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, enumhandle, numentriesrequested, entries, numentriesreturned) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, enumhandle, numentriesrequested, entries, numentriesreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)enumhandle;
     (void)numentriesrequested;
     (void)entries;
     (void)numentriesreturned;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3321,10 +4271,17 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IkeextGetStatistics0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, ikeextstatistics) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, ikeextstatistics);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)ikeextstatistics;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3341,10 +4298,17 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IkeextGetStatistics1")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, ikeextstatistics) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, ikeextstatistics);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)ikeextstatistics;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3362,11 +4326,18 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IkeextSaCreateEnumHandle0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, enumtemplate, enumhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, enumtemplate, enumhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)enumtemplate;
     (void)enumhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3388,7 +4359,13 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IkeextSaDbGetSecurityInfo0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, securityinfo, sidowner, sidgroup, dacl, sacl, securitydescriptor) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, securityinfo, sidowner, sidgroup, dacl, sacl, securitydescriptor);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)securityinfo;
@@ -3397,6 +4374,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     (void)dacl;
     (void)sacl;
     (void)securitydescriptor;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3417,7 +4395,13 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IkeextSaDbSetSecurityInfo0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, securityinfo, sidowner, sidgroup, dacl, sacl) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, securityinfo, sidowner, sidgroup, dacl, sacl);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)securityinfo;
@@ -3425,6 +4409,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
     (void)sidgroup;
     (void)dacl;
     (void)sacl;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3441,10 +4426,17 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IkeextSaDeleteById0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, id) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, id);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)id;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3461,10 +4453,17 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IkeextSaDestroyEnumHandle0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, enumhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, enumhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)enumhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3484,13 +4483,20 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IkeextSaEnum0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, enumhandle, numentriesrequested, entries, numentriesreturned) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, enumhandle, numentriesrequested, entries, numentriesreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)enumhandle;
     (void)numentriesrequested;
     (void)entries;
     (void)numentriesreturned;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3510,13 +4516,20 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IkeextSaEnum1")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, enumhandle, numentriesrequested, entries, numentriesreturned) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, enumhandle, numentriesrequested, entries, numentriesreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)enumhandle;
     (void)numentriesrequested;
     (void)entries;
     (void)numentriesreturned;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3536,13 +4549,20 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IkeextSaEnum2")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, enumhandle, numentriesrequested, entries, numentriesreturned) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, enumhandle, numentriesrequested, entries, numentriesreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)enumhandle;
     (void)numentriesrequested;
     (void)entries;
     (void)numentriesreturned;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3560,11 +4580,18 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IkeextSaGetById0")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, id, sa) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, id, sa);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)id;
     (void)sa;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3583,12 +4610,19 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IkeextSaGetById1")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, id, salookupcontext, sa) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, id, salookupcontext, sa);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)id;
     (void)salookupcontext;
     (void)sa;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3607,12 +4641,19 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_windowsfilteringplat
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IkeextSaGetById2")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enginehandle, id, salookupcontext, sa) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enginehandle, id, salookupcontext, sa);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enginehandle;
     (void)id;
     (void)salookupcontext;
     (void)sa;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

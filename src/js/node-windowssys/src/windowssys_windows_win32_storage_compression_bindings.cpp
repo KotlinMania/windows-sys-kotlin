@@ -61,9 +61,16 @@ static Napi::Value windowssys_windows_win32_storage_compression_closeCompressor_
         HMODULE km_h_mod = LoadLibraryA("cabinet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CloseCompressor")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(compressorhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(compressorhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)compressorhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -79,9 +86,16 @@ static Napi::Value windowssys_windows_win32_storage_compression_closeDecompresso
         HMODULE km_h_mod = LoadLibraryA("cabinet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CloseDecompressor")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(decompressorhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(decompressorhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)decompressorhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -102,7 +116,13 @@ static Napi::Value windowssys_windows_win32_storage_compression_compress_napi(co
         HMODULE km_h_mod = LoadLibraryA("cabinet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "Compress")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(compressorhandle, uncompresseddata, uncompresseddatasize, compressedbuffer, compressedbuffersize, compresseddatasize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(compressorhandle, uncompresseddata, uncompresseddatasize, compressedbuffer, compressedbuffersize, compresseddatasize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)compressorhandle;
     (void)uncompresseddata;
@@ -110,6 +130,7 @@ static Napi::Value windowssys_windows_win32_storage_compression_compress_napi(co
     (void)compressedbuffer;
     (void)compressedbuffersize;
     (void)compresseddatasize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -127,11 +148,18 @@ static Napi::Value windowssys_windows_win32_storage_compression_createCompressor
         HMODULE km_h_mod = LoadLibraryA("cabinet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateCompressor")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(algorithm, allocationroutines, compressorhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(algorithm, allocationroutines, compressorhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)algorithm;
     (void)allocationroutines;
     (void)compressorhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -149,11 +177,18 @@ static Napi::Value windowssys_windows_win32_storage_compression_createDecompress
         HMODULE km_h_mod = LoadLibraryA("cabinet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateDecompressor")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(algorithm, allocationroutines, decompressorhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(algorithm, allocationroutines, decompressorhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)algorithm;
     (void)allocationroutines;
     (void)decompressorhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -174,7 +209,13 @@ static Napi::Value windowssys_windows_win32_storage_compression_decompress_napi(
         HMODULE km_h_mod = LoadLibraryA("cabinet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "Decompress")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(decompressorhandle, compresseddata, compresseddatasize, uncompressedbuffer, uncompressedbuffersize, uncompresseddatasize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(decompressorhandle, compresseddata, compresseddatasize, uncompressedbuffer, uncompressedbuffersize, uncompresseddatasize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)decompressorhandle;
     (void)compresseddata;
@@ -182,6 +223,7 @@ static Napi::Value windowssys_windows_win32_storage_compression_decompress_napi(
     (void)uncompressedbuffer;
     (void)uncompressedbuffersize;
     (void)uncompresseddatasize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -200,12 +242,19 @@ static Napi::Value windowssys_windows_win32_storage_compression_queryCompressorI
         HMODULE km_h_mod = LoadLibraryA("cabinet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "QueryCompressorInformation")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(compressorhandle, compressinformationclass, compressinformation, compressinformationsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(compressorhandle, compressinformationclass, compressinformation, compressinformationsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)compressorhandle;
     (void)compressinformationclass;
     (void)compressinformation;
     (void)compressinformationsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -224,12 +273,19 @@ static Napi::Value windowssys_windows_win32_storage_compression_queryDecompresso
         HMODULE km_h_mod = LoadLibraryA("cabinet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "QueryDecompressorInformation")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(decompressorhandle, compressinformationclass, compressinformation, compressinformationsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(decompressorhandle, compressinformationclass, compressinformation, compressinformationsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)decompressorhandle;
     (void)compressinformationclass;
     (void)compressinformation;
     (void)compressinformationsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -245,9 +301,16 @@ static Napi::Value windowssys_windows_win32_storage_compression_resetCompressor_
         HMODULE km_h_mod = LoadLibraryA("cabinet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResetCompressor")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(compressorhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(compressorhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)compressorhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -263,9 +326,16 @@ static Napi::Value windowssys_windows_win32_storage_compression_resetDecompresso
         HMODULE km_h_mod = LoadLibraryA("cabinet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResetDecompressor")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(decompressorhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(decompressorhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)decompressorhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -284,12 +354,19 @@ static Napi::Value windowssys_windows_win32_storage_compression_setCompressorInf
         HMODULE km_h_mod = LoadLibraryA("cabinet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetCompressorInformation")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(compressorhandle, compressinformationclass, compressinformation, compressinformationsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(compressorhandle, compressinformationclass, compressinformation, compressinformationsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)compressorhandle;
     (void)compressinformationclass;
     (void)compressinformation;
     (void)compressinformationsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -308,12 +385,19 @@ static Napi::Value windowssys_windows_win32_storage_compression_setDecompressorI
         HMODULE km_h_mod = LoadLibraryA("cabinet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetDecompressorInformation")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(decompressorhandle, compressinformationclass, compressinformation, compressinformationsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(decompressorhandle, compressinformationclass, compressinformation, compressinformationsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)decompressorhandle;
     (void)compressinformationclass;
     (void)compressinformation;
     (void)compressinformationsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

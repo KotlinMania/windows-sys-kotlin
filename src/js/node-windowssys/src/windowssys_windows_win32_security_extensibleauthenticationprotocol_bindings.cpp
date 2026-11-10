@@ -62,10 +62,17 @@ static Napi::Value windowssys_windows_win32_security_extensibleauthenticationpro
         HMODULE km_h_mod = LoadLibraryA("eappprxy.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EapHostPeerClearConnection")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pconnectionid, ppeaperror) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pconnectionid, ppeaperror);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pconnectionid;
     (void)ppeaperror;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -82,10 +89,17 @@ static Napi::Value windowssys_windows_win32_security_extensibleauthenticationpro
         HMODULE km_h_mod = LoadLibraryA("eappprxy.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EapHostPeerEndSession")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sessionhandle, ppeaperror) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sessionhandle, ppeaperror);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)sessionhandle;
     (void)ppeaperror;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -101,9 +115,14 @@ static Napi::Value windowssys_windows_win32_security_extensibleauthenticationpro
         HMODULE km_h_mod = LoadLibraryA("eappprxy.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EapHostPeerFreeEapError")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(peaperror);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(peaperror);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)peaperror;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -118,9 +137,14 @@ static Napi::Value windowssys_windows_win32_security_extensibleauthenticationpro
         HMODULE km_h_mod = LoadLibraryA("eappcfg.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EapHostPeerFreeErrorMemory")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(peaperror);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(peaperror);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)peaperror;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -135,9 +159,14 @@ static Napi::Value windowssys_windows_win32_security_extensibleauthenticationpro
         HMODULE km_h_mod = LoadLibraryA("eappcfg.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EapHostPeerFreeMemory")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pdata);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pdata);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pdata;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -152,9 +181,14 @@ static Napi::Value windowssys_windows_win32_security_extensibleauthenticationpro
         HMODULE km_h_mod = LoadLibraryA("eappprxy.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EapHostPeerFreeRuntimeMemory")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pdata);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pdata);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pdata;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -173,13 +207,20 @@ static Napi::Value windowssys_windows_win32_security_extensibleauthenticationpro
         HMODULE km_h_mod = LoadLibraryA("eappprxy.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EapHostPeerGetAuthStatus")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sessionhandle, authparam, pcbauthdata, ppauthdata, ppeaperror) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sessionhandle, authparam, pcbauthdata, ppauthdata, ppeaperror);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)sessionhandle;
     (void)authparam;
     (void)pcbauthdata;
     (void)ppauthdata;
     (void)ppeaperror;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -199,13 +240,20 @@ static Napi::Value windowssys_windows_win32_security_extensibleauthenticationpro
         HMODULE km_h_mod = LoadLibraryA("eappprxy.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EapHostPeerGetDataToUnplumbCredentials")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pconnectionidthatlastsavedcreds, phcredentialimpersonationtoken, sessionhandle, ppeaperror, fsavetocredman) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pconnectionidthatlastsavedcreds, phcredentialimpersonationtoken, sessionhandle, ppeaperror, fsavetocredman);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pconnectionidthatlastsavedcreds;
     (void)phcredentialimpersonationtoken;
     (void)sessionhandle;
     (void)ppeaperror;
     (void)fsavetocredman;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -223,11 +271,18 @@ static Napi::Value windowssys_windows_win32_security_extensibleauthenticationpro
         HMODULE km_h_mod = LoadLibraryA("eappprxy.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EapHostPeerGetEncryptedPassword")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwsizeofpassword, szpassword, ppszencpassword) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwsizeofpassword, szpassword, ppszencpassword);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dwsizeofpassword;
     (void)szpassword;
     (void)ppszencpassword;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -244,10 +299,17 @@ static Napi::Value windowssys_windows_win32_security_extensibleauthenticationpro
         HMODULE km_h_mod = LoadLibraryA("eappcfg.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EapHostPeerGetMethods")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(peapmethodinfoarray, ppeaperror) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(peapmethodinfoarray, ppeaperror);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)peapmethodinfoarray;
     (void)ppeaperror;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -265,11 +327,18 @@ static Napi::Value windowssys_windows_win32_security_extensibleauthenticationpro
         HMODULE km_h_mod = LoadLibraryA("eappprxy.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EapHostPeerGetResponseAttributes")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sessionhandle, pattribs, ppeaperror) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sessionhandle, pattribs, ppeaperror);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)sessionhandle;
     (void)pattribs;
     (void)ppeaperror;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -288,12 +357,19 @@ static Napi::Value windowssys_windows_win32_security_extensibleauthenticationpro
         HMODULE km_h_mod = LoadLibraryA("eappprxy.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EapHostPeerGetResult")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sessionhandle, reason, ppresult, ppeaperror) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sessionhandle, reason, ppresult, ppeaperror);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)sessionhandle;
     (void)reason;
     (void)ppresult;
     (void)ppeaperror;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -312,12 +388,19 @@ static Napi::Value windowssys_windows_win32_security_extensibleauthenticationpro
         HMODULE km_h_mod = LoadLibraryA("eappprxy.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EapHostPeerGetSendPacket")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sessionhandle, pcbsendpacket, ppsendpacket, ppeaperror) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sessionhandle, pcbsendpacket, ppsendpacket, ppeaperror);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)sessionhandle;
     (void)pcbsendpacket;
     (void)ppsendpacket;
     (void)ppeaperror;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -336,12 +419,19 @@ static Napi::Value windowssys_windows_win32_security_extensibleauthenticationpro
         HMODULE km_h_mod = LoadLibraryA("eappprxy.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EapHostPeerGetUIContext")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sessionhandle, pdwsizeofuicontextdata, ppuicontextdata, ppeaperror) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sessionhandle, pdwsizeofuicontextdata, ppuicontextdata, ppeaperror);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)sessionhandle;
     (void)pdwsizeofuicontextdata;
     (void)ppuicontextdata;
     (void)ppeaperror;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -356,8 +446,15 @@ static Napi::Value windowssys_windows_win32_security_extensibleauthenticationpro
         HMODULE km_h_mod = LoadLibraryA("eappprxy.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EapHostPeerInitialize")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -378,7 +475,13 @@ static Napi::Value windowssys_windows_win32_security_extensibleauthenticationpro
         HMODULE km_h_mod = LoadLibraryA("eappcfg.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EapHostPeerInvokeInteractiveUI")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwndparent, dwsizeofuicontextdata, puicontextdata, pdwsizeofdatafrominteractiveui, ppdatafrominteractiveui, ppeaperror) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwndparent, dwsizeofuicontextdata, puicontextdata, pdwsizeofdatafrominteractiveui, ppdatafrominteractiveui, ppeaperror);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hwndparent;
     (void)dwsizeofuicontextdata;
@@ -386,6 +489,7 @@ static Napi::Value windowssys_windows_win32_security_extensibleauthenticationpro
     (void)pdwsizeofdatafrominteractiveui;
     (void)ppdatafrominteractiveui;
     (void)ppeaperror;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -405,13 +509,20 @@ static Napi::Value windowssys_windows_win32_security_extensibleauthenticationpro
         HMODULE km_h_mod = LoadLibraryA("eappprxy.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EapHostPeerProcessReceivedPacket")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sessionhandle, cbreceivepacket, preceivepacket, peapoutput, ppeaperror) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sessionhandle, cbreceivepacket, preceivepacket, peapoutput, ppeaperror);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)sessionhandle;
     (void)cbreceivepacket;
     (void)preceivepacket;
     (void)peapoutput;
     (void)ppeaperror;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -433,7 +544,13 @@ static Napi::Value windowssys_windows_win32_security_extensibleauthenticationpro
         HMODULE km_h_mod = LoadLibraryA("eappcfg.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EapHostPeerQueryInteractiveUIInputFields")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwversion, dwflags, dwsizeofuicontextdata, puicontextdata, peapinteractiveuidata, ppeaperror, ppvreserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwversion, dwflags, dwsizeofuicontextdata, puicontextdata, peapinteractiveuidata, ppeaperror, ppvreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dwversion;
     (void)dwflags;
@@ -442,6 +559,7 @@ static Napi::Value windowssys_windows_win32_security_extensibleauthenticationpro
     (void)peapinteractiveuidata;
     (void)ppeaperror;
     (void)ppvreserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -465,7 +583,13 @@ static Napi::Value windowssys_windows_win32_security_extensibleauthenticationpro
         HMODULE km_h_mod = LoadLibraryA("eappcfg.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EapHostPeerQueryUIBlobFromInteractiveUIInputFields")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwversion, dwflags, dwsizeofuicontextdata, puicontextdata, peapinteractiveuidata, pdwsizeofdatafrominteractiveui, ppdatafrominteractiveui, ppeaperror, ppvreserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwversion, dwflags, dwsizeofuicontextdata, puicontextdata, peapinteractiveuidata, pdwsizeofdatafrominteractiveui, ppdatafrominteractiveui, ppeaperror, ppvreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dwversion;
     (void)dwflags;
@@ -476,6 +600,7 @@ static Napi::Value windowssys_windows_win32_security_extensibleauthenticationpro
     (void)ppdatafrominteractiveui;
     (void)ppeaperror;
     (void)ppvreserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -494,12 +619,19 @@ static Napi::Value windowssys_windows_win32_security_extensibleauthenticationpro
         HMODULE km_h_mod = LoadLibraryA("eappprxy.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EapHostPeerSetResponseAttributes")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sessionhandle, pattribs, peapoutput, ppeaperror) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sessionhandle, pattribs, peapoutput, ppeaperror);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)sessionhandle;
     (void)pattribs;
     (void)peapoutput;
     (void)ppeaperror;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -519,13 +651,20 @@ static Napi::Value windowssys_windows_win32_security_extensibleauthenticationpro
         HMODULE km_h_mod = LoadLibraryA("eappprxy.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EapHostPeerSetUIContext")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sessionhandle, dwsizeofuicontextdata, puicontextdata, peapoutput, ppeaperror) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sessionhandle, dwsizeofuicontextdata, puicontextdata, peapoutput, ppeaperror);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)sessionhandle;
     (void)dwsizeofuicontextdata;
     (void)puicontextdata;
     (void)peapoutput;
     (void)ppeaperror;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -540,8 +679,13 @@ static Napi::Value windowssys_windows_win32_security_extensibleauthenticationpro
         HMODULE km_h_mod = LoadLibraryA("eappprxy.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EapHostPeerUninitialize")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr();
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+    }
 #else
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }

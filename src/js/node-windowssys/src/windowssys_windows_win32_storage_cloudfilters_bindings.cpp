@@ -61,9 +61,14 @@ static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfCloseHandle_n
         HMODULE km_h_mod = LoadLibraryA("cldapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CfCloseHandle")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(filehandle);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(filehandle);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)filehandle;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -82,13 +87,20 @@ static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfConnectSyncRo
         HMODULE km_h_mod = LoadLibraryA("cldapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CfConnectSyncRoot")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(syncrootpath, callbacktable, callbackcontext, connectflags, connectionkey) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(syncrootpath, callbacktable, callbackcontext, connectflags, connectionkey);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)syncrootpath;
     (void)callbacktable;
     (void)callbackcontext;
     (void)connectflags;
     (void)connectionkey;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -109,7 +121,13 @@ static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfConvertToPlac
         HMODULE km_h_mod = LoadLibraryA("cldapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CfConvertToPlaceholder")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(filehandle, fileidentity, fileidentitylength, convertflags, convertusn, overlapped) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(filehandle, fileidentity, fileidentitylength, convertflags, convertusn, overlapped);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)filehandle;
     (void)fileidentity;
@@ -117,6 +135,7 @@ static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfConvertToPlac
     (void)convertflags;
     (void)convertusn;
     (void)overlapped;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -136,13 +155,20 @@ static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfCreatePlaceho
         HMODULE km_h_mod = LoadLibraryA("cldapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CfCreatePlaceholders")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(basedirectorypath, placeholderarray, placeholdercount, createflags, entriesprocessed) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(basedirectorypath, placeholderarray, placeholdercount, createflags, entriesprocessed);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)basedirectorypath;
     (void)placeholderarray;
     (void)placeholdercount;
     (void)createflags;
     (void)entriesprocessed;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -162,13 +188,20 @@ static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfDehydratePlac
         HMODULE km_h_mod = LoadLibraryA("cldapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CfDehydratePlaceholder")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(filehandle, startingoffset, length, dehydrateflags, overlapped) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(filehandle, startingoffset, length, dehydrateflags, overlapped);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)filehandle;
     (void)startingoffset;
     (void)length;
     (void)dehydrateflags;
     (void)overlapped;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -184,9 +217,16 @@ static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfDisconnectSyn
         HMODULE km_h_mod = LoadLibraryA("cldapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CfDisconnectSyncRoot")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(connectionkey) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(connectionkey);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)connectionkey;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -203,10 +243,17 @@ static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfExecute_napi(
         HMODULE km_h_mod = LoadLibraryA("cldapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CfExecute")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(opinfo, opparams) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(opinfo, opparams);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)opinfo;
     (void)opparams;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -223,10 +270,17 @@ static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfGetCorrelatio
         HMODULE km_h_mod = LoadLibraryA("cldapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CfGetCorrelationVector")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(filehandle, correlationvector) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(filehandle, correlationvector);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)filehandle;
     (void)correlationvector;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -246,13 +300,20 @@ static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfGetPlaceholde
         HMODULE km_h_mod = LoadLibraryA("cldapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CfGetPlaceholderInfo")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(filehandle, infoclass, infobuffer, infobufferlength, returnedlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(filehandle, infoclass, infobuffer, infobufferlength, returnedlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)filehandle;
     (void)infoclass;
     (void)infobuffer;
     (void)infobufferlength;
     (void)returnedlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -274,7 +335,13 @@ static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfGetPlaceholde
         HMODULE km_h_mod = LoadLibraryA("cldapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CfGetPlaceholderRangeInfo")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(filehandle, infoclass, startingoffset, length, infobuffer, infobufferlength, returnedlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(filehandle, infoclass, startingoffset, length, infobuffer, infobufferlength, returnedlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)filehandle;
     (void)infoclass;
@@ -283,6 +350,7 @@ static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfGetPlaceholde
     (void)infobuffer;
     (void)infobufferlength;
     (void)returnedlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -306,7 +374,13 @@ static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfGetPlaceholde
         HMODULE km_h_mod = LoadLibraryA("cldapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CfGetPlaceholderRangeInfoForHydration")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(connectionkey, transferkey, fileid, infoclass, startingoffset, rangelength, infobuffer, infobuffersize, infobufferwritten) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(connectionkey, transferkey, fileid, infoclass, startingoffset, rangelength, infobuffer, infobuffersize, infobufferwritten);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)connectionkey;
     (void)transferkey;
@@ -317,6 +391,7 @@ static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfGetPlaceholde
     (void)infobuffer;
     (void)infobuffersize;
     (void)infobufferwritten;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -333,10 +408,17 @@ static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfGetPlaceholde
         HMODULE km_h_mod = LoadLibraryA("cldapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CfGetPlaceholderStateFromAttributeTag")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(fileattributes, reparsetag) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(fileattributes, reparsetag);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)fileattributes;
     (void)reparsetag;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -353,10 +435,17 @@ static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfGetPlaceholde
         HMODULE km_h_mod = LoadLibraryA("cldapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CfGetPlaceholderStateFromFileInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(infobuffer, infoclass) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(infobuffer, infoclass);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)infobuffer;
     (void)infoclass;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -372,9 +461,16 @@ static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfGetPlaceholde
         HMODULE km_h_mod = LoadLibraryA("cldapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CfGetPlaceholderStateFromFindData")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(finddata) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(finddata);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)finddata;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -390,9 +486,16 @@ static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfGetPlatformIn
         HMODULE km_h_mod = LoadLibraryA("cldapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CfGetPlatformInfo")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(platformversion) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(platformversion);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)platformversion;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -412,13 +515,20 @@ static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfGetSyncRootIn
         HMODULE km_h_mod = LoadLibraryA("cldapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CfGetSyncRootInfoByHandle")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(filehandle, infoclass, infobuffer, infobufferlength, returnedlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(filehandle, infoclass, infobuffer, infobufferlength, returnedlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)filehandle;
     (void)infoclass;
     (void)infobuffer;
     (void)infobufferlength;
     (void)returnedlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -438,13 +548,20 @@ static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfGetSyncRootIn
         HMODULE km_h_mod = LoadLibraryA("cldapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CfGetSyncRootInfoByPath")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(filepath, infoclass, infobuffer, infobufferlength, returnedlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(filepath, infoclass, infobuffer, infobufferlength, returnedlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)filepath;
     (void)infoclass;
     (void)infobuffer;
     (void)infobufferlength;
     (void)returnedlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -461,10 +578,17 @@ static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfGetTransferKe
         HMODULE km_h_mod = LoadLibraryA("cldapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CfGetTransferKey")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(filehandle, transferkey) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(filehandle, transferkey);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)filehandle;
     (void)transferkey;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -480,10 +604,17 @@ static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfGetWin32Handl
         HMODULE km_h_mod = LoadLibraryA("cldapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CfGetWin32HandleFromProtectedHandle")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(protectedhandle) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(protectedhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)protectedhandle;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -502,13 +633,20 @@ static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfHydratePlaceh
         HMODULE km_h_mod = LoadLibraryA("cldapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CfHydratePlaceholder")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(filehandle, startingoffset, length, hydrateflags, overlapped) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(filehandle, startingoffset, length, hydrateflags, overlapped);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)filehandle;
     (void)startingoffset;
     (void)length;
     (void)hydrateflags;
     (void)overlapped;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -526,11 +664,18 @@ static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfOpenFileWithO
         HMODULE km_h_mod = LoadLibraryA("cldapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CfOpenFileWithOplock")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(filepath, flags, protectedhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(filepath, flags, protectedhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)filepath;
     (void)flags;
     (void)protectedhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -547,10 +692,17 @@ static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfQuerySyncProv
         HMODULE km_h_mod = LoadLibraryA("cldapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CfQuerySyncProviderStatus")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(connectionkey, providerstatus) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(connectionkey, providerstatus);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)connectionkey;
     (void)providerstatus;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -566,9 +718,16 @@ static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfReferenceProt
         HMODULE km_h_mod = LoadLibraryA("cldapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CfReferenceProtectedHandle")));
     }
-    bool km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(protectedhandle) : false;
+    bool km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(protectedhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)protectedhandle;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return Napi::Boolean::New(km_env, km_res);
@@ -587,12 +746,19 @@ static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfRegisterSyncR
         HMODULE km_h_mod = LoadLibraryA("cldapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CfRegisterSyncRoot")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(syncrootpath, registration, policies, registerflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(syncrootpath, registration, policies, registerflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)syncrootpath;
     (void)registration;
     (void)policies;
     (void)registerflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -608,9 +774,14 @@ static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfReleaseProtec
         HMODULE km_h_mod = LoadLibraryA("cldapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CfReleaseProtectedHandle")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(protectedhandle);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(protectedhandle);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)protectedhandle;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -626,10 +797,15 @@ static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfReleaseTransf
         HMODULE km_h_mod = LoadLibraryA("cldapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CfReleaseTransferKey")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(filehandle, transferkey);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(filehandle, transferkey);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)filehandle;
     (void)transferkey;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -647,12 +823,19 @@ static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfReportProvide
         HMODULE km_h_mod = LoadLibraryA("cldapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CfReportProviderProgress")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(connectionkey, transferkey, providerprogresstotal, providerprogresscompleted) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(connectionkey, transferkey, providerprogresstotal, providerprogresscompleted);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)connectionkey;
     (void)transferkey;
     (void)providerprogresstotal;
     (void)providerprogresscompleted;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -673,7 +856,13 @@ static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfReportProvide
         HMODULE km_h_mod = LoadLibraryA("cldapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CfReportProviderProgress2")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(connectionkey, transferkey, requestkey, providerprogresstotal, providerprogresscompleted, targetsessionid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(connectionkey, transferkey, requestkey, providerprogresstotal, providerprogresscompleted, targetsessionid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)connectionkey;
     (void)transferkey;
@@ -681,6 +870,7 @@ static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfReportProvide
     (void)providerprogresstotal;
     (void)providerprogresscompleted;
     (void)targetsessionid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -697,10 +887,17 @@ static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfReportSyncSta
         HMODULE km_h_mod = LoadLibraryA("cldapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CfReportSyncStatus")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(syncrootpath, syncstatus) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(syncrootpath, syncstatus);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)syncrootpath;
     (void)syncstatus;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -718,11 +915,18 @@ static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfRevertPlaceho
         HMODULE km_h_mod = LoadLibraryA("cldapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CfRevertPlaceholder")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(filehandle, revertflags, overlapped) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(filehandle, revertflags, overlapped);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)filehandle;
     (void)revertflags;
     (void)overlapped;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -739,10 +943,17 @@ static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfSetCorrelatio
         HMODULE km_h_mod = LoadLibraryA("cldapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CfSetCorrelationVector")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(filehandle, correlationvector) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(filehandle, correlationvector);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)filehandle;
     (void)correlationvector;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -761,12 +972,19 @@ static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfSetInSyncStat
         HMODULE km_h_mod = LoadLibraryA("cldapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CfSetInSyncState")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(filehandle, insyncstate, insyncflags, insyncusn) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(filehandle, insyncstate, insyncflags, insyncusn);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)filehandle;
     (void)insyncstate;
     (void)insyncflags;
     (void)insyncusn;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -785,12 +1003,19 @@ static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfSetPinState_n
         HMODULE km_h_mod = LoadLibraryA("cldapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CfSetPinState")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(filehandle, pinstate, pinflags, overlapped) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(filehandle, pinstate, pinflags, overlapped);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)filehandle;
     (void)pinstate;
     (void)pinflags;
     (void)overlapped;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -806,9 +1031,16 @@ static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfUnregisterSyn
         HMODULE km_h_mod = LoadLibraryA("cldapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CfUnregisterSyncRoot")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(syncrootpath) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(syncrootpath);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)syncrootpath;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -832,7 +1064,13 @@ static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfUpdatePlaceho
         HMODULE km_h_mod = LoadLibraryA("cldapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CfUpdatePlaceholder")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(filehandle, fsmetadata, fileidentity, fileidentitylength, dehydraterangearray, dehydraterangecount, updateflags, updateusn, overlapped) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(filehandle, fsmetadata, fileidentity, fileidentitylength, dehydraterangearray, dehydraterangecount, updateflags, updateusn, overlapped);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)filehandle;
     (void)fsmetadata;
@@ -843,6 +1081,7 @@ static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfUpdatePlaceho
     (void)updateflags;
     (void)updateusn;
     (void)overlapped;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -859,10 +1098,17 @@ static Napi::Value windowssys_windows_win32_storage_cloudfilters_cfUpdateSyncPro
         HMODULE km_h_mod = LoadLibraryA("cldapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CfUpdateSyncProviderStatus")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(connectionkey, providerstatus) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(connectionkey, providerstatus);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)connectionkey;
     (void)providerstatus;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

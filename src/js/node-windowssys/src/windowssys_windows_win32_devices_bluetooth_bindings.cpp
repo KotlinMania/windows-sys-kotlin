@@ -65,13 +65,20 @@ static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothAuthentic
         HMODULE km_h_mod = LoadLibraryA("bthprops.cpl");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "BluetoothAuthenticateDevice")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwndparent, hradio, pbtbi, pszpasskey, ulpasskeylength) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwndparent, hradio, pbtbi, pszpasskey, ulpasskeylength);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hwndparent;
     (void)hradio;
     (void)pbtbi;
     (void)pszpasskey;
     (void)ulpasskeylength;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -91,13 +98,20 @@ static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothAuthentic
         HMODULE km_h_mod = LoadLibraryA("bthprops.cpl");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "BluetoothAuthenticateDeviceEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwndparentin, hradioin, pbtdiinout, pbtoobdata, authenticationrequirement) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwndparentin, hradioin, pbtdiinout, pbtoobdata, authenticationrequirement);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hwndparentin;
     (void)hradioin;
     (void)pbtdiinout;
     (void)pbtoobdata;
     (void)authenticationrequirement;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -116,12 +130,19 @@ static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothAuthentic
         HMODULE km_h_mod = LoadLibraryA("bthprops.cpl");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "BluetoothAuthenticateMultipleDevices")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwndparent, hradio, cdevices, rgbtdi) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwndparent, hradio, cdevices, rgbtdi);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hwndparent;
     (void)hradio;
     (void)cdevices;
     (void)rgbtdi;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -138,10 +159,17 @@ static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothDisplayDe
         HMODULE km_h_mod = LoadLibraryA("bthprops.cpl");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "BluetoothDisplayDeviceProperties")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwndparent, pbtdi) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwndparent, pbtdi);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwndparent;
     (void)pbtdi;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -158,10 +186,17 @@ static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothEnableDis
         HMODULE km_h_mod = LoadLibraryA("bluetoothapis.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "BluetoothEnableDiscovery")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hradio, fenabled) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hradio, fenabled);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hradio;
     (void)fenabled;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -178,10 +213,17 @@ static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothEnableInc
         HMODULE km_h_mod = LoadLibraryA("bluetoothapis.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "BluetoothEnableIncomingConnections")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hradio, fenabled) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hradio, fenabled);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hradio;
     (void)fenabled;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -200,12 +242,19 @@ static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothEnumerate
         HMODULE km_h_mod = LoadLibraryA("bluetoothapis.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "BluetoothEnumerateInstalledServices")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hradio, pbtdi, pcserviceinout, pguidservices) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hradio, pbtdi, pcserviceinout, pguidservices);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hradio;
     (void)pbtdi;
     (void)pcserviceinout;
     (void)pguidservices;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -221,9 +270,16 @@ static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothFindDevic
         HMODULE km_h_mod = LoadLibraryA("bluetoothapis.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "BluetoothFindDeviceClose")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hfind) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hfind);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hfind;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -240,11 +296,18 @@ static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothFindFirst
         HMODULE km_h_mod = LoadLibraryA("bluetoothapis.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "BluetoothFindFirstDevice")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pbtsp, pbtdi) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pbtsp, pbtdi);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pbtsp;
     (void)pbtdi;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -260,11 +323,18 @@ static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothFindFirst
         HMODULE km_h_mod = LoadLibraryA("bluetoothapis.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "BluetoothFindFirstRadio")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pbtfrp, phradio) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pbtfrp, phradio);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pbtfrp;
     (void)phradio;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -280,10 +350,17 @@ static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothFindNextD
         HMODULE km_h_mod = LoadLibraryA("bluetoothapis.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "BluetoothFindNextDevice")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hfind, pbtdi) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hfind, pbtdi);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hfind;
     (void)pbtdi;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -300,10 +377,17 @@ static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothFindNextR
         HMODULE km_h_mod = LoadLibraryA("bluetoothapis.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "BluetoothFindNextRadio")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hfind, phradio) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hfind, phradio);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hfind;
     (void)phradio;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -319,9 +403,16 @@ static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothFindRadio
         HMODULE km_h_mod = LoadLibraryA("bluetoothapis.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "BluetoothFindRadioClose")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hfind) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hfind);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hfind;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -339,11 +430,18 @@ static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothGATTAbort
         HMODULE km_h_mod = LoadLibraryA("bluetoothapis.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "BluetoothGATTAbortReliableWrite")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdevice, reliablewritecontext, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdevice, reliablewritecontext, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdevice;
     (void)reliablewritecontext;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -361,11 +459,18 @@ static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothGATTBegin
         HMODULE km_h_mod = LoadLibraryA("bluetoothapis.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "BluetoothGATTBeginReliableWrite")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdevice, reliablewritecontext, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdevice, reliablewritecontext, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdevice;
     (void)reliablewritecontext;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -383,11 +488,18 @@ static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothGATTEndRe
         HMODULE km_h_mod = LoadLibraryA("bluetoothapis.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "BluetoothGATTEndReliableWrite")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdevice, reliablewritecontext, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdevice, reliablewritecontext, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdevice;
     (void)reliablewritecontext;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -408,7 +520,13 @@ static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothGATTGetCh
         HMODULE km_h_mod = LoadLibraryA("bluetoothapis.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "BluetoothGATTGetCharacteristicValue")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdevice, characteristic, characteristicvaluedatasize, characteristicvalue, characteristicvaluesizerequired, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdevice, characteristic, characteristicvaluedatasize, characteristicvalue, characteristicvaluesizerequired, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdevice;
     (void)characteristic;
@@ -416,6 +534,7 @@ static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothGATTGetCh
     (void)characteristicvalue;
     (void)characteristicvaluesizerequired;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -436,7 +555,13 @@ static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothGATTGetCh
         HMODULE km_h_mod = LoadLibraryA("bluetoothapis.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "BluetoothGATTGetCharacteristics")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdevice, service, characteristicsbuffercount, characteristicsbuffer, characteristicsbufferactual, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdevice, service, characteristicsbuffercount, characteristicsbuffer, characteristicsbufferactual, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdevice;
     (void)service;
@@ -444,6 +569,7 @@ static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothGATTGetCh
     (void)characteristicsbuffer;
     (void)characteristicsbufferactual;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -464,7 +590,13 @@ static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothGATTGetDe
         HMODULE km_h_mod = LoadLibraryA("bluetoothapis.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "BluetoothGATTGetDescriptorValue")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdevice, descriptor, descriptorvaluedatasize, descriptorvalue, descriptorvaluesizerequired, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdevice, descriptor, descriptorvaluedatasize, descriptorvalue, descriptorvaluesizerequired, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdevice;
     (void)descriptor;
@@ -472,6 +604,7 @@ static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothGATTGetDe
     (void)descriptorvalue;
     (void)descriptorvaluesizerequired;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -492,7 +625,13 @@ static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothGATTGetDe
         HMODULE km_h_mod = LoadLibraryA("bluetoothapis.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "BluetoothGATTGetDescriptors")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdevice, characteristic, descriptorsbuffercount, descriptorsbuffer, descriptorsbufferactual, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdevice, characteristic, descriptorsbuffercount, descriptorsbuffer, descriptorsbufferactual, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdevice;
     (void)characteristic;
@@ -500,6 +639,7 @@ static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothGATTGetDe
     (void)descriptorsbuffer;
     (void)descriptorsbufferactual;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -520,7 +660,13 @@ static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothGATTGetIn
         HMODULE km_h_mod = LoadLibraryA("bluetoothapis.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "BluetoothGATTGetIncludedServices")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdevice, parentservice, includedservicesbuffercount, includedservicesbuffer, includedservicesbufferactual, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdevice, parentservice, includedservicesbuffercount, includedservicesbuffer, includedservicesbufferactual, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdevice;
     (void)parentservice;
@@ -528,6 +674,7 @@ static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothGATTGetIn
     (void)includedservicesbuffer;
     (void)includedservicesbufferactual;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -547,13 +694,20 @@ static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothGATTGetSe
         HMODULE km_h_mod = LoadLibraryA("bluetoothapis.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "BluetoothGATTGetServices")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdevice, servicesbuffercount, servicesbuffer, servicesbufferactual, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdevice, servicesbuffercount, servicesbuffer, servicesbufferactual, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdevice;
     (void)servicesbuffercount;
     (void)servicesbuffer;
     (void)servicesbufferactual;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -575,7 +729,13 @@ static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothGATTRegis
         HMODULE km_h_mod = LoadLibraryA("bluetoothapis.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "BluetoothGATTRegisterEvent")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hservice, eventtype, eventparameterin, callback, callbackcontext, peventhandle, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hservice, eventtype, eventparameterin, callback, callbackcontext, peventhandle, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hservice;
     (void)eventtype;
@@ -584,6 +744,7 @@ static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothGATTRegis
     (void)callbackcontext;
     (void)peventhandle;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -603,13 +764,20 @@ static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothGATTSetCh
         HMODULE km_h_mod = LoadLibraryA("bluetoothapis.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "BluetoothGATTSetCharacteristicValue")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdevice, characteristic, characteristicvalue, reliablewritecontext, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdevice, characteristic, characteristicvalue, reliablewritecontext, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdevice;
     (void)characteristic;
     (void)characteristicvalue;
     (void)reliablewritecontext;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -628,12 +796,19 @@ static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothGATTSetDe
         HMODULE km_h_mod = LoadLibraryA("bluetoothapis.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "BluetoothGATTSetDescriptorValue")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdevice, descriptor, descriptorvalue, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdevice, descriptor, descriptorvalue, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdevice;
     (void)descriptor;
     (void)descriptorvalue;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -650,10 +825,17 @@ static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothGATTUnreg
         HMODULE km_h_mod = LoadLibraryA("bluetoothapis.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "BluetoothGATTUnregisterEvent")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(eventhandle, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(eventhandle, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)eventhandle;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -670,10 +852,17 @@ static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothGetDevice
         HMODULE km_h_mod = LoadLibraryA("bluetoothapis.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "BluetoothGetDeviceInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hradio, pbtdi) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hradio, pbtdi);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hradio;
     (void)pbtdi;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -690,10 +879,17 @@ static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothGetRadioI
         HMODULE km_h_mod = LoadLibraryA("bluetoothapis.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "BluetoothGetRadioInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hradio, pradioinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hradio, pradioinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hradio;
     (void)pradioinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -709,9 +905,16 @@ static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothIsConnect
         HMODULE km_h_mod = LoadLibraryA("bluetoothapis.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "BluetoothIsConnectable")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hradio) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hradio);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hradio;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -727,9 +930,16 @@ static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothIsDiscove
         HMODULE km_h_mod = LoadLibraryA("bluetoothapis.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "BluetoothIsDiscoverable")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hradio) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hradio);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hradio;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -746,10 +956,17 @@ static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothIsVersion
         HMODULE km_h_mod = LoadLibraryA("bluetoothapis.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "BluetoothIsVersionAvailable")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(majorversion, minorversion) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(majorversion, minorversion);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)majorversion;
     (void)minorversion;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -768,12 +985,19 @@ static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothRegisterF
         HMODULE km_h_mod = LoadLibraryA("bluetoothapis.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "BluetoothRegisterForAuthentication")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pbtdi, phreghandle, pfncallback, pvparam) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pbtdi, phreghandle, pfncallback, pvparam);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pbtdi;
     (void)phreghandle;
     (void)pfncallback;
     (void)pvparam;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -792,12 +1016,19 @@ static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothRegisterF
         HMODULE km_h_mod = LoadLibraryA("bluetoothapis.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "BluetoothRegisterForAuthenticationEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pbtdiin, phreghandleout, pfncallbackin, pvparam) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pbtdiin, phreghandleout, pfncallbackin, pvparam);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pbtdiin;
     (void)phreghandleout;
     (void)pfncallbackin;
     (void)pvparam;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -813,9 +1044,16 @@ static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothRemoveDev
         HMODULE km_h_mod = LoadLibraryA("bluetoothapis.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "BluetoothRemoveDevice")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(paddress) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(paddress);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)paddress;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -834,12 +1072,19 @@ static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothSdpEnumAt
         HMODULE km_h_mod = LoadLibraryA("bluetoothapis.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "BluetoothSdpEnumAttributes")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(psdpstream, cbstreamsize, pfncallback, pvparam) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(psdpstream, cbstreamsize, pfncallback, pvparam);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)psdpstream;
     (void)cbstreamsize;
     (void)pfncallback;
     (void)pvparam;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -858,12 +1103,19 @@ static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothSdpGetAtt
         HMODULE km_h_mod = LoadLibraryA("bluetoothapis.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "BluetoothSdpGetAttributeValue")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(precordstream, cbrecordlength, usattributeid, pattributedata) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(precordstream, cbrecordlength, usattributeid, pattributedata);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)precordstream;
     (void)cbrecordlength;
     (void)usattributeid;
     (void)pattributedata;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -882,12 +1134,19 @@ static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothSdpGetCon
         HMODULE km_h_mod = LoadLibraryA("bluetoothapis.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "BluetoothSdpGetContainerElementData")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pcontainerstream, cbcontainerlength, pelement, pdata) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pcontainerstream, cbcontainerlength, pelement, pdata);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pcontainerstream;
     (void)cbcontainerlength;
     (void)pelement;
     (void)pdata;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -905,11 +1164,18 @@ static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothSdpGetEle
         HMODULE km_h_mod = LoadLibraryA("bluetoothapis.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "BluetoothSdpGetElementData")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(psdpstream, cbsdpstreamlength, pdata) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(psdpstream, cbsdpstreamlength, pdata);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)psdpstream;
     (void)cbsdpstreamlength;
     (void)pdata;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -930,7 +1196,13 @@ static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothSdpGetStr
         HMODULE km_h_mod = LoadLibraryA("bluetoothapis.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "BluetoothSdpGetString")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(precordstream, cbrecordlength, pstringdata, usstringoffset, pszstring, pcchstringlength) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(precordstream, cbrecordlength, pstringdata, usstringoffset, pszstring, pcchstringlength);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)precordstream;
     (void)cbrecordlength;
@@ -938,6 +1210,7 @@ static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothSdpGetStr
     (void)usstringoffset;
     (void)pszstring;
     (void)pcchstringlength;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -953,9 +1226,16 @@ static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothSelectDev
         HMODULE km_h_mod = LoadLibraryA("bthprops.cpl");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "BluetoothSelectDevices")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pbtsdp) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pbtsdp);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pbtsdp;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -971,9 +1251,16 @@ static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothSelectDev
         HMODULE km_h_mod = LoadLibraryA("bthprops.cpl");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "BluetoothSelectDevicesFree")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pbtsdp) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pbtsdp);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pbtsdp;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -991,11 +1278,18 @@ static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothSendAuthe
         HMODULE km_h_mod = LoadLibraryA("bluetoothapis.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "BluetoothSendAuthenticationResponse")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hradio, pbtdi, pszpasskey) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hradio, pbtdi, pszpasskey);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hradio;
     (void)pbtdi;
     (void)pszpasskey;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1012,10 +1306,17 @@ static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothSendAuthe
         HMODULE km_h_mod = LoadLibraryA("bluetoothapis.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "BluetoothSendAuthenticationResponseEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hradioin, pauthresponse) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hradioin, pauthresponse);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hradioin;
     (void)pauthresponse;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1034,12 +1335,19 @@ static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothSetLocalS
         HMODULE km_h_mod = LoadLibraryA("bluetoothapis.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "BluetoothSetLocalServiceInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hradioin, pclassguid, ulinstance, pserviceinfoin) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hradioin, pclassguid, ulinstance, pserviceinfoin);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hradioin;
     (void)pclassguid;
     (void)ulinstance;
     (void)pserviceinfoin;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1058,12 +1366,19 @@ static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothSetServic
         HMODULE km_h_mod = LoadLibraryA("bluetoothapis.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "BluetoothSetServiceState")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hradio, pbtdi, pguidservice, dwserviceflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hradio, pbtdi, pguidservice, dwserviceflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hradio;
     (void)pbtdi;
     (void)pguidservice;
     (void)dwserviceflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1079,9 +1394,16 @@ static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothUnregiste
         HMODULE km_h_mod = LoadLibraryA("bluetoothapis.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "BluetoothUnregisterAuthentication")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hreghandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hreghandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hreghandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1097,9 +1419,16 @@ static Napi::Value windowssys_windows_win32_devices_bluetooth_bluetoothUpdateDev
         HMODULE km_h_mod = LoadLibraryA("bluetoothapis.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "BluetoothUpdateDeviceRecord")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pbtdi) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pbtdi);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pbtdi;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

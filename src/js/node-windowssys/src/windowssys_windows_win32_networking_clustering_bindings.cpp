@@ -62,10 +62,17 @@ static Napi::Value windowssys_windows_win32_networking_clustering_addClusterGrou
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AddClusterGroupDependency")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdependentgroup, hprovidergroup) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdependentgroup, hprovidergroup);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hdependentgroup;
     (void)hprovidergroup;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -83,11 +90,18 @@ static Napi::Value windowssys_windows_win32_networking_clustering_addClusterGrou
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AddClusterGroupDependencyEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdependentgroup, hprovidergroup, lpszreason) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdependentgroup, hprovidergroup, lpszreason);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hdependentgroup;
     (void)hprovidergroup;
     (void)lpszreason;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -104,10 +118,17 @@ static Napi::Value windowssys_windows_win32_networking_clustering_addClusterGrou
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AddClusterGroupSetDependency")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdependentgroupset, hprovidergroupset) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdependentgroupset, hprovidergroupset);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hdependentgroupset;
     (void)hprovidergroupset;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -125,11 +146,18 @@ static Napi::Value windowssys_windows_win32_networking_clustering_addClusterGrou
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AddClusterGroupSetDependencyEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdependentgroupset, hprovidergroupset, lpszreason) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdependentgroupset, hprovidergroupset, lpszreason);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hdependentgroupset;
     (void)hprovidergroupset;
     (void)lpszreason;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -146,10 +174,17 @@ static Napi::Value windowssys_windows_win32_networking_clustering_addClusterGrou
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AddClusterGroupToGroupSetDependency")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdependentgroup, hprovidergroupset) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdependentgroup, hprovidergroupset);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hdependentgroup;
     (void)hprovidergroupset;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -167,11 +202,18 @@ static Napi::Value windowssys_windows_win32_networking_clustering_addClusterGrou
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AddClusterGroupToGroupSetDependencyEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdependentgroup, hprovidergroupset, lpszreason) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdependentgroup, hprovidergroupset, lpszreason);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hdependentgroup;
     (void)hprovidergroupset;
     (void)lpszreason;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -190,12 +232,19 @@ static Napi::Value windowssys_windows_win32_networking_clustering_addClusterNode
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AddClusterNode")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcluster, lpsznodename, pfnprogresscallback, pvcallbackarg) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcluster, lpsznodename, pfnprogresscallback, pvcallbackarg);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcluster;
     (void)lpsznodename;
     (void)pfnprogresscallback;
     (void)pvcallbackarg;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -215,13 +264,20 @@ static Napi::Value windowssys_windows_win32_networking_clustering_addClusterNode
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AddClusterNodeEx")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcluster, lpsznodename, dwflags, pfnprogresscallback, pvcallbackarg) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcluster, lpsznodename, dwflags, pfnprogresscallback, pvcallbackarg);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcluster;
     (void)lpsznodename;
     (void)dwflags;
     (void)pfnprogresscallback;
     (void)pvcallbackarg;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -238,10 +294,17 @@ static Napi::Value windowssys_windows_win32_networking_clustering_addClusterReso
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AddClusterResourceDependency")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hresource, hdependson) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hresource, hdependson);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hresource;
     (void)hdependson;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -259,11 +322,18 @@ static Napi::Value windowssys_windows_win32_networking_clustering_addClusterReso
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AddClusterResourceDependencyEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hresource, hdependson, lpszreason) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hresource, hdependson, lpszreason);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hresource;
     (void)hdependson;
     (void)lpszreason;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -280,10 +350,17 @@ static Napi::Value windowssys_windows_win32_networking_clustering_addClusterReso
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AddClusterResourceNode")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hresource, hnode) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hresource, hnode);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hresource;
     (void)hnode;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -301,11 +378,18 @@ static Napi::Value windowssys_windows_win32_networking_clustering_addClusterReso
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AddClusterResourceNodeEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hresource, hnode, lpszreason) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hresource, hnode, lpszreason);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hresource;
     (void)hnode;
     (void)lpszreason;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -326,7 +410,13 @@ static Napi::Value windowssys_windows_win32_networking_clustering_addClusterStor
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AddClusterStorageNode")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcluster, lpsznodename, pfnprogresscallback, pvcallbackarg, lpszclusterstoragenodedescription, lpszclusterstoragenodelocation) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcluster, lpsznodename, pfnprogresscallback, pvcallbackarg, lpszclusterstoragenodedescription, lpszclusterstoragenodelocation);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hcluster;
     (void)lpsznodename;
@@ -334,6 +424,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_addClusterStor
     (void)pvcallbackarg;
     (void)lpszclusterstoragenodedescription;
     (void)lpszclusterstoragenodelocation;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -351,11 +442,18 @@ static Napi::Value windowssys_windows_win32_networking_clustering_addCrossCluste
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AddCrossClusterGroupSetDependency")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdependentgroupset, lpremoteclustername, lpremotegroupsetname) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdependentgroupset, lpremoteclustername, lpremotegroupsetname);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hdependentgroupset;
     (void)lpremoteclustername;
     (void)lpremotegroupsetname;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -371,9 +469,16 @@ static Napi::Value windowssys_windows_win32_networking_clustering_addResourceToC
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AddResourceToClusterSharedVolumes")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hresource) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hresource);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hresource;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -390,10 +495,17 @@ static Napi::Value windowssys_windows_win32_networking_clustering_backupClusterD
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "BackupClusterDatabase")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcluster, lpszpathname) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcluster, lpszpathname);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hcluster;
     (void)lpszpathname;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -410,10 +522,17 @@ static Napi::Value windowssys_windows_win32_networking_clustering_canResourceBeD
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CanResourceBeDependent")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hresource, hresourcedependent) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hresource, hresourcedependent);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hresource;
     (void)hresourcedependent;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -430,10 +549,17 @@ static Napi::Value windowssys_windows_win32_networking_clustering_cancelClusterG
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CancelClusterGroupOperation")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgroup, dwcancelflags_reserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgroup, dwcancelflags_reserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hgroup;
     (void)dwcancelflags_reserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -450,10 +576,17 @@ static Napi::Value windowssys_windows_win32_networking_clustering_changeClusterR
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ChangeClusterResourceGroup")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hresource, hgroup) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hresource, hgroup);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hresource;
     (void)hgroup;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -471,11 +604,18 @@ static Napi::Value windowssys_windows_win32_networking_clustering_changeClusterR
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ChangeClusterResourceGroupEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hresource, hgroup, flags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hresource, hgroup, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hresource;
     (void)hgroup;
     (void)flags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -494,12 +634,19 @@ static Napi::Value windowssys_windows_win32_networking_clustering_changeClusterR
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ChangeClusterResourceGroupEx2")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hresource, hgroup, flags, lpszreason) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hresource, hgroup, flags, lpszreason);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hresource;
     (void)hgroup;
     (void)flags;
     (void)lpszreason;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -515,9 +662,16 @@ static Napi::Value windowssys_windows_win32_networking_clustering_closeCluster_n
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CloseCluster")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcluster) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcluster);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcluster;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -533,9 +687,16 @@ static Napi::Value windowssys_windows_win32_networking_clustering_closeClusterCr
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CloseClusterCryptProvider")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcluscryptprovider) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcluscryptprovider);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hcluscryptprovider;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -551,9 +712,16 @@ static Napi::Value windowssys_windows_win32_networking_clustering_closeClusterGr
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CloseClusterGroup")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgroup) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgroup);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hgroup;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -569,9 +737,16 @@ static Napi::Value windowssys_windows_win32_networking_clustering_closeClusterGr
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CloseClusterGroupSet")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgroupset) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgroupset);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hgroupset;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -587,9 +762,16 @@ static Napi::Value windowssys_windows_win32_networking_clustering_closeClusterNe
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CloseClusterNetInterface")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hnetinterface) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hnetinterface);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hnetinterface;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -605,9 +787,16 @@ static Napi::Value windowssys_windows_win32_networking_clustering_closeClusterNe
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CloseClusterNetwork")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hnetwork) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hnetwork);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hnetwork;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -623,9 +812,16 @@ static Napi::Value windowssys_windows_win32_networking_clustering_closeClusterNo
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CloseClusterNode")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hnode) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hnode);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hnode;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -641,9 +837,16 @@ static Napi::Value windowssys_windows_win32_networking_clustering_closeClusterNo
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CloseClusterNotifyPort")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hchange) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hchange);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hchange;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -659,9 +862,16 @@ static Napi::Value windowssys_windows_win32_networking_clustering_closeClusterRe
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CloseClusterResource")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hresource) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hresource);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hresource;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -679,11 +889,18 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusAddCluster
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusAddClusterHealthFault")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcluster, failure, param2) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcluster, failure, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hcluster;
     (void)failure;
     (void)param2;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -701,11 +918,18 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusGetCluster
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusGetClusterHealthFaults")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcluster, objects, flags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcluster, objects, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hcluster;
     (void)objects;
     (void)flags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -723,11 +947,18 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusRemoveClus
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusRemoveClusterHealthFault")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcluster, id, flags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcluster, id, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hcluster;
     (void)id;
     (void)flags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -743,9 +974,16 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusWorkerChec
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusWorkerCheckTerminate")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpworker) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpworker);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpworker;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -763,11 +1001,18 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusWorkerCrea
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusWorkerCreate")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpworker, lpstartaddress, lpparameter) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpworker, lpstartaddress, lpparameter);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpworker;
     (void)lpstartaddress;
     (void)lpparameter;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -783,9 +1028,14 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusWorkerTerm
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusWorkerTerminate")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(lpworker);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(lpworker);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)lpworker;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -802,11 +1052,18 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusWorkerTerm
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusWorkerTerminateEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(clusworker, timeoutinmilliseconds, waitonly) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(clusworker, timeoutinmilliseconds, waitonly);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)clusworker;
     (void)timeoutinmilliseconds;
     (void)waitonly;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -825,12 +1082,19 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusWorkersTer
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusWorkersTerminate")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(clusworkers, clusworkerscount, timeoutinmilliseconds, waitonly) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(clusworkers, clusworkerscount, timeoutinmilliseconds, waitonly);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)clusworkers;
     (void)clusworkerscount;
     (void)timeoutinmilliseconds;
     (void)waitonly;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -846,10 +1110,17 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusapiSetReas
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusapiSetReasonHandler")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lphandler) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lphandler);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)lphandler;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -866,11 +1137,18 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterAddGrou
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterAddGroupToAffinityRule")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcluster, rulename, hgroup) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcluster, rulename, hgroup);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hcluster;
     (void)rulename;
     (void)hgroup;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -887,10 +1165,17 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterAddGrou
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterAddGroupToGroupSet")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgroupset, hgroup) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgroupset, hgroup);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hgroupset;
     (void)hgroup;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -909,12 +1194,19 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterAddGrou
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterAddGroupToGroupSetWithDomains")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgroupset, hgroup, faultdomain, updatedomain) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgroupset, hgroup, faultdomain, updatedomain);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hgroupset;
     (void)hgroup;
     (void)faultdomain;
     (void)updatedomain;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -934,13 +1226,20 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterAddGrou
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterAddGroupToGroupSetWithDomainsEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgroupset, hgroup, faultdomain, updatedomain, lpszreason) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgroupset, hgroup, faultdomain, updatedomain, lpszreason);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hgroupset;
     (void)hgroup;
     (void)faultdomain;
     (void)updatedomain;
     (void)lpszreason;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -964,7 +1263,13 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterAffinit
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterAffinityRuleControl")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcluster, affinityrulename, hhostnode, dwcontrolcode, lpinbuffer, cbinbuffersize, lpoutbuffer, cboutbuffersize, lpbytesreturned) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcluster, affinityrulename, hhostnode, dwcontrolcode, lpinbuffer, cbinbuffersize, lpoutbuffer, cboutbuffersize, lpbytesreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hcluster;
     (void)affinityrulename;
@@ -975,6 +1280,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterAffinit
     (void)lpoutbuffer;
     (void)cboutbuffersize;
     (void)lpbytesreturned;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -990,9 +1296,16 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterClearBa
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterClearBackupStateForSharedVolume")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszvolumepathname) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszvolumepathname);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpszvolumepathname;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1008,9 +1321,16 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterCloseEn
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterCloseEnum")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(henum) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(henum);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)henum;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1026,9 +1346,16 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterCloseEn
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterCloseEnumEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hclusterenum) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hclusterenum);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclusterenum;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1051,7 +1378,13 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterControl
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterControl")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcluster, hhostnode, dwcontrolcode, lpinbuffer, ninbuffersize, lpoutbuffer, noutbuffersize, lpbytesreturned) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcluster, hhostnode, dwcontrolcode, lpinbuffer, ninbuffersize, lpoutbuffer, noutbuffersize, lpbytesreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hcluster;
     (void)hhostnode;
@@ -1061,6 +1394,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterControl
     (void)lpoutbuffer;
     (void)noutbuffersize;
     (void)lpbytesreturned;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1084,7 +1418,13 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterControl
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterControlEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcluster, hhostnode, dwcontrolcode, lpinbuffer, ninbuffersize, lpoutbuffer, noutbuffersize, lpbytesreturned, lpszreason) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcluster, hhostnode, dwcontrolcode, lpinbuffer, ninbuffersize, lpoutbuffer, noutbuffersize, lpbytesreturned, lpszreason);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hcluster;
     (void)hhostnode;
@@ -1095,6 +1435,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterControl
     (void)noutbuffersize;
     (void)lpbytesreturned;
     (void)lpszreason;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1112,11 +1453,18 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterCreateA
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterCreateAffinityRule")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcluster, rulename, ruletype) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcluster, rulename, ruletype);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hcluster;
     (void)rulename;
     (void)ruletype;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1136,13 +1484,20 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterDecrypt
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterDecrypt")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcluscryptprovider, pcryptinput, cbcryptinput, ppcryptoutput, pcbcryptoutput) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcluscryptprovider, pcryptinput, cbcryptinput, ppcryptoutput, pcbcryptoutput);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hcluscryptprovider;
     (void)pcryptinput;
     (void)cbcryptinput;
     (void)ppcryptoutput;
     (void)pcbcryptoutput;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1162,13 +1517,20 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterEncrypt
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterEncrypt")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcluscryptprovider, pdata, cbdata, ppdata, pcbdata) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcluscryptprovider, pdata, cbdata, ppdata, pcbdata);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hcluscryptprovider;
     (void)pdata;
     (void)cbdata;
     (void)ppdata;
     (void)pcbdata;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1188,13 +1550,20 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterEnum_na
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterEnum")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(henum, dwindex, lpdwtype, lpszname, lpcchname) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(henum, dwindex, lpdwtype, lpszname, lpcchname);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)henum;
     (void)dwindex;
     (void)lpdwtype;
     (void)lpszname;
     (void)lpcchname;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1213,12 +1582,19 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterEnumEx_
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterEnumEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hclusterenum, dwindex, pitem, cbitem) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hclusterenum, dwindex, pitem, cbitem);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclusterenum;
     (void)dwindex;
     (void)pitem;
     (void)cbitem;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1234,9 +1610,16 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterGetEnum
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterGetEnumCount")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(henum) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(henum);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)henum;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1252,9 +1635,16 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterGetEnum
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterGetEnumCountEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hclusterenum) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hclusterenum);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclusterenum;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1272,11 +1662,18 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterGetVolu
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterGetVolumeNameForVolumeMountPoint")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszvolumemountpoint, lpszvolumename, cchbufferlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszvolumemountpoint, lpszvolumename, cchbufferlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszvolumemountpoint;
     (void)lpszvolumename;
     (void)cchbufferlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1294,11 +1691,18 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterGetVolu
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterGetVolumePathName")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszfilename, lpszvolumepathname, cchbufferlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszfilename, lpszvolumepathname, cchbufferlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszfilename;
     (void)lpszvolumepathname;
     (void)cchbufferlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1314,9 +1718,16 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterGroupCl
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterGroupCloseEnum")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgroupenum) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgroupenum);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hgroupenum;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1332,9 +1743,16 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterGroupCl
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterGroupCloseEnumEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgroupenumex) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgroupenumex);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hgroupenumex;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1357,7 +1775,13 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterGroupCo
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterGroupControl")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgroup, hhostnode, dwcontrolcode, lpinbuffer, ninbuffersize, lpoutbuffer, noutbuffersize, lpbytesreturned) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgroup, hhostnode, dwcontrolcode, lpinbuffer, ninbuffersize, lpoutbuffer, noutbuffersize, lpbytesreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hgroup;
     (void)hhostnode;
@@ -1367,6 +1791,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterGroupCo
     (void)lpoutbuffer;
     (void)noutbuffersize;
     (void)lpbytesreturned;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1390,7 +1815,13 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterGroupCo
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterGroupControlEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgroup, hhostnode, dwcontrolcode, lpinbuffer, ninbuffersize, lpoutbuffer, noutbuffersize, lpbytesreturned, lpszreason) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgroup, hhostnode, dwcontrolcode, lpinbuffer, ninbuffersize, lpoutbuffer, noutbuffersize, lpbytesreturned, lpszreason);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hgroup;
     (void)hhostnode;
@@ -1401,6 +1832,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterGroupCo
     (void)noutbuffersize;
     (void)lpbytesreturned;
     (void)lpszreason;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1420,13 +1852,20 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterGroupEn
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterGroupEnum")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgroupenum, dwindex, lpdwtype, lpszresourcename, lpcchname) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgroupenum, dwindex, lpdwtype, lpszresourcename, lpcchname);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hgroupenum;
     (void)dwindex;
     (void)lpdwtype;
     (void)lpszresourcename;
     (void)lpcchname;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1445,12 +1884,19 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterGroupEn
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterGroupEnumEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgroupenumex, dwindex, pitem, cbitem) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgroupenumex, dwindex, pitem, cbitem);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hgroupenumex;
     (void)dwindex;
     (void)pitem;
     (void)cbitem;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1466,9 +1912,16 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterGroupGe
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterGroupGetEnumCount")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgroupenum) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgroupenum);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hgroupenum;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1484,9 +1937,16 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterGroupGe
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterGroupGetEnumCountEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgroupenumex) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgroupenumex);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hgroupenumex;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1503,10 +1963,17 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterGroupOp
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterGroupOpenEnum")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgroup, dwtype) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgroup, dwtype);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hgroup;
     (void)dwtype;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -1527,7 +1994,13 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterGroupOp
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterGroupOpenEnumEx")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcluster, lpszproperties, cbproperties, lpszroproperties, cbroproperties, dwflags) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcluster, lpszproperties, cbproperties, lpszroproperties, cbroproperties, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcluster;
     (void)lpszproperties;
@@ -1535,6 +2008,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterGroupOp
     (void)lpszroproperties;
     (void)cbroproperties;
     (void)dwflags;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -1550,9 +2024,16 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterGroupSe
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterGroupSetCloseEnum")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgroupsetenum) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgroupsetenum);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hgroupsetenum;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1575,7 +2056,13 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterGroupSe
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterGroupSetControl")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgroupset, hhostnode, dwcontrolcode, lpinbuffer, cbinbuffersize, lpoutbuffer, cboutbuffersize, lpbytesreturned) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgroupset, hhostnode, dwcontrolcode, lpinbuffer, cbinbuffersize, lpoutbuffer, cboutbuffersize, lpbytesreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hgroupset;
     (void)hhostnode;
@@ -1585,6 +2072,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterGroupSe
     (void)lpoutbuffer;
     (void)cboutbuffersize;
     (void)lpbytesreturned;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1608,7 +2096,13 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterGroupSe
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterGroupSetControlEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgroupset, hhostnode, dwcontrolcode, lpinbuffer, cbinbuffersize, lpoutbuffer, cboutbuffersize, lpbytesreturned, lpszreason) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgroupset, hhostnode, dwcontrolcode, lpinbuffer, cbinbuffersize, lpoutbuffer, cboutbuffersize, lpbytesreturned, lpszreason);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hgroupset;
     (void)hhostnode;
@@ -1619,6 +2113,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterGroupSe
     (void)cboutbuffersize;
     (void)lpbytesreturned;
     (void)lpszreason;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1637,12 +2132,19 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterGroupSe
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterGroupSetEnum")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgroupsetenum, dwindex, lpszname, lpcchname) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgroupsetenum, dwindex, lpszname, lpcchname);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hgroupsetenum;
     (void)dwindex;
     (void)lpszname;
     (void)lpcchname;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1658,9 +2160,16 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterGroupSe
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterGroupSetGetEnumCount")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgroupsetenum) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgroupsetenum);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hgroupsetenum;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1676,9 +2185,16 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterGroupSe
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterGroupSetOpenEnum")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcluster) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcluster);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcluster;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1694,9 +2210,16 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterIsPathO
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterIsPathOnSharedVolume")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszpathname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszpathname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszpathname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1712,9 +2235,16 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterNetInte
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterNetInterfaceCloseEnum")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hnetinterfaceenum) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hnetinterfaceenum);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hnetinterfaceenum;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1737,7 +2267,13 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterNetInte
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterNetInterfaceControl")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hnetinterface, hhostnode, dwcontrolcode, lpinbuffer, ninbuffersize, lpoutbuffer, noutbuffersize, lpbytesreturned) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hnetinterface, hhostnode, dwcontrolcode, lpinbuffer, ninbuffersize, lpoutbuffer, noutbuffersize, lpbytesreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hnetinterface;
     (void)hhostnode;
@@ -1747,6 +2283,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterNetInte
     (void)lpoutbuffer;
     (void)noutbuffersize;
     (void)lpbytesreturned;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1770,7 +2307,13 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterNetInte
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterNetInterfaceControlEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hnetinterface, hhostnode, dwcontrolcode, lpinbuffer, ninbuffersize, lpoutbuffer, noutbuffersize, lpbytesreturned, lpszreason) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hnetinterface, hhostnode, dwcontrolcode, lpinbuffer, ninbuffersize, lpoutbuffer, noutbuffersize, lpbytesreturned, lpszreason);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hnetinterface;
     (void)hhostnode;
@@ -1781,6 +2324,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterNetInte
     (void)noutbuffersize;
     (void)lpbytesreturned;
     (void)lpszreason;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1799,12 +2343,19 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterNetInte
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterNetInterfaceEnum")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hnetinterfaceenum, dwindex, lpszname, lpcchname) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hnetinterfaceenum, dwindex, lpszname, lpcchname);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hnetinterfaceenum;
     (void)dwindex;
     (void)lpszname;
     (void)lpcchname;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1822,11 +2373,18 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterNetInte
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterNetInterfaceOpenEnum")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcluster, lpsznodename, lpsznetworkname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcluster, lpsznodename, lpsznetworkname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcluster;
     (void)lpsznodename;
     (void)lpsznetworkname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1842,9 +2400,16 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterNetwork
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterNetworkCloseEnum")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hnetworkenum) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hnetworkenum);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hnetworkenum;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1867,7 +2432,13 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterNetwork
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterNetworkControl")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hnetwork, hhostnode, dwcontrolcode, lpinbuffer, ninbuffersize, lpoutbuffer, noutbuffersize, lpbytesreturned) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hnetwork, hhostnode, dwcontrolcode, lpinbuffer, ninbuffersize, lpoutbuffer, noutbuffersize, lpbytesreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hnetwork;
     (void)hhostnode;
@@ -1877,6 +2448,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterNetwork
     (void)lpoutbuffer;
     (void)noutbuffersize;
     (void)lpbytesreturned;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1900,7 +2472,13 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterNetwork
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterNetworkControlEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hnetwork, hhostnode, dwcontrolcode, lpinbuffer, ninbuffersize, lpoutbuffer, noutbuffersize, lpbytesreturned, lpszreason) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hnetwork, hhostnode, dwcontrolcode, lpinbuffer, ninbuffersize, lpoutbuffer, noutbuffersize, lpbytesreturned, lpszreason);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hnetwork;
     (void)hhostnode;
@@ -1911,6 +2489,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterNetwork
     (void)noutbuffersize;
     (void)lpbytesreturned;
     (void)lpszreason;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1930,13 +2509,20 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterNetwork
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterNetworkEnum")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hnetworkenum, dwindex, lpdwtype, lpszname, lpcchname) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hnetworkenum, dwindex, lpdwtype, lpszname, lpcchname);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hnetworkenum;
     (void)dwindex;
     (void)lpdwtype;
     (void)lpszname;
     (void)lpcchname;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1952,9 +2538,16 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterNetwork
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterNetworkGetEnumCount")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hnetworkenum) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hnetworkenum);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hnetworkenum;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1971,10 +2564,17 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterNetwork
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterNetworkOpenEnum")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hnetwork, dwtype) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hnetwork, dwtype);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hnetwork;
     (void)dwtype;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -1990,9 +2590,16 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterNodeClo
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterNodeCloseEnum")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hnodeenum) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hnodeenum);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hnodeenum;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2008,9 +2615,16 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterNodeClo
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterNodeCloseEnumEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hnodeenum) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hnodeenum);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hnodeenum;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2033,7 +2647,13 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterNodeCon
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterNodeControl")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hnode, hhostnode, dwcontrolcode, lpinbuffer, ninbuffersize, lpoutbuffer, noutbuffersize, lpbytesreturned) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hnode, hhostnode, dwcontrolcode, lpinbuffer, ninbuffersize, lpoutbuffer, noutbuffersize, lpbytesreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hnode;
     (void)hhostnode;
@@ -2043,6 +2663,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterNodeCon
     (void)lpoutbuffer;
     (void)noutbuffersize;
     (void)lpbytesreturned;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2066,7 +2687,13 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterNodeCon
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterNodeControlEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hnode, hhostnode, dwcontrolcode, lpinbuffer, ninbuffersize, lpoutbuffer, noutbuffersize, lpbytesreturned, lpszreason) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hnode, hhostnode, dwcontrolcode, lpinbuffer, ninbuffersize, lpoutbuffer, noutbuffersize, lpbytesreturned, lpszreason);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hnode;
     (void)hhostnode;
@@ -2077,6 +2704,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterNodeCon
     (void)noutbuffersize;
     (void)lpbytesreturned;
     (void)lpszreason;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2096,13 +2724,20 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterNodeEnu
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterNodeEnum")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hnodeenum, dwindex, lpdwtype, lpszname, lpcchname) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hnodeenum, dwindex, lpdwtype, lpszname, lpcchname);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hnodeenum;
     (void)dwindex;
     (void)lpdwtype;
     (void)lpszname;
     (void)lpcchname;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2121,12 +2756,19 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterNodeEnu
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterNodeEnumEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hnodeenum, dwindex, pitem, cbitem) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hnodeenum, dwindex, pitem, cbitem);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hnodeenum;
     (void)dwindex;
     (void)pitem;
     (void)cbitem;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2142,9 +2784,16 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterNodeGet
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterNodeGetEnumCount")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hnodeenum) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hnodeenum);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hnodeenum;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2160,9 +2809,16 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterNodeGet
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterNodeGetEnumCountEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hnodeenum) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hnodeenum);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hnodeenum;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2179,10 +2835,17 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterNodeOpe
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterNodeOpenEnum")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hnode, dwtype) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hnode, dwtype);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hnode;
     (void)dwtype;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -2200,11 +2863,18 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterNodeOpe
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterNodeOpenEnumEx")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hnode, dwtype, poptions) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hnode, dwtype, poptions);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hnode;
     (void)dwtype;
     (void)poptions;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -2222,11 +2892,18 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterNodeRep
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterNodeReplacement")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcluster, lpsznodenamecurrent, lpsznodenamenew) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcluster, lpsznodenamecurrent, lpsznodenamenew);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hcluster;
     (void)lpsznodenamecurrent;
     (void)lpsznodenamenew;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2243,10 +2920,17 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterOpenEnu
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterOpenEnum")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcluster, dwtype) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcluster, dwtype);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcluster;
     (void)dwtype;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -2264,11 +2948,18 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterOpenEnu
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterOpenEnumEx")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcluster, dwtype, poptions) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcluster, dwtype, poptions);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcluster;
     (void)dwtype;
     (void)poptions;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -2288,13 +2979,20 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterPrepare
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterPrepareSharedVolumeForBackup")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszfilename, lpszvolumepathname, lpcchvolumepathname, lpszvolumename, lpcchvolumename) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszfilename, lpszvolumepathname, lpcchvolumepathname, lpszvolumename, lpcchvolumename);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpszfilename;
     (void)lpszvolumepathname;
     (void)lpcchvolumepathname;
     (void)lpszvolumename;
     (void)lpcchvolumename;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2315,7 +3013,13 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegBatc
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterRegBatchAddCommand")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hregbatch, dwcommand, wzname, dwoptions, lpdata, cbdata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hregbatch, dwcommand, wzname, dwoptions, lpdata, cbdata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hregbatch;
     (void)dwcommand;
@@ -2323,6 +3027,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegBatc
     (void)dwoptions;
     (void)lpdata;
     (void)cbdata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2338,9 +3043,16 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegBatc
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterRegBatchCloseNotification")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hbatchnotification) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hbatchnotification);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hbatchnotification;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2357,10 +3069,17 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegBatc
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterRegBatchReadCommand")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hbatchnotification, pbatchcommand) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hbatchnotification, pbatchcommand);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hbatchnotification;
     (void)pbatchcommand;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2378,11 +3097,18 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegClos
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterRegCloseBatch")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hregbatch, bcommit, failedcommandnumber) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hregbatch, bcommit, failedcommandnumber);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hregbatch;
     (void)bcommit;
     (void)failedcommandnumber;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2400,11 +3126,18 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegClos
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterRegCloseBatchEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hregbatch, flags, failedcommandnumber) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hregbatch, flags, failedcommandnumber);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hregbatch;
     (void)flags;
     (void)failedcommandnumber;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2420,9 +3153,16 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegClos
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterRegCloseBatchNotifyPort")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hbatchnotifyport) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hbatchnotifyport);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hbatchnotifyport;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2438,9 +3178,16 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegClos
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterRegCloseKey")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkey) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkey);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hkey;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2457,10 +3204,17 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegClos
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterRegCloseReadBatch")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hregreadbatch, phregreadbatchreply) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hregreadbatch, phregreadbatchreply);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hregreadbatch;
     (void)phregreadbatchreply;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2478,11 +3232,18 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegClos
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterRegCloseReadBatchEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hregreadbatch, flags, phregreadbatchreply) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hregreadbatch, flags, phregreadbatchreply);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hregreadbatch;
     (void)flags;
     (void)phregreadbatchreply;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2498,9 +3259,16 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegClos
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterRegCloseReadBatchReply")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hregreadbatchreply) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hregreadbatchreply);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hregreadbatchreply;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2517,10 +3285,17 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegCrea
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterRegCreateBatch")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkey, phregbatch) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkey, phregbatch);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hkey;
     (void)phregbatch;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2537,10 +3312,17 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegCrea
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterRegCreateBatchNotifyPort")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkey, phbatchnotifyport) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkey, phbatchnotifyport);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hkey;
     (void)phbatchnotifyport;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2562,7 +3344,13 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegCrea
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterRegCreateKey")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkey, lpszsubkey, dwoptions, samdesired, lpsecurityattributes, phkresult, lpdwdisposition) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkey, lpszsubkey, dwoptions, samdesired, lpsecurityattributes, phkresult, lpdwdisposition);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hkey;
     (void)lpszsubkey;
@@ -2571,6 +3359,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegCrea
     (void)lpsecurityattributes;
     (void)phkresult;
     (void)lpdwdisposition;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2593,7 +3382,13 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegCrea
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterRegCreateKeyEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkey, lpsubkey, dwoptions, samdesired, lpsecurityattributes, phkresult, lpdwdisposition, lpszreason) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkey, lpsubkey, dwoptions, samdesired, lpsecurityattributes, phkresult, lpdwdisposition, lpszreason);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hkey;
     (void)lpsubkey;
@@ -2603,6 +3398,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegCrea
     (void)phkresult;
     (void)lpdwdisposition;
     (void)lpszreason;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2619,10 +3415,17 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegCrea
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterRegCreateReadBatch")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkey, phregreadbatch) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkey, phregreadbatch);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hkey;
     (void)phregreadbatch;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2639,10 +3442,17 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegDele
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterRegDeleteKey")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkey, lpszsubkey) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkey, lpszsubkey);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hkey;
     (void)lpszsubkey;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2660,11 +3470,18 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegDele
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterRegDeleteKeyEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkey, lpsubkey, lpszreason) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkey, lpsubkey, lpszreason);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hkey;
     (void)lpsubkey;
     (void)lpszreason;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2681,10 +3498,17 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegDele
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterRegDeleteValue")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkey, lpszvaluename) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkey, lpszvaluename);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hkey;
     (void)lpszvaluename;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2702,11 +3526,18 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegDele
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterRegDeleteValueEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkey, lpszvaluename, lpszreason) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkey, lpszvaluename, lpszreason);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hkey;
     (void)lpszvaluename;
     (void)lpszreason;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2726,13 +3557,20 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegEnum
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterRegEnumKey")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkey, dwindex, lpszname, lpcchname, lpftlastwritetime) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkey, dwindex, lpszname, lpcchname, lpftlastwritetime);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hkey;
     (void)dwindex;
     (void)lpszname;
     (void)lpcchname;
     (void)lpftlastwritetime;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2754,7 +3592,13 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegEnum
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterRegEnumValue")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkey, dwindex, lpszvaluename, lpcchvaluename, lpdwtype, lpdata, lpcbdata) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkey, dwindex, lpszvaluename, lpcchvaluename, lpdwtype, lpdata, lpcbdata);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hkey;
     (void)dwindex;
@@ -2763,6 +3607,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegEnum
     (void)lpdwtype;
     (void)lpdata;
     (void)lpcbdata;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2779,10 +3624,17 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegGetB
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterRegGetBatchNotification")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hbatchnotify, phbatchnotification) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hbatchnotify, phbatchnotification);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hbatchnotify;
     (void)phbatchnotification;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2801,12 +3653,19 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegGetK
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterRegGetKeySecurity")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkey, requestedinformation, psecuritydescriptor, lpcbsecuritydescriptor) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkey, requestedinformation, psecuritydescriptor, lpcbsecuritydescriptor);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hkey;
     (void)requestedinformation;
     (void)psecuritydescriptor;
     (void)lpcbsecuritydescriptor;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2825,12 +3684,19 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegOpen
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterRegOpenKey")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkey, lpszsubkey, samdesired, phkresult) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkey, lpszsubkey, samdesired, phkresult);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hkey;
     (void)lpszsubkey;
     (void)samdesired;
     (void)phkresult;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2853,7 +3719,13 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegQuer
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterRegQueryInfoKey")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkey, lpcsubkeys, lpcchmaxsubkeylen, lpcvalues, lpcchmaxvaluenamelen, lpcbmaxvaluelen, lpcbsecuritydescriptor, lpftlastwritetime) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkey, lpcsubkeys, lpcchmaxsubkeylen, lpcvalues, lpcchmaxvaluenamelen, lpcbmaxvaluelen, lpcbsecuritydescriptor, lpftlastwritetime);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hkey;
     (void)lpcsubkeys;
@@ -2863,6 +3735,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegQuer
     (void)lpcbmaxvaluelen;
     (void)lpcbsecuritydescriptor;
     (void)lpftlastwritetime;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2882,13 +3755,20 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegQuer
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterRegQueryValue")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkey, lpszvaluename, lpdwvaluetype, lpdata, lpcbdata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkey, lpszvaluename, lpdwvaluetype, lpdata, lpcbdata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hkey;
     (void)lpszvaluename;
     (void)lpdwvaluetype;
     (void)lpdata;
     (void)lpcbdata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2906,11 +3786,18 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegRead
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterRegReadBatchAddCommand")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hregreadbatch, wzsubkeyname, wzvaluename) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hregreadbatch, wzsubkeyname, wzvaluename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hregreadbatch;
     (void)wzsubkeyname;
     (void)wzvaluename;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2927,10 +3814,17 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegRead
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterRegReadBatchReplyNextCommand")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hregreadbatchreply, pbatchcommand) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hregreadbatchreply, pbatchcommand);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hregreadbatchreply;
     (void)pbatchcommand;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2948,11 +3842,18 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegSetK
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterRegSetKeySecurity")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkey, securityinformation, psecuritydescriptor) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkey, securityinformation, psecuritydescriptor);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hkey;
     (void)securityinformation;
     (void)psecuritydescriptor;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2971,12 +3872,19 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegSetK
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterRegSetKeySecurityEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkey, securityinformation, psecuritydescriptor, lpszreason) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkey, securityinformation, psecuritydescriptor, lpszreason);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hkey;
     (void)securityinformation;
     (void)psecuritydescriptor;
     (void)lpszreason;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2996,13 +3904,20 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegSetV
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterRegSetValue")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkey, lpszvaluename, dwtype, lpdata, cbdata) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkey, lpszvaluename, dwtype, lpdata, cbdata);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hkey;
     (void)lpszvaluename;
     (void)dwtype;
     (void)lpdata;
     (void)cbdata;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3023,7 +3938,13 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegSetV
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterRegSetValueEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkey, lpszvaluename, dwtype, lpdata, cbdata, lpszreason) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkey, lpszvaluename, dwtype, lpdata, cbdata, lpszreason);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hkey;
     (void)lpszvaluename;
@@ -3031,6 +3952,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegSetV
     (void)lpdata;
     (void)cbdata;
     (void)lpszreason;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3047,10 +3969,17 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterRegSync
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterRegSyncDatabase")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcluster, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcluster, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcluster;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3067,10 +3996,17 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterRemoveA
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterRemoveAffinityRule")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcluster, rulename) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcluster, rulename);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hcluster;
     (void)rulename;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3088,11 +4024,18 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterRemoveG
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterRemoveGroupFromAffinityRule")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcluster, rulename, hgroup) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcluster, rulename, hgroup);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hcluster;
     (void)rulename;
     (void)hgroup;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3108,9 +4051,16 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterRemoveG
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterRemoveGroupFromGroupSet")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgroup) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgroup);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hgroup;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3127,10 +4077,17 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterRemoveG
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterRemoveGroupFromGroupSetEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgroup, lpszreason) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgroup, lpszreason);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hgroup;
     (void)lpszreason;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3146,9 +4103,16 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterResourc
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterResourceCloseEnum")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hresenum) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hresenum);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hresenum;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3164,9 +4128,16 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterResourc
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterResourceCloseEnumEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hresourceenumex) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hresourceenumex);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hresourceenumex;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3189,7 +4160,13 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterResourc
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterResourceControl")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hresource, hhostnode, dwcontrolcode, lpinbuffer, cbinbuffersize, lpoutbuffer, cboutbuffersize, lpbytesreturned) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hresource, hhostnode, dwcontrolcode, lpinbuffer, cbinbuffersize, lpoutbuffer, cboutbuffersize, lpbytesreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hresource;
     (void)hhostnode;
@@ -3199,6 +4176,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterResourc
     (void)lpoutbuffer;
     (void)cboutbuffersize;
     (void)lpbytesreturned;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3221,7 +4199,13 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterResourc
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterResourceControlAsUser")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hresource, hhostnode, dwcontrolcode, lpinbuffer, cbinbuffersize, lpoutbuffer, cboutbuffersize, lpbytesreturned) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hresource, hhostnode, dwcontrolcode, lpinbuffer, cbinbuffersize, lpoutbuffer, cboutbuffersize, lpbytesreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hresource;
     (void)hhostnode;
@@ -3231,6 +4215,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterResourc
     (void)lpoutbuffer;
     (void)cboutbuffersize;
     (void)lpbytesreturned;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3254,7 +4239,13 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterResourc
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterResourceControlAsUserEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hresource, hhostnode, dwcontrolcode, lpinbuffer, cbinbuffersize, lpoutbuffer, cboutbuffersize, lpbytesreturned, lpszreason) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hresource, hhostnode, dwcontrolcode, lpinbuffer, cbinbuffersize, lpoutbuffer, cboutbuffersize, lpbytesreturned, lpszreason);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hresource;
     (void)hhostnode;
@@ -3265,6 +4256,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterResourc
     (void)cboutbuffersize;
     (void)lpbytesreturned;
     (void)lpszreason;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3288,7 +4280,13 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterResourc
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterResourceControlEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hresource, hhostnode, dwcontrolcode, lpinbuffer, cbinbuffersize, lpoutbuffer, cboutbuffersize, lpbytesreturned, lpszreason) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hresource, hhostnode, dwcontrolcode, lpinbuffer, cbinbuffersize, lpoutbuffer, cboutbuffersize, lpbytesreturned, lpszreason);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hresource;
     (void)hhostnode;
@@ -3299,6 +4297,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterResourc
     (void)cboutbuffersize;
     (void)lpbytesreturned;
     (void)lpszreason;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3318,13 +4317,20 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterResourc
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterResourceEnum")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hresenum, dwindex, lpdwtype, lpszname, lpcchname) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hresenum, dwindex, lpdwtype, lpszname, lpcchname);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hresenum;
     (void)dwindex;
     (void)lpdwtype;
     (void)lpszname;
     (void)lpcchname;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3343,12 +4349,19 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterResourc
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterResourceEnumEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hresourceenumex, dwindex, pitem, cbitem) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hresourceenumex, dwindex, pitem, cbitem);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hresourceenumex;
     (void)dwindex;
     (void)pitem;
     (void)cbitem;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3364,9 +4377,16 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterResourc
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterResourceGetEnumCount")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hresenum) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hresenum);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hresenum;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3382,9 +4402,16 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterResourc
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterResourceGetEnumCountEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hresourceenumex) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hresourceenumex);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hresourceenumex;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3401,10 +4428,17 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterResourc
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterResourceOpenEnum")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hresource, dwtype) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hresource, dwtype);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hresource;
     (void)dwtype;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -3425,7 +4459,13 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterResourc
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterResourceOpenEnumEx")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcluster, lpszproperties, cbproperties, lpszroproperties, cbroproperties, dwflags) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcluster, lpszproperties, cbproperties, lpszroproperties, cbroproperties, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcluster;
     (void)lpszproperties;
@@ -3433,6 +4473,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterResourc
     (void)lpszroproperties;
     (void)cbroproperties;
     (void)dwflags;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -3448,9 +4489,16 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterResourc
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterResourceTypeCloseEnum")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hrestypeenum) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hrestypeenum);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hrestypeenum;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3474,7 +4522,13 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterResourc
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterResourceTypeControl")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcluster, lpszresourcetypename, hhostnode, dwcontrolcode, lpinbuffer, ninbuffersize, lpoutbuffer, noutbuffersize, lpbytesreturned) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcluster, lpszresourcetypename, hhostnode, dwcontrolcode, lpinbuffer, ninbuffersize, lpoutbuffer, noutbuffersize, lpbytesreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hcluster;
     (void)lpszresourcetypename;
@@ -3485,6 +4539,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterResourc
     (void)lpoutbuffer;
     (void)noutbuffersize;
     (void)lpbytesreturned;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3508,7 +4563,13 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterResourc
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterResourceTypeControlAsUser")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcluster, lpszresourcetypename, hhostnode, dwcontrolcode, lpinbuffer, ninbuffersize, lpoutbuffer, noutbuffersize, lpbytesreturned) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcluster, lpszresourcetypename, hhostnode, dwcontrolcode, lpinbuffer, ninbuffersize, lpoutbuffer, noutbuffersize, lpbytesreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hcluster;
     (void)lpszresourcetypename;
@@ -3519,6 +4580,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterResourc
     (void)lpoutbuffer;
     (void)noutbuffersize;
     (void)lpbytesreturned;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3543,7 +4605,13 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterResourc
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterResourceTypeControlAsUserEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcluster, lpszresourcetypename, hhostnode, dwcontrolcode, lpinbuffer, ninbuffersize, lpoutbuffer, noutbuffersize, lpbytesreturned, lpszreason) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcluster, lpszresourcetypename, hhostnode, dwcontrolcode, lpinbuffer, ninbuffersize, lpoutbuffer, noutbuffersize, lpbytesreturned, lpszreason);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hcluster;
     (void)lpszresourcetypename;
@@ -3555,6 +4623,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterResourc
     (void)noutbuffersize;
     (void)lpbytesreturned;
     (void)lpszreason;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3579,7 +4648,13 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterResourc
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterResourceTypeControlEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcluster, lpszresourcetypename, hhostnode, dwcontrolcode, lpinbuffer, ninbuffersize, lpoutbuffer, noutbuffersize, lpbytesreturned, lpszreason) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcluster, lpszresourcetypename, hhostnode, dwcontrolcode, lpinbuffer, ninbuffersize, lpoutbuffer, noutbuffersize, lpbytesreturned, lpszreason);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hcluster;
     (void)lpszresourcetypename;
@@ -3591,6 +4666,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterResourc
     (void)noutbuffersize;
     (void)lpbytesreturned;
     (void)lpszreason;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3610,13 +4686,20 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterResourc
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterResourceTypeEnum")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hrestypeenum, dwindex, lpdwtype, lpszname, lpcchname) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hrestypeenum, dwindex, lpdwtype, lpszname, lpcchname);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hrestypeenum;
     (void)dwindex;
     (void)lpdwtype;
     (void)lpszname;
     (void)lpcchname;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3632,9 +4715,16 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterResourc
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterResourceTypeGetEnumCount")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hrestypeenum) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hrestypeenum);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hrestypeenum;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3652,11 +4742,18 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterResourc
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterResourceTypeOpenEnum")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcluster, lpszresourcetypename, dwtype) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcluster, lpszresourcetypename, dwtype);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcluster;
     (void)lpszresourcetypename;
     (void)dwtype;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -3675,12 +4772,19 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterSetAcco
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterSetAccountAccess")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcluster, szaccountsid, dwaccess, dwcontroltype) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcluster, szaccountsid, dwaccess, dwcontroltype);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hcluster;
     (void)szaccountsid;
     (void)dwaccess;
     (void)dwcontroltype;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3699,12 +4803,19 @@ static Napi::Value windowssys_windows_win32_networking_clustering_clusterUpgrade
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClusterUpgradeFunctionalLevel")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcluster, perform, pfnprogresscallback, pvcallbackarg) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcluster, perform, pfnprogresscallback, pvcallbackarg);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hcluster;
     (void)perform;
     (void)pfnprogresscallback;
     (void)pvcallbackarg;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3722,11 +4833,18 @@ static Napi::Value windowssys_windows_win32_networking_clustering_createCluster_
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateCluster")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pconfig, pfnprogresscallback, pvcallbackarg) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pconfig, pfnprogresscallback, pvcallbackarg);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pconfig;
     (void)pfnprogresscallback;
     (void)pvcallbackarg;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -3744,11 +4862,18 @@ static Napi::Value windowssys_windows_win32_networking_clustering_createClusterA
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateClusterAvailabilitySet")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcluster, lpavailabilitysetname, pavailabilitysetconfig) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcluster, lpavailabilitysetname, pavailabilitysetconfig);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcluster;
     (void)lpavailabilitysetname;
     (void)pavailabilitysetconfig;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -3765,10 +4890,17 @@ static Napi::Value windowssys_windows_win32_networking_clustering_createClusterG
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateClusterGroup")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcluster, lpszgroupname) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcluster, lpszgroupname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcluster;
     (void)lpszgroupname;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -3786,11 +4918,18 @@ static Napi::Value windowssys_windows_win32_networking_clustering_createClusterG
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateClusterGroupEx")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcluster, lpszgroupname, pgroupinfo) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcluster, lpszgroupname, pgroupinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcluster;
     (void)lpszgroupname;
     (void)pgroupinfo;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -3807,10 +4946,17 @@ static Napi::Value windowssys_windows_win32_networking_clustering_createClusterG
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateClusterGroupSet")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcluster, groupsetname) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcluster, groupsetname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcluster;
     (void)groupsetname;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -3829,12 +4975,19 @@ static Napi::Value windowssys_windows_win32_networking_clustering_createClusterN
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateClusterNameAccount")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcluster, pconfig, pfnprogresscallback, pvcallbackarg) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcluster, pconfig, pfnprogresscallback, pvcallbackarg);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hcluster;
     (void)pconfig;
     (void)pfnprogresscallback;
     (void)pvcallbackarg;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3853,12 +5006,19 @@ static Napi::Value windowssys_windows_win32_networking_clustering_createClusterN
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateClusterNotifyPort")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hchange, hcluster, dwfilter, dwnotifykey) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hchange, hcluster, dwfilter, dwnotifykey);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hchange;
     (void)hcluster;
     (void)dwfilter;
     (void)dwnotifykey;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -3878,13 +5038,20 @@ static Napi::Value windowssys_windows_win32_networking_clustering_createClusterN
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateClusterNotifyPortV2")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hchange, hcluster, filters, dwfiltercount, dwnotifykey) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hchange, hcluster, filters, dwfiltercount, dwnotifykey);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hchange;
     (void)hcluster;
     (void)filters;
     (void)dwfiltercount;
     (void)dwnotifykey;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -3903,12 +5070,19 @@ static Napi::Value windowssys_windows_win32_networking_clustering_createClusterR
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateClusterResource")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgroup, lpszresourcename, lpszresourcetype, dwflags) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgroup, lpszresourcename, lpszresourcetype, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hgroup;
     (void)lpszresourcename;
     (void)lpszresourcetype;
     (void)dwflags;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -3928,13 +5102,20 @@ static Napi::Value windowssys_windows_win32_networking_clustering_createClusterR
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateClusterResourceEx")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgroup, lpszresourcename, lpszresourcetype, dwflags, lpszreason) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgroup, lpszresourcename, lpszresourcetype, dwflags, lpszreason);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hgroup;
     (void)lpszresourcename;
     (void)lpszresourcetype;
     (void)dwflags;
     (void)lpszreason;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -3955,7 +5136,13 @@ static Napi::Value windowssys_windows_win32_networking_clustering_createClusterR
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateClusterResourceType")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcluster, lpszresourcetypename, lpszdisplayname, lpszresourcetypedll, dwlooksalivepollinterval, dwisalivepollinterval) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcluster, lpszresourcetypename, lpszdisplayname, lpszresourcetypedll, dwlooksalivepollinterval, dwisalivepollinterval);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hcluster;
     (void)lpszresourcetypename;
@@ -3963,6 +5150,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_createClusterR
     (void)lpszresourcetypedll;
     (void)dwlooksalivepollinterval;
     (void)dwisalivepollinterval;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3984,7 +5172,13 @@ static Napi::Value windowssys_windows_win32_networking_clustering_createClusterR
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateClusterResourceTypeEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcluster, lpszresourcetypename, lpszdisplayname, lpszresourcetypedll, dwlooksalivepollinterval, dwisalivepollinterval, lpszreason) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcluster, lpszresourcetypename, lpszdisplayname, lpszresourcetypedll, dwlooksalivepollinterval, dwisalivepollinterval, lpszreason);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hcluster;
     (void)lpszresourcetypename;
@@ -3993,6 +5187,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_createClusterR
     (void)dwlooksalivepollinterval;
     (void)dwisalivepollinterval;
     (void)lpszreason;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4008,9 +5203,16 @@ static Napi::Value windowssys_windows_win32_networking_clustering_deleteClusterG
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DeleteClusterGroup")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgroup) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgroup);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hgroup;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4027,10 +5229,17 @@ static Napi::Value windowssys_windows_win32_networking_clustering_deleteClusterG
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DeleteClusterGroupEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgroup, lpszreason) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgroup, lpszreason);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hgroup;
     (void)lpszreason;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4046,9 +5255,16 @@ static Napi::Value windowssys_windows_win32_networking_clustering_deleteClusterG
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DeleteClusterGroupSet")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgroupset) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgroupset);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hgroupset;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4065,10 +5281,17 @@ static Napi::Value windowssys_windows_win32_networking_clustering_deleteClusterG
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DeleteClusterGroupSetEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgroupset, lpszreason) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgroupset, lpszreason);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hgroupset;
     (void)lpszreason;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4084,9 +5307,16 @@ static Napi::Value windowssys_windows_win32_networking_clustering_deleteClusterR
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DeleteClusterResource")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hresource) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hresource);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hresource;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4103,10 +5333,17 @@ static Napi::Value windowssys_windows_win32_networking_clustering_deleteClusterR
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DeleteClusterResourceEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hresource, lpszreason) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hresource, lpszreason);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hresource;
     (void)lpszreason;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4123,10 +5360,17 @@ static Napi::Value windowssys_windows_win32_networking_clustering_deleteClusterR
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DeleteClusterResourceType")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcluster, lpszresourcetypename) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcluster, lpszresourcetypename);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hcluster;
     (void)lpszresourcetypename;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4144,11 +5388,18 @@ static Napi::Value windowssys_windows_win32_networking_clustering_deleteClusterR
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DeleteClusterResourceTypeEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcluster, lpsztypename, lpszreason) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcluster, lpsztypename, lpszreason);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hcluster;
     (void)lpsztypename;
     (void)lpszreason;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4167,12 +5418,19 @@ static Napi::Value windowssys_windows_win32_networking_clustering_destroyCluster
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DestroyCluster")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcluster, pfnprogresscallback, pvcallbackarg, fdeletevirtualcomputerobjects) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcluster, pfnprogresscallback, pvcallbackarg, fdeletevirtualcomputerobjects);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hcluster;
     (void)pfnprogresscallback;
     (void)pvcallbackarg;
     (void)fdeletevirtualcomputerobjects;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4188,9 +5446,16 @@ static Napi::Value windowssys_windows_win32_networking_clustering_destroyCluster
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DestroyClusterGroup")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgroup) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgroup);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hgroup;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4207,10 +5472,17 @@ static Napi::Value windowssys_windows_win32_networking_clustering_destroyCluster
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DestroyClusterGroupEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgroup, lpszreason) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgroup, lpszreason);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hgroup;
     (void)lpszreason;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4227,10 +5499,17 @@ static Napi::Value windowssys_windows_win32_networking_clustering_determineCNORe
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DetermineCNOResTypeFromCluster")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcluster, pcnorestype) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcluster, pcnorestype);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hcluster;
     (void)pcnorestype;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4248,11 +5527,18 @@ static Napi::Value windowssys_windows_win32_networking_clustering_determineCNORe
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DetermineCNOResTypeFromNodelist")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(cnodes, ppsznodenames, pcnorestype) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(cnodes, ppsznodenames, pcnorestype);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)cnodes;
     (void)ppsznodenames;
     (void)pcnorestype;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4269,10 +5555,17 @@ static Napi::Value windowssys_windows_win32_networking_clustering_determineClust
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DetermineClusterCloudTypeFromCluster")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcluster, pcloudtype) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcluster, pcloudtype);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hcluster;
     (void)pcloudtype;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4290,11 +5583,18 @@ static Napi::Value windowssys_windows_win32_networking_clustering_determineClust
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DetermineClusterCloudTypeFromNodelist")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(cnodes, ppsznodenames, pcloudtype) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(cnodes, ppsznodenames, pcloudtype);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)cnodes;
     (void)ppsznodenames;
     (void)pcloudtype;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4310,9 +5610,16 @@ static Napi::Value windowssys_windows_win32_networking_clustering_evictClusterNo
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EvictClusterNode")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hnode) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hnode);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hnode;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4330,11 +5637,18 @@ static Napi::Value windowssys_windows_win32_networking_clustering_evictClusterNo
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EvictClusterNodeEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hnode, dwtimeout, phrcleanupstatus) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hnode, dwtimeout, phrcleanupstatus);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hnode;
     (void)dwtimeout;
     (void)phrcleanupstatus;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4353,12 +5667,19 @@ static Napi::Value windowssys_windows_win32_networking_clustering_evictClusterNo
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EvictClusterNodeEx2")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hnode, dwtimeout, phrcleanupstatus, lpszreason) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hnode, dwtimeout, phrcleanupstatus, lpszreason);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hnode;
     (void)dwtimeout;
     (void)phrcleanupstatus;
     (void)lpszreason;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4374,9 +5695,16 @@ static Napi::Value windowssys_windows_win32_networking_clustering_failClusterRes
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FailClusterResource")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hresource) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hresource);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hresource;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4393,10 +5721,17 @@ static Napi::Value windowssys_windows_win32_networking_clustering_failClusterRes
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FailClusterResourceEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hresource, lpszreason) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hresource, lpszreason);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hresource;
     (void)lpszreason;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4412,9 +5747,16 @@ static Napi::Value windowssys_windows_win32_networking_clustering_freeClusterCry
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FreeClusterCrypt")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pcryptinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pcryptinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pcryptinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4430,9 +5772,16 @@ static Napi::Value windowssys_windows_win32_networking_clustering_freeClusterHea
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FreeClusterHealthFault")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(clusterhealthfault) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(clusterhealthfault);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)clusterhealthfault;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4448,9 +5797,16 @@ static Napi::Value windowssys_windows_win32_networking_clustering_freeClusterHea
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FreeClusterHealthFaultArray")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(clusterhealthfaultarray) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(clusterhealthfaultarray);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)clusterhealthfaultarray;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4466,9 +5822,16 @@ static Napi::Value windowssys_windows_win32_networking_clustering_getClusterFrom
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetClusterFromGroup")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgroup) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgroup);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hgroup;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -4484,9 +5847,16 @@ static Napi::Value windowssys_windows_win32_networking_clustering_getClusterFrom
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetClusterFromNetInterface")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hnetinterface) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hnetinterface);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hnetinterface;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -4502,9 +5872,16 @@ static Napi::Value windowssys_windows_win32_networking_clustering_getClusterFrom
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetClusterFromNetwork")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hnetwork) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hnetwork);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hnetwork;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -4520,9 +5897,16 @@ static Napi::Value windowssys_windows_win32_networking_clustering_getClusterFrom
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetClusterFromNode")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hnode) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hnode);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hnode;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -4538,9 +5922,16 @@ static Napi::Value windowssys_windows_win32_networking_clustering_getClusterFrom
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetClusterFromResource")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hresource) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hresource);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hresource;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -4557,11 +5948,18 @@ static Napi::Value windowssys_windows_win32_networking_clustering_getClusterGrou
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetClusterGroupKey")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgroup, samdesired) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgroup, samdesired);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hgroup;
     (void)samdesired;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -4578,11 +5976,18 @@ static Napi::Value windowssys_windows_win32_networking_clustering_getClusterGrou
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetClusterGroupState")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgroup, lpsznodename, lpcchnodename) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgroup, lpsznodename, lpcchnodename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hgroup;
     (void)lpsznodename;
     (void)lpcchnodename;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4601,12 +6006,19 @@ static Napi::Value windowssys_windows_win32_networking_clustering_getClusterInfo
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetClusterInformation")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcluster, lpszclustername, lpcchclustername, lpclusterinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcluster, lpszclustername, lpcchclustername, lpclusterinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hcluster;
     (void)lpszclustername;
     (void)lpcchclustername;
     (void)lpclusterinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4623,11 +6035,18 @@ static Napi::Value windowssys_windows_win32_networking_clustering_getClusterKey_
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetClusterKey")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcluster, samdesired) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcluster, samdesired);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hcluster;
     (void)samdesired;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -4646,13 +6065,20 @@ static Napi::Value windowssys_windows_win32_networking_clustering_getClusterNetI
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetClusterNetInterface")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcluster, lpsznodename, lpsznetworkname, lpszinterfacename, lpcchinterfacename) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcluster, lpsznodename, lpsznetworkname, lpszinterfacename, lpcchinterfacename);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hcluster;
     (void)lpsznodename;
     (void)lpsznetworkname;
     (void)lpszinterfacename;
     (void)lpcchinterfacename;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4669,11 +6095,18 @@ static Napi::Value windowssys_windows_win32_networking_clustering_getClusterNetI
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetClusterNetInterfaceKey")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hnetinterface, samdesired) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hnetinterface, samdesired);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hnetinterface;
     (void)samdesired;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -4688,9 +6121,16 @@ static Napi::Value windowssys_windows_win32_networking_clustering_getClusterNetI
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetClusterNetInterfaceState")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hnetinterface) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hnetinterface);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hnetinterface;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4708,11 +6148,18 @@ static Napi::Value windowssys_windows_win32_networking_clustering_getClusterNetw
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetClusterNetworkId")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hnetwork, lpsznetworkid, lpcchname) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hnetwork, lpsznetworkid, lpcchname);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hnetwork;
     (void)lpsznetworkid;
     (void)lpcchname;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4729,11 +6176,18 @@ static Napi::Value windowssys_windows_win32_networking_clustering_getClusterNetw
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetClusterNetworkKey")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hnetwork, samdesired) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hnetwork, samdesired);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hnetwork;
     (void)samdesired;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -4748,9 +6202,16 @@ static Napi::Value windowssys_windows_win32_networking_clustering_getClusterNetw
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetClusterNetworkState")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hnetwork) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hnetwork);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hnetwork;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4768,11 +6229,18 @@ static Napi::Value windowssys_windows_win32_networking_clustering_getClusterNode
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetClusterNodeId")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hnode, lpsznodeid, lpcchname) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hnode, lpsznodeid, lpcchname);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hnode;
     (void)lpsznodeid;
     (void)lpcchname;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4789,11 +6257,18 @@ static Napi::Value windowssys_windows_win32_networking_clustering_getClusterNode
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetClusterNodeKey")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hnode, samdesired) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hnode, samdesired);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hnode;
     (void)samdesired;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -4808,9 +6283,16 @@ static Napi::Value windowssys_windows_win32_networking_clustering_getClusterNode
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetClusterNodeState")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hnode) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hnode);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hnode;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4831,7 +6313,13 @@ static Napi::Value windowssys_windows_win32_networking_clustering_getClusterNoti
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetClusterNotify")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hchange, lpdwnotifykey, lpdwfiltertype, lpszname, lpcchname, dwmilliseconds) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hchange, lpdwnotifykey, lpdwfiltertype, lpszname, lpcchname, dwmilliseconds);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hchange;
     (void)lpdwnotifykey;
@@ -4839,6 +6327,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_getClusterNoti
     (void)lpszname;
     (void)lpcchname;
     (void)dwmilliseconds;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4867,7 +6356,13 @@ static Napi::Value windowssys_windows_win32_networking_clustering_getClusterNoti
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetClusterNotifyV2")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hchange, lpdwnotifykey, pfilterandtype, buffer, lpbbuffersize, lpszobjectid, lpcchobjectid, lpszparentid, lpcchparentid, lpszname, lpcchname, lpsztype, lpcchtype, dwmilliseconds) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hchange, lpdwnotifykey, pfilterandtype, buffer, lpbbuffersize, lpszobjectid, lpcchobjectid, lpszparentid, lpcchparentid, lpszname, lpcchname, lpsztype, lpcchtype, dwmilliseconds);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hchange;
     (void)lpdwnotifykey;
@@ -4883,6 +6378,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_getClusterNoti
     (void)lpsztype;
     (void)lpcchtype;
     (void)dwmilliseconds;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4903,7 +6399,13 @@ static Napi::Value windowssys_windows_win32_networking_clustering_getClusterQuor
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetClusterQuorumResource")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcluster, lpszresourcename, lpcchresourcename, lpszdevicename, lpcchdevicename, lpdwmaxquorumlogsize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcluster, lpszresourcename, lpcchresourcename, lpszdevicename, lpcchdevicename, lpdwmaxquorumlogsize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hcluster;
     (void)lpszresourcename;
@@ -4911,6 +6413,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_getClusterQuor
     (void)lpszdevicename;
     (void)lpcchdevicename;
     (void)lpdwmaxquorumlogsize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4928,11 +6431,18 @@ static Napi::Value windowssys_windows_win32_networking_clustering_getClusterReso
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetClusterResourceDependencyExpression")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hresource, lpszdependencyexpression, lpcchdependencyexpression) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hresource, lpszdependencyexpression, lpcchdependencyexpression);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hresource;
     (void)lpszdependencyexpression;
     (void)lpcchdependencyexpression;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4949,11 +6459,18 @@ static Napi::Value windowssys_windows_win32_networking_clustering_getClusterReso
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetClusterResourceKey")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hresource, samdesired) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hresource, samdesired);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hresource;
     (void)samdesired;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -4970,11 +6487,18 @@ static Napi::Value windowssys_windows_win32_networking_clustering_getClusterReso
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetClusterResourceNetworkName")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hresource, lpbuffer, nsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hresource, lpbuffer, nsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hresource;
     (void)lpbuffer;
     (void)nsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4994,13 +6518,20 @@ static Napi::Value windowssys_windows_win32_networking_clustering_getClusterReso
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetClusterResourceState")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hresource, lpsznodename, lpcchnodename, lpszgroupname, lpcchgroupname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hresource, lpsznodename, lpcchnodename, lpszgroupname, lpcchgroupname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hresource;
     (void)lpsznodename;
     (void)lpcchnodename;
     (void)lpszgroupname;
     (void)lpcchgroupname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5018,12 +6549,19 @@ static Napi::Value windowssys_windows_win32_networking_clustering_getClusterReso
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetClusterResourceTypeKey")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcluster, lpsztypename, samdesired) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcluster, lpsztypename, samdesired);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hcluster;
     (void)lpsztypename;
     (void)samdesired;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -5039,10 +6577,17 @@ static Napi::Value windowssys_windows_win32_networking_clustering_getNodeCloudTy
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetNodeCloudTypeDW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ppsznodename, nodecloudtype) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ppsznodename, nodecloudtype);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ppsznodename;
     (void)nodecloudtype;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5059,10 +6604,17 @@ static Napi::Value windowssys_windows_win32_networking_clustering_getNodeCluster
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetNodeClusterState")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpsznodename, pdwclusterstate) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpsznodename, pdwclusterstate);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpsznodename;
     (void)pdwclusterstate;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5079,10 +6631,17 @@ static Napi::Value windowssys_windows_win32_networking_clustering_getNotifyEvent
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetNotifyEventHandle")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hchange, lphtargetevent) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hchange, lphtargetevent);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hchange;
     (void)lphtargetevent;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5098,9 +6657,16 @@ static Napi::Value windowssys_windows_win32_networking_clustering_initializeClus
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InitializeClusterHealthFault")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(clusterhealthfault) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(clusterhealthfault);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)clusterhealthfault;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5116,9 +6682,16 @@ static Napi::Value windowssys_windows_win32_networking_clustering_initializeClus
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InitializeClusterHealthFaultArray")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(clusterhealthfaultarray) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(clusterhealthfaultarray);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)clusterhealthfaultarray;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5135,10 +6708,17 @@ static Napi::Value windowssys_windows_win32_networking_clustering_isFileOnCluste
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IsFileOnClusterSharedVolume")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszpathname, pbfileisonsharedvolume) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszpathname, pbfileisonsharedvolume);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpszpathname;
     (void)pbfileisonsharedvolume;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5155,10 +6735,17 @@ static Napi::Value windowssys_windows_win32_networking_clustering_moveClusterGro
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MoveClusterGroup")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgroup, hdestinationnode) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgroup, hdestinationnode);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hgroup;
     (void)hdestinationnode;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5178,13 +6765,20 @@ static Napi::Value windowssys_windows_win32_networking_clustering_moveClusterGro
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MoveClusterGroupEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgroup, hdestinationnode, dwmoveflags, lpinbuffer, cbinbuffersize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgroup, hdestinationnode, dwmoveflags, lpinbuffer, cbinbuffersize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hgroup;
     (void)hdestinationnode;
     (void)dwmoveflags;
     (void)lpinbuffer;
     (void)cbinbuffersize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5205,7 +6799,13 @@ static Napi::Value windowssys_windows_win32_networking_clustering_moveClusterGro
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MoveClusterGroupEx2")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgroup, hdestinationnode, dwmoveflags, lpinbuffer, cbinbuffersize, lpszreason) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgroup, hdestinationnode, dwmoveflags, lpinbuffer, cbinbuffersize, lpszreason);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hgroup;
     (void)hdestinationnode;
@@ -5213,6 +6813,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_moveClusterGro
     (void)lpinbuffer;
     (void)cbinbuffersize;
     (void)lpszreason;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5228,9 +6829,16 @@ static Napi::Value windowssys_windows_win32_networking_clustering_offlineCluster
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OfflineClusterGroup")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgroup) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgroup);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hgroup;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5249,12 +6857,19 @@ static Napi::Value windowssys_windows_win32_networking_clustering_offlineCluster
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OfflineClusterGroupEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgroup, dwofflineflags, lpinbuffer, cbinbuffersize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgroup, dwofflineflags, lpinbuffer, cbinbuffersize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hgroup;
     (void)dwofflineflags;
     (void)lpinbuffer;
     (void)cbinbuffersize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5274,13 +6889,20 @@ static Napi::Value windowssys_windows_win32_networking_clustering_offlineCluster
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OfflineClusterGroupEx2")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgroup, dwofflineflags, lpinbuffer, cbinbuffersize, lpszreason) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgroup, dwofflineflags, lpinbuffer, cbinbuffersize, lpszreason);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hgroup;
     (void)dwofflineflags;
     (void)lpinbuffer;
     (void)cbinbuffersize;
     (void)lpszreason;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5296,9 +6918,16 @@ static Napi::Value windowssys_windows_win32_networking_clustering_offlineCluster
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OfflineClusterResource")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hresource) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hresource);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hresource;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5317,12 +6946,19 @@ static Napi::Value windowssys_windows_win32_networking_clustering_offlineCluster
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OfflineClusterResourceEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hresource, dwofflineflags, lpinbuffer, cbinbuffersize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hresource, dwofflineflags, lpinbuffer, cbinbuffersize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hresource;
     (void)dwofflineflags;
     (void)lpinbuffer;
     (void)cbinbuffersize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5342,13 +6978,20 @@ static Napi::Value windowssys_windows_win32_networking_clustering_offlineCluster
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OfflineClusterResourceEx2")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hresource, dwofflineflags, lpinbuffer, cbinbuffersize, lpszreason) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hresource, dwofflineflags, lpinbuffer, cbinbuffersize, lpszreason);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hresource;
     (void)dwofflineflags;
     (void)lpinbuffer;
     (void)cbinbuffersize;
     (void)lpszreason;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5365,10 +7008,17 @@ static Napi::Value windowssys_windows_win32_networking_clustering_onlineClusterG
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OnlineClusterGroup")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgroup, hdestinationnode) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgroup, hdestinationnode);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hgroup;
     (void)hdestinationnode;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5388,13 +7038,20 @@ static Napi::Value windowssys_windows_win32_networking_clustering_onlineClusterG
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OnlineClusterGroupEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgroup, hdestinationnode, dwonlineflags, lpinbuffer, cbinbuffersize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgroup, hdestinationnode, dwonlineflags, lpinbuffer, cbinbuffersize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hgroup;
     (void)hdestinationnode;
     (void)dwonlineflags;
     (void)lpinbuffer;
     (void)cbinbuffersize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5415,7 +7072,13 @@ static Napi::Value windowssys_windows_win32_networking_clustering_onlineClusterG
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OnlineClusterGroupEx2")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgroup, hdestinationnode, dwonlineflags, lpinbuffer, cbinbuffersize, lpszreason) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgroup, hdestinationnode, dwonlineflags, lpinbuffer, cbinbuffersize, lpszreason);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hgroup;
     (void)hdestinationnode;
@@ -5423,6 +7086,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_onlineClusterG
     (void)lpinbuffer;
     (void)cbinbuffersize;
     (void)lpszreason;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5438,9 +7102,16 @@ static Napi::Value windowssys_windows_win32_networking_clustering_onlineClusterR
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OnlineClusterResource")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hresource) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hresource);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hresource;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5459,12 +7130,19 @@ static Napi::Value windowssys_windows_win32_networking_clustering_onlineClusterR
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OnlineClusterResourceEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hresource, dwonlineflags, lpinbuffer, cbinbuffersize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hresource, dwonlineflags, lpinbuffer, cbinbuffersize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hresource;
     (void)dwonlineflags;
     (void)lpinbuffer;
     (void)cbinbuffersize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5484,13 +7162,20 @@ static Napi::Value windowssys_windows_win32_networking_clustering_onlineClusterR
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OnlineClusterResourceEx2")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hresource, dwonlineflags, lpinbuffer, cbinbuffersize, lpszreason) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hresource, dwonlineflags, lpinbuffer, cbinbuffersize, lpszreason);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hresource;
     (void)dwonlineflags;
     (void)lpinbuffer;
     (void)cbinbuffersize;
     (void)lpszreason;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5506,9 +7191,16 @@ static Napi::Value windowssys_windows_win32_networking_clustering_openCluster_na
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OpenCluster")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszclustername) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszclustername);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszclustername;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -5527,12 +7219,19 @@ static Napi::Value windowssys_windows_win32_networking_clustering_openClusterCry
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OpenClusterCryptProvider")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszresource, lpszprovider, dwtype, dwflags) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszresource, lpszprovider, dwtype, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszresource;
     (void)lpszprovider;
     (void)dwtype;
     (void)dwflags;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -5552,13 +7251,20 @@ static Napi::Value windowssys_windows_win32_networking_clustering_openClusterCry
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OpenClusterCryptProviderEx")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszresource, lpszkeyname, lpszprovider, dwtype, dwflags) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszresource, lpszkeyname, lpszprovider, dwtype, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszresource;
     (void)lpszkeyname;
     (void)lpszprovider;
     (void)dwtype;
     (void)dwflags;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -5576,11 +7282,18 @@ static Napi::Value windowssys_windows_win32_networking_clustering_openClusterEx_
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OpenClusterEx")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszclustername, desiredaccess, grantedaccess) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszclustername, desiredaccess, grantedaccess);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszclustername;
     (void)desiredaccess;
     (void)grantedaccess;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -5597,10 +7310,17 @@ static Napi::Value windowssys_windows_win32_networking_clustering_openClusterGro
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OpenClusterGroup")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcluster, lpszgroupname) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcluster, lpszgroupname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcluster;
     (void)lpszgroupname;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -5619,12 +7339,19 @@ static Napi::Value windowssys_windows_win32_networking_clustering_openClusterGro
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OpenClusterGroupEx")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcluster, lpszgroupname, dwdesiredaccess, lpdwgrantedaccess) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcluster, lpszgroupname, dwdesiredaccess, lpdwgrantedaccess);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcluster;
     (void)lpszgroupname;
     (void)dwdesiredaccess;
     (void)lpdwgrantedaccess;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -5641,10 +7368,17 @@ static Napi::Value windowssys_windows_win32_networking_clustering_openClusterGro
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OpenClusterGroupSet")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcluster, lpszgroupsetname) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcluster, lpszgroupsetname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcluster;
     (void)lpszgroupsetname;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -5661,10 +7395,17 @@ static Napi::Value windowssys_windows_win32_networking_clustering_openClusterNet
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OpenClusterNetInterface")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcluster, lpszinterfacename) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcluster, lpszinterfacename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcluster;
     (void)lpszinterfacename;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -5683,12 +7424,19 @@ static Napi::Value windowssys_windows_win32_networking_clustering_openClusterNet
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OpenClusterNetInterfaceEx")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcluster, lpszinterfacename, dwdesiredaccess, lpdwgrantedaccess) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcluster, lpszinterfacename, dwdesiredaccess, lpdwgrantedaccess);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcluster;
     (void)lpszinterfacename;
     (void)dwdesiredaccess;
     (void)lpdwgrantedaccess;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -5705,10 +7453,17 @@ static Napi::Value windowssys_windows_win32_networking_clustering_openClusterNet
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OpenClusterNetwork")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcluster, lpsznetworkname) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcluster, lpsznetworkname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcluster;
     (void)lpsznetworkname;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -5727,12 +7482,19 @@ static Napi::Value windowssys_windows_win32_networking_clustering_openClusterNet
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OpenClusterNetworkEx")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcluster, lpsznetworkname, dwdesiredaccess, lpdwgrantedaccess) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcluster, lpsznetworkname, dwdesiredaccess, lpdwgrantedaccess);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcluster;
     (void)lpsznetworkname;
     (void)dwdesiredaccess;
     (void)lpdwgrantedaccess;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -5749,10 +7511,17 @@ static Napi::Value windowssys_windows_win32_networking_clustering_openClusterNod
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OpenClusterNode")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcluster, lpsznodename) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcluster, lpsznodename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcluster;
     (void)lpsznodename;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -5769,10 +7538,17 @@ static Napi::Value windowssys_windows_win32_networking_clustering_openClusterNod
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OpenClusterNodeById")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcluster, nodeid) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcluster, nodeid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcluster;
     (void)nodeid;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -5791,12 +7567,19 @@ static Napi::Value windowssys_windows_win32_networking_clustering_openClusterNod
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OpenClusterNodeEx")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcluster, lpsznodename, dwdesiredaccess, lpdwgrantedaccess) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcluster, lpsznodename, dwdesiredaccess, lpdwgrantedaccess);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcluster;
     (void)lpsznodename;
     (void)dwdesiredaccess;
     (void)lpdwgrantedaccess;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -5813,10 +7596,17 @@ static Napi::Value windowssys_windows_win32_networking_clustering_openClusterRes
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OpenClusterResource")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcluster, lpszresourcename) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcluster, lpszresourcename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcluster;
     (void)lpszresourcename;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -5835,12 +7625,19 @@ static Napi::Value windowssys_windows_win32_networking_clustering_openClusterRes
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OpenClusterResourceEx")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcluster, lpszresourcename, dwdesiredaccess, lpdwgrantedaccess) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcluster, lpszresourcename, dwdesiredaccess, lpdwgrantedaccess);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcluster;
     (void)lpszresourcename;
     (void)dwdesiredaccess;
     (void)lpdwgrantedaccess;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -5856,9 +7653,16 @@ static Napi::Value windowssys_windows_win32_networking_clustering_pauseClusterNo
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PauseClusterNode")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hnode) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hnode);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hnode;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5877,12 +7681,19 @@ static Napi::Value windowssys_windows_win32_networking_clustering_pauseClusterNo
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PauseClusterNodeEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hnode, bdrainnode, dwpauseflags, hnodedraintarget) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hnode, bdrainnode, dwpauseflags, hnodedraintarget);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hnode;
     (void)bdrainnode;
     (void)dwpauseflags;
     (void)hnodedraintarget;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5902,13 +7713,20 @@ static Napi::Value windowssys_windows_win32_networking_clustering_pauseClusterNo
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PauseClusterNodeEx2")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hnode, bdrainnode, dwpauseflags, hnodedraintarget, lpszreason) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hnode, bdrainnode, dwpauseflags, hnodedraintarget, lpszreason);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hnode;
     (void)bdrainnode;
     (void)dwpauseflags;
     (void)hnodedraintarget;
     (void)lpszreason;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5927,12 +7745,19 @@ static Napi::Value windowssys_windows_win32_networking_clustering_queryAppInstan
         HMODULE km_h_mod = LoadLibraryA("ntlanman.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "QueryAppInstanceVersion")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(appinstanceid, instanceversionhigh, instanceversionlow, versionstatus) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(appinstanceid, instanceversionhigh, instanceversionlow, versionstatus);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)appinstanceid;
     (void)instanceversionhigh;
     (void)instanceversionlow;
     (void)versionstatus;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5950,11 +7775,18 @@ static Napi::Value windowssys_windows_win32_networking_clustering_registerAppIns
         HMODULE km_h_mod = LoadLibraryA("ntlanman.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegisterAppInstance")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(processhandle, appinstanceid, childreninheritappinstance) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(processhandle, appinstanceid, childreninheritappinstance);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)processhandle;
     (void)appinstanceid;
     (void)childreninheritappinstance;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5972,11 +7804,18 @@ static Napi::Value windowssys_windows_win32_networking_clustering_registerAppIns
         HMODULE km_h_mod = LoadLibraryA("ntlanman.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegisterAppInstanceVersion")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(appinstanceid, instanceversionhigh, instanceversionlow) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(appinstanceid, instanceversionhigh, instanceversionlow);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)appinstanceid;
     (void)instanceversionhigh;
     (void)instanceversionlow;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5995,12 +7834,19 @@ static Napi::Value windowssys_windows_win32_networking_clustering_registerCluste
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegisterClusterNotify")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hchange, dwfiltertype, hobject, dwnotifykey) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hchange, dwfiltertype, hobject, dwnotifykey);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hchange;
     (void)dwfiltertype;
     (void)hobject;
     (void)dwnotifykey;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6020,13 +7866,20 @@ static Napi::Value windowssys_windows_win32_networking_clustering_registerCluste
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegisterClusterResourceTypeNotifyV2")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hchange, hcluster, flags, restypename, dwnotifykey) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hchange, hcluster, flags, restypename, dwnotifykey);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hchange;
     (void)hcluster;
     (void)flags;
     (void)restypename;
     (void)dwnotifykey;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6043,10 +7896,17 @@ static Napi::Value windowssys_windows_win32_networking_clustering_removeClusterG
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RemoveClusterGroupDependency")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgroup, hdependson) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgroup, hdependson);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hgroup;
     (void)hdependson;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6064,11 +7924,18 @@ static Napi::Value windowssys_windows_win32_networking_clustering_removeClusterG
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RemoveClusterGroupDependencyEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgroup, hdependson, lpszreason) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgroup, hdependson, lpszreason);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hgroup;
     (void)hdependson;
     (void)lpszreason;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6085,10 +7952,17 @@ static Napi::Value windowssys_windows_win32_networking_clustering_removeClusterG
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RemoveClusterGroupSetDependency")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgroupset, hdependson) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgroupset, hdependson);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hgroupset;
     (void)hdependson;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6106,11 +7980,18 @@ static Napi::Value windowssys_windows_win32_networking_clustering_removeClusterG
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RemoveClusterGroupSetDependencyEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgroupset, hdependson, lpszreason) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgroupset, hdependson, lpszreason);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hgroupset;
     (void)hdependson;
     (void)lpszreason;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6127,10 +8008,17 @@ static Napi::Value windowssys_windows_win32_networking_clustering_removeClusterG
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RemoveClusterGroupToGroupSetDependency")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgroup, hdependson) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgroup, hdependson);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hgroup;
     (void)hdependson;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6148,11 +8036,18 @@ static Napi::Value windowssys_windows_win32_networking_clustering_removeClusterG
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RemoveClusterGroupToGroupSetDependencyEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgroup, hdependson, lpszreason) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgroup, hdependson, lpszreason);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hgroup;
     (void)hdependson;
     (void)lpszreason;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6169,10 +8064,17 @@ static Napi::Value windowssys_windows_win32_networking_clustering_removeClusterN
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RemoveClusterNameAccount")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcluster, bdeletecomputerobjects) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcluster, bdeletecomputerobjects);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hcluster;
     (void)bdeletecomputerobjects;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6189,10 +8091,17 @@ static Napi::Value windowssys_windows_win32_networking_clustering_removeClusterR
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RemoveClusterResourceDependency")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hresource, hdependson) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hresource, hdependson);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hresource;
     (void)hdependson;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6210,11 +8119,18 @@ static Napi::Value windowssys_windows_win32_networking_clustering_removeClusterR
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RemoveClusterResourceDependencyEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hresource, hdependson, lpszreason) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hresource, hdependson, lpszreason);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hresource;
     (void)hdependson;
     (void)lpszreason;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6231,10 +8147,17 @@ static Napi::Value windowssys_windows_win32_networking_clustering_removeClusterR
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RemoveClusterResourceNode")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hresource, hnode) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hresource, hnode);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hresource;
     (void)hnode;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6252,11 +8175,18 @@ static Napi::Value windowssys_windows_win32_networking_clustering_removeClusterR
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RemoveClusterResourceNodeEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hresource, hnode, lpszreason) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hresource, hnode, lpszreason);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hresource;
     (void)hnode;
     (void)lpszreason;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6275,12 +8205,19 @@ static Napi::Value windowssys_windows_win32_networking_clustering_removeClusterS
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RemoveClusterStorageNode")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcluster, lpszclusterstorageenclosurename, dwtimeout, dwflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcluster, lpszclusterstorageenclosurename, dwtimeout, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hcluster;
     (void)lpszclusterstorageenclosurename;
     (void)dwtimeout;
     (void)dwflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6298,11 +8235,18 @@ static Napi::Value windowssys_windows_win32_networking_clustering_removeCrossClu
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RemoveCrossClusterGroupSetDependency")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdependentgroupset, lpremoteclustername, lpremotegroupsetname) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdependentgroupset, lpremoteclustername, lpremotegroupsetname);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hdependentgroupset;
     (void)lpremoteclustername;
     (void)lpremotegroupsetname;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6318,9 +8262,16 @@ static Napi::Value windowssys_windows_win32_networking_clustering_removeResource
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RemoveResourceFromClusterSharedVolumes")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hresource) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hresource);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hresource;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6341,7 +8292,13 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilAddUnkn
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResUtilAddUnknownProperties")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkeyclusterkey, ppropertytable, poutpropertylist, pcboutpropertylistsize, pcbbytesreturned, pcbrequired) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkeyclusterkey, ppropertytable, poutpropertylist, pcboutpropertylistsize, pcbbytesreturned, pcbrequired);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hkeyclusterkey;
     (void)ppropertytable;
@@ -6349,6 +8306,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilAddUnkn
     (void)pcboutpropertylistsize;
     (void)pcbbytesreturned;
     (void)pcbrequired;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6364,9 +8322,16 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilCreateD
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResUtilCreateDirectoryTree")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszpath) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszpath);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pszpath;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6383,10 +8348,17 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilDupGrou
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResUtilDupGroup")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(group, copy) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(group, copy);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)group;
     (void)copy;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6404,11 +8376,18 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilDupPara
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResUtilDupParameterBlock")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(poutparams, pinparams, ppropertytable) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(poutparams, pinparams, ppropertytable);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)poutparams;
     (void)pinparams;
     (void)ppropertytable;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6425,10 +8404,17 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilDupReso
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResUtilDupResource")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(group, copy) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(group, copy);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)group;
     (void)copy;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6444,10 +8430,17 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilDupStri
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResUtilDupString")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszinstring) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszinstring);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pszinstring;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -6465,12 +8458,19 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilEnumGro
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResUtilEnumGroups")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcluster, hself, prescallback, pparameter) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcluster, hself, prescallback, pparameter);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hcluster;
     (void)hself;
     (void)prescallback;
     (void)pparameter;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6490,13 +8490,20 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilEnumGro
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResUtilEnumGroupsEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcluster, hself, grouptype, prescallback, pparameter) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcluster, hself, grouptype, prescallback, pparameter);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hcluster;
     (void)hself;
     (void)grouptype;
     (void)prescallback;
     (void)pparameter;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6516,13 +8523,20 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilEnumPri
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResUtilEnumPrivateProperties")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkeyclusterkey, pszoutproperties, cboutpropertiessize, pcbbytesreturned, pcbrequired) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkeyclusterkey, pszoutproperties, cboutpropertiessize, pcbbytesreturned, pcbrequired);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hkeyclusterkey;
     (void)pszoutproperties;
     (void)cboutpropertiessize;
     (void)pcbbytesreturned;
     (void)pcbrequired;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6542,13 +8556,20 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilEnumPro
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResUtilEnumProperties")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ppropertytable, pszoutproperties, cboutpropertiessize, pcbbytesreturned, pcbrequired) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ppropertytable, pszoutproperties, cboutpropertiessize, pcbbytesreturned, pcbrequired);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ppropertytable;
     (void)pszoutproperties;
     (void)cboutpropertiessize;
     (void)pcbbytesreturned;
     (void)pcbrequired;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6567,12 +8588,19 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilEnumRes
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResUtilEnumResources")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hself, lpszrestypename, prescallback, pparameter) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hself, lpszrestypename, prescallback, pparameter);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hself;
     (void)lpszrestypename;
     (void)prescallback;
     (void)pparameter;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6592,13 +8620,20 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilEnumRes
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResUtilEnumResourcesEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcluster, hself, lpszrestypename, prescallback, pparameter) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcluster, hself, lpszrestypename, prescallback, pparameter);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hcluster;
     (void)hself;
     (void)lpszrestypename;
     (void)prescallback;
     (void)pparameter;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6619,7 +8654,13 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilEnumRes
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResUtilEnumResourcesEx2")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcluster, hself, lpszrestypename, prescallback, pparameter, dwdesiredaccess) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcluster, hself, lpszrestypename, prescallback, pparameter, dwdesiredaccess);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hcluster;
     (void)hself;
@@ -6627,6 +8668,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilEnumRes
     (void)prescallback;
     (void)pparameter;
     (void)dwdesiredaccess;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6642,10 +8684,17 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilExpandE
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResUtilExpandEnvironmentStrings")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszsrc) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszsrc);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pszsrc;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -6664,13 +8713,20 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilFindBin
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResUtilFindBinaryProperty")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ppropertylist, cbpropertylistsize, pszpropertyname, pbpropertyvalue, pcbpropertyvaluesize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ppropertylist, cbpropertylistsize, pszpropertyname, pbpropertyvalue, pcbpropertyvaluesize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ppropertylist;
     (void)cbpropertylistsize;
     (void)pszpropertyname;
     (void)pbpropertyvalue;
     (void)pcbpropertyvaluesize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6689,12 +8745,19 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilFindDep
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResUtilFindDependentDiskResourceDriveLetter")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcluster, hresource, pszdriveletter, pcchdriveletter) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcluster, hresource, pszdriveletter, pcchdriveletter);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hcluster;
     (void)hresource;
     (void)pszdriveletter;
     (void)pcchdriveletter;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6713,12 +8776,19 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilFindDwo
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResUtilFindDwordProperty")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ppropertylist, cbpropertylistsize, pszpropertyname, pdwpropertyvalue) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ppropertylist, cbpropertylistsize, pszpropertyname, pdwpropertyvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ppropertylist;
     (void)cbpropertylistsize;
     (void)pszpropertyname;
     (void)pdwpropertyvalue;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6737,12 +8807,19 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilFindExp
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResUtilFindExpandSzProperty")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ppropertylist, cbpropertylistsize, pszpropertyname, pszpropertyvalue) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ppropertylist, cbpropertylistsize, pszpropertyname, pszpropertyvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ppropertylist;
     (void)cbpropertylistsize;
     (void)pszpropertyname;
     (void)pszpropertyvalue;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6761,12 +8838,19 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilFindExp
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResUtilFindExpandedSzProperty")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ppropertylist, cbpropertylistsize, pszpropertyname, pszpropertyvalue) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ppropertylist, cbpropertylistsize, pszpropertyname, pszpropertyvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ppropertylist;
     (void)cbpropertylistsize;
     (void)pszpropertyname;
     (void)pszpropertyvalue;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6785,12 +8869,19 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilFindFil
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResUtilFindFileTimeProperty")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ppropertylist, cbpropertylistsize, pszpropertyname, pftpropertyvalue) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ppropertylist, cbpropertylistsize, pszpropertyname, pftpropertyvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ppropertylist;
     (void)cbpropertylistsize;
     (void)pszpropertyname;
     (void)pftpropertyvalue;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6809,12 +8900,19 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilFindLon
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResUtilFindLongProperty")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ppropertylist, cbpropertylistsize, pszpropertyname, plpropertyvalue) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ppropertylist, cbpropertylistsize, pszpropertyname, plpropertyvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ppropertylist;
     (void)cbpropertylistsize;
     (void)pszpropertyname;
     (void)plpropertyvalue;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6834,13 +8932,20 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilFindMul
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResUtilFindMultiSzProperty")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ppropertylist, cbpropertylistsize, pszpropertyname, pszpropertyvalue, pcbpropertyvaluesize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ppropertylist, cbpropertylistsize, pszpropertyname, pszpropertyvalue, pcbpropertyvaluesize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ppropertylist;
     (void)cbpropertylistsize;
     (void)pszpropertyname;
     (void)pszpropertyvalue;
     (void)pcbpropertyvaluesize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6859,12 +8964,19 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilFindSzP
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResUtilFindSzProperty")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ppropertylist, cbpropertylistsize, pszpropertyname, pszpropertyvalue) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ppropertylist, cbpropertylistsize, pszpropertyname, pszpropertyvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ppropertylist;
     (void)cbpropertylistsize;
     (void)pszpropertyname;
     (void)pszpropertyvalue;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6883,12 +8995,19 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilFindULa
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResUtilFindULargeIntegerProperty")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ppropertylist, cbpropertylistsize, pszpropertyname, plpropertyvalue) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ppropertylist, cbpropertylistsize, pszpropertyname, plpropertyvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ppropertylist;
     (void)cbpropertylistsize;
     (void)pszpropertyname;
     (void)plpropertyvalue;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6904,9 +9023,16 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilFreeEnv
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResUtilFreeEnvironment")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpenvironment) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpenvironment);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpenvironment;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6924,11 +9050,16 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilFreePar
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResUtilFreeParameterBlock")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(poutparams, pinparams, ppropertytable);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(poutparams, pinparams, ppropertytable);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)poutparams;
     (void)pinparams;
     (void)ppropertytable;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -6948,7 +9079,13 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetAllP
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResUtilGetAllProperties")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkeyclusterkey, ppropertytable, poutpropertylist, cboutpropertylistsize, pcbbytesreturned, pcbrequired) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkeyclusterkey, ppropertytable, poutpropertylist, cboutpropertylistsize, pcbbytesreturned, pcbrequired);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hkeyclusterkey;
     (void)ppropertytable;
@@ -6956,6 +9093,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetAllP
     (void)cboutpropertylistsize;
     (void)pcbbytesreturned;
     (void)pcbrequired;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6977,7 +9115,13 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetBina
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResUtilGetBinaryProperty")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ppboutvalue, pcboutvaluesize, pvaluestruct, pboldvalue, cboldvaluesize, pppropertylist, pcbpropertylistsize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ppboutvalue, pcboutvaluesize, pvaluestruct, pboldvalue, cboldvaluesize, pppropertylist, pcbpropertylistsize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ppboutvalue;
     (void)pcboutvaluesize;
@@ -6986,6 +9130,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetBina
     (void)cboldvaluesize;
     (void)pppropertylist;
     (void)pcbpropertylistsize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7004,12 +9149,19 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetBina
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResUtilGetBinaryValue")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkeyclusterkey, pszvaluename, ppboutvalue, pcboutvaluesize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkeyclusterkey, pszvaluename, ppboutvalue, pcboutvaluesize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hkeyclusterkey;
     (void)pszvaluename;
     (void)ppboutvalue;
     (void)pcboutvaluesize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7026,10 +9178,17 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetClus
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResUtilGetClusterGroupType")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgroup, grouptype) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgroup, grouptype);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hgroup;
     (void)grouptype;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7046,10 +9205,17 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetClus
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResUtilGetClusterId")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcluster, guid) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcluster, guid);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hcluster;
     (void)guid;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7066,10 +9232,17 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetClus
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResUtilGetClusterRoleState")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcluster, eclusterrole) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcluster, eclusterrole);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcluster;
     (void)eclusterrole;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7088,12 +9261,19 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetCore
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResUtilGetCoreClusterResources")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcluster, phclusternameresource, phclusteripaddressresource, phclusterquorumresource) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcluster, phclusternameresource, phclusteripaddressresource, phclusterquorumresource);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hcluster;
     (void)phclusternameresource;
     (void)phclusteripaddressresource;
     (void)phclusterquorumresource;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7112,12 +9292,19 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetCore
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResUtilGetCoreClusterResourcesEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hclusterin, phclusternameresourceout, phclusterquorumresourceout, dwdesiredaccess) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hclusterin, phclusternameresourceout, phclusterquorumresourceout, dwdesiredaccess);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclusterin;
     (void)phclusternameresourceout;
     (void)phclusterquorumresourceout;
     (void)dwdesiredaccess;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7133,9 +9320,16 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetCore
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResUtilGetCoreGroup")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcluster) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcluster);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcluster;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -7157,7 +9351,13 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetDwor
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResUtilGetDwordProperty")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pdwoutvalue, pvaluestruct, dwoldvalue, dwminimum, dwmaximum, pppropertylist, pcbpropertylistsize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pdwoutvalue, pvaluestruct, dwoldvalue, dwminimum, dwmaximum, pppropertylist, pcbpropertylistsize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pdwoutvalue;
     (void)pvaluestruct;
@@ -7166,6 +9366,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetDwor
     (void)dwmaximum;
     (void)pppropertylist;
     (void)pcbpropertylistsize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7184,12 +9385,19 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetDwor
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResUtilGetDwordValue")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkeyclusterkey, pszvaluename, pdwoutvalue, dwdefaultvalue) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkeyclusterkey, pszvaluename, pdwoutvalue, dwdefaultvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hkeyclusterkey;
     (void)pszvaluename;
     (void)pdwoutvalue;
     (void)dwdefaultvalue;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7205,10 +9413,17 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetEnvi
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResUtilGetEnvironmentWithNetName")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hresource) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hresource);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hresource;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -7229,7 +9444,13 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetLong
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResUtilGetLongProperty")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ploutvalue, pvaluestruct, loldvalue, lminimum, lmaximum, pppropertylist, pcbpropertylistsize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ploutvalue, pvaluestruct, loldvalue, lminimum, lmaximum, pppropertylist, pcbpropertylistsize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ploutvalue;
     (void)pvaluestruct;
@@ -7238,6 +9459,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetLong
     (void)lmaximum;
     (void)pppropertylist;
     (void)pcbpropertylistsize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7259,7 +9481,13 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetMult
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResUtilGetMultiSzProperty")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ppszoutvalue, pcboutvaluesize, pvaluestruct, pszoldvalue, cboldvaluesize, pppropertylist, pcbpropertylistsize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ppszoutvalue, pcboutvaluesize, pvaluestruct, pszoldvalue, cboldvaluesize, pppropertylist, pcbpropertylistsize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ppszoutvalue;
     (void)pcboutvaluesize;
@@ -7268,6 +9496,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetMult
     (void)cboldvaluesize;
     (void)pppropertylist;
     (void)pcbpropertylistsize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7287,13 +9516,20 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetPriv
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResUtilGetPrivateProperties")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkeyclusterkey, poutpropertylist, cboutpropertylistsize, pcbbytesreturned, pcbrequired) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkeyclusterkey, poutpropertylist, cboutpropertylistsize, pcbbytesreturned, pcbrequired);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hkeyclusterkey;
     (void)poutpropertylist;
     (void)cboutpropertylistsize;
     (void)pcbbytesreturned;
     (void)pcbrequired;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7314,7 +9550,13 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetProp
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResUtilGetProperties")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkeyclusterkey, ppropertytable, poutpropertylist, cboutpropertylistsize, pcbbytesreturned, pcbrequired) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkeyclusterkey, ppropertytable, poutpropertylist, cboutpropertylistsize, pcbbytesreturned, pcbrequired);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hkeyclusterkey;
     (void)ppropertytable;
@@ -7322,6 +9564,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetProp
     (void)cboutpropertylistsize;
     (void)pcbbytesreturned;
     (void)pcbrequired;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7341,13 +9584,20 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetProp
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResUtilGetPropertiesToParameterBlock")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkeyclusterkey, ppropertytable, poutparams, bcheckforrequiredproperties, psznameofpropinerror) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkeyclusterkey, ppropertytable, poutparams, bcheckforrequiredproperties, psznameofpropinerror);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hkeyclusterkey;
     (void)ppropertytable;
     (void)poutparams;
     (void)bcheckforrequiredproperties;
     (void)psznameofpropinerror;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7366,12 +9616,19 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetProp
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResUtilGetProperty")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkeyclusterkey, ppropertytableitem, poutpropertyitem, pcboutpropertyitemsize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkeyclusterkey, ppropertytableitem, poutpropertyitem, pcboutpropertyitemsize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hkeyclusterkey;
     (void)ppropertytableitem;
     (void)poutpropertyitem;
     (void)pcboutpropertyitemsize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7391,13 +9648,20 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetProp
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResUtilGetPropertyFormats")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ppropertytable, poutpropertyformatlist, cbpropertyformatlistsize, pcbbytesreturned, pcbrequired) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ppropertytable, poutpropertyformatlist, cbpropertyformatlistsize, pcbbytesreturned, pcbrequired);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ppropertytable;
     (void)poutpropertyformatlist;
     (void)cbpropertyformatlistsize;
     (void)pcbbytesreturned;
     (void)pcbrequired;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7416,12 +9680,19 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetProp
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResUtilGetPropertySize")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkeyclusterkey, ppropertytableitem, pcboutpropertylistsize, pnpropertycount) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkeyclusterkey, ppropertytableitem, pcboutpropertylistsize, pnpropertycount);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hkeyclusterkey;
     (void)ppropertytableitem;
     (void)pcboutpropertylistsize;
     (void)pnpropertycount;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7440,12 +9711,19 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetQwor
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResUtilGetQwordValue")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkeyclusterkey, pszvaluename, pqwoutvalue, qwdefaultvalue) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkeyclusterkey, pszvaluename, pqwoutvalue, qwdefaultvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hkeyclusterkey;
     (void)pszvaluename;
     (void)pqwoutvalue;
     (void)qwdefaultvalue;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7462,10 +9740,17 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetReso
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResUtilGetResourceDependency")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hself, lpszresourcetype) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hself, lpszresourcetype);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hself;
     (void)lpszresourcetype;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -7484,12 +9769,19 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetReso
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResUtilGetResourceDependencyByClass")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcluster, hself, prci, brecurse) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcluster, hself, prci, brecurse);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcluster;
     (void)hself;
     (void)prci;
     (void)brecurse;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -7509,13 +9801,20 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetReso
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResUtilGetResourceDependencyByClassEx")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcluster, hself, prci, brecurse, dwdesiredaccess) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcluster, hself, prci, brecurse, dwdesiredaccess);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcluster;
     (void)hself;
     (void)prci;
     (void)brecurse;
     (void)dwdesiredaccess;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -7534,12 +9833,19 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetReso
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResUtilGetResourceDependencyByName")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcluster, hself, lpszresourcetype, brecurse) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcluster, hself, lpszresourcetype, brecurse);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcluster;
     (void)hself;
     (void)lpszresourcetype;
     (void)brecurse;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -7559,13 +9865,20 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetReso
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResUtilGetResourceDependencyByNameEx")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcluster, hself, lpszresourcetype, brecurse, dwdesiredaccess) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcluster, hself, lpszresourcetype, brecurse, dwdesiredaccess);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcluster;
     (void)hself;
     (void)lpszresourcetype;
     (void)brecurse;
     (void)dwdesiredaccess;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -7583,11 +9896,18 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetReso
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResUtilGetResourceDependencyEx")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hself, lpszresourcetype, dwdesiredaccess) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hself, lpszresourcetype, dwdesiredaccess);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hself;
     (void)lpszresourcetype;
     (void)dwdesiredaccess;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -7609,7 +9929,13 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetReso
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResUtilGetResourceDependentIPAddressProps")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hresource, pszaddress, pcchaddress, pszsubnetmask, pcchsubnetmask, psznetwork, pcchnetwork) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hresource, pszaddress, pcchaddress, pszsubnetmask, pcchsubnetmask, psznetwork, pcchnetwork);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hresource;
     (void)pszaddress;
@@ -7618,6 +9944,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetReso
     (void)pcchsubnetmask;
     (void)psznetwork;
     (void)pcchnetwork;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7635,11 +9962,18 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetReso
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResUtilGetResourceName")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hresource, pszresourcename, pcchresourcenameinout) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hresource, pszresourcename, pcchresourcenameinout);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hresource;
     (void)pszresourcename;
     (void)pcchresourcenameinout;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7656,10 +9990,17 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetReso
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResUtilGetResourceNameDependency")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszresourcename, lpszresourcetype) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszresourcename, lpszresourcetype);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszresourcename;
     (void)lpszresourcetype;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -7677,11 +10018,18 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetReso
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResUtilGetResourceNameDependencyEx")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszresourcename, lpszresourcetype, dwdesiredaccess) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszresourcename, lpszresourcetype, dwdesiredaccess);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszresourcename;
     (void)lpszresourcetype;
     (void)dwdesiredaccess;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -7701,13 +10049,20 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetSzPr
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResUtilGetSzProperty")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ppszoutvalue, pvaluestruct, pszoldvalue, pppropertylist, pcbpropertylistsize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ppszoutvalue, pvaluestruct, pszoldvalue, pppropertylist, pcbpropertylistsize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ppszoutvalue;
     (void)pvaluestruct;
     (void)pszoldvalue;
     (void)pppropertylist;
     (void)pcbpropertylistsize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7724,11 +10079,18 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGetSzVa
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResUtilGetSzValue")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkeyclusterkey, pszvaluename) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkeyclusterkey, pszvaluename);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hkeyclusterkey;
     (void)pszvaluename;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -7745,11 +10107,18 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilGroupsE
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResUtilGroupsEqual")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hself, hgroup, pequal) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hself, hgroup, pequal);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hself;
     (void)hgroup;
     (void)pequal;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7765,9 +10134,16 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilIsPathV
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResUtilIsPathValid")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszpath) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszpath);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszpath;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7784,10 +10160,17 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilIsResou
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResUtilIsResourceClassEqual")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(prci, hresource) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(prci, hresource);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)prci;
     (void)hresource;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7804,10 +10187,17 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilLeftPax
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResUtilLeftPaxosIsLessThanRight")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(left, right) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(left, right);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)left;
     (void)right;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7825,11 +10215,18 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilNodeEnu
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResUtilNodeEnum")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcluster, pnodecallback, pparameter) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcluster, pnodecallback, pparameter);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hcluster;
     (void)pnodecallback;
     (void)pparameter;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7846,10 +10243,17 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilPaxosCo
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResUtilPaxosComparer")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(left, right) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(left, right);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)left;
     (void)right;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7870,7 +10274,13 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilPropert
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResUtilPropertyListFromParameterBlock")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ppropertytable, poutpropertylist, pcboutpropertylistsize, pinparams, pcbbytesreturned, pcbrequired) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ppropertytable, poutpropertylist, pcboutpropertylistsize, pinparams, pcbbytesreturned, pcbrequired);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ppropertytable;
     (void)poutpropertylist;
@@ -7878,6 +10288,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilPropert
     (void)pinparams;
     (void)pcbbytesreturned;
     (void)pcbrequired;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7895,11 +10306,18 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilRemoveR
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResUtilRemoveResourceServiceEnvironment")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszservicename, pfnlogevent, hresourcehandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszservicename, pfnlogevent, hresourcehandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pszservicename;
     (void)pfnlogevent;
     (void)hresourcehandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7918,12 +10336,19 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilResourc
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResUtilResourceDepEnum")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hself, enumtype, prescallback, pparameter) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hself, enumtype, prescallback, pparameter);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hself;
     (void)enumtype;
     (void)prescallback;
     (void)pparameter;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7940,10 +10365,17 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilResourc
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResUtilResourceTypesEqual")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszresourcetypename, hresource) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszresourcetypename, hresource);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszresourcetypename;
     (void)hresource;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7960,10 +10392,17 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilResourc
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResUtilResourcesEqual")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hself, hresource) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hself, hresource);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hself;
     (void)hresource;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7984,7 +10423,13 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilSetBina
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResUtilSetBinaryValue")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkeyclusterkey, pszvaluename, pbnewvalue, cbnewvaluesize, ppboutvalue, pcboutvaluesize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkeyclusterkey, pszvaluename, pbnewvalue, cbnewvaluesize, ppboutvalue, pcboutvaluesize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hkeyclusterkey;
     (void)pszvaluename;
@@ -7992,6 +10437,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilSetBina
     (void)cbnewvaluesize;
     (void)ppboutvalue;
     (void)pcboutvaluesize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8010,12 +10456,19 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilSetDwor
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResUtilSetDwordValue")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkeyclusterkey, pszvaluename, dwnewvalue, pdwoutvalue) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkeyclusterkey, pszvaluename, dwnewvalue, pdwoutvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hkeyclusterkey;
     (void)pszvaluename;
     (void)dwnewvalue;
     (void)pdwoutvalue;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8034,12 +10487,19 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilSetExpa
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResUtilSetExpandSzValue")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkeyclusterkey, pszvaluename, psznewvalue, ppszoutstring) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkeyclusterkey, pszvaluename, psznewvalue, ppszoutstring);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hkeyclusterkey;
     (void)pszvaluename;
     (void)psznewvalue;
     (void)ppszoutstring;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8060,7 +10520,13 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilSetMult
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResUtilSetMultiSzValue")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkeyclusterkey, pszvaluename, psznewvalue, cbnewvaluesize, ppszoutvalue, pcboutvaluesize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkeyclusterkey, pszvaluename, psznewvalue, cbnewvaluesize, ppszoutvalue, pcboutvaluesize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hkeyclusterkey;
     (void)pszvaluename;
@@ -8068,6 +10534,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilSetMult
     (void)cbnewvaluesize;
     (void)ppszoutvalue;
     (void)pcboutvaluesize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8085,11 +10552,18 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilSetPriv
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResUtilSetPrivatePropertyList")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkeyclusterkey, pinpropertylist, cbinpropertylistsize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkeyclusterkey, pinpropertylist, cbinpropertylistsize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hkeyclusterkey;
     (void)pinpropertylist;
     (void)cbinpropertylistsize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8111,7 +10585,13 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilSetProp
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResUtilSetPropertyParameterBlock")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkeyclusterkey, ppropertytable, reserved, pinparams, pinpropertylist, cbinpropertylistsize, poutparams) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkeyclusterkey, ppropertytable, reserved, pinparams, pinpropertylist, cbinpropertylistsize, poutparams);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hkeyclusterkey;
     (void)ppropertytable;
@@ -8120,6 +10600,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilSetProp
     (void)pinpropertylist;
     (void)cbinpropertylistsize;
     (void)poutparams;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8142,7 +10623,13 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilSetProp
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResUtilSetPropertyParameterBlockEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkeyclusterkey, ppropertytable, reserved, pinparams, pinpropertylist, cbinpropertylistsize, bforcewrite, poutparams) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkeyclusterkey, ppropertytable, reserved, pinparams, pinpropertylist, cbinpropertylistsize, bforcewrite, poutparams);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hkeyclusterkey;
     (void)ppropertytable;
@@ -8152,6 +10639,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilSetProp
     (void)cbinpropertylistsize;
     (void)bforcewrite;
     (void)poutparams;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8173,7 +10661,13 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilSetProp
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResUtilSetPropertyTable")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkeyclusterkey, ppropertytable, reserved, ballowunknownproperties, pinpropertylist, cbinpropertylistsize, poutparams) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkeyclusterkey, ppropertytable, reserved, ballowunknownproperties, pinpropertylist, cbinpropertylistsize, poutparams);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hkeyclusterkey;
     (void)ppropertytable;
@@ -8182,6 +10676,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilSetProp
     (void)pinpropertylist;
     (void)cbinpropertylistsize;
     (void)poutparams;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8204,7 +10699,13 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilSetProp
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResUtilSetPropertyTableEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkeyclusterkey, ppropertytable, reserved, ballowunknownproperties, pinpropertylist, cbinpropertylistsize, bforcewrite, poutparams) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkeyclusterkey, ppropertytable, reserved, ballowunknownproperties, pinpropertylist, cbinpropertylistsize, bforcewrite, poutparams);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hkeyclusterkey;
     (void)ppropertytable;
@@ -8214,6 +10715,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilSetProp
     (void)cbinpropertylistsize;
     (void)bforcewrite;
     (void)poutparams;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8232,12 +10734,19 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilSetQwor
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResUtilSetQwordValue")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkeyclusterkey, pszvaluename, qwnewvalue, pqwoutvalue) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkeyclusterkey, pszvaluename, qwnewvalue, pqwoutvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hkeyclusterkey;
     (void)pszvaluename;
     (void)qwnewvalue;
     (void)pqwoutvalue;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8256,12 +10765,19 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilSetReso
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResUtilSetResourceServiceEnvironment")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszservicename, hresource, pfnlogevent, hresourcehandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszservicename, hresource, pfnlogevent, hresourcehandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pszservicename;
     (void)hresource;
     (void)pfnlogevent;
     (void)hresourcehandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8281,13 +10797,20 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilSetReso
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResUtilSetResourceServiceStartParameters")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszservicename, schscmhandle, phservice, pfnlogevent, hresourcehandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszservicename, schscmhandle, phservice, pfnlogevent, hresourcehandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pszservicename;
     (void)schscmhandle;
     (void)phservice;
     (void)pfnlogevent;
     (void)hresourcehandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8308,7 +10831,13 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilSetReso
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResUtilSetResourceServiceStartParametersEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszservicename, schscmhandle, phservice, dwdesiredaccess, pfnlogevent, hresourcehandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszservicename, schscmhandle, phservice, dwdesiredaccess, pfnlogevent, hresourcehandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pszservicename;
     (void)schscmhandle;
@@ -8316,6 +10845,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilSetReso
     (void)dwdesiredaccess;
     (void)pfnlogevent;
     (void)hresourcehandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8334,12 +10864,19 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilSetSzVa
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResUtilSetSzValue")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkeyclusterkey, pszvaluename, psznewvalue, ppszoutstring) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkeyclusterkey, pszvaluename, psznewvalue, ppszoutstring);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hkeyclusterkey;
     (void)pszvaluename;
     (void)psznewvalue;
     (void)ppszoutstring;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8358,12 +10895,19 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilSetUnkn
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResUtilSetUnknownProperties")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkeyclusterkey, ppropertytable, pinpropertylist, cbinpropertylistsize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkeyclusterkey, ppropertytable, pinpropertylist, cbinpropertylistsize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hkeyclusterkey;
     (void)ppropertytable;
     (void)pinpropertylist;
     (void)cbinpropertylistsize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8384,7 +10928,13 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilSetValu
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResUtilSetValueEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkeyclusterkey, valuename, valuetype, valuedata, valuesize, flags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkeyclusterkey, valuename, valuetype, valuedata, valuesize, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hkeyclusterkey;
     (void)valuename;
@@ -8392,6 +10942,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilSetValu
     (void)valuedata;
     (void)valuesize;
     (void)flags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8408,10 +10959,17 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilStartRe
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResUtilStartResourceService")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszservicename, phservicehandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszservicename, phservicehandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pszservicename;
     (void)phservicehandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8427,9 +10985,16 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilStopRes
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResUtilStopResourceService")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszservicename) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszservicename);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pszservicename;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8445,9 +11010,16 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilStopSer
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResUtilStopService")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hservicehandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hservicehandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hservicehandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8467,13 +11039,20 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilTermina
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResUtilTerminateServiceProcessFromResDll")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwservicepid, boffline, pdwresourcestate, pfnlogevent, hresourcehandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwservicepid, boffline, pdwresourcestate, pfnlogevent, hresourcehandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dwservicepid;
     (void)boffline;
     (void)pdwresourcestate;
     (void)pfnlogevent;
     (void)hresourcehandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8490,10 +11069,17 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilVerifyP
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResUtilVerifyPrivatePropertyList")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pinpropertylist, cbinpropertylistsize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pinpropertylist, cbinpropertylistsize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pinpropertylist;
     (void)cbinpropertylistsize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8514,7 +11100,13 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilVerifyP
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResUtilVerifyPropertyTable")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ppropertytable, reserved, ballowunknownproperties, pinpropertylist, cbinpropertylistsize, poutparams) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ppropertytable, reserved, ballowunknownproperties, pinpropertylist, cbinpropertylistsize, poutparams);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ppropertytable;
     (void)reserved;
@@ -8522,6 +11114,7 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilVerifyP
     (void)pinpropertylist;
     (void)cbinpropertylistsize;
     (void)poutparams;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8537,9 +11130,16 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilVerifyR
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResUtilVerifyResourceService")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszservicename) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszservicename);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pszservicename;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8555,9 +11155,16 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilVerifyS
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResUtilVerifyService")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hservicehandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hservicehandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hservicehandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8575,11 +11182,18 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilVerifyS
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResUtilVerifyShutdownSafe")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(flags, reason, presult) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(flags, reason, presult);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)flags;
     (void)reason;
     (void)presult;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8597,11 +11211,18 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resUtilsDelete
         HMODULE km_h_mod = LoadLibraryA("resutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResUtilsDeleteKeyTree")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(key, keyname, treatnokeyaserror) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(key, keyname, treatnokeyaserror);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)key;
     (void)keyname;
     (void)treatnokeyaserror;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8616,8 +11237,15 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resetAllAppIns
         HMODULE km_h_mod = LoadLibraryA("ntlanman.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResetAllAppInstanceVersions")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8634,10 +11262,17 @@ static Napi::Value windowssys_windows_win32_networking_clustering_restartCluster
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RestartClusterResource")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hresource, dwflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hresource, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hresource;
     (void)dwflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8655,11 +11290,18 @@ static Napi::Value windowssys_windows_win32_networking_clustering_restartCluster
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RestartClusterResourceEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hresource, dwflags, lpszreason) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hresource, dwflags, lpszreason);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hresource;
     (void)dwflags;
     (void)lpszreason;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8677,11 +11319,18 @@ static Napi::Value windowssys_windows_win32_networking_clustering_restoreCluster
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RestoreClusterDatabase")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszpathname, bforce, lpszquorumdriveletter) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszpathname, bforce, lpszquorumdriveletter);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpszpathname;
     (void)bforce;
     (void)lpszquorumdriveletter;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8697,9 +11346,16 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resumeClusterN
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResumeClusterNode")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hnode) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hnode);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hnode;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8717,11 +11373,18 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resumeClusterN
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResumeClusterNodeEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hnode, eresumefailbacktype, dwresumeflagsreserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hnode, eresumefailbacktype, dwresumeflagsreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hnode;
     (void)eresumefailbacktype;
     (void)dwresumeflagsreserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8740,12 +11403,19 @@ static Napi::Value windowssys_windows_win32_networking_clustering_resumeClusterN
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResumeClusterNodeEx2")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hnode, eresumefailbacktype, dwresumeflagsreserved, lpszreason) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hnode, eresumefailbacktype, dwresumeflagsreserved, lpszreason);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hnode;
     (void)eresumefailbacktype;
     (void)dwresumeflagsreserved;
     (void)lpszreason;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8763,11 +11433,18 @@ static Napi::Value windowssys_windows_win32_networking_clustering_setAppInstance
         HMODULE km_h_mod = LoadLibraryA("ntlanman.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetAppInstanceCsvFlags")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(processhandle, mask, flags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(processhandle, mask, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)processhandle;
     (void)mask;
     (void)flags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8784,10 +11461,17 @@ static Napi::Value windowssys_windows_win32_networking_clustering_setClusterGrou
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetClusterGroupName")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgroup, lpszgroupname) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgroup, lpszgroupname);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hgroup;
     (void)lpszgroupname;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8805,11 +11489,18 @@ static Napi::Value windowssys_windows_win32_networking_clustering_setClusterGrou
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetClusterGroupNameEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgroup, lpszgroupname, lpszreason) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgroup, lpszgroupname, lpszreason);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hgroup;
     (void)lpszgroupname;
     (void)lpszreason;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8827,11 +11518,18 @@ static Napi::Value windowssys_windows_win32_networking_clustering_setClusterGrou
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetClusterGroupNodeList")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgroup, nodecount, nodelist) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgroup, nodecount, nodelist);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hgroup;
     (void)nodecount;
     (void)nodelist;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8850,12 +11548,19 @@ static Napi::Value windowssys_windows_win32_networking_clustering_setClusterGrou
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetClusterGroupNodeListEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgroup, nodecount, nodelist, lpszreason) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgroup, nodecount, nodelist, lpszreason);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hgroup;
     (void)nodecount;
     (void)nodelist;
     (void)lpszreason;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8872,10 +11577,17 @@ static Napi::Value windowssys_windows_win32_networking_clustering_setClusterGrou
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetClusterGroupSetDependencyExpression")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgroupset, lpszdependencyexprssion) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgroupset, lpszdependencyexprssion);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hgroupset;
     (void)lpszdependencyexprssion;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8893,11 +11605,18 @@ static Napi::Value windowssys_windows_win32_networking_clustering_setClusterGrou
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetClusterGroupSetDependencyExpressionEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgroupset, lpszdependencyexpression, lpszreason) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgroupset, lpszdependencyexpression, lpszreason);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hgroupset;
     (void)lpszdependencyexpression;
     (void)lpszreason;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8914,10 +11633,17 @@ static Napi::Value windowssys_windows_win32_networking_clustering_setClusterName
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetClusterName")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcluster, lpsznewclustername) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcluster, lpsznewclustername);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hcluster;
     (void)lpsznewclustername;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8935,11 +11661,18 @@ static Napi::Value windowssys_windows_win32_networking_clustering_setClusterName
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetClusterNameEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcluster, lpsznewclustername, lpszreason) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcluster, lpsznewclustername, lpszreason);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hcluster;
     (void)lpsznewclustername;
     (void)lpszreason;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8956,10 +11689,17 @@ static Napi::Value windowssys_windows_win32_networking_clustering_setClusterNetw
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetClusterNetworkName")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hnetwork, lpszname) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hnetwork, lpszname);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hnetwork;
     (void)lpszname;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8977,11 +11717,18 @@ static Napi::Value windowssys_windows_win32_networking_clustering_setClusterNetw
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetClusterNetworkNameEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hnetwork, lpszname, lpszreason) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hnetwork, lpszname, lpszreason);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hnetwork;
     (void)lpszname;
     (void)lpszreason;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8999,11 +11746,18 @@ static Napi::Value windowssys_windows_win32_networking_clustering_setClusterNetw
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetClusterNetworkPriorityOrder")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcluster, networkcount, networklist) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcluster, networkcount, networklist);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hcluster;
     (void)networkcount;
     (void)networklist;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9021,11 +11775,18 @@ static Napi::Value windowssys_windows_win32_networking_clustering_setClusterQuor
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetClusterQuorumResource")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hresource, lpszdevicename, dwmaxquologsize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hresource, lpszdevicename, dwmaxquologsize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hresource;
     (void)lpszdevicename;
     (void)dwmaxquologsize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9044,12 +11805,19 @@ static Napi::Value windowssys_windows_win32_networking_clustering_setClusterQuor
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetClusterQuorumResourceEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hresource, lpszdevicename, dwmaxquorumlogsize, lpszreason) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hresource, lpszdevicename, dwmaxquorumlogsize, lpszreason);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hresource;
     (void)lpszdevicename;
     (void)dwmaxquorumlogsize;
     (void)lpszreason;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9066,10 +11834,17 @@ static Napi::Value windowssys_windows_win32_networking_clustering_setClusterReso
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetClusterResourceDependencyExpression")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hresource, lpszdependencyexpression) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hresource, lpszdependencyexpression);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hresource;
     (void)lpszdependencyexpression;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9086,10 +11861,17 @@ static Napi::Value windowssys_windows_win32_networking_clustering_setClusterReso
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetClusterResourceName")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hresource, lpszresourcename) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hresource, lpszresourcename);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hresource;
     (void)lpszresourcename;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9107,11 +11889,18 @@ static Napi::Value windowssys_windows_win32_networking_clustering_setClusterReso
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetClusterResourceNameEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hresource, lpszresourcename, lpszreason) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hresource, lpszresourcename, lpszreason);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hresource;
     (void)lpszresourcename;
     (void)lpszreason;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9131,13 +11920,20 @@ static Napi::Value windowssys_windows_win32_networking_clustering_setClusterServ
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetClusterServiceAccountPassword")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszclustername, lpsznewpassword, dwflags, lpreturnstatusbuffer, lpcbreturnstatusbuffersize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszclustername, lpsznewpassword, dwflags, lpreturnstatusbuffer, lpcbreturnstatusbuffersize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpszclustername;
     (void)lpsznewpassword;
     (void)dwflags;
     (void)lpreturnstatusbuffer;
     (void)lpcbreturnstatusbuffersize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9154,10 +11950,17 @@ static Napi::Value windowssys_windows_win32_networking_clustering_setGroupDepend
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetGroupDependencyExpression")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgroup, lpszdependencyexpression) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgroup, lpszdependencyexpression);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hgroup;
     (void)lpszdependencyexpression;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9175,11 +11978,18 @@ static Napi::Value windowssys_windows_win32_networking_clustering_setGroupDepend
         HMODULE km_h_mod = LoadLibraryA("clusapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetGroupDependencyExpressionEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hgroup, lpszdependencyexpression, lpszreason) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hgroup, lpszdependencyexpression, lpszreason);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hgroup;
     (void)lpszdependencyexpression;
     (void)lpszreason;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

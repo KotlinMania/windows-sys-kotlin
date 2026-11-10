@@ -5,6 +5,7 @@
 #include <stdbool.h>
 #include <stddef.h>
 #include <stdint.h>
+#include <stdlib.h>
 #include <errno.h>
 #ifdef _WIN32
 #ifndef WIN32_LEAN_AND_MEAN
@@ -28,7 +29,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "MSChapSrvChangePassword");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)servername, (void*)(uintptr_t)username, (bool)lmoldpresent, (void*)(uintptr_t)lmoldowfpassword, (void*)(uintptr_t)lmnewowfpassword, (void*)(uintptr_t)ntoldowfpassword, (void*)(uintptr_t)ntnewowfpassword) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)servername, (void*)(uintptr_t)username, (bool)lmoldpresent, (void*)(uintptr_t)lmoldowfpassword, (void*)(uintptr_t)lmnewowfpassword, (void*)(uintptr_t)ntoldowfpassword, (void*)(uintptr_t)ntnewowfpassword);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servername;
     (void)username;
@@ -37,6 +44,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     (void)lmnewowfpassword;
     (void)ntoldowfpassword;
     (void)ntnewowfpassword;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -52,7 +60,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "MSChapSrvChangePassword2");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)servername, (void*)(uintptr_t)username, (void*)(uintptr_t)newpasswordencryptedwitholdnt, (void*)(uintptr_t)oldntowfpasswordencryptedwithnewnt, (bool)lmpresent, (void*)(uintptr_t)newpasswordencryptedwitholdlm, (void*)(uintptr_t)oldlmowfpasswordencryptedwithnewlmornt) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)servername, (void*)(uintptr_t)username, (void*)(uintptr_t)newpasswordencryptedwitholdnt, (void*)(uintptr_t)oldntowfpasswordencryptedwithnewnt, (bool)lmpresent, (void*)(uintptr_t)newpasswordencryptedwitholdlm, (void*)(uintptr_t)oldlmowfpasswordencryptedwithnewlmornt);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servername;
     (void)username;
@@ -61,6 +75,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     (void)lmpresent;
     (void)newpasswordencryptedwitholdlm;
     (void)oldlmowfpasswordencryptedwithnewlmornt;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;

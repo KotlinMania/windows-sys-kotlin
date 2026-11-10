@@ -61,9 +61,16 @@ static Napi::Value windowssys_windows_win32_system_memory_nonvolatile_rtlDrainNo
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtlDrainNonVolatileFlush")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(nvtoken) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(nvtoken);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)nvtoken;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -83,13 +90,20 @@ static Napi::Value windowssys_windows_win32_system_memory_nonvolatile_rtlFillNon
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtlFillNonVolatileMemory")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(nvtoken, nvdestination, size, value, flags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(nvtoken, nvdestination, size, value, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)nvtoken;
     (void)nvdestination;
     (void)size;
     (void)value;
     (void)flags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -108,12 +122,19 @@ static Napi::Value windowssys_windows_win32_system_memory_nonvolatile_rtlFlushNo
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtlFlushNonVolatileMemory")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(nvtoken, nvbuffer, size, flags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(nvtoken, nvbuffer, size, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)nvtoken;
     (void)nvbuffer;
     (void)size;
     (void)flags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -132,12 +153,19 @@ static Napi::Value windowssys_windows_win32_system_memory_nonvolatile_rtlFlushNo
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtlFlushNonVolatileMemoryRanges")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(nvtoken, nvranges, numranges, flags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(nvtoken, nvranges, numranges, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)nvtoken;
     (void)nvranges;
     (void)numranges;
     (void)flags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -153,9 +181,16 @@ static Napi::Value windowssys_windows_win32_system_memory_nonvolatile_rtlFreeNon
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtlFreeNonVolatileToken")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(nvtoken) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(nvtoken);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)nvtoken;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -173,11 +208,18 @@ static Napi::Value windowssys_windows_win32_system_memory_nonvolatile_rtlGetNonV
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtlGetNonVolatileToken")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(nvbuffer, size, nvtoken) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(nvbuffer, size, nvtoken);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)nvbuffer;
     (void)size;
     (void)nvtoken;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -197,13 +239,20 @@ static Napi::Value windowssys_windows_win32_system_memory_nonvolatile_rtlWriteNo
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtlWriteNonVolatileMemory")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(nvtoken, nvdestination, source, size, flags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(nvtoken, nvdestination, source, size, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)nvtoken;
     (void)nvdestination;
     (void)source;
     (void)size;
     (void)flags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

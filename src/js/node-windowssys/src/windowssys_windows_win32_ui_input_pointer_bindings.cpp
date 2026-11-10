@@ -61,9 +61,16 @@ static Napi::Value windowssys_windows_win32_ui_input_pointer_enableMouseInPointe
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EnableMouseInPointer")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(fenable) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(fenable);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)fenable;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -80,10 +87,17 @@ static Napi::Value windowssys_windows_win32_ui_input_pointer_getPointerCursorId_
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetPointerCursorId")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pointerid, cursorid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pointerid, cursorid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pointerid;
     (void)cursorid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -100,10 +114,17 @@ static Napi::Value windowssys_windows_win32_ui_input_pointer_getPointerDevice_na
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetPointerDevice")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(device, pointerdevice) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(device, pointerdevice);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)device;
     (void)pointerdevice;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -121,11 +142,18 @@ static Napi::Value windowssys_windows_win32_ui_input_pointer_getPointerDeviceCur
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetPointerDeviceCursors")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(device, cursorcount, devicecursors) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(device, cursorcount, devicecursors);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)device;
     (void)cursorcount;
     (void)devicecursors;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -143,11 +171,18 @@ static Napi::Value windowssys_windows_win32_ui_input_pointer_getPointerDevicePro
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetPointerDeviceProperties")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(device, propertycount, pointerproperties) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(device, propertycount, pointerproperties);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)device;
     (void)propertycount;
     (void)pointerproperties;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -165,11 +200,18 @@ static Napi::Value windowssys_windows_win32_ui_input_pointer_getPointerDeviceRec
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetPointerDeviceRects")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(device, pointerdevicerect, displayrect) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(device, pointerdevicerect, displayrect);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)device;
     (void)pointerdevicerect;
     (void)displayrect;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -186,10 +228,17 @@ static Napi::Value windowssys_windows_win32_ui_input_pointer_getPointerDevices_n
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetPointerDevices")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(devicecount, pointerdevices) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(devicecount, pointerdevices);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)devicecount;
     (void)pointerdevices;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -207,11 +256,18 @@ static Napi::Value windowssys_windows_win32_ui_input_pointer_getPointerFrameInfo
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetPointerFrameInfo")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pointerid, pointercount, pointerinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pointerid, pointercount, pointerinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pointerid;
     (void)pointercount;
     (void)pointerinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -230,12 +286,19 @@ static Napi::Value windowssys_windows_win32_ui_input_pointer_getPointerFrameInfo
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetPointerFrameInfoHistory")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pointerid, entriescount, pointercount, pointerinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pointerid, entriescount, pointercount, pointerinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pointerid;
     (void)entriescount;
     (void)pointercount;
     (void)pointerinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -253,11 +316,18 @@ static Napi::Value windowssys_windows_win32_ui_input_pointer_getPointerFramePenI
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetPointerFramePenInfo")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pointerid, pointercount, peninfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pointerid, pointercount, peninfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pointerid;
     (void)pointercount;
     (void)peninfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -276,12 +346,19 @@ static Napi::Value windowssys_windows_win32_ui_input_pointer_getPointerFramePenI
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetPointerFramePenInfoHistory")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pointerid, entriescount, pointercount, peninfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pointerid, entriescount, pointercount, peninfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pointerid;
     (void)entriescount;
     (void)pointercount;
     (void)peninfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -299,11 +376,18 @@ static Napi::Value windowssys_windows_win32_ui_input_pointer_getPointerFrameTouc
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetPointerFrameTouchInfo")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pointerid, pointercount, touchinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pointerid, pointercount, touchinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pointerid;
     (void)pointercount;
     (void)touchinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -322,12 +406,19 @@ static Napi::Value windowssys_windows_win32_ui_input_pointer_getPointerFrameTouc
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetPointerFrameTouchInfoHistory")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pointerid, entriescount, pointercount, touchinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pointerid, entriescount, pointercount, touchinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pointerid;
     (void)entriescount;
     (void)pointercount;
     (void)touchinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -344,10 +435,17 @@ static Napi::Value windowssys_windows_win32_ui_input_pointer_getPointerInfo_napi
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetPointerInfo")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pointerid, pointerinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pointerid, pointerinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pointerid;
     (void)pointerinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -365,11 +463,18 @@ static Napi::Value windowssys_windows_win32_ui_input_pointer_getPointerInfoHisto
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetPointerInfoHistory")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pointerid, entriescount, pointerinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pointerid, entriescount, pointerinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pointerid;
     (void)entriescount;
     (void)pointerinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -387,11 +492,18 @@ static Napi::Value windowssys_windows_win32_ui_input_pointer_getPointerInputTran
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetPointerInputTransform")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pointerid, historycount, inputtransform) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pointerid, historycount, inputtransform);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pointerid;
     (void)historycount;
     (void)inputtransform;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -408,10 +520,17 @@ static Napi::Value windowssys_windows_win32_ui_input_pointer_getPointerPenInfo_n
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetPointerPenInfo")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pointerid, peninfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pointerid, peninfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pointerid;
     (void)peninfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -429,11 +548,18 @@ static Napi::Value windowssys_windows_win32_ui_input_pointer_getPointerPenInfoHi
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetPointerPenInfoHistory")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pointerid, entriescount, peninfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pointerid, entriescount, peninfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pointerid;
     (void)entriescount;
     (void)peninfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -450,10 +576,17 @@ static Napi::Value windowssys_windows_win32_ui_input_pointer_getPointerTouchInfo
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetPointerTouchInfo")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pointerid, touchinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pointerid, touchinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pointerid;
     (void)touchinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -471,11 +604,18 @@ static Napi::Value windowssys_windows_win32_ui_input_pointer_getPointerTouchInfo
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetPointerTouchInfoHistory")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pointerid, entriescount, touchinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pointerid, entriescount, touchinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pointerid;
     (void)entriescount;
     (void)touchinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -492,10 +632,17 @@ static Napi::Value windowssys_windows_win32_ui_input_pointer_getPointerType_napi
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetPointerType")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pointerid, pointertype) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pointerid, pointertype);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pointerid;
     (void)pointertype;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -515,13 +662,20 @@ static Napi::Value windowssys_windows_win32_ui_input_pointer_getRawPointerDevice
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetRawPointerDeviceData")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pointerid, historycount, propertiescount, pproperties, pvalues) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pointerid, historycount, propertiescount, pproperties, pvalues);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pointerid;
     (void)historycount;
     (void)propertiescount;
     (void)pproperties;
     (void)pvalues;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -536,8 +690,15 @@ static Napi::Value windowssys_windows_win32_ui_input_pointer_getUnpredictedMessa
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetUnpredictedMessagePos")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -554,10 +715,17 @@ static Napi::Value windowssys_windows_win32_ui_input_pointer_initializeTouchInje
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InitializeTouchInjection")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(maxcount, dwmode) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(maxcount, dwmode);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)maxcount;
     (void)dwmode;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -575,11 +743,18 @@ static Napi::Value windowssys_windows_win32_ui_input_pointer_injectSyntheticPoin
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InjectSyntheticPointerInput")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(device, pointerinfo, count) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(device, pointerinfo, count);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)device;
     (void)pointerinfo;
     (void)count;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -596,10 +771,17 @@ static Napi::Value windowssys_windows_win32_ui_input_pointer_injectTouchInput_na
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InjectTouchInput")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(count, contacts) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(count, contacts);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)count;
     (void)contacts;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -614,8 +796,15 @@ static Napi::Value windowssys_windows_win32_ui_input_pointer_isMouseInPointerEna
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IsMouseInPointerEnabled")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -631,9 +820,16 @@ static Napi::Value windowssys_windows_win32_ui_input_pointer_skipPointerFrameMes
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SkipPointerFrameMessages")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pointerid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pointerid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pointerid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

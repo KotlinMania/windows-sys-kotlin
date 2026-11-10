@@ -62,10 +62,17 @@ static Napi::Value windowssys_windows_win32_system_jobobjects_assignProcessToJob
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AssignProcessToJobObject")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hjob, hprocess) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hjob, hprocess);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hjob;
     (void)hprocess;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -82,11 +89,18 @@ static Napi::Value windowssys_windows_win32_system_jobobjects_createJobObjectA_n
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateJobObjectA")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpjobattributes, lpname) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpjobattributes, lpname);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)lpjobattributes;
     (void)lpname;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -102,11 +116,18 @@ static Napi::Value windowssys_windows_win32_system_jobobjects_createJobObjectW_n
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateJobObjectW")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpjobattributes, lpname) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpjobattributes, lpname);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)lpjobattributes;
     (void)lpname;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -123,11 +144,18 @@ static Napi::Value windowssys_windows_win32_system_jobobjects_createJobSet_napi(
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateJobSet")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(numjob, userjobset, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(numjob, userjobset, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)numjob;
     (void)userjobset;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -143,9 +171,14 @@ static Napi::Value windowssys_windows_win32_system_jobobjects_freeMemoryJobObjec
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FreeMemoryJobObject")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(buffer);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(buffer);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)buffer;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -162,11 +195,18 @@ static Napi::Value windowssys_windows_win32_system_jobobjects_isProcessInJob_nap
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IsProcessInJob")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(processhandle, jobhandle, result) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(processhandle, jobhandle, result);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)processhandle;
     (void)jobhandle;
     (void)result;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -184,12 +224,19 @@ static Napi::Value windowssys_windows_win32_system_jobobjects_openJobObjectA_nap
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OpenJobObjectA")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwdesiredaccess, binherithandle, lpname) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwdesiredaccess, binherithandle, lpname);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)dwdesiredaccess;
     (void)binherithandle;
     (void)lpname;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -206,12 +253,19 @@ static Napi::Value windowssys_windows_win32_system_jobobjects_openJobObjectW_nap
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OpenJobObjectW")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwdesiredaccess, binherithandle, lpname) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwdesiredaccess, binherithandle, lpname);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)dwdesiredaccess;
     (void)binherithandle;
     (void)lpname;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -230,13 +284,20 @@ static Napi::Value windowssys_windows_win32_system_jobobjects_queryInformationJo
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "QueryInformationJobObject")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hjob, jobobjectinformationclass, lpjobobjectinformation, cbjobobjectinformationlength, lpreturnlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hjob, jobobjectinformationclass, lpjobobjectinformation, cbjobobjectinformationlength, lpreturnlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hjob;
     (void)jobobjectinformationclass;
     (void)lpjobobjectinformation;
     (void)cbjobobjectinformationlength;
     (void)lpreturnlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -255,12 +316,19 @@ static Napi::Value windowssys_windows_win32_system_jobobjects_queryIoRateControl
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "QueryIoRateControlInformationJobObject")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hjob, volumename, infoblocks, infoblockcount) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hjob, volumename, infoblocks, infoblockcount);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hjob;
     (void)volumename;
     (void)infoblocks;
     (void)infoblockcount;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -279,12 +347,19 @@ static Napi::Value windowssys_windows_win32_system_jobobjects_setInformationJobO
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetInformationJobObject")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hjob, jobobjectinformationclass, lpjobobjectinformation, cbjobobjectinformationlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hjob, jobobjectinformationclass, lpjobobjectinformation, cbjobobjectinformationlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hjob;
     (void)jobobjectinformationclass;
     (void)lpjobobjectinformation;
     (void)cbjobobjectinformationlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -301,10 +376,17 @@ static Napi::Value windowssys_windows_win32_system_jobobjects_setIoRateControlIn
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetIoRateControlInformationJobObject")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hjob, ioratecontrolinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hjob, ioratecontrolinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hjob;
     (void)ioratecontrolinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -321,10 +403,17 @@ static Napi::Value windowssys_windows_win32_system_jobobjects_terminateJobObject
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TerminateJobObject")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hjob, uexitcode) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hjob, uexitcode);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hjob;
     (void)uexitcode;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -342,11 +431,18 @@ static Napi::Value windowssys_windows_win32_system_jobobjects_userHandleGrantAcc
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UserHandleGrantAccess")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(huserhandle, hjob, bgrant) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(huserhandle, hjob, bgrant);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)huserhandle;
     (void)hjob;
     (void)bgrant;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

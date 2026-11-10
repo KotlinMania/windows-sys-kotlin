@@ -62,10 +62,17 @@ static Napi::Value windowssys_windows_wdk_system_registry_ntCommitRegistryTransa
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NtCommitRegistryTransaction")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(transactionhandle, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(transactionhandle, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)transactionhandle;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -87,7 +94,13 @@ static Napi::Value windowssys_windows_wdk_system_registry_ntCreateKey_napi(const
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NtCreateKey")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(keyhandle, desiredaccess, objectattributes, titleindex, arg_4_class, createoptions, disposition) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(keyhandle, desiredaccess, objectattributes, titleindex, arg_4_class, createoptions, disposition);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)keyhandle;
     (void)desiredaccess;
@@ -96,6 +109,7 @@ static Napi::Value windowssys_windows_wdk_system_registry_ntCreateKey_napi(const
     (void)arg_4_class;
     (void)createoptions;
     (void)disposition;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -118,7 +132,13 @@ static Napi::Value windowssys_windows_wdk_system_registry_ntCreateKeyTransacted_
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NtCreateKeyTransacted")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(keyhandle, desiredaccess, objectattributes, titleindex, arg_4_class, createoptions, transactionhandle, disposition) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(keyhandle, desiredaccess, objectattributes, titleindex, arg_4_class, createoptions, transactionhandle, disposition);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)keyhandle;
     (void)desiredaccess;
@@ -128,6 +148,7 @@ static Napi::Value windowssys_windows_wdk_system_registry_ntCreateKeyTransacted_
     (void)createoptions;
     (void)transactionhandle;
     (void)disposition;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -146,12 +167,19 @@ static Napi::Value windowssys_windows_wdk_system_registry_ntCreateRegistryTransa
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NtCreateRegistryTransaction")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(transactionhandle, desiredaccess, objectattributes, createoptions) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(transactionhandle, desiredaccess, objectattributes, createoptions);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)transactionhandle;
     (void)desiredaccess;
     (void)objectattributes;
     (void)createoptions;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -167,9 +195,16 @@ static Napi::Value windowssys_windows_wdk_system_registry_ntDeleteKey_napi(const
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NtDeleteKey")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(keyhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(keyhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)keyhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -186,10 +221,17 @@ static Napi::Value windowssys_windows_wdk_system_registry_ntDeleteValueKey_napi(
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NtDeleteValueKey")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(keyhandle, valuename) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(keyhandle, valuename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)keyhandle;
     (void)valuename;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -210,7 +252,13 @@ static Napi::Value windowssys_windows_wdk_system_registry_ntEnumerateKey_napi(co
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NtEnumerateKey")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(keyhandle, arg_1_index, keyinformationclass, keyinformation, length, resultlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(keyhandle, arg_1_index, keyinformationclass, keyinformation, length, resultlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)keyhandle;
     (void)arg_1_index;
@@ -218,6 +266,7 @@ static Napi::Value windowssys_windows_wdk_system_registry_ntEnumerateKey_napi(co
     (void)keyinformation;
     (void)length;
     (void)resultlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -238,7 +287,13 @@ static Napi::Value windowssys_windows_wdk_system_registry_ntEnumerateValueKey_na
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NtEnumerateValueKey")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(keyhandle, arg_1_index, keyvalueinformationclass, keyvalueinformation, length, resultlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(keyhandle, arg_1_index, keyvalueinformationclass, keyvalueinformation, length, resultlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)keyhandle;
     (void)arg_1_index;
@@ -246,6 +301,7 @@ static Napi::Value windowssys_windows_wdk_system_registry_ntEnumerateValueKey_na
     (void)keyvalueinformation;
     (void)length;
     (void)resultlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -261,9 +317,16 @@ static Napi::Value windowssys_windows_wdk_system_registry_ntFlushKey_napi(const 
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NtFlushKey")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(keyhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(keyhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)keyhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -290,7 +353,13 @@ static Napi::Value windowssys_windows_wdk_system_registry_ntNotifyChangeMultiple
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NtNotifyChangeMultipleKeys")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(masterkeyhandle, count, subordinateobjects, event, apcroutine, apccontext, iostatusblock, completionfilter, watchtree, buffer, buffersize, asynchronous) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(masterkeyhandle, count, subordinateobjects, event, apcroutine, apccontext, iostatusblock, completionfilter, watchtree, buffer, buffersize, asynchronous);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)masterkeyhandle;
     (void)count;
@@ -304,6 +373,7 @@ static Napi::Value windowssys_windows_wdk_system_registry_ntNotifyChangeMultiple
     (void)buffer;
     (void)buffersize;
     (void)asynchronous;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -321,11 +391,18 @@ static Napi::Value windowssys_windows_wdk_system_registry_ntOpenKey_napi(const N
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NtOpenKey")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(keyhandle, desiredaccess, objectattributes) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(keyhandle, desiredaccess, objectattributes);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)keyhandle;
     (void)desiredaccess;
     (void)objectattributes;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -344,12 +421,19 @@ static Napi::Value windowssys_windows_wdk_system_registry_ntOpenKeyEx_napi(const
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NtOpenKeyEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(keyhandle, desiredaccess, objectattributes, openoptions) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(keyhandle, desiredaccess, objectattributes, openoptions);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)keyhandle;
     (void)desiredaccess;
     (void)objectattributes;
     (void)openoptions;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -368,12 +452,19 @@ static Napi::Value windowssys_windows_wdk_system_registry_ntOpenKeyTransacted_na
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NtOpenKeyTransacted")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(keyhandle, desiredaccess, objectattributes, transactionhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(keyhandle, desiredaccess, objectattributes, transactionhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)keyhandle;
     (void)desiredaccess;
     (void)objectattributes;
     (void)transactionhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -393,13 +484,20 @@ static Napi::Value windowssys_windows_wdk_system_registry_ntOpenKeyTransactedEx_
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NtOpenKeyTransactedEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(keyhandle, desiredaccess, objectattributes, openoptions, transactionhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(keyhandle, desiredaccess, objectattributes, openoptions, transactionhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)keyhandle;
     (void)desiredaccess;
     (void)objectattributes;
     (void)openoptions;
     (void)transactionhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -417,11 +515,18 @@ static Napi::Value windowssys_windows_wdk_system_registry_ntOpenRegistryTransact
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NtOpenRegistryTransaction")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(transactionhandle, desiredaccess, objectattributes) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(transactionhandle, desiredaccess, objectattributes);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)transactionhandle;
     (void)desiredaccess;
     (void)objectattributes;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -441,13 +546,20 @@ static Napi::Value windowssys_windows_wdk_system_registry_ntQueryKey_napi(const 
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NtQueryKey")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(keyhandle, keyinformationclass, keyinformation, length, resultlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(keyhandle, keyinformationclass, keyinformation, length, resultlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)keyhandle;
     (void)keyinformationclass;
     (void)keyinformation;
     (void)length;
     (void)resultlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -468,7 +580,13 @@ static Napi::Value windowssys_windows_wdk_system_registry_ntQueryMultipleValueKe
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NtQueryMultipleValueKey")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(keyhandle, valueentries, entrycount, valuebuffer, bufferlength, requiredbufferlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(keyhandle, valueentries, entrycount, valuebuffer, bufferlength, requiredbufferlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)keyhandle;
     (void)valueentries;
@@ -476,6 +594,7 @@ static Napi::Value windowssys_windows_wdk_system_registry_ntQueryMultipleValueKe
     (void)valuebuffer;
     (void)bufferlength;
     (void)requiredbufferlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -496,7 +615,13 @@ static Napi::Value windowssys_windows_wdk_system_registry_ntQueryValueKey_napi(c
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NtQueryValueKey")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(keyhandle, valuename, keyvalueinformationclass, keyvalueinformation, length, resultlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(keyhandle, valuename, keyvalueinformationclass, keyvalueinformation, length, resultlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)keyhandle;
     (void)valuename;
@@ -504,6 +629,7 @@ static Napi::Value windowssys_windows_wdk_system_registry_ntQueryValueKey_napi(c
     (void)keyvalueinformation;
     (void)length;
     (void)resultlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -520,10 +646,17 @@ static Napi::Value windowssys_windows_wdk_system_registry_ntRenameKey_napi(const
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NtRenameKey")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(keyhandle, newname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(keyhandle, newname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)keyhandle;
     (void)newname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -541,11 +674,18 @@ static Napi::Value windowssys_windows_wdk_system_registry_ntRestoreKey_napi(cons
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NtRestoreKey")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(keyhandle, filehandle, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(keyhandle, filehandle, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)keyhandle;
     (void)filehandle;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -562,10 +702,17 @@ static Napi::Value windowssys_windows_wdk_system_registry_ntRollbackRegistryTran
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NtRollbackRegistryTransaction")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(transactionhandle, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(transactionhandle, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)transactionhandle;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -582,10 +729,17 @@ static Napi::Value windowssys_windows_wdk_system_registry_ntSaveKey_napi(const N
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NtSaveKey")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(keyhandle, filehandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(keyhandle, filehandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)keyhandle;
     (void)filehandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -603,11 +757,18 @@ static Napi::Value windowssys_windows_wdk_system_registry_ntSaveKeyEx_napi(const
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NtSaveKeyEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(keyhandle, filehandle, format) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(keyhandle, filehandle, format);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)keyhandle;
     (void)filehandle;
     (void)format;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -626,12 +787,19 @@ static Napi::Value windowssys_windows_wdk_system_registry_ntSetInformationKey_na
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NtSetInformationKey")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(keyhandle, keysetinformationclass, keysetinformation, keysetinformationlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(keyhandle, keysetinformationclass, keysetinformation, keysetinformationlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)keyhandle;
     (void)keysetinformationclass;
     (void)keysetinformation;
     (void)keysetinformationlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -652,7 +820,13 @@ static Napi::Value windowssys_windows_wdk_system_registry_ntSetValueKey_napi(con
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NtSetValueKey")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(keyhandle, valuename, titleindex, type, data, datasize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(keyhandle, valuename, titleindex, type, data, datasize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)keyhandle;
     (void)valuename;
@@ -660,6 +834,7 @@ static Napi::Value windowssys_windows_wdk_system_registry_ntSetValueKey_napi(con
     (void)type;
     (void)data;
     (void)datasize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -676,10 +851,17 @@ static Napi::Value windowssys_windows_wdk_system_registry_zwCommitRegistryTransa
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ZwCommitRegistryTransaction")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(transactionhandle, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(transactionhandle, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)transactionhandle;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -701,7 +883,13 @@ static Napi::Value windowssys_windows_wdk_system_registry_zwCreateKey_napi(const
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ZwCreateKey")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(keyhandle, desiredaccess, objectattributes, titleindex, arg_4_class, createoptions, disposition) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(keyhandle, desiredaccess, objectattributes, titleindex, arg_4_class, createoptions, disposition);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)keyhandle;
     (void)desiredaccess;
@@ -710,6 +898,7 @@ static Napi::Value windowssys_windows_wdk_system_registry_zwCreateKey_napi(const
     (void)arg_4_class;
     (void)createoptions;
     (void)disposition;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -732,7 +921,13 @@ static Napi::Value windowssys_windows_wdk_system_registry_zwCreateKeyTransacted_
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ZwCreateKeyTransacted")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(keyhandle, desiredaccess, objectattributes, titleindex, arg_4_class, createoptions, transactionhandle, disposition) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(keyhandle, desiredaccess, objectattributes, titleindex, arg_4_class, createoptions, transactionhandle, disposition);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)keyhandle;
     (void)desiredaccess;
@@ -742,6 +937,7 @@ static Napi::Value windowssys_windows_wdk_system_registry_zwCreateKeyTransacted_
     (void)createoptions;
     (void)transactionhandle;
     (void)disposition;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -760,12 +956,19 @@ static Napi::Value windowssys_windows_wdk_system_registry_zwCreateRegistryTransa
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ZwCreateRegistryTransaction")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(transactionhandle, desiredaccess, objectattributes, createoptions) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(transactionhandle, desiredaccess, objectattributes, createoptions);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)transactionhandle;
     (void)desiredaccess;
     (void)objectattributes;
     (void)createoptions;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -781,9 +984,16 @@ static Napi::Value windowssys_windows_wdk_system_registry_zwDeleteKey_napi(const
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ZwDeleteKey")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(keyhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(keyhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)keyhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -800,10 +1010,17 @@ static Napi::Value windowssys_windows_wdk_system_registry_zwDeleteValueKey_napi(
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ZwDeleteValueKey")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(keyhandle, valuename) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(keyhandle, valuename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)keyhandle;
     (void)valuename;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -824,7 +1041,13 @@ static Napi::Value windowssys_windows_wdk_system_registry_zwEnumerateKey_napi(co
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ZwEnumerateKey")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(keyhandle, arg_1_index, keyinformationclass, keyinformation, length, resultlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(keyhandle, arg_1_index, keyinformationclass, keyinformation, length, resultlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)keyhandle;
     (void)arg_1_index;
@@ -832,6 +1055,7 @@ static Napi::Value windowssys_windows_wdk_system_registry_zwEnumerateKey_napi(co
     (void)keyinformation;
     (void)length;
     (void)resultlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -852,7 +1076,13 @@ static Napi::Value windowssys_windows_wdk_system_registry_zwEnumerateValueKey_na
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ZwEnumerateValueKey")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(keyhandle, arg_1_index, keyvalueinformationclass, keyvalueinformation, length, resultlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(keyhandle, arg_1_index, keyvalueinformationclass, keyvalueinformation, length, resultlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)keyhandle;
     (void)arg_1_index;
@@ -860,6 +1090,7 @@ static Napi::Value windowssys_windows_wdk_system_registry_zwEnumerateValueKey_na
     (void)keyvalueinformation;
     (void)length;
     (void)resultlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -875,9 +1106,16 @@ static Napi::Value windowssys_windows_wdk_system_registry_zwFlushKey_napi(const 
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ZwFlushKey")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(keyhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(keyhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)keyhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -904,7 +1142,13 @@ static Napi::Value windowssys_windows_wdk_system_registry_zwNotifyChangeMultiple
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ZwNotifyChangeMultipleKeys")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(masterkeyhandle, count, subordinateobjects, event, apcroutine, apccontext, iostatusblock, completionfilter, watchtree, buffer, buffersize, asynchronous) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(masterkeyhandle, count, subordinateobjects, event, apcroutine, apccontext, iostatusblock, completionfilter, watchtree, buffer, buffersize, asynchronous);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)masterkeyhandle;
     (void)count;
@@ -918,6 +1162,7 @@ static Napi::Value windowssys_windows_wdk_system_registry_zwNotifyChangeMultiple
     (void)buffer;
     (void)buffersize;
     (void)asynchronous;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -935,11 +1180,18 @@ static Napi::Value windowssys_windows_wdk_system_registry_zwOpenKey_napi(const N
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ZwOpenKey")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(keyhandle, desiredaccess, objectattributes) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(keyhandle, desiredaccess, objectattributes);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)keyhandle;
     (void)desiredaccess;
     (void)objectattributes;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -958,12 +1210,19 @@ static Napi::Value windowssys_windows_wdk_system_registry_zwOpenKeyEx_napi(const
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ZwOpenKeyEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(keyhandle, desiredaccess, objectattributes, openoptions) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(keyhandle, desiredaccess, objectattributes, openoptions);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)keyhandle;
     (void)desiredaccess;
     (void)objectattributes;
     (void)openoptions;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -982,12 +1241,19 @@ static Napi::Value windowssys_windows_wdk_system_registry_zwOpenKeyTransacted_na
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ZwOpenKeyTransacted")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(keyhandle, desiredaccess, objectattributes, transactionhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(keyhandle, desiredaccess, objectattributes, transactionhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)keyhandle;
     (void)desiredaccess;
     (void)objectattributes;
     (void)transactionhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1007,13 +1273,20 @@ static Napi::Value windowssys_windows_wdk_system_registry_zwOpenKeyTransactedEx_
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ZwOpenKeyTransactedEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(keyhandle, desiredaccess, objectattributes, openoptions, transactionhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(keyhandle, desiredaccess, objectattributes, openoptions, transactionhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)keyhandle;
     (void)desiredaccess;
     (void)objectattributes;
     (void)openoptions;
     (void)transactionhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1031,11 +1304,18 @@ static Napi::Value windowssys_windows_wdk_system_registry_zwOpenRegistryTransact
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ZwOpenRegistryTransaction")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(transactionhandle, desiredaccess, objectattributes) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(transactionhandle, desiredaccess, objectattributes);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)transactionhandle;
     (void)desiredaccess;
     (void)objectattributes;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1055,13 +1335,20 @@ static Napi::Value windowssys_windows_wdk_system_registry_zwQueryKey_napi(const 
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ZwQueryKey")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(keyhandle, keyinformationclass, keyinformation, length, resultlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(keyhandle, keyinformationclass, keyinformation, length, resultlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)keyhandle;
     (void)keyinformationclass;
     (void)keyinformation;
     (void)length;
     (void)resultlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1082,7 +1369,13 @@ static Napi::Value windowssys_windows_wdk_system_registry_zwQueryMultipleValueKe
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ZwQueryMultipleValueKey")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(keyhandle, valueentries, entrycount, valuebuffer, bufferlength, requiredbufferlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(keyhandle, valueentries, entrycount, valuebuffer, bufferlength, requiredbufferlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)keyhandle;
     (void)valueentries;
@@ -1090,6 +1383,7 @@ static Napi::Value windowssys_windows_wdk_system_registry_zwQueryMultipleValueKe
     (void)valuebuffer;
     (void)bufferlength;
     (void)requiredbufferlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1110,7 +1404,13 @@ static Napi::Value windowssys_windows_wdk_system_registry_zwQueryValueKey_napi(c
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ZwQueryValueKey")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(keyhandle, valuename, keyvalueinformationclass, keyvalueinformation, length, resultlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(keyhandle, valuename, keyvalueinformationclass, keyvalueinformation, length, resultlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)keyhandle;
     (void)valuename;
@@ -1118,6 +1418,7 @@ static Napi::Value windowssys_windows_wdk_system_registry_zwQueryValueKey_napi(c
     (void)keyvalueinformation;
     (void)length;
     (void)resultlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1134,10 +1435,17 @@ static Napi::Value windowssys_windows_wdk_system_registry_zwRenameKey_napi(const
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ZwRenameKey")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(keyhandle, newname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(keyhandle, newname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)keyhandle;
     (void)newname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1155,11 +1463,18 @@ static Napi::Value windowssys_windows_wdk_system_registry_zwRestoreKey_napi(cons
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ZwRestoreKey")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(keyhandle, filehandle, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(keyhandle, filehandle, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)keyhandle;
     (void)filehandle;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1176,10 +1491,17 @@ static Napi::Value windowssys_windows_wdk_system_registry_zwRollbackRegistryTran
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ZwRollbackRegistryTransaction")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(transactionhandle, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(transactionhandle, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)transactionhandle;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1196,10 +1518,17 @@ static Napi::Value windowssys_windows_wdk_system_registry_zwSaveKey_napi(const N
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ZwSaveKey")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(keyhandle, filehandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(keyhandle, filehandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)keyhandle;
     (void)filehandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1217,11 +1546,18 @@ static Napi::Value windowssys_windows_wdk_system_registry_zwSaveKeyEx_napi(const
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ZwSaveKeyEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(keyhandle, filehandle, format) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(keyhandle, filehandle, format);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)keyhandle;
     (void)filehandle;
     (void)format;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1240,12 +1576,19 @@ static Napi::Value windowssys_windows_wdk_system_registry_zwSetInformationKey_na
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ZwSetInformationKey")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(keyhandle, keysetinformationclass, keysetinformation, keysetinformationlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(keyhandle, keysetinformationclass, keysetinformation, keysetinformationlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)keyhandle;
     (void)keysetinformationclass;
     (void)keysetinformation;
     (void)keysetinformationlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1266,7 +1609,13 @@ static Napi::Value windowssys_windows_wdk_system_registry_zwSetValueKey_napi(con
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ZwSetValueKey")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(keyhandle, valuename, titleindex, type, data, datasize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(keyhandle, valuename, titleindex, type, data, datasize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)keyhandle;
     (void)valuename;
@@ -1274,6 +1623,7 @@ static Napi::Value windowssys_windows_wdk_system_registry_zwSetValueKey_napi(con
     (void)type;
     (void)data;
     (void)datasize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

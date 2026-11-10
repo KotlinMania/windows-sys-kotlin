@@ -61,9 +61,16 @@ static Napi::Value windowssys_windows_win32_system_correlationvector_rtlExtendCo
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtlExtendCorrelationVector")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(correlationvector) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(correlationvector);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)correlationvector;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -79,9 +86,16 @@ static Napi::Value windowssys_windows_win32_system_correlationvector_rtlIncremen
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtlIncrementCorrelationVector")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(correlationvector) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(correlationvector);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)correlationvector;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -99,11 +113,18 @@ static Napi::Value windowssys_windows_win32_system_correlationvector_rtlInitiali
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtlInitializeCorrelationVector")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(correlationvector, version, guid) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(correlationvector, version, guid);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)correlationvector;
     (void)version;
     (void)guid;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -119,9 +140,16 @@ static Napi::Value windowssys_windows_win32_system_correlationvector_rtlValidate
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtlValidateCorrelationVector")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(vector) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(vector);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)vector;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

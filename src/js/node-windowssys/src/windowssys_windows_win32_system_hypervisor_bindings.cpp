@@ -65,13 +65,20 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_applyGuestMemoryFi
         HMODULE km_h_mod = LoadLibraryA("vmsavedstatedumpprovider.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ApplyGuestMemoryFix")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(vmsavedstatedumphandle, vpid, virtualaddress, fixbuffer, fixbuffersize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(vmsavedstatedumphandle, vpid, virtualaddress, fixbuffer, fixbuffersize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)vmsavedstatedumphandle;
     (void)vpid;
     (void)virtualaddress;
     (void)fixbuffer;
     (void)fixbuffersize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -87,9 +94,16 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_applyPendingSavedS
         HMODULE km_h_mod = LoadLibraryA("vmsavedstatedumpprovider.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ApplyPendingSavedStateFileReplayLog")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(vmrsfile) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(vmrsfile);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)vmrsfile;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -110,7 +124,13 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_callStackUnwind_na
         HMODULE km_h_mod = LoadLibraryA("vmsavedstatedumpprovider.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CallStackUnwind")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(vmsavedstatedumphandle, vpid, imageinfo, imageinfocount, framecount, callstack) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(vmsavedstatedumphandle, vpid, imageinfo, imageinfocount, framecount, callstack);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)vmsavedstatedumphandle;
     (void)vpid;
@@ -118,6 +138,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_callStackUnwind_na
     (void)imageinfocount;
     (void)framecount;
     (void)callstack;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -138,7 +159,13 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_findSavedStateSymb
         HMODULE km_h_mod = LoadLibraryA("vmsavedstatedumpprovider.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FindSavedStateSymbolFieldInType")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(vmsavedstatedumphandle, vpid, arg_2_typename, fieldname, offset, found) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(vmsavedstatedumphandle, vpid, arg_2_typename, fieldname, offset, found);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)vmsavedstatedumphandle;
     (void)vpid;
@@ -146,6 +173,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_findSavedStateSymb
     (void)fieldname;
     (void)offset;
     (void)found;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -163,11 +191,18 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_forceActiveVirtual
         HMODULE km_h_mod = LoadLibraryA("vmsavedstatedumpprovider.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ForceActiveVirtualTrustLevel")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(vmsavedstatedumphandle, vpid, virtualtrustlevel) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(vmsavedstatedumphandle, vpid, virtualtrustlevel);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)vmsavedstatedumphandle;
     (void)vpid;
     (void)virtualtrustlevel;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -185,11 +220,18 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_forceArchitecture_
         HMODULE km_h_mod = LoadLibraryA("vmsavedstatedumpprovider.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ForceArchitecture")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(vmsavedstatedumphandle, vpid, architecture) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(vmsavedstatedumphandle, vpid, architecture);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)vmsavedstatedumphandle;
     (void)vpid;
     (void)architecture;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -208,12 +250,19 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_forceNestedHostMod
         HMODULE km_h_mod = LoadLibraryA("vmsavedstatedumpprovider.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ForceNestedHostMode")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(vmsavedstatedumphandle, vpid, hostmode, oldmode) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(vmsavedstatedumphandle, vpid, hostmode, oldmode);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)vmsavedstatedumphandle;
     (void)vpid;
     (void)hostmode;
     (void)oldmode;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -231,11 +280,18 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_forcePagingMode_na
         HMODULE km_h_mod = LoadLibraryA("vmsavedstatedumpprovider.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ForcePagingMode")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(vmsavedstatedumphandle, vpid, pagingmode) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(vmsavedstatedumphandle, vpid, pagingmode);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)vmsavedstatedumphandle;
     (void)vpid;
     (void)pagingmode;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -253,11 +309,18 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_getActiveVirtualTr
         HMODULE km_h_mod = LoadLibraryA("vmsavedstatedumpprovider.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetActiveVirtualTrustLevel")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(vmsavedstatedumphandle, vpid, virtualtrustlevel) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(vmsavedstatedumphandle, vpid, virtualtrustlevel);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)vmsavedstatedumphandle;
     (void)vpid;
     (void)virtualtrustlevel;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -275,11 +338,18 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_getArchitecture_na
         HMODULE km_h_mod = LoadLibraryA("vmsavedstatedumpprovider.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetArchitecture")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(vmsavedstatedumphandle, vpid, architecture) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(vmsavedstatedumphandle, vpid, architecture);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)vmsavedstatedumphandle;
     (void)vpid;
     (void)architecture;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -297,11 +367,18 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_getEnabledVirtualT
         HMODULE km_h_mod = LoadLibraryA("vmsavedstatedumpprovider.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetEnabledVirtualTrustLevels")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(vmsavedstatedumphandle, vpid, virtualtrustlevels) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(vmsavedstatedumphandle, vpid, virtualtrustlevels);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)vmsavedstatedumphandle;
     (void)vpid;
     (void)virtualtrustlevels;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -318,10 +395,17 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_getGuestEnabledVir
         HMODULE km_h_mod = LoadLibraryA("vmsavedstatedumpprovider.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetGuestEnabledVirtualTrustLevels")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(vmsavedstatedumphandle, virtualtrustlevels) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(vmsavedstatedumphandle, virtualtrustlevels);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)vmsavedstatedumphandle;
     (void)virtualtrustlevels;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -339,11 +423,18 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_getGuestOsInfo_nap
         HMODULE km_h_mod = LoadLibraryA("vmsavedstatedumpprovider.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetGuestOsInfo")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(vmsavedstatedumphandle, virtualtrustlevel, guestosinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(vmsavedstatedumphandle, virtualtrustlevel, guestosinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)vmsavedstatedumphandle;
     (void)virtualtrustlevel;
     (void)guestosinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -362,12 +453,19 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_getGuestPhysicalMe
         HMODULE km_h_mod = LoadLibraryA("vmsavedstatedumpprovider.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetGuestPhysicalMemoryChunks")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(vmsavedstatedumphandle, memorychunkpagesize, memorychunks, memorychunkcount) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(vmsavedstatedumphandle, memorychunkpagesize, memorychunks, memorychunkcount);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)vmsavedstatedumphandle;
     (void)memorychunkpagesize;
     (void)memorychunks;
     (void)memorychunkcount;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -384,10 +482,17 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_getGuestRawSavedMe
         HMODULE km_h_mod = LoadLibraryA("vmsavedstatedumpprovider.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetGuestRawSavedMemorySize")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(vmsavedstatedumphandle, guestrawsavedmemorysize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(vmsavedstatedumphandle, guestrawsavedmemorysize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)vmsavedstatedumphandle;
     (void)guestrawsavedmemorysize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -404,10 +509,17 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_getMemoryBlockCach
         HMODULE km_h_mod = LoadLibraryA("vmsavedstatedumpprovider.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetMemoryBlockCacheLimit")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(vmsavedstatedumphandle, memoryblockcachelimit) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(vmsavedstatedumphandle, memoryblockcachelimit);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)vmsavedstatedumphandle;
     (void)memoryblockcachelimit;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -425,11 +537,18 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_getNestedVirtualiz
         HMODULE km_h_mod = LoadLibraryA("vmsavedstatedumpprovider.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetNestedVirtualizationMode")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(vmsavedstatedumphandle, vpid, enabled) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(vmsavedstatedumphandle, vpid, enabled);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)vmsavedstatedumphandle;
     (void)vpid;
     (void)enabled;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -447,11 +566,18 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_getPagingMode_napi
         HMODULE km_h_mod = LoadLibraryA("vmsavedstatedumpprovider.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetPagingMode")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(vmsavedstatedumphandle, vpid, pagingmode) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(vmsavedstatedumphandle, vpid, pagingmode);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)vmsavedstatedumphandle;
     (void)vpid;
     (void)pagingmode;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -470,12 +596,19 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_getRegisterValue_n
         HMODULE km_h_mod = LoadLibraryA("vmsavedstatedumpprovider.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetRegisterValue")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(vmsavedstatedumphandle, vpid, registerid, registervalue) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(vmsavedstatedumphandle, vpid, registerid, registervalue);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)vmsavedstatedumphandle;
     (void)vpid;
     (void)registerid;
     (void)registervalue;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -494,12 +627,19 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_getSavedStateSymbo
         HMODULE km_h_mod = LoadLibraryA("vmsavedstatedumpprovider.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetSavedStateSymbolFieldInfo")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(vmsavedstatedumphandle, vpid, arg_2_typename, typefieldinfomap) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(vmsavedstatedumphandle, vpid, arg_2_typename, typefieldinfomap);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)vmsavedstatedumphandle;
     (void)vpid;
     (void)arg_2_typename;
     (void)typefieldinfomap;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -515,10 +655,17 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_getSavedStateSymbo
         HMODULE km_h_mod = LoadLibraryA("vmsavedstatedumpprovider.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetSavedStateSymbolProviderHandle")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(vmsavedstatedumphandle) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(vmsavedstatedumphandle);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)vmsavedstatedumphandle;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -536,12 +683,19 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_getSavedStateSymbo
         HMODULE km_h_mod = LoadLibraryA("vmsavedstatedumpprovider.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetSavedStateSymbolTypeSize")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(vmsavedstatedumphandle, vpid, arg_2_typename, size) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(vmsavedstatedumphandle, vpid, arg_2_typename, size);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)vmsavedstatedumphandle;
     (void)vpid;
     (void)arg_2_typename;
     (void)size;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -558,10 +712,17 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_getVpCount_napi(co
         HMODULE km_h_mod = LoadLibraryA("vmsavedstatedumpprovider.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetVpCount")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(vmsavedstatedumphandle, vpcount) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(vmsavedstatedumphandle, vpcount);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)vmsavedstatedumphandle;
     (void)vpcount;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -579,11 +740,18 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_guestPhysicalAddre
         HMODULE km_h_mod = LoadLibraryA("vmsavedstatedumpprovider.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GuestPhysicalAddressToRawSavedMemoryOffset")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(vmsavedstatedumphandle, physicaladdress, rawsavedmemoryoffset) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(vmsavedstatedumphandle, physicaladdress, rawsavedmemoryoffset);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)vmsavedstatedumphandle;
     (void)physicaladdress;
     (void)rawsavedmemoryoffset;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -603,13 +771,20 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_guestVirtualAddres
         HMODULE km_h_mod = LoadLibraryA("vmsavedstatedumpprovider.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GuestVirtualAddressToPhysicalAddress")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(vmsavedstatedumphandle, vpid, virtualaddress, physicaladdress, unmappedregionsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(vmsavedstatedumphandle, vpid, virtualaddress, physicaladdress, unmappedregionsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)vmsavedstatedumphandle;
     (void)vpid;
     (void)virtualaddress;
     (void)physicaladdress;
     (void)unmappedregionsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -631,7 +806,13 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_hdvCreateDeviceIns
         HMODULE km_h_mod = LoadLibraryA("vmdevicehost.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HdvCreateDeviceInstance")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(devicehosthandle, devicetype, deviceclassid, deviceinstanceid, deviceinterface, devicecontext, devicehandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(devicehosthandle, devicetype, deviceclassid, deviceinstanceid, deviceinterface, devicecontext, devicehandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)devicehosthandle;
     (void)devicetype;
@@ -640,6 +821,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_hdvCreateDeviceIns
     (void)deviceinterface;
     (void)devicecontext;
     (void)devicehandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -659,13 +841,20 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_hdvCreateGuestMemo
         HMODULE km_h_mod = LoadLibraryA("vmdevicehost.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HdvCreateGuestMemoryAperture")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(requestor, guestphysicaladdress, bytecount, writeprotected, mappedaddress) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(requestor, guestphysicaladdress, bytecount, writeprotected, mappedaddress);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)requestor;
     (void)guestphysicaladdress;
     (void)bytecount;
     (void)writeprotected;
     (void)mappedaddress;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -687,7 +876,13 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_hdvCreateSectionBa
         HMODULE km_h_mod = LoadLibraryA("vmdevicehost.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HdvCreateSectionBackedMmioRange")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(requestor, barindex, offsetinpages, lengthinpages, mappingflags, sectionhandle, sectionoffsetinpages) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(requestor, barindex, offsetinpages, lengthinpages, mappingflags, sectionhandle, sectionoffsetinpages);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)requestor;
     (void)barindex;
@@ -696,6 +891,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_hdvCreateSectionBa
     (void)mappingflags;
     (void)sectionhandle;
     (void)sectionoffsetinpages;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -713,11 +909,18 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_hdvDeliverGuestInt
         HMODULE km_h_mod = LoadLibraryA("vmdevicehost.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HdvDeliverGuestInterrupt")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(requestor, msiaddress, msidata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(requestor, msiaddress, msidata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)requestor;
     (void)msiaddress;
     (void)msidata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -734,10 +937,17 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_hdvDestroyGuestMem
         HMODULE km_h_mod = LoadLibraryA("vmdevicehost.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HdvDestroyGuestMemoryAperture")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(requestor, mappedaddress) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(requestor, mappedaddress);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)requestor;
     (void)mappedaddress;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -755,11 +965,18 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_hdvDestroySectionB
         HMODULE km_h_mod = LoadLibraryA("vmdevicehost.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HdvDestroySectionBackedMmioRange")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(requestor, barindex, offsetinpages) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(requestor, barindex, offsetinpages);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)requestor;
     (void)barindex;
     (void)offsetinpages;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -776,10 +993,17 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_hdvInitializeDevic
         HMODULE km_h_mod = LoadLibraryA("vmdevicehost.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HdvInitializeDeviceHost")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(computesystem, devicehosthandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(computesystem, devicehosthandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)computesystem;
     (void)devicehosthandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -797,11 +1021,18 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_hdvInitializeDevic
         HMODULE km_h_mod = LoadLibraryA("vmdevicehost.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HdvInitializeDeviceHostEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(computesystem, flags, devicehosthandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(computesystem, flags, devicehosthandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)computesystem;
     (void)flags;
     (void)devicehosthandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -820,12 +1051,19 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_hdvReadGuestMemory
         HMODULE km_h_mod = LoadLibraryA("vmdevicehost.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HdvReadGuestMemory")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(requestor, guestphysicaladdress, bytecount, buffer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(requestor, guestphysicaladdress, bytecount, buffer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)requestor;
     (void)guestphysicaladdress;
     (void)bytecount;
     (void)buffer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -846,7 +1084,13 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_hdvRegisterDoorbel
         HMODULE km_h_mod = LoadLibraryA("vmdevicehost.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HdvRegisterDoorbell")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(requestor, barindex, baroffset, triggervalue, flags, doorbellevent) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(requestor, barindex, baroffset, triggervalue, flags, doorbellevent);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)requestor;
     (void)barindex;
@@ -854,6 +1098,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_hdvRegisterDoorbel
     (void)triggervalue;
     (void)flags;
     (void)doorbellevent;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -869,9 +1114,16 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_hdvTeardownDeviceH
         HMODULE km_h_mod = LoadLibraryA("vmdevicehost.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HdvTeardownDeviceHost")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(devicehosthandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(devicehosthandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)devicehosthandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -891,13 +1143,20 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_hdvUnregisterDoorb
         HMODULE km_h_mod = LoadLibraryA("vmdevicehost.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HdvUnregisterDoorbell")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(requestor, barindex, baroffset, triggervalue, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(requestor, barindex, baroffset, triggervalue, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)requestor;
     (void)barindex;
     (void)baroffset;
     (void)triggervalue;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -916,12 +1175,19 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_hdvWriteGuestMemor
         HMODULE km_h_mod = LoadLibraryA("vmdevicehost.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HdvWriteGuestMemory")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(requestor, guestphysicaladdress, bytecount, buffer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(requestor, guestphysicaladdress, bytecount, buffer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)requestor;
     (void)guestphysicaladdress;
     (void)bytecount;
     (void)buffer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -939,11 +1205,18 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_inKernelSpace_napi
         HMODULE km_h_mod = LoadLibraryA("vmsavedstatedumpprovider.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InKernelSpace")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(vmsavedstatedumphandle, vpid, inkernelspace) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(vmsavedstatedumphandle, vpid, inkernelspace);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)vmsavedstatedumphandle;
     (void)vpid;
     (void)inkernelspace;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -961,11 +1234,18 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_isActiveVirtualTru
         HMODULE km_h_mod = LoadLibraryA("vmsavedstatedumpprovider.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IsActiveVirtualTrustLevelEnabled")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(vmsavedstatedumphandle, vpid, activevirtualtrustlevelenabled) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(vmsavedstatedumphandle, vpid, activevirtualtrustlevelenabled);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)vmsavedstatedumphandle;
     (void)vpid;
     (void)activevirtualtrustlevelenabled;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -982,10 +1262,17 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_isNestedVirtualiza
         HMODULE km_h_mod = LoadLibraryA("vmsavedstatedumpprovider.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IsNestedVirtualizationEnabled")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(vmsavedstatedumphandle, enabled) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(vmsavedstatedumphandle, enabled);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)vmsavedstatedumphandle;
     (void)enabled;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1002,10 +1289,17 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_loadSavedStateFile
         HMODULE km_h_mod = LoadLibraryA("vmsavedstatedumpprovider.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LoadSavedStateFile")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(vmrsfile, vmsavedstatedumphandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(vmrsfile, vmsavedstatedumphandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)vmrsfile;
     (void)vmsavedstatedumphandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1023,11 +1317,18 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_loadSavedStateFile
         HMODULE km_h_mod = LoadLibraryA("vmsavedstatedumpprovider.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LoadSavedStateFiles")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(binfile, vsvfile, vmsavedstatedumphandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(binfile, vsvfile, vmsavedstatedumphandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)binfile;
     (void)vsvfile;
     (void)vmsavedstatedumphandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1047,13 +1348,20 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_loadSavedStateModu
         HMODULE km_h_mod = LoadLibraryA("vmsavedstatedumpprovider.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LoadSavedStateModuleSymbols")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(vmsavedstatedumphandle, imagename, modulename, baseaddress, sizeofbase) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(vmsavedstatedumphandle, imagename, modulename, baseaddress, sizeofbase);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)vmsavedstatedumphandle;
     (void)imagename;
     (void)modulename;
     (void)baseaddress;
     (void)sizeofbase;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1074,7 +1382,13 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_loadSavedStateModu
         HMODULE km_h_mod = LoadLibraryA("vmsavedstatedumpprovider.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LoadSavedStateModuleSymbolsEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(vmsavedstatedumphandle, imagename, imagetimestamp, modulename, baseaddress, sizeofbase) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(vmsavedstatedumphandle, imagename, imagetimestamp, modulename, baseaddress, sizeofbase);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)vmsavedstatedumphandle;
     (void)imagename;
@@ -1082,6 +1396,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_loadSavedStateModu
     (void)modulename;
     (void)baseaddress;
     (void)sizeofbase;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1099,11 +1414,18 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_loadSavedStateSymb
         HMODULE km_h_mod = LoadLibraryA("vmsavedstatedumpprovider.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LoadSavedStateSymbolProvider")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(vmsavedstatedumphandle, usersymbols, force) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(vmsavedstatedumphandle, usersymbols, force);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)vmsavedstatedumphandle;
     (void)usersymbols;
     (void)force;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1123,13 +1445,20 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_locateSavedStateFi
         HMODULE km_h_mod = LoadLibraryA("vmsavedstatedumpprovider.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LocateSavedStateFiles")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(vmname, snapshotname, binpath, vsvpath, vmrspath) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(vmname, snapshotname, binpath, vsvpath, vmrspath);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)vmname;
     (void)snapshotname;
     (void)binpath;
     (void)vsvpath;
     (void)vmrspath;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1149,13 +1478,20 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_readGuestPhysicalA
         HMODULE km_h_mod = LoadLibraryA("vmsavedstatedumpprovider.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ReadGuestPhysicalAddress")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(vmsavedstatedumphandle, physicaladdress, buffer, buffersize, bytesread) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(vmsavedstatedumphandle, physicaladdress, buffer, buffersize, bytesread);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)vmsavedstatedumphandle;
     (void)physicaladdress;
     (void)buffer;
     (void)buffersize;
     (void)bytesread;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1175,13 +1511,20 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_readGuestRawSavedM
         HMODULE km_h_mod = LoadLibraryA("vmsavedstatedumpprovider.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ReadGuestRawSavedMemory")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(vmsavedstatedumphandle, rawsavedmemoryoffset, buffer, buffersize, bytesread) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(vmsavedstatedumphandle, rawsavedmemoryoffset, buffer, buffersize, bytesread);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)vmsavedstatedumphandle;
     (void)rawsavedmemoryoffset;
     (void)buffer;
     (void)buffersize;
     (void)bytesread;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1201,13 +1544,20 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_readSavedStateGlob
         HMODULE km_h_mod = LoadLibraryA("vmsavedstatedumpprovider.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ReadSavedStateGlobalVariable")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(vmsavedstatedumphandle, vpid, globalname, buffer, buffersize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(vmsavedstatedumphandle, vpid, globalname, buffer, buffersize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)vmsavedstatedumphandle;
     (void)vpid;
     (void)globalname;
     (void)buffer;
     (void)buffersize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1223,9 +1573,16 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_releaseSavedStateF
         HMODULE km_h_mod = LoadLibraryA("vmsavedstatedumpprovider.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ReleaseSavedStateFiles")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(vmsavedstatedumphandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(vmsavedstatedumphandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)vmsavedstatedumphandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1241,9 +1598,16 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_releaseSavedStateS
         HMODULE km_h_mod = LoadLibraryA("vmsavedstatedumpprovider.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ReleaseSavedStateSymbolProvider")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(vmsavedstatedumphandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(vmsavedstatedumphandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)vmsavedstatedumphandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1263,13 +1627,20 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_resolveSavedStateG
         HMODULE km_h_mod = LoadLibraryA("vmsavedstatedumpprovider.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResolveSavedStateGlobalVariableAddress")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(vmsavedstatedumphandle, vpid, globalname, virtualaddress, size) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(vmsavedstatedumphandle, vpid, globalname, virtualaddress, size);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)vmsavedstatedumphandle;
     (void)vpid;
     (void)globalname;
     (void)virtualaddress;
     (void)size;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1292,7 +1663,13 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_scanMemoryForDosIm
         HMODULE km_h_mod = LoadLibraryA("vmsavedstatedumpprovider.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ScanMemoryForDosImages")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(vmsavedstatedumphandle, vpid, startaddress, endaddress, callbackcontext, foundimagecallback, standaloneaddress, standaloneaddresscount) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(vmsavedstatedumphandle, vpid, startaddress, endaddress, callbackcontext, foundimagecallback, standaloneaddress, standaloneaddresscount);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)vmsavedstatedumphandle;
     (void)vpid;
@@ -1302,6 +1679,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_scanMemoryForDosIm
     (void)foundimagecallback;
     (void)standaloneaddress;
     (void)standaloneaddresscount;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1318,10 +1696,17 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_setMemoryBlockCach
         HMODULE km_h_mod = LoadLibraryA("vmsavedstatedumpprovider.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetMemoryBlockCacheLimit")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(vmsavedstatedumphandle, memoryblockcachelimit) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(vmsavedstatedumphandle, memoryblockcachelimit);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)vmsavedstatedumphandle;
     (void)memoryblockcachelimit;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1338,10 +1723,17 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_setSavedStateSymbo
         HMODULE km_h_mod = LoadLibraryA("vmsavedstatedumpprovider.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetSavedStateSymbolProviderDebugInfoCallback")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(vmsavedstatedumphandle, callback) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(vmsavedstatedumphandle, callback);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)vmsavedstatedumphandle;
     (void)callback;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1358,10 +1750,17 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_wHvAcceptPartition
         HMODULE km_h_mod = LoadLibraryA("winhvplatform.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WHvAcceptPartitionMigration")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(migrationhandle, partition) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(migrationhandle, partition);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)migrationhandle;
     (void)partition;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1382,7 +1781,13 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_wHvAdviseGpaRange_
         HMODULE km_h_mod = LoadLibraryA("winhvplatform.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WHvAdviseGpaRange")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(partition, gparanges, gparangescount, advice, advicebuffer, advicebuffersizeinbytes) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(partition, gparanges, gparangescount, advice, advicebuffer, advicebuffersizeinbytes);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)partition;
     (void)gparanges;
@@ -1390,6 +1795,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_wHvAdviseGpaRange_
     (void)advice;
     (void)advicebuffer;
     (void)advicebuffersizeinbytes;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1409,13 +1815,20 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_wHvAllocateVpciRes
         HMODULE km_h_mod = LoadLibraryA("winhvplatform.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WHvAllocateVpciResource")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(providerid, flags, resourcedescriptor, resourcedescriptorsizeinbytes, vpciresource) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(providerid, flags, resourcedescriptor, resourcedescriptorsizeinbytes, vpciresource);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)providerid;
     (void)flags;
     (void)resourcedescriptor;
     (void)resourcedescriptorsizeinbytes;
     (void)vpciresource;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1431,9 +1844,16 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_wHvCancelPartition
         HMODULE km_h_mod = LoadLibraryA("winhvplatform.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WHvCancelPartitionMigration")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(partition) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(partition);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)partition;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1451,11 +1871,18 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_wHvCancelRunVirtua
         HMODULE km_h_mod = LoadLibraryA("winhvplatform.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WHvCancelRunVirtualProcessor")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(partition, vpindex, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(partition, vpindex, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)partition;
     (void)vpindex;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1471,9 +1898,16 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_wHvCompletePartiti
         HMODULE km_h_mod = LoadLibraryA("winhvplatform.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WHvCompletePartitionMigration")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(partition) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(partition);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)partition;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1492,12 +1926,19 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_wHvCreateNotificat
         HMODULE km_h_mod = LoadLibraryA("winhvplatform.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WHvCreateNotificationPort")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(partition, parameters, eventhandle, porthandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(partition, parameters, eventhandle, porthandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)partition;
     (void)parameters;
     (void)eventhandle;
     (void)porthandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1513,9 +1954,16 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_wHvCreatePartition
         HMODULE km_h_mod = LoadLibraryA("winhvplatform.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WHvCreatePartition")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(partition) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(partition);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)partition;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1534,12 +1982,19 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_wHvCreateTrigger_n
         HMODULE km_h_mod = LoadLibraryA("winhvplatform.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WHvCreateTrigger")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(partition, parameters, triggerhandle, eventhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(partition, parameters, triggerhandle, eventhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)partition;
     (void)parameters;
     (void)triggerhandle;
     (void)eventhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1557,11 +2012,18 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_wHvCreateVirtualPr
         HMODULE km_h_mod = LoadLibraryA("winhvplatform.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WHvCreateVirtualProcessor")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(partition, vpindex, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(partition, vpindex, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)partition;
     (void)vpindex;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1580,12 +2042,19 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_wHvCreateVirtualPr
         HMODULE km_h_mod = LoadLibraryA("winhvplatform.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WHvCreateVirtualProcessor2")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(partition, vpindex, properties, propertycount) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(partition, vpindex, properties, propertycount);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)partition;
     (void)vpindex;
     (void)properties;
     (void)propertycount;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1605,13 +2074,20 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_wHvCreateVpciDevic
         HMODULE km_h_mod = LoadLibraryA("winhvplatform.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WHvCreateVpciDevice")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(partition, logicaldeviceid, vpciresource, flags, notificationeventhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(partition, logicaldeviceid, vpciresource, flags, notificationeventhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)partition;
     (void)logicaldeviceid;
     (void)vpciresource;
     (void)flags;
     (void)notificationeventhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1628,10 +2104,17 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_wHvDeleteNotificat
         HMODULE km_h_mod = LoadLibraryA("winhvplatform.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WHvDeleteNotificationPort")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(partition, porthandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(partition, porthandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)partition;
     (void)porthandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1647,9 +2130,16 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_wHvDeletePartition
         HMODULE km_h_mod = LoadLibraryA("winhvplatform.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WHvDeletePartition")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(partition) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(partition);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)partition;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1666,10 +2156,17 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_wHvDeleteTrigger_n
         HMODULE km_h_mod = LoadLibraryA("winhvplatform.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WHvDeleteTrigger")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(partition, triggerhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(partition, triggerhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)partition;
     (void)triggerhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1686,10 +2183,17 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_wHvDeleteVirtualPr
         HMODULE km_h_mod = LoadLibraryA("winhvplatform.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WHvDeleteVirtualProcessor")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(partition, vpindex) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(partition, vpindex);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)partition;
     (void)vpindex;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1706,10 +2210,17 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_wHvDeleteVpciDevic
         HMODULE km_h_mod = LoadLibraryA("winhvplatform.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WHvDeleteVpciDevice")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(partition, logicaldeviceid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(partition, logicaldeviceid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)partition;
     (void)logicaldeviceid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1726,10 +2237,17 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_wHvEmulatorCreateE
         HMODULE km_h_mod = LoadLibraryA("winhvemulation.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WHvEmulatorCreateEmulator")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(callbacks, emulator) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(callbacks, emulator);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)callbacks;
     (void)emulator;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1745,9 +2263,16 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_wHvEmulatorDestroy
         HMODULE km_h_mod = LoadLibraryA("winhvemulation.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WHvEmulatorDestroyEmulator")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(emulator) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(emulator);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)emulator;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1767,13 +2292,20 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_wHvEmulatorTryIoEm
         HMODULE km_h_mod = LoadLibraryA("winhvemulation.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WHvEmulatorTryIoEmulation")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(emulator, context, vpcontext, ioinstructioncontext, emulatorreturnstatus) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(emulator, context, vpcontext, ioinstructioncontext, emulatorreturnstatus);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)emulator;
     (void)context;
     (void)vpcontext;
     (void)ioinstructioncontext;
     (void)emulatorreturnstatus;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1793,13 +2325,20 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_wHvEmulatorTryMmio
         HMODULE km_h_mod = LoadLibraryA("winhvemulation.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WHvEmulatorTryMmioEmulation")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(emulator, context, vpcontext, mmioinstructioncontext, emulatorreturnstatus) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(emulator, context, vpcontext, mmioinstructioncontext, emulatorreturnstatus);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)emulator;
     (void)context;
     (void)vpcontext;
     (void)mmioinstructioncontext;
     (void)emulatorreturnstatus;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1818,12 +2357,19 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_wHvGetCapability_n
         HMODULE km_h_mod = LoadLibraryA("winhvplatform.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WHvGetCapability")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(capabilitycode, capabilitybuffer, capabilitybuffersizeinbytes, writtensizeinbytes) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(capabilitycode, capabilitybuffer, capabilitybuffersizeinbytes, writtensizeinbytes);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)capabilitycode;
     (void)capabilitybuffer;
     (void)capabilitybuffersizeinbytes;
     (void)writtensizeinbytes;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1844,7 +2390,13 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_wHvGetInterruptTar
         HMODULE km_h_mod = LoadLibraryA("winhvplatform.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WHvGetInterruptTargetVpSet")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(partition, destination, destinationmode, targetvps, vpcount, targetvpcount) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(partition, destination, destinationmode, targetvps, vpcount, targetvpcount);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)partition;
     (void)destination;
@@ -1852,6 +2404,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_wHvGetInterruptTar
     (void)targetvps;
     (void)vpcount;
     (void)targetvpcount;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1871,13 +2424,20 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_wHvGetPartitionCou
         HMODULE km_h_mod = LoadLibraryA("winhvplatform.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WHvGetPartitionCounters")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(partition, counterset, buffer, buffersizeinbytes, byteswritten) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(partition, counterset, buffer, buffersizeinbytes, byteswritten);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)partition;
     (void)counterset;
     (void)buffer;
     (void)buffersizeinbytes;
     (void)byteswritten;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1897,13 +2457,20 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_wHvGetPartitionPro
         HMODULE km_h_mod = LoadLibraryA("winhvplatform.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WHvGetPartitionProperty")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(partition, propertycode, propertybuffer, propertybuffersizeinbytes, writtensizeinbytes) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(partition, propertycode, propertybuffer, propertybuffersizeinbytes, writtensizeinbytes);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)partition;
     (void)propertycode;
     (void)propertybuffer;
     (void)propertybuffersizeinbytes;
     (void)writtensizeinbytes;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1924,7 +2491,13 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_wHvGetVirtualProce
         HMODULE km_h_mod = LoadLibraryA("winhvplatform.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WHvGetVirtualProcessorCounters")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(partition, vpindex, counterset, buffer, buffersizeinbytes, byteswritten) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(partition, vpindex, counterset, buffer, buffersizeinbytes, byteswritten);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)partition;
     (void)vpindex;
@@ -1932,6 +2505,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_wHvGetVirtualProce
     (void)buffer;
     (void)buffersizeinbytes;
     (void)byteswritten;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1951,13 +2525,20 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_wHvGetVirtualProce
         HMODULE km_h_mod = LoadLibraryA("winhvplatform.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WHvGetVirtualProcessorCpuidOutput")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(partition, vpindex, eax, ecx, cpuidoutput) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(partition, vpindex, eax, ecx, cpuidoutput);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)partition;
     (void)vpindex;
     (void)eax;
     (void)ecx;
     (void)cpuidoutput;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1977,13 +2558,20 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_wHvGetVirtualProce
         HMODULE km_h_mod = LoadLibraryA("winhvplatform.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WHvGetVirtualProcessorInterruptControllerState")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(partition, vpindex, state, statesize, writtensize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(partition, vpindex, state, statesize, writtensize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)partition;
     (void)vpindex;
     (void)state;
     (void)statesize;
     (void)writtensize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2003,13 +2591,20 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_wHvGetVirtualProce
         HMODULE km_h_mod = LoadLibraryA("winhvplatform.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WHvGetVirtualProcessorInterruptControllerState2")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(partition, vpindex, state, statesize, writtensize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(partition, vpindex, state, statesize, writtensize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)partition;
     (void)vpindex;
     (void)state;
     (void)statesize;
     (void)writtensize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2029,13 +2624,20 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_wHvGetVirtualProce
         HMODULE km_h_mod = LoadLibraryA("winhvplatform.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WHvGetVirtualProcessorRegisters")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(partition, vpindex, registernames, registercount, registervalues) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(partition, vpindex, registernames, registercount, registervalues);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)partition;
     (void)vpindex;
     (void)registernames;
     (void)registercount;
     (void)registervalues;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2056,7 +2658,13 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_wHvGetVirtualProce
         HMODULE km_h_mod = LoadLibraryA("winhvplatform.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WHvGetVirtualProcessorState")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(partition, vpindex, statetype, buffer, buffersizeinbytes, byteswritten) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(partition, vpindex, statetype, buffer, buffersizeinbytes, byteswritten);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)partition;
     (void)vpindex;
@@ -2064,6 +2672,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_wHvGetVirtualProce
     (void)buffer;
     (void)buffersizeinbytes;
     (void)byteswritten;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2083,13 +2692,20 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_wHvGetVirtualProce
         HMODULE km_h_mod = LoadLibraryA("winhvplatform.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WHvGetVirtualProcessorXsaveState")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(partition, vpindex, buffer, buffersizeinbytes, byteswritten) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(partition, vpindex, buffer, buffersizeinbytes, byteswritten);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)partition;
     (void)vpindex;
     (void)buffer;
     (void)buffersizeinbytes;
     (void)byteswritten;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2111,7 +2727,13 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_wHvGetVpciDeviceIn
         HMODULE km_h_mod = LoadLibraryA("winhvplatform.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WHvGetVpciDeviceInterruptTarget")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(partition, logicaldeviceid, arg_2_index, multimessagenumber, target, targetsizeinbytes, byteswritten) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(partition, logicaldeviceid, arg_2_index, multimessagenumber, target, targetsizeinbytes, byteswritten);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)partition;
     (void)logicaldeviceid;
@@ -2120,6 +2742,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_wHvGetVpciDeviceIn
     (void)target;
     (void)targetsizeinbytes;
     (void)byteswritten;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2138,12 +2761,19 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_wHvGetVpciDeviceNo
         HMODULE km_h_mod = LoadLibraryA("winhvplatform.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WHvGetVpciDeviceNotification")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(partition, logicaldeviceid, notification, notificationsizeinbytes) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(partition, logicaldeviceid, notification, notificationsizeinbytes);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)partition;
     (void)logicaldeviceid;
     (void)notification;
     (void)notificationsizeinbytes;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2164,7 +2794,13 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_wHvGetVpciDevicePr
         HMODULE km_h_mod = LoadLibraryA("winhvplatform.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WHvGetVpciDeviceProperty")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(partition, logicaldeviceid, propertycode, propertybuffer, propertybuffersizeinbytes, writtensizeinbytes) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(partition, logicaldeviceid, propertycode, propertybuffer, propertybuffersizeinbytes, writtensizeinbytes);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)partition;
     (void)logicaldeviceid;
@@ -2172,6 +2808,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_wHvGetVpciDevicePr
     (void)propertybuffer;
     (void)propertybuffersizeinbytes;
     (void)writtensizeinbytes;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2191,13 +2828,20 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_wHvMapGpaRange_nap
         HMODULE km_h_mod = LoadLibraryA("winhvplatform.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WHvMapGpaRange")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(partition, sourceaddress, guestaddress, sizeinbytes, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(partition, sourceaddress, guestaddress, sizeinbytes, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)partition;
     (void)sourceaddress;
     (void)guestaddress;
     (void)sizeinbytes;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2218,7 +2862,13 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_wHvMapGpaRange2_na
         HMODULE km_h_mod = LoadLibraryA("winhvplatform.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WHvMapGpaRange2")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(partition, process, sourceaddress, guestaddress, sizeinbytes, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(partition, process, sourceaddress, guestaddress, sizeinbytes, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)partition;
     (void)process;
@@ -2226,6 +2876,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_wHvMapGpaRange2_na
     (void)guestaddress;
     (void)sizeinbytes;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2247,7 +2898,13 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_wHvMapVpciDeviceIn
         HMODULE km_h_mod = LoadLibraryA("winhvplatform.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WHvMapVpciDeviceInterrupt")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(partition, logicaldeviceid, arg_2_index, messagecount, target, msiaddress, msidata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(partition, logicaldeviceid, arg_2_index, messagecount, target, msiaddress, msidata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)partition;
     (void)logicaldeviceid;
@@ -2256,6 +2913,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_wHvMapVpciDeviceIn
     (void)target;
     (void)msiaddress;
     (void)msidata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2274,12 +2932,19 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_wHvMapVpciDeviceMm
         HMODULE km_h_mod = LoadLibraryA("winhvplatform.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WHvMapVpciDeviceMmioRanges")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(partition, logicaldeviceid, mappingcount, mappings) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(partition, logicaldeviceid, mappingcount, mappings);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)partition;
     (void)logicaldeviceid;
     (void)mappingcount;
     (void)mappings;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2299,13 +2964,20 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_wHvPostVirtualProc
         HMODULE km_h_mod = LoadLibraryA("winhvplatform.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WHvPostVirtualProcessorSynicMessage")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(partition, vpindex, sintindex, message, messagesizeinbytes) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(partition, vpindex, sintindex, message, messagesizeinbytes);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)partition;
     (void)vpindex;
     (void)sintindex;
     (void)message;
     (void)messagesizeinbytes;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2325,13 +2997,20 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_wHvQueryGpaRangeDi
         HMODULE km_h_mod = LoadLibraryA("winhvplatform.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WHvQueryGpaRangeDirtyBitmap")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(partition, guestaddress, rangesizeinbytes, bitmap, bitmapsizeinbytes) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(partition, guestaddress, rangesizeinbytes, bitmap, bitmapsizeinbytes);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)partition;
     (void)guestaddress;
     (void)rangesizeinbytes;
     (void)bitmap;
     (void)bitmapsizeinbytes;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2350,12 +3029,19 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_wHvReadVpciDeviceR
         HMODULE km_h_mod = LoadLibraryA("winhvplatform.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WHvReadVpciDeviceRegister")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(partition, logicaldeviceid, arg_2_register, data) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(partition, logicaldeviceid, arg_2_register, data);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)partition;
     (void)logicaldeviceid;
     (void)arg_2_register;
     (void)data;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2373,11 +3059,18 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_wHvRegisterPartiti
         HMODULE km_h_mod = LoadLibraryA("winhvplatform.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WHvRegisterPartitionDoorbellEvent")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(partition, matchdata, eventhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(partition, matchdata, eventhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)partition;
     (void)matchdata;
     (void)eventhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2395,11 +3088,18 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_wHvRequestInterrup
         HMODULE km_h_mod = LoadLibraryA("winhvplatform.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WHvRequestInterrupt")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(partition, interrupt, interruptcontrolsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(partition, interrupt, interruptcontrolsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)partition;
     (void)interrupt;
     (void)interruptcontrolsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2418,12 +3118,19 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_wHvRequestVpciDevi
         HMODULE km_h_mod = LoadLibraryA("winhvplatform.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WHvRequestVpciDeviceInterrupt")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(partition, logicaldeviceid, msiaddress, msidata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(partition, logicaldeviceid, msiaddress, msidata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)partition;
     (void)logicaldeviceid;
     (void)msiaddress;
     (void)msidata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2439,9 +3146,16 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_wHvResetPartition_
         HMODULE km_h_mod = LoadLibraryA("winhvplatform.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WHvResetPartition")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(partition) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(partition);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)partition;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2457,9 +3171,16 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_wHvResumePartition
         HMODULE km_h_mod = LoadLibraryA("winhvplatform.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WHvResumePartitionTime")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(partition) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(partition);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)partition;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2479,13 +3200,20 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_wHvRetargetVpciDev
         HMODULE km_h_mod = LoadLibraryA("winhvplatform.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WHvRetargetVpciDeviceInterrupt")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(partition, logicaldeviceid, msiaddress, msidata, target) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(partition, logicaldeviceid, msiaddress, msidata, target);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)partition;
     (void)logicaldeviceid;
     (void)msiaddress;
     (void)msidata;
     (void)target;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2504,12 +3232,19 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_wHvRunVirtualProce
         HMODULE km_h_mod = LoadLibraryA("winhvplatform.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WHvRunVirtualProcessor")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(partition, vpindex, exitcontext, exitcontextsizeinbytes) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(partition, vpindex, exitcontext, exitcontextsizeinbytes);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)partition;
     (void)vpindex;
     (void)exitcontext;
     (void)exitcontextsizeinbytes;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2528,12 +3263,19 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_wHvSetNotification
         HMODULE km_h_mod = LoadLibraryA("winhvplatform.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WHvSetNotificationPortProperty")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(partition, porthandle, propertycode, propertyvalue) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(partition, porthandle, propertycode, propertyvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)partition;
     (void)porthandle;
     (void)propertycode;
     (void)propertyvalue;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2552,12 +3294,19 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_wHvSetPartitionPro
         HMODULE km_h_mod = LoadLibraryA("winhvplatform.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WHvSetPartitionProperty")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(partition, propertycode, propertybuffer, propertybuffersizeinbytes) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(partition, propertycode, propertybuffer, propertybuffersizeinbytes);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)partition;
     (void)propertycode;
     (void)propertybuffer;
     (void)propertybuffersizeinbytes;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2576,12 +3325,19 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_wHvSetVirtualProce
         HMODULE km_h_mod = LoadLibraryA("winhvplatform.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WHvSetVirtualProcessorInterruptControllerState")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(partition, vpindex, state, statesize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(partition, vpindex, state, statesize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)partition;
     (void)vpindex;
     (void)state;
     (void)statesize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2600,12 +3356,19 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_wHvSetVirtualProce
         HMODULE km_h_mod = LoadLibraryA("winhvplatform.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WHvSetVirtualProcessorInterruptControllerState2")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(partition, vpindex, state, statesize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(partition, vpindex, state, statesize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)partition;
     (void)vpindex;
     (void)state;
     (void)statesize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2625,13 +3388,20 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_wHvSetVirtualProce
         HMODULE km_h_mod = LoadLibraryA("winhvplatform.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WHvSetVirtualProcessorRegisters")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(partition, vpindex, registernames, registercount, registervalues) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(partition, vpindex, registernames, registercount, registervalues);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)partition;
     (void)vpindex;
     (void)registernames;
     (void)registercount;
     (void)registervalues;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2651,13 +3421,20 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_wHvSetVirtualProce
         HMODULE km_h_mod = LoadLibraryA("winhvplatform.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WHvSetVirtualProcessorState")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(partition, vpindex, statetype, buffer, buffersizeinbytes) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(partition, vpindex, statetype, buffer, buffersizeinbytes);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)partition;
     (void)vpindex;
     (void)statetype;
     (void)buffer;
     (void)buffersizeinbytes;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2676,12 +3453,19 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_wHvSetVirtualProce
         HMODULE km_h_mod = LoadLibraryA("winhvplatform.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WHvSetVirtualProcessorXsaveState")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(partition, vpindex, buffer, buffersizeinbytes) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(partition, vpindex, buffer, buffersizeinbytes);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)partition;
     (void)vpindex;
     (void)buffer;
     (void)buffersizeinbytes;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2699,11 +3483,18 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_wHvSetVpciDevicePo
         HMODULE km_h_mod = LoadLibraryA("winhvplatform.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WHvSetVpciDevicePowerState")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(partition, logicaldeviceid, powerstate) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(partition, logicaldeviceid, powerstate);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)partition;
     (void)logicaldeviceid;
     (void)powerstate;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2719,9 +3510,16 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_wHvSetupPartition_
         HMODULE km_h_mod = LoadLibraryA("winhvplatform.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WHvSetupPartition")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(partition) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(partition);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)partition;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2738,10 +3536,17 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_wHvStartPartitionM
         HMODULE km_h_mod = LoadLibraryA("winhvplatform.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WHvStartPartitionMigration")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(partition, migrationhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(partition, migrationhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)partition;
     (void)migrationhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2757,9 +3562,16 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_wHvSuspendPartitio
         HMODULE km_h_mod = LoadLibraryA("winhvplatform.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WHvSuspendPartitionTime")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(partition) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(partition);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)partition;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2780,7 +3592,13 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_wHvTranslateGva_na
         HMODULE km_h_mod = LoadLibraryA("winhvplatform.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WHvTranslateGva")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(partition, vpindex, gva, translateflags, translationresult, gpa) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(partition, vpindex, gva, translateflags, translationresult, gpa);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)partition;
     (void)vpindex;
@@ -2788,6 +3606,7 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_wHvTranslateGva_na
     (void)translateflags;
     (void)translationresult;
     (void)gpa;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2805,11 +3624,18 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_wHvUnmapGpaRange_n
         HMODULE km_h_mod = LoadLibraryA("winhvplatform.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WHvUnmapGpaRange")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(partition, guestaddress, sizeinbytes) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(partition, guestaddress, sizeinbytes);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)partition;
     (void)guestaddress;
     (void)sizeinbytes;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2827,11 +3653,18 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_wHvUnmapVpciDevice
         HMODULE km_h_mod = LoadLibraryA("winhvplatform.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WHvUnmapVpciDeviceInterrupt")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(partition, logicaldeviceid, arg_2_index) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(partition, logicaldeviceid, arg_2_index);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)partition;
     (void)logicaldeviceid;
     (void)arg_2_index;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2848,10 +3681,17 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_wHvUnmapVpciDevice
         HMODULE km_h_mod = LoadLibraryA("winhvplatform.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WHvUnmapVpciDeviceMmioRanges")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(partition, logicaldeviceid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(partition, logicaldeviceid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)partition;
     (void)logicaldeviceid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2868,10 +3708,17 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_wHvUnregisterParti
         HMODULE km_h_mod = LoadLibraryA("winhvplatform.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WHvUnregisterPartitionDoorbellEvent")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(partition, matchdata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(partition, matchdata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)partition;
     (void)matchdata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2889,11 +3736,18 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_wHvUpdateTriggerPa
         HMODULE km_h_mod = LoadLibraryA("winhvplatform.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WHvUpdateTriggerParameters")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(partition, parameters, triggerhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(partition, parameters, triggerhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)partition;
     (void)parameters;
     (void)triggerhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2912,12 +3766,19 @@ static Napi::Value windowssys_windows_win32_system_hypervisor_wHvWriteVpciDevice
         HMODULE km_h_mod = LoadLibraryA("winhvplatform.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WHvWriteVpciDeviceRegister")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(partition, logicaldeviceid, arg_2_register, data) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(partition, logicaldeviceid, arg_2_register, data);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)partition;
     (void)logicaldeviceid;
     (void)arg_2_register;
     (void)data;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

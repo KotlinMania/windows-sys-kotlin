@@ -62,10 +62,17 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_extensions_
         HMODULE km_h_mod = LoadLibraryA("dbgmodel.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateDataModelManager")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(debughost, manager) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(debughost, manager);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)debughost;
     (void)manager;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -83,11 +90,18 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_extensions_
         HMODULE km_h_mod = LoadLibraryA("dbgeng.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DebugConnect")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(remoteoptions, interfaceid, arg_2_interface) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(remoteoptions, interfaceid, arg_2_interface);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)remoteoptions;
     (void)interfaceid;
     (void)arg_2_interface;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -105,11 +119,18 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_extensions_
         HMODULE km_h_mod = LoadLibraryA("dbgeng.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DebugConnectWide")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(remoteoptions, interfaceid, arg_2_interface) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(remoteoptions, interfaceid, arg_2_interface);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)remoteoptions;
     (void)interfaceid;
     (void)arg_2_interface;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -126,10 +147,17 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_extensions_
         HMODULE km_h_mod = LoadLibraryA("dbgeng.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DebugCreate")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(interfaceid, arg_1_interface) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(interfaceid, arg_1_interface);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)interfaceid;
     (void)arg_1_interface;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -147,11 +175,18 @@ static Napi::Value windowssys_windows_win32_system_diagnostics_debug_extensions_
         HMODULE km_h_mod = LoadLibraryA("dbgeng.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DebugCreateEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(interfaceid, dbgengoptions, arg_2_interface) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(interfaceid, dbgengoptions, arg_2_interface);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)interfaceid;
     (void)dbgengoptions;
     (void)arg_2_interface;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

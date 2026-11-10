@@ -66,7 +66,13 @@ static Napi::Value windowssys_windows_win32_security_isolation_createAppContaine
         HMODULE km_h_mod = LoadLibraryA("userenv.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateAppContainerProfile")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszappcontainername, pszdisplayname, pszdescription, pcapabilities, dwcapabilitycount, ppsidappcontainersid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszappcontainername, pszdisplayname, pszdescription, pcapabilities, dwcapabilitycount, ppsidappcontainersid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszappcontainername;
     (void)pszdisplayname;
@@ -74,6 +80,7 @@ static Napi::Value windowssys_windows_win32_security_isolation_createAppContaine
     (void)pcapabilities;
     (void)dwcapabilitycount;
     (void)ppsidappcontainersid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -89,9 +96,16 @@ static Napi::Value windowssys_windows_win32_security_isolation_deleteAppContaine
         HMODULE km_h_mod = LoadLibraryA("userenv.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DeleteAppContainerProfile")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszappcontainername) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszappcontainername);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszappcontainername;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -108,10 +122,17 @@ static Napi::Value windowssys_windows_win32_security_isolation_deriveAppContaine
         HMODULE km_h_mod = LoadLibraryA("userenv.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DeriveAppContainerSidFromAppContainerName")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszappcontainername, ppsidappcontainersid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszappcontainername, ppsidappcontainersid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszappcontainername;
     (void)ppsidappcontainersid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -129,11 +150,18 @@ static Napi::Value windowssys_windows_win32_security_isolation_deriveRestrictedA
         HMODULE km_h_mod = LoadLibraryA("userenv.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DeriveRestrictedAppContainerSidFromAppContainerSidAndRestrictedName")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(psidappcontainersid, pszrestrictedappcontainername, ppsidrestrictedappcontainersid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(psidappcontainersid, pszrestrictedappcontainername, ppsidrestrictedappcontainersid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)psidappcontainersid;
     (void)pszrestrictedappcontainername;
     (void)ppsidrestrictedappcontainersid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -150,10 +178,17 @@ static Napi::Value windowssys_windows_win32_security_isolation_getAppContainerFo
         HMODULE km_h_mod = LoadLibraryA("userenv.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetAppContainerFolderPath")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszappcontainersid, ppszpath) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszappcontainersid, ppszpath);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszappcontainersid;
     (void)ppszpath;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -173,13 +208,20 @@ static Napi::Value windowssys_windows_win32_security_isolation_getAppContainerNa
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetAppContainerNamedObjectPath")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(token, appcontainersid, objectpathlength, objectpath, returnlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(token, appcontainersid, objectpathlength, objectpath, returnlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)token;
     (void)appcontainersid;
     (void)objectpathlength;
     (void)objectpath;
     (void)returnlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -196,10 +238,17 @@ static Napi::Value windowssys_windows_win32_security_isolation_getAppContainerRe
         HMODULE km_h_mod = LoadLibraryA("userenv.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetAppContainerRegistryLocation")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(desiredaccess, phappcontainerkey) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(desiredaccess, phappcontainerkey);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)desiredaccess;
     (void)phappcontainerkey;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -215,9 +264,16 @@ static Napi::Value windowssys_windows_win32_security_isolation_isCrossIsolatedEn
         HMODULE km_h_mod = LoadLibraryA("isolatedwindowsenvironmentutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IsCrossIsolatedEnvironmentClipboardContent")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(iscrossisolatedenvironmentclipboardcontent) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(iscrossisolatedenvironmentclipboardcontent);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)iscrossisolatedenvironmentclipboardcontent;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -233,9 +289,16 @@ static Napi::Value windowssys_windows_win32_security_isolation_isProcessInIsolat
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-security-isolatedcontainer-l1-1-0.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IsProcessInIsolatedContainer")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(isprocessinisolatedcontainer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(isprocessinisolatedcontainer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)isprocessinisolatedcontainer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -251,9 +314,16 @@ static Napi::Value windowssys_windows_win32_security_isolation_isProcessInIsolat
         HMODULE km_h_mod = LoadLibraryA("isolatedwindowsenvironmentutils.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IsProcessInIsolatedWindowsEnvironment")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(isprocessinisolatedwindowsenvironment) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(isprocessinisolatedwindowsenvironment);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)isprocessinisolatedwindowsenvironment;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -270,10 +340,17 @@ static Napi::Value windowssys_windows_win32_security_isolation_isProcessInWDAGCo
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-security-isolatedcontainer-l1-1-1.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IsProcessInWDAGContainer")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(reserved, isprocessinwdagcontainer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(reserved, isprocessinwdagcontainer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)reserved;
     (void)isprocessinwdagcontainer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

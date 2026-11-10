@@ -5,6 +5,7 @@
 #include <stdbool.h>
 #include <stddef.h>
 #include <stdint.h>
+#include <stdlib.h>
 #include <errno.h>
 #ifdef _WIN32
 #ifndef WIN32_LEAN_AND_MEAN
@@ -28,9 +29,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WFDCancelOpenSession");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hsessionhandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hsessionhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hsessionhandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -46,9 +54,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WFDCloseHandle");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hclienthandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hclienthandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -64,9 +79,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WFDCloseSession");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hsessionhandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hsessionhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hsessionhandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -82,11 +104,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WFDOpenHandle");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwclientversion, (void*)(uintptr_t)pdwnegotiatedversion, (void*)(uintptr_t)phclienthandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwclientversion, (void*)(uintptr_t)pdwnegotiatedversion, (void*)(uintptr_t)phclienthandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dwclientversion;
     (void)pdwnegotiatedversion;
     (void)phclienthandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -102,12 +131,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WFDOpenLegacySession");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hclienthandle, (void*)(uintptr_t)plegacymacaddress, (void*)(uintptr_t)phsessionhandle, (void*)(uintptr_t)pguidsessioninterface) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hclienthandle, (void*)(uintptr_t)plegacymacaddress, (void*)(uintptr_t)phsessionhandle, (void*)(uintptr_t)pguidsessioninterface);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
     (void)plegacymacaddress;
     (void)phsessionhandle;
     (void)pguidsessioninterface;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -123,13 +159,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WFDStartOpenSession");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hclienthandle, (void*)(uintptr_t)pdeviceaddress, (void*)(uintptr_t)pvcontext, (void*)(uintptr_t)pfncallback, (void*)(uintptr_t)phsessionhandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hclienthandle, (void*)(uintptr_t)pdeviceaddress, (void*)(uintptr_t)pvcontext, (void*)(uintptr_t)pfncallback, (void*)(uintptr_t)phsessionhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
     (void)pdeviceaddress;
     (void)pvcontext;
     (void)pfncallback;
     (void)phsessionhandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -145,9 +188,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WFDUpdateDeviceVisibility");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pdeviceaddress) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pdeviceaddress);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pdeviceaddress;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -163,9 +213,16 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WlanAllocateMemory");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwmemorysize) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwmemorysize);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)dwmemorysize;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -181,10 +238,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WlanCloseHandle");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hclienthandle, (void*)(uintptr_t)preserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hclienthandle, (void*)(uintptr_t)preserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
     (void)preserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -200,12 +264,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WlanConnect");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hclienthandle, (void*)(uintptr_t)pinterfaceguid, (void*)(uintptr_t)pconnectionparameters, (void*)(uintptr_t)preserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hclienthandle, (void*)(uintptr_t)pinterfaceguid, (void*)(uintptr_t)pconnectionparameters, (void*)(uintptr_t)preserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
     (void)pinterfaceguid;
     (void)pconnectionparameters;
     (void)preserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -221,12 +292,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WlanConnect2");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hclienthandle, (void*)(uintptr_t)pinterfaceguid, (void*)(uintptr_t)pconnectionparameters, (void*)(uintptr_t)preserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hclienthandle, (void*)(uintptr_t)pinterfaceguid, (void*)(uintptr_t)pconnectionparameters, (void*)(uintptr_t)preserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
     (void)pinterfaceguid;
     (void)pconnectionparameters;
     (void)preserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -242,12 +320,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WlanDeleteProfile");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hclienthandle, (void*)(uintptr_t)pinterfaceguid, (void*)(uintptr_t)strprofilename, (void*)(uintptr_t)preserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hclienthandle, (void*)(uintptr_t)pinterfaceguid, (void*)(uintptr_t)strprofilename, (void*)(uintptr_t)preserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
     (void)pinterfaceguid;
     (void)strprofilename;
     (void)preserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -263,7 +348,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WlanDeviceServiceCommand");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hclienthandle, (void*)(uintptr_t)pinterfaceguid, (void*)(uintptr_t)pdeviceserviceguid, (uint32_t)dwopcode, (uint32_t)dwinbuffersize, (void*)(uintptr_t)pinbuffer, (uint32_t)dwoutbuffersize, (void*)(uintptr_t)poutbuffer, (void*)(uintptr_t)pdwbytesreturned) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hclienthandle, (void*)(uintptr_t)pinterfaceguid, (void*)(uintptr_t)pdeviceserviceguid, (uint32_t)dwopcode, (uint32_t)dwinbuffersize, (void*)(uintptr_t)pinbuffer, (uint32_t)dwoutbuffersize, (void*)(uintptr_t)poutbuffer, (void*)(uintptr_t)pdwbytesreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
     (void)pinterfaceguid;
@@ -274,6 +365,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)dwoutbuffersize;
     (void)poutbuffer;
     (void)pdwbytesreturned;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -289,11 +381,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WlanDisconnect");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hclienthandle, (void*)(uintptr_t)pinterfaceguid, (void*)(uintptr_t)preserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hclienthandle, (void*)(uintptr_t)pinterfaceguid, (void*)(uintptr_t)preserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
     (void)pinterfaceguid;
     (void)preserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -309,11 +408,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WlanEnumInterfaces");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hclienthandle, (void*)(uintptr_t)preserved, (void*)(uintptr_t)ppinterfacelist) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hclienthandle, (void*)(uintptr_t)preserved, (void*)(uintptr_t)ppinterfacelist);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
     (void)preserved;
     (void)ppinterfacelist;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -329,7 +435,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WlanExtractPsdIEDataList");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hclienthandle, (uint32_t)dwiedatasize, (void*)(uintptr_t)prawiedata, (void*)(uintptr_t)strformat, (void*)(uintptr_t)preserved, (void*)(uintptr_t)pppsdiedatalist) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hclienthandle, (uint32_t)dwiedatasize, (void*)(uintptr_t)prawiedata, (void*)(uintptr_t)strformat, (void*)(uintptr_t)preserved, (void*)(uintptr_t)pppsdiedatalist);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
     (void)dwiedatasize;
@@ -337,6 +449,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)strformat;
     (void)preserved;
     (void)pppsdiedatalist;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -352,9 +465,14 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WlanFreeMemory");
     }
-    if (km_fn_ptr != NULL) km_fn_ptr((void*)(uintptr_t)pmemory);
+    if (km_fn_ptr != NULL) {
+        km_fn_ptr((void*)(uintptr_t)pmemory);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pmemory;
+    errno = ENOSYS;
 #endif
 }
 
@@ -368,13 +486,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WlanGetAvailableNetworkList");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hclienthandle, (void*)(uintptr_t)pinterfaceguid, (uint32_t)dwflags, (void*)(uintptr_t)preserved, (void*)(uintptr_t)ppavailablenetworklist) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hclienthandle, (void*)(uintptr_t)pinterfaceguid, (uint32_t)dwflags, (void*)(uintptr_t)preserved, (void*)(uintptr_t)ppavailablenetworklist);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
     (void)pinterfaceguid;
     (void)dwflags;
     (void)preserved;
     (void)ppavailablenetworklist;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -390,13 +515,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WlanGetAvailableNetworkList2");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hclienthandle, (void*)(uintptr_t)pinterfaceguid, (uint32_t)dwflags, (void*)(uintptr_t)preserved, (void*)(uintptr_t)ppavailablenetworklist) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hclienthandle, (void*)(uintptr_t)pinterfaceguid, (uint32_t)dwflags, (void*)(uintptr_t)preserved, (void*)(uintptr_t)ppavailablenetworklist);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
     (void)pinterfaceguid;
     (void)dwflags;
     (void)preserved;
     (void)ppavailablenetworklist;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -412,12 +544,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WlanGetFilterList");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hclienthandle, (int32_t)wlanfilterlisttype, (void*)(uintptr_t)preserved, (void*)(uintptr_t)ppnetworklist) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hclienthandle, (int32_t)wlanfilterlisttype, (void*)(uintptr_t)preserved, (void*)(uintptr_t)ppnetworklist);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
     (void)wlanfilterlisttype;
     (void)preserved;
     (void)ppnetworklist;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -433,12 +572,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WlanGetInterfaceCapability");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hclienthandle, (void*)(uintptr_t)pinterfaceguid, (void*)(uintptr_t)preserved, (void*)(uintptr_t)ppcapability) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hclienthandle, (void*)(uintptr_t)pinterfaceguid, (void*)(uintptr_t)preserved, (void*)(uintptr_t)ppcapability);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
     (void)pinterfaceguid;
     (void)preserved;
     (void)ppcapability;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -454,7 +600,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WlanGetNetworkBssList");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hclienthandle, (void*)(uintptr_t)pinterfaceguid, (void*)(uintptr_t)pdot11ssid, (int32_t)dot11bsstype, (int32_t)bsecurityenabled, (void*)(uintptr_t)preserved, (void*)(uintptr_t)ppwlanbsslist) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hclienthandle, (void*)(uintptr_t)pinterfaceguid, (void*)(uintptr_t)pdot11ssid, (int32_t)dot11bsstype, (int32_t)bsecurityenabled, (void*)(uintptr_t)preserved, (void*)(uintptr_t)ppwlanbsslist);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
     (void)pinterfaceguid;
@@ -463,6 +615,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)bsecurityenabled;
     (void)preserved;
     (void)ppwlanbsslist;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -478,7 +631,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WlanGetProfile");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hclienthandle, (void*)(uintptr_t)pinterfaceguid, (void*)(uintptr_t)strprofilename, (void*)(uintptr_t)preserved, (void*)(uintptr_t)pstrprofilexml, (void*)(uintptr_t)pdwflags, (void*)(uintptr_t)pdwgrantedaccess) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hclienthandle, (void*)(uintptr_t)pinterfaceguid, (void*)(uintptr_t)strprofilename, (void*)(uintptr_t)preserved, (void*)(uintptr_t)pstrprofilexml, (void*)(uintptr_t)pdwflags, (void*)(uintptr_t)pdwgrantedaccess);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
     (void)pinterfaceguid;
@@ -487,6 +646,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)pstrprofilexml;
     (void)pdwflags;
     (void)pdwgrantedaccess;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -502,7 +662,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WlanGetProfileCustomUserData");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hclienthandle, (void*)(uintptr_t)pinterfaceguid, (void*)(uintptr_t)strprofilename, (void*)(uintptr_t)preserved, (void*)(uintptr_t)pdwdatasize, (void*)(uintptr_t)ppdata) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hclienthandle, (void*)(uintptr_t)pinterfaceguid, (void*)(uintptr_t)strprofilename, (void*)(uintptr_t)preserved, (void*)(uintptr_t)pdwdatasize, (void*)(uintptr_t)ppdata);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
     (void)pinterfaceguid;
@@ -510,6 +676,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)preserved;
     (void)pdwdatasize;
     (void)ppdata;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -525,12 +692,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WlanGetProfileList");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hclienthandle, (void*)(uintptr_t)pinterfaceguid, (void*)(uintptr_t)preserved, (void*)(uintptr_t)ppprofilelist) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hclienthandle, (void*)(uintptr_t)pinterfaceguid, (void*)(uintptr_t)preserved, (void*)(uintptr_t)ppprofilelist);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
     (void)pinterfaceguid;
     (void)preserved;
     (void)ppprofilelist;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -546,13 +720,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WlanGetSecuritySettings");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hclienthandle, (int32_t)securableobject, (void*)(uintptr_t)pvaluetype, (void*)(uintptr_t)pstrcurrentsddl, (void*)(uintptr_t)pdwgrantedaccess) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hclienthandle, (int32_t)securableobject, (void*)(uintptr_t)pvaluetype, (void*)(uintptr_t)pstrcurrentsddl, (void*)(uintptr_t)pdwgrantedaccess);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
     (void)securableobject;
     (void)pvaluetype;
     (void)pstrcurrentsddl;
     (void)pdwgrantedaccess;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -568,11 +749,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WlanGetSupportedDeviceServices");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hclienthandle, (void*)(uintptr_t)pinterfaceguid, (void*)(uintptr_t)ppdevsvcguidlist) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hclienthandle, (void*)(uintptr_t)pinterfaceguid, (void*)(uintptr_t)ppdevsvcguidlist);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
     (void)pinterfaceguid;
     (void)ppdevsvcguidlist;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -588,11 +776,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WlanHostedNetworkForceStart");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hclienthandle, (void*)(uintptr_t)pfailreason, (void*)(uintptr_t)pvreserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hclienthandle, (void*)(uintptr_t)pfailreason, (void*)(uintptr_t)pvreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
     (void)pfailreason;
     (void)pvreserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -608,11 +803,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WlanHostedNetworkForceStop");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hclienthandle, (void*)(uintptr_t)pfailreason, (void*)(uintptr_t)pvreserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hclienthandle, (void*)(uintptr_t)pfailreason, (void*)(uintptr_t)pvreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
     (void)pfailreason;
     (void)pvreserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -628,11 +830,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WlanHostedNetworkInitSettings");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hclienthandle, (void*)(uintptr_t)pfailreason, (void*)(uintptr_t)pvreserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hclienthandle, (void*)(uintptr_t)pfailreason, (void*)(uintptr_t)pvreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
     (void)pfailreason;
     (void)pvreserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -648,7 +857,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WlanHostedNetworkQueryProperty");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hclienthandle, (int32_t)opcode, (void*)(uintptr_t)pdwdatasize, (void*)(uintptr_t)ppvdata, (void*)(uintptr_t)pwlanopcodevaluetype, (void*)(uintptr_t)pvreserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hclienthandle, (int32_t)opcode, (void*)(uintptr_t)pdwdatasize, (void*)(uintptr_t)ppvdata, (void*)(uintptr_t)pwlanopcodevaluetype, (void*)(uintptr_t)pvreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
     (void)opcode;
@@ -656,6 +871,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)ppvdata;
     (void)pwlanopcodevaluetype;
     (void)pvreserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -671,7 +887,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WlanHostedNetworkQuerySecondaryKey");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hclienthandle, (void*)(uintptr_t)pdwkeylength, (void*)(uintptr_t)ppuckeydata, (void*)(uintptr_t)pbispassphrase, (void*)(uintptr_t)pbpersistent, (void*)(uintptr_t)pfailreason, (void*)(uintptr_t)pvreserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hclienthandle, (void*)(uintptr_t)pdwkeylength, (void*)(uintptr_t)ppuckeydata, (void*)(uintptr_t)pbispassphrase, (void*)(uintptr_t)pbpersistent, (void*)(uintptr_t)pfailreason, (void*)(uintptr_t)pvreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
     (void)pdwkeylength;
@@ -680,6 +902,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)pbpersistent;
     (void)pfailreason;
     (void)pvreserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -695,11 +918,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WlanHostedNetworkQueryStatus");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hclienthandle, (void*)(uintptr_t)ppwlanhostednetworkstatus, (void*)(uintptr_t)pvreserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hclienthandle, (void*)(uintptr_t)ppwlanhostednetworkstatus, (void*)(uintptr_t)pvreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
     (void)ppwlanhostednetworkstatus;
     (void)pvreserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -715,11 +945,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WlanHostedNetworkRefreshSecuritySettings");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hclienthandle, (void*)(uintptr_t)pfailreason, (void*)(uintptr_t)pvreserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hclienthandle, (void*)(uintptr_t)pfailreason, (void*)(uintptr_t)pvreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
     (void)pfailreason;
     (void)pvreserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -735,7 +972,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WlanHostedNetworkSetProperty");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hclienthandle, (int32_t)opcode, (uint32_t)dwdatasize, (void*)(uintptr_t)pvdata, (void*)(uintptr_t)pfailreason, (void*)(uintptr_t)pvreserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hclienthandle, (int32_t)opcode, (uint32_t)dwdatasize, (void*)(uintptr_t)pvdata, (void*)(uintptr_t)pfailreason, (void*)(uintptr_t)pvreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
     (void)opcode;
@@ -743,6 +986,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)pvdata;
     (void)pfailreason;
     (void)pvreserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -758,7 +1002,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WlanHostedNetworkSetSecondaryKey");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hclienthandle, (uint32_t)dwkeylength, (void*)(uintptr_t)puckeydata, (int32_t)bispassphrase, (int32_t)bpersistent, (void*)(uintptr_t)pfailreason, (void*)(uintptr_t)pvreserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hclienthandle, (uint32_t)dwkeylength, (void*)(uintptr_t)puckeydata, (int32_t)bispassphrase, (int32_t)bpersistent, (void*)(uintptr_t)pfailreason, (void*)(uintptr_t)pvreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
     (void)dwkeylength;
@@ -767,6 +1017,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)bpersistent;
     (void)pfailreason;
     (void)pvreserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -782,11 +1033,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WlanHostedNetworkStartUsing");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hclienthandle, (void*)(uintptr_t)pfailreason, (void*)(uintptr_t)pvreserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hclienthandle, (void*)(uintptr_t)pfailreason, (void*)(uintptr_t)pvreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
     (void)pfailreason;
     (void)pvreserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -802,11 +1060,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WlanHostedNetworkStopUsing");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hclienthandle, (void*)(uintptr_t)pfailreason, (void*)(uintptr_t)pvreserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hclienthandle, (void*)(uintptr_t)pfailreason, (void*)(uintptr_t)pvreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
     (void)pfailreason;
     (void)pvreserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -822,7 +1087,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WlanIhvControl");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hclienthandle, (void*)(uintptr_t)pinterfaceguid, (int32_t)type, (uint32_t)dwinbuffersize, (void*)(uintptr_t)pinbuffer, (uint32_t)dwoutbuffersize, (void*)(uintptr_t)poutbuffer, (void*)(uintptr_t)pdwbytesreturned) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hclienthandle, (void*)(uintptr_t)pinterfaceguid, (int32_t)type, (uint32_t)dwinbuffersize, (void*)(uintptr_t)pinbuffer, (uint32_t)dwoutbuffersize, (void*)(uintptr_t)poutbuffer, (void*)(uintptr_t)pdwbytesreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
     (void)pinterfaceguid;
@@ -832,6 +1103,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)dwoutbuffersize;
     (void)poutbuffer;
     (void)pdwbytesreturned;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -847,12 +1119,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WlanOpenHandle");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwclientversion, (void*)(uintptr_t)preserved, (void*)(uintptr_t)pdwnegotiatedversion, (void*)(uintptr_t)phclienthandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwclientversion, (void*)(uintptr_t)preserved, (void*)(uintptr_t)pdwnegotiatedversion, (void*)(uintptr_t)phclienthandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dwclientversion;
     (void)preserved;
     (void)pdwnegotiatedversion;
     (void)phclienthandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -868,7 +1147,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WlanQueryAutoConfigParameter");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hclienthandle, (int32_t)opcode, (void*)(uintptr_t)preserved, (void*)(uintptr_t)pdwdatasize, (void*)(uintptr_t)ppdata, (void*)(uintptr_t)pwlanopcodevaluetype) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hclienthandle, (int32_t)opcode, (void*)(uintptr_t)preserved, (void*)(uintptr_t)pdwdatasize, (void*)(uintptr_t)ppdata, (void*)(uintptr_t)pwlanopcodevaluetype);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
     (void)opcode;
@@ -876,6 +1161,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)pdwdatasize;
     (void)ppdata;
     (void)pwlanopcodevaluetype;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -891,7 +1177,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WlanQueryInterface");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hclienthandle, (void*)(uintptr_t)pinterfaceguid, (int32_t)opcode, (void*)(uintptr_t)preserved, (void*)(uintptr_t)pdwdatasize, (void*)(uintptr_t)ppdata, (void*)(uintptr_t)pwlanopcodevaluetype) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hclienthandle, (void*)(uintptr_t)pinterfaceguid, (int32_t)opcode, (void*)(uintptr_t)preserved, (void*)(uintptr_t)pdwdatasize, (void*)(uintptr_t)ppdata, (void*)(uintptr_t)pwlanopcodevaluetype);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
     (void)pinterfaceguid;
@@ -900,6 +1192,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)pdwdatasize;
     (void)ppdata;
     (void)pwlanopcodevaluetype;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -915,12 +1208,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WlanReasonCodeToString");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwreasoncode, (uint32_t)dwbuffersize, (void*)(uintptr_t)pstringbuffer, (void*)(uintptr_t)preserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwreasoncode, (uint32_t)dwbuffersize, (void*)(uintptr_t)pstringbuffer, (void*)(uintptr_t)preserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dwreasoncode;
     (void)dwbuffersize;
     (void)pstringbuffer;
     (void)preserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -936,10 +1236,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WlanRegisterDeviceServiceNotification");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hclienthandle, (void*)(uintptr_t)pdevsvcguidlist) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hclienthandle, (void*)(uintptr_t)pdevsvcguidlist);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
     (void)pdevsvcguidlist;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -955,7 +1262,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WlanRegisterNotification");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hclienthandle, (uint32_t)dwnotifsource, (int32_t)bignoreduplicate, (void*)(uintptr_t)funccallback, (void*)(uintptr_t)pcallbackcontext, (void*)(uintptr_t)preserved, (void*)(uintptr_t)pdwprevnotifsource) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hclienthandle, (uint32_t)dwnotifsource, (int32_t)bignoreduplicate, (void*)(uintptr_t)funccallback, (void*)(uintptr_t)pcallbackcontext, (void*)(uintptr_t)preserved, (void*)(uintptr_t)pdwprevnotifsource);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
     (void)dwnotifsource;
@@ -964,6 +1277,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)pcallbackcontext;
     (void)preserved;
     (void)pdwprevnotifsource;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -979,11 +1293,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WlanRegisterVirtualStationNotification");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hclienthandle, (int32_t)bregister, (void*)(uintptr_t)preserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hclienthandle, (int32_t)bregister, (void*)(uintptr_t)preserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
     (void)bregister;
     (void)preserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -999,13 +1320,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WlanRenameProfile");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hclienthandle, (void*)(uintptr_t)pinterfaceguid, (void*)(uintptr_t)stroldprofilename, (void*)(uintptr_t)strnewprofilename, (void*)(uintptr_t)preserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hclienthandle, (void*)(uintptr_t)pinterfaceguid, (void*)(uintptr_t)stroldprofilename, (void*)(uintptr_t)strnewprofilename, (void*)(uintptr_t)preserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
     (void)pinterfaceguid;
     (void)stroldprofilename;
     (void)strnewprofilename;
     (void)preserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -1021,7 +1349,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WlanSaveTemporaryProfile");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hclienthandle, (void*)(uintptr_t)pinterfaceguid, (void*)(uintptr_t)strprofilename, (void*)(uintptr_t)stralluserprofilesecurity, (uint32_t)dwflags, (int32_t)boverwrite, (void*)(uintptr_t)preserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hclienthandle, (void*)(uintptr_t)pinterfaceguid, (void*)(uintptr_t)strprofilename, (void*)(uintptr_t)stralluserprofilesecurity, (uint32_t)dwflags, (int32_t)boverwrite, (void*)(uintptr_t)preserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
     (void)pinterfaceguid;
@@ -1030,6 +1364,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)dwflags;
     (void)boverwrite;
     (void)preserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -1045,13 +1380,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WlanScan");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hclienthandle, (void*)(uintptr_t)pinterfaceguid, (void*)(uintptr_t)pdot11ssid, (void*)(uintptr_t)piedata, (void*)(uintptr_t)preserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hclienthandle, (void*)(uintptr_t)pinterfaceguid, (void*)(uintptr_t)pdot11ssid, (void*)(uintptr_t)piedata, (void*)(uintptr_t)preserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
     (void)pinterfaceguid;
     (void)pdot11ssid;
     (void)piedata;
     (void)preserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -1067,13 +1409,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WlanSetAutoConfigParameter");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hclienthandle, (int32_t)opcode, (uint32_t)dwdatasize, (void*)(uintptr_t)pdata, (void*)(uintptr_t)preserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hclienthandle, (int32_t)opcode, (uint32_t)dwdatasize, (void*)(uintptr_t)pdata, (void*)(uintptr_t)preserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
     (void)opcode;
     (void)dwdatasize;
     (void)pdata;
     (void)preserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -1089,12 +1438,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WlanSetFilterList");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hclienthandle, (int32_t)wlanfilterlisttype, (void*)(uintptr_t)pnetworklist, (void*)(uintptr_t)preserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hclienthandle, (int32_t)wlanfilterlisttype, (void*)(uintptr_t)pnetworklist, (void*)(uintptr_t)preserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
     (void)wlanfilterlisttype;
     (void)pnetworklist;
     (void)preserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -1110,7 +1466,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WlanSetInterface");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hclienthandle, (void*)(uintptr_t)pinterfaceguid, (int32_t)opcode, (uint32_t)dwdatasize, (void*)(uintptr_t)pdata, (void*)(uintptr_t)preserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hclienthandle, (void*)(uintptr_t)pinterfaceguid, (int32_t)opcode, (uint32_t)dwdatasize, (void*)(uintptr_t)pdata, (void*)(uintptr_t)preserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
     (void)pinterfaceguid;
@@ -1118,6 +1480,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)dwdatasize;
     (void)pdata;
     (void)preserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -1133,7 +1496,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WlanSetProfile");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hclienthandle, (void*)(uintptr_t)pinterfaceguid, (uint32_t)dwflags, (void*)(uintptr_t)strprofilexml, (void*)(uintptr_t)stralluserprofilesecurity, (int32_t)boverwrite, (void*)(uintptr_t)preserved, (void*)(uintptr_t)pdwreasoncode) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hclienthandle, (void*)(uintptr_t)pinterfaceguid, (uint32_t)dwflags, (void*)(uintptr_t)strprofilexml, (void*)(uintptr_t)stralluserprofilesecurity, (int32_t)boverwrite, (void*)(uintptr_t)preserved, (void*)(uintptr_t)pdwreasoncode);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
     (void)pinterfaceguid;
@@ -1143,6 +1512,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)boverwrite;
     (void)preserved;
     (void)pdwreasoncode;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -1158,7 +1528,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WlanSetProfileCustomUserData");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hclienthandle, (void*)(uintptr_t)pinterfaceguid, (void*)(uintptr_t)strprofilename, (uint32_t)dwdatasize, (void*)(uintptr_t)pdata, (void*)(uintptr_t)preserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hclienthandle, (void*)(uintptr_t)pinterfaceguid, (void*)(uintptr_t)strprofilename, (uint32_t)dwdatasize, (void*)(uintptr_t)pdata, (void*)(uintptr_t)preserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
     (void)pinterfaceguid;
@@ -1166,6 +1542,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)dwdatasize;
     (void)pdata;
     (void)preserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -1181,7 +1558,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WlanSetProfileEapXmlUserData");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hclienthandle, (void*)(uintptr_t)pinterfaceguid, (void*)(uintptr_t)strprofilename, (uint32_t)dwflags, (void*)(uintptr_t)streapxmluserdata, (void*)(uintptr_t)preserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hclienthandle, (void*)(uintptr_t)pinterfaceguid, (void*)(uintptr_t)strprofilename, (uint32_t)dwflags, (void*)(uintptr_t)streapxmluserdata, (void*)(uintptr_t)preserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
     (void)pinterfaceguid;
@@ -1189,6 +1572,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)dwflags;
     (void)streapxmluserdata;
     (void)preserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -1204,13 +1588,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WlanSetProfileList");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hclienthandle, (void*)(uintptr_t)pinterfaceguid, (uint32_t)dwitems, (void*)(uintptr_t)strprofilenames, (void*)(uintptr_t)preserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hclienthandle, (void*)(uintptr_t)pinterfaceguid, (uint32_t)dwitems, (void*)(uintptr_t)strprofilenames, (void*)(uintptr_t)preserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
     (void)pinterfaceguid;
     (void)dwitems;
     (void)strprofilenames;
     (void)preserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -1226,13 +1617,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WlanSetProfilePosition");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hclienthandle, (void*)(uintptr_t)pinterfaceguid, (void*)(uintptr_t)strprofilename, (uint32_t)dwposition, (void*)(uintptr_t)preserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hclienthandle, (void*)(uintptr_t)pinterfaceguid, (void*)(uintptr_t)strprofilename, (uint32_t)dwposition, (void*)(uintptr_t)preserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
     (void)pinterfaceguid;
     (void)strprofilename;
     (void)dwposition;
     (void)preserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -1248,12 +1646,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WlanSetPsdIEDataList");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hclienthandle, (void*)(uintptr_t)strformat, (void*)(uintptr_t)ppsdiedatalist, (void*)(uintptr_t)preserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hclienthandle, (void*)(uintptr_t)strformat, (void*)(uintptr_t)ppsdiedatalist, (void*)(uintptr_t)preserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
     (void)strformat;
     (void)ppsdiedatalist;
     (void)preserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -1269,11 +1674,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WlanSetSecuritySettings");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hclienthandle, (int32_t)securableobject, (void*)(uintptr_t)strmodifiedsddl) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hclienthandle, (int32_t)securableobject, (void*)(uintptr_t)strmodifiedsddl);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
     (void)securableobject;
     (void)strmodifiedsddl;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -1289,7 +1701,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("wlanui.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WlanUIEditProfile");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwclientversion, (void*)(uintptr_t)wstrprofilename, (void*)(uintptr_t)pinterfaceguid, (void*)(uintptr_t)hwnd, (int32_t)wlstartpage, (void*)(uintptr_t)preserved, (void*)(uintptr_t)pwlanreasoncode) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwclientversion, (void*)(uintptr_t)wstrprofilename, (void*)(uintptr_t)pinterfaceguid, (void*)(uintptr_t)hwnd, (int32_t)wlstartpage, (void*)(uintptr_t)preserved, (void*)(uintptr_t)pwlanreasoncode);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dwclientversion;
     (void)wstrprofilename;
@@ -1298,6 +1716,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)wlstartpage;
     (void)preserved;
     (void)pwlanreasoncode;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;

@@ -62,10 +62,17 @@ static Napi::Value windowssys_windows_wdk_devices_humaninterfacedevice_vhfAsyncO
         HMODULE km_h_mod = LoadLibraryA("vhfum.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "VhfAsyncOperationComplete")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(vhfoperationhandle, completionstatus) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(vhfoperationhandle, completionstatus);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)vhfoperationhandle;
     (void)completionstatus;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -82,10 +89,17 @@ static Napi::Value windowssys_windows_wdk_devices_humaninterfacedevice_vhfCreate
         HMODULE km_h_mod = LoadLibraryA("vhfum.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "VhfCreate")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(vhfconfig, vhfhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(vhfconfig, vhfhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)vhfconfig;
     (void)vhfhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -102,10 +116,15 @@ static Napi::Value windowssys_windows_wdk_devices_humaninterfacedevice_vhfDelete
         HMODULE km_h_mod = LoadLibraryA("vhfum.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "VhfDelete")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(vhfhandle, wait);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(vhfhandle, wait);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)vhfhandle;
     (void)wait;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -121,10 +140,17 @@ static Napi::Value windowssys_windows_wdk_devices_humaninterfacedevice_vhfReadRe
         HMODULE km_h_mod = LoadLibraryA("vhfum.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "VhfReadReportSubmit")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(vhfhandle, hidtransferpacket) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(vhfhandle, hidtransferpacket);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)vhfhandle;
     (void)hidtransferpacket;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -140,9 +166,16 @@ static Napi::Value windowssys_windows_wdk_devices_humaninterfacedevice_vhfStart_
         HMODULE km_h_mod = LoadLibraryA("vhfum.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "VhfStart")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(vhfhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(vhfhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)vhfhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

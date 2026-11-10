@@ -68,7 +68,13 @@ static Napi::Value windowssys_windows_win32_networking_winsock_acceptEx_napi(con
         HMODULE km_h_mod = LoadLibraryA("mswsock.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AcceptEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(slistensocket, sacceptsocket, lpoutputbuffer, dwreceivedatalength, dwlocaladdresslength, dwremoteaddresslength, lpdwbytesreceived, lpoverlapped) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(slistensocket, sacceptsocket, lpoutputbuffer, dwreceivedatalength, dwlocaladdresslength, dwremoteaddresslength, lpdwbytesreceived, lpoverlapped);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)slistensocket;
     (void)sacceptsocket;
@@ -78,6 +84,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_acceptEx_napi(con
     (void)dwremoteaddresslength;
     (void)lpdwbytesreceived;
     (void)lpoverlapped;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -95,11 +102,18 @@ static Napi::Value windowssys_windows_win32_networking_winsock_enumProtocolsA_na
         HMODULE km_h_mod = LoadLibraryA("mswsock.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EnumProtocolsA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpiprotocols, lpprotocolbuffer, lpdwbufferlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpiprotocols, lpprotocolbuffer, lpdwbufferlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpiprotocols;
     (void)lpprotocolbuffer;
     (void)lpdwbufferlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -117,11 +131,18 @@ static Napi::Value windowssys_windows_win32_networking_winsock_enumProtocolsW_na
         HMODULE km_h_mod = LoadLibraryA("mswsock.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EnumProtocolsW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpiprotocols, lpprotocolbuffer, lpdwbufferlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpiprotocols, lpprotocolbuffer, lpdwbufferlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpiprotocols;
     (void)lpprotocolbuffer;
     (void)lpdwbufferlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -137,9 +158,14 @@ static Napi::Value windowssys_windows_win32_networking_winsock_freeAddrInfoEx_na
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FreeAddrInfoEx")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(paddrinfoex);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(paddrinfoex);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)paddrinfoex;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -154,9 +180,14 @@ static Napi::Value windowssys_windows_win32_networking_winsock_freeAddrInfoExW_n
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FreeAddrInfoExW")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(paddrinfoex);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(paddrinfoex);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)paddrinfoex;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -171,9 +202,14 @@ static Napi::Value windowssys_windows_win32_networking_winsock_freeAddrInfoW_nap
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FreeAddrInfoW")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(paddrinfo);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(paddrinfo);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)paddrinfo;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -195,7 +231,11 @@ static Napi::Value windowssys_windows_win32_networking_winsock_getAcceptExSockad
         HMODULE km_h_mod = LoadLibraryA("mswsock.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetAcceptExSockaddrs")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(lpoutputbuffer, dwreceivedatalength, dwlocaladdresslength, dwremoteaddresslength, localsockaddr, localsockaddrlength, remotesockaddr, remotesockaddrlength);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(lpoutputbuffer, dwreceivedatalength, dwlocaladdresslength, dwremoteaddresslength, localsockaddr, localsockaddrlength, remotesockaddr, remotesockaddrlength);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)lpoutputbuffer;
     (void)dwreceivedatalength;
@@ -205,6 +245,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_getAcceptExSockad
     (void)localsockaddrlength;
     (void)remotesockaddr;
     (void)remotesockaddrlength;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -228,7 +269,13 @@ static Napi::Value windowssys_windows_win32_networking_winsock_getAddrInfoExA_na
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetAddrInfoExA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pname, pservicename, dwnamespace, lpnspid, hints, ppresult, timeout, lpoverlapped, lpcompletionroutine, lpnamehandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pname, pservicename, dwnamespace, lpnspid, hints, ppresult, timeout, lpoverlapped, lpcompletionroutine, lpnamehandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pname;
     (void)pservicename;
@@ -240,6 +287,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_getAddrInfoExA_na
     (void)lpoverlapped;
     (void)lpcompletionroutine;
     (void)lpnamehandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -255,9 +303,16 @@ static Napi::Value windowssys_windows_win32_networking_winsock_getAddrInfoExCanc
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetAddrInfoExCancel")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lphandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lphandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lphandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -273,9 +328,16 @@ static Napi::Value windowssys_windows_win32_networking_winsock_getAddrInfoExOver
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetAddrInfoExOverlappedResult")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpoverlapped) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpoverlapped);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpoverlapped;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -300,7 +362,13 @@ static Napi::Value windowssys_windows_win32_networking_winsock_getAddrInfoExW_na
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetAddrInfoExW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pname, pservicename, dwnamespace, lpnspid, hints, ppresult, timeout, lpoverlapped, lpcompletionroutine, lphandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pname, pservicename, dwnamespace, lpnspid, hints, ppresult, timeout, lpoverlapped, lpcompletionroutine, lphandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pname;
     (void)pservicename;
@@ -312,6 +380,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_getAddrInfoExW_na
     (void)lpoverlapped;
     (void)lpcompletionroutine;
     (void)lphandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -330,12 +399,19 @@ static Napi::Value windowssys_windows_win32_networking_winsock_getAddrInfoW_napi
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetAddrInfoW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pnodename, pservicename, phints, ppresult) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pnodename, pservicename, phints, ppresult);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pnodename;
     (void)pservicename;
     (void)phints;
     (void)ppresult;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -360,7 +436,13 @@ static Napi::Value windowssys_windows_win32_networking_winsock_getAddressByNameA
         HMODULE km_h_mod = LoadLibraryA("mswsock.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetAddressByNameA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwnamespace, lpservicetype, lpservicename, lpiprotocols, dwresolution, lpserviceasyncinfo, lpcsaddrbuffer, lpdwbufferlength, lpaliasbuffer, lpdwaliasbufferlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwnamespace, lpservicetype, lpservicename, lpiprotocols, dwresolution, lpserviceasyncinfo, lpcsaddrbuffer, lpdwbufferlength, lpaliasbuffer, lpdwaliasbufferlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwnamespace;
     (void)lpservicetype;
@@ -372,6 +454,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_getAddressByNameA
     (void)lpdwbufferlength;
     (void)lpaliasbuffer;
     (void)lpdwaliasbufferlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -396,7 +479,13 @@ static Napi::Value windowssys_windows_win32_networking_winsock_getAddressByNameW
         HMODULE km_h_mod = LoadLibraryA("mswsock.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetAddressByNameW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwnamespace, lpservicetype, lpservicename, lpiprotocols, dwresolution, lpserviceasyncinfo, lpcsaddrbuffer, lpdwbufferlength, lpaliasbuffer, lpdwaliasbufferlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwnamespace, lpservicetype, lpservicename, lpiprotocols, dwresolution, lpserviceasyncinfo, lpcsaddrbuffer, lpdwbufferlength, lpaliasbuffer, lpdwaliasbufferlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwnamespace;
     (void)lpservicetype;
@@ -408,6 +497,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_getAddressByNameW
     (void)lpdwbufferlength;
     (void)lpaliasbuffer;
     (void)lpdwaliasbufferlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -424,10 +514,17 @@ static Napi::Value windowssys_windows_win32_networking_winsock_getHostNameW_napi
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetHostNameW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(name, namelen) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(name, namelen);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)name;
     (void)namelen;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -445,11 +542,18 @@ static Napi::Value windowssys_windows_win32_networking_winsock_getNameByTypeA_na
         HMODULE km_h_mod = LoadLibraryA("mswsock.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetNameByTypeA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpservicetype, lpservicename, dwnamelength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpservicetype, lpservicename, dwnamelength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpservicetype;
     (void)lpservicename;
     (void)dwnamelength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -467,11 +571,18 @@ static Napi::Value windowssys_windows_win32_networking_winsock_getNameByTypeW_na
         HMODULE km_h_mod = LoadLibraryA("mswsock.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetNameByTypeW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpservicetype, lpservicename, dwnamelength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpservicetype, lpservicename, dwnamelength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpservicetype;
     (void)lpservicename;
     (void)dwnamelength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -493,7 +604,13 @@ static Napi::Value windowssys_windows_win32_networking_winsock_getNameInfoW_napi
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetNameInfoW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(psockaddr, sockaddrlength, pnodebuffer, nodebuffersize, pservicebuffer, servicebuffersize, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(psockaddr, sockaddrlength, pnodebuffer, nodebuffersize, pservicebuffer, servicebuffersize, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)psockaddr;
     (void)sockaddrlength;
@@ -502,6 +619,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_getNameInfoW_napi
     (void)pservicebuffer;
     (void)servicebuffersize;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -523,7 +641,13 @@ static Napi::Value windowssys_windows_win32_networking_winsock_getServiceA_napi(
         HMODULE km_h_mod = LoadLibraryA("mswsock.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetServiceA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwnamespace, lpguid, lpservicename, dwproperties, lpbuffer, lpdwbuffersize, lpserviceasyncinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwnamespace, lpguid, lpservicename, dwproperties, lpbuffer, lpdwbuffersize, lpserviceasyncinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwnamespace;
     (void)lpguid;
@@ -532,6 +656,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_getServiceA_napi(
     (void)lpbuffer;
     (void)lpdwbuffersize;
     (void)lpserviceasyncinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -553,7 +678,13 @@ static Napi::Value windowssys_windows_win32_networking_winsock_getServiceW_napi(
         HMODULE km_h_mod = LoadLibraryA("mswsock.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetServiceW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwnamespace, lpguid, lpservicename, dwproperties, lpbuffer, lpdwbuffersize, lpserviceasyncinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwnamespace, lpguid, lpservicename, dwproperties, lpbuffer, lpdwbuffersize, lpserviceasyncinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwnamespace;
     (void)lpguid;
@@ -562,6 +693,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_getServiceW_napi(
     (void)lpbuffer;
     (void)lpdwbuffersize;
     (void)lpserviceasyncinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -578,10 +710,17 @@ static Napi::Value windowssys_windows_win32_networking_winsock_getTypeByNameA_na
         HMODULE km_h_mod = LoadLibraryA("mswsock.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetTypeByNameA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpservicename, lpservicetype) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpservicename, lpservicetype);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpservicename;
     (void)lpservicetype;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -598,10 +737,17 @@ static Napi::Value windowssys_windows_win32_networking_winsock_getTypeByNameW_na
         HMODULE km_h_mod = LoadLibraryA("mswsock.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetTypeByNameW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpservicename, lpservicetype) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpservicename, lpservicetype);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpservicename;
     (void)lpservicetype;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -620,13 +766,20 @@ static Napi::Value windowssys_windows_win32_networking_winsock_inetNtopW_napi(co
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InetNtopW")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(family, paddr, pstringbuf, stringbufsize) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(family, paddr, pstringbuf, stringbufsize);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)family;
     (void)paddr;
     (void)pstringbuf;
     (void)stringbufsize;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -643,11 +796,18 @@ static Napi::Value windowssys_windows_win32_networking_winsock_inetPtonW_napi(co
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InetPtonW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(family, pszaddrstring, paddrbuf) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(family, pszaddrstring, paddrbuf);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)family;
     (void)pszaddrstring;
     (void)paddrbuf;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -669,7 +829,13 @@ static Napi::Value windowssys_windows_win32_networking_winsock_processSocketNoti
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ProcessSocketNotifications")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(completionport, registrationcount, registrationinfos, timeoutms, completioncount, completionportentries, receivedentrycount) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(completionport, registrationcount, registrationinfos, timeoutms, completioncount, completionportentries, receivedentrycount);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)completionport;
     (void)registrationcount;
@@ -678,6 +844,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_processSocketNoti
     (void)completioncount;
     (void)completionportentries;
     (void)receivedentrycount;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -694,11 +861,18 @@ static Napi::Value windowssys_windows_win32_networking_winsock_rtlEthernetAddres
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtlEthernetAddressToStringA")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(addr, s) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(addr, s);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)addr;
     (void)s;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -714,11 +888,18 @@ static Napi::Value windowssys_windows_win32_networking_winsock_rtlEthernetAddres
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtlEthernetAddressToStringW")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(addr, s) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(addr, s);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)addr;
     (void)s;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -735,11 +916,18 @@ static Napi::Value windowssys_windows_win32_networking_winsock_rtlEthernetString
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtlEthernetStringToAddressA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(s, terminator, addr) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(s, terminator, addr);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)s;
     (void)terminator;
     (void)addr;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -757,11 +945,18 @@ static Napi::Value windowssys_windows_win32_networking_winsock_rtlEthernetString
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtlEthernetStringToAddressW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(s, terminator, addr) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(s, terminator, addr);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)s;
     (void)terminator;
     (void)addr;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -778,11 +973,18 @@ static Napi::Value windowssys_windows_win32_networking_winsock_rtlIpv4AddressToS
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtlIpv4AddressToStringA")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(addr, s) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(addr, s);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)addr;
     (void)s;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -800,12 +1002,19 @@ static Napi::Value windowssys_windows_win32_networking_winsock_rtlIpv4AddressToS
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtlIpv4AddressToStringExA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(address, port, addressstring, addressstringlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(address, port, addressstring, addressstringlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)address;
     (void)port;
     (void)addressstring;
     (void)addressstringlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -824,12 +1033,19 @@ static Napi::Value windowssys_windows_win32_networking_winsock_rtlIpv4AddressToS
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtlIpv4AddressToStringExW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(address, port, addressstring, addressstringlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(address, port, addressstring, addressstringlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)address;
     (void)port;
     (void)addressstring;
     (void)addressstringlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -846,11 +1062,18 @@ static Napi::Value windowssys_windows_win32_networking_winsock_rtlIpv4AddressToS
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtlIpv4AddressToStringW")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(addr, s) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(addr, s);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)addr;
     (void)s;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -868,12 +1091,19 @@ static Napi::Value windowssys_windows_win32_networking_winsock_rtlIpv4StringToAd
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtlIpv4StringToAddressA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(s, strict, terminator, addr) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(s, strict, terminator, addr);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)s;
     (void)strict;
     (void)terminator;
     (void)addr;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -892,12 +1122,19 @@ static Napi::Value windowssys_windows_win32_networking_winsock_rtlIpv4StringToAd
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtlIpv4StringToAddressExA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(addressstring, strict, address, port) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(addressstring, strict, address, port);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)addressstring;
     (void)strict;
     (void)address;
     (void)port;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -916,12 +1153,19 @@ static Napi::Value windowssys_windows_win32_networking_winsock_rtlIpv4StringToAd
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtlIpv4StringToAddressExW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(addressstring, strict, address, port) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(addressstring, strict, address, port);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)addressstring;
     (void)strict;
     (void)address;
     (void)port;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -940,12 +1184,19 @@ static Napi::Value windowssys_windows_win32_networking_winsock_rtlIpv4StringToAd
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtlIpv4StringToAddressW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(s, strict, terminator, addr) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(s, strict, terminator, addr);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)s;
     (void)strict;
     (void)terminator;
     (void)addr;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -962,11 +1213,18 @@ static Napi::Value windowssys_windows_win32_networking_winsock_rtlIpv6AddressToS
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtlIpv6AddressToStringA")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(addr, s) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(addr, s);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)addr;
     (void)s;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -985,13 +1243,20 @@ static Napi::Value windowssys_windows_win32_networking_winsock_rtlIpv6AddressToS
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtlIpv6AddressToStringExA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(address, scopeid, port, addressstring, addressstringlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(address, scopeid, port, addressstring, addressstringlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)address;
     (void)scopeid;
     (void)port;
     (void)addressstring;
     (void)addressstringlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1011,13 +1276,20 @@ static Napi::Value windowssys_windows_win32_networking_winsock_rtlIpv6AddressToS
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtlIpv6AddressToStringExW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(address, scopeid, port, addressstring, addressstringlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(address, scopeid, port, addressstring, addressstringlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)address;
     (void)scopeid;
     (void)port;
     (void)addressstring;
     (void)addressstringlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1034,11 +1306,18 @@ static Napi::Value windowssys_windows_win32_networking_winsock_rtlIpv6AddressToS
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtlIpv6AddressToStringW")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(addr, s) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(addr, s);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)addr;
     (void)s;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1055,11 +1334,18 @@ static Napi::Value windowssys_windows_win32_networking_winsock_rtlIpv6StringToAd
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtlIpv6StringToAddressA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(s, terminator, addr) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(s, terminator, addr);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)s;
     (void)terminator;
     (void)addr;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1078,12 +1364,19 @@ static Napi::Value windowssys_windows_win32_networking_winsock_rtlIpv6StringToAd
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtlIpv6StringToAddressExA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(addressstring, address, scopeid, port) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(addressstring, address, scopeid, port);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)addressstring;
     (void)address;
     (void)scopeid;
     (void)port;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1102,12 +1395,19 @@ static Napi::Value windowssys_windows_win32_networking_winsock_rtlIpv6StringToAd
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtlIpv6StringToAddressExW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(addressstring, address, scopeid, port) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(addressstring, address, scopeid, port);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)addressstring;
     (void)address;
     (void)scopeid;
     (void)port;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1125,11 +1425,18 @@ static Napi::Value windowssys_windows_win32_networking_winsock_rtlIpv6StringToAd
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtlIpv6StringToAddressW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(s, terminator, addr) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(s, terminator, addr);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)s;
     (void)terminator;
     (void)addr;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1156,7 +1463,13 @@ static Napi::Value windowssys_windows_win32_networking_winsock_setAddrInfoExA_na
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetAddrInfoExA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pname, pservicename, paddresses, dwaddresscount, lpblob, dwflags, dwnamespace, lpnspid, timeout, lpoverlapped, lpcompletionroutine, lpnamehandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pname, pservicename, paddresses, dwaddresscount, lpblob, dwflags, dwnamespace, lpnspid, timeout, lpoverlapped, lpcompletionroutine, lpnamehandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pname;
     (void)pservicename;
@@ -1170,6 +1483,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_setAddrInfoExA_na
     (void)lpoverlapped;
     (void)lpcompletionroutine;
     (void)lpnamehandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1196,7 +1510,13 @@ static Napi::Value windowssys_windows_win32_networking_winsock_setAddrInfoExW_na
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetAddrInfoExW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pname, pservicename, paddresses, dwaddresscount, lpblob, dwflags, dwnamespace, lpnspid, timeout, lpoverlapped, lpcompletionroutine, lpnamehandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pname, pservicename, paddresses, dwaddresscount, lpblob, dwflags, dwnamespace, lpnspid, timeout, lpoverlapped, lpcompletionroutine, lpnamehandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pname;
     (void)pservicename;
@@ -1210,6 +1530,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_setAddrInfoExW_na
     (void)lpoverlapped;
     (void)lpcompletionroutine;
     (void)lpnamehandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1230,7 +1551,13 @@ static Napi::Value windowssys_windows_win32_networking_winsock_setServiceA_napi(
         HMODULE km_h_mod = LoadLibraryA("mswsock.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetServiceA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwnamespace, dwoperation, dwflags, lpserviceinfo, lpserviceasyncinfo, lpdwstatusflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwnamespace, dwoperation, dwflags, lpserviceinfo, lpserviceasyncinfo, lpdwstatusflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwnamespace;
     (void)dwoperation;
@@ -1238,6 +1565,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_setServiceA_napi(
     (void)lpserviceinfo;
     (void)lpserviceasyncinfo;
     (void)lpdwstatusflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1258,7 +1586,13 @@ static Napi::Value windowssys_windows_win32_networking_winsock_setServiceW_napi(
         HMODULE km_h_mod = LoadLibraryA("mswsock.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetServiceW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwnamespace, dwoperation, dwflags, lpserviceinfo, lpserviceasyncinfo, lpdwstatusflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwnamespace, dwoperation, dwflags, lpserviceinfo, lpserviceasyncinfo, lpdwstatusflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwnamespace;
     (void)dwoperation;
@@ -1266,6 +1600,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_setServiceW_napi(
     (void)lpserviceinfo;
     (void)lpserviceasyncinfo;
     (void)lpdwstatusflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1281,9 +1616,16 @@ static Napi::Value windowssys_windows_win32_networking_winsock_setSocketMediaStr
         HMODULE km_h_mod = LoadLibraryA("windows.networking.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetSocketMediaStreamingMode")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(value) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(value);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)value;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1305,7 +1647,13 @@ static Napi::Value windowssys_windows_win32_networking_winsock_transmitFile_napi
         HMODULE km_h_mod = LoadLibraryA("mswsock.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TransmitFile")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hsocket, hfile, nnumberofbytestowrite, nnumberofbytespersend, lpoverlapped, lptransmitbuffers, dwreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hsocket, hfile, nnumberofbytestowrite, nnumberofbytespersend, lpoverlapped, lptransmitbuffers, dwreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hsocket;
     (void)hfile;
@@ -1314,6 +1662,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_transmitFile_napi
     (void)lpoverlapped;
     (void)lptransmitbuffers;
     (void)dwreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1333,13 +1682,20 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wPUCompleteOverla
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WPUCompleteOverlappedRequest")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(s, lpoverlapped, dwerror, cbtransferred, lperrno) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(s, lpoverlapped, dwerror, cbtransferred, lperrno);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)s;
     (void)lpoverlapped;
     (void)dwerror;
     (void)cbtransferred;
     (void)lperrno;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1359,13 +1715,20 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSAAccept_napi(co
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSAAccept")));
     }
-    uint64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(s, addr, addrlen, lpfncondition, dwcallbackdata) : 0;
+    uint64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(s, addr, addrlen, lpfncondition, dwcallbackdata);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)s;
     (void)addr;
     (void)addrlen;
     (void)lpfncondition;
     (void)dwcallbackdata;
+    errno = ENOSYS;
     uint64_t km_res = 0;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
@@ -1385,13 +1748,20 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSAAddressToStrin
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSAAddressToStringA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpsaaddress, dwaddresslength, lpprotocolinfo, lpszaddressstring, lpdwaddressstringlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpsaaddress, dwaddresslength, lpprotocolinfo, lpszaddressstring, lpdwaddressstringlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpsaaddress;
     (void)dwaddresslength;
     (void)lpprotocolinfo;
     (void)lpszaddressstring;
     (void)lpdwaddressstringlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1411,13 +1781,20 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSAAddressToStrin
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSAAddressToStringW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpsaaddress, dwaddresslength, lpprotocolinfo, lpszaddressstring, lpdwaddressstringlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpsaaddress, dwaddresslength, lpprotocolinfo, lpszaddressstring, lpdwaddressstringlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpsaaddress;
     (void)dwaddresslength;
     (void)lpprotocolinfo;
     (void)lpszaddressstring;
     (void)lpdwaddressstringlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1434,10 +1811,17 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSAAdvertiseProvi
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSAAdvertiseProvider")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(puuidproviderid, pnspv2routine) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(puuidproviderid, pnspv2routine);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)puuidproviderid;
     (void)pnspv2routine;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1459,7 +1843,13 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSAAsyncGetHostBy
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSAAsyncGetHostByAddr")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, wmsg, addr, len, type, buf, buflen) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, wmsg, addr, len, type, buf, buflen);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hwnd;
     (void)wmsg;
@@ -1468,7 +1858,8 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSAAsyncGetHostBy
     (void)type;
     (void)buf;
     (void)buflen;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1487,14 +1878,21 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSAAsyncGetHostBy
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSAAsyncGetHostByName")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, wmsg, name, buf, buflen) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, wmsg, name, buf, buflen);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hwnd;
     (void)wmsg;
     (void)name;
     (void)buf;
     (void)buflen;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1513,14 +1911,21 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSAAsyncGetProtoB
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSAAsyncGetProtoByName")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, wmsg, name, buf, buflen) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, wmsg, name, buf, buflen);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hwnd;
     (void)wmsg;
     (void)name;
     (void)buf;
     (void)buflen;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1539,14 +1944,21 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSAAsyncGetProtoB
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSAAsyncGetProtoByNumber")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, wmsg, number, buf, buflen) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, wmsg, number, buf, buflen);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hwnd;
     (void)wmsg;
     (void)number;
     (void)buf;
     (void)buflen;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1566,7 +1978,13 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSAAsyncGetServBy
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSAAsyncGetServByName")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, wmsg, name, proto, buf, buflen) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, wmsg, name, proto, buf, buflen);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hwnd;
     (void)wmsg;
@@ -1574,7 +1992,8 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSAAsyncGetServBy
     (void)proto;
     (void)buf;
     (void)buflen;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1594,7 +2013,13 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSAAsyncGetServBy
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSAAsyncGetServByPort")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, wmsg, port, proto, buf, buflen) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, wmsg, port, proto, buf, buflen);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hwnd;
     (void)wmsg;
@@ -1602,7 +2027,8 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSAAsyncGetServBy
     (void)proto;
     (void)buf;
     (void)buflen;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1620,12 +2046,19 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSAAsyncSelect_na
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSAAsyncSelect")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(s, hwnd, wmsg, levent) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(s, hwnd, wmsg, levent);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)s;
     (void)hwnd;
     (void)wmsg;
     (void)levent;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1641,9 +2074,16 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSACancelAsyncReq
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSACancelAsyncRequest")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hasynctaskhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hasynctaskhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hasynctaskhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1658,8 +2098,15 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSACancelBlocking
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSACancelBlockingCall")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1674,8 +2121,15 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSACleanup_napi(c
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSACleanup")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1691,9 +2145,16 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSACloseEvent_nap
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSACloseEvent")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hevent) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hevent);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hevent;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1715,7 +2176,13 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSAConnect_napi(c
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSAConnect")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(s, name, namelen, lpcallerdata, lpcalleedata, lpsqos, lpgqos) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(s, name, namelen, lpcallerdata, lpcalleedata, lpsqos, lpgqos);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)s;
     (void)name;
@@ -1724,6 +2191,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSAConnect_napi(c
     (void)lpcalleedata;
     (void)lpsqos;
     (void)lpgqos;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1746,7 +2214,13 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSAConnectByList_
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSAConnectByList")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(s, socketaddress, localaddresslength, localaddress, remoteaddresslength, remoteaddress, timeout, reserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(s, socketaddress, localaddresslength, localaddress, remoteaddresslength, remoteaddress, timeout, reserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)s;
     (void)socketaddress;
@@ -1756,6 +2230,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSAConnectByList_
     (void)remoteaddress;
     (void)timeout;
     (void)reserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1779,7 +2254,13 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSAConnectByNameA
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSAConnectByNameA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(s, nodename, servicename, localaddresslength, localaddress, remoteaddresslength, remoteaddress, timeout, reserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(s, nodename, servicename, localaddresslength, localaddress, remoteaddresslength, remoteaddress, timeout, reserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)s;
     (void)nodename;
@@ -1790,6 +2271,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSAConnectByNameA
     (void)remoteaddress;
     (void)timeout;
     (void)reserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1813,7 +2295,13 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSAConnectByNameW
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSAConnectByNameW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(s, nodename, servicename, localaddresslength, localaddress, remoteaddresslength, remoteaddress, timeout, reserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(s, nodename, servicename, localaddresslength, localaddress, remoteaddresslength, remoteaddress, timeout, reserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)s;
     (void)nodename;
@@ -1824,6 +2312,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSAConnectByNameW
     (void)remoteaddress;
     (void)timeout;
     (void)reserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1838,8 +2327,15 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSACreateEvent_na
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSACreateEvent")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -1859,13 +2355,20 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSADeleteSocketPe
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSADeleteSocketPeerTargetName")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(arg_0_socket, peeraddr, peeraddrlen, overlapped, completionroutine) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(arg_0_socket, peeraddr, peeraddrlen, overlapped, completionroutine);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)arg_0_socket;
     (void)peeraddr;
     (void)peeraddrlen;
     (void)overlapped;
     (void)completionroutine;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1883,11 +2386,18 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSADuplicateSocke
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSADuplicateSocketA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(s, dwprocessid, lpprotocolinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(s, dwprocessid, lpprotocolinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)s;
     (void)dwprocessid;
     (void)lpprotocolinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1905,11 +2415,18 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSADuplicateSocke
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSADuplicateSocketW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(s, dwprocessid, lpprotocolinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(s, dwprocessid, lpprotocolinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)s;
     (void)dwprocessid;
     (void)lpprotocolinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1926,10 +2443,17 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSAEnumNameSpaceP
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSAEnumNameSpaceProvidersA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpdwbufferlength, lpnspbuffer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpdwbufferlength, lpnspbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpdwbufferlength;
     (void)lpnspbuffer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1946,10 +2470,17 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSAEnumNameSpaceP
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSAEnumNameSpaceProvidersExA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpdwbufferlength, lpnspbuffer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpdwbufferlength, lpnspbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpdwbufferlength;
     (void)lpnspbuffer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1966,10 +2497,17 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSAEnumNameSpaceP
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSAEnumNameSpaceProvidersExW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpdwbufferlength, lpnspbuffer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpdwbufferlength, lpnspbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpdwbufferlength;
     (void)lpnspbuffer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1986,10 +2524,17 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSAEnumNameSpaceP
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSAEnumNameSpaceProvidersW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpdwbufferlength, lpnspbuffer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpdwbufferlength, lpnspbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpdwbufferlength;
     (void)lpnspbuffer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2007,11 +2552,18 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSAEnumNetworkEve
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSAEnumNetworkEvents")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(s, heventobject, lpnetworkevents) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(s, heventobject, lpnetworkevents);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)s;
     (void)heventobject;
     (void)lpnetworkevents;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2029,11 +2581,18 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSAEnumProtocolsA
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSAEnumProtocolsA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpiprotocols, lpprotocolbuffer, lpdwbufferlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpiprotocols, lpprotocolbuffer, lpdwbufferlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpiprotocols;
     (void)lpprotocolbuffer;
     (void)lpdwbufferlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2051,11 +2610,18 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSAEnumProtocolsW
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSAEnumProtocolsW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpiprotocols, lpprotocolbuffer, lpdwbufferlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpiprotocols, lpprotocolbuffer, lpdwbufferlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpiprotocols;
     (void)lpprotocolbuffer;
     (void)lpdwbufferlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2073,11 +2639,18 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSAEventSelect_na
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSAEventSelect")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(s, heventobject, lnetworkevents) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(s, heventobject, lnetworkevents);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)s;
     (void)heventobject;
     (void)lnetworkevents;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2092,8 +2665,15 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSAGetLastError_n
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSAGetLastError")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2113,13 +2693,20 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSAGetOverlappedR
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSAGetOverlappedResult")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(s, lpoverlapped, lpcbtransfer, fwait, lpdwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(s, lpoverlapped, lpcbtransfer, fwait, lpdwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)s;
     (void)lpoverlapped;
     (void)lpcbtransfer;
     (void)fwait;
     (void)lpdwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2137,11 +2724,18 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSAGetQOSByName_n
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSAGetQOSByName")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(s, lpqosname, lpqos) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(s, lpqosname, lpqos);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)s;
     (void)lpqosname;
     (void)lpqos;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2160,12 +2754,19 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSAGetServiceClas
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSAGetServiceClassInfoA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpproviderid, lpserviceclassid, lpdwbufsize, lpserviceclassinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpproviderid, lpserviceclassid, lpdwbufsize, lpserviceclassinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpproviderid;
     (void)lpserviceclassid;
     (void)lpdwbufsize;
     (void)lpserviceclassinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2184,12 +2785,19 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSAGetServiceClas
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSAGetServiceClassInfoW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpproviderid, lpserviceclassid, lpdwbufsize, lpserviceclassinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpproviderid, lpserviceclassid, lpdwbufsize, lpserviceclassinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpproviderid;
     (void)lpserviceclassid;
     (void)lpdwbufsize;
     (void)lpserviceclassinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2207,11 +2815,18 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSAGetServiceClas
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSAGetServiceClassNameByClassIdA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpserviceclassid, lpszserviceclassname, lpdwbufferlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpserviceclassid, lpszserviceclassname, lpdwbufferlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpserviceclassid;
     (void)lpszserviceclassname;
     (void)lpdwbufferlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2229,11 +2844,18 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSAGetServiceClas
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSAGetServiceClassNameByClassIdW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpserviceclassid, lpszserviceclassname, lpdwbufferlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpserviceclassid, lpszserviceclassname, lpdwbufferlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpserviceclassid;
     (void)lpszserviceclassname;
     (void)lpdwbufferlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2251,11 +2873,18 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSAHtonl_napi(con
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSAHtonl")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(s, hostlong, lpnetlong) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(s, hostlong, lpnetlong);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)s;
     (void)hostlong;
     (void)lpnetlong;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2273,11 +2902,18 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSAHtons_napi(con
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSAHtons")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(s, hostshort, lpnetshort) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(s, hostshort, lpnetshort);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)s;
     (void)hostshort;
     (void)lpnetshort;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2295,11 +2931,18 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSAImpersonateSoc
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSAImpersonateSocketPeer")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(arg_0_socket, peeraddr, peeraddrlen) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(arg_0_socket, peeraddr, peeraddrlen);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)arg_0_socket;
     (void)peeraddr;
     (void)peeraddrlen;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2315,9 +2958,16 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSAInstallService
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSAInstallServiceClassA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpserviceclassinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpserviceclassinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpserviceclassinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2333,9 +2983,16 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSAInstallService
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSAInstallServiceClassW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpserviceclassinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpserviceclassinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpserviceclassinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2359,7 +3016,13 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSAIoctl_napi(con
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSAIoctl")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(s, dwiocontrolcode, lpvinbuffer, cbinbuffer, lpvoutbuffer, cboutbuffer, lpcbbytesreturned, lpoverlapped, lpcompletionroutine) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(s, dwiocontrolcode, lpvinbuffer, cbinbuffer, lpvoutbuffer, cboutbuffer, lpcbbytesreturned, lpoverlapped, lpcompletionroutine);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)s;
     (void)dwiocontrolcode;
@@ -2370,6 +3033,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSAIoctl_napi(con
     (void)lpcbbytesreturned;
     (void)lpoverlapped;
     (void)lpcompletionroutine;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2384,8 +3048,15 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSAIsBlocking_nap
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSAIsBlocking")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2408,7 +3079,13 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSAJoinLeaf_napi(
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSAJoinLeaf")));
     }
-    uint64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(s, name, namelen, lpcallerdata, lpcalleedata, lpsqos, lpgqos, dwflags) : 0;
+    uint64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(s, name, namelen, lpcallerdata, lpcalleedata, lpsqos, lpgqos, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)s;
     (void)name;
@@ -2418,6 +3095,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSAJoinLeaf_napi(
     (void)lpsqos;
     (void)lpgqos;
     (void)dwflags;
+    errno = ENOSYS;
     uint64_t km_res = 0;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
@@ -2435,11 +3113,18 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSALookupServiceB
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSALookupServiceBeginA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpqsrestrictions, dwcontrolflags, lphlookup) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpqsrestrictions, dwcontrolflags, lphlookup);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpqsrestrictions;
     (void)dwcontrolflags;
     (void)lphlookup;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2457,11 +3142,18 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSALookupServiceB
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSALookupServiceBeginW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpqsrestrictions, dwcontrolflags, lphlookup) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpqsrestrictions, dwcontrolflags, lphlookup);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpqsrestrictions;
     (void)dwcontrolflags;
     (void)lphlookup;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2477,9 +3169,16 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSALookupServiceE
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSALookupServiceEnd")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hlookup) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hlookup);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hlookup;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2498,12 +3197,19 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSALookupServiceN
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSALookupServiceNextA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hlookup, dwcontrolflags, lpdwbufferlength, lpqsresults) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hlookup, dwcontrolflags, lpdwbufferlength, lpqsresults);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hlookup;
     (void)dwcontrolflags;
     (void)lpdwbufferlength;
     (void)lpqsresults;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2522,12 +3228,19 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSALookupServiceN
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSALookupServiceNextW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hlookup, dwcontrolflags, lpdwbufferlength, lpqsresults) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hlookup, dwcontrolflags, lpdwbufferlength, lpqsresults);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hlookup;
     (void)dwcontrolflags;
     (void)lpdwbufferlength;
     (void)lpqsresults;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2550,7 +3263,13 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSANSPIoctl_napi(
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSANSPIoctl")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hlookup, dwcontrolcode, lpvinbuffer, cbinbuffer, lpvoutbuffer, cboutbuffer, lpcbbytesreturned, lpcompletion) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hlookup, dwcontrolcode, lpvinbuffer, cbinbuffer, lpvoutbuffer, cboutbuffer, lpcbbytesreturned, lpcompletion);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hlookup;
     (void)dwcontrolcode;
@@ -2560,6 +3279,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSANSPIoctl_napi(
     (void)cboutbuffer;
     (void)lpcbbytesreturned;
     (void)lpcompletion;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2577,11 +3297,18 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSANtohl_napi(con
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSANtohl")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(s, netlong, lphostlong) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(s, netlong, lphostlong);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)s;
     (void)netlong;
     (void)lphostlong;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2599,11 +3326,18 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSANtohs_napi(con
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSANtohs")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(s, netshort, lphostshort) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(s, netshort, lphostshort);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)s;
     (void)netshort;
     (void)lphostshort;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2621,11 +3355,18 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSAPoll_napi(cons
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSAPoll")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(fdarray, fds, timeout) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(fdarray, fds, timeout);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)fdarray;
     (void)fds;
     (void)timeout;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2642,10 +3383,17 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSAProviderComple
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSAProviderCompleteAsyncCall")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hasynccall, iretcode) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hasynccall, iretcode);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hasynccall;
     (void)iretcode;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2663,11 +3411,18 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSAProviderConfig
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSAProviderConfigChange")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpnotificationhandle, lpoverlapped, lpcompletionroutine) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpnotificationhandle, lpoverlapped, lpcompletionroutine);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpnotificationhandle;
     (void)lpoverlapped;
     (void)lpcompletionroutine;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2689,7 +3444,13 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSAQuerySocketSec
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSAQuerySocketSecurity")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(arg_0_socket, securityquerytemplate, securityquerytemplatelen, securityqueryinfo, securityqueryinfolen, overlapped, completionroutine) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(arg_0_socket, securityquerytemplate, securityquerytemplatelen, securityqueryinfo, securityqueryinfolen, overlapped, completionroutine);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)arg_0_socket;
     (void)securityquerytemplate;
@@ -2698,6 +3459,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSAQuerySocketSec
     (void)securityqueryinfolen;
     (void)overlapped;
     (void)completionroutine;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2719,7 +3481,13 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSARecv_napi(cons
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSARecv")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(s, lpbuffers, dwbuffercount, lpnumberofbytesrecvd, lpflags, lpoverlapped, lpcompletionroutine) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(s, lpbuffers, dwbuffercount, lpnumberofbytesrecvd, lpflags, lpoverlapped, lpcompletionroutine);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)s;
     (void)lpbuffers;
@@ -2728,6 +3496,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSARecv_napi(cons
     (void)lpflags;
     (void)lpoverlapped;
     (void)lpcompletionroutine;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2744,10 +3513,17 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSARecvDisconnect
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSARecvDisconnect")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(s, lpinbounddisconnectdata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(s, lpinbounddisconnectdata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)s;
     (void)lpinbounddisconnectdata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2766,12 +3542,19 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSARecvEx_napi(co
         HMODULE km_h_mod = LoadLibraryA("mswsock.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSARecvEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(s, buf, len, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(s, buf, len, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)s;
     (void)buf;
     (void)len;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2795,7 +3578,13 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSARecvFrom_napi(
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSARecvFrom")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(s, lpbuffers, dwbuffercount, lpnumberofbytesrecvd, lpflags, lpfrom, lpfromlen, lpoverlapped, lpcompletionroutine) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(s, lpbuffers, dwbuffercount, lpnumberofbytesrecvd, lpflags, lpfrom, lpfromlen, lpoverlapped, lpcompletionroutine);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)s;
     (void)lpbuffers;
@@ -2806,6 +3595,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSARecvFrom_napi(
     (void)lpfromlen;
     (void)lpoverlapped;
     (void)lpcompletionroutine;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2821,9 +3611,16 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSARemoveServiceC
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSARemoveServiceClass")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpserviceclassid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpserviceclassid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpserviceclassid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2839,9 +3636,16 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSAResetEvent_nap
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSAResetEvent")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hevent) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hevent);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hevent;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2856,8 +3660,15 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSARevertImperson
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSARevertImpersonation")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2879,7 +3690,13 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSASend_napi(cons
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSASend")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(s, lpbuffers, dwbuffercount, lpnumberofbytessent, dwflags, lpoverlapped, lpcompletionroutine) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(s, lpbuffers, dwbuffercount, lpnumberofbytessent, dwflags, lpoverlapped, lpcompletionroutine);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)s;
     (void)lpbuffers;
@@ -2888,6 +3705,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSASend_napi(cons
     (void)dwflags;
     (void)lpoverlapped;
     (void)lpcompletionroutine;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2904,10 +3722,17 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSASendDisconnect
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSASendDisconnect")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(s, lpoutbounddisconnectdata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(s, lpoutbounddisconnectdata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)s;
     (void)lpoutbounddisconnectdata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2928,7 +3753,13 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSASendMsg_napi(c
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSASendMsg")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(handle, lpmsg, dwflags, lpnumberofbytessent, lpoverlapped, lpcompletionroutine) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(handle, lpmsg, dwflags, lpnumberofbytessent, lpoverlapped, lpcompletionroutine);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)handle;
     (void)lpmsg;
@@ -2936,6 +3767,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSASendMsg_napi(c
     (void)lpnumberofbytessent;
     (void)lpoverlapped;
     (void)lpcompletionroutine;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2959,7 +3791,13 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSASendTo_napi(co
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSASendTo")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(s, lpbuffers, dwbuffercount, lpnumberofbytessent, dwflags, lpto, itolen, lpoverlapped, lpcompletionroutine) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(s, lpbuffers, dwbuffercount, lpnumberofbytessent, dwflags, lpto, itolen, lpoverlapped, lpcompletionroutine);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)s;
     (void)lpbuffers;
@@ -2970,6 +3808,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSASendTo_napi(co
     (void)itolen;
     (void)lpoverlapped;
     (void)lpcompletionroutine;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2985,9 +3824,16 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSASetEvent_napi(
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSASetEvent")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hevent) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hevent);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hevent;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3003,9 +3849,14 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSASetLastError_n
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSASetLastError")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(ierror);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(ierror);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)ierror;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -3022,11 +3873,18 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSASetServiceA_na
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSASetServiceA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpqsreginfo, essoperation, dwcontrolflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpqsreginfo, essoperation, dwcontrolflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpqsreginfo;
     (void)essoperation;
     (void)dwcontrolflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3044,11 +3902,18 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSASetServiceW_na
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSASetServiceW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpqsreginfo, essoperation, dwcontrolflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpqsreginfo, essoperation, dwcontrolflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpqsreginfo;
     (void)essoperation;
     (void)dwcontrolflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3068,13 +3933,20 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSASetSocketPeerT
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSASetSocketPeerTargetName")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(arg_0_socket, peertargetname, peertargetnamelen, overlapped, completionroutine) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(arg_0_socket, peertargetname, peertargetnamelen, overlapped, completionroutine);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)arg_0_socket;
     (void)peertargetname;
     (void)peertargetnamelen;
     (void)overlapped;
     (void)completionroutine;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3094,13 +3966,20 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSASetSocketSecur
         HMODULE km_h_mod = LoadLibraryA("fwpuclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSASetSocketSecurity")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(arg_0_socket, securitysettings, securitysettingslen, overlapped, completionroutine) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(arg_0_socket, securitysettings, securitysettingslen, overlapped, completionroutine);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)arg_0_socket;
     (void)securitysettings;
     (void)securitysettingslen;
     (void)overlapped;
     (void)completionroutine;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3121,7 +4000,13 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSASocketA_napi(c
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSASocketA")));
     }
-    uint64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(af, type, protocol, lpprotocolinfo, g, dwflags) : 0;
+    uint64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(af, type, protocol, lpprotocolinfo, g, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)af;
     (void)type;
@@ -3129,6 +4014,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSASocketA_napi(c
     (void)lpprotocolinfo;
     (void)g;
     (void)dwflags;
+    errno = ENOSYS;
     uint64_t km_res = 0;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
@@ -3149,7 +4035,13 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSASocketW_napi(c
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSASocketW")));
     }
-    uint64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(af, type, protocol, lpprotocolinfo, g, dwflags) : 0;
+    uint64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(af, type, protocol, lpprotocolinfo, g, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)af;
     (void)type;
@@ -3157,6 +4049,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSASocketW_napi(c
     (void)lpprotocolinfo;
     (void)g;
     (void)dwflags;
+    errno = ENOSYS;
     uint64_t km_res = 0;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
@@ -3173,10 +4066,17 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSAStartup_napi(c
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSAStartup")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(wversionrequested, lpwsadata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(wversionrequested, lpwsadata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)wversionrequested;
     (void)lpwsadata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3196,13 +4096,20 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSAStringToAddres
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSAStringToAddressA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(addressstring, addressfamily, lpprotocolinfo, lpaddress, lpaddresslength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(addressstring, addressfamily, lpprotocolinfo, lpaddress, lpaddresslength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)addressstring;
     (void)addressfamily;
     (void)lpprotocolinfo;
     (void)lpaddress;
     (void)lpaddresslength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3222,13 +4129,20 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSAStringToAddres
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSAStringToAddressW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(addressstring, addressfamily, lpprotocolinfo, lpaddress, lpaddresslength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(addressstring, addressfamily, lpprotocolinfo, lpaddress, lpaddresslength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)addressstring;
     (void)addressfamily;
     (void)lpprotocolinfo;
     (void)lpaddress;
     (void)lpaddresslength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3244,9 +4158,16 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSAUnadvertisePro
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSAUnadvertiseProvider")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(puuidproviderid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(puuidproviderid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)puuidproviderid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3261,8 +4182,15 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSAUnhookBlocking
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSAUnhookBlockingHook")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3282,13 +4210,20 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSAWaitForMultipl
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSAWaitForMultipleEvents")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(cevents, lphevents, fwaitall, dwtimeout, falertable) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(cevents, lphevents, fwaitall, dwtimeout, falertable);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)cevents;
     (void)lphevents;
     (void)fwaitall;
     (void)dwtimeout;
     (void)falertable;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3305,10 +4240,17 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSCDeinstallProvi
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSCDeinstallProvider")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpproviderid, lperrno) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpproviderid, lperrno);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpproviderid;
     (void)lperrno;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3325,10 +4267,17 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSCDeinstallProvi
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSCDeinstallProvider32")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpproviderid, lperrno) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpproviderid, lperrno);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpproviderid;
     (void)lperrno;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3345,10 +4294,17 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSCEnableNSProvid
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSCEnableNSProvider")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpproviderid, fenable) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpproviderid, fenable);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpproviderid;
     (void)fenable;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3365,10 +4321,17 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSCEnableNSProvid
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSCEnableNSProvider32")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpproviderid, fenable) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpproviderid, fenable);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpproviderid;
     (void)fenable;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3385,10 +4348,17 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSCEnumNameSpaceP
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSCEnumNameSpaceProviders32")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpdwbufferlength, lpnspbuffer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpdwbufferlength, lpnspbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpdwbufferlength;
     (void)lpnspbuffer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3405,10 +4375,17 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSCEnumNameSpaceP
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSCEnumNameSpaceProvidersEx32")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpdwbufferlength, lpnspbuffer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpdwbufferlength, lpnspbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpdwbufferlength;
     (void)lpnspbuffer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3427,12 +4404,19 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSCEnumProtocols_
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSCEnumProtocols")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpiprotocols, lpprotocolbuffer, lpdwbufferlength, lperrno) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpiprotocols, lpprotocolbuffer, lpdwbufferlength, lperrno);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpiprotocols;
     (void)lpprotocolbuffer;
     (void)lpdwbufferlength;
     (void)lperrno;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3451,12 +4435,19 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSCEnumProtocols3
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSCEnumProtocols32")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpiprotocols, lpprotocolbuffer, lpdwbufferlength, lperrno) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpiprotocols, lpprotocolbuffer, lpdwbufferlength, lperrno);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpiprotocols;
     (void)lpprotocolbuffer;
     (void)lpdwbufferlength;
     (void)lperrno;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3477,7 +4468,13 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSCGetApplication
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSCGetApplicationCategory")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(path, pathlength, extra, extralength, ppermittedlspcategories, lperrno) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(path, pathlength, extra, extralength, ppermittedlspcategories, lperrno);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)path;
     (void)pathlength;
@@ -3485,6 +4482,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSCGetApplication
     (void)extralength;
     (void)ppermittedlspcategories;
     (void)lperrno;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3505,7 +4503,13 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSCGetProviderInf
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSCGetProviderInfo")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpproviderid, infotype, info, infosize, flags, lperrno) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpproviderid, infotype, info, infosize, flags, lperrno);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpproviderid;
     (void)infotype;
@@ -3513,6 +4517,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSCGetProviderInf
     (void)infosize;
     (void)flags;
     (void)lperrno;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3533,7 +4538,13 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSCGetProviderInf
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSCGetProviderInfo32")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpproviderid, infotype, info, infosize, flags, lperrno) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpproviderid, infotype, info, infosize, flags, lperrno);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpproviderid;
     (void)infotype;
@@ -3541,6 +4552,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSCGetProviderInf
     (void)infosize;
     (void)flags;
     (void)lperrno;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3559,12 +4571,19 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSCGetProviderPat
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSCGetProviderPath")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpproviderid, lpszproviderdllpath, lpproviderdllpathlen, lperrno) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpproviderid, lpszproviderdllpath, lpproviderdllpathlen, lperrno);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpproviderid;
     (void)lpszproviderdllpath;
     (void)lpproviderdllpathlen;
     (void)lperrno;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3583,12 +4602,19 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSCGetProviderPat
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSCGetProviderPath32")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpproviderid, lpszproviderdllpath, lpproviderdllpathlen, lperrno) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpproviderid, lpszproviderdllpath, lpproviderdllpathlen, lperrno);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpproviderid;
     (void)lpszproviderdllpath;
     (void)lpproviderdllpathlen;
     (void)lperrno;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3608,13 +4634,20 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSCInstallNameSpa
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSCInstallNameSpace")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszidentifier, lpszpathname, dwnamespace, dwversion, lpproviderid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszidentifier, lpszpathname, dwnamespace, dwversion, lpproviderid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszidentifier;
     (void)lpszpathname;
     (void)dwnamespace;
     (void)dwversion;
     (void)lpproviderid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3634,13 +4667,20 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSCInstallNameSpa
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSCInstallNameSpace32")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszidentifier, lpszpathname, dwnamespace, dwversion, lpproviderid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszidentifier, lpszpathname, dwnamespace, dwversion, lpproviderid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszidentifier;
     (void)lpszpathname;
     (void)dwnamespace;
     (void)dwversion;
     (void)lpproviderid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3661,7 +4701,13 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSCInstallNameSpa
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSCInstallNameSpaceEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszidentifier, lpszpathname, dwnamespace, dwversion, lpproviderid, lpproviderspecific) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszidentifier, lpszpathname, dwnamespace, dwversion, lpproviderid, lpproviderspecific);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszidentifier;
     (void)lpszpathname;
@@ -3669,6 +4715,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSCInstallNameSpa
     (void)dwversion;
     (void)lpproviderid;
     (void)lpproviderspecific;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3689,7 +4736,13 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSCInstallNameSpa
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSCInstallNameSpaceEx32")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszidentifier, lpszpathname, dwnamespace, dwversion, lpproviderid, lpproviderspecific) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszidentifier, lpszpathname, dwnamespace, dwversion, lpproviderid, lpproviderspecific);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszidentifier;
     (void)lpszpathname;
@@ -3697,6 +4750,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSCInstallNameSpa
     (void)dwversion;
     (void)lpproviderid;
     (void)lpproviderspecific;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3716,13 +4770,20 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSCInstallProvide
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSCInstallProvider")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpproviderid, lpszproviderdllpath, lpprotocolinfolist, dwnumberofentries, lperrno) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpproviderid, lpszproviderdllpath, lpprotocolinfolist, dwnumberofentries, lperrno);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpproviderid;
     (void)lpszproviderdllpath;
     (void)lpprotocolinfolist;
     (void)dwnumberofentries;
     (void)lperrno;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3742,13 +4803,20 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wscinstallProvide
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSCInstallProvider64_32")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpproviderid, lpszproviderdllpath, lpprotocolinfolist, dwnumberofentries, lperrno) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpproviderid, lpszproviderdllpath, lpprotocolinfolist, dwnumberofentries, lperrno);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpproviderid;
     (void)lpszproviderdllpath;
     (void)lpprotocolinfolist;
     (void)dwnumberofentries;
     (void)lperrno;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3772,7 +4840,13 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wscinstallProvide
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSCInstallProviderAndChains64_32")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpproviderid, lpszproviderdllpath, lpszproviderdllpath32, lpszlspname, dwserviceflags, lpprotocolinfolist, dwnumberofentries, lpdwcatalogentryid, lperrno) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpproviderid, lpszproviderdllpath, lpszproviderdllpath32, lpszlspname, dwserviceflags, lpprotocolinfolist, dwnumberofentries, lpdwcatalogentryid, lperrno);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpproviderid;
     (void)lpszproviderdllpath;
@@ -3783,6 +4857,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wscinstallProvide
     (void)dwnumberofentries;
     (void)lpdwcatalogentryid;
     (void)lperrno;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3804,7 +4879,13 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSCSetApplication
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSCSetApplicationCategory")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(path, pathlength, extra, extralength, permittedlspcategories, pprevpermlspcat, lperrno) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(path, pathlength, extra, extralength, permittedlspcategories, pprevpermlspcat, lperrno);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)path;
     (void)pathlength;
@@ -3813,6 +4894,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSCSetApplication
     (void)permittedlspcategories;
     (void)pprevpermlspcat;
     (void)lperrno;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3833,7 +4915,13 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSCSetProviderInf
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSCSetProviderInfo")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpproviderid, infotype, info, infosize, flags, lperrno) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpproviderid, infotype, info, infosize, flags, lperrno);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpproviderid;
     (void)infotype;
@@ -3841,6 +4929,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSCSetProviderInf
     (void)infosize;
     (void)flags;
     (void)lperrno;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3861,7 +4950,13 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSCSetProviderInf
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSCSetProviderInfo32")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpproviderid, infotype, info, infosize, flags, lperrno) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpproviderid, infotype, info, infosize, flags, lperrno);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpproviderid;
     (void)infotype;
@@ -3869,6 +4964,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSCSetProviderInf
     (void)infosize;
     (void)flags;
     (void)lperrno;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3884,9 +4980,16 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSCUnInstallNameS
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSCUnInstallNameSpace")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpproviderid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpproviderid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpproviderid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3902,9 +5005,16 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSCUnInstallNameS
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSCUnInstallNameSpace32")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpproviderid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpproviderid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpproviderid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3924,13 +5034,20 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSCUpdateProvider
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSCUpdateProvider")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpproviderid, lpszproviderdllpath, lpprotocolinfolist, dwnumberofentries, lperrno) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpproviderid, lpszproviderdllpath, lpprotocolinfolist, dwnumberofentries, lperrno);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpproviderid;
     (void)lpszproviderdllpath;
     (void)lpprotocolinfolist;
     (void)dwnumberofentries;
     (void)lperrno;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3950,13 +5067,20 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSCUpdateProvider
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSCUpdateProvider32")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpproviderid, lpszproviderdllpath, lpprotocolinfolist, dwnumberofentries, lperrno) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpproviderid, lpszproviderdllpath, lpprotocolinfolist, dwnumberofentries, lperrno);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpproviderid;
     (void)lpszproviderdllpath;
     (void)lpprotocolinfolist;
     (void)dwnumberofentries;
     (void)lperrno;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3973,10 +5097,17 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSCWriteNameSpace
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSCWriteNameSpaceOrder")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpproviderid, dwnumberofentries) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpproviderid, dwnumberofentries);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpproviderid;
     (void)dwnumberofentries;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3993,10 +5124,17 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSCWriteNameSpace
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSCWriteNameSpaceOrder32")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpproviderid, dwnumberofentries) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpproviderid, dwnumberofentries);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpproviderid;
     (void)dwnumberofentries;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4013,10 +5151,17 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSCWriteProviderO
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSCWriteProviderOrder")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpwdcatalogentryid, dwnumberofentries) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpwdcatalogentryid, dwnumberofentries);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpwdcatalogentryid;
     (void)dwnumberofentries;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4033,10 +5178,17 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wSCWriteProviderO
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSCWriteProviderOrder32")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpwdcatalogentryid, dwnumberofentries) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpwdcatalogentryid, dwnumberofentries);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpwdcatalogentryid;
     (void)dwnumberofentries;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4053,10 +5205,17 @@ static Napi::Value windowssys_windows_win32_networking_winsock_wsafdisSet_napi(c
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "__WSAFDIsSet")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(fd, param1) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(fd, param1);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)fd;
     (void)param1;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4074,11 +5233,18 @@ static Napi::Value windowssys_windows_win32_networking_winsock_accept_napi(const
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "accept")));
     }
-    uint64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(s, addr, addrlen) : 0;
+    uint64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(s, addr, addrlen);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)s;
     (void)addr;
     (void)addrlen;
+    errno = ENOSYS;
     uint64_t km_res = 0;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
@@ -4096,11 +5262,18 @@ static Napi::Value windowssys_windows_win32_networking_winsock_bind_napi(const N
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "bind")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(s, name, namelen) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(s, name, namelen);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)s;
     (void)name;
     (void)namelen;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4116,9 +5289,16 @@ static Napi::Value windowssys_windows_win32_networking_winsock_closesocket_napi(
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "closesocket")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(s) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(s);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)s;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4136,11 +5316,18 @@ static Napi::Value windowssys_windows_win32_networking_winsock_connect_napi(cons
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "connect")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(s, name, namelen) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(s, name, namelen);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)s;
     (void)name;
     (void)namelen;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4156,9 +5343,14 @@ static Napi::Value windowssys_windows_win32_networking_winsock_freeaddrinfo_napi
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "freeaddrinfo")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(paddrinfo);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(paddrinfo);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)paddrinfo;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -4176,12 +5368,19 @@ static Napi::Value windowssys_windows_win32_networking_winsock_getaddrinfo_napi(
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "getaddrinfo")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pnodename, pservicename, phints, ppresult) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pnodename, pservicename, phints, ppresult);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pnodename;
     (void)pservicename;
     (void)phints;
     (void)ppresult;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4199,12 +5398,19 @@ static Napi::Value windowssys_windows_win32_networking_winsock_gethostbyaddr_nap
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "gethostbyaddr")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(addr, len, type) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(addr, len, type);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)addr;
     (void)len;
     (void)type;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -4219,10 +5425,17 @@ static Napi::Value windowssys_windows_win32_networking_winsock_gethostbyname_nap
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "gethostbyname")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(name) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(name);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)name;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -4238,10 +5451,17 @@ static Napi::Value windowssys_windows_win32_networking_winsock_gethostname_napi(
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "gethostname")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(name, namelen) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(name, namelen);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)name;
     (void)namelen;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4263,7 +5483,13 @@ static Napi::Value windowssys_windows_win32_networking_winsock_getnameinfo_napi(
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "getnameinfo")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(psockaddr, sockaddrlength, pnodebuffer, nodebuffersize, pservicebuffer, servicebuffersize, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(psockaddr, sockaddrlength, pnodebuffer, nodebuffersize, pservicebuffer, servicebuffersize, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)psockaddr;
     (void)sockaddrlength;
@@ -4272,6 +5498,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_getnameinfo_napi(
     (void)pservicebuffer;
     (void)servicebuffersize;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4289,11 +5516,18 @@ static Napi::Value windowssys_windows_win32_networking_winsock_getpeername_napi(
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "getpeername")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(s, name, namelen) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(s, name, namelen);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)s;
     (void)name;
     (void)namelen;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4309,10 +5543,17 @@ static Napi::Value windowssys_windows_win32_networking_winsock_getprotobyname_na
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "getprotobyname")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(name) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(name);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)name;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -4327,10 +5568,17 @@ static Napi::Value windowssys_windows_win32_networking_winsock_getprotobynumber_
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "getprotobynumber")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(number) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(number);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)number;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -4346,11 +5594,18 @@ static Napi::Value windowssys_windows_win32_networking_winsock_getservbyname_nap
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "getservbyname")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(name, proto) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(name, proto);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)name;
     (void)proto;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -4366,11 +5621,18 @@ static Napi::Value windowssys_windows_win32_networking_winsock_getservbyport_nap
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "getservbyport")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(port, proto) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(port, proto);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)port;
     (void)proto;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -4387,11 +5649,18 @@ static Napi::Value windowssys_windows_win32_networking_winsock_getsockname_napi(
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "getsockname")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(s, name, namelen) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(s, name, namelen);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)s;
     (void)name;
     (void)namelen;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4411,13 +5680,20 @@ static Napi::Value windowssys_windows_win32_networking_winsock_getsockopt_napi(c
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "getsockopt")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(s, level, optname, optval, optlen) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(s, level, optname, optval, optlen);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)s;
     (void)level;
     (void)optname;
     (void)optval;
     (void)optlen;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4433,9 +5709,16 @@ static Napi::Value windowssys_windows_win32_networking_winsock_htonl_napi(const 
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "htonl")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hostlong) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hostlong);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hostlong;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4451,9 +5734,16 @@ static Napi::Value windowssys_windows_win32_networking_winsock_htons_napi(const 
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "htons")));
     }
-    uint16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hostshort) : 0;
+    uint16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hostshort);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hostshort;
+    errno = ENOSYS;
     uint16_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4469,9 +5759,16 @@ static Napi::Value windowssys_windows_win32_networking_winsock_inetAddr_napi(con
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "inet_addr")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(cp) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(cp);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)cp;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4490,13 +5787,20 @@ static Napi::Value windowssys_windows_win32_networking_winsock_inetNtop_napi(con
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "inet_ntop")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(family, paddr, pstringbuf, stringbufsize) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(family, paddr, pstringbuf, stringbufsize);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)family;
     (void)paddr;
     (void)pstringbuf;
     (void)stringbufsize;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -4513,11 +5817,18 @@ static Napi::Value windowssys_windows_win32_networking_winsock_inetPton_napi(con
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "inet_pton")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(family, pszaddrstring, paddrbuf) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(family, pszaddrstring, paddrbuf);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)family;
     (void)pszaddrstring;
     (void)paddrbuf;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4535,11 +5846,18 @@ static Napi::Value windowssys_windows_win32_networking_winsock_ioctlsocket_napi(
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ioctlsocket")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(s, cmd, argp) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(s, cmd, argp);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)s;
     (void)cmd;
     (void)argp;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4556,10 +5874,17 @@ static Napi::Value windowssys_windows_win32_networking_winsock_listen_napi(const
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "listen")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(s, backlog) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(s, backlog);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)s;
     (void)backlog;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4575,9 +5900,16 @@ static Napi::Value windowssys_windows_win32_networking_winsock_ntohl_napi(const 
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ntohl")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(netlong) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(netlong);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)netlong;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4593,9 +5925,16 @@ static Napi::Value windowssys_windows_win32_networking_winsock_ntohs_napi(const 
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ntohs")));
     }
-    uint16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(netshort) : 0;
+    uint16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(netshort);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)netshort;
+    errno = ENOSYS;
     uint16_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4614,12 +5953,19 @@ static Napi::Value windowssys_windows_win32_networking_winsock_recv_napi(const N
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "recv")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(s, buf, len, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(s, buf, len, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)s;
     (void)buf;
     (void)len;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4640,7 +5986,13 @@ static Napi::Value windowssys_windows_win32_networking_winsock_recvfrom_napi(con
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "recvfrom")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(s, buf, len, flags, from, fromlen) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(s, buf, len, flags, from, fromlen);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)s;
     (void)buf;
@@ -4648,6 +6000,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_recvfrom_napi(con
     (void)flags;
     (void)from;
     (void)fromlen;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4667,13 +6020,20 @@ static Napi::Value windowssys_windows_win32_networking_winsock_select_napi(const
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "select")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(nfds, readfds, writefds, exceptfds, timeout) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(nfds, readfds, writefds, exceptfds, timeout);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)nfds;
     (void)readfds;
     (void)writefds;
     (void)exceptfds;
     (void)timeout;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4692,12 +6052,19 @@ static Napi::Value windowssys_windows_win32_networking_winsock_send_napi(const N
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "send")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(s, buf, len, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(s, buf, len, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)s;
     (void)buf;
     (void)len;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4718,7 +6085,13 @@ static Napi::Value windowssys_windows_win32_networking_winsock_sendto_napi(const
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "sendto")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(s, buf, len, flags, to, tolen) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(s, buf, len, flags, to, tolen);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)s;
     (void)buf;
@@ -4726,6 +6099,7 @@ static Napi::Value windowssys_windows_win32_networking_winsock_sendto_napi(const
     (void)flags;
     (void)to;
     (void)tolen;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4745,13 +6119,20 @@ static Napi::Value windowssys_windows_win32_networking_winsock_setsockopt_napi(c
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "setsockopt")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(s, level, optname, optval, optlen) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(s, level, optname, optval, optlen);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)s;
     (void)level;
     (void)optname;
     (void)optval;
     (void)optlen;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4768,10 +6149,17 @@ static Napi::Value windowssys_windows_win32_networking_winsock_shutdown_napi(con
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "shutdown")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(s, how) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(s, how);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)s;
     (void)how;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4789,11 +6177,18 @@ static Napi::Value windowssys_windows_win32_networking_winsock_socket_napi(const
         HMODULE km_h_mod = LoadLibraryA("ws2_32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "socket")));
     }
-    uint64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(af, type, protocol) : 0;
+    uint64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(af, type, protocol);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)af;
     (void)type;
     (void)protocol;
+    errno = ENOSYS;
     uint64_t km_res = 0;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));

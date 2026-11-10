@@ -62,10 +62,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wnet_multinetGetCo
         HMODULE km_h_mod = LoadLibraryA("mpr.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MultinetGetConnectionPerformanceA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpnetresource, lpnetconnectinfostruct) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpnetresource, lpnetconnectinfostruct);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpnetresource;
     (void)lpnetconnectinfostruct;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -82,10 +89,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wnet_multinetGetCo
         HMODULE km_h_mod = LoadLibraryA("mpr.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MultinetGetConnectionPerformanceW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpnetresource, lpnetconnectinfostruct) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpnetresource, lpnetconnectinfostruct);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpnetresource;
     (void)lpnetconnectinfostruct;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -103,11 +117,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wnet_nPAddConnecti
         HMODULE km_h_mod = LoadLibraryA("davclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NPAddConnection")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpnetresource, lppassword, lpusername) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpnetresource, lppassword, lpusername);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpnetresource;
     (void)lppassword;
     (void)lpusername;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -127,13 +148,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wnet_nPAddConnecti
         HMODULE km_h_mod = LoadLibraryA("davclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NPAddConnection3")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwndowner, lpnetresource, lppassword, lpusername, dwflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwndowner, lpnetresource, lppassword, lpusername, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hwndowner;
     (void)lpnetresource;
     (void)lppassword;
     (void)lpusername;
     (void)dwflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -155,7 +183,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wnet_nPAddConnecti
         HMODULE km_h_mod = LoadLibraryA("ntlanman.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NPAddConnection4")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwndowner, lpnetresource, lpauthbuffer, cbauthbuffer, dwflags, lpuseoptions, cbuseoptions) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwndowner, lpnetresource, lpauthbuffer, cbauthbuffer, dwflags, lpuseoptions, cbuseoptions);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hwndowner;
     (void)lpnetresource;
@@ -164,6 +198,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wnet_nPAddConnecti
     (void)dwflags;
     (void)lpuseoptions;
     (void)cbuseoptions;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -180,10 +215,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wnet_nPCancelConne
         HMODULE km_h_mod = LoadLibraryA("davclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NPCancelConnection")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpname, fforce) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpname, fforce);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpname;
     (void)fforce;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -201,11 +243,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wnet_nPCancelConne
         HMODULE km_h_mod = LoadLibraryA("ntlanman.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NPCancelConnection2")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpname, fforce, dwflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpname, fforce, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpname;
     (void)fforce;
     (void)dwflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -221,9 +270,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wnet_nPCloseEnum_n
         HMODULE km_h_mod = LoadLibraryA("davclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NPCloseEnum")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(henum) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(henum);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)henum;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -242,12 +298,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wnet_nPEnumResourc
         HMODULE km_h_mod = LoadLibraryA("davclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NPEnumResource")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(henum, lpccount, lpbuffer, lpbuffersize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(henum, lpccount, lpbuffer, lpbuffersize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)henum;
     (void)lpccount;
     (void)lpbuffer;
     (void)lpbuffersize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -267,13 +330,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wnet_nPFormatNetwo
         HMODULE km_h_mod = LoadLibraryA("davclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NPFormatNetworkName")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpremotename, lpformattedname, lpnlength, dwflags, dwavecharperline) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpremotename, lpformattedname, lpnlength, dwflags, dwavecharperline);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpremotename;
     (void)lpformattedname;
     (void)lpnlength;
     (void)dwflags;
     (void)dwavecharperline;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -289,9 +359,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wnet_nPGetCaps_nap
         HMODULE km_h_mod = LoadLibraryA("davclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NPGetCaps")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ndex) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ndex);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ndex;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -309,11 +386,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wnet_nPGetConnecti
         HMODULE km_h_mod = LoadLibraryA("davclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NPGetConnection")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lplocalname, lpremotename, lpnbufferlen) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lplocalname, lpremotename, lpnbufferlen);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lplocalname;
     (void)lpremotename;
     (void)lpnbufferlen;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -332,12 +416,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wnet_nPGetConnecti
         HMODULE km_h_mod = LoadLibraryA("ntlanman.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NPGetConnection3")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lplocalname, dwlevel, lpbuffer, lpbuffersize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lplocalname, dwlevel, lpbuffer, lpbuffersize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lplocalname;
     (void)dwlevel;
     (void)lpbuffer;
     (void)lpbuffersize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -354,10 +445,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wnet_nPGetConnecti
         HMODULE km_h_mod = LoadLibraryA("ntlanman.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NPGetConnectionPerformance")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpremotename, lpnetconnectinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpremotename, lpnetconnectinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpremotename;
     (void)lpnetconnectinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -377,13 +475,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wnet_nPGetPersiste
         HMODULE km_h_mod = LoadLibraryA("ntlanman.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NPGetPersistentUseOptionsForConnection")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpremotepath, lpreaduseoptions, cbreaduseoptions, lpwriteuseoptions, lpsizewriteuseoptions) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpremotepath, lpreaduseoptions, cbreaduseoptions, lpwriteuseoptions, lpsizewriteuseoptions);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpremotepath;
     (void)lpreaduseoptions;
     (void)cbreaduseoptions;
     (void)lpwriteuseoptions;
     (void)lpsizewriteuseoptions;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -402,12 +507,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wnet_nPGetResource
         HMODULE km_h_mod = LoadLibraryA("davclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NPGetResourceInformation")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpnetresource, lpbuffer, lpbuffersize, lplpsystem) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpnetresource, lpbuffer, lpbuffersize, lplpsystem);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpnetresource;
     (void)lpbuffer;
     (void)lpbuffersize;
     (void)lplpsystem;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -425,11 +537,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wnet_nPGetResource
         HMODULE km_h_mod = LoadLibraryA("davclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NPGetResourceParent")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpnetresource, lpbuffer, lpbuffersize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpnetresource, lpbuffer, lpbuffersize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpnetresource;
     (void)lpbuffer;
     (void)lpbuffersize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -448,12 +567,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wnet_nPGetUniversa
         HMODULE km_h_mod = LoadLibraryA("davclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NPGetUniversalName")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lplocalpath, dwinfolevel, lpbuffer, lpbuffersize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lplocalpath, dwinfolevel, lpbuffer, lpbuffersize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lplocalpath;
     (void)dwinfolevel;
     (void)lpbuffer;
     (void)lpbuffersize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -471,11 +597,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wnet_nPGetUser_nap
         HMODULE km_h_mod = LoadLibraryA("davclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NPGetUser")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpname, lpusername, lpnbufferlen) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpname, lpusername, lpnbufferlen);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpname;
     (void)lpusername;
     (void)lpnbufferlen;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -495,13 +628,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wnet_nPOpenEnum_na
         HMODULE km_h_mod = LoadLibraryA("davclnt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NPOpenEnum")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwscope, dwtype, dwusage, lpnetresource, lphenum) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwscope, dwtype, dwusage, lpnetresource, lphenum);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dwscope;
     (void)dwtype;
     (void)dwusage;
     (void)lpnetresource;
     (void)lphenum;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -520,12 +660,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wnet_wNetAddConnec
         HMODULE km_h_mod = LoadLibraryA("mpr.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WNetAddConnection2A")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpnetresource, lppassword, lpusername, dwflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpnetresource, lppassword, lpusername, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpnetresource;
     (void)lppassword;
     (void)lpusername;
     (void)dwflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -544,12 +691,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wnet_wNetAddConnec
         HMODULE km_h_mod = LoadLibraryA("mpr.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WNetAddConnection2W")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpnetresource, lppassword, lpusername, dwflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpnetresource, lppassword, lpusername, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpnetresource;
     (void)lppassword;
     (void)lpusername;
     (void)dwflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -569,13 +723,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wnet_wNetAddConnec
         HMODULE km_h_mod = LoadLibraryA("mpr.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WNetAddConnection3A")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwndowner, lpnetresource, lppassword, lpusername, dwflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwndowner, lpnetresource, lppassword, lpusername, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hwndowner;
     (void)lpnetresource;
     (void)lppassword;
     (void)lpusername;
     (void)dwflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -595,13 +756,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wnet_wNetAddConnec
         HMODULE km_h_mod = LoadLibraryA("mpr.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WNetAddConnection3W")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwndowner, lpnetresource, lppassword, lpusername, dwflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwndowner, lpnetresource, lppassword, lpusername, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hwndowner;
     (void)lpnetresource;
     (void)lppassword;
     (void)lpusername;
     (void)dwflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -623,7 +791,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wnet_wNetAddConnec
         HMODULE km_h_mod = LoadLibraryA("mpr.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WNetAddConnection4A")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwndowner, lpnetresource, pauthbuffer, cbauthbuffer, dwflags, lpuseoptions, cbuseoptions) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwndowner, lpnetresource, pauthbuffer, cbauthbuffer, dwflags, lpuseoptions, cbuseoptions);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hwndowner;
     (void)lpnetresource;
@@ -632,6 +806,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wnet_wNetAddConnec
     (void)dwflags;
     (void)lpuseoptions;
     (void)cbuseoptions;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -653,7 +828,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wnet_wNetAddConnec
         HMODULE km_h_mod = LoadLibraryA("mpr.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WNetAddConnection4W")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwndowner, lpnetresource, pauthbuffer, cbauthbuffer, dwflags, lpuseoptions, cbuseoptions) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwndowner, lpnetresource, pauthbuffer, cbauthbuffer, dwflags, lpuseoptions, cbuseoptions);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hwndowner;
     (void)lpnetresource;
@@ -662,6 +843,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wnet_wNetAddConnec
     (void)dwflags;
     (void)lpuseoptions;
     (void)cbuseoptions;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -679,11 +861,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wnet_wNetAddConnec
         HMODULE km_h_mod = LoadLibraryA("mpr.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WNetAddConnectionA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpremotename, lppassword, lplocalname) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpremotename, lppassword, lplocalname);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpremotename;
     (void)lppassword;
     (void)lplocalname;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -701,11 +890,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wnet_wNetAddConnec
         HMODULE km_h_mod = LoadLibraryA("mpr.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WNetAddConnectionW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpremotename, lppassword, lplocalname) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpremotename, lppassword, lplocalname);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpremotename;
     (void)lppassword;
     (void)lplocalname;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -723,11 +919,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wnet_wNetCancelCon
         HMODULE km_h_mod = LoadLibraryA("mpr.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WNetCancelConnection2A")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpname, dwflags, fforce) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpname, dwflags, fforce);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpname;
     (void)dwflags;
     (void)fforce;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -745,11 +948,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wnet_wNetCancelCon
         HMODULE km_h_mod = LoadLibraryA("mpr.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WNetCancelConnection2W")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpname, dwflags, fforce) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpname, dwflags, fforce);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpname;
     (void)dwflags;
     (void)fforce;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -766,10 +976,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wnet_wNetCancelCon
         HMODULE km_h_mod = LoadLibraryA("mpr.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WNetCancelConnectionA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpname, fforce) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpname, fforce);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpname;
     (void)fforce;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -786,10 +1003,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wnet_wNetCancelCon
         HMODULE km_h_mod = LoadLibraryA("mpr.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WNetCancelConnectionW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpname, fforce) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpname, fforce);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpname;
     (void)fforce;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -805,9 +1029,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wnet_wNetCloseEnum
         HMODULE km_h_mod = LoadLibraryA("mpr.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WNetCloseEnum")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(henum) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(henum);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)henum;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -824,10 +1055,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wnet_wNetConnectio
         HMODULE km_h_mod = LoadLibraryA("mpr.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WNetConnectionDialog")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, dwtype) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, dwtype);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hwnd;
     (void)dwtype;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -843,9 +1081,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wnet_wNetConnectio
         HMODULE km_h_mod = LoadLibraryA("mpr.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WNetConnectionDialog1A")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpconndlgstruct) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpconndlgstruct);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpconndlgstruct;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -861,9 +1106,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wnet_wNetConnectio
         HMODULE km_h_mod = LoadLibraryA("mpr.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WNetConnectionDialog1W")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpconndlgstruct) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpconndlgstruct);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpconndlgstruct;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -880,10 +1132,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wnet_wNetDisconnec
         HMODULE km_h_mod = LoadLibraryA("mpr.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WNetDisconnectDialog")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, dwtype) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, dwtype);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hwnd;
     (void)dwtype;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -899,9 +1158,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wnet_wNetDisconnec
         HMODULE km_h_mod = LoadLibraryA("mpr.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WNetDisconnectDialog1A")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpconndlgstruct) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpconndlgstruct);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpconndlgstruct;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -917,9 +1183,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wnet_wNetDisconnec
         HMODULE km_h_mod = LoadLibraryA("mpr.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WNetDisconnectDialog1W")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpconndlgstruct) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpconndlgstruct);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpconndlgstruct;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -938,12 +1211,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wnet_wNetEnumResou
         HMODULE km_h_mod = LoadLibraryA("mpr.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WNetEnumResourceA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(henum, lpccount, lpbuffer, lpbuffersize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(henum, lpccount, lpbuffer, lpbuffersize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)henum;
     (void)lpccount;
     (void)lpbuffer;
     (void)lpbuffersize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -962,12 +1242,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wnet_wNetEnumResou
         HMODULE km_h_mod = LoadLibraryA("mpr.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WNetEnumResourceW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(henum, lpccount, lpbuffer, lpbuffersize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(henum, lpccount, lpbuffer, lpbuffersize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)henum;
     (void)lpccount;
     (void)lpbuffer;
     (void)lpbuffersize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -985,11 +1272,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wnet_wNetGetConnec
         HMODULE km_h_mod = LoadLibraryA("mpr.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WNetGetConnectionA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lplocalname, lpremotename, lpnlength) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lplocalname, lpremotename, lpnlength);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lplocalname;
     (void)lpremotename;
     (void)lpnlength;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1007,11 +1301,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wnet_wNetGetConnec
         HMODULE km_h_mod = LoadLibraryA("mpr.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WNetGetConnectionW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lplocalname, lpremotename, lpnlength) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lplocalname, lpremotename, lpnlength);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lplocalname;
     (void)lpremotename;
     (void)lpnlength;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1031,13 +1332,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wnet_wNetGetLastEr
         HMODULE km_h_mod = LoadLibraryA("mpr.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WNetGetLastErrorA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lperror, lperrorbuf, nerrorbufsize, lpnamebuf, nnamebufsize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lperror, lperrorbuf, nerrorbufsize, lpnamebuf, nnamebufsize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lperror;
     (void)lperrorbuf;
     (void)nerrorbufsize;
     (void)lpnamebuf;
     (void)nnamebufsize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1057,13 +1365,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wnet_wNetGetLastEr
         HMODULE km_h_mod = LoadLibraryA("mpr.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WNetGetLastErrorW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lperror, lperrorbuf, nerrorbufsize, lpnamebuf, nnamebufsize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lperror, lperrorbuf, nerrorbufsize, lpnamebuf, nnamebufsize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lperror;
     (void)lperrorbuf;
     (void)nerrorbufsize;
     (void)lpnamebuf;
     (void)nnamebufsize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1080,10 +1395,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wnet_wNetGetNetwor
         HMODULE km_h_mod = LoadLibraryA("mpr.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WNetGetNetworkInformationA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpprovider, lpnetinfostruct) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpprovider, lpnetinfostruct);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpprovider;
     (void)lpnetinfostruct;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1100,10 +1422,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wnet_wNetGetNetwor
         HMODULE km_h_mod = LoadLibraryA("mpr.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WNetGetNetworkInformationW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpprovider, lpnetinfostruct) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpprovider, lpnetinfostruct);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpprovider;
     (void)lpnetinfostruct;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1121,11 +1450,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wnet_wNetGetProvid
         HMODULE km_h_mod = LoadLibraryA("mpr.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WNetGetProviderNameA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwnettype, lpprovidername, lpbuffersize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwnettype, lpprovidername, lpbuffersize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dwnettype;
     (void)lpprovidername;
     (void)lpbuffersize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1143,11 +1479,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wnet_wNetGetProvid
         HMODULE km_h_mod = LoadLibraryA("mpr.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WNetGetProviderNameW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwnettype, lpprovidername, lpbuffersize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwnettype, lpprovidername, lpbuffersize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dwnettype;
     (void)lpprovidername;
     (void)lpbuffersize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1166,12 +1509,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wnet_wNetGetResour
         HMODULE km_h_mod = LoadLibraryA("mpr.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WNetGetResourceInformationA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpnetresource, lpbuffer, lpcbbuffer, lplpsystem) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpnetresource, lpbuffer, lpcbbuffer, lplpsystem);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpnetresource;
     (void)lpbuffer;
     (void)lpcbbuffer;
     (void)lplpsystem;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1190,12 +1540,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wnet_wNetGetResour
         HMODULE km_h_mod = LoadLibraryA("mpr.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WNetGetResourceInformationW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpnetresource, lpbuffer, lpcbbuffer, lplpsystem) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpnetresource, lpbuffer, lpcbbuffer, lplpsystem);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpnetresource;
     (void)lpbuffer;
     (void)lpcbbuffer;
     (void)lplpsystem;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1213,11 +1570,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wnet_wNetGetResour
         HMODULE km_h_mod = LoadLibraryA("mpr.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WNetGetResourceParentA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpnetresource, lpbuffer, lpcbbuffer) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpnetresource, lpbuffer, lpcbbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpnetresource;
     (void)lpbuffer;
     (void)lpcbbuffer;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1235,11 +1599,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wnet_wNetGetResour
         HMODULE km_h_mod = LoadLibraryA("mpr.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WNetGetResourceParentW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpnetresource, lpbuffer, lpcbbuffer) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpnetresource, lpbuffer, lpcbbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpnetresource;
     (void)lpbuffer;
     (void)lpcbbuffer;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1258,12 +1629,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wnet_wNetGetUniver
         HMODULE km_h_mod = LoadLibraryA("mpr.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WNetGetUniversalNameA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lplocalpath, dwinfolevel, lpbuffer, lpbuffersize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lplocalpath, dwinfolevel, lpbuffer, lpbuffersize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lplocalpath;
     (void)dwinfolevel;
     (void)lpbuffer;
     (void)lpbuffersize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1282,12 +1660,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wnet_wNetGetUniver
         HMODULE km_h_mod = LoadLibraryA("mpr.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WNetGetUniversalNameW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lplocalpath, dwinfolevel, lpbuffer, lpbuffersize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lplocalpath, dwinfolevel, lpbuffer, lpbuffersize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lplocalpath;
     (void)dwinfolevel;
     (void)lpbuffer;
     (void)lpbuffersize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1305,11 +1690,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wnet_wNetGetUserA_
         HMODULE km_h_mod = LoadLibraryA("mpr.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WNetGetUserA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpname, lpusername, lpnlength) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpname, lpusername, lpnlength);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpname;
     (void)lpusername;
     (void)lpnlength;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1327,11 +1719,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wnet_wNetGetUserW_
         HMODULE km_h_mod = LoadLibraryA("mpr.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WNetGetUserW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpname, lpusername, lpnlength) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpname, lpusername, lpnlength);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpname;
     (void)lpusername;
     (void)lpnlength;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1351,13 +1750,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wnet_wNetOpenEnumA
         HMODULE km_h_mod = LoadLibraryA("mpr.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WNetOpenEnumA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwscope, dwtype, dwusage, lpnetresource, lphenum) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwscope, dwtype, dwusage, lpnetresource, lphenum);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dwscope;
     (void)dwtype;
     (void)dwusage;
     (void)lpnetresource;
     (void)lphenum;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1377,13 +1783,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wnet_wNetOpenEnumW
         HMODULE km_h_mod = LoadLibraryA("mpr.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WNetOpenEnumW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwscope, dwtype, dwusage, lpnetresource, lphenum) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwscope, dwtype, dwusage, lpnetresource, lphenum);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dwscope;
     (void)dwtype;
     (void)dwusage;
     (void)lpnetresource;
     (void)lphenum;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1401,11 +1814,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wnet_wNetSetLastEr
         HMODULE km_h_mod = LoadLibraryA("mpr.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WNetSetLastErrorA")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(err, lperror, lpproviders);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(err, lperror, lpproviders);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)err;
     (void)lperror;
     (void)lpproviders;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -1422,11 +1840,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wnet_wNetSetLastEr
         HMODULE km_h_mod = LoadLibraryA("mpr.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WNetSetLastErrorW")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(err, lperror, lpproviders);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(err, lperror, lpproviders);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)err;
     (void)lperror;
     (void)lpproviders;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -1450,7 +1873,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wnet_wNetUseConnec
         HMODULE km_h_mod = LoadLibraryA("mpr.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WNetUseConnection4A")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwndowner, lpnetresource, pauthbuffer, cbauthbuffer, dwflags, lpuseoptions, cbuseoptions, lpaccessname, lpbuffersize, lpresult) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwndowner, lpnetresource, pauthbuffer, cbauthbuffer, dwflags, lpuseoptions, cbuseoptions, lpaccessname, lpbuffersize, lpresult);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hwndowner;
     (void)lpnetresource;
@@ -1462,6 +1891,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wnet_wNetUseConnec
     (void)lpaccessname;
     (void)lpbuffersize;
     (void)lpresult;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1486,7 +1916,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wnet_wNetUseConnec
         HMODULE km_h_mod = LoadLibraryA("mpr.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WNetUseConnection4W")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwndowner, lpnetresource, pauthbuffer, cbauthbuffer, dwflags, lpuseoptions, cbuseoptions, lpaccessname, lpbuffersize, lpresult) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwndowner, lpnetresource, pauthbuffer, cbauthbuffer, dwflags, lpuseoptions, cbuseoptions, lpaccessname, lpbuffersize, lpresult);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hwndowner;
     (void)lpnetresource;
@@ -1498,6 +1934,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wnet_wNetUseConnec
     (void)lpaccessname;
     (void)lpbuffersize;
     (void)lpresult;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1520,7 +1957,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wnet_wNetUseConnec
         HMODULE km_h_mod = LoadLibraryA("mpr.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WNetUseConnectionA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwndowner, lpnetresource, lppassword, lpuserid, dwflags, lpaccessname, lpbuffersize, lpresult) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwndowner, lpnetresource, lppassword, lpuserid, dwflags, lpaccessname, lpbuffersize, lpresult);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hwndowner;
     (void)lpnetresource;
@@ -1530,6 +1973,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wnet_wNetUseConnec
     (void)lpaccessname;
     (void)lpbuffersize;
     (void)lpresult;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1552,7 +1996,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wnet_wNetUseConnec
         HMODULE km_h_mod = LoadLibraryA("mpr.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WNetUseConnectionW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwndowner, lpnetresource, lppassword, lpuserid, dwflags, lpaccessname, lpbuffersize, lpresult) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwndowner, lpnetresource, lppassword, lpuserid, dwflags, lpaccessname, lpbuffersize, lpresult);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hwndowner;
     (void)lpnetresource;
@@ -1562,6 +2012,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wnet_wNetUseConnec
     (void)lpaccessname;
     (void)lpbuffersize;
     (void)lpresult;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

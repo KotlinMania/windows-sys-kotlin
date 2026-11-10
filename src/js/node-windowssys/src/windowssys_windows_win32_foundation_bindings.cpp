@@ -61,9 +61,16 @@ static Napi::Value windowssys_windows_win32_foundation_closeHandle_napi(const Na
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CloseHandle")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hobject) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hobject);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hobject;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -80,10 +87,17 @@ static Napi::Value windowssys_windows_win32_foundation_compareObjectHandles_napi
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-core-handle-l1-1-0.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CompareObjectHandles")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hfirstobjecthandle, hsecondobjecthandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hfirstobjecthandle, hsecondobjecthandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hfirstobjecthandle;
     (void)hsecondobjecthandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -105,7 +119,13 @@ static Napi::Value windowssys_windows_win32_foundation_duplicateHandle_napi(cons
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DuplicateHandle")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hsourceprocesshandle, hsourcehandle, htargetprocesshandle, lptargethandle, dwdesiredaccess, binherithandle, dwoptions) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hsourceprocesshandle, hsourcehandle, htargetprocesshandle, lptargethandle, dwdesiredaccess, binherithandle, dwoptions);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hsourceprocesshandle;
     (void)hsourcehandle;
@@ -114,6 +134,7 @@ static Napi::Value windowssys_windows_win32_foundation_duplicateHandle_napi(cons
     (void)dwdesiredaccess;
     (void)binherithandle;
     (void)dwoptions;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -129,9 +150,16 @@ static Napi::Value windowssys_windows_win32_foundation_freeLibrary_napi(const Na
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FreeLibrary")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hlibmodule) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hlibmodule);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hlibmodule;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -148,10 +176,17 @@ static Napi::Value windowssys_windows_win32_foundation_getHandleInformation_napi
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetHandleInformation")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hobject, lpdwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hobject, lpdwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hobject;
     (void)lpdwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -166,8 +201,15 @@ static Napi::Value windowssys_windows_win32_foundation_getLastError_napi(const N
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetLastError")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -183,10 +225,17 @@ static Napi::Value windowssys_windows_win32_foundation_globalFree_napi(const Nap
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GlobalFree")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmem) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmem);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hmem;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -201,10 +250,17 @@ static Napi::Value windowssys_windows_win32_foundation_localFree_napi(const Napi
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LocalFree")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmem) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmem);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hmem;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -219,9 +275,16 @@ static Napi::Value windowssys_windows_win32_foundation_rtlNtStatusToDosError_nap
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtlNtStatusToDosError")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(status) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(status);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)status;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -239,11 +302,18 @@ static Napi::Value windowssys_windows_win32_foundation_setHandleInformation_napi
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetHandleInformation")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hobject, dwmask, dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hobject, dwmask, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hobject;
     (void)dwmask;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -259,9 +329,14 @@ static Napi::Value windowssys_windows_win32_foundation_setLastError_napi(const N
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetLastError")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(dwerrcode);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(dwerrcode);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)dwerrcode;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -277,10 +352,15 @@ static Napi::Value windowssys_windows_win32_foundation_setLastErrorEx_napi(const
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetLastErrorEx")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(dwerrcode, dwtype);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(dwerrcode, dwtype);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)dwerrcode;
     (void)dwtype;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -295,9 +375,16 @@ static Napi::Value windowssys_windows_win32_foundation_sysAddRefString_napi(cons
         HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SysAddRefString")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bstrstring) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bstrstring);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bstrstring;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -313,10 +400,17 @@ static Napi::Value windowssys_windows_win32_foundation_sysAllocString_napi(const
         HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SysAllocString")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(psz) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(psz);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)psz;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -332,11 +426,18 @@ static Napi::Value windowssys_windows_win32_foundation_sysAllocStringByteLen_nap
         HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SysAllocStringByteLen")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(psz, len) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(psz, len);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)psz;
     (void)len;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -352,11 +453,18 @@ static Napi::Value windowssys_windows_win32_foundation_sysAllocStringLen_napi(co
         HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SysAllocStringLen")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(strin, ui) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(strin, ui);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)strin;
     (void)ui;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -371,9 +479,14 @@ static Napi::Value windowssys_windows_win32_foundation_sysFreeString_napi(const 
         HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SysFreeString")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(bstrstring);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(bstrstring);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)bstrstring;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -389,10 +502,17 @@ static Napi::Value windowssys_windows_win32_foundation_sysReAllocString_napi(con
         HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SysReAllocString")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pbstr, psz) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pbstr, psz);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pbstr;
     (void)psz;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -410,11 +530,18 @@ static Napi::Value windowssys_windows_win32_foundation_sysReAllocStringLen_napi(
         HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SysReAllocStringLen")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pbstr, psz, len) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pbstr, psz, len);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pbstr;
     (void)psz;
     (void)len;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -430,9 +557,14 @@ static Napi::Value windowssys_windows_win32_foundation_sysReleaseString_napi(con
         HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SysReleaseString")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(bstrstring);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(bstrstring);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)bstrstring;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -447,9 +579,16 @@ static Napi::Value windowssys_windows_win32_foundation_sysStringByteLen_napi(con
         HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SysStringByteLen")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bstr) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bstr);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)bstr;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -465,9 +604,16 @@ static Napi::Value windowssys_windows_win32_foundation_sysStringLen_napi(const N
         HMODULE km_h_mod = LoadLibraryA("oleaut32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SysStringLen")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pbstr) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pbstr);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pbstr;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

@@ -64,12 +64,19 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_computeInvCMAP_
         HMODULE km_h_mod = LoadLibraryA("imgutil.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ComputeInvCMAP")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(prgbcolors, ncolors, pinvtable, cbtable) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(prgbcolors, ncolors, pinvtable, cbtable);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)prgbcolors;
     (void)ncolors;
     (void)pinvtable;
     (void)cbtable;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -85,9 +92,16 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_createMIMEMap_n
         HMODULE km_h_mod = LoadLibraryA("imgutil.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateMIMEMap")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ppmap) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ppmap);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ppmap;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -105,11 +119,18 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_decodeImage_nap
         HMODULE km_h_mod = LoadLibraryA("imgutil.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DecodeImage")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pstream, pmap, peventsink) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pstream, pmap, peventsink);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pstream;
     (void)pmap;
     (void)peventsink;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -128,12 +149,19 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_decodeImageEx_n
         HMODULE km_h_mod = LoadLibraryA("imgutil.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DecodeImageEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pstream, pmap, peventsink, pszmimetypeparam) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pstream, pmap, peventsink, pszmimetypeparam);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pstream;
     (void)pmap;
     (void)peventsink;
     (void)pszmimetypeparam;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -162,7 +190,13 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_ditherTo8_napi(
         HMODULE km_h_mod = LoadLibraryA("imgutil.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DitherTo8")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pdestbits, ndestpitch, psrcbits, nsrcpitch, bfidsrc, prgbdestcolors, prgbsrccolors, pbdestinvmap, x, y, cx, cy, ldesttrans, lsrctrans) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pdestbits, ndestpitch, psrcbits, nsrcpitch, bfidsrc, prgbdestcolors, prgbsrccolors, pbdestinvmap, x, y, cx, cy, ldesttrans, lsrctrans);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pdestbits;
     (void)ndestpitch;
@@ -178,6 +212,7 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_ditherTo8_napi(
     (void)cy;
     (void)ldesttrans;
     (void)lsrctrans;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -193,9 +228,16 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_getMaxMIMEIDByt
         HMODULE km_h_mod = LoadLibraryA("imgutil.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetMaxMIMEIDBytes")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pnmaxbytes) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pnmaxbytes);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pnmaxbytes;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -212,10 +254,17 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_iEAssociateThre
         HMODULE km_h_mod = LoadLibraryA("ieframe.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IEAssociateThreadWithTab")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwtabthreadid, dwassociatedthreadid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwtabthreadid, dwassociatedthreadid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwtabthreadid;
     (void)dwassociatedthreadid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -231,9 +280,16 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_iECancelSaveFil
         HMODULE km_h_mod = LoadLibraryA("ieframe.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IECancelSaveFile")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hstate) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hstate);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstate;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -250,10 +306,17 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_iECreateDirecto
         HMODULE km_h_mod = LoadLibraryA("ieframe.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IECreateDirectory")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lppathname, lpsecurityattributes) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lppathname, lpsecurityattributes);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lppathname;
     (void)lpsecurityattributes;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -275,7 +338,13 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_iECreateFile_na
         HMODULE km_h_mod = LoadLibraryA("ieframe.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IECreateFile")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpfilename, dwdesiredaccess, dwsharemode, lpsecurityattributes, dwcreationdisposition, dwflagsandattributes, htemplatefile) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpfilename, dwdesiredaccess, dwsharemode, lpsecurityattributes, dwcreationdisposition, dwflagsandattributes, htemplatefile);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)lpfilename;
     (void)dwdesiredaccess;
@@ -284,7 +353,8 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_iECreateFile_na
     (void)dwcreationdisposition;
     (void)dwflagsandattributes;
     (void)htemplatefile;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -299,9 +369,16 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_iEDeleteFile_na
         HMODULE km_h_mod = LoadLibraryA("ieframe.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IEDeleteFile")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpfilename) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpfilename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpfilename;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -318,10 +395,17 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_iEDisassociateT
         HMODULE km_h_mod = LoadLibraryA("ieframe.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IEDisassociateThreadWithTab")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwtabthreadid, dwassociatedthreadid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwtabthreadid, dwassociatedthreadid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwtabthreadid;
     (void)dwassociatedthreadid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -338,11 +422,18 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_iEFindFirstFile
         HMODULE km_h_mod = LoadLibraryA("ieframe.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IEFindFirstFile")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpfilename, lpfindfiledata) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpfilename, lpfindfiledata);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)lpfilename;
     (void)lpfindfiledata;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -359,11 +450,18 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_iEGetFileAttrib
         HMODULE km_h_mod = LoadLibraryA("ieframe.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IEGetFileAttributesEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpfilename, finfolevelid, lpfileinformation) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpfilename, finfolevelid, lpfileinformation);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpfilename;
     (void)finfolevelid;
     (void)lpfileinformation;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -383,13 +481,20 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_iEGetProtectedM
         HMODULE km_h_mod = LoadLibraryA("ieframe.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IEGetProtectedModeCookie")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszurl, lpszcookiename, lpszcookiedata, pcchcookiedata, dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszurl, lpszcookiename, lpszcookiedata, pcchcookiedata, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszurl;
     (void)lpszcookiename;
     (void)lpszcookiedata;
     (void)pcchcookiedata;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -406,10 +511,17 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_iEGetWriteableF
         HMODULE km_h_mod = LoadLibraryA("ieframe.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IEGetWriteableFolderPath")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(clsidfolderid, lppwstrpath) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(clsidfolderid, lppwstrpath);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)clsidfolderid;
     (void)lppwstrpath;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -425,9 +537,16 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_iEGetWriteableL
         HMODULE km_h_mod = LoadLibraryA("ieframe.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IEGetWriteableLowHKCU")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(phkey) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(phkey);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)phkey;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -442,8 +561,15 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_iEInPrivateFilt
         HMODULE km_h_mod = LoadLibraryA("ieframe.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IEInPrivateFilteringEnabled")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -458,8 +584,15 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_iEIsInPrivateBr
         HMODULE km_h_mod = LoadLibraryA("ieframe.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IEIsInPrivateBrowsing")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -475,9 +608,16 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_iEIsProtectedMo
         HMODULE km_h_mod = LoadLibraryA("ieframe.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IEIsProtectedModeProcess")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pbresult) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pbresult);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pbresult;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -493,9 +633,16 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_iEIsProtectedMo
         HMODULE km_h_mod = LoadLibraryA("ieframe.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IEIsProtectedModeURL")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpwstrurl) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpwstrurl);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpwstrurl;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -513,11 +660,18 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_iELaunchURL_nap
         HMODULE km_h_mod = LoadLibraryA("ieframe.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IELaunchURL")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpwstrurl, lpprocinfo, lpinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpwstrurl, lpprocinfo, lpinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpwstrurl;
     (void)lpprocinfo;
     (void)lpinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -535,11 +689,18 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_iEMoveFileEx_na
         HMODULE km_h_mod = LoadLibraryA("ieframe.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IEMoveFileEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpexistingfilename, lpnewfilename, dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpexistingfilename, lpnewfilename, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpexistingfilename;
     (void)lpnewfilename;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -554,8 +715,15 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_iERefreshElevat
         HMODULE km_h_mod = LoadLibraryA("ieframe.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IERefreshElevationPolicy")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -578,7 +746,13 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_iERegCreateKeyE
         HMODULE km_h_mod = LoadLibraryA("ieframe.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IERegCreateKeyEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpsubkey, reserved, lpclass, dwoptions, samdesired, lpsecurityattributes, phkresult, lpdwdisposition) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpsubkey, reserved, lpclass, dwoptions, samdesired, lpsecurityattributes, phkresult, lpdwdisposition);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpsubkey;
     (void)reserved;
@@ -588,6 +762,7 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_iERegCreateKeyE
     (void)lpsecurityattributes;
     (void)phkresult;
     (void)lpdwdisposition;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -608,7 +783,13 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_iERegSetValueEx
         HMODULE km_h_mod = LoadLibraryA("ieframe.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IERegSetValueEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpsubkey, lpvaluename, reserved, dwtype, lpdata, cbdata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpsubkey, lpvaluename, reserved, dwtype, lpdata, cbdata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpsubkey;
     (void)lpvaluename;
@@ -616,6 +797,7 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_iERegSetValueEx
     (void)dwtype;
     (void)lpdata;
     (void)cbdata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -631,9 +813,16 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_iERemoveDirecto
         HMODULE km_h_mod = LoadLibraryA("ieframe.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IERemoveDirectory")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lppathname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lppathname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lppathname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -650,10 +839,17 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_iESaveFile_napi
         HMODULE km_h_mod = LoadLibraryA("ieframe.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IESaveFile")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hstate, lpwstrsourcefile) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hstate, lpwstrsourcefile);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstate;
     (void)lpwstrsourcefile;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -672,12 +868,19 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_iESetProtectedM
         HMODULE km_h_mod = LoadLibraryA("ieframe.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IESetProtectedModeCookie")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszurl, lpszcookiename, lpszcookiedata, dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszurl, lpszcookiename, lpszcookiedata, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszurl;
     (void)lpszcookiename;
     (void)lpszcookiedata;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -701,7 +904,13 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_iEShowOpenFileD
         HMODULE km_h_mod = LoadLibraryA("ieframe.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IEShowOpenFileDialog")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, lpwstrfilename, cchmaxfilename, lpwstrinitialdir, lpwstrfilter, lpwstrdefext, dwfilterindex, dwflags, phfile) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, lpwstrfilename, cchmaxfilename, lpwstrinitialdir, lpwstrfilter, lpwstrdefext, dwfilterindex, dwflags, phfile);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)lpwstrfilename;
@@ -712,6 +921,7 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_iEShowOpenFileD
     (void)dwfilterindex;
     (void)dwflags;
     (void)phfile;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -735,7 +945,13 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_iEShowSaveFileD
         HMODULE km_h_mod = LoadLibraryA("ieframe.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IEShowSaveFileDialog")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, lpwstrinitialfilename, lpwstrinitialdir, lpwstrfilter, lpwstrdefext, dwfilterindex, dwflags, lppwstrdestinationfilepath, phstate) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, lpwstrinitialfilename, lpwstrinitialdir, lpwstrfilter, lpwstrdefext, dwfilterindex, dwflags, lppwstrdestinationfilepath, phstate);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)lpwstrinitialfilename;
@@ -746,6 +962,7 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_iEShowSaveFileD
     (void)dwflags;
     (void)lppwstrdestinationfilepath;
     (void)phstate;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -760,8 +977,15 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_iETrackingProte
         HMODULE km_h_mod = LoadLibraryA("ieframe.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IETrackingProtectionEnabled")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -779,11 +1003,18 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_identifyMIMETyp
         HMODULE km_h_mod = LoadLibraryA("imgutil.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IdentifyMIMEType")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pbbytes, nbytes, pnformat) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pbbytes, nbytes, pnformat);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pbbytes;
     (void)nbytes;
     (void)pnformat;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -802,12 +1033,19 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_ratingAccessDen
         HMODULE km_h_mod = LoadLibraryA("msrating.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RatingAccessDeniedDialog")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdlg, pszusername, pszcontentdescription, pratingdetails) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdlg, pszusername, pszcontentdescription, pratingdetails);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdlg;
     (void)pszusername;
     (void)pszcontentdescription;
     (void)pratingdetails;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -825,11 +1063,18 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_ratingAccessDen
         HMODULE km_h_mod = LoadLibraryA("msrating.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RatingAccessDeniedDialog2")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdlg, pszusername, pratingdetails) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdlg, pszusername, pratingdetails);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdlg;
     (void)pszusername;
     (void)pratingdetails;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -847,11 +1092,18 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_ratingAccessDen
         HMODULE km_h_mod = LoadLibraryA("msrating.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RatingAccessDeniedDialog2W")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdlg, pszusername, pratingdetails) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdlg, pszusername, pratingdetails);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdlg;
     (void)pszusername;
     (void)pratingdetails;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -870,12 +1122,19 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_ratingAccessDen
         HMODULE km_h_mod = LoadLibraryA("msrating.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RatingAccessDeniedDialogW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdlg, pszusername, pszcontentdescription, pratingdetails) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdlg, pszusername, pszcontentdescription, pratingdetails);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdlg;
     (void)pszusername;
     (void)pszcontentdescription;
     (void)pratingdetails;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -897,7 +1156,13 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_ratingAddToAppr
         HMODULE km_h_mod = LoadLibraryA("msrating.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RatingAddToApprovedSites")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdlg, cbpasswordblob, pbpasswordblob, lpszurl, falwaysnever, fsitepage, fapprovedsitesenforced) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdlg, cbpasswordblob, pbpasswordblob, lpszurl, falwaysnever, fsitepage, fapprovedsitesenforced);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdlg;
     (void)cbpasswordblob;
@@ -906,6 +1171,7 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_ratingAddToAppr
     (void)falwaysnever;
     (void)fsitepage;
     (void)fapprovedsitesenforced;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -926,7 +1192,13 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_ratingCheckUser
         HMODULE km_h_mod = LoadLibraryA("msrating.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RatingCheckUserAccess")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszusername, pszurl, pszratinginfo, pdata, cbdata, ppratingdetails) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszusername, pszurl, pszratinginfo, pdata, cbdata, ppratingdetails);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszusername;
     (void)pszurl;
@@ -934,6 +1206,7 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_ratingCheckUser
     (void)pdata;
     (void)cbdata;
     (void)ppratingdetails;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -954,7 +1227,13 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_ratingCheckUser
         HMODULE km_h_mod = LoadLibraryA("msrating.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RatingCheckUserAccessW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszusername, pszurl, pszratinginfo, pdata, cbdata, ppratingdetails) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszusername, pszurl, pszratinginfo, pdata, cbdata, ppratingdetails);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszusername;
     (void)pszurl;
@@ -962,6 +1241,7 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_ratingCheckUser
     (void)pdata;
     (void)cbdata;
     (void)ppratingdetails;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -980,12 +1260,19 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_ratingClickedOn
         HMODULE km_h_mod = LoadLibraryA("msrating.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RatingClickedOnPRFInternal")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwndowner, param1, lpszfilename, nshow) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwndowner, param1, lpszfilename, nshow);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwndowner;
     (void)param1;
     (void)lpszfilename;
     (void)nshow;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1004,12 +1291,19 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_ratingClickedOn
         HMODULE km_h_mod = LoadLibraryA("msrating.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RatingClickedOnRATInternal")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwndowner, param1, lpszfilename, nshow) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwndowner, param1, lpszfilename, nshow);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwndowner;
     (void)param1;
     (void)lpszfilename;
     (void)nshow;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1027,11 +1321,18 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_ratingEnable_na
         HMODULE km_h_mod = LoadLibraryA("msrating.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RatingEnable")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwndparent, pszusername, fenable) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwndparent, pszusername, fenable);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwndparent;
     (void)pszusername;
     (void)fenable;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1049,11 +1350,18 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_ratingEnableW_n
         HMODULE km_h_mod = LoadLibraryA("msrating.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RatingEnableW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwndparent, pszusername, fenable) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwndparent, pszusername, fenable);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwndparent;
     (void)pszusername;
     (void)fenable;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1068,8 +1376,15 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_ratingEnabledQu
         HMODULE km_h_mod = LoadLibraryA("msrating.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RatingEnabledQuery")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1085,9 +1400,16 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_ratingFreeDetai
         HMODULE km_h_mod = LoadLibraryA("msrating.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RatingFreeDetails")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pratingdetails) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pratingdetails);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pratingdetails;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1102,8 +1424,15 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_ratingInit_napi
         HMODULE km_h_mod = LoadLibraryA("msrating.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RatingInit")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1119,9 +1448,16 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_ratingObtainCan
         HMODULE km_h_mod = LoadLibraryA("msrating.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RatingObtainCancel")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hratingobtainquery) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hratingobtainquery);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hratingobtainquery;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1140,12 +1476,19 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_ratingObtainQue
         HMODULE km_h_mod = LoadLibraryA("msrating.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RatingObtainQuery")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(psztargeturl, dwuserdata, fcallback, phratingobtainquery) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(psztargeturl, dwuserdata, fcallback, phratingobtainquery);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)psztargeturl;
     (void)dwuserdata;
     (void)fcallback;
     (void)phratingobtainquery;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1164,12 +1507,19 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_ratingObtainQue
         HMODULE km_h_mod = LoadLibraryA("msrating.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RatingObtainQueryW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(psztargeturl, dwuserdata, fcallback, phratingobtainquery) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(psztargeturl, dwuserdata, fcallback, phratingobtainquery);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)psztargeturl;
     (void)dwuserdata;
     (void)fcallback;
     (void)phratingobtainquery;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1186,10 +1536,17 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_ratingSetupUI_n
         HMODULE km_h_mod = LoadLibraryA("msrating.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RatingSetupUI")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdlg, pszusername) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdlg, pszusername);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdlg;
     (void)pszusername;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1206,10 +1563,17 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_ratingSetupUIW_
         HMODULE km_h_mod = LoadLibraryA("msrating.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RatingSetupUIW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdlg, pszusername) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdlg, pszusername);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdlg;
     (void)pszusername;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1227,11 +1591,18 @@ static Napi::Value windowssys_windows_win32_web_internetexplorer_sniffStream_nap
         HMODULE km_h_mod = LoadLibraryA("imgutil.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SniffStream")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pinstream, pnformat, ppoutstream) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pinstream, pnformat, ppoutstream);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pinstream;
     (void)pnformat;
     (void)ppoutstream;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

@@ -61,9 +61,16 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CMP_WaitNoPendingInstallEvents")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwtimeout) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwtimeout);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dwtimeout;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -82,12 +89,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Add_Empty_Log_Conf")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(plclogconf, dndevinst, priority, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(plclogconf, dndevinst, priority, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)plclogconf;
     (void)dndevinst;
     (void)priority;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -107,13 +121,20 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Add_Empty_Log_Conf_Ex")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(plclogconf, dndevinst, priority, ulflags, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(plclogconf, dndevinst, priority, ulflags, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)plclogconf;
     (void)dndevinst;
     (void)priority;
     (void)ulflags;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -131,11 +152,18 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Add_IDA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dndevinst, pszid, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dndevinst, pszid, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dndevinst;
     (void)pszid;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -153,11 +181,18 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Add_IDW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dndevinst, pszid, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dndevinst, pszid, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dndevinst;
     (void)pszid;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -176,12 +211,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Add_ID_ExA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dndevinst, pszid, ulflags, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dndevinst, pszid, ulflags, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dndevinst;
     (void)pszid;
     (void)ulflags;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -200,12 +242,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Add_ID_ExW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dndevinst, pszid, ulflags, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dndevinst, pszid, ulflags, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dndevinst;
     (void)pszid;
     (void)ulflags;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -224,12 +273,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Add_Range")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ullstartvalue, ullendvalue, rlh, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ullstartvalue, ullendvalue, rlh, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ullstartvalue;
     (void)ullendvalue;
     (void)rlh;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -250,7 +306,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Add_Res_Des")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(prdresdes, lclogconf, resourceid, resourcedata, resourcelen, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(prdresdes, lclogconf, resourceid, resourcedata, resourcelen, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)prdresdes;
     (void)lclogconf;
@@ -258,6 +320,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)resourcedata;
     (void)resourcelen;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -279,7 +342,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Add_Res_Des_Ex")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(prdresdes, lclogconf, resourceid, resourcedata, resourcelen, ulflags, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(prdresdes, lclogconf, resourceid, resourcedata, resourcelen, ulflags, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)prdresdes;
     (void)lclogconf;
@@ -288,6 +357,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)resourcelen;
     (void)ulflags;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -304,10 +374,17 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Connect_MachineA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(uncservername, phmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(uncservername, phmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)uncservername;
     (void)phmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -324,10 +401,17 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Connect_MachineW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(uncservername, phmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(uncservername, phmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)uncservername;
     (void)phmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -346,12 +430,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Create_DevNodeA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pdndevinst, pdeviceid, dnparent, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pdndevinst, pdeviceid, dnparent, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pdndevinst;
     (void)pdeviceid;
     (void)dnparent;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -370,12 +461,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Create_DevNodeW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pdndevinst, pdeviceid, dnparent, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pdndevinst, pdeviceid, dnparent, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pdndevinst;
     (void)pdeviceid;
     (void)dnparent;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -395,13 +493,20 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Create_DevNode_ExA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pdndevinst, pdeviceid, dnparent, ulflags, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pdndevinst, pdeviceid, dnparent, ulflags, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pdndevinst;
     (void)pdeviceid;
     (void)dnparent;
     (void)ulflags;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -421,13 +526,20 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Create_DevNode_ExW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pdndevinst, pdeviceid, dnparent, ulflags, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pdndevinst, pdeviceid, dnparent, ulflags, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pdndevinst;
     (void)pdeviceid;
     (void)dnparent;
     (void)ulflags;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -444,10 +556,17 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Create_Range_List")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(prlh, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(prlh, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)prlh;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -464,10 +583,17 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Delete_Class_Key")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(classguid, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(classguid, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)classguid;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -485,11 +611,18 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Delete_Class_Key_Ex")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(classguid, ulflags, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(classguid, ulflags, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)classguid;
     (void)ulflags;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -507,11 +640,18 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Delete_DevNode_Key")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dndevnode, ulhardwareprofile, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dndevnode, ulhardwareprofile, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dndevnode;
     (void)ulhardwareprofile;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -530,12 +670,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Delete_DevNode_Key_Ex")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dndevnode, ulhardwareprofile, ulflags, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dndevnode, ulhardwareprofile, ulflags, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dndevnode;
     (void)ulhardwareprofile;
     (void)ulflags;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -552,10 +699,17 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Delete_Device_Interface_KeyA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszdeviceinterface, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszdeviceinterface, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pszdeviceinterface;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -572,10 +726,17 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Delete_Device_Interface_KeyW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszdeviceinterface, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszdeviceinterface, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pszdeviceinterface;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -593,11 +754,18 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Delete_Device_Interface_Key_ExA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszdeviceinterface, ulflags, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszdeviceinterface, ulflags, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pszdeviceinterface;
     (void)ulflags;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -615,11 +783,18 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Delete_Device_Interface_Key_ExW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszdeviceinterface, ulflags, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszdeviceinterface, ulflags, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pszdeviceinterface;
     (void)ulflags;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -638,12 +813,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Delete_Range")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ullstartvalue, ullendvalue, rlh, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ullstartvalue, ullendvalue, rlh, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ullstartvalue;
     (void)ullendvalue;
     (void)rlh;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -664,7 +846,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Detect_Resource_Conflict")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dndevinst, resourceid, resourcedata, resourcelen, pbconflictdetected, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dndevinst, resourceid, resourcedata, resourcelen, pbconflictdetected, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dndevinst;
     (void)resourceid;
@@ -672,6 +860,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)resourcelen;
     (void)pbconflictdetected;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -693,7 +882,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Detect_Resource_Conflict_Ex")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dndevinst, resourceid, resourcedata, resourcelen, pbconflictdetected, ulflags, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dndevinst, resourceid, resourcedata, resourcelen, pbconflictdetected, ulflags, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dndevinst;
     (void)resourceid;
@@ -702,6 +897,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)pbconflictdetected;
     (void)ulflags;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -718,10 +914,17 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Disable_DevNode")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dndevinst, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dndevinst, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dndevinst;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -739,11 +942,18 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Disable_DevNode_Ex")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dndevinst, ulflags, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dndevinst, ulflags, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dndevinst;
     (void)ulflags;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -759,9 +969,16 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Disconnect_Machine")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -779,11 +996,18 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Dup_Range_List")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rlhold, rlhnew, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rlhold, rlhnew, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rlhold;
     (void)rlhnew;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -800,10 +1024,17 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Enable_DevNode")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dndevinst, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dndevinst, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dndevinst;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -821,11 +1052,18 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Enable_DevNode_Ex")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dndevinst, ulflags, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dndevinst, ulflags, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dndevinst;
     (void)ulflags;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -843,11 +1081,18 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Enumerate_Classes")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ulclassindex, classguid, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ulclassindex, classguid, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ulclassindex;
     (void)classguid;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -866,12 +1111,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Enumerate_Classes_Ex")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ulclassindex, classguid, ulflags, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ulclassindex, classguid, ulflags, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ulclassindex;
     (void)classguid;
     (void)ulflags;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -890,12 +1142,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Enumerate_EnumeratorsA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ulenumindex, buffer, pullength, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ulenumindex, buffer, pullength, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ulenumindex;
     (void)buffer;
     (void)pullength;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -914,12 +1173,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Enumerate_EnumeratorsW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ulenumindex, buffer, pullength, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ulenumindex, buffer, pullength, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ulenumindex;
     (void)buffer;
     (void)pullength;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -939,13 +1205,20 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Enumerate_Enumerators_ExA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ulenumindex, buffer, pullength, ulflags, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ulenumindex, buffer, pullength, ulflags, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ulenumindex;
     (void)buffer;
     (void)pullength;
     (void)ulflags;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -965,13 +1238,20 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Enumerate_Enumerators_ExW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ulenumindex, buffer, pullength, ulflags, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ulenumindex, buffer, pullength, ulflags, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ulenumindex;
     (void)buffer;
     (void)pullength;
     (void)ulflags;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -993,7 +1273,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Find_Range")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pullstart, ullstart, ullength, ullalignment, ullend, rlh, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pullstart, ullstart, ullength, ullalignment, ullend, rlh, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pullstart;
     (void)ullstart;
@@ -1002,6 +1288,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)ullend;
     (void)rlh;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1021,13 +1308,20 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_First_Range")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rlh, pullstart, pullend, preelement, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rlh, pullstart, pullend, preelement, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rlh;
     (void)pullstart;
     (void)pullend;
     (void)preelement;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1044,10 +1338,17 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Free_Log_Conf")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lclogconftobefreed, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lclogconftobefreed, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lclogconftobefreed;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1065,11 +1366,18 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Free_Log_Conf_Ex")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lclogconftobefreed, ulflags, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lclogconftobefreed, ulflags, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lclogconftobefreed;
     (void)ulflags;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1085,9 +1393,16 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Free_Log_Conf_Handle")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lclogconf) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lclogconf);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lclogconf;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1104,10 +1419,17 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Free_Range_List")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rlh, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rlh, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rlh;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1125,11 +1447,18 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Free_Res_Des")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(prdresdes, rdresdes, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(prdresdes, rdresdes, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)prdresdes;
     (void)rdresdes;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1148,12 +1477,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Free_Res_Des_Ex")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(prdresdes, rdresdes, ulflags, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(prdresdes, rdresdes, ulflags, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)prdresdes;
     (void)rdresdes;
     (void)ulflags;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1169,9 +1505,16 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Free_Res_Des_Handle")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rdresdes) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rdresdes);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rdresdes;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1187,9 +1530,16 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Free_Resource_Conflict_Handle")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(clconflictlist) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(clconflictlist);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)clconflictlist;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1207,11 +1557,18 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Get_Child")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pdndevinst, dndevinst, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pdndevinst, dndevinst, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pdndevinst;
     (void)dndevinst;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1230,12 +1587,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Get_Child_Ex")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pdndevinst, dndevinst, ulflags, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pdndevinst, dndevinst, ulflags, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pdndevinst;
     (void)dndevinst;
     (void)ulflags;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1254,12 +1618,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Get_Class_Key_NameA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(classguid, pszkeyname, pullength, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(classguid, pszkeyname, pullength, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)classguid;
     (void)pszkeyname;
     (void)pullength;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1278,12 +1649,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Get_Class_Key_NameW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(classguid, pszkeyname, pullength, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(classguid, pszkeyname, pullength, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)classguid;
     (void)pszkeyname;
     (void)pullength;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1303,13 +1681,20 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Get_Class_Key_Name_ExA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(classguid, pszkeyname, pullength, ulflags, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(classguid, pszkeyname, pullength, ulflags, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)classguid;
     (void)pszkeyname;
     (void)pullength;
     (void)ulflags;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1329,13 +1714,20 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Get_Class_Key_Name_ExW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(classguid, pszkeyname, pullength, ulflags, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(classguid, pszkeyname, pullength, ulflags, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)classguid;
     (void)pszkeyname;
     (void)pullength;
     (void)ulflags;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1354,12 +1746,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Get_Class_NameA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(classguid, buffer, pullength, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(classguid, buffer, pullength, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)classguid;
     (void)buffer;
     (void)pullength;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1378,12 +1777,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Get_Class_NameW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(classguid, buffer, pullength, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(classguid, buffer, pullength, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)classguid;
     (void)buffer;
     (void)pullength;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1403,13 +1809,20 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Get_Class_Name_ExA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(classguid, buffer, pullength, ulflags, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(classguid, buffer, pullength, ulflags, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)classguid;
     (void)buffer;
     (void)pullength;
     (void)ulflags;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1429,13 +1842,20 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Get_Class_Name_ExW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(classguid, buffer, pullength, ulflags, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(classguid, buffer, pullength, ulflags, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)classguid;
     (void)buffer;
     (void)pullength;
     (void)ulflags;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1456,7 +1876,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Get_Class_PropertyW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(classguid, propertykey, propertytype, propertybuffer, propertybuffersize, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(classguid, propertykey, propertytype, propertybuffer, propertybuffersize, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)classguid;
     (void)propertykey;
@@ -1464,6 +1890,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)propertybuffer;
     (void)propertybuffersize;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1485,7 +1912,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Get_Class_Property_ExW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(classguid, propertykey, propertytype, propertybuffer, propertybuffersize, ulflags, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(classguid, propertykey, propertytype, propertybuffer, propertybuffersize, ulflags, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)classguid;
     (void)propertykey;
@@ -1494,6 +1927,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)propertybuffersize;
     (void)ulflags;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1512,12 +1946,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Get_Class_Property_Keys")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(classguid, propertykeyarray, propertykeycount, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(classguid, propertykeyarray, propertykeycount, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)classguid;
     (void)propertykeyarray;
     (void)propertykeycount;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1537,13 +1978,20 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Get_Class_Property_Keys_Ex")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(classguid, propertykeyarray, propertykeycount, ulflags, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(classguid, propertykeyarray, propertykeycount, ulflags, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)classguid;
     (void)propertykeyarray;
     (void)propertykeycount;
     (void)ulflags;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1565,7 +2013,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Get_Class_Registry_PropertyA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(classguid, ulproperty, pulregdatatype, buffer, pullength, ulflags, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(classguid, ulproperty, pulregdatatype, buffer, pullength, ulflags, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)classguid;
     (void)ulproperty;
@@ -1574,6 +2028,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)pullength;
     (void)ulflags;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1595,7 +2050,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Get_Class_Registry_PropertyW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(classguid, ulproperty, pulregdatatype, buffer, pullength, ulflags, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(classguid, ulproperty, pulregdatatype, buffer, pullength, ulflags, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)classguid;
     (void)ulproperty;
@@ -1604,6 +2065,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)pullength;
     (void)ulflags;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1621,11 +2083,18 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Get_Depth")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(puldepth, dndevinst, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(puldepth, dndevinst, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)puldepth;
     (void)dndevinst;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1644,12 +2113,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Get_Depth_Ex")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(puldepth, dndevinst, ulflags, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(puldepth, dndevinst, ulflags, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)puldepth;
     (void)dndevinst;
     (void)ulflags;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1670,7 +2146,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Get_DevNode_Custom_PropertyA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dndevinst, pszcustompropertyname, pulregdatatype, buffer, pullength, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dndevinst, pszcustompropertyname, pulregdatatype, buffer, pullength, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dndevinst;
     (void)pszcustompropertyname;
@@ -1678,6 +2160,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)buffer;
     (void)pullength;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1698,7 +2181,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Get_DevNode_Custom_PropertyW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dndevinst, pszcustompropertyname, pulregdatatype, buffer, pullength, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dndevinst, pszcustompropertyname, pulregdatatype, buffer, pullength, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dndevinst;
     (void)pszcustompropertyname;
@@ -1706,6 +2195,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)buffer;
     (void)pullength;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1727,7 +2217,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Get_DevNode_Custom_Property_ExA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dndevinst, pszcustompropertyname, pulregdatatype, buffer, pullength, ulflags, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dndevinst, pszcustompropertyname, pulregdatatype, buffer, pullength, ulflags, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dndevinst;
     (void)pszcustompropertyname;
@@ -1736,6 +2232,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)pullength;
     (void)ulflags;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1757,7 +2254,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Get_DevNode_Custom_Property_ExW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dndevinst, pszcustompropertyname, pulregdatatype, buffer, pullength, ulflags, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dndevinst, pszcustompropertyname, pulregdatatype, buffer, pullength, ulflags, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dndevinst;
     (void)pszcustompropertyname;
@@ -1766,6 +2269,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)pullength;
     (void)ulflags;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1786,7 +2290,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Get_DevNode_PropertyW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dndevinst, propertykey, propertytype, propertybuffer, propertybuffersize, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dndevinst, propertykey, propertytype, propertybuffer, propertybuffersize, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dndevinst;
     (void)propertykey;
@@ -1794,6 +2304,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)propertybuffer;
     (void)propertybuffersize;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1815,7 +2326,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Get_DevNode_Property_ExW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dndevinst, propertykey, propertytype, propertybuffer, propertybuffersize, ulflags, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dndevinst, propertykey, propertytype, propertybuffer, propertybuffersize, ulflags, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dndevinst;
     (void)propertykey;
@@ -1824,6 +2341,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)propertybuffersize;
     (void)ulflags;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1842,12 +2360,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Get_DevNode_Property_Keys")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dndevinst, propertykeyarray, propertykeycount, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dndevinst, propertykeyarray, propertykeycount, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dndevinst;
     (void)propertykeyarray;
     (void)propertykeycount;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1867,13 +2392,20 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Get_DevNode_Property_Keys_Ex")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dndevinst, propertykeyarray, propertykeycount, ulflags, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dndevinst, propertykeyarray, propertykeycount, ulflags, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dndevinst;
     (void)propertykeyarray;
     (void)propertykeycount;
     (void)ulflags;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1894,7 +2426,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Get_DevNode_Registry_PropertyA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dndevinst, ulproperty, pulregdatatype, buffer, pullength, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dndevinst, ulproperty, pulregdatatype, buffer, pullength, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dndevinst;
     (void)ulproperty;
@@ -1902,6 +2440,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)buffer;
     (void)pullength;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1922,7 +2461,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Get_DevNode_Registry_PropertyW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dndevinst, ulproperty, pulregdatatype, buffer, pullength, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dndevinst, ulproperty, pulregdatatype, buffer, pullength, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dndevinst;
     (void)ulproperty;
@@ -1930,6 +2475,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)buffer;
     (void)pullength;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1951,7 +2497,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Get_DevNode_Registry_Property_ExA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dndevinst, ulproperty, pulregdatatype, buffer, pullength, ulflags, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dndevinst, ulproperty, pulregdatatype, buffer, pullength, ulflags, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dndevinst;
     (void)ulproperty;
@@ -1960,6 +2512,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)pullength;
     (void)ulflags;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1981,7 +2534,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Get_DevNode_Registry_Property_ExW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dndevinst, ulproperty, pulregdatatype, buffer, pullength, ulflags, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dndevinst, ulproperty, pulregdatatype, buffer, pullength, ulflags, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dndevinst;
     (void)ulproperty;
@@ -1990,6 +2549,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)pullength;
     (void)ulflags;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2008,12 +2568,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Get_DevNode_Status")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pulstatus, pulproblemnumber, dndevinst, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pulstatus, pulproblemnumber, dndevinst, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pulstatus;
     (void)pulproblemnumber;
     (void)dndevinst;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2033,13 +2600,20 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Get_DevNode_Status_Ex")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pulstatus, pulproblemnumber, dndevinst, ulflags, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pulstatus, pulproblemnumber, dndevinst, ulflags, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pulstatus;
     (void)pulproblemnumber;
     (void)dndevinst;
     (void)ulflags;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2058,12 +2632,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Get_Device_IDA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dndevinst, buffer, bufferlen, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dndevinst, buffer, bufferlen, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dndevinst;
     (void)buffer;
     (void)bufferlen;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2082,12 +2663,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Get_Device_IDW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dndevinst, buffer, bufferlen, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dndevinst, buffer, bufferlen, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dndevinst;
     (void)buffer;
     (void)bufferlen;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2107,13 +2695,20 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Get_Device_ID_ExA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dndevinst, buffer, bufferlen, ulflags, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dndevinst, buffer, bufferlen, ulflags, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dndevinst;
     (void)buffer;
     (void)bufferlen;
     (void)ulflags;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2133,13 +2728,20 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Get_Device_ID_ExW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dndevinst, buffer, bufferlen, ulflags, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dndevinst, buffer, bufferlen, ulflags, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dndevinst;
     (void)buffer;
     (void)bufferlen;
     (void)ulflags;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2158,12 +2760,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Get_Device_ID_ListA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszfilter, buffer, bufferlen, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszfilter, buffer, bufferlen, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pszfilter;
     (void)buffer;
     (void)bufferlen;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2182,12 +2791,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Get_Device_ID_ListW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszfilter, buffer, bufferlen, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszfilter, buffer, bufferlen, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pszfilter;
     (void)buffer;
     (void)bufferlen;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2207,13 +2823,20 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Get_Device_ID_List_ExA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszfilter, buffer, bufferlen, ulflags, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszfilter, buffer, bufferlen, ulflags, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pszfilter;
     (void)buffer;
     (void)bufferlen;
     (void)ulflags;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2233,13 +2856,20 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Get_Device_ID_List_ExW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszfilter, buffer, bufferlen, ulflags, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszfilter, buffer, bufferlen, ulflags, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pszfilter;
     (void)buffer;
     (void)bufferlen;
     (void)ulflags;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2257,11 +2887,18 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Get_Device_ID_List_SizeA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pullen, pszfilter, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pullen, pszfilter, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pullen;
     (void)pszfilter;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2279,11 +2916,18 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Get_Device_ID_List_SizeW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pullen, pszfilter, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pullen, pszfilter, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pullen;
     (void)pszfilter;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2302,12 +2946,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Get_Device_ID_List_Size_ExA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pullen, pszfilter, ulflags, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pullen, pszfilter, ulflags, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pullen;
     (void)pszfilter;
     (void)ulflags;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2326,12 +2977,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Get_Device_ID_List_Size_ExW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pullen, pszfilter, ulflags, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pullen, pszfilter, ulflags, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pullen;
     (void)pszfilter;
     (void)ulflags;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2349,11 +3007,18 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Get_Device_ID_Size")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pullen, dndevinst, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pullen, dndevinst, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pullen;
     (void)dndevinst;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2372,12 +3037,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Get_Device_ID_Size_Ex")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pullen, dndevinst, ulflags, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pullen, dndevinst, ulflags, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pullen;
     (void)dndevinst;
     (void)ulflags;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2397,13 +3069,20 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Get_Device_Interface_AliasA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszdeviceinterface, aliasinterfaceguid, pszaliasdeviceinterface, pullength, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszdeviceinterface, aliasinterfaceguid, pszaliasdeviceinterface, pullength, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pszdeviceinterface;
     (void)aliasinterfaceguid;
     (void)pszaliasdeviceinterface;
     (void)pullength;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2423,13 +3102,20 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Get_Device_Interface_AliasW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszdeviceinterface, aliasinterfaceguid, pszaliasdeviceinterface, pullength, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszdeviceinterface, aliasinterfaceguid, pszaliasdeviceinterface, pullength, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pszdeviceinterface;
     (void)aliasinterfaceguid;
     (void)pszaliasdeviceinterface;
     (void)pullength;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2450,7 +3136,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Get_Device_Interface_Alias_ExA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszdeviceinterface, aliasinterfaceguid, pszaliasdeviceinterface, pullength, ulflags, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszdeviceinterface, aliasinterfaceguid, pszaliasdeviceinterface, pullength, ulflags, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pszdeviceinterface;
     (void)aliasinterfaceguid;
@@ -2458,6 +3150,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)pullength;
     (void)ulflags;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2478,7 +3171,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Get_Device_Interface_Alias_ExW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszdeviceinterface, aliasinterfaceguid, pszaliasdeviceinterface, pullength, ulflags, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszdeviceinterface, aliasinterfaceguid, pszaliasdeviceinterface, pullength, ulflags, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pszdeviceinterface;
     (void)aliasinterfaceguid;
@@ -2486,6 +3185,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)pullength;
     (void)ulflags;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2505,13 +3205,20 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Get_Device_Interface_ListA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(interfaceclassguid, pdeviceid, buffer, bufferlen, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(interfaceclassguid, pdeviceid, buffer, bufferlen, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)interfaceclassguid;
     (void)pdeviceid;
     (void)buffer;
     (void)bufferlen;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2531,13 +3238,20 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Get_Device_Interface_ListW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(interfaceclassguid, pdeviceid, buffer, bufferlen, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(interfaceclassguid, pdeviceid, buffer, bufferlen, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)interfaceclassguid;
     (void)pdeviceid;
     (void)buffer;
     (void)bufferlen;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2558,7 +3272,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Get_Device_Interface_List_ExA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(interfaceclassguid, pdeviceid, buffer, bufferlen, ulflags, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(interfaceclassguid, pdeviceid, buffer, bufferlen, ulflags, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)interfaceclassguid;
     (void)pdeviceid;
@@ -2566,6 +3286,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)bufferlen;
     (void)ulflags;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2586,7 +3307,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Get_Device_Interface_List_ExW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(interfaceclassguid, pdeviceid, buffer, bufferlen, ulflags, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(interfaceclassguid, pdeviceid, buffer, bufferlen, ulflags, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)interfaceclassguid;
     (void)pdeviceid;
@@ -2594,6 +3321,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)bufferlen;
     (void)ulflags;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2612,12 +3340,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Get_Device_Interface_List_SizeA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pullen, interfaceclassguid, pdeviceid, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pullen, interfaceclassguid, pdeviceid, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pullen;
     (void)interfaceclassguid;
     (void)pdeviceid;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2636,12 +3371,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Get_Device_Interface_List_SizeW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pullen, interfaceclassguid, pdeviceid, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pullen, interfaceclassguid, pdeviceid, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pullen;
     (void)interfaceclassguid;
     (void)pdeviceid;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2661,13 +3403,20 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Get_Device_Interface_List_Size_ExA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pullen, interfaceclassguid, pdeviceid, ulflags, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pullen, interfaceclassguid, pdeviceid, ulflags, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pullen;
     (void)interfaceclassguid;
     (void)pdeviceid;
     (void)ulflags;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2687,13 +3436,20 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Get_Device_Interface_List_Size_ExW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pullen, interfaceclassguid, pdeviceid, ulflags, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pullen, interfaceclassguid, pdeviceid, ulflags, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pullen;
     (void)interfaceclassguid;
     (void)pdeviceid;
     (void)ulflags;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2714,7 +3470,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Get_Device_Interface_PropertyW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszdeviceinterface, propertykey, propertytype, propertybuffer, propertybuffersize, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszdeviceinterface, propertykey, propertytype, propertybuffer, propertybuffersize, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pszdeviceinterface;
     (void)propertykey;
@@ -2722,6 +3484,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)propertybuffer;
     (void)propertybuffersize;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2743,7 +3506,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Get_Device_Interface_Property_ExW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszdeviceinterface, propertykey, propertytype, propertybuffer, propertybuffersize, ulflags, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszdeviceinterface, propertykey, propertytype, propertybuffer, propertybuffersize, ulflags, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pszdeviceinterface;
     (void)propertykey;
@@ -2752,6 +3521,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)propertybuffersize;
     (void)ulflags;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2770,12 +3540,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Get_Device_Interface_Property_KeysW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszdeviceinterface, propertykeyarray, propertykeycount, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszdeviceinterface, propertykeyarray, propertykeycount, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pszdeviceinterface;
     (void)propertykeyarray;
     (void)propertykeycount;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2795,13 +3572,20 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Get_Device_Interface_Property_Keys_ExW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszdeviceinterface, propertykeyarray, propertykeycount, ulflags, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszdeviceinterface, propertykeyarray, propertykeycount, ulflags, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pszdeviceinterface;
     (void)propertykeyarray;
     (void)propertykeycount;
     (void)ulflags;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2819,11 +3603,18 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Get_First_Log_Conf")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(plclogconf, dndevinst, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(plclogconf, dndevinst, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)plclogconf;
     (void)dndevinst;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2842,12 +3633,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Get_First_Log_Conf_Ex")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(plclogconf, dndevinst, ulflags, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(plclogconf, dndevinst, ulflags, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)plclogconf;
     (void)dndevinst;
     (void)ulflags;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2864,10 +3662,17 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Get_Global_State")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pulstate, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pulstate, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pulstate;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2885,11 +3690,18 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Get_Global_State_Ex")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pulstate, ulflags, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pulstate, ulflags, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pulstate;
     (void)ulflags;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2908,12 +3720,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Get_HW_Prof_FlagsA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pdeviceid, ulhardwareprofile, pulvalue, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pdeviceid, ulhardwareprofile, pulvalue, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pdeviceid;
     (void)ulhardwareprofile;
     (void)pulvalue;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2932,12 +3751,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Get_HW_Prof_FlagsW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pdeviceid, ulhardwareprofile, pulvalue, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pdeviceid, ulhardwareprofile, pulvalue, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pdeviceid;
     (void)ulhardwareprofile;
     (void)pulvalue;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2957,13 +3783,20 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Get_HW_Prof_Flags_ExA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pdeviceid, ulhardwareprofile, pulvalue, ulflags, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pdeviceid, ulhardwareprofile, pulvalue, ulflags, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pdeviceid;
     (void)ulhardwareprofile;
     (void)pulvalue;
     (void)ulflags;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2983,13 +3816,20 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Get_HW_Prof_Flags_ExW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pdeviceid, ulhardwareprofile, pulvalue, ulflags, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pdeviceid, ulhardwareprofile, pulvalue, ulflags, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pdeviceid;
     (void)ulhardwareprofile;
     (void)pulvalue;
     (void)ulflags;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3007,11 +3847,18 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Get_Hardware_Profile_InfoA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ulindex, phwprofileinfo, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ulindex, phwprofileinfo, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ulindex;
     (void)phwprofileinfo;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3029,11 +3876,18 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Get_Hardware_Profile_InfoW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ulindex, phwprofileinfo, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ulindex, phwprofileinfo, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ulindex;
     (void)phwprofileinfo;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3052,12 +3906,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Get_Hardware_Profile_Info_ExA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ulindex, phwprofileinfo, ulflags, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ulindex, phwprofileinfo, ulflags, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ulindex;
     (void)phwprofileinfo;
     (void)ulflags;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3076,12 +3937,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Get_Hardware_Profile_Info_ExW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ulindex, phwprofileinfo, ulflags, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ulindex, phwprofileinfo, ulflags, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ulindex;
     (void)phwprofileinfo;
     (void)ulflags;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3099,11 +3967,18 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Get_Log_Conf_Priority")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lclogconf, ppriority, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lclogconf, ppriority, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lclogconf;
     (void)ppriority;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3122,12 +3997,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Get_Log_Conf_Priority_Ex")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lclogconf, ppriority, ulflags, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lclogconf, ppriority, ulflags, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lclogconf;
     (void)ppriority;
     (void)ulflags;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3145,11 +4027,18 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Get_Next_Log_Conf")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(plclogconf, lclogconf, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(plclogconf, lclogconf, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)plclogconf;
     (void)lclogconf;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3168,12 +4057,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Get_Next_Log_Conf_Ex")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(plclogconf, lclogconf, ulflags, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(plclogconf, lclogconf, ulflags, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)plclogconf;
     (void)lclogconf;
     (void)ulflags;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3193,13 +4089,20 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Get_Next_Res_Des")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(prdresdes, rdresdes, forresource, presourceid, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(prdresdes, rdresdes, forresource, presourceid, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)prdresdes;
     (void)rdresdes;
     (void)forresource;
     (void)presourceid;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3220,7 +4123,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Get_Next_Res_Des_Ex")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(prdresdes, rdresdes, forresource, presourceid, ulflags, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(prdresdes, rdresdes, forresource, presourceid, ulflags, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)prdresdes;
     (void)rdresdes;
@@ -3228,6 +4137,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)presourceid;
     (void)ulflags;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3245,11 +4155,18 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Get_Parent")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pdndevinst, dndevinst, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pdndevinst, dndevinst, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pdndevinst;
     (void)dndevinst;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3268,12 +4185,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Get_Parent_Ex")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pdndevinst, dndevinst, ulflags, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pdndevinst, dndevinst, ulflags, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pdndevinst;
     (void)dndevinst;
     (void)ulflags;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3292,12 +4216,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Get_Res_Des_Data")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rdresdes, buffer, bufferlen, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rdresdes, buffer, bufferlen, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rdresdes;
     (void)buffer;
     (void)bufferlen;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3317,13 +4248,20 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Get_Res_Des_Data_Ex")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rdresdes, buffer, bufferlen, ulflags, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rdresdes, buffer, bufferlen, ulflags, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rdresdes;
     (void)buffer;
     (void)bufferlen;
     (void)ulflags;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3341,11 +4279,18 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Get_Res_Des_Data_Size")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pulsize, rdresdes, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pulsize, rdresdes, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pulsize;
     (void)rdresdes;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3364,12 +4309,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Get_Res_Des_Data_Size_Ex")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pulsize, rdresdes, ulflags, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pulsize, rdresdes, ulflags, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pulsize;
     (void)rdresdes;
     (void)ulflags;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3386,10 +4338,17 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Get_Resource_Conflict_Count")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(clconflictlist, pulcount) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(clconflictlist, pulcount);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)clconflictlist;
     (void)pulcount;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3407,11 +4366,18 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Get_Resource_Conflict_DetailsA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(clconflictlist, ulindex, pconflictdetails) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(clconflictlist, ulindex, pconflictdetails);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)clconflictlist;
     (void)ulindex;
     (void)pconflictdetails;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3429,11 +4395,18 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Get_Resource_Conflict_DetailsW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(clconflictlist, ulindex, pconflictdetails) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(clconflictlist, ulindex, pconflictdetails);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)clconflictlist;
     (void)ulindex;
     (void)pconflictdetails;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3451,11 +4424,18 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Get_Sibling")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pdndevinst, dndevinst, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pdndevinst, dndevinst, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pdndevinst;
     (void)dndevinst;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3474,12 +4454,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Get_Sibling_Ex")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pdndevinst, dndevinst, ulflags, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pdndevinst, dndevinst, ulflags, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pdndevinst;
     (void)dndevinst;
     (void)ulflags;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3494,8 +4481,15 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Get_Version")));
     }
-    uint16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : 0;
+    uint16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
+    errno = ENOSYS;
     uint16_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3511,9 +4505,16 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Get_Version_Ex")));
     }
-    uint16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmachine) : 0;
+    uint16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmachine;
+    errno = ENOSYS;
     uint16_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3532,12 +4533,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Intersect_Range_List")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rlhold1, rlhold2, rlhnew, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rlhold1, rlhold2, rlhnew, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rlhold1;
     (void)rlhold2;
     (void)rlhnew;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3556,12 +4564,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Invert_Range_List")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rlhold, rlhnew, ullmaxvalue, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rlhold, rlhnew, ullmaxvalue, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rlhold;
     (void)rlhnew;
     (void)ullmaxvalue;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3577,9 +4592,16 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Is_Dock_Station_Present")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pbpresent) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pbpresent);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pbpresent;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3596,10 +4618,17 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Is_Dock_Station_Present_Ex")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pbpresent, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pbpresent, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pbpresent;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3615,9 +4644,16 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Is_Version_Available")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(wversion) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(wversion);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)wversion;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3634,10 +4670,17 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Is_Version_Available_Ex")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(wversion, hmachine) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(wversion, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)wversion;
     (void)hmachine;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3655,11 +4698,18 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Locate_DevNodeA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pdndevinst, pdeviceid, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pdndevinst, pdeviceid, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pdndevinst;
     (void)pdeviceid;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3677,11 +4727,18 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Locate_DevNodeW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pdndevinst, pdeviceid, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pdndevinst, pdeviceid, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pdndevinst;
     (void)pdeviceid;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3700,12 +4757,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Locate_DevNode_ExA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pdndevinst, pdeviceid, ulflags, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pdndevinst, pdeviceid, ulflags, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pdndevinst;
     (void)pdeviceid;
     (void)ulflags;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3724,12 +4788,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Locate_DevNode_ExW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pdndevinst, pdeviceid, ulflags, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pdndevinst, pdeviceid, ulflags, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pdndevinst;
     (void)pdeviceid;
     (void)ulflags;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3746,10 +4817,17 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_MapCrToWin32Err")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(cmreturncode, defaulterr) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(cmreturncode, defaulterr);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)cmreturncode;
     (void)defaulterr;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3768,12 +4846,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Merge_Range_List")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rlhold1, rlhold2, rlhnew, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rlhold1, rlhold2, rlhnew, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rlhold1;
     (void)rlhold2;
     (void)rlhnew;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3794,7 +4879,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Modify_Res_Des")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(prdresdes, rdresdes, resourceid, resourcedata, resourcelen, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(prdresdes, rdresdes, resourceid, resourcedata, resourcelen, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)prdresdes;
     (void)rdresdes;
@@ -3802,6 +4893,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)resourcedata;
     (void)resourcelen;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3823,7 +4915,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Modify_Res_Des_Ex")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(prdresdes, rdresdes, resourceid, resourcedata, resourcelen, ulflags, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(prdresdes, rdresdes, resourceid, resourcedata, resourcelen, ulflags, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)prdresdes;
     (void)rdresdes;
@@ -3832,6 +4930,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)resourcelen;
     (void)ulflags;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3849,11 +4948,18 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Move_DevNode")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dnfromdevinst, dntodevinst, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dnfromdevinst, dntodevinst, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dnfromdevinst;
     (void)dntodevinst;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3872,12 +4978,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Move_DevNode_Ex")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dnfromdevinst, dntodevinst, ulflags, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dnfromdevinst, dntodevinst, ulflags, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dnfromdevinst;
     (void)dntodevinst;
     (void)ulflags;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3896,12 +5009,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Next_Range")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(preelement, pullstart, pullend, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(preelement, pullstart, pullend, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)preelement;
     (void)pullstart;
     (void)pullend;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3922,7 +5042,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Open_Class_KeyA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(classguid, pszclassname, samdesired, disposition, phkclass, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(classguid, pszclassname, samdesired, disposition, phkclass, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)classguid;
     (void)pszclassname;
@@ -3930,6 +5056,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)disposition;
     (void)phkclass;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3950,7 +5077,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Open_Class_KeyW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(classguid, pszclassname, samdesired, disposition, phkclass, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(classguid, pszclassname, samdesired, disposition, phkclass, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)classguid;
     (void)pszclassname;
@@ -3958,6 +5091,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)disposition;
     (void)phkclass;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3979,7 +5113,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Open_Class_Key_ExA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(classguid, pszclassname, samdesired, disposition, phkclass, ulflags, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(classguid, pszclassname, samdesired, disposition, phkclass, ulflags, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)classguid;
     (void)pszclassname;
@@ -3988,6 +5128,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)phkclass;
     (void)ulflags;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4009,7 +5150,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Open_Class_Key_ExW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(classguid, pszclassname, samdesired, disposition, phkclass, ulflags, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(classguid, pszclassname, samdesired, disposition, phkclass, ulflags, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)classguid;
     (void)pszclassname;
@@ -4018,6 +5165,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)phkclass;
     (void)ulflags;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4038,7 +5186,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Open_DevNode_Key")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dndevnode, samdesired, ulhardwareprofile, disposition, phkdevice, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dndevnode, samdesired, ulhardwareprofile, disposition, phkdevice, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dndevnode;
     (void)samdesired;
@@ -4046,6 +5200,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)disposition;
     (void)phkdevice;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4067,7 +5222,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Open_DevNode_Key_Ex")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dndevnode, samdesired, ulhardwareprofile, disposition, phkdevice, ulflags, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dndevnode, samdesired, ulhardwareprofile, disposition, phkdevice, ulflags, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dndevnode;
     (void)samdesired;
@@ -4076,6 +5237,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)phkdevice;
     (void)ulflags;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4095,13 +5257,20 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Open_Device_Interface_KeyA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszdeviceinterface, samdesired, disposition, phkdeviceinterface, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszdeviceinterface, samdesired, disposition, phkdeviceinterface, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pszdeviceinterface;
     (void)samdesired;
     (void)disposition;
     (void)phkdeviceinterface;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4121,13 +5290,20 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Open_Device_Interface_KeyW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszdeviceinterface, samdesired, disposition, phkdeviceinterface, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszdeviceinterface, samdesired, disposition, phkdeviceinterface, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pszdeviceinterface;
     (void)samdesired;
     (void)disposition;
     (void)phkdeviceinterface;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4148,7 +5324,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Open_Device_Interface_Key_ExA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszdeviceinterface, samdesired, disposition, phkdeviceinterface, ulflags, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszdeviceinterface, samdesired, disposition, phkdeviceinterface, ulflags, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pszdeviceinterface;
     (void)samdesired;
@@ -4156,6 +5338,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)phkdeviceinterface;
     (void)ulflags;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4176,7 +5359,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Open_Device_Interface_Key_ExW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszdeviceinterface, samdesired, disposition, phkdeviceinterface, ulflags, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszdeviceinterface, samdesired, disposition, phkdeviceinterface, ulflags, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pszdeviceinterface;
     (void)samdesired;
@@ -4184,6 +5373,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)phkdeviceinterface;
     (void)ulflags;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4203,13 +5393,20 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Query_And_Remove_SubTreeA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dnancestor, pvetotype, pszvetoname, ulnamelength, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dnancestor, pvetotype, pszvetoname, ulnamelength, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dnancestor;
     (void)pvetotype;
     (void)pszvetoname;
     (void)ulnamelength;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4229,13 +5426,20 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Query_And_Remove_SubTreeW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dnancestor, pvetotype, pszvetoname, ulnamelength, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dnancestor, pvetotype, pszvetoname, ulnamelength, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dnancestor;
     (void)pvetotype;
     (void)pszvetoname;
     (void)ulnamelength;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4256,7 +5460,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Query_And_Remove_SubTree_ExA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dnancestor, pvetotype, pszvetoname, ulnamelength, ulflags, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dnancestor, pvetotype, pszvetoname, ulnamelength, ulflags, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dnancestor;
     (void)pvetotype;
@@ -4264,6 +5474,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)ulnamelength;
     (void)ulflags;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4284,7 +5495,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Query_And_Remove_SubTree_ExW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dnancestor, pvetotype, pszvetoname, ulnamelength, ulflags, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dnancestor, pvetotype, pszvetoname, ulnamelength, ulflags, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dnancestor;
     (void)pvetotype;
@@ -4292,6 +5509,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)ulnamelength;
     (void)ulflags;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4311,13 +5529,20 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Query_Arbitrator_Free_Data")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pdata, datalen, dndevinst, resourceid, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pdata, datalen, dndevinst, resourceid, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pdata;
     (void)datalen;
     (void)dndevinst;
     (void)resourceid;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4338,7 +5563,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Query_Arbitrator_Free_Data_Ex")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pdata, datalen, dndevinst, resourceid, ulflags, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pdata, datalen, dndevinst, resourceid, ulflags, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pdata;
     (void)datalen;
@@ -4346,6 +5577,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)resourceid;
     (void)ulflags;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4364,12 +5596,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Query_Arbitrator_Free_Size")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pulsize, dndevinst, resourceid, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pulsize, dndevinst, resourceid, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pulsize;
     (void)dndevinst;
     (void)resourceid;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4389,13 +5628,20 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Query_Arbitrator_Free_Size_Ex")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pulsize, dndevinst, resourceid, ulflags, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pulsize, dndevinst, resourceid, ulflags, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pulsize;
     (void)dndevinst;
     (void)resourceid;
     (void)ulflags;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4412,10 +5658,17 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Query_Remove_SubTree")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dnancestor, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dnancestor, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dnancestor;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4433,11 +5686,18 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Query_Remove_SubTree_Ex")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dnancestor, ulflags, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dnancestor, ulflags, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dnancestor;
     (void)ulflags;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4459,7 +5719,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Query_Resource_Conflict_List")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pclconflictlist, dndevinst, resourceid, resourcedata, resourcelen, ulflags, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pclconflictlist, dndevinst, resourceid, resourcedata, resourcelen, ulflags, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pclconflictlist;
     (void)dndevinst;
@@ -4468,6 +5734,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)resourcelen;
     (void)ulflags;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4484,10 +5751,17 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Reenumerate_DevNode")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dndevinst, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dndevinst, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dndevinst;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4505,11 +5779,18 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Reenumerate_DevNode_Ex")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dndevinst, ulflags, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dndevinst, ulflags, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dndevinst;
     (void)ulflags;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4526,10 +5807,17 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Register_Device_Driver")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dndevinst, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dndevinst, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dndevinst;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4547,11 +5835,18 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Register_Device_Driver_Ex")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dndevinst, ulflags, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dndevinst, ulflags, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dndevinst;
     (void)ulflags;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4572,7 +5867,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Register_Device_InterfaceA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dndevinst, interfaceclassguid, pszreference, pszdeviceinterface, pullength, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dndevinst, interfaceclassguid, pszreference, pszdeviceinterface, pullength, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dndevinst;
     (void)interfaceclassguid;
@@ -4580,6 +5881,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)pszdeviceinterface;
     (void)pullength;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4600,7 +5902,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Register_Device_InterfaceW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dndevinst, interfaceclassguid, pszreference, pszdeviceinterface, pullength, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dndevinst, interfaceclassguid, pszreference, pszdeviceinterface, pullength, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dndevinst;
     (void)interfaceclassguid;
@@ -4608,6 +5916,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)pszdeviceinterface;
     (void)pullength;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4629,7 +5938,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Register_Device_Interface_ExA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dndevinst, interfaceclassguid, pszreference, pszdeviceinterface, pullength, ulflags, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dndevinst, interfaceclassguid, pszreference, pszdeviceinterface, pullength, ulflags, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dndevinst;
     (void)interfaceclassguid;
@@ -4638,6 +5953,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)pullength;
     (void)ulflags;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4659,7 +5975,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Register_Device_Interface_ExW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dndevinst, interfaceclassguid, pszreference, pszdeviceinterface, pullength, ulflags, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dndevinst, interfaceclassguid, pszreference, pszdeviceinterface, pullength, ulflags, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dndevinst;
     (void)interfaceclassguid;
@@ -4668,6 +5990,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)pullength;
     (void)ulflags;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4686,12 +6009,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Register_Notification")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pfilter, pcontext, pcallback, pnotifycontext) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pfilter, pcontext, pcallback, pnotifycontext);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pfilter;
     (void)pcontext;
     (void)pcallback;
     (void)pnotifycontext;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4708,10 +6038,17 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Remove_SubTree")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dnancestor, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dnancestor, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dnancestor;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4729,11 +6066,18 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Remove_SubTree_Ex")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dnancestor, ulflags, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dnancestor, ulflags, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dnancestor;
     (void)ulflags;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4753,13 +6097,20 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Request_Device_EjectA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dndevinst, pvetotype, pszvetoname, ulnamelength, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dndevinst, pvetotype, pszvetoname, ulnamelength, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dndevinst;
     (void)pvetotype;
     (void)pszvetoname;
     (void)ulnamelength;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4779,13 +6130,20 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Request_Device_EjectW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dndevinst, pvetotype, pszvetoname, ulnamelength, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dndevinst, pvetotype, pszvetoname, ulnamelength, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dndevinst;
     (void)pvetotype;
     (void)pszvetoname;
     (void)ulnamelength;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4806,7 +6164,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Request_Device_Eject_ExA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dndevinst, pvetotype, pszvetoname, ulnamelength, ulflags, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dndevinst, pvetotype, pszvetoname, ulnamelength, ulflags, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dndevinst;
     (void)pvetotype;
@@ -4814,6 +6178,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)ulnamelength;
     (void)ulflags;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4834,7 +6199,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Request_Device_Eject_ExW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dndevinst, pvetotype, pszvetoname, ulnamelength, ulflags, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dndevinst, pvetotype, pszvetoname, ulnamelength, ulflags, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dndevinst;
     (void)pvetotype;
@@ -4842,6 +6213,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)ulnamelength;
     (void)ulflags;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4856,8 +6228,15 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Request_Eject_PC")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4873,9 +6252,16 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Request_Eject_PC_Ex")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4891,9 +6277,16 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Run_Detection")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4910,10 +6303,17 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Run_Detection_Ex")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ulflags, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ulflags, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ulflags;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4934,7 +6334,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Set_Class_PropertyW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(classguid, propertykey, propertytype, propertybuffer, propertybuffersize, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(classguid, propertykey, propertytype, propertybuffer, propertybuffersize, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)classguid;
     (void)propertykey;
@@ -4942,6 +6348,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)propertybuffer;
     (void)propertybuffersize;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4963,7 +6370,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Set_Class_Property_ExW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(classguid, propertykey, propertytype, propertybuffer, propertybuffersize, ulflags, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(classguid, propertykey, propertytype, propertybuffer, propertybuffersize, ulflags, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)classguid;
     (void)propertykey;
@@ -4972,6 +6385,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)propertybuffersize;
     (void)ulflags;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4992,7 +6406,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Set_Class_Registry_PropertyA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(classguid, ulproperty, buffer, ullength, ulflags, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(classguid, ulproperty, buffer, ullength, ulflags, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)classguid;
     (void)ulproperty;
@@ -5000,6 +6420,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)ullength;
     (void)ulflags;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5020,7 +6441,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Set_Class_Registry_PropertyW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(classguid, ulproperty, buffer, ullength, ulflags, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(classguid, ulproperty, buffer, ullength, ulflags, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)classguid;
     (void)ulproperty;
@@ -5028,6 +6455,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)ullength;
     (void)ulflags;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5045,11 +6473,18 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Set_DevNode_Problem")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dndevinst, ulproblem, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dndevinst, ulproblem, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dndevinst;
     (void)ulproblem;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5068,12 +6503,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Set_DevNode_Problem_Ex")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dndevinst, ulproblem, ulflags, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dndevinst, ulproblem, ulflags, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dndevinst;
     (void)ulproblem;
     (void)ulflags;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5094,7 +6536,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Set_DevNode_PropertyW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dndevinst, propertykey, propertytype, propertybuffer, propertybuffersize, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dndevinst, propertykey, propertytype, propertybuffer, propertybuffersize, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dndevinst;
     (void)propertykey;
@@ -5102,6 +6550,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)propertybuffer;
     (void)propertybuffersize;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5123,7 +6572,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Set_DevNode_Property_ExW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dndevinst, propertykey, propertytype, propertybuffer, propertybuffersize, ulflags, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dndevinst, propertykey, propertytype, propertybuffer, propertybuffersize, ulflags, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dndevinst;
     (void)propertykey;
@@ -5132,6 +6587,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)propertybuffersize;
     (void)ulflags;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5151,13 +6607,20 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Set_DevNode_Registry_PropertyA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dndevinst, ulproperty, buffer, ullength, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dndevinst, ulproperty, buffer, ullength, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dndevinst;
     (void)ulproperty;
     (void)buffer;
     (void)ullength;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5177,13 +6640,20 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Set_DevNode_Registry_PropertyW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dndevinst, ulproperty, buffer, ullength, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dndevinst, ulproperty, buffer, ullength, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dndevinst;
     (void)ulproperty;
     (void)buffer;
     (void)ullength;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5204,7 +6674,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Set_DevNode_Registry_Property_ExA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dndevinst, ulproperty, buffer, ullength, ulflags, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dndevinst, ulproperty, buffer, ullength, ulflags, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dndevinst;
     (void)ulproperty;
@@ -5212,6 +6688,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)ullength;
     (void)ulflags;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5232,7 +6709,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Set_DevNode_Registry_Property_ExW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dndevinst, ulproperty, buffer, ullength, ulflags, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dndevinst, ulproperty, buffer, ullength, ulflags, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dndevinst;
     (void)ulproperty;
@@ -5240,6 +6723,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)ullength;
     (void)ulflags;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5260,7 +6744,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Set_Device_Interface_PropertyW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszdeviceinterface, propertykey, propertytype, propertybuffer, propertybuffersize, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszdeviceinterface, propertykey, propertytype, propertybuffer, propertybuffersize, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pszdeviceinterface;
     (void)propertykey;
@@ -5268,6 +6758,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)propertybuffer;
     (void)propertybuffersize;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5289,7 +6780,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Set_Device_Interface_Property_ExW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszdeviceinterface, propertykey, propertytype, propertybuffer, propertybuffersize, ulflags, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszdeviceinterface, propertykey, propertytype, propertybuffer, propertybuffersize, ulflags, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pszdeviceinterface;
     (void)propertykey;
@@ -5298,6 +6795,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)propertybuffersize;
     (void)ulflags;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5314,10 +6812,17 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Set_HW_Prof")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ulhardwareprofile, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ulhardwareprofile, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ulhardwareprofile;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5335,11 +6840,18 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Set_HW_Prof_Ex")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ulhardwareprofile, ulflags, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ulhardwareprofile, ulflags, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ulhardwareprofile;
     (void)ulflags;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5358,12 +6870,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Set_HW_Prof_FlagsA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pdeviceid, ulconfig, ulvalue, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pdeviceid, ulconfig, ulvalue, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pdeviceid;
     (void)ulconfig;
     (void)ulvalue;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5382,12 +6901,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Set_HW_Prof_FlagsW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pdeviceid, ulconfig, ulvalue, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pdeviceid, ulconfig, ulvalue, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pdeviceid;
     (void)ulconfig;
     (void)ulvalue;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5407,13 +6933,20 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Set_HW_Prof_Flags_ExA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pdeviceid, ulconfig, ulvalue, ulflags, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pdeviceid, ulconfig, ulvalue, ulflags, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pdeviceid;
     (void)ulconfig;
     (void)ulvalue;
     (void)ulflags;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5433,13 +6966,20 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Set_HW_Prof_Flags_ExW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pdeviceid, ulconfig, ulvalue, ulflags, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pdeviceid, ulconfig, ulvalue, ulflags, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pdeviceid;
     (void)ulconfig;
     (void)ulvalue;
     (void)ulflags;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5456,10 +6996,17 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Setup_DevNode")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dndevinst, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dndevinst, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dndevinst;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5477,11 +7024,18 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Setup_DevNode_Ex")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dndevinst, ulflags, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dndevinst, ulflags, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dndevinst;
     (void)ulflags;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5500,12 +7054,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Test_Range_Available")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ullstartvalue, ullendvalue, rlh, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ullstartvalue, ullendvalue, rlh, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ullstartvalue;
     (void)ullendvalue;
     (void)rlh;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5522,10 +7083,17 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Uninstall_DevNode")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dndevinst, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dndevinst, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dndevinst;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5543,11 +7111,18 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Uninstall_DevNode_Ex")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dndevinst, ulflags, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dndevinst, ulflags, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dndevinst;
     (void)ulflags;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5564,10 +7139,17 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Unregister_Device_InterfaceA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszdeviceinterface, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszdeviceinterface, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pszdeviceinterface;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5584,10 +7166,17 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Unregister_Device_InterfaceW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszdeviceinterface, ulflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszdeviceinterface, ulflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pszdeviceinterface;
     (void)ulflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5605,11 +7194,18 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Unregister_Device_Interface_ExA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszdeviceinterface, ulflags, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszdeviceinterface, ulflags, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pszdeviceinterface;
     (void)ulflags;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5627,11 +7223,18 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Unregister_Device_Interface_ExW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszdeviceinterface, ulflags, hmachine) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszdeviceinterface, ulflags, hmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pszdeviceinterface;
     (void)ulflags;
     (void)hmachine;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5647,9 +7250,16 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CM_Unregister_Notification")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(notifycontext) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(notifycontext);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)notifycontext;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5670,7 +7280,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("newdev.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DiInstallDevice")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwndparent, deviceinfoset, deviceinfodata, driverinfodata, flags, needreboot) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwndparent, deviceinfoset, deviceinfodata, driverinfodata, flags, needreboot);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwndparent;
     (void)deviceinfoset;
@@ -5678,6 +7294,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)driverinfodata;
     (void)flags;
     (void)needreboot;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5696,12 +7313,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("newdev.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DiInstallDriverA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwndparent, infpath, flags, needreboot) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwndparent, infpath, flags, needreboot);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwndparent;
     (void)infpath;
     (void)flags;
     (void)needreboot;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5720,12 +7344,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("newdev.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DiInstallDriverW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwndparent, infpath, flags, needreboot) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwndparent, infpath, flags, needreboot);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwndparent;
     (void)infpath;
     (void)flags;
     (void)needreboot;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5745,13 +7376,20 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("newdev.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DiRollbackDriver")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(deviceinfoset, deviceinfodata, hwndparent, flags, needreboot) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(deviceinfoset, deviceinfodata, hwndparent, flags, needreboot);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)deviceinfoset;
     (void)deviceinfodata;
     (void)hwndparent;
     (void)flags;
     (void)needreboot;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5771,13 +7409,20 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("newdev.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DiShowUpdateDevice")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwndparent, deviceinfoset, deviceinfodata, flags, needreboot) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwndparent, deviceinfoset, deviceinfodata, flags, needreboot);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwndparent;
     (void)deviceinfoset;
     (void)deviceinfodata;
     (void)flags;
     (void)needreboot;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5796,12 +7441,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("newdev.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DiShowUpdateDriver")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwndparent, filepath, flags, needreboot) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwndparent, filepath, flags, needreboot);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwndparent;
     (void)filepath;
     (void)flags;
     (void)needreboot;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5821,13 +7473,20 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("newdev.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DiUninstallDevice")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwndparent, deviceinfoset, deviceinfodata, flags, needreboot) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwndparent, deviceinfoset, deviceinfodata, flags, needreboot);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwndparent;
     (void)deviceinfoset;
     (void)deviceinfodata;
     (void)flags;
     (void)needreboot;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5846,12 +7505,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("newdev.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DiUninstallDriverA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwndparent, infpath, flags, needreboot) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwndparent, infpath, flags, needreboot);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwndparent;
     (void)infpath;
     (void)flags;
     (void)needreboot;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5870,12 +7536,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("newdev.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DiUninstallDriverW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwndparent, infpath, flags, needreboot) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwndparent, infpath, flags, needreboot);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwndparent;
     (void)infpath;
     (void)flags;
     (void)needreboot;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5894,12 +7567,17 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InstallHinfSectionA")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(window, modulehandle, commandline, showcommand);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(window, modulehandle, commandline, showcommand);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)window;
     (void)modulehandle;
     (void)commandline;
     (void)showcommand;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -5917,12 +7595,17 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InstallHinfSectionW")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(window, modulehandle, commandline, showcommand);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(window, modulehandle, commandline, showcommand);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)window;
     (void)modulehandle;
     (void)commandline;
     (void)showcommand;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -5942,7 +7625,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupAddInstallSectionToDiskSpaceListA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(diskspace, infhandle, layoutinfhandle, sectionname, reserved1, reserved2) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(diskspace, infhandle, layoutinfhandle, sectionname, reserved1, reserved2);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)diskspace;
     (void)infhandle;
@@ -5950,6 +7639,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)sectionname;
     (void)reserved1;
     (void)reserved2;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5970,7 +7660,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupAddInstallSectionToDiskSpaceListW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(diskspace, infhandle, layoutinfhandle, sectionname, reserved1, reserved2) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(diskspace, infhandle, layoutinfhandle, sectionname, reserved1, reserved2);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)diskspace;
     (void)infhandle;
@@ -5978,6 +7674,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)sectionname;
     (void)reserved1;
     (void)reserved2;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5999,7 +7696,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupAddSectionToDiskSpaceListA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(diskspace, infhandle, listinfhandle, sectionname, operation, reserved1, reserved2) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(diskspace, infhandle, listinfhandle, sectionname, operation, reserved1, reserved2);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)diskspace;
     (void)infhandle;
@@ -6008,6 +7711,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)operation;
     (void)reserved1;
     (void)reserved2;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6029,7 +7733,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupAddSectionToDiskSpaceListW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(diskspace, infhandle, listinfhandle, sectionname, operation, reserved1, reserved2) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(diskspace, infhandle, listinfhandle, sectionname, operation, reserved1, reserved2);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)diskspace;
     (void)infhandle;
@@ -6038,6 +7748,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)operation;
     (void)reserved1;
     (void)reserved2;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6058,7 +7769,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupAddToDiskSpaceListA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(diskspace, targetfilespec, filesize, operation, reserved1, reserved2) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(diskspace, targetfilespec, filesize, operation, reserved1, reserved2);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)diskspace;
     (void)targetfilespec;
@@ -6066,6 +7783,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)operation;
     (void)reserved1;
     (void)reserved2;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6086,7 +7804,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupAddToDiskSpaceListW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(diskspace, targetfilespec, filesize, operation, reserved1, reserved2) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(diskspace, targetfilespec, filesize, operation, reserved1, reserved2);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)diskspace;
     (void)targetfilespec;
@@ -6094,6 +7818,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)operation;
     (void)reserved1;
     (void)reserved2;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6110,10 +7835,17 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupAddToSourceListA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(flags, source) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(flags, source);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)flags;
     (void)source;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6130,10 +7862,17 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupAddToSourceListW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(flags, source) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(flags, source);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)flags;
     (void)source;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6153,13 +7892,20 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupAdjustDiskSpaceListA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(diskspace, driveroot, amount, reserved1, reserved2) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(diskspace, driveroot, amount, reserved1, reserved2);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)diskspace;
     (void)driveroot;
     (void)amount;
     (void)reserved1;
     (void)reserved2;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6179,13 +7925,20 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupAdjustDiskSpaceListW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(diskspace, driveroot, amount, reserved1, reserved2) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(diskspace, driveroot, amount, reserved1, reserved2);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)diskspace;
     (void)driveroot;
     (void)amount;
     (void)reserved1;
     (void)reserved2;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6206,7 +7959,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupBackupErrorA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwndparent, dialogtitle, sourcefile, targetfile, win32errorcode, style) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwndparent, dialogtitle, sourcefile, targetfile, win32errorcode, style);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hwndparent;
     (void)dialogtitle;
@@ -6214,6 +7973,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)targetfile;
     (void)win32errorcode;
     (void)style;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6234,7 +7994,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupBackupErrorW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwndparent, dialogtitle, sourcefile, targetfile, win32errorcode, style) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwndparent, dialogtitle, sourcefile, targetfile, win32errorcode, style);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hwndparent;
     (void)dialogtitle;
@@ -6242,6 +8008,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)targetfile;
     (void)win32errorcode;
     (void)style;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6256,8 +8023,15 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupCancelTemporarySourceList")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6273,9 +8047,16 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupCloseFileQueue")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(queuehandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(queuehandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)queuehandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6291,9 +8072,14 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupCloseInfFile")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(infhandle);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(infhandle);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)infhandle;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -6307,8 +8093,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupCloseLog")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr();
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+    }
 #else
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -6326,12 +8117,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupCommitFileQueueA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(owner, queuehandle, msghandler, context) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(owner, queuehandle, msghandler, context);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)owner;
     (void)queuehandle;
     (void)msghandler;
     (void)context;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6350,12 +8148,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupCommitFileQueueW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(owner, queuehandle, msghandler, context) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(owner, queuehandle, msghandler, context);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)owner;
     (void)queuehandle;
     (void)msghandler;
     (void)context;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6373,11 +8178,18 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupConfigureWmiFromInfSectionA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(infhandle, sectionname, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(infhandle, sectionname, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)infhandle;
     (void)sectionname;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6395,11 +8207,18 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupConfigureWmiFromInfSectionW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(infhandle, sectionname, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(infhandle, sectionname, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)infhandle;
     (void)sectionname;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6425,7 +8244,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupCopyErrorA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwndparent, dialogtitle, diskname, pathtosource, sourcefile, targetpathfile, win32errorcode, style, pathbuffer, pathbuffersize, pathrequiredsize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwndparent, dialogtitle, diskname, pathtosource, sourcefile, targetpathfile, win32errorcode, style, pathbuffer, pathbuffersize, pathrequiredsize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hwndparent;
     (void)dialogtitle;
@@ -6438,6 +8263,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)pathbuffer;
     (void)pathbuffersize;
     (void)pathrequiredsize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6463,7 +8289,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupCopyErrorW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwndparent, dialogtitle, diskname, pathtosource, sourcefile, targetpathfile, win32errorcode, style, pathbuffer, pathbuffersize, pathrequiredsize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwndparent, dialogtitle, diskname, pathtosource, sourcefile, targetpathfile, win32errorcode, style, pathbuffer, pathbuffersize, pathrequiredsize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hwndparent;
     (void)dialogtitle;
@@ -6476,6 +8308,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)pathbuffer;
     (void)pathbuffersize;
     (void)pathrequiredsize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6498,7 +8331,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupCopyOEMInfA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sourceinffilename, oemsourcemedialocation, oemsourcemediatype, copystyle, destinationinffilename, destinationinffilenamesize, requiredsize, destinationinffilenamecomponent) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sourceinffilename, oemsourcemedialocation, oemsourcemediatype, copystyle, destinationinffilename, destinationinffilenamesize, requiredsize, destinationinffilenamecomponent);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sourceinffilename;
     (void)oemsourcemedialocation;
@@ -6508,6 +8347,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)destinationinffilenamesize;
     (void)requiredsize;
     (void)destinationinffilenamecomponent;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6530,7 +8370,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupCopyOEMInfW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sourceinffilename, oemsourcemedialocation, oemsourcemediatype, copystyle, destinationinffilename, destinationinffilenamesize, requiredsize, destinationinffilenamecomponent) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sourceinffilename, oemsourcemedialocation, oemsourcemediatype, copystyle, destinationinffilename, destinationinffilenamesize, requiredsize, destinationinffilenamecomponent);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sourceinffilename;
     (void)oemsourcemedialocation;
@@ -6540,6 +8386,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)destinationinffilenamesize;
     (void)requiredsize;
     (void)destinationinffilenamecomponent;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6557,12 +8404,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupCreateDiskSpaceListA")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(reserved1, reserved2, flags) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(reserved1, reserved2, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)reserved1;
     (void)reserved2;
     (void)flags;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -6579,12 +8433,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupCreateDiskSpaceListW")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(reserved1, reserved2, flags) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(reserved1, reserved2, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)reserved1;
     (void)reserved2;
     (void)flags;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -6601,11 +8462,18 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDecompressOrCopyFileA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sourcefilename, targetfilename, compressiontype) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sourcefilename, targetfilename, compressiontype);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)sourcefilename;
     (void)targetfilename;
     (void)compressiontype;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6623,11 +8491,18 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDecompressOrCopyFileW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sourcefilename, targetfilename, compressiontype) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sourcefilename, targetfilename, compressiontype);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)sourcefilename;
     (void)targetfilename;
     (void)compressiontype;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6646,12 +8521,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDefaultQueueCallbackA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(context, notification, param1, param2) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(context, notification, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)context;
     (void)notification;
     (void)param1;
     (void)param2;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6670,12 +8552,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDefaultQueueCallbackW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(context, notification, param1, param2) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(context, notification, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)context;
     (void)notification;
     (void)param1;
     (void)param2;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6695,13 +8584,20 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDeleteErrorA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwndparent, dialogtitle, file, win32errorcode, style) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwndparent, dialogtitle, file, win32errorcode, style);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hwndparent;
     (void)dialogtitle;
     (void)file;
     (void)win32errorcode;
     (void)style;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6721,13 +8617,20 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDeleteErrorW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwndparent, dialogtitle, file, win32errorcode, style) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwndparent, dialogtitle, file, win32errorcode, style);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hwndparent;
     (void)dialogtitle;
     (void)file;
     (void)win32errorcode;
     (void)style;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6743,9 +8646,16 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDestroyDiskSpaceList")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(diskspace) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(diskspace);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)diskspace;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6762,10 +8672,17 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiAskForOEMDisk")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(deviceinfoset, deviceinfodata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(deviceinfoset, deviceinfodata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)deviceinfoset;
     (void)deviceinfodata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6784,12 +8701,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiBuildClassInfoList")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(flags, classguidlist, classguidlistsize, requiredsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(flags, classguidlist, classguidlistsize, requiredsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)flags;
     (void)classguidlist;
     (void)classguidlistsize;
     (void)requiredsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6810,7 +8734,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiBuildClassInfoListExA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(flags, classguidlist, classguidlistsize, requiredsize, machinename, reserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(flags, classguidlist, classguidlistsize, requiredsize, machinename, reserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)flags;
     (void)classguidlist;
@@ -6818,6 +8748,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)requiredsize;
     (void)machinename;
     (void)reserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6838,7 +8769,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiBuildClassInfoListExW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(flags, classguidlist, classguidlistsize, requiredsize, machinename, reserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(flags, classguidlist, classguidlistsize, requiredsize, machinename, reserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)flags;
     (void)classguidlist;
@@ -6846,6 +8783,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)requiredsize;
     (void)machinename;
     (void)reserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6863,11 +8801,18 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiBuildDriverInfoList")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(deviceinfoset, deviceinfodata, drivertype) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(deviceinfoset, deviceinfodata, drivertype);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)deviceinfoset;
     (void)deviceinfodata;
     (void)drivertype;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6885,11 +8830,18 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiCallClassInstaller")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(installfunction, deviceinfoset, deviceinfodata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(installfunction, deviceinfoset, deviceinfodata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)installfunction;
     (void)deviceinfoset;
     (void)deviceinfodata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6905,9 +8857,16 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiCancelDriverInfoSearch")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(deviceinfoset) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(deviceinfoset);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)deviceinfoset;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6924,10 +8883,17 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiChangeState")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(deviceinfoset, deviceinfodata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(deviceinfoset, deviceinfodata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)deviceinfoset;
     (void)deviceinfodata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6946,12 +8912,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiClassGuidsFromNameA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(classname, classguidlist, classguidlistsize, requiredsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(classname, classguidlist, classguidlistsize, requiredsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)classname;
     (void)classguidlist;
     (void)classguidlistsize;
     (void)requiredsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6972,7 +8945,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiClassGuidsFromNameExA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(classname, classguidlist, classguidlistsize, requiredsize, machinename, reserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(classname, classguidlist, classguidlistsize, requiredsize, machinename, reserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)classname;
     (void)classguidlist;
@@ -6980,6 +8959,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)requiredsize;
     (void)machinename;
     (void)reserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7000,7 +8980,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiClassGuidsFromNameExW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(classname, classguidlist, classguidlistsize, requiredsize, machinename, reserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(classname, classguidlist, classguidlistsize, requiredsize, machinename, reserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)classname;
     (void)classguidlist;
@@ -7008,6 +8994,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)requiredsize;
     (void)machinename;
     (void)reserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7026,12 +9013,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiClassGuidsFromNameW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(classname, classguidlist, classguidlistsize, requiredsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(classname, classguidlist, classguidlistsize, requiredsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)classname;
     (void)classguidlist;
     (void)classguidlistsize;
     (void)requiredsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7050,12 +9044,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiClassNameFromGuidA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(classguid, classname, classnamesize, requiredsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(classguid, classname, classnamesize, requiredsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)classguid;
     (void)classname;
     (void)classnamesize;
     (void)requiredsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7076,7 +9077,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiClassNameFromGuidExA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(classguid, classname, classnamesize, requiredsize, machinename, reserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(classguid, classname, classnamesize, requiredsize, machinename, reserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)classguid;
     (void)classname;
@@ -7084,6 +9091,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)requiredsize;
     (void)machinename;
     (void)reserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7104,7 +9112,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiClassNameFromGuidExW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(classguid, classname, classnamesize, requiredsize, machinename, reserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(classguid, classname, classnamesize, requiredsize, machinename, reserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)classguid;
     (void)classname;
@@ -7112,6 +9126,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)requiredsize;
     (void)machinename;
     (void)reserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7130,12 +9145,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiClassNameFromGuidW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(classguid, classname, classnamesize, requiredsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(classguid, classname, classnamesize, requiredsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)classguid;
     (void)classname;
     (void)classnamesize;
     (void)requiredsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7157,7 +9179,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiCreateDevRegKeyA")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(deviceinfoset, deviceinfodata, scope, hwprofile, keytype, infhandle, infsectionname) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(deviceinfoset, deviceinfodata, scope, hwprofile, keytype, infhandle, infsectionname);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)deviceinfoset;
     (void)deviceinfodata;
@@ -7166,7 +9194,8 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)keytype;
     (void)infhandle;
     (void)infsectionname;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -7187,7 +9216,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiCreateDevRegKeyW")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(deviceinfoset, deviceinfodata, scope, hwprofile, keytype, infhandle, infsectionname) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(deviceinfoset, deviceinfodata, scope, hwprofile, keytype, infhandle, infsectionname);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)deviceinfoset;
     (void)deviceinfodata;
@@ -7196,7 +9231,8 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)keytype;
     (void)infhandle;
     (void)infsectionname;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -7217,7 +9253,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiCreateDeviceInfoA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(deviceinfoset, devicename, classguid, devicedescription, hwndparent, creationflags, deviceinfodata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(deviceinfoset, devicename, classguid, devicedescription, hwndparent, creationflags, deviceinfodata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)deviceinfoset;
     (void)devicename;
@@ -7226,6 +9268,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)hwndparent;
     (void)creationflags;
     (void)deviceinfodata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7242,10 +9285,17 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiCreateDeviceInfoList")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(classguid, hwndparent) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(classguid, hwndparent);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)classguid;
     (void)hwndparent;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -7264,12 +9314,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiCreateDeviceInfoListExA")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(classguid, hwndparent, machinename, reserved) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(classguid, hwndparent, machinename, reserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)classguid;
     (void)hwndparent;
     (void)machinename;
     (void)reserved;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -7288,12 +9345,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiCreateDeviceInfoListExW")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(classguid, hwndparent, machinename, reserved) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(classguid, hwndparent, machinename, reserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)classguid;
     (void)hwndparent;
     (void)machinename;
     (void)reserved;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -7315,7 +9379,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiCreateDeviceInfoW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(deviceinfoset, devicename, classguid, devicedescription, hwndparent, creationflags, deviceinfodata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(deviceinfoset, devicename, classguid, devicedescription, hwndparent, creationflags, deviceinfodata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)deviceinfoset;
     (void)devicename;
@@ -7324,6 +9394,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)hwndparent;
     (void)creationflags;
     (void)deviceinfodata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7344,7 +9415,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiCreateDeviceInterfaceA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(deviceinfoset, deviceinfodata, interfaceclassguid, referencestring, creationflags, deviceinterfacedata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(deviceinfoset, deviceinfodata, interfaceclassguid, referencestring, creationflags, deviceinterfacedata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)deviceinfoset;
     (void)deviceinfodata;
@@ -7352,6 +9429,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)referencestring;
     (void)creationflags;
     (void)deviceinterfacedata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7372,7 +9450,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiCreateDeviceInterfaceRegKeyA")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(deviceinfoset, deviceinterfacedata, reserved, samdesired, infhandle, infsectionname) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(deviceinfoset, deviceinterfacedata, reserved, samdesired, infhandle, infsectionname);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)deviceinfoset;
     (void)deviceinterfacedata;
@@ -7380,7 +9464,8 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)samdesired;
     (void)infhandle;
     (void)infsectionname;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -7400,7 +9485,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiCreateDeviceInterfaceRegKeyW")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(deviceinfoset, deviceinterfacedata, reserved, samdesired, infhandle, infsectionname) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(deviceinfoset, deviceinterfacedata, reserved, samdesired, infhandle, infsectionname);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)deviceinfoset;
     (void)deviceinterfacedata;
@@ -7408,7 +9499,8 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)samdesired;
     (void)infhandle;
     (void)infsectionname;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -7428,7 +9520,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiCreateDeviceInterfaceW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(deviceinfoset, deviceinfodata, interfaceclassguid, referencestring, creationflags, deviceinterfacedata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(deviceinfoset, deviceinfodata, interfaceclassguid, referencestring, creationflags, deviceinterfacedata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)deviceinfoset;
     (void)deviceinfodata;
@@ -7436,6 +9534,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)referencestring;
     (void)creationflags;
     (void)deviceinterfacedata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7455,13 +9554,20 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiDeleteDevRegKey")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(deviceinfoset, deviceinfodata, scope, hwprofile, keytype) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(deviceinfoset, deviceinfodata, scope, hwprofile, keytype);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)deviceinfoset;
     (void)deviceinfodata;
     (void)scope;
     (void)hwprofile;
     (void)keytype;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7478,10 +9584,17 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiDeleteDeviceInfo")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(deviceinfoset, deviceinfodata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(deviceinfoset, deviceinfodata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)deviceinfoset;
     (void)deviceinfodata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7498,10 +9611,17 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiDeleteDeviceInterfaceData")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(deviceinfoset, deviceinterfacedata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(deviceinfoset, deviceinterfacedata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)deviceinfoset;
     (void)deviceinterfacedata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7519,11 +9639,18 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiDeleteDeviceInterfaceRegKey")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(deviceinfoset, deviceinterfacedata, reserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(deviceinfoset, deviceinterfacedata, reserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)deviceinfoset;
     (void)deviceinterfacedata;
     (void)reserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7539,9 +9666,16 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiDestroyClassImageList")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(classimagelistdata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(classimagelistdata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)classimagelistdata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7557,9 +9691,16 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiDestroyDeviceInfoList")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(deviceinfoset) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(deviceinfoset);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)deviceinfoset;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7577,11 +9718,18 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiDestroyDriverInfoList")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(deviceinfoset, deviceinfodata, drivertype) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(deviceinfoset, deviceinfodata, drivertype);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)deviceinfoset;
     (void)deviceinfodata;
     (void)drivertype;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7599,11 +9747,18 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiEnumDeviceInfo")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(deviceinfoset, memberindex, deviceinfodata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(deviceinfoset, memberindex, deviceinfodata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)deviceinfoset;
     (void)memberindex;
     (void)deviceinfodata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7623,13 +9778,20 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiEnumDeviceInterfaces")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(deviceinfoset, deviceinfodata, interfaceclassguid, memberindex, deviceinterfacedata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(deviceinfoset, deviceinfodata, interfaceclassguid, memberindex, deviceinterfacedata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)deviceinfoset;
     (void)deviceinfodata;
     (void)interfaceclassguid;
     (void)memberindex;
     (void)deviceinterfacedata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7649,13 +9811,20 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiEnumDriverInfoA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(deviceinfoset, deviceinfodata, drivertype, memberindex, driverinfodata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(deviceinfoset, deviceinfodata, drivertype, memberindex, driverinfodata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)deviceinfoset;
     (void)deviceinfodata;
     (void)drivertype;
     (void)memberindex;
     (void)driverinfodata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7675,13 +9844,20 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiEnumDriverInfoW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(deviceinfoset, deviceinfodata, drivertype, memberindex, driverinfodata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(deviceinfoset, deviceinfodata, drivertype, memberindex, driverinfodata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)deviceinfoset;
     (void)deviceinfodata;
     (void)drivertype;
     (void)memberindex;
     (void)driverinfodata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7702,7 +9878,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiGetActualModelsSectionA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(context, alternateplatforminfo, infsectionwithext, infsectionwithextsize, requiredsize, reserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(context, alternateplatforminfo, infsectionwithext, infsectionwithextsize, requiredsize, reserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)context;
     (void)alternateplatforminfo;
@@ -7710,6 +9892,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)infsectionwithextsize;
     (void)requiredsize;
     (void)reserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7730,7 +9913,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiGetActualModelsSectionW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(context, alternateplatforminfo, infsectionwithext, infsectionwithextsize, requiredsize, reserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(context, alternateplatforminfo, infsectionwithext, infsectionwithextsize, requiredsize, reserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)context;
     (void)alternateplatforminfo;
@@ -7738,6 +9927,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)infsectionwithextsize;
     (void)requiredsize;
     (void)reserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7758,7 +9948,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiGetActualSectionToInstallA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(infhandle, infsectionname, infsectionwithext, infsectionwithextsize, requiredsize, extension) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(infhandle, infsectionname, infsectionwithext, infsectionwithextsize, requiredsize, extension);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)infhandle;
     (void)infsectionname;
@@ -7766,6 +9962,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)infsectionwithextsize;
     (void)requiredsize;
     (void)extension;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7788,7 +9985,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiGetActualSectionToInstallExA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(infhandle, infsectionname, alternateplatforminfo, infsectionwithext, infsectionwithextsize, requiredsize, extension, reserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(infhandle, infsectionname, alternateplatforminfo, infsectionwithext, infsectionwithextsize, requiredsize, extension, reserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)infhandle;
     (void)infsectionname;
@@ -7798,6 +10001,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)requiredsize;
     (void)extension;
     (void)reserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7820,7 +10024,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiGetActualSectionToInstallExW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(infhandle, infsectionname, alternateplatforminfo, infsectionwithext, infsectionwithextsize, requiredsize, extension, reserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(infhandle, infsectionname, alternateplatforminfo, infsectionwithext, infsectionwithextsize, requiredsize, extension, reserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)infhandle;
     (void)infsectionname;
@@ -7830,6 +10040,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)requiredsize;
     (void)extension;
     (void)reserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7850,7 +10061,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiGetActualSectionToInstallW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(infhandle, infsectionname, infsectionwithext, infsectionwithextsize, requiredsize, extension) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(infhandle, infsectionname, infsectionwithext, infsectionwithextsize, requiredsize, extension);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)infhandle;
     (void)infsectionname;
@@ -7858,6 +10075,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)infsectionwithextsize;
     (void)requiredsize;
     (void)extension;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7874,10 +10092,17 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiGetClassBitmapIndex")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(classguid, miniiconindex) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(classguid, miniiconindex);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)classguid;
     (void)miniiconindex;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7896,12 +10121,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiGetClassDescriptionA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(classguid, classdescription, classdescriptionsize, requiredsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(classguid, classdescription, classdescriptionsize, requiredsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)classguid;
     (void)classdescription;
     (void)classdescriptionsize;
     (void)requiredsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7922,7 +10154,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiGetClassDescriptionExA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(classguid, classdescription, classdescriptionsize, requiredsize, machinename, reserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(classguid, classdescription, classdescriptionsize, requiredsize, machinename, reserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)classguid;
     (void)classdescription;
@@ -7930,6 +10168,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)requiredsize;
     (void)machinename;
     (void)reserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7950,7 +10189,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiGetClassDescriptionExW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(classguid, classdescription, classdescriptionsize, requiredsize, machinename, reserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(classguid, classdescription, classdescriptionsize, requiredsize, machinename, reserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)classguid;
     (void)classdescription;
@@ -7958,6 +10203,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)requiredsize;
     (void)machinename;
     (void)reserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7976,12 +10222,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiGetClassDescriptionW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(classguid, classdescription, classdescriptionsize, requiredsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(classguid, classdescription, classdescriptionsize, requiredsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)classguid;
     (void)classdescription;
     (void)classdescriptionsize;
     (void)requiredsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8002,7 +10255,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiGetClassDevPropertySheetsA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(deviceinfoset, deviceinfodata, propertysheetheader, propertysheetheaderpagelistsize, requiredsize, propertysheettype) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(deviceinfoset, deviceinfodata, propertysheetheader, propertysheetheaderpagelistsize, requiredsize, propertysheettype);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)deviceinfoset;
     (void)deviceinfodata;
@@ -8010,6 +10269,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)propertysheetheaderpagelistsize;
     (void)requiredsize;
     (void)propertysheettype;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8030,7 +10290,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiGetClassDevPropertySheetsW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(deviceinfoset, deviceinfodata, propertysheetheader, propertysheetheaderpagelistsize, requiredsize, propertysheettype) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(deviceinfoset, deviceinfodata, propertysheetheader, propertysheetheaderpagelistsize, requiredsize, propertysheettype);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)deviceinfoset;
     (void)deviceinfodata;
@@ -8038,6 +10304,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)propertysheetheaderpagelistsize;
     (void)requiredsize;
     (void)propertysheettype;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8056,12 +10323,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiGetClassDevsA")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(classguid, enumerator, hwndparent, flags) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(classguid, enumerator, hwndparent, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)classguid;
     (void)enumerator;
     (void)hwndparent;
     (void)flags;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -8083,7 +10357,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiGetClassDevsExA")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(classguid, enumerator, hwndparent, flags, deviceinfoset, machinename, reserved) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(classguid, enumerator, hwndparent, flags, deviceinfoset, machinename, reserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)classguid;
     (void)enumerator;
@@ -8092,6 +10372,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)deviceinfoset;
     (void)machinename;
     (void)reserved;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -8113,7 +10394,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiGetClassDevsExW")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(classguid, enumerator, hwndparent, flags, deviceinfoset, machinename, reserved) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(classguid, enumerator, hwndparent, flags, deviceinfoset, machinename, reserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)classguid;
     (void)enumerator;
@@ -8122,6 +10409,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)deviceinfoset;
     (void)machinename;
     (void)reserved;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -8140,12 +10428,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiGetClassDevsW")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(classguid, enumerator, hwndparent, flags) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(classguid, enumerator, hwndparent, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)classguid;
     (void)enumerator;
     (void)hwndparent;
     (void)flags;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -8163,11 +10458,18 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiGetClassImageIndex")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(classimagelistdata, classguid, imageindex) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(classimagelistdata, classguid, imageindex);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)classimagelistdata;
     (void)classguid;
     (void)imageindex;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8183,9 +10485,16 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiGetClassImageList")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(classimagelistdata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(classimagelistdata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)classimagelistdata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8203,11 +10512,18 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiGetClassImageListExA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(classimagelistdata, machinename, reserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(classimagelistdata, machinename, reserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)classimagelistdata;
     (void)machinename;
     (void)reserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8225,11 +10541,18 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiGetClassImageListExW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(classimagelistdata, machinename, reserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(classimagelistdata, machinename, reserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)classimagelistdata;
     (void)machinename;
     (void)reserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8249,13 +10572,20 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiGetClassInstallParamsA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(deviceinfoset, deviceinfodata, classinstallparams, classinstallparamssize, requiredsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(deviceinfoset, deviceinfodata, classinstallparams, classinstallparamssize, requiredsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)deviceinfoset;
     (void)deviceinfodata;
     (void)classinstallparams;
     (void)classinstallparamssize;
     (void)requiredsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8275,13 +10605,20 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiGetClassInstallParamsW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(deviceinfoset, deviceinfodata, classinstallparams, classinstallparamssize, requiredsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(deviceinfoset, deviceinfodata, classinstallparams, classinstallparamssize, requiredsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)deviceinfoset;
     (void)deviceinfodata;
     (void)classinstallparams;
     (void)classinstallparamssize;
     (void)requiredsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8305,7 +10642,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiGetClassPropertyExW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(classguid, propertykey, propertytype, propertybuffer, propertybuffersize, requiredsize, flags, machinename, reserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(classguid, propertykey, propertytype, propertybuffer, propertybuffersize, requiredsize, flags, machinename, reserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)classguid;
     (void)propertykey;
@@ -8316,6 +10659,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)flags;
     (void)machinename;
     (void)reserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8335,13 +10679,20 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiGetClassPropertyKeys")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(classguid, propertykeyarray, propertykeycount, requiredpropertykeycount, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(classguid, propertykeyarray, propertykeycount, requiredpropertykeycount, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)classguid;
     (void)propertykeyarray;
     (void)propertykeycount;
     (void)requiredpropertykeycount;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8363,7 +10714,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiGetClassPropertyKeysExW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(classguid, propertykeyarray, propertykeycount, requiredpropertykeycount, flags, machinename, reserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(classguid, propertykeyarray, propertykeycount, requiredpropertykeycount, flags, machinename, reserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)classguid;
     (void)propertykeyarray;
@@ -8372,6 +10729,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)flags;
     (void)machinename;
     (void)reserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8393,7 +10751,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiGetClassPropertyW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(classguid, propertykey, propertytype, propertybuffer, propertybuffersize, requiredsize, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(classguid, propertykey, propertytype, propertybuffer, propertybuffersize, requiredsize, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)classguid;
     (void)propertykey;
@@ -8402,6 +10766,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)propertybuffersize;
     (void)requiredsize;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8424,7 +10789,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiGetClassRegistryPropertyA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(classguid, property, propertyregdatatype, propertybuffer, propertybuffersize, requiredsize, machinename, reserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(classguid, property, propertyregdatatype, propertybuffer, propertybuffersize, requiredsize, machinename, reserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)classguid;
     (void)property;
@@ -8434,6 +10805,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)requiredsize;
     (void)machinename;
     (void)reserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8456,7 +10828,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiGetClassRegistryPropertyW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(classguid, property, propertyregdatatype, propertybuffer, propertybuffersize, requiredsize, machinename, reserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(classguid, property, propertyregdatatype, propertybuffer, propertybuffersize, requiredsize, machinename, reserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)classguid;
     (void)property;
@@ -8466,6 +10844,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)requiredsize;
     (void)machinename;
     (void)reserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8488,7 +10867,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiGetCustomDevicePropertyA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(deviceinfoset, deviceinfodata, custompropertyname, flags, propertyregdatatype, propertybuffer, propertybuffersize, requiredsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(deviceinfoset, deviceinfodata, custompropertyname, flags, propertyregdatatype, propertybuffer, propertybuffersize, requiredsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)deviceinfoset;
     (void)deviceinfodata;
@@ -8498,6 +10883,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)propertybuffer;
     (void)propertybuffersize;
     (void)requiredsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8520,7 +10906,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiGetCustomDevicePropertyW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(deviceinfoset, deviceinfodata, custompropertyname, flags, propertyregdatatype, propertybuffer, propertybuffersize, requiredsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(deviceinfoset, deviceinfodata, custompropertyname, flags, propertyregdatatype, propertybuffer, propertybuffersize, requiredsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)deviceinfoset;
     (void)deviceinfodata;
@@ -8530,6 +10922,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)propertybuffer;
     (void)propertybuffersize;
     (void)requiredsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8546,10 +10939,17 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiGetDeviceInfoListClass")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(deviceinfoset, classguid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(deviceinfoset, classguid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)deviceinfoset;
     (void)classguid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8566,10 +10966,17 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiGetDeviceInfoListDetailA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(deviceinfoset, deviceinfosetdetaildata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(deviceinfoset, deviceinfosetdetaildata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)deviceinfoset;
     (void)deviceinfosetdetaildata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8586,10 +10993,17 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiGetDeviceInfoListDetailW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(deviceinfoset, deviceinfosetdetaildata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(deviceinfoset, deviceinfosetdetaildata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)deviceinfoset;
     (void)deviceinfosetdetaildata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8607,11 +11021,18 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiGetDeviceInstallParamsA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(deviceinfoset, deviceinfodata, deviceinstallparams) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(deviceinfoset, deviceinfodata, deviceinstallparams);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)deviceinfoset;
     (void)deviceinfodata;
     (void)deviceinstallparams;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8629,11 +11050,18 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiGetDeviceInstallParamsW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(deviceinfoset, deviceinfodata, deviceinstallparams) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(deviceinfoset, deviceinfodata, deviceinstallparams);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)deviceinfoset;
     (void)deviceinfodata;
     (void)deviceinstallparams;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8653,13 +11081,20 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiGetDeviceInstanceIdA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(deviceinfoset, deviceinfodata, deviceinstanceid, deviceinstanceidsize, requiredsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(deviceinfoset, deviceinfodata, deviceinstanceid, deviceinstanceidsize, requiredsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)deviceinfoset;
     (void)deviceinfodata;
     (void)deviceinstanceid;
     (void)deviceinstanceidsize;
     (void)requiredsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8679,13 +11114,20 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiGetDeviceInstanceIdW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(deviceinfoset, deviceinfodata, deviceinstanceid, deviceinstanceidsize, requiredsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(deviceinfoset, deviceinfodata, deviceinstanceid, deviceinstanceidsize, requiredsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)deviceinfoset;
     (void)deviceinfodata;
     (void)deviceinstanceid;
     (void)deviceinstanceidsize;
     (void)requiredsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8704,12 +11146,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiGetDeviceInterfaceAlias")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(deviceinfoset, deviceinterfacedata, aliasinterfaceclassguid, aliasdeviceinterfacedata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(deviceinfoset, deviceinterfacedata, aliasinterfaceclassguid, aliasdeviceinterfacedata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)deviceinfoset;
     (void)deviceinterfacedata;
     (void)aliasinterfaceclassguid;
     (void)aliasdeviceinterfacedata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8730,7 +11179,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiGetDeviceInterfaceDetailA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(deviceinfoset, deviceinterfacedata, deviceinterfacedetaildata, deviceinterfacedetaildatasize, requiredsize, deviceinfodata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(deviceinfoset, deviceinterfacedata, deviceinterfacedetaildata, deviceinterfacedetaildatasize, requiredsize, deviceinfodata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)deviceinfoset;
     (void)deviceinterfacedata;
@@ -8738,6 +11193,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)deviceinterfacedetaildatasize;
     (void)requiredsize;
     (void)deviceinfodata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8758,7 +11214,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiGetDeviceInterfaceDetailW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(deviceinfoset, deviceinterfacedata, deviceinterfacedetaildata, deviceinterfacedetaildatasize, requiredsize, deviceinfodata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(deviceinfoset, deviceinterfacedata, deviceinterfacedetaildata, deviceinterfacedetaildatasize, requiredsize, deviceinfodata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)deviceinfoset;
     (void)deviceinterfacedata;
@@ -8766,6 +11228,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)deviceinterfacedetaildatasize;
     (void)requiredsize;
     (void)deviceinfodata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8786,7 +11249,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiGetDeviceInterfacePropertyKeys")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(deviceinfoset, deviceinterfacedata, propertykeyarray, propertykeycount, requiredpropertykeycount, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(deviceinfoset, deviceinterfacedata, propertykeyarray, propertykeycount, requiredpropertykeycount, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)deviceinfoset;
     (void)deviceinterfacedata;
@@ -8794,6 +11263,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)propertykeycount;
     (void)requiredpropertykeycount;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8816,7 +11286,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiGetDeviceInterfacePropertyW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(deviceinfoset, deviceinterfacedata, propertykey, propertytype, propertybuffer, propertybuffersize, requiredsize, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(deviceinfoset, deviceinterfacedata, propertykey, propertytype, propertybuffer, propertybuffersize, requiredsize, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)deviceinfoset;
     (void)deviceinterfacedata;
@@ -8826,6 +11302,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)propertybuffersize;
     (void)requiredsize;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8846,7 +11323,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiGetDevicePropertyKeys")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(deviceinfoset, deviceinfodata, propertykeyarray, propertykeycount, requiredpropertykeycount, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(deviceinfoset, deviceinfodata, propertykeyarray, propertykeycount, requiredpropertykeycount, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)deviceinfoset;
     (void)deviceinfodata;
@@ -8854,6 +11337,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)propertykeycount;
     (void)requiredpropertykeycount;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8876,7 +11360,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiGetDevicePropertyW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(deviceinfoset, deviceinfodata, propertykey, propertytype, propertybuffer, propertybuffersize, requiredsize, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(deviceinfoset, deviceinfodata, propertykey, propertytype, propertybuffer, propertybuffersize, requiredsize, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)deviceinfoset;
     (void)deviceinfodata;
@@ -8886,6 +11376,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)propertybuffersize;
     (void)requiredsize;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8907,7 +11398,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiGetDeviceRegistryPropertyA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(deviceinfoset, deviceinfodata, property, propertyregdatatype, propertybuffer, propertybuffersize, requiredsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(deviceinfoset, deviceinfodata, property, propertyregdatatype, propertybuffer, propertybuffersize, requiredsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)deviceinfoset;
     (void)deviceinfodata;
@@ -8916,6 +11413,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)propertybuffer;
     (void)propertybuffersize;
     (void)requiredsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8937,7 +11435,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiGetDeviceRegistryPropertyW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(deviceinfoset, deviceinfodata, property, propertyregdatatype, propertybuffer, propertybuffersize, requiredsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(deviceinfoset, deviceinfodata, property, propertyregdatatype, propertybuffer, propertybuffersize, requiredsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)deviceinfoset;
     (void)deviceinfodata;
@@ -8946,6 +11450,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)propertybuffer;
     (void)propertybuffersize;
     (void)requiredsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8966,7 +11471,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiGetDriverInfoDetailA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(deviceinfoset, deviceinfodata, driverinfodata, driverinfodetaildata, driverinfodetaildatasize, requiredsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(deviceinfoset, deviceinfodata, driverinfodata, driverinfodetaildata, driverinfodetaildatasize, requiredsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)deviceinfoset;
     (void)deviceinfodata;
@@ -8974,6 +11485,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)driverinfodetaildata;
     (void)driverinfodetaildatasize;
     (void)requiredsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -8994,7 +11506,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiGetDriverInfoDetailW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(deviceinfoset, deviceinfodata, driverinfodata, driverinfodetaildata, driverinfodetaildatasize, requiredsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(deviceinfoset, deviceinfodata, driverinfodata, driverinfodetaildata, driverinfodetaildatasize, requiredsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)deviceinfoset;
     (void)deviceinfodata;
@@ -9002,6 +11520,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)driverinfodetaildata;
     (void)driverinfodetaildatasize;
     (void)requiredsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9020,12 +11539,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiGetDriverInstallParamsA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(deviceinfoset, deviceinfodata, driverinfodata, driverinstallparams) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(deviceinfoset, deviceinfodata, driverinfodata, driverinstallparams);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)deviceinfoset;
     (void)deviceinfodata;
     (void)driverinfodata;
     (void)driverinstallparams;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9044,12 +11570,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiGetDriverInstallParamsW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(deviceinfoset, deviceinfodata, driverinfodata, driverinstallparams) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(deviceinfoset, deviceinfodata, driverinfodata, driverinstallparams);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)deviceinfoset;
     (void)deviceinfodata;
     (void)driverinfodata;
     (void)driverinstallparams;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9068,12 +11601,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiGetHwProfileFriendlyNameA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwprofile, friendlyname, friendlynamesize, requiredsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwprofile, friendlyname, friendlynamesize, requiredsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwprofile;
     (void)friendlyname;
     (void)friendlynamesize;
     (void)requiredsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9094,7 +11634,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiGetHwProfileFriendlyNameExA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwprofile, friendlyname, friendlynamesize, requiredsize, machinename, reserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwprofile, friendlyname, friendlynamesize, requiredsize, machinename, reserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwprofile;
     (void)friendlyname;
@@ -9102,6 +11648,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)requiredsize;
     (void)machinename;
     (void)reserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9122,7 +11669,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiGetHwProfileFriendlyNameExW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwprofile, friendlyname, friendlynamesize, requiredsize, machinename, reserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwprofile, friendlyname, friendlynamesize, requiredsize, machinename, reserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwprofile;
     (void)friendlyname;
@@ -9130,6 +11683,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)requiredsize;
     (void)machinename;
     (void)reserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9148,12 +11702,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiGetHwProfileFriendlyNameW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwprofile, friendlyname, friendlynamesize, requiredsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwprofile, friendlyname, friendlynamesize, requiredsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwprofile;
     (void)friendlyname;
     (void)friendlynamesize;
     (void)requiredsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9172,12 +11733,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiGetHwProfileList")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwprofilelist, hwprofilelistsize, requiredsize, currentlyactiveindex) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwprofilelist, hwprofilelistsize, requiredsize, currentlyactiveindex);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwprofilelist;
     (void)hwprofilelistsize;
     (void)requiredsize;
     (void)currentlyactiveindex;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9198,7 +11766,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiGetHwProfileListExA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwprofilelist, hwprofilelistsize, requiredsize, currentlyactiveindex, machinename, reserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwprofilelist, hwprofilelistsize, requiredsize, currentlyactiveindex, machinename, reserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwprofilelist;
     (void)hwprofilelistsize;
@@ -9206,6 +11780,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)currentlyactiveindex;
     (void)machinename;
     (void)reserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9226,7 +11801,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiGetHwProfileListExW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwprofilelist, hwprofilelistsize, requiredsize, currentlyactiveindex, machinename, reserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwprofilelist, hwprofilelistsize, requiredsize, currentlyactiveindex, machinename, reserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwprofilelist;
     (void)hwprofilelistsize;
@@ -9234,6 +11815,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)currentlyactiveindex;
     (void)machinename;
     (void)reserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9253,13 +11835,20 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiGetINFClassA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(infname, classguid, classname, classnamesize, requiredsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(infname, classguid, classname, classnamesize, requiredsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)infname;
     (void)classguid;
     (void)classname;
     (void)classnamesize;
     (void)requiredsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9279,13 +11868,20 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiGetINFClassW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(infname, classguid, classname, classnamesize, requiredsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(infname, classguid, classname, classnamesize, requiredsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)infname;
     (void)classguid;
     (void)classname;
     (void)classnamesize;
     (void)requiredsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9302,10 +11898,17 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiGetSelectedDevice")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(deviceinfoset, deviceinfodata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(deviceinfoset, deviceinfodata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)deviceinfoset;
     (void)deviceinfodata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9323,11 +11926,18 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiGetSelectedDriverA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(deviceinfoset, deviceinfodata, driverinfodata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(deviceinfoset, deviceinfodata, driverinfodata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)deviceinfoset;
     (void)deviceinfodata;
     (void)driverinfodata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9345,11 +11955,18 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiGetSelectedDriverW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(deviceinfoset, deviceinfodata, driverinfodata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(deviceinfoset, deviceinfodata, driverinfodata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)deviceinfoset;
     (void)deviceinfodata;
     (void)driverinfodata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9369,14 +11986,21 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiGetWizardPage")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(deviceinfoset, deviceinfodata, installwizarddata, pagetype, flags) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(deviceinfoset, deviceinfodata, installwizarddata, pagetype, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)deviceinfoset;
     (void)deviceinfodata;
     (void)installwizarddata;
     (void)pagetype;
     (void)flags;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -9394,12 +12018,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiInstallClassA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwndparent, inffilename, flags, filequeue) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwndparent, inffilename, flags, filequeue);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwndparent;
     (void)inffilename;
     (void)flags;
     (void)filequeue;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9421,7 +12052,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiInstallClassExA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwndparent, inffilename, flags, filequeue, interfaceclassguid, reserved1, reserved2) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwndparent, inffilename, flags, filequeue, interfaceclassguid, reserved1, reserved2);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwndparent;
     (void)inffilename;
@@ -9430,6 +12067,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)interfaceclassguid;
     (void)reserved1;
     (void)reserved2;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9451,7 +12089,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiInstallClassExW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwndparent, inffilename, flags, filequeue, interfaceclassguid, reserved1, reserved2) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwndparent, inffilename, flags, filequeue, interfaceclassguid, reserved1, reserved2);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwndparent;
     (void)inffilename;
@@ -9460,6 +12104,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)interfaceclassguid;
     (void)reserved1;
     (void)reserved2;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9478,12 +12123,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiInstallClassW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwndparent, inffilename, flags, filequeue) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwndparent, inffilename, flags, filequeue);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwndparent;
     (void)inffilename;
     (void)flags;
     (void)filequeue;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9500,10 +12152,17 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiInstallDevice")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(deviceinfoset, deviceinfodata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(deviceinfoset, deviceinfodata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)deviceinfoset;
     (void)deviceinfodata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9520,10 +12179,17 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiInstallDeviceInterfaces")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(deviceinfoset, deviceinfodata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(deviceinfoset, deviceinfodata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)deviceinfoset;
     (void)deviceinfodata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9540,10 +12206,17 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiInstallDriverFiles")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(deviceinfoset, deviceinfodata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(deviceinfoset, deviceinfodata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)deviceinfoset;
     (void)deviceinfodata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9561,11 +12234,18 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiLoadClassIcon")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(classguid, largeicon, miniiconindex) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(classguid, largeicon, miniiconindex);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)classguid;
     (void)largeicon;
     (void)miniiconindex;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9586,7 +12266,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiLoadDeviceIcon")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(deviceinfoset, deviceinfodata, cxicon, cyicon, flags, hicon) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(deviceinfoset, deviceinfodata, cxicon, cyicon, flags, hicon);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)deviceinfoset;
     (void)deviceinfodata;
@@ -9594,6 +12280,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)cyicon;
     (void)flags;
     (void)hicon;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9610,11 +12297,18 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiOpenClassRegKey")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(classguid, samdesired) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(classguid, samdesired);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)classguid;
     (void)samdesired;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -9633,14 +12327,21 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiOpenClassRegKeyExA")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(classguid, samdesired, flags, machinename, reserved) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(classguid, samdesired, flags, machinename, reserved);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)classguid;
     (void)samdesired;
     (void)flags;
     (void)machinename;
     (void)reserved;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -9659,14 +12360,21 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiOpenClassRegKeyExW")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(classguid, samdesired, flags, machinename, reserved) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(classguid, samdesired, flags, machinename, reserved);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)classguid;
     (void)samdesired;
     (void)flags;
     (void)machinename;
     (void)reserved;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -9686,7 +12394,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiOpenDevRegKey")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(deviceinfoset, deviceinfodata, scope, hwprofile, keytype, samdesired) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(deviceinfoset, deviceinfodata, scope, hwprofile, keytype, samdesired);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)deviceinfoset;
     (void)deviceinfodata;
@@ -9694,7 +12408,8 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)hwprofile;
     (void)keytype;
     (void)samdesired;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -9713,13 +12428,20 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiOpenDeviceInfoA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(deviceinfoset, deviceinstanceid, hwndparent, openflags, deviceinfodata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(deviceinfoset, deviceinstanceid, hwndparent, openflags, deviceinfodata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)deviceinfoset;
     (void)deviceinstanceid;
     (void)hwndparent;
     (void)openflags;
     (void)deviceinfodata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9739,13 +12461,20 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiOpenDeviceInfoW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(deviceinfoset, deviceinstanceid, hwndparent, openflags, deviceinfodata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(deviceinfoset, deviceinstanceid, hwndparent, openflags, deviceinfodata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)deviceinfoset;
     (void)deviceinstanceid;
     (void)hwndparent;
     (void)openflags;
     (void)deviceinfodata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9764,12 +12493,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiOpenDeviceInterfaceA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(deviceinfoset, devicepath, openflags, deviceinterfacedata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(deviceinfoset, devicepath, openflags, deviceinterfacedata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)deviceinfoset;
     (void)devicepath;
     (void)openflags;
     (void)deviceinterfacedata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9788,13 +12524,20 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiOpenDeviceInterfaceRegKey")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(deviceinfoset, deviceinterfacedata, reserved, samdesired) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(deviceinfoset, deviceinterfacedata, reserved, samdesired);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)deviceinfoset;
     (void)deviceinterfacedata;
     (void)reserved;
     (void)samdesired;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -9812,12 +12555,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiOpenDeviceInterfaceW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(deviceinfoset, devicepath, openflags, deviceinterfacedata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(deviceinfoset, devicepath, openflags, deviceinterfacedata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)deviceinfoset;
     (void)devicepath;
     (void)openflags;
     (void)deviceinterfacedata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9834,10 +12584,17 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiRegisterCoDeviceInstallers")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(deviceinfoset, deviceinfodata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(deviceinfoset, deviceinfodata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)deviceinfoset;
     (void)deviceinfodata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9858,7 +12615,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiRegisterDeviceInfo")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(deviceinfoset, deviceinfodata, flags, compareproc, comparecontext, dupdeviceinfodata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(deviceinfoset, deviceinfodata, flags, compareproc, comparecontext, dupdeviceinfodata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)deviceinfoset;
     (void)deviceinfodata;
@@ -9866,6 +12629,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)compareproc;
     (void)comparecontext;
     (void)dupdeviceinfodata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9882,10 +12646,17 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiRemoveDevice")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(deviceinfoset, deviceinfodata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(deviceinfoset, deviceinfodata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)deviceinfoset;
     (void)deviceinfodata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9902,10 +12673,17 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiRemoveDeviceInterface")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(deviceinfoset, deviceinterfacedata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(deviceinfoset, deviceinterfacedata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)deviceinfoset;
     (void)deviceinterfacedata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9922,10 +12700,17 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiRestartDevices")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(deviceinfoset, deviceinfodata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(deviceinfoset, deviceinfodata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)deviceinfoset;
     (void)deviceinfodata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9942,10 +12727,17 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiSelectBestCompatDrv")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(deviceinfoset, deviceinfodata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(deviceinfoset, deviceinfodata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)deviceinfoset;
     (void)deviceinfodata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9962,10 +12754,17 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiSelectDevice")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(deviceinfoset, deviceinfodata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(deviceinfoset, deviceinfodata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)deviceinfoset;
     (void)deviceinfodata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -9983,11 +12782,18 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiSelectOEMDrv")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwndparent, deviceinfoset, deviceinfodata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwndparent, deviceinfoset, deviceinfodata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwndparent;
     (void)deviceinfoset;
     (void)deviceinfodata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -10006,12 +12812,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiSetClassInstallParamsA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(deviceinfoset, deviceinfodata, classinstallparams, classinstallparamssize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(deviceinfoset, deviceinfodata, classinstallparams, classinstallparamssize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)deviceinfoset;
     (void)deviceinfodata;
     (void)classinstallparams;
     (void)classinstallparamssize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -10030,12 +12843,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiSetClassInstallParamsW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(deviceinfoset, deviceinfodata, classinstallparams, classinstallparamssize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(deviceinfoset, deviceinfodata, classinstallparams, classinstallparamssize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)deviceinfoset;
     (void)deviceinfodata;
     (void)classinstallparams;
     (void)classinstallparamssize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -10058,7 +12878,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiSetClassPropertyExW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(classguid, propertykey, propertytype, propertybuffer, propertybuffersize, flags, machinename, reserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(classguid, propertykey, propertytype, propertybuffer, propertybuffersize, flags, machinename, reserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)classguid;
     (void)propertykey;
@@ -10068,6 +12894,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)flags;
     (void)machinename;
     (void)reserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -10088,7 +12915,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiSetClassPropertyW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(classguid, propertykey, propertytype, propertybuffer, propertybuffersize, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(classguid, propertykey, propertytype, propertybuffer, propertybuffersize, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)classguid;
     (void)propertykey;
@@ -10096,6 +12929,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)propertybuffer;
     (void)propertybuffersize;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -10116,7 +12950,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiSetClassRegistryPropertyA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(classguid, property, propertybuffer, propertybuffersize, machinename, reserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(classguid, property, propertybuffer, propertybuffersize, machinename, reserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)classguid;
     (void)property;
@@ -10124,6 +12964,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)propertybuffersize;
     (void)machinename;
     (void)reserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -10144,7 +12985,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiSetClassRegistryPropertyW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(classguid, property, propertybuffer, propertybuffersize, machinename, reserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(classguid, property, propertybuffer, propertybuffersize, machinename, reserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)classguid;
     (void)property;
@@ -10152,6 +12999,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)propertybuffersize;
     (void)machinename;
     (void)reserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -10169,11 +13017,18 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiSetDeviceInstallParamsA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(deviceinfoset, deviceinfodata, deviceinstallparams) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(deviceinfoset, deviceinfodata, deviceinstallparams);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)deviceinfoset;
     (void)deviceinfodata;
     (void)deviceinstallparams;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -10191,11 +13046,18 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiSetDeviceInstallParamsW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(deviceinfoset, deviceinfodata, deviceinstallparams) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(deviceinfoset, deviceinfodata, deviceinstallparams);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)deviceinfoset;
     (void)deviceinfodata;
     (void)deviceinstallparams;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -10214,12 +13076,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiSetDeviceInterfaceDefault")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(deviceinfoset, deviceinterfacedata, flags, reserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(deviceinfoset, deviceinterfacedata, flags, reserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)deviceinfoset;
     (void)deviceinterfacedata;
     (void)flags;
     (void)reserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -10241,7 +13110,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiSetDeviceInterfacePropertyW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(deviceinfoset, deviceinterfacedata, propertykey, propertytype, propertybuffer, propertybuffersize, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(deviceinfoset, deviceinterfacedata, propertykey, propertytype, propertybuffer, propertybuffersize, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)deviceinfoset;
     (void)deviceinterfacedata;
@@ -10250,6 +13125,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)propertybuffer;
     (void)propertybuffersize;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -10271,7 +13147,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiSetDevicePropertyW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(deviceinfoset, deviceinfodata, propertykey, propertytype, propertybuffer, propertybuffersize, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(deviceinfoset, deviceinfodata, propertykey, propertytype, propertybuffer, propertybuffersize, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)deviceinfoset;
     (void)deviceinfodata;
@@ -10280,6 +13162,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)propertybuffer;
     (void)propertybuffersize;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -10299,13 +13182,20 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiSetDeviceRegistryPropertyA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(deviceinfoset, deviceinfodata, property, propertybuffer, propertybuffersize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(deviceinfoset, deviceinfodata, property, propertybuffer, propertybuffersize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)deviceinfoset;
     (void)deviceinfodata;
     (void)property;
     (void)propertybuffer;
     (void)propertybuffersize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -10325,13 +13215,20 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiSetDeviceRegistryPropertyW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(deviceinfoset, deviceinfodata, property, propertybuffer, propertybuffersize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(deviceinfoset, deviceinfodata, property, propertybuffer, propertybuffersize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)deviceinfoset;
     (void)deviceinfodata;
     (void)property;
     (void)propertybuffer;
     (void)propertybuffersize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -10350,12 +13247,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiSetDriverInstallParamsA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(deviceinfoset, deviceinfodata, driverinfodata, driverinstallparams) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(deviceinfoset, deviceinfodata, driverinfodata, driverinstallparams);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)deviceinfoset;
     (void)deviceinfodata;
     (void)driverinfodata;
     (void)driverinstallparams;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -10374,12 +13278,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiSetDriverInstallParamsW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(deviceinfoset, deviceinfodata, driverinfodata, driverinstallparams) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(deviceinfoset, deviceinfodata, driverinfodata, driverinstallparams);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)deviceinfoset;
     (void)deviceinfodata;
     (void)driverinfodata;
     (void)driverinstallparams;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -10396,10 +13307,17 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiSetSelectedDevice")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(deviceinfoset, deviceinfodata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(deviceinfoset, deviceinfodata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)deviceinfoset;
     (void)deviceinfodata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -10417,11 +13335,18 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiSetSelectedDriverA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(deviceinfoset, deviceinfodata, driverinfodata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(deviceinfoset, deviceinfodata, driverinfodata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)deviceinfoset;
     (void)deviceinfodata;
     (void)driverinfodata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -10439,11 +13364,18 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiSetSelectedDriverW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(deviceinfoset, deviceinfodata, driverinfodata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(deviceinfoset, deviceinfodata, driverinfodata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)deviceinfoset;
     (void)deviceinfodata;
     (void)driverinfodata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -10460,10 +13392,17 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDiUnremoveDevice")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(deviceinfoset, deviceinfodata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(deviceinfoset, deviceinfodata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)deviceinfoset;
     (void)deviceinfodata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -10482,13 +13421,20 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDuplicateDiskSpaceListA")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(diskspace, reserved1, reserved2, flags) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(diskspace, reserved1, reserved2, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)diskspace;
     (void)reserved1;
     (void)reserved2;
     (void)flags;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -10506,13 +13452,20 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupDuplicateDiskSpaceListW")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(diskspace, reserved1, reserved2, flags) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(diskspace, reserved1, reserved2, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)diskspace;
     (void)reserved1;
     (void)reserved2;
     (void)flags;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -10531,13 +13484,20 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupEnumInfSectionsA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(infhandle, arg_1_index, buffer, size, sizeneeded) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(infhandle, arg_1_index, buffer, size, sizeneeded);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)infhandle;
     (void)arg_1_index;
     (void)buffer;
     (void)size;
     (void)sizeneeded;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -10557,13 +13517,20 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupEnumInfSectionsW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(infhandle, arg_1_index, buffer, size, sizeneeded) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(infhandle, arg_1_index, buffer, size, sizeneeded);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)infhandle;
     (void)arg_1_index;
     (void)buffer;
     (void)size;
     (void)sizeneeded;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -10582,12 +13549,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupFindFirstLineA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(infhandle, section, key, context) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(infhandle, section, key, context);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)infhandle;
     (void)section;
     (void)key;
     (void)context;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -10606,12 +13580,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupFindFirstLineW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(infhandle, section, key, context) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(infhandle, section, key, context);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)infhandle;
     (void)section;
     (void)key;
     (void)context;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -10628,10 +13609,17 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupFindNextLine")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(contextin, contextout) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(contextin, contextout);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)contextin;
     (void)contextout;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -10649,11 +13637,18 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupFindNextMatchLineA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(contextin, key, contextout) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(contextin, key, contextout);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)contextin;
     (void)key;
     (void)contextout;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -10671,11 +13666,18 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupFindNextMatchLineW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(contextin, key, contextout) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(contextin, key, contextout);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)contextin;
     (void)key;
     (void)contextout;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -10692,10 +13694,17 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupFreeSourceListA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(list, count) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(list, count);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)list;
     (void)count;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -10712,10 +13721,17 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupFreeSourceListW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(list, count) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(list, count);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)list;
     (void)count;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -10732,10 +13748,17 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupGetBackupInformationA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(queuehandle, backupparams) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(queuehandle, backupparams);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)queuehandle;
     (void)backupparams;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -10752,10 +13775,17 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupGetBackupInformationW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(queuehandle, backupparams) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(queuehandle, backupparams);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)queuehandle;
     (void)backupparams;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -10775,13 +13805,20 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupGetBinaryField")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(context, fieldindex, returnbuffer, returnbuffersize, requiredsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(context, fieldindex, returnbuffer, returnbuffersize, requiredsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)context;
     (void)fieldindex;
     (void)returnbuffer;
     (void)returnbuffersize;
     (void)requiredsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -10797,9 +13834,16 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupGetFieldCount")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(context) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(context);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)context;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -10819,13 +13863,20 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupGetFileCompressionInfoA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sourcefilename, actualsourcefilename, sourcefilesize, targetfilesize, compressiontype) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sourcefilename, actualsourcefilename, sourcefilesize, targetfilesize, compressiontype);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)sourcefilename;
     (void)actualsourcefilename;
     (void)sourcefilesize;
     (void)targetfilesize;
     (void)compressiontype;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -10847,7 +13898,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupGetFileCompressionInfoExA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sourcefilename, actualsourcefilenamebuffer, actualsourcefilenamebufferlen, requiredbufferlen, sourcefilesize, targetfilesize, compressiontype) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sourcefilename, actualsourcefilenamebuffer, actualsourcefilenamebufferlen, requiredbufferlen, sourcefilesize, targetfilesize, compressiontype);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sourcefilename;
     (void)actualsourcefilenamebuffer;
@@ -10856,6 +13913,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)sourcefilesize;
     (void)targetfilesize;
     (void)compressiontype;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -10877,7 +13935,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupGetFileCompressionInfoExW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sourcefilename, actualsourcefilenamebuffer, actualsourcefilenamebufferlen, requiredbufferlen, sourcefilesize, targetfilesize, compressiontype) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sourcefilename, actualsourcefilenamebuffer, actualsourcefilenamebufferlen, requiredbufferlen, sourcefilesize, targetfilesize, compressiontype);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sourcefilename;
     (void)actualsourcefilenamebuffer;
@@ -10886,6 +13950,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)sourcefilesize;
     (void)targetfilesize;
     (void)compressiontype;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -10905,13 +13970,20 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupGetFileCompressionInfoW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sourcefilename, actualsourcefilename, sourcefilesize, targetfilesize, compressiontype) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sourcefilename, actualsourcefilename, sourcefilesize, targetfilesize, compressiontype);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)sourcefilename;
     (void)actualsourcefilename;
     (void)sourcefilesize;
     (void)targetfilesize;
     (void)compressiontype;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -10929,11 +14001,18 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupGetFileQueueCount")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(filequeue, subqueuefileop, numoperations) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(filequeue, subqueuefileop, numoperations);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)filequeue;
     (void)subqueuefileop;
     (void)numoperations;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -10950,10 +14029,17 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupGetFileQueueFlags")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(filequeue, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(filequeue, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)filequeue;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -10974,7 +14060,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupGetInfDriverStoreLocationA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(filename, alternateplatforminfo, localename, returnbuffer, returnbuffersize, requiredsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(filename, alternateplatforminfo, localename, returnbuffer, returnbuffersize, requiredsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)filename;
     (void)alternateplatforminfo;
@@ -10982,6 +14074,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)returnbuffer;
     (void)returnbuffersize;
     (void)requiredsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -11002,7 +14095,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupGetInfDriverStoreLocationW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(filename, alternateplatforminfo, localename, returnbuffer, returnbuffersize, requiredsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(filename, alternateplatforminfo, localename, returnbuffer, returnbuffersize, requiredsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)filename;
     (void)alternateplatforminfo;
@@ -11010,6 +14109,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)returnbuffer;
     (void)returnbuffersize;
     (void)requiredsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -11029,13 +14129,20 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupGetInfFileListA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(directorypath, infstyle, returnbuffer, returnbuffersize, requiredsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(directorypath, infstyle, returnbuffer, returnbuffersize, requiredsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)directorypath;
     (void)infstyle;
     (void)returnbuffer;
     (void)returnbuffersize;
     (void)requiredsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -11055,13 +14162,20 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupGetInfFileListW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(directorypath, infstyle, returnbuffer, returnbuffersize, requiredsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(directorypath, infstyle, returnbuffer, returnbuffersize, requiredsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)directorypath;
     (void)infstyle;
     (void)returnbuffer;
     (void)returnbuffersize;
     (void)requiredsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -11081,13 +14195,20 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupGetInfInformationA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(infspec, searchcontrol, returnbuffer, returnbuffersize, requiredsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(infspec, searchcontrol, returnbuffer, returnbuffersize, requiredsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)infspec;
     (void)searchcontrol;
     (void)returnbuffer;
     (void)returnbuffersize;
     (void)requiredsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -11107,13 +14228,20 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupGetInfInformationW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(infspec, searchcontrol, returnbuffer, returnbuffersize, requiredsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(infspec, searchcontrol, returnbuffer, returnbuffersize, requiredsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)infspec;
     (void)searchcontrol;
     (void)returnbuffer;
     (void)returnbuffersize;
     (void)requiredsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -11132,12 +14260,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupGetInfPublishedNameA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(driverstorelocation, returnbuffer, returnbuffersize, requiredsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(driverstorelocation, returnbuffer, returnbuffersize, requiredsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)driverstorelocation;
     (void)returnbuffer;
     (void)returnbuffersize;
     (void)requiredsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -11156,12 +14291,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupGetInfPublishedNameW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(driverstorelocation, returnbuffer, returnbuffersize, requiredsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(driverstorelocation, returnbuffer, returnbuffersize, requiredsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)driverstorelocation;
     (void)returnbuffer;
     (void)returnbuffersize;
     (void)requiredsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -11179,11 +14321,18 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupGetIntField")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(context, fieldindex, integervalue) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(context, fieldindex, integervalue);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)context;
     (void)fieldindex;
     (void)integervalue;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -11202,12 +14351,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupGetLineByIndexA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(infhandle, section, arg_2_index, context) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(infhandle, section, arg_2_index, context);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)infhandle;
     (void)section;
     (void)arg_2_index;
     (void)context;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -11226,12 +14382,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupGetLineByIndexW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(infhandle, section, arg_2_index, context) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(infhandle, section, arg_2_index, context);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)infhandle;
     (void)section;
     (void)arg_2_index;
     (void)context;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -11248,10 +14411,17 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupGetLineCountA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(infhandle, section) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(infhandle, section);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)infhandle;
     (void)section;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -11268,10 +14438,17 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupGetLineCountW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(infhandle, section) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(infhandle, section);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)infhandle;
     (void)section;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -11293,7 +14470,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupGetLineTextA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(context, infhandle, section, key, returnbuffer, returnbuffersize, requiredsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(context, infhandle, section, key, returnbuffer, returnbuffersize, requiredsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)context;
     (void)infhandle;
@@ -11302,6 +14485,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)returnbuffer;
     (void)returnbuffersize;
     (void)requiredsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -11323,7 +14507,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupGetLineTextW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(context, infhandle, section, key, returnbuffer, returnbuffersize, requiredsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(context, infhandle, section, key, returnbuffer, returnbuffersize, requiredsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)context;
     (void)infhandle;
@@ -11332,6 +14522,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)returnbuffer;
     (void)returnbuffersize;
     (void)requiredsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -11351,13 +14542,20 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupGetMultiSzFieldA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(context, fieldindex, returnbuffer, returnbuffersize, requiredsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(context, fieldindex, returnbuffer, returnbuffersize, requiredsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)context;
     (void)fieldindex;
     (void)returnbuffer;
     (void)returnbuffersize;
     (void)requiredsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -11377,13 +14575,20 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupGetMultiSzFieldW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(context, fieldindex, returnbuffer, returnbuffersize, requiredsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(context, fieldindex, returnbuffer, returnbuffersize, requiredsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)context;
     (void)fieldindex;
     (void)returnbuffer;
     (void)returnbuffersize;
     (void)requiredsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -11398,8 +14603,15 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupGetNonInteractiveMode")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -11421,7 +14633,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupGetSourceFileLocationA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(infhandle, infcontext, filename, sourceid, returnbuffer, returnbuffersize, requiredsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(infhandle, infcontext, filename, sourceid, returnbuffer, returnbuffersize, requiredsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)infhandle;
     (void)infcontext;
@@ -11430,6 +14648,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)returnbuffer;
     (void)returnbuffersize;
     (void)requiredsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -11451,7 +14670,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupGetSourceFileLocationW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(infhandle, infcontext, filename, sourceid, returnbuffer, returnbuffersize, requiredsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(infhandle, infcontext, filename, sourceid, returnbuffer, returnbuffersize, requiredsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)infhandle;
     (void)infcontext;
@@ -11460,6 +14685,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)returnbuffer;
     (void)returnbuffersize;
     (void)requiredsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -11480,7 +14706,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupGetSourceFileSizeA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(infhandle, infcontext, filename, section, filesize, roundingfactor) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(infhandle, infcontext, filename, section, filesize, roundingfactor);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)infhandle;
     (void)infcontext;
@@ -11488,6 +14720,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)section;
     (void)filesize;
     (void)roundingfactor;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -11508,7 +14741,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupGetSourceFileSizeW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(infhandle, infcontext, filename, section, filesize, roundingfactor) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(infhandle, infcontext, filename, section, filesize, roundingfactor);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)infhandle;
     (void)infcontext;
@@ -11516,6 +14755,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)section;
     (void)filesize;
     (void)roundingfactor;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -11536,7 +14776,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupGetSourceInfoA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(infhandle, sourceid, infodesired, returnbuffer, returnbuffersize, requiredsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(infhandle, sourceid, infodesired, returnbuffer, returnbuffersize, requiredsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)infhandle;
     (void)sourceid;
@@ -11544,6 +14790,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)returnbuffer;
     (void)returnbuffersize;
     (void)requiredsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -11564,7 +14811,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupGetSourceInfoW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(infhandle, sourceid, infodesired, returnbuffer, returnbuffersize, requiredsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(infhandle, sourceid, infodesired, returnbuffer, returnbuffersize, requiredsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)infhandle;
     (void)sourceid;
@@ -11572,6 +14825,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)returnbuffer;
     (void)returnbuffersize;
     (void)requiredsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -11591,13 +14845,20 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupGetStringFieldA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(context, fieldindex, returnbuffer, returnbuffersize, requiredsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(context, fieldindex, returnbuffer, returnbuffersize, requiredsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)context;
     (void)fieldindex;
     (void)returnbuffer;
     (void)returnbuffersize;
     (void)requiredsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -11617,13 +14878,20 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupGetStringFieldW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(context, fieldindex, returnbuffer, returnbuffersize, requiredsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(context, fieldindex, returnbuffer, returnbuffersize, requiredsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)context;
     (void)fieldindex;
     (void)returnbuffer;
     (void)returnbuffersize;
     (void)requiredsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -11644,7 +14912,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupGetTargetPathA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(infhandle, infcontext, section, returnbuffer, returnbuffersize, requiredsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(infhandle, infcontext, section, returnbuffer, returnbuffersize, requiredsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)infhandle;
     (void)infcontext;
@@ -11652,6 +14926,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)returnbuffer;
     (void)returnbuffersize;
     (void)requiredsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -11672,7 +14947,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupGetTargetPathW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(infhandle, infcontext, section, returnbuffer, returnbuffersize, requiredsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(infhandle, infcontext, section, returnbuffer, returnbuffersize, requiredsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)infhandle;
     (void)infcontext;
@@ -11680,6 +14961,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)returnbuffer;
     (void)returnbuffersize;
     (void)requiredsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -11694,8 +14976,15 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupGetThreadLogToken")));
     }
-    uint64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : 0;
+    uint64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
+    errno = ENOSYS;
     uint64_t km_res = 0;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
@@ -11711,10 +15000,17 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupInitDefaultQueueCallback")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ownerwindow) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ownerwindow);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)ownerwindow;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -11733,14 +15029,21 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupInitDefaultQueueCallbackEx")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ownerwindow, alternateprogresswindow, progressmessage, reserved1, reserved2) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ownerwindow, alternateprogresswindow, progressmessage, reserved1, reserved2);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)ownerwindow;
     (void)alternateprogresswindow;
     (void)progressmessage;
     (void)reserved1;
     (void)reserved2;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -11756,11 +15059,18 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupInitializeFileLogA")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(logfilename, flags) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(logfilename, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)logfilename;
     (void)flags;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -11776,11 +15086,18 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupInitializeFileLogW")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(logfilename, flags) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(logfilename, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)logfilename;
     (void)flags;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -11802,7 +15119,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupInstallFileA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(infhandle, infcontext, sourcefile, sourcepathroot, destinationname, copystyle, copymsghandler, context) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(infhandle, infcontext, sourcefile, sourcepathroot, destinationname, copystyle, copymsghandler, context);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)infhandle;
     (void)infcontext;
@@ -11812,6 +15135,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)copystyle;
     (void)copymsghandler;
     (void)context;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -11835,7 +15159,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupInstallFileExA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(infhandle, infcontext, sourcefile, sourcepathroot, destinationname, copystyle, copymsghandler, context, filewasinuse) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(infhandle, infcontext, sourcefile, sourcepathroot, destinationname, copystyle, copymsghandler, context, filewasinuse);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)infhandle;
     (void)infcontext;
@@ -11846,6 +15176,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)copymsghandler;
     (void)context;
     (void)filewasinuse;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -11869,7 +15200,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupInstallFileExW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(infhandle, infcontext, sourcefile, sourcepathroot, destinationname, copystyle, copymsghandler, context, filewasinuse) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(infhandle, infcontext, sourcefile, sourcepathroot, destinationname, copystyle, copymsghandler, context, filewasinuse);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)infhandle;
     (void)infcontext;
@@ -11880,6 +15217,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)copymsghandler;
     (void)context;
     (void)filewasinuse;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -11902,7 +15240,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupInstallFileW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(infhandle, infcontext, sourcefile, sourcepathroot, destinationname, copystyle, copymsghandler, context) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(infhandle, infcontext, sourcefile, sourcepathroot, destinationname, copystyle, copymsghandler, context);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)infhandle;
     (void)infcontext;
@@ -11912,6 +15256,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)copystyle;
     (void)copymsghandler;
     (void)context;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -11932,7 +15277,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupInstallFilesFromInfSectionA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(infhandle, layoutinfhandle, filequeue, sectionname, sourcerootpath, copyflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(infhandle, layoutinfhandle, filequeue, sectionname, sourcerootpath, copyflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)infhandle;
     (void)layoutinfhandle;
@@ -11940,6 +15291,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)sectionname;
     (void)sourcerootpath;
     (void)copyflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -11960,7 +15312,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupInstallFilesFromInfSectionW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(infhandle, layoutinfhandle, filequeue, sectionname, sourcerootpath, copyflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(infhandle, layoutinfhandle, filequeue, sectionname, sourcerootpath, copyflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)infhandle;
     (void)layoutinfhandle;
@@ -11968,6 +15326,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)sectionname;
     (void)sourcerootpath;
     (void)copyflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -11993,7 +15352,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupInstallFromInfSectionA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(owner, infhandle, sectionname, flags, relativekeyroot, sourcerootpath, copyflags, msghandler, context, deviceinfoset, deviceinfodata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(owner, infhandle, sectionname, flags, relativekeyroot, sourcerootpath, copyflags, msghandler, context, deviceinfoset, deviceinfodata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)owner;
     (void)infhandle;
@@ -12006,6 +15371,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)context;
     (void)deviceinfoset;
     (void)deviceinfodata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -12031,7 +15397,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupInstallFromInfSectionW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(owner, infhandle, sectionname, flags, relativekeyroot, sourcerootpath, copyflags, msghandler, context, deviceinfoset, deviceinfodata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(owner, infhandle, sectionname, flags, relativekeyroot, sourcerootpath, copyflags, msghandler, context, deviceinfoset, deviceinfodata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)owner;
     (void)infhandle;
@@ -12044,6 +15416,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)context;
     (void)deviceinfoset;
     (void)deviceinfodata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -12061,11 +15434,18 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupInstallServicesFromInfSectionA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(infhandle, sectionname, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(infhandle, sectionname, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)infhandle;
     (void)sectionname;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -12087,7 +15467,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupInstallServicesFromInfSectionExA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(infhandle, sectionname, flags, deviceinfoset, deviceinfodata, reserved1, reserved2) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(infhandle, sectionname, flags, deviceinfoset, deviceinfodata, reserved1, reserved2);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)infhandle;
     (void)sectionname;
@@ -12096,6 +15482,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)deviceinfodata;
     (void)reserved1;
     (void)reserved2;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -12117,7 +15504,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupInstallServicesFromInfSectionExW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(infhandle, sectionname, flags, deviceinfoset, deviceinfodata, reserved1, reserved2) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(infhandle, sectionname, flags, deviceinfoset, deviceinfodata, reserved1, reserved2);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)infhandle;
     (void)sectionname;
@@ -12126,6 +15519,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)deviceinfodata;
     (void)reserved1;
     (void)reserved2;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -12143,11 +15537,18 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupInstallServicesFromInfSectionW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(infhandle, sectionname, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(infhandle, sectionname, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)infhandle;
     (void)sectionname;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -12166,12 +15567,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupIterateCabinetA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(cabinetfile, reserved, msghandler, context) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(cabinetfile, reserved, msghandler, context);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)cabinetfile;
     (void)reserved;
     (void)msghandler;
     (void)context;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -12190,12 +15598,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupIterateCabinetW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(cabinetfile, reserved, msghandler, context) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(cabinetfile, reserved, msghandler, context);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)cabinetfile;
     (void)reserved;
     (void)msghandler;
     (void)context;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -12212,10 +15627,17 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupLogErrorA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(messagestring, severity) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(messagestring, severity);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)messagestring;
     (void)severity;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -12232,10 +15654,17 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupLogErrorW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(messagestring, severity) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(messagestring, severity);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)messagestring;
     (void)severity;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -12259,7 +15688,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupLogFileA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(fileloghandle, logsectionname, sourcefilename, targetfilename, checksum, disktagfile, diskdescription, otherinfo, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(fileloghandle, logsectionname, sourcefilename, targetfilename, checksum, disktagfile, diskdescription, otherinfo, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)fileloghandle;
     (void)logsectionname;
@@ -12270,6 +15705,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)diskdescription;
     (void)otherinfo;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -12293,7 +15729,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupLogFileW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(fileloghandle, logsectionname, sourcefilename, targetfilename, checksum, disktagfile, diskdescription, otherinfo, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(fileloghandle, logsectionname, sourcefilename, targetfilename, checksum, disktagfile, diskdescription, otherinfo, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)fileloghandle;
     (void)logsectionname;
@@ -12304,6 +15746,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)diskdescription;
     (void)otherinfo;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -12321,11 +15764,18 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupOpenAppendInfFileA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(filename, infhandle, errorline) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(filename, infhandle, errorline);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)filename;
     (void)infhandle;
     (void)errorline;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -12343,11 +15793,18 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupOpenAppendInfFileW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(filename, infhandle, errorline) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(filename, infhandle, errorline);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)filename;
     (void)infhandle;
     (void)errorline;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -12362,9 +15819,16 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupOpenFileQueue")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -12382,13 +15846,20 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupOpenInfFileA")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(filename, infclass, infstyle, errorline) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(filename, infclass, infstyle, errorline);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)filename;
     (void)infclass;
     (void)infstyle;
     (void)errorline;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -12406,13 +15877,20 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupOpenInfFileW")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(filename, infclass, infstyle, errorline) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(filename, infclass, infstyle, errorline);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)filename;
     (void)infclass;
     (void)infstyle;
     (void)errorline;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -12427,9 +15905,16 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupOpenLog")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(erase) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(erase);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)erase;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -12444,9 +15929,16 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupOpenMasterInf")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -12463,11 +15955,18 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupPrepareQueueForRestoreA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(queuehandle, backuppath, restoreflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(queuehandle, backuppath, restoreflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)queuehandle;
     (void)backuppath;
     (void)restoreflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -12485,11 +15984,18 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupPrepareQueueForRestoreW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(queuehandle, backuppath, restoreflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(queuehandle, backuppath, restoreflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)queuehandle;
     (void)backuppath;
     (void)restoreflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -12514,7 +16020,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupPromptForDiskA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwndparent, dialogtitle, diskname, pathtosource, filesought, tagfile, diskpromptstyle, pathbuffer, pathbuffersize, pathrequiredsize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwndparent, dialogtitle, diskname, pathtosource, filesought, tagfile, diskpromptstyle, pathbuffer, pathbuffersize, pathrequiredsize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hwndparent;
     (void)dialogtitle;
@@ -12526,6 +16038,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)pathbuffer;
     (void)pathbuffersize;
     (void)pathrequiredsize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -12550,7 +16063,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupPromptForDiskW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwndparent, dialogtitle, diskname, pathtosource, filesought, tagfile, diskpromptstyle, pathbuffer, pathbuffersize, pathrequiredsize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwndparent, dialogtitle, diskname, pathtosource, filesought, tagfile, diskpromptstyle, pathbuffer, pathbuffersize, pathrequiredsize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hwndparent;
     (void)dialogtitle;
@@ -12562,6 +16081,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)pathbuffer;
     (void)pathbuffersize;
     (void)pathrequiredsize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -12579,11 +16099,18 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupPromptReboot")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(filequeue, owner, scanonly) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(filequeue, owner, scanonly);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)filequeue;
     (void)owner;
     (void)scanonly;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -12602,12 +16129,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupQueryDrivesInDiskSpaceListA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(diskspace, returnbuffer, returnbuffersize, requiredsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(diskspace, returnbuffer, returnbuffersize, requiredsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)diskspace;
     (void)returnbuffer;
     (void)returnbuffersize;
     (void)requiredsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -12626,12 +16160,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupQueryDrivesInDiskSpaceListW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(diskspace, returnbuffer, returnbuffersize, requiredsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(diskspace, returnbuffer, returnbuffersize, requiredsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)diskspace;
     (void)returnbuffer;
     (void)returnbuffersize;
     (void)requiredsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -12653,7 +16194,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupQueryFileLogA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(fileloghandle, logsectionname, targetfilename, desiredinfo, dataout, returnbuffersize, requiredsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(fileloghandle, logsectionname, targetfilename, desiredinfo, dataout, returnbuffersize, requiredsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)fileloghandle;
     (void)logsectionname;
@@ -12662,6 +16209,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)dataout;
     (void)returnbuffersize;
     (void)requiredsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -12683,7 +16231,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupQueryFileLogW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(fileloghandle, logsectionname, targetfilename, desiredinfo, dataout, returnbuffersize, requiredsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(fileloghandle, logsectionname, targetfilename, desiredinfo, dataout, returnbuffersize, requiredsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)fileloghandle;
     (void)logsectionname;
@@ -12692,6 +16246,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)dataout;
     (void)returnbuffersize;
     (void)requiredsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -12711,13 +16266,20 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupQueryInfFileInformationA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(infinformation, infindex, returnbuffer, returnbuffersize, requiredsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(infinformation, infindex, returnbuffer, returnbuffersize, requiredsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)infinformation;
     (void)infindex;
     (void)returnbuffer;
     (void)returnbuffersize;
     (void)requiredsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -12737,13 +16299,20 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupQueryInfFileInformationW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(infinformation, infindex, returnbuffer, returnbuffersize, requiredsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(infinformation, infindex, returnbuffer, returnbuffersize, requiredsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)infinformation;
     (void)infindex;
     (void)returnbuffer;
     (void)returnbuffersize;
     (void)requiredsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -12762,12 +16331,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupQueryInfOriginalFileInformationA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(infinformation, infindex, alternateplatforminfo, originalfileinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(infinformation, infindex, alternateplatforminfo, originalfileinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)infinformation;
     (void)infindex;
     (void)alternateplatforminfo;
     (void)originalfileinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -12786,12 +16362,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupQueryInfOriginalFileInformationW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(infinformation, infindex, alternateplatforminfo, originalfileinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(infinformation, infindex, alternateplatforminfo, originalfileinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)infinformation;
     (void)infindex;
     (void)alternateplatforminfo;
     (void)originalfileinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -12812,7 +16395,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupQueryInfVersionInformationA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(infinformation, infindex, key, returnbuffer, returnbuffersize, requiredsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(infinformation, infindex, key, returnbuffer, returnbuffersize, requiredsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)infinformation;
     (void)infindex;
@@ -12820,6 +16409,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)returnbuffer;
     (void)returnbuffersize;
     (void)requiredsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -12840,7 +16430,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupQueryInfVersionInformationW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(infinformation, infindex, key, returnbuffer, returnbuffersize, requiredsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(infinformation, infindex, key, returnbuffer, returnbuffersize, requiredsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)infinformation;
     (void)infindex;
@@ -12848,6 +16444,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)returnbuffer;
     (void)returnbuffersize;
     (void)requiredsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -12865,11 +16462,18 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupQuerySourceListA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(flags, list, count) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(flags, list, count);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)flags;
     (void)list;
     (void)count;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -12887,11 +16491,18 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupQuerySourceListW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(flags, list, count) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(flags, list, count);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)flags;
     (void)list;
     (void)count;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -12911,13 +16522,20 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupQuerySpaceRequiredOnDriveA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(diskspace, drivespec, spacerequired, reserved1, reserved2) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(diskspace, drivespec, spacerequired, reserved1, reserved2);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)diskspace;
     (void)drivespec;
     (void)spacerequired;
     (void)reserved1;
     (void)reserved2;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -12937,13 +16555,20 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupQuerySpaceRequiredOnDriveW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(diskspace, drivespec, spacerequired, reserved1, reserved2) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(diskspace, drivespec, spacerequired, reserved1, reserved2);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)diskspace;
     (void)drivespec;
     (void)spacerequired;
     (void)reserved1;
     (void)reserved2;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -12967,7 +16592,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupQueueCopyA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(queuehandle, sourcerootpath, sourcepath, sourcefilename, sourcedescription, sourcetagfile, targetdirectory, targetfilename, copystyle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(queuehandle, sourcerootpath, sourcepath, sourcefilename, sourcedescription, sourcetagfile, targetdirectory, targetfilename, copystyle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)queuehandle;
     (void)sourcerootpath;
@@ -12978,6 +16609,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)targetdirectory;
     (void)targetfilename;
     (void)copystyle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -12993,9 +16625,16 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupQueueCopyIndirectA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(copyparams) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(copyparams);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)copyparams;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -13011,9 +16650,16 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupQueueCopyIndirectW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(copyparams) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(copyparams);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)copyparams;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -13034,7 +16680,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupQueueCopySectionA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(queuehandle, sourcerootpath, infhandle, listinfhandle, section, copystyle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(queuehandle, sourcerootpath, infhandle, listinfhandle, section, copystyle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)queuehandle;
     (void)sourcerootpath;
@@ -13042,6 +16694,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)listinfhandle;
     (void)section;
     (void)copystyle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -13062,7 +16715,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupQueueCopySectionW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(queuehandle, sourcerootpath, infhandle, listinfhandle, section, copystyle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(queuehandle, sourcerootpath, infhandle, listinfhandle, section, copystyle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)queuehandle;
     (void)sourcerootpath;
@@ -13070,6 +16729,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)listinfhandle;
     (void)section;
     (void)copystyle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -13093,7 +16753,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupQueueCopyW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(queuehandle, sourcerootpath, sourcepath, sourcefilename, sourcedescription, sourcetagfile, targetdirectory, targetfilename, copystyle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(queuehandle, sourcerootpath, sourcepath, sourcefilename, sourcedescription, sourcetagfile, targetdirectory, targetfilename, copystyle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)queuehandle;
     (void)sourcerootpath;
@@ -13104,6 +16770,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)targetdirectory;
     (void)targetfilename;
     (void)copystyle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -13124,7 +16791,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupQueueDefaultCopyA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(queuehandle, infhandle, sourcerootpath, sourcefilename, targetfilename, copystyle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(queuehandle, infhandle, sourcerootpath, sourcefilename, targetfilename, copystyle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)queuehandle;
     (void)infhandle;
@@ -13132,6 +16805,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)sourcefilename;
     (void)targetfilename;
     (void)copystyle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -13152,7 +16826,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupQueueDefaultCopyW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(queuehandle, infhandle, sourcerootpath, sourcefilename, targetfilename, copystyle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(queuehandle, infhandle, sourcerootpath, sourcefilename, targetfilename, copystyle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)queuehandle;
     (void)infhandle;
@@ -13160,6 +16840,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)sourcefilename;
     (void)targetfilename;
     (void)copystyle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -13177,11 +16858,18 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupQueueDeleteA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(queuehandle, pathpart1, pathpart2) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(queuehandle, pathpart1, pathpart2);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)queuehandle;
     (void)pathpart1;
     (void)pathpart2;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -13200,12 +16888,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupQueueDeleteSectionA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(queuehandle, infhandle, listinfhandle, section) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(queuehandle, infhandle, listinfhandle, section);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)queuehandle;
     (void)infhandle;
     (void)listinfhandle;
     (void)section;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -13224,12 +16919,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupQueueDeleteSectionW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(queuehandle, infhandle, listinfhandle, section) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(queuehandle, infhandle, listinfhandle, section);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)queuehandle;
     (void)infhandle;
     (void)listinfhandle;
     (void)section;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -13247,11 +16949,18 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupQueueDeleteW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(queuehandle, pathpart1, pathpart2) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(queuehandle, pathpart1, pathpart2);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)queuehandle;
     (void)pathpart1;
     (void)pathpart2;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -13271,13 +16980,20 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupQueueRenameA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(queuehandle, sourcepath, sourcefilename, targetpath, targetfilename) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(queuehandle, sourcepath, sourcefilename, targetpath, targetfilename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)queuehandle;
     (void)sourcepath;
     (void)sourcefilename;
     (void)targetpath;
     (void)targetfilename;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -13296,12 +17012,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupQueueRenameSectionA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(queuehandle, infhandle, listinfhandle, section) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(queuehandle, infhandle, listinfhandle, section);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)queuehandle;
     (void)infhandle;
     (void)listinfhandle;
     (void)section;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -13320,12 +17043,19 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupQueueRenameSectionW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(queuehandle, infhandle, listinfhandle, section) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(queuehandle, infhandle, listinfhandle, section);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)queuehandle;
     (void)infhandle;
     (void)listinfhandle;
     (void)section;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -13345,13 +17075,20 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupQueueRenameW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(queuehandle, sourcepath, sourcefilename, targetpath, targetfilename) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(queuehandle, sourcepath, sourcefilename, targetpath, targetfilename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)queuehandle;
     (void)sourcepath;
     (void)sourcefilename;
     (void)targetpath;
     (void)targetfilename;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -13369,11 +17106,18 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupRemoveFileLogEntryA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(fileloghandle, logsectionname, targetfilename) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(fileloghandle, logsectionname, targetfilename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)fileloghandle;
     (void)logsectionname;
     (void)targetfilename;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -13391,11 +17135,18 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupRemoveFileLogEntryW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(fileloghandle, logsectionname, targetfilename) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(fileloghandle, logsectionname, targetfilename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)fileloghandle;
     (void)logsectionname;
     (void)targetfilename;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -13415,13 +17166,20 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupRemoveFromDiskSpaceListA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(diskspace, targetfilespec, operation, reserved1, reserved2) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(diskspace, targetfilespec, operation, reserved1, reserved2);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)diskspace;
     (void)targetfilespec;
     (void)operation;
     (void)reserved1;
     (void)reserved2;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -13441,13 +17199,20 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupRemoveFromDiskSpaceListW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(diskspace, targetfilespec, operation, reserved1, reserved2) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(diskspace, targetfilespec, operation, reserved1, reserved2);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)diskspace;
     (void)targetfilespec;
     (void)operation;
     (void)reserved1;
     (void)reserved2;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -13464,10 +17229,17 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupRemoveFromSourceListA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(flags, source) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(flags, source);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)flags;
     (void)source;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -13484,10 +17256,17 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupRemoveFromSourceListW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(flags, source) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(flags, source);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)flags;
     (void)source;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -13508,7 +17287,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupRemoveInstallSectionFromDiskSpaceListA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(diskspace, infhandle, layoutinfhandle, sectionname, reserved1, reserved2) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(diskspace, infhandle, layoutinfhandle, sectionname, reserved1, reserved2);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)diskspace;
     (void)infhandle;
@@ -13516,6 +17301,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)sectionname;
     (void)reserved1;
     (void)reserved2;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -13536,7 +17322,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupRemoveInstallSectionFromDiskSpaceListW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(diskspace, infhandle, layoutinfhandle, sectionname, reserved1, reserved2) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(diskspace, infhandle, layoutinfhandle, sectionname, reserved1, reserved2);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)diskspace;
     (void)infhandle;
@@ -13544,6 +17336,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)sectionname;
     (void)reserved1;
     (void)reserved2;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -13565,7 +17358,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupRemoveSectionFromDiskSpaceListA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(diskspace, infhandle, listinfhandle, sectionname, operation, reserved1, reserved2) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(diskspace, infhandle, listinfhandle, sectionname, operation, reserved1, reserved2);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)diskspace;
     (void)infhandle;
@@ -13574,6 +17373,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)operation;
     (void)reserved1;
     (void)reserved2;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -13595,7 +17395,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupRemoveSectionFromDiskSpaceListW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(diskspace, infhandle, listinfhandle, sectionname, operation, reserved1, reserved2) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(diskspace, infhandle, listinfhandle, sectionname, operation, reserved1, reserved2);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)diskspace;
     (void)infhandle;
@@ -13604,6 +17410,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)operation;
     (void)reserved1;
     (void)reserved2;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -13624,7 +17431,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupRenameErrorA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwndparent, dialogtitle, sourcefile, targetfile, win32errorcode, style) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwndparent, dialogtitle, sourcefile, targetfile, win32errorcode, style);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hwndparent;
     (void)dialogtitle;
@@ -13632,6 +17445,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)targetfile;
     (void)win32errorcode;
     (void)style;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -13652,7 +17466,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupRenameErrorW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwndparent, dialogtitle, sourcefile, targetfile, win32errorcode, style) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwndparent, dialogtitle, sourcefile, targetfile, win32errorcode, style);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hwndparent;
     (void)dialogtitle;
@@ -13660,6 +17480,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)targetfile;
     (void)win32errorcode;
     (void)style;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -13680,7 +17501,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupScanFileQueueA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(filequeue, flags, window, callbackroutine, callbackcontext, result) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(filequeue, flags, window, callbackroutine, callbackcontext, result);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)filequeue;
     (void)flags;
@@ -13688,6 +17515,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)callbackroutine;
     (void)callbackcontext;
     (void)result;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -13708,7 +17536,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupScanFileQueueW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(filequeue, flags, window, callbackroutine, callbackcontext, result) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(filequeue, flags, window, callbackroutine, callbackcontext, result);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)filequeue;
     (void)flags;
@@ -13716,6 +17550,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)callbackroutine;
     (void)callbackcontext;
     (void)result;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -13733,11 +17568,18 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupSetDirectoryIdA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(infhandle, id, directory) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(infhandle, id, directory);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)infhandle;
     (void)id;
     (void)directory;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -13758,7 +17600,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupSetDirectoryIdExA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(infhandle, id, directory, flags, reserved1, reserved2) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(infhandle, id, directory, flags, reserved1, reserved2);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)infhandle;
     (void)id;
@@ -13766,6 +17614,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)flags;
     (void)reserved1;
     (void)reserved2;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -13786,7 +17635,13 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupSetDirectoryIdExW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(infhandle, id, directory, flags, reserved1, reserved2) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(infhandle, id, directory, flags, reserved1, reserved2);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)infhandle;
     (void)id;
@@ -13794,6 +17649,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)flags;
     (void)reserved1;
     (void)reserved2;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -13811,11 +17667,18 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupSetDirectoryIdW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(infhandle, id, directory) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(infhandle, id, directory);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)infhandle;
     (void)id;
     (void)directory;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -13833,11 +17696,18 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupSetFileQueueAlternatePlatformA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(queuehandle, alternateplatforminfo, alternatedefaultcatalogfile) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(queuehandle, alternateplatforminfo, alternatedefaultcatalogfile);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)queuehandle;
     (void)alternateplatforminfo;
     (void)alternatedefaultcatalogfile;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -13855,11 +17725,18 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupSetFileQueueAlternatePlatformW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(queuehandle, alternateplatforminfo, alternatedefaultcatalogfile) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(queuehandle, alternateplatforminfo, alternatedefaultcatalogfile);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)queuehandle;
     (void)alternateplatforminfo;
     (void)alternatedefaultcatalogfile;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -13877,11 +17754,18 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupSetFileQueueFlags")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(filequeue, flagmask, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(filequeue, flagmask, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)filequeue;
     (void)flagmask;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -13897,9 +17781,16 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupSetNonInteractiveMode")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(noninteractiveflag) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(noninteractiveflag);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)noninteractiveflag;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -13915,9 +17806,16 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupSetPlatformPathOverrideA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(override) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(override);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)override;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -13933,9 +17831,16 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupSetPlatformPathOverrideW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(override) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(override);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)override;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -13953,11 +17858,18 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupSetSourceListA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(flags, sourcelist, sourcecount) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(flags, sourcelist, sourcecount);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)flags;
     (void)sourcelist;
     (void)sourcecount;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -13975,11 +17887,18 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupSetSourceListW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(flags, sourcelist, sourcecount) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(flags, sourcelist, sourcecount);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)flags;
     (void)sourcelist;
     (void)sourcecount;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -13995,9 +17914,14 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupSetThreadLogToken")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(logtoken);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(logtoken);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)logtoken;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -14012,9 +17936,14 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupTermDefaultQueueCallback")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(context);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(context);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)context;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -14029,9 +17958,16 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupTerminateFileLog")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(fileloghandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(fileloghandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)fileloghandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -14049,11 +17985,18 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupUninstallNewlyCopiedInfs")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(filequeue, flags, reserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(filequeue, flags, reserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)filequeue;
     (void)flags;
     (void)reserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -14071,11 +18014,18 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupUninstallOEMInfA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(inffilename, flags, reserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(inffilename, flags, reserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)inffilename;
     (void)flags;
     (void)reserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -14093,11 +18043,18 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupUninstallOEMInfW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(inffilename, flags, reserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(inffilename, flags, reserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)inffilename;
     (void)flags;
     (void)reserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -14115,11 +18072,18 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupVerifyInfFileA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(infname, altplatforminfo, infsignerinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(infname, altplatforminfo, infsignerinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)infname;
     (void)altplatforminfo;
     (void)infsignerinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -14137,11 +18101,18 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupVerifyInfFileW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(infname, altplatforminfo, infsignerinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(infname, altplatforminfo, infsignerinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)infname;
     (void)altplatforminfo;
     (void)infsignerinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -14173,6 +18144,8 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
             case 3: km_fn_ptr(logtoken, category, flags, messagestr, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2)); break;
             default: km_fn_ptr(logtoken, category, flags, messagestr, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2), static_cast<intptr_t>(km_va3)); break;
         }
+    } else {
+        errno = ENOSYS;
     }
 #else
     (void)logtoken;
@@ -14180,6 +18153,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)flags;
     (void)messagestr;
     (void)km_vac; (void)km_va0; (void)km_va1; (void)km_va2; (void)km_va3;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -14211,6 +18185,8 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
             case 3: km_fn_ptr(logtoken, category, logflags, error, messagestr, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2)); break;
             default: km_fn_ptr(logtoken, category, logflags, error, messagestr, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2), static_cast<intptr_t>(km_va3)); break;
         }
+    } else {
+        errno = ENOSYS;
     }
 #else
     (void)logtoken;
@@ -14219,6 +18195,7 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
     (void)error;
     (void)messagestr;
     (void)km_vac; (void)km_va0; (void)km_va1; (void)km_va2; (void)km_va3;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -14236,12 +18213,17 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("setupapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupWriteTextLogInfLine")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(logtoken, flags, infhandle, context);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(logtoken, flags, infhandle, context);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)logtoken;
     (void)flags;
     (void)infhandle;
     (void)context;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -14260,13 +18242,20 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("newdev.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UpdateDriverForPlugAndPlayDevicesA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwndparent, hardwareid, fullinfpath, installflags, brebootrequired) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwndparent, hardwareid, fullinfpath, installflags, brebootrequired);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwndparent;
     (void)hardwareid;
     (void)fullinfpath;
     (void)installflags;
     (void)brebootrequired;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -14286,13 +18275,20 @@ static Napi::Value windowssys_windows_win32_devices_deviceanddriverinstallation_
         HMODULE km_h_mod = LoadLibraryA("newdev.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UpdateDriverForPlugAndPlayDevicesW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwndparent, hardwareid, fullinfpath, installflags, brebootrequired) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwndparent, hardwareid, fullinfpath, installflags, brebootrequired);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwndparent;
     (void)hardwareid;
     (void)fullinfpath;
     (void)installflags;
     (void)brebootrequired;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

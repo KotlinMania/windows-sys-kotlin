@@ -5,6 +5,7 @@
 #include <stdbool.h>
 #include <stddef.h>
 #include <stdint.h>
+#include <stdlib.h>
 #include <errno.h>
 #ifdef _WIN32
 #ifndef WIN32_LEAN_AND_MEAN
@@ -28,11 +29,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DnsAcquireContextHandle_A");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)credentialflags, (void*)(uintptr_t)credentials, (void*)(uintptr_t)pcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)credentialflags, (void*)(uintptr_t)credentials, (void*)(uintptr_t)pcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)credentialflags;
     (void)credentials;
     (void)pcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -48,11 +56,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DnsAcquireContextHandle_W");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)credentialflags, (void*)(uintptr_t)credentials, (void*)(uintptr_t)pcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)credentialflags, (void*)(uintptr_t)credentials, (void*)(uintptr_t)pcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)credentialflags;
     (void)credentials;
     (void)pcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -68,9 +83,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DnsCancelQuery");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pcancelhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pcancelhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pcancelhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -86,9 +108,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DnsCancelQueryRaw");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)cancelhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)cancelhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)cancelhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -104,9 +133,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DnsConnectionDeletePolicyEntries");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int32_t)policyentrytag) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int32_t)policyentrytag);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)policyentrytag;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -122,10 +158,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DnsConnectionDeleteProxyInfo");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pwszconnectionname, (int32_t)type) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pwszconnectionname, (int32_t)type);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pwszconnectionname;
     (void)type;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -141,9 +184,14 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DnsConnectionFreeNameList");
     }
-    if (km_fn_ptr != NULL) km_fn_ptr((void*)(uintptr_t)pnamelist);
+    if (km_fn_ptr != NULL) {
+        km_fn_ptr((void*)(uintptr_t)pnamelist);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pnamelist;
+    errno = ENOSYS;
 #endif
 }
 
@@ -157,9 +205,14 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DnsConnectionFreeProxyInfo");
     }
-    if (km_fn_ptr != NULL) km_fn_ptr((void*)(uintptr_t)pproxyinfo);
+    if (km_fn_ptr != NULL) {
+        km_fn_ptr((void*)(uintptr_t)pproxyinfo);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pproxyinfo;
+    errno = ENOSYS;
 #endif
 }
 
@@ -173,9 +226,14 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DnsConnectionFreeProxyInfoEx");
     }
-    if (km_fn_ptr != NULL) km_fn_ptr((void*)(uintptr_t)pproxyinfoex);
+    if (km_fn_ptr != NULL) {
+        km_fn_ptr((void*)(uintptr_t)pproxyinfoex);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pproxyinfoex;
+    errno = ENOSYS;
 #endif
 }
 
@@ -189,9 +247,14 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DnsConnectionFreeProxyList");
     }
-    if (km_fn_ptr != NULL) km_fn_ptr((void*)(uintptr_t)pproxylist);
+    if (km_fn_ptr != NULL) {
+        km_fn_ptr((void*)(uintptr_t)pproxylist);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pproxylist;
+    errno = ENOSYS;
 #endif
 }
 
@@ -205,9 +268,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DnsConnectionGetNameList");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pnamelist) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pnamelist);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pnamelist;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -223,11 +293,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DnsConnectionGetProxyInfo");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pwszconnectionname, (int32_t)type, (void*)(uintptr_t)pproxyinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pwszconnectionname, (int32_t)type, (void*)(uintptr_t)pproxyinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pwszconnectionname;
     (void)type;
     (void)pproxyinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -243,13 +320,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DnsConnectionGetProxyInfoForHostUrl");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pwszhosturl, (void*)(uintptr_t)pselectioncontext, (uint32_t)dwselectioncontextlength, (uint32_t)dwexplicitinterfaceindex, (void*)(uintptr_t)pproxyinfoex) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pwszhosturl, (void*)(uintptr_t)pselectioncontext, (uint32_t)dwselectioncontextlength, (uint32_t)dwexplicitinterfaceindex, (void*)(uintptr_t)pproxyinfoex);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pwszhosturl;
     (void)pselectioncontext;
     (void)dwselectioncontextlength;
     (void)dwexplicitinterfaceindex;
     (void)pproxyinfoex;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -265,7 +349,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DnsConnectionGetProxyInfoForHostUrlEx");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pwszhosturl, (void*)(uintptr_t)pselectioncontext, (uint32_t)dwselectioncontextlength, (uint32_t)dwexplicitinterfaceindex, (void*)(uintptr_t)pwszconnectionname, (void*)(uintptr_t)pproxyinfoex) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pwszhosturl, (void*)(uintptr_t)pselectioncontext, (uint32_t)dwselectioncontextlength, (uint32_t)dwexplicitinterfaceindex, (void*)(uintptr_t)pwszconnectionname, (void*)(uintptr_t)pproxyinfoex);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pwszhosturl;
     (void)pselectioncontext;
@@ -273,6 +363,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)dwexplicitinterfaceindex;
     (void)pwszconnectionname;
     (void)pproxyinfoex;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -288,10 +379,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DnsConnectionGetProxyList");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pwszconnectionname, (void*)(uintptr_t)pproxylist) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pwszconnectionname, (void*)(uintptr_t)pproxylist);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pwszconnectionname;
     (void)pproxylist;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -307,10 +405,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DnsConnectionSetPolicyEntries");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int32_t)policyentrytag, (void*)(uintptr_t)ppolicyentrylist) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int32_t)policyentrytag, (void*)(uintptr_t)ppolicyentrylist);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)policyentrytag;
     (void)ppolicyentrylist;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -326,11 +431,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DnsConnectionSetProxyInfo");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pwszconnectionname, (int32_t)type, (void*)(uintptr_t)pproxyinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pwszconnectionname, (int32_t)type, (void*)(uintptr_t)pproxyinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pwszconnectionname;
     (void)type;
     (void)pproxyinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -346,9 +458,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DnsConnectionUpdateIfIndexTable");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pconnectionifindexentries) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pconnectionifindexentries);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pconnectionifindexentries;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -364,11 +483,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DnsExtractRecordsFromMessage_UTF8");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pdnsbuffer, (uint16_t)wmessagelength, (void*)(uintptr_t)pprecord) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pdnsbuffer, (uint16_t)wmessagelength, (void*)(uintptr_t)pprecord);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pdnsbuffer;
     (void)wmessagelength;
     (void)pprecord;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -384,11 +510,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DnsExtractRecordsFromMessage_W");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pdnsbuffer, (uint16_t)wmessagelength, (void*)(uintptr_t)pprecord) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pdnsbuffer, (uint16_t)wmessagelength, (void*)(uintptr_t)pprecord);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pdnsbuffer;
     (void)wmessagelength;
     (void)pprecord;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -404,10 +537,15 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DnsFree");
     }
-    if (km_fn_ptr != NULL) km_fn_ptr((void*)(uintptr_t)pdata, (int32_t)freetype);
+    if (km_fn_ptr != NULL) {
+        km_fn_ptr((void*)(uintptr_t)pdata, (int32_t)freetype);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pdata;
     (void)freetype;
+    errno = ENOSYS;
 #endif
 }
 
@@ -421,10 +559,15 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DnsFreeCustomServers");
     }
-    if (km_fn_ptr != NULL) km_fn_ptr((void*)(uintptr_t)pcservers, (void*)(uintptr_t)ppservers);
+    if (km_fn_ptr != NULL) {
+        km_fn_ptr((void*)(uintptr_t)pcservers, (void*)(uintptr_t)ppservers);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pcservers;
     (void)ppservers;
+    errno = ENOSYS;
 #endif
 }
 
@@ -438,9 +581,14 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DnsFreeProxyName");
     }
-    if (km_fn_ptr != NULL) km_fn_ptr((void*)(uintptr_t)proxyname);
+    if (km_fn_ptr != NULL) {
+        km_fn_ptr((void*)(uintptr_t)proxyname);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)proxyname;
+    errno = ENOSYS;
 #endif
 }
 
@@ -454,11 +602,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DnsGetApplicationSettings");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pcservers, (void*)(uintptr_t)ppdefaultservers, (void*)(uintptr_t)psettings) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pcservers, (void*)(uintptr_t)ppdefaultservers, (void*)(uintptr_t)psettings);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pcservers;
     (void)ppdefaultservers;
     (void)psettings;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -474,13 +629,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DnsGetProxyInformation");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hostname, (void*)(uintptr_t)proxyinformation, (void*)(uintptr_t)defaultproxyinformation, (void*)(uintptr_t)completionroutine, (void*)(uintptr_t)completioncontext) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hostname, (void*)(uintptr_t)proxyinformation, (void*)(uintptr_t)defaultproxyinformation, (void*)(uintptr_t)completionroutine, (void*)(uintptr_t)completioncontext);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hostname;
     (void)proxyinformation;
     (void)defaultproxyinformation;
     (void)completionroutine;
     (void)completioncontext;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -496,7 +658,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DnsModifyRecordsInSet_A");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)paddrecords, (void*)(uintptr_t)pdeleterecords, (uint32_t)options, (void*)(uintptr_t)hcredentials, (void*)(uintptr_t)pextralist, (void*)(uintptr_t)preserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)paddrecords, (void*)(uintptr_t)pdeleterecords, (uint32_t)options, (void*)(uintptr_t)hcredentials, (void*)(uintptr_t)pextralist, (void*)(uintptr_t)preserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)paddrecords;
     (void)pdeleterecords;
@@ -504,6 +672,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)hcredentials;
     (void)pextralist;
     (void)preserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -519,7 +688,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DnsModifyRecordsInSet_UTF8");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)paddrecords, (void*)(uintptr_t)pdeleterecords, (uint32_t)options, (void*)(uintptr_t)hcredentials, (void*)(uintptr_t)pextralist, (void*)(uintptr_t)preserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)paddrecords, (void*)(uintptr_t)pdeleterecords, (uint32_t)options, (void*)(uintptr_t)hcredentials, (void*)(uintptr_t)pextralist, (void*)(uintptr_t)preserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)paddrecords;
     (void)pdeleterecords;
@@ -527,6 +702,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)hcredentials;
     (void)pextralist;
     (void)preserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -542,7 +718,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DnsModifyRecordsInSet_W");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)paddrecords, (void*)(uintptr_t)pdeleterecords, (uint32_t)options, (void*)(uintptr_t)hcredentials, (void*)(uintptr_t)pextralist, (void*)(uintptr_t)preserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)paddrecords, (void*)(uintptr_t)pdeleterecords, (uint32_t)options, (void*)(uintptr_t)hcredentials, (void*)(uintptr_t)pextralist, (void*)(uintptr_t)preserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)paddrecords;
     (void)pdeleterecords;
@@ -550,6 +732,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)hcredentials;
     (void)pextralist;
     (void)preserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -565,10 +748,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DnsNameCompare_A");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pname1, (void*)(uintptr_t)pname2) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pname1, (void*)(uintptr_t)pname2);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pname1;
     (void)pname2;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -584,10 +774,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DnsNameCompare_W");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pname1, (void*)(uintptr_t)pname2) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pname1, (void*)(uintptr_t)pname2);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pname1;
     (void)pname2;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -603,7 +800,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DnsQueryConfig");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int32_t)config, (uint32_t)flag, (void*)(uintptr_t)pwsadaptername, (void*)(uintptr_t)preserved, (void*)(uintptr_t)pbuffer, (void*)(uintptr_t)pbuflen) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int32_t)config, (uint32_t)flag, (void*)(uintptr_t)pwsadaptername, (void*)(uintptr_t)preserved, (void*)(uintptr_t)pbuffer, (void*)(uintptr_t)pbuflen);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)config;
     (void)flag;
@@ -611,6 +814,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)preserved;
     (void)pbuffer;
     (void)pbuflen;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -626,11 +830,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DnsQueryEx");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pqueryrequest, (void*)(uintptr_t)pqueryresults, (void*)(uintptr_t)pcancelhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pqueryrequest, (void*)(uintptr_t)pqueryresults, (void*)(uintptr_t)pcancelhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pqueryrequest;
     (void)pqueryresults;
     (void)pcancelhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -646,10 +857,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DnsQueryRaw");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)queryrequest, (void*)(uintptr_t)cancelhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)queryrequest, (void*)(uintptr_t)cancelhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)queryrequest;
     (void)cancelhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -665,9 +883,14 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DnsQueryRawResultFree");
     }
-    if (km_fn_ptr != NULL) km_fn_ptr((void*)(uintptr_t)queryresults);
+    if (km_fn_ptr != NULL) {
+        km_fn_ptr((void*)(uintptr_t)queryresults);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)queryresults;
+    errno = ENOSYS;
 #endif
 }
 
@@ -681,7 +904,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DnsQuery_A");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pszname, (uint16_t)wtype, (uint32_t)options, (void*)(uintptr_t)pextra, (void*)(uintptr_t)ppqueryresults, (void*)(uintptr_t)preserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pszname, (uint16_t)wtype, (uint32_t)options, (void*)(uintptr_t)pextra, (void*)(uintptr_t)ppqueryresults, (void*)(uintptr_t)preserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pszname;
     (void)wtype;
@@ -689,6 +918,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)pextra;
     (void)ppqueryresults;
     (void)preserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -704,7 +934,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DnsQuery_UTF8");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pszname, (uint16_t)wtype, (uint32_t)options, (void*)(uintptr_t)pextra, (void*)(uintptr_t)ppqueryresults, (void*)(uintptr_t)preserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pszname, (uint16_t)wtype, (uint32_t)options, (void*)(uintptr_t)pextra, (void*)(uintptr_t)ppqueryresults, (void*)(uintptr_t)preserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pszname;
     (void)wtype;
@@ -712,6 +948,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)pextra;
     (void)ppqueryresults;
     (void)preserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -727,7 +964,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DnsQuery_W");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pszname, (uint16_t)wtype, (uint32_t)options, (void*)(uintptr_t)pextra, (void*)(uintptr_t)ppqueryresults, (void*)(uintptr_t)preserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pszname, (uint16_t)wtype, (uint32_t)options, (void*)(uintptr_t)pextra, (void*)(uintptr_t)ppqueryresults, (void*)(uintptr_t)preserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pszname;
     (void)wtype;
@@ -735,6 +978,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)pextra;
     (void)ppqueryresults;
     (void)preserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -750,10 +994,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DnsRecordCompare");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)precord1, (void*)(uintptr_t)precord2) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)precord1, (void*)(uintptr_t)precord2);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)precord1;
     (void)precord2;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -769,11 +1020,18 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DnsRecordCopyEx");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)precord, (int32_t)charsetin, (int32_t)charsetout) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)precord, (int32_t)charsetin, (int32_t)charsetout);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)precord;
     (void)charsetin;
     (void)charsetout;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -789,12 +1047,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DnsRecordSetCompare");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)prr1, (void*)(uintptr_t)prr2, (void*)(uintptr_t)ppdiff1, (void*)(uintptr_t)ppdiff2) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)prr1, (void*)(uintptr_t)prr2, (void*)(uintptr_t)ppdiff1, (void*)(uintptr_t)ppdiff2);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)prr1;
     (void)prr2;
     (void)ppdiff1;
     (void)ppdiff2;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -810,11 +1075,18 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DnsRecordSetCopyEx");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)precordset, (int32_t)charsetin, (int32_t)charsetout) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)precordset, (int32_t)charsetin, (int32_t)charsetout);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)precordset;
     (void)charsetin;
     (void)charsetout;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -830,9 +1102,16 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DnsRecordSetDetach");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)precordlist) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)precordlist);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)precordlist;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -848,9 +1127,14 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DnsReleaseContextHandle");
     }
-    if (km_fn_ptr != NULL) km_fn_ptr((void*)(uintptr_t)hcontext);
+    if (km_fn_ptr != NULL) {
+        km_fn_ptr((void*)(uintptr_t)hcontext);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)hcontext;
+    errno = ENOSYS;
 #endif
 }
 
@@ -864,13 +1148,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DnsReplaceRecordSetA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)preplaceset, (uint32_t)options, (void*)(uintptr_t)hcontext, (void*)(uintptr_t)pextrainfo, (void*)(uintptr_t)preserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)preplaceset, (uint32_t)options, (void*)(uintptr_t)hcontext, (void*)(uintptr_t)pextrainfo, (void*)(uintptr_t)preserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)preplaceset;
     (void)options;
     (void)hcontext;
     (void)pextrainfo;
     (void)preserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -886,13 +1177,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DnsReplaceRecordSetUTF8");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)preplaceset, (uint32_t)options, (void*)(uintptr_t)hcontext, (void*)(uintptr_t)pextrainfo, (void*)(uintptr_t)preserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)preplaceset, (uint32_t)options, (void*)(uintptr_t)hcontext, (void*)(uintptr_t)pextrainfo, (void*)(uintptr_t)preserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)preplaceset;
     (void)options;
     (void)hcontext;
     (void)pextrainfo;
     (void)preserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -908,13 +1206,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DnsReplaceRecordSetW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)preplaceset, (uint32_t)options, (void*)(uintptr_t)hcontext, (void*)(uintptr_t)pextrainfo, (void*)(uintptr_t)preserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)preplaceset, (uint32_t)options, (void*)(uintptr_t)hcontext, (void*)(uintptr_t)pextrainfo, (void*)(uintptr_t)preserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)preplaceset;
     (void)options;
     (void)hcontext;
     (void)pextrainfo;
     (void)preserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -930,10 +1235,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DnsServiceBrowse");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)prequest, (void*)(uintptr_t)pcancel) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)prequest, (void*)(uintptr_t)pcancel);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)prequest;
     (void)pcancel;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -949,9 +1261,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DnsServiceBrowseCancel");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pcancelhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pcancelhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pcancelhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -967,7 +1286,13 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DnsServiceConstructInstance");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pservicename, (void*)(uintptr_t)phostname, (void*)(uintptr_t)pip4, (void*)(uintptr_t)pip6, (uint16_t)wport, (uint16_t)wpriority, (uint16_t)wweight, (uint32_t)dwpropertiescount, (void*)(uintptr_t)keys, (void*)(uintptr_t)values) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pservicename, (void*)(uintptr_t)phostname, (void*)(uintptr_t)pip4, (void*)(uintptr_t)pip6, (uint16_t)wport, (uint16_t)wpriority, (uint16_t)wweight, (uint32_t)dwpropertiescount, (void*)(uintptr_t)keys, (void*)(uintptr_t)values);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)pservicename;
     (void)phostname;
@@ -979,6 +1304,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
     (void)dwpropertiescount;
     (void)keys;
     (void)values;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -994,9 +1320,16 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DnsServiceCopyInstance");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)porig) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)porig);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)porig;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -1012,10 +1345,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DnsServiceDeRegister");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)prequest, (void*)(uintptr_t)pcancel) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)prequest, (void*)(uintptr_t)pcancel);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)prequest;
     (void)pcancel;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -1031,9 +1371,14 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DnsServiceFreeInstance");
     }
-    if (km_fn_ptr != NULL) km_fn_ptr((void*)(uintptr_t)pinstance);
+    if (km_fn_ptr != NULL) {
+        km_fn_ptr((void*)(uintptr_t)pinstance);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pinstance;
+    errno = ENOSYS;
 #endif
 }
 
@@ -1047,10 +1392,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DnsServiceRegister");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)prequest, (void*)(uintptr_t)pcancel) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)prequest, (void*)(uintptr_t)pcancel);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)prequest;
     (void)pcancel;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -1066,9 +1418,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DnsServiceRegisterCancel");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pcancelhandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pcancelhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pcancelhandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -1084,10 +1443,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DnsServiceResolve");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)prequest, (void*)(uintptr_t)pcancel) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)prequest, (void*)(uintptr_t)pcancel);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)prequest;
     (void)pcancel;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1103,9 +1469,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DnsServiceResolveCancel");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pcancelhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pcancelhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pcancelhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1121,11 +1494,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DnsSetApplicationSettings");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)cservers, (void*)(uintptr_t)pservers, (void*)(uintptr_t)psettings) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)cservers, (void*)(uintptr_t)pservers, (void*)(uintptr_t)psettings);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)cservers;
     (void)pservers;
     (void)psettings;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -1141,10 +1521,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DnsStartMulticastQuery");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pqueryrequest, (void*)(uintptr_t)phandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pqueryrequest, (void*)(uintptr_t)phandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pqueryrequest;
     (void)phandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1160,9 +1547,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DnsStopMulticastQuery");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)phandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)phandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)phandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1178,10 +1572,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DnsValidateName_A");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pszname, (int32_t)format) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pszname, (int32_t)format);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszname;
     (void)format;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1197,10 +1598,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DnsValidateName_UTF8");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pszname, (int32_t)format) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pszname, (int32_t)format);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszname;
     (void)format;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1216,10 +1624,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DnsValidateName_W");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pszname, (int32_t)format) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pszname, (int32_t)format);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszname;
     (void)format;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1235,7 +1650,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DnsWriteQuestionToBuffer_UTF8");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pdnsbuffer, (void*)(uintptr_t)pdwbuffersize, (void*)(uintptr_t)pszname, (uint16_t)wtype, (uint16_t)xid, (int32_t)frecursiondesired) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pdnsbuffer, (void*)(uintptr_t)pdwbuffersize, (void*)(uintptr_t)pszname, (uint16_t)wtype, (uint16_t)xid, (int32_t)frecursiondesired);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pdnsbuffer;
     (void)pdwbuffersize;
@@ -1243,6 +1664,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)wtype;
     (void)xid;
     (void)frecursiondesired;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1258,7 +1680,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
         HMODULE km_h_mod = LoadLibraryA("dnsapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DnsWriteQuestionToBuffer_W");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pdnsbuffer, (void*)(uintptr_t)pdwbuffersize, (void*)(uintptr_t)pszname, (uint16_t)wtype, (uint16_t)xid, (int32_t)frecursiondesired) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pdnsbuffer, (void*)(uintptr_t)pdwbuffersize, (void*)(uintptr_t)pszname, (uint16_t)wtype, (uint16_t)xid, (int32_t)frecursiondesired);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pdnsbuffer;
     (void)pdwbuffersize;
@@ -1266,6 +1694,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netwo
     (void)wtype;
     (void)xid;
     (void)frecursiondesired;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;

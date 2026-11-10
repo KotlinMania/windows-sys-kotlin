@@ -65,13 +65,20 @@ static Napi::Value windowssys_windows_win32_system_stationsanddesktops_broadcast
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "BroadcastSystemMessageA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(flags, lpinfo, msg, wparam, lparam) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(flags, lpinfo, msg, wparam, lparam);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)flags;
     (void)lpinfo;
     (void)msg;
     (void)wparam;
     (void)lparam;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -92,7 +99,13 @@ static Napi::Value windowssys_windows_win32_system_stationsanddesktops_broadcast
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "BroadcastSystemMessageExA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(flags, lpinfo, msg, wparam, lparam, pbsminfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(flags, lpinfo, msg, wparam, lparam, pbsminfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)flags;
     (void)lpinfo;
@@ -100,6 +113,7 @@ static Napi::Value windowssys_windows_win32_system_stationsanddesktops_broadcast
     (void)wparam;
     (void)lparam;
     (void)pbsminfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -120,7 +134,13 @@ static Napi::Value windowssys_windows_win32_system_stationsanddesktops_broadcast
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "BroadcastSystemMessageExW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(flags, lpinfo, msg, wparam, lparam, pbsminfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(flags, lpinfo, msg, wparam, lparam, pbsminfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)flags;
     (void)lpinfo;
@@ -128,6 +148,7 @@ static Napi::Value windowssys_windows_win32_system_stationsanddesktops_broadcast
     (void)wparam;
     (void)lparam;
     (void)pbsminfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -147,13 +168,20 @@ static Napi::Value windowssys_windows_win32_system_stationsanddesktops_broadcast
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "BroadcastSystemMessageW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(flags, lpinfo, msg, wparam, lparam) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(flags, lpinfo, msg, wparam, lparam);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)flags;
     (void)lpinfo;
     (void)msg;
     (void)wparam;
     (void)lparam;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -169,9 +197,16 @@ static Napi::Value windowssys_windows_win32_system_stationsanddesktops_closeDesk
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CloseDesktop")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdesktop) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdesktop);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdesktop;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -187,9 +222,16 @@ static Napi::Value windowssys_windows_win32_system_stationsanddesktops_closeWind
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CloseWindowStation")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwinsta) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwinsta);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwinsta;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -210,7 +252,13 @@ static Napi::Value windowssys_windows_win32_system_stationsanddesktops_createDes
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateDesktopA")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszdesktop, lpszdevice, pdevmode, dwflags, dwdesiredaccess, lpsa) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszdesktop, lpszdevice, pdevmode, dwflags, dwdesiredaccess, lpsa);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)lpszdesktop;
     (void)lpszdevice;
@@ -218,7 +266,8 @@ static Napi::Value windowssys_windows_win32_system_stationsanddesktops_createDes
     (void)dwflags;
     (void)dwdesiredaccess;
     (void)lpsa;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -240,7 +289,13 @@ static Napi::Value windowssys_windows_win32_system_stationsanddesktops_createDes
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateDesktopExA")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszdesktop, lpszdevice, pdevmode, dwflags, dwdesiredaccess, lpsa, ulheapsize, pvoid) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszdesktop, lpszdevice, pdevmode, dwflags, dwdesiredaccess, lpsa, ulheapsize, pvoid);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)lpszdesktop;
     (void)lpszdevice;
@@ -250,7 +305,8 @@ static Napi::Value windowssys_windows_win32_system_stationsanddesktops_createDes
     (void)lpsa;
     (void)ulheapsize;
     (void)pvoid;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -272,7 +328,13 @@ static Napi::Value windowssys_windows_win32_system_stationsanddesktops_createDes
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateDesktopExW")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszdesktop, lpszdevice, pdevmode, dwflags, dwdesiredaccess, lpsa, ulheapsize, pvoid) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszdesktop, lpszdevice, pdevmode, dwflags, dwdesiredaccess, lpsa, ulheapsize, pvoid);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)lpszdesktop;
     (void)lpszdevice;
@@ -282,7 +344,8 @@ static Napi::Value windowssys_windows_win32_system_stationsanddesktops_createDes
     (void)lpsa;
     (void)ulheapsize;
     (void)pvoid;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -302,7 +365,13 @@ static Napi::Value windowssys_windows_win32_system_stationsanddesktops_createDes
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateDesktopW")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszdesktop, lpszdevice, pdevmode, dwflags, dwdesiredaccess, lpsa) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszdesktop, lpszdevice, pdevmode, dwflags, dwdesiredaccess, lpsa);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)lpszdesktop;
     (void)lpszdevice;
@@ -310,7 +379,8 @@ static Napi::Value windowssys_windows_win32_system_stationsanddesktops_createDes
     (void)dwflags;
     (void)dwdesiredaccess;
     (void)lpsa;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -328,13 +398,20 @@ static Napi::Value windowssys_windows_win32_system_stationsanddesktops_createWin
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateWindowStationA")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpwinsta, dwflags, dwdesiredaccess, lpsa) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpwinsta, dwflags, dwdesiredaccess, lpsa);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)lpwinsta;
     (void)dwflags;
     (void)dwdesiredaccess;
     (void)lpsa;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -352,13 +429,20 @@ static Napi::Value windowssys_windows_win32_system_stationsanddesktops_createWin
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateWindowStationW")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpwinsta, dwflags, dwdesiredaccess, lpsa) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpwinsta, dwflags, dwdesiredaccess, lpsa);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)lpwinsta;
     (void)dwflags;
     (void)dwdesiredaccess;
     (void)lpsa;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -375,11 +459,18 @@ static Napi::Value windowssys_windows_win32_system_stationsanddesktops_enumDeskt
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EnumDesktopsA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwinsta, lpenumfunc, lparam) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwinsta, lpenumfunc, lparam);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwinsta;
     (void)lpenumfunc;
     (void)lparam;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -397,11 +488,18 @@ static Napi::Value windowssys_windows_win32_system_stationsanddesktops_enumDeskt
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EnumDesktopsW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwinsta, lpenumfunc, lparam) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwinsta, lpenumfunc, lparam);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwinsta;
     (void)lpenumfunc;
     (void)lparam;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -418,10 +516,17 @@ static Napi::Value windowssys_windows_win32_system_stationsanddesktops_enumWindo
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EnumWindowStationsA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpenumfunc, lparam) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpenumfunc, lparam);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpenumfunc;
     (void)lparam;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -438,10 +543,17 @@ static Napi::Value windowssys_windows_win32_system_stationsanddesktops_enumWindo
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EnumWindowStationsW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpenumfunc, lparam) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpenumfunc, lparam);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpenumfunc;
     (void)lparam;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -456,9 +568,16 @@ static Napi::Value windowssys_windows_win32_system_stationsanddesktops_getProces
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetProcessWindowStation")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -473,10 +592,17 @@ static Napi::Value windowssys_windows_win32_system_stationsanddesktops_getThread
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetThreadDesktop")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwthreadid) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwthreadid);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)dwthreadid;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -495,13 +621,20 @@ static Napi::Value windowssys_windows_win32_system_stationsanddesktops_getUserOb
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetUserObjectInformationA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hobj, nindex, pvinfo, nlength, lpnlengthneeded) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hobj, nindex, pvinfo, nlength, lpnlengthneeded);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hobj;
     (void)nindex;
     (void)pvinfo;
     (void)nlength;
     (void)lpnlengthneeded;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -521,13 +654,20 @@ static Napi::Value windowssys_windows_win32_system_stationsanddesktops_getUserOb
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetUserObjectInformationW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hobj, nindex, pvinfo, nlength, lpnlengthneeded) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hobj, nindex, pvinfo, nlength, lpnlengthneeded);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hobj;
     (void)nindex;
     (void)pvinfo;
     (void)nlength;
     (void)lpnlengthneeded;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -546,13 +686,20 @@ static Napi::Value windowssys_windows_win32_system_stationsanddesktops_openDeskt
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OpenDesktopA")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszdesktop, dwflags, finherit, dwdesiredaccess) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszdesktop, dwflags, finherit, dwdesiredaccess);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)lpszdesktop;
     (void)dwflags;
     (void)finherit;
     (void)dwdesiredaccess;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -570,13 +717,20 @@ static Napi::Value windowssys_windows_win32_system_stationsanddesktops_openDeskt
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OpenDesktopW")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszdesktop, dwflags, finherit, dwdesiredaccess) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszdesktop, dwflags, finherit, dwdesiredaccess);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)lpszdesktop;
     (void)dwflags;
     (void)finherit;
     (void)dwdesiredaccess;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -593,12 +747,19 @@ static Napi::Value windowssys_windows_win32_system_stationsanddesktops_openInput
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OpenInputDesktop")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwflags, finherit, dwdesiredaccess) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwflags, finherit, dwdesiredaccess);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)dwflags;
     (void)finherit;
     (void)dwdesiredaccess;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -615,12 +776,19 @@ static Napi::Value windowssys_windows_win32_system_stationsanddesktops_openWindo
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OpenWindowStationA")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszwinsta, finherit, dwdesiredaccess) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszwinsta, finherit, dwdesiredaccess);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)lpszwinsta;
     (void)finherit;
     (void)dwdesiredaccess;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -637,12 +805,19 @@ static Napi::Value windowssys_windows_win32_system_stationsanddesktops_openWindo
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OpenWindowStationW")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszwinsta, finherit, dwdesiredaccess) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszwinsta, finherit, dwdesiredaccess);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)lpszwinsta;
     (void)finherit;
     (void)dwdesiredaccess;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -657,9 +832,16 @@ static Napi::Value windowssys_windows_win32_system_stationsanddesktops_setProces
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetProcessWindowStation")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwinsta) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwinsta);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwinsta;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -675,9 +857,16 @@ static Napi::Value windowssys_windows_win32_system_stationsanddesktops_setThread
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetThreadDesktop")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdesktop) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdesktop);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdesktop;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -696,12 +885,19 @@ static Napi::Value windowssys_windows_win32_system_stationsanddesktops_setUserOb
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetUserObjectInformationA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hobj, nindex, pvinfo, nlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hobj, nindex, pvinfo, nlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hobj;
     (void)nindex;
     (void)pvinfo;
     (void)nlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -720,12 +916,19 @@ static Napi::Value windowssys_windows_win32_system_stationsanddesktops_setUserOb
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetUserObjectInformationW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hobj, nindex, pvinfo, nlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hobj, nindex, pvinfo, nlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hobj;
     (void)nindex;
     (void)pvinfo;
     (void)nlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -741,9 +944,16 @@ static Napi::Value windowssys_windows_win32_system_stationsanddesktops_switchDes
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SwitchDesktop")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdesktop) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdesktop);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdesktop;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

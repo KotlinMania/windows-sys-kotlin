@@ -64,12 +64,19 @@ static Napi::Value windowssys_windows_win32_system_tpmbaseservices_getDeviceID_n
         HMODULE km_h_mod = LoadLibraryA("tbs.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetDeviceID")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pbwindowsaik, cbwindowsaik, pcbresult, pfprotectedbytpm) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pbwindowsaik, cbwindowsaik, pcbresult, pfprotectedbytpm);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pbwindowsaik;
     (void)cbwindowsaik;
     (void)pcbresult;
     (void)pfprotectedbytpm;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -88,12 +95,19 @@ static Napi::Value windowssys_windows_win32_system_tpmbaseservices_getDeviceIDSt
         HMODULE km_h_mod = LoadLibraryA("tbs.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetDeviceIDString")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszwindowsaik, cchwindowsaik, pcchresult, pfprotectedbytpm) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszwindowsaik, cchwindowsaik, pcchresult, pfprotectedbytpm);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszwindowsaik;
     (void)cchwindowsaik;
     (void)pcchresult;
     (void)pfprotectedbytpm;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -110,10 +124,17 @@ static Napi::Value windowssys_windows_win32_system_tpmbaseservices_tbsiContextCr
         HMODULE km_h_mod = LoadLibraryA("tbs.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "Tbsi_Context_Create")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pcontextparams, phcontext) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pcontextparams, phcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pcontextparams;
     (void)phcontext;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -129,9 +150,16 @@ static Napi::Value windowssys_windows_win32_system_tpmbaseservices_tbsiCreateWin
         HMODULE km_h_mod = LoadLibraryA("tbs.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "Tbsi_Create_Windows_Key")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(keyhandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(keyhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)keyhandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -148,10 +176,17 @@ static Napi::Value windowssys_windows_win32_system_tpmbaseservices_tbsiGetDevice
         HMODULE km_h_mod = LoadLibraryA("tbs.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "Tbsi_GetDeviceInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(size, info) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(size, info);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)size;
     (void)info;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -170,12 +205,19 @@ static Napi::Value windowssys_windows_win32_system_tpmbaseservices_tbsiGetOwnerA
         HMODULE km_h_mod = LoadLibraryA("tbs.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "Tbsi_Get_OwnerAuth")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcontext, ownerauthtype, poutputbuf, poutputbuflen) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcontext, ownerauthtype, poutputbuf, poutputbuflen);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hcontext;
     (void)ownerauthtype;
     (void)poutputbuf;
     (void)poutputbuflen;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -193,11 +235,18 @@ static Napi::Value windowssys_windows_win32_system_tpmbaseservices_tbsiGetTcgLog
         HMODULE km_h_mod = LoadLibraryA("tbs.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "Tbsi_Get_TCG_Log")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcontext, poutputbuf, poutputbuflen) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcontext, poutputbuf, poutputbuflen);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hcontext;
     (void)poutputbuf;
     (void)poutputbuflen;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -215,11 +264,18 @@ static Napi::Value windowssys_windows_win32_system_tpmbaseservices_tbsiGetTcgLog
         HMODULE km_h_mod = LoadLibraryA("tbs.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "Tbsi_Get_TCG_Log_Ex")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(logtype, pboutput, pcboutput) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(logtype, pboutput, pcboutput);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)logtype;
     (void)pboutput;
     (void)pcboutput;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -234,8 +290,15 @@ static Napi::Value windowssys_windows_win32_system_tpmbaseservices_tbsiIsTpmPres
         HMODULE km_h_mod = LoadLibraryA("tbs.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "Tbsi_Is_Tpm_Present")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -255,13 +318,20 @@ static Napi::Value windowssys_windows_win32_system_tpmbaseservices_tbsiPhysicalP
         HMODULE km_h_mod = LoadLibraryA("tbs.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "Tbsi_Physical_Presence_Command")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcontext, pabinput, cbinput, paboutput, pcboutput) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcontext, pabinput, cbinput, paboutput, pcboutput);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hcontext;
     (void)pabinput;
     (void)cbinput;
     (void)paboutput;
     (void)pcboutput;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -276,8 +346,15 @@ static Napi::Value windowssys_windows_win32_system_tpmbaseservices_tbsiRevokeAtt
         HMODULE km_h_mod = LoadLibraryA("tbs.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "Tbsi_Revoke_Attestation")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -293,9 +370,16 @@ static Napi::Value windowssys_windows_win32_system_tpmbaseservices_tbsipCancelCo
         HMODULE km_h_mod = LoadLibraryA("tbs.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "Tbsip_Cancel_Commands")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcontext) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hcontext;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -311,9 +395,16 @@ static Napi::Value windowssys_windows_win32_system_tpmbaseservices_tbsipContextC
         HMODULE km_h_mod = LoadLibraryA("tbs.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "Tbsip_Context_Close")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcontext) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hcontext;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -335,7 +426,13 @@ static Napi::Value windowssys_windows_win32_system_tpmbaseservices_tbsipSubmitCo
         HMODULE km_h_mod = LoadLibraryA("tbs.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "Tbsip_Submit_Command")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcontext, locality, priority, pabcommand, cbcommand, pabresult, pcbresult) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcontext, locality, priority, pabcommand, cbcommand, pabresult, pcbresult);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hcontext;
     (void)locality;
@@ -344,6 +441,7 @@ static Napi::Value windowssys_windows_win32_system_tpmbaseservices_tbsipSubmitCo
     (void)cbcommand;
     (void)pabresult;
     (void)pcbresult;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

@@ -5,6 +5,7 @@
 #include <stdbool.h>
 #include <stddef.h>
 #include <stdint.h>
+#include <stdlib.h>
 #include <errno.h>
 #ifdef _WIN32
 #ifndef WIN32_LEAN_AND_MEAN
@@ -28,9 +29,16 @@ JNIEXPORT jbyte JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_netw
         HMODULE km_h_mod = LoadLibraryA("netapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "Netbios");
     }
-    uint8_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pncb) : 0;
+    uint8_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pncb);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pncb;
+    errno = ENOSYS;
     uint8_t km_res = 0;
 #endif
     return (jbyte)km_res;

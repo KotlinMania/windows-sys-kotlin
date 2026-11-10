@@ -62,10 +62,17 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_activatePacka
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ActivatePackageVirtualizationContext")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(context, cookie) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(context, cookie);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)context;
     (void)cookie;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -85,13 +92,20 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_addPackageDep
         HMODULE km_h_mod = LoadLibraryA("kernelbase.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AddPackageDependency")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(packagedependencyid, rank, options, packagedependencycontext, packagefullname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(packagedependencyid, rank, options, packagedependencycontext, packagefullname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)packagedependencyid;
     (void)rank;
     (void)options;
     (void)packagedependencycontext;
     (void)packagefullname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -108,10 +122,17 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_appPolicyGetC
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AppPolicyGetClrCompat")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(processtoken, policy) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(processtoken, policy);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)processtoken;
     (void)policy;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -128,10 +149,17 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_appPolicyGetC
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AppPolicyGetCreateFileAccess")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(processtoken, policy) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(processtoken, policy);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)processtoken;
     (void)policy;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -148,10 +176,17 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_appPolicyGetL
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AppPolicyGetLifecycleManagement")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(processtoken, policy) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(processtoken, policy);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)processtoken;
     (void)policy;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -168,10 +203,17 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_appPolicyGetM
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AppPolicyGetMediaFoundationCodecLoading")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(processtoken, policy) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(processtoken, policy);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)processtoken;
     (void)policy;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -188,10 +230,17 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_appPolicyGetP
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AppPolicyGetProcessTerminationMethod")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(processtoken, policy) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(processtoken, policy);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)processtoken;
     (void)policy;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -208,10 +257,17 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_appPolicyGetS
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AppPolicyGetShowDeveloperDiagnostic")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(processtoken, policy) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(processtoken, policy);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)processtoken;
     (void)policy;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -228,10 +284,17 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_appPolicyGetT
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AppPolicyGetThreadInitializationType")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(processtoken, policy) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(processtoken, policy);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)processtoken;
     (void)policy;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -248,10 +311,17 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_appPolicyGetW
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AppPolicyGetWindowingModel")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(processtoken, policy) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(processtoken, policy);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)processtoken;
     (void)policy;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -268,10 +338,17 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_checkIsMSIXPa
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CheckIsMSIXPackage")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(packagefullname, ismsixpackage) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(packagefullname, ismsixpackage);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)packagefullname;
     (void)ismsixpackage;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -287,9 +364,16 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_closePackageI
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClosePackageInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(packageinforeference) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(packageinforeference);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)packageinforeference;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -306,10 +390,17 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_createPackage
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreatePackageVirtualizationContext")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(packagefamilyname, context) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(packagefamilyname, context);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)packagefamilyname;
     (void)context;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -325,9 +416,14 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_deactivatePac
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DeactivatePackageVirtualizationContext")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(cookie);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(cookie);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)cookie;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -342,9 +438,16 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_deletePackage
         HMODULE km_h_mod = LoadLibraryA("kernelbase.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DeletePackageDependency")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(packagedependencyid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(packagedependencyid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)packagedependencyid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -361,10 +464,17 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_duplicatePack
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DuplicatePackageVirtualizationContext")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sourcecontext, destcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sourcecontext, destcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sourcecontext;
     (void)destcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -386,7 +496,13 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_findPackagesB
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FindPackagesByPackageFamily")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(packagefamilyname, packagefilters, count, packagefullnames, bufferlength, buffer, packageproperties) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(packagefamilyname, packagefilters, count, packagefullnames, bufferlength, buffer, packageproperties);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)packagefamilyname;
     (void)packagefilters;
@@ -395,6 +511,7 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_findPackagesB
     (void)bufferlength;
     (void)buffer;
     (void)packageproperties;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -413,12 +530,19 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_formatApplica
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FormatApplicationUserModelId")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(packagefamilyname, packagerelativeapplicationid, applicationusermodelidlength, applicationusermodelid) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(packagefamilyname, packagerelativeapplicationid, applicationusermodelidlength, applicationusermodelid);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)packagefamilyname;
     (void)packagerelativeapplicationid;
     (void)applicationusermodelidlength;
     (void)applicationusermodelid;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -436,11 +560,18 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_getApplicatio
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetApplicationUserModelId")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, applicationusermodelidlength, applicationusermodelid) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, applicationusermodelidlength, applicationusermodelid);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hprocess;
     (void)applicationusermodelidlength;
     (void)applicationusermodelid;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -458,11 +589,18 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_getApplicatio
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-appmodel-runtime-l1-1-1.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetApplicationUserModelIdFromToken")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(token, applicationusermodelidlength, applicationusermodelid) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(token, applicationusermodelidlength, applicationusermodelid);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)token;
     (void)applicationusermodelidlength;
     (void)applicationusermodelid;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -479,10 +617,17 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_getCurrentApp
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetCurrentApplicationUserModelId")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(applicationusermodelidlength, applicationusermodelid) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(applicationusermodelidlength, applicationusermodelid);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)applicationusermodelidlength;
     (void)applicationusermodelid;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -499,10 +644,17 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_getCurrentPac
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetCurrentPackageFamilyName")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(packagefamilynamelength, packagefamilyname) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(packagefamilynamelength, packagefamilyname);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)packagefamilynamelength;
     (void)packagefamilyname;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -519,10 +671,17 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_getCurrentPac
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetCurrentPackageFullName")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(packagefullnamelength, packagefullname) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(packagefullnamelength, packagefullname);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)packagefullnamelength;
     (void)packagefullname;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -539,10 +698,17 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_getCurrentPac
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetCurrentPackageId")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bufferlength, buffer) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bufferlength, buffer);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)bufferlength;
     (void)buffer;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -561,12 +727,19 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_getCurrentPac
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetCurrentPackageInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(flags, bufferlength, buffer, count) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(flags, bufferlength, buffer, count);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)flags;
     (void)bufferlength;
     (void)buffer;
     (void)count;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -586,13 +759,20 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_getCurrentPac
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-appmodel-runtime-l1-1-3.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetCurrentPackageInfo2")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(flags, packagepathtype, bufferlength, buffer, count) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(flags, packagepathtype, bufferlength, buffer, count);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)flags;
     (void)packagepathtype;
     (void)bufferlength;
     (void)buffer;
     (void)count;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -612,13 +792,20 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_getCurrentPac
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetCurrentPackageInfo3")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(flags, packageinfotype, bufferlength, buffer, count) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(flags, packageinfotype, bufferlength, buffer, count);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)flags;
     (void)packageinfotype;
     (void)bufferlength;
     (void)buffer;
     (void)count;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -635,10 +822,17 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_getCurrentPac
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetCurrentPackagePath")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pathlength, path) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pathlength, path);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pathlength;
     (void)path;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -656,11 +850,18 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_getCurrentPac
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-appmodel-runtime-l1-1-3.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetCurrentPackagePath2")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(packagepathtype, pathlength, path) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(packagepathtype, pathlength, path);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)packagepathtype;
     (void)pathlength;
     (void)path;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -675,9 +876,16 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_getCurrentPac
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetCurrentPackageVirtualizationContext")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -693,10 +901,17 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_getIdForPacka
         HMODULE km_h_mod = LoadLibraryA("kernelbase.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetIdForPackageDependencyContext")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(packagedependencycontext, packagedependencyid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(packagedependencycontext, packagedependencyid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)packagedependencycontext;
     (void)packagedependencyid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -715,12 +930,19 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_getPackageApp
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetPackageApplicationIds")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(packageinforeference, bufferlength, buffer, count) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(packageinforeference, bufferlength, buffer, count);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)packageinforeference;
     (void)bufferlength;
     (void)buffer;
     (void)count;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -738,11 +960,18 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_getPackageFam
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetPackageFamilyName")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, packagefamilynamelength, packagefamilyname) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, packagefamilynamelength, packagefamilyname);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hprocess;
     (void)packagefamilynamelength;
     (void)packagefamilyname;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -760,11 +989,18 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_getPackageFam
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-appmodel-runtime-l1-1-1.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetPackageFamilyNameFromToken")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(token, packagefamilynamelength, packagefamilyname) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(token, packagefamilynamelength, packagefamilyname);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)token;
     (void)packagefamilynamelength;
     (void)packagefamilyname;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -782,11 +1018,18 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_getPackageFul
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetPackageFullName")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, packagefullnamelength, packagefullname) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, packagefullnamelength, packagefullname);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hprocess;
     (void)packagefullnamelength;
     (void)packagefullname;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -804,11 +1047,18 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_getPackageFul
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-appmodel-runtime-l1-1-1.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetPackageFullNameFromToken")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(token, packagefullnamelength, packagefullname) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(token, packagefullnamelength, packagefullname);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)token;
     (void)packagefullnamelength;
     (void)packagefullname;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -823,8 +1073,15 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_getPackageGra
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-appmodel-runtime-l1-1-6.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetPackageGraphRevisionId")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -842,11 +1099,18 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_getPackageId_
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetPackageId")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, bufferlength, buffer) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, bufferlength, buffer);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hprocess;
     (void)bufferlength;
     (void)buffer;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -866,13 +1130,20 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_getPackageInf
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetPackageInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(packageinforeference, flags, bufferlength, buffer, count) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(packageinforeference, flags, bufferlength, buffer, count);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)packageinforeference;
     (void)flags;
     (void)bufferlength;
     (void)buffer;
     (void)count;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -893,7 +1164,13 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_getPackageInf
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-appmodel-runtime-l1-1-3.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetPackageInfo2")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(packageinforeference, flags, packagepathtype, bufferlength, buffer, count) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(packageinforeference, flags, packagepathtype, bufferlength, buffer, count);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)packageinforeference;
     (void)flags;
@@ -901,6 +1178,7 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_getPackageInf
     (void)bufferlength;
     (void)buffer;
     (void)count;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -919,12 +1197,19 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_getPackagePat
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetPackagePath")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(packageid, reserved, pathlength, path) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(packageid, reserved, pathlength, path);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)packageid;
     (void)reserved;
     (void)pathlength;
     (void)path;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -942,11 +1227,18 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_getPackagePat
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetPackagePathByFullName")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(packagefullname, pathlength, path) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(packagefullname, pathlength, path);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)packagefullname;
     (void)pathlength;
     (void)path;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -965,12 +1257,19 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_getPackagePat
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-appmodel-runtime-l1-1-3.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetPackagePathByFullName2")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(packagefullname, packagepathtype, pathlength, path) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(packagefullname, packagepathtype, pathlength, path);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)packagefullname;
     (void)packagepathtype;
     (void)pathlength;
     (void)path;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -990,13 +1289,20 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_getPackagesBy
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetPackagesByPackageFamily")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(packagefamilyname, count, packagefullnames, bufferlength, buffer) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(packagefamilyname, count, packagefullnames, bufferlength, buffer);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)packagefamilyname;
     (void)count;
     (void)packagefullnames;
     (void)bufferlength;
     (void)buffer;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1014,11 +1320,18 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_getProcessesI
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetProcessesInVirtualizationContext")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(packagefamilyname, count, processes) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(packagefamilyname, count, processes);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)packagefamilyname;
     (void)count;
     (void)processes;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1035,10 +1348,17 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_getResolvedPa
         HMODULE km_h_mod = LoadLibraryA("kernelbase.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetResolvedPackageFullNameForPackageDependency")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(packagedependencyid, packagefullname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(packagedependencyid, packagefullname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)packagedependencyid;
     (void)packagefullname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1055,10 +1375,17 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_getStagedPack
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-appmodel-runtime-l1-1-1.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetStagedPackageOrigin")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(packagefullname, origin) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(packagefullname, origin);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)packagefullname;
     (void)origin;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1076,11 +1403,18 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_getStagedPack
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetStagedPackagePathByFullName")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(packagefullname, pathlength, path) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(packagefullname, pathlength, path);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)packagefullname;
     (void)pathlength;
     (void)path;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1099,12 +1433,19 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_getStagedPack
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-appmodel-runtime-l1-1-3.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetStagedPackagePathByFullName2")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(packagefullname, packagepathtype, pathlength, path) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(packagefullname, packagepathtype, pathlength, path);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)packagefullname;
     (void)packagepathtype;
     (void)pathlength;
     (void)path;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1122,11 +1463,18 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_openPackageIn
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OpenPackageInfoByFullName")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(packagefullname, reserved, packageinforeference) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(packagefullname, reserved, packageinforeference);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)packagefullname;
     (void)reserved;
     (void)packageinforeference;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1145,12 +1493,19 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_openPackageIn
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-appmodel-runtime-l1-1-1.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OpenPackageInfoByFullNameForUser")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(usersid, packagefullname, reserved, packageinforeference) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(usersid, packagefullname, reserved, packageinforeference);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)usersid;
     (void)packagefullname;
     (void)reserved;
     (void)packageinforeference;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1168,11 +1523,18 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_packageFamily
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PackageFamilyNameFromFullName")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(packagefullname, packagefamilynamelength, packagefamilyname) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(packagefullname, packagefamilynamelength, packagefamilyname);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)packagefullname;
     (void)packagefamilynamelength;
     (void)packagefamilyname;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1190,11 +1552,18 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_packageFamily
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PackageFamilyNameFromId")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(packageid, packagefamilynamelength, packagefamilyname) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(packageid, packagefamilynamelength, packagefamilyname);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)packageid;
     (void)packagefamilynamelength;
     (void)packagefamilyname;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1212,11 +1581,18 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_packageFullNa
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PackageFullNameFromId")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(packageid, packagefullnamelength, packagefullname) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(packageid, packagefullnamelength, packagefullname);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)packageid;
     (void)packagefullnamelength;
     (void)packagefullname;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1235,12 +1611,19 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_packageIdFrom
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PackageIdFromFullName")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(packagefullname, flags, bufferlength, buffer) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(packagefullname, flags, bufferlength, buffer);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)packagefullname;
     (void)flags;
     (void)bufferlength;
     (void)buffer;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1260,13 +1643,20 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_packageNameAn
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PackageNameAndPublisherIdFromFamilyName")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(packagefamilyname, packagenamelength, packagename, packagepublisheridlength, packagepublisherid) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(packagefamilyname, packagenamelength, packagename, packagepublisheridlength, packagepublisherid);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)packagefamilyname;
     (void)packagenamelength;
     (void)packagename;
     (void)packagepublisheridlength;
     (void)packagepublisherid;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1286,13 +1676,20 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_parseApplicat
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ParseApplicationUserModelId")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(applicationusermodelid, packagefamilynamelength, packagefamilyname, packagerelativeapplicationidlength, packagerelativeapplicationid) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(applicationusermodelid, packagefamilynamelength, packagefamilyname, packagerelativeapplicationidlength, packagerelativeapplicationid);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)applicationusermodelid;
     (void)packagefamilynamelength;
     (void)packagefamilyname;
     (void)packagerelativeapplicationidlength;
     (void)packagerelativeapplicationid;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1308,9 +1705,14 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_releasePackag
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ReleasePackageVirtualizationContext")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(context);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(context);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)context;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -1325,9 +1727,16 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_removePackage
         HMODULE km_h_mod = LoadLibraryA("kernelbase.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RemovePackageDependency")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(packagedependencycontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(packagedependencycontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)packagedependencycontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1343,9 +1752,16 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_verifyApplica
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-appmodel-runtime-l1-1-1.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "VerifyApplicationUserModelId")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(applicationusermodelid) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(applicationusermodelid);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)applicationusermodelid;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1361,9 +1777,16 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_verifyPackage
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-appmodel-runtime-l1-1-1.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "VerifyPackageFamilyName")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(packagefamilyname) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(packagefamilyname);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)packagefamilyname;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1379,9 +1802,16 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_verifyPackage
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-appmodel-runtime-l1-1-1.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "VerifyPackageFullName")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(packagefullname) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(packagefullname);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)packagefullname;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1397,9 +1827,16 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_verifyPackage
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-appmodel-runtime-l1-1-1.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "VerifyPackageId")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(packageid) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(packageid);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)packageid;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1415,9 +1852,16 @@ static Napi::Value windowssys_windows_win32_storage_packaging_appx_verifyPackage
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-appmodel-runtime-l1-1-1.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "VerifyPackageRelativeApplicationId")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(packagerelativeapplicationid) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(packagerelativeapplicationid);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)packagerelativeapplicationid;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

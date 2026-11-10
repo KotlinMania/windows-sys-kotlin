@@ -60,8 +60,15 @@ static Napi::Value windowssys_windows_win32_system_search_oDBCGetTryWaitValue_na
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ODBCGetTryWaitValue")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -77,9 +84,16 @@ static Napi::Value windowssys_windows_win32_system_search_oDBCSetTryWaitValue_na
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ODBCSetTryWaitValue")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwvalue) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwvalue;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -96,10 +110,17 @@ static Napi::Value windowssys_windows_win32_system_search_sQLAllocConnect_napi(c
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLAllocConnect")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(environmenthandle, connectionhandle) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(environmenthandle, connectionhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)environmenthandle;
     (void)connectionhandle;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -115,9 +136,16 @@ static Napi::Value windowssys_windows_win32_system_search_sQLAllocEnv_napi(const
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLAllocEnv")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(environmenthandle) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(environmenthandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)environmenthandle;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -135,11 +163,18 @@ static Napi::Value windowssys_windows_win32_system_search_sQLAllocHandle_napi(co
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLAllocHandle")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(handletype, inputhandle, outputhandle) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(handletype, inputhandle, outputhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)handletype;
     (void)inputhandle;
     (void)outputhandle;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -157,11 +192,18 @@ static Napi::Value windowssys_windows_win32_system_search_sQLAllocHandleStd_napi
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLAllocHandleStd")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(fhandletype, hinput, phoutput) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(fhandletype, hinput, phoutput);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)fhandletype;
     (void)hinput;
     (void)phoutput;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -178,10 +220,17 @@ static Napi::Value windowssys_windows_win32_system_search_sQLAllocStmt_napi(cons
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLAllocStmt")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(connectionhandle, statementhandle) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(connectionhandle, statementhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)connectionhandle;
     (void)statementhandle;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -202,7 +251,13 @@ static Napi::Value windowssys_windows_win32_system_search_sQLBindCol_napi(const 
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLBindCol")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(statementhandle, columnnumber, targettype, targetvalue, bufferlength, strlen_or_ind) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(statementhandle, columnnumber, targettype, targetvalue, bufferlength, strlen_or_ind);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)statementhandle;
     (void)columnnumber;
@@ -210,6 +265,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLBindCol_napi(const 
     (void)targetvalue;
     (void)bufferlength;
     (void)strlen_or_ind;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -232,7 +288,13 @@ static Napi::Value windowssys_windows_win32_system_search_sQLBindParam_napi(cons
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLBindParam")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(statementhandle, parameternumber, valuetype, parametertype, lengthprecision, parameterscale, parametervalue, strlen_or_ind) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(statementhandle, parameternumber, valuetype, parametertype, lengthprecision, parameterscale, parametervalue, strlen_or_ind);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)statementhandle;
     (void)parameternumber;
@@ -242,6 +304,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLBindParam_napi(cons
     (void)parameterscale;
     (void)parametervalue;
     (void)strlen_or_ind;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -266,7 +329,13 @@ static Napi::Value windowssys_windows_win32_system_search_sQLBindParameter_napi(
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLBindParameter")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hstmt, ipar, fparamtype, fctype, fsqltype, cbcoldef, ibscale, rgbvalue, cbvaluemax, pcbvalue) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hstmt, ipar, fparamtype, fctype, fsqltype, cbcoldef, ibscale, rgbvalue, cbvaluemax, pcbvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)ipar;
@@ -278,6 +347,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLBindParameter_napi(
     (void)rgbvalue;
     (void)cbvaluemax;
     (void)pcbvalue;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -298,7 +368,13 @@ static Napi::Value windowssys_windows_win32_system_search_sQLBrowseConnect_napi(
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLBrowseConnect")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdbc, szconnstrin, cchconnstrin, szconnstrout, cchconnstroutmax, pcchconnstrout) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdbc, szconnstrin, cchconnstrin, szconnstrout, cchconnstroutmax, pcchconnstrout);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdbc;
     (void)szconnstrin;
@@ -306,6 +382,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLBrowseConnect_napi(
     (void)szconnstrout;
     (void)cchconnstroutmax;
     (void)pcchconnstrout;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -326,7 +403,13 @@ static Napi::Value windowssys_windows_win32_system_search_sQLBrowseConnectA_napi
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLBrowseConnectA")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdbc, szconnstrin, cbconnstrin, szconnstrout, cbconnstroutmax, pcbconnstrout) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdbc, szconnstrin, cbconnstrin, szconnstrout, cbconnstroutmax, pcbconnstrout);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdbc;
     (void)szconnstrin;
@@ -334,6 +417,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLBrowseConnectA_napi
     (void)szconnstrout;
     (void)cbconnstroutmax;
     (void)pcbconnstrout;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -354,7 +438,13 @@ static Napi::Value windowssys_windows_win32_system_search_sQLBrowseConnectW_napi
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLBrowseConnectW")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdbc, szconnstrin, cchconnstrin, szconnstrout, cchconnstroutmax, pcchconnstrout) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdbc, szconnstrin, cchconnstrin, szconnstrout, cchconnstroutmax, pcchconnstrout);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdbc;
     (void)szconnstrin;
@@ -362,6 +452,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLBrowseConnectW_napi
     (void)szconnstrout;
     (void)cchconnstroutmax;
     (void)pcchconnstrout;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -378,10 +469,17 @@ static Napi::Value windowssys_windows_win32_system_search_sQLBulkOperations_napi
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLBulkOperations")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(statementhandle, operation) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(statementhandle, operation);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)statementhandle;
     (void)operation;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -397,9 +495,16 @@ static Napi::Value windowssys_windows_win32_system_search_sQLCancel_napi(const N
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLCancel")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(statementhandle) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(statementhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)statementhandle;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -416,10 +521,17 @@ static Napi::Value windowssys_windows_win32_system_search_sQLCancelHandle_napi(c
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLCancelHandle")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(handletype, inputhandle) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(handletype, inputhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)handletype;
     (void)inputhandle;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -435,9 +547,16 @@ static Napi::Value windowssys_windows_win32_system_search_sQLCloseCursor_napi(co
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLCloseCursor")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(statementhandle) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(statementhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)statementhandle;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -453,9 +572,16 @@ static Napi::Value windowssys_windows_win32_system_search_sQLCloseEnumServers_na
         HMODULE km_h_mod = LoadLibraryA("odbcbcp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLCloseEnumServers")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(henumhandle) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(henumhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)henumhandle;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -477,7 +603,13 @@ static Napi::Value windowssys_windows_win32_system_search_sQLColAttribute_napi(c
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLColAttribute")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(statementhandle, columnnumber, fieldidentifier, characterattribute, bufferlength, stringlength, numericattribute) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(statementhandle, columnnumber, fieldidentifier, characterattribute, bufferlength, stringlength, numericattribute);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)statementhandle;
     (void)columnnumber;
@@ -486,6 +618,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLColAttribute_napi(c
     (void)bufferlength;
     (void)stringlength;
     (void)numericattribute;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -507,7 +640,13 @@ static Napi::Value windowssys_windows_win32_system_search_sQLColAttributeA_napi(
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLColAttributeA")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hstmt, icol, ifield, pcharattr, cbcharattrmax, pcbcharattr, pnumattr) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hstmt, icol, ifield, pcharattr, cbcharattrmax, pcbcharattr, pnumattr);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)icol;
@@ -516,6 +655,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLColAttributeA_napi(
     (void)cbcharattrmax;
     (void)pcbcharattr;
     (void)pnumattr;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -537,7 +677,13 @@ static Napi::Value windowssys_windows_win32_system_search_sQLColAttributeW_napi(
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLColAttributeW")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hstmt, icol, ifield, pcharattr, cbdescmax, pcbcharattr, pnumattr) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hstmt, icol, ifield, pcharattr, cbdescmax, pcbcharattr, pnumattr);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)icol;
@@ -546,6 +692,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLColAttributeW_napi(
     (void)cbdescmax;
     (void)pcbcharattr;
     (void)pnumattr;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -567,7 +714,13 @@ static Napi::Value windowssys_windows_win32_system_search_sQLColAttributes_napi(
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLColAttributes")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hstmt, icol, fdesctype, rgbdesc, cbdescmax, pcbdesc, pfdesc) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hstmt, icol, fdesctype, rgbdesc, cbdescmax, pcbdesc, pfdesc);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)icol;
@@ -576,6 +729,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLColAttributes_napi(
     (void)cbdescmax;
     (void)pcbdesc;
     (void)pfdesc;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -597,7 +751,13 @@ static Napi::Value windowssys_windows_win32_system_search_sQLColAttributesA_napi
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLColAttributesA")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hstmt, icol, fdesctype, rgbdesc, cbdescmax, pcbdesc, pfdesc) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hstmt, icol, fdesctype, rgbdesc, cbdescmax, pcbdesc, pfdesc);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)icol;
@@ -606,6 +766,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLColAttributesA_napi
     (void)cbdescmax;
     (void)pcbdesc;
     (void)pfdesc;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -627,7 +788,13 @@ static Napi::Value windowssys_windows_win32_system_search_sQLColAttributesW_napi
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLColAttributesW")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hstmt, icol, fdesctype, rgbdesc, cbdescmax, pcbdesc, pfdesc) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hstmt, icol, fdesctype, rgbdesc, cbdescmax, pcbdesc, pfdesc);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)icol;
@@ -636,6 +803,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLColAttributesW_napi
     (void)cbdescmax;
     (void)pcbdesc;
     (void)pfdesc;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -659,7 +827,13 @@ static Napi::Value windowssys_windows_win32_system_search_sQLColumnPrivileges_na
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLColumnPrivileges")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hstmt, szcatalogname, cchcatalogname, szschemaname, cchschemaname, sztablename, cchtablename, szcolumnname, cchcolumnname) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hstmt, szcatalogname, cchcatalogname, szschemaname, cchschemaname, sztablename, cchtablename, szcolumnname, cchcolumnname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)szcatalogname;
@@ -670,6 +844,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLColumnPrivileges_na
     (void)cchtablename;
     (void)szcolumnname;
     (void)cchcolumnname;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -693,7 +868,13 @@ static Napi::Value windowssys_windows_win32_system_search_sQLColumnPrivilegesA_n
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLColumnPrivilegesA")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hstmt, szcatalogname, cbcatalogname, szschemaname, cbschemaname, sztablename, cbtablename, szcolumnname, cbcolumnname) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hstmt, szcatalogname, cbcatalogname, szschemaname, cbschemaname, sztablename, cbtablename, szcolumnname, cbcolumnname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)szcatalogname;
@@ -704,6 +885,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLColumnPrivilegesA_n
     (void)cbtablename;
     (void)szcolumnname;
     (void)cbcolumnname;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -727,7 +909,13 @@ static Napi::Value windowssys_windows_win32_system_search_sQLColumnPrivilegesW_n
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLColumnPrivilegesW")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hstmt, szcatalogname, cchcatalogname, szschemaname, cchschemaname, sztablename, cchtablename, szcolumnname, cchcolumnname) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hstmt, szcatalogname, cchcatalogname, szschemaname, cchschemaname, sztablename, cchtablename, szcolumnname, cchcolumnname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)szcatalogname;
@@ -738,6 +926,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLColumnPrivilegesW_n
     (void)cchtablename;
     (void)szcolumnname;
     (void)cchcolumnname;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -761,7 +950,13 @@ static Napi::Value windowssys_windows_win32_system_search_sQLColumns_napi(const 
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLColumns")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(statementhandle, catalogname, namelength1, schemaname, namelength2, tablename, namelength3, columnname, namelength4) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(statementhandle, catalogname, namelength1, schemaname, namelength2, tablename, namelength3, columnname, namelength4);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)statementhandle;
     (void)catalogname;
@@ -772,6 +967,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLColumns_napi(const 
     (void)namelength3;
     (void)columnname;
     (void)namelength4;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -795,7 +991,13 @@ static Napi::Value windowssys_windows_win32_system_search_sQLColumnsA_napi(const
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLColumnsA")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hstmt, szcatalogname, cbcatalogname, szschemaname, cbschemaname, sztablename, cbtablename, szcolumnname, cbcolumnname) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hstmt, szcatalogname, cbcatalogname, szschemaname, cbschemaname, sztablename, cbtablename, szcolumnname, cbcolumnname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)szcatalogname;
@@ -806,6 +1008,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLColumnsA_napi(const
     (void)cbtablename;
     (void)szcolumnname;
     (void)cbcolumnname;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -829,7 +1032,13 @@ static Napi::Value windowssys_windows_win32_system_search_sQLColumnsW_napi(const
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLColumnsW")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hstmt, szcatalogname, cchcatalogname, szschemaname, cchschemaname, sztablename, cchtablename, szcolumnname, cchcolumnname) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hstmt, szcatalogname, cchcatalogname, szschemaname, cchschemaname, sztablename, cchtablename, szcolumnname, cchcolumnname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)szcatalogname;
@@ -840,6 +1049,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLColumnsW_napi(const
     (void)cchtablename;
     (void)szcolumnname;
     (void)cchcolumnname;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -857,11 +1067,18 @@ static Napi::Value windowssys_windows_win32_system_search_sQLCompleteAsync_napi(
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLCompleteAsync")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(handletype, handle, asyncretcodeptr) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(handletype, handle, asyncretcodeptr);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)handletype;
     (void)handle;
     (void)asyncretcodeptr;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -883,7 +1100,13 @@ static Napi::Value windowssys_windows_win32_system_search_sQLConnect_napi(const 
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLConnect")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(connectionhandle, servername, namelength1, username, namelength2, authentication, namelength3) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(connectionhandle, servername, namelength1, username, namelength2, authentication, namelength3);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)connectionhandle;
     (void)servername;
@@ -892,6 +1115,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLConnect_napi(const 
     (void)namelength2;
     (void)authentication;
     (void)namelength3;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -913,7 +1137,13 @@ static Napi::Value windowssys_windows_win32_system_search_sQLConnectA_napi(const
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLConnectA")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdbc, szdsn, cbdsn, szuid, cbuid, szauthstr, cbauthstr) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdbc, szdsn, cbdsn, szuid, cbuid, szauthstr, cbauthstr);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdbc;
     (void)szdsn;
@@ -922,6 +1152,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLConnectA_napi(const
     (void)cbuid;
     (void)szauthstr;
     (void)cbauthstr;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -943,7 +1174,13 @@ static Napi::Value windowssys_windows_win32_system_search_sQLConnectW_napi(const
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLConnectW")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdbc, szdsn, cchdsn, szuid, cchuid, szauthstr, cchauthstr) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdbc, szdsn, cchdsn, szuid, cchuid, szauthstr, cchauthstr);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdbc;
     (void)szdsn;
@@ -952,6 +1189,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLConnectW_napi(const
     (void)cchuid;
     (void)szauthstr;
     (void)cchauthstr;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -968,10 +1206,17 @@ static Napi::Value windowssys_windows_win32_system_search_sQLCopyDesc_napi(const
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLCopyDesc")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sourcedeschandle, targetdeschandle) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sourcedeschandle, targetdeschandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sourcedeschandle;
     (void)targetdeschandle;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -994,7 +1239,13 @@ static Napi::Value windowssys_windows_win32_system_search_sQLDataSources_napi(co
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLDataSources")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(environmenthandle, direction, servername, bufferlength1, namelength1ptr, description, bufferlength2, namelength2ptr) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(environmenthandle, direction, servername, bufferlength1, namelength1ptr, description, bufferlength2, namelength2ptr);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)environmenthandle;
     (void)direction;
@@ -1004,6 +1255,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLDataSources_napi(co
     (void)description;
     (void)bufferlength2;
     (void)namelength2ptr;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1026,7 +1278,13 @@ static Napi::Value windowssys_windows_win32_system_search_sQLDataSourcesA_napi(c
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLDataSourcesA")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(henv, fdirection, szdsn, cbdsnmax, pcbdsn, szdescription, cbdescriptionmax, pcbdescription) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(henv, fdirection, szdsn, cbdsnmax, pcbdsn, szdescription, cbdescriptionmax, pcbdescription);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)henv;
     (void)fdirection;
@@ -1036,6 +1294,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLDataSourcesA_napi(c
     (void)szdescription;
     (void)cbdescriptionmax;
     (void)pcbdescription;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1058,7 +1317,13 @@ static Napi::Value windowssys_windows_win32_system_search_sQLDataSourcesW_napi(c
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLDataSourcesW")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(henv, fdirection, szdsn, cchdsnmax, pcchdsn, wszdescription, cchdescriptionmax, pcchdescription) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(henv, fdirection, szdsn, cchdsnmax, pcchdsn, wszdescription, cchdescriptionmax, pcchdescription);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)henv;
     (void)fdirection;
@@ -1068,6 +1333,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLDataSourcesW_napi(c
     (void)wszdescription;
     (void)cchdescriptionmax;
     (void)pcchdescription;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1091,7 +1357,13 @@ static Napi::Value windowssys_windows_win32_system_search_sQLDescribeCol_napi(co
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLDescribeCol")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(statementhandle, columnnumber, columnname, bufferlength, namelength, datatype, columnsize, decimaldigits, nullable) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(statementhandle, columnnumber, columnname, bufferlength, namelength, datatype, columnsize, decimaldigits, nullable);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)statementhandle;
     (void)columnnumber;
@@ -1102,6 +1374,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLDescribeCol_napi(co
     (void)columnsize;
     (void)decimaldigits;
     (void)nullable;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1125,7 +1398,13 @@ static Napi::Value windowssys_windows_win32_system_search_sQLDescribeColA_napi(c
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLDescribeColA")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hstmt, icol, szcolname, cbcolnamemax, pcbcolname, pfsqltype, pcbcoldef, pibscale, pfnullable) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hstmt, icol, szcolname, cbcolnamemax, pcbcolname, pfsqltype, pcbcoldef, pibscale, pfnullable);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)icol;
@@ -1136,6 +1415,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLDescribeColA_napi(c
     (void)pcbcoldef;
     (void)pibscale;
     (void)pfnullable;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1159,7 +1439,13 @@ static Napi::Value windowssys_windows_win32_system_search_sQLDescribeColW_napi(c
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLDescribeColW")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hstmt, icol, szcolname, cchcolnamemax, pcchcolname, pfsqltype, pcbcoldef, pibscale, pfnullable) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hstmt, icol, szcolname, cchcolnamemax, pcchcolname, pfsqltype, pcbcoldef, pibscale, pfnullable);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)icol;
@@ -1170,6 +1456,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLDescribeColW_napi(c
     (void)pcbcoldef;
     (void)pibscale;
     (void)pfnullable;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1190,7 +1477,13 @@ static Napi::Value windowssys_windows_win32_system_search_sQLDescribeParam_napi(
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLDescribeParam")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hstmt, ipar, pfsqltype, pcbparamdef, pibscale, pfnullable) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hstmt, ipar, pfsqltype, pcbparamdef, pibscale, pfnullable);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)ipar;
@@ -1198,6 +1491,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLDescribeParam_napi(
     (void)pcbparamdef;
     (void)pibscale;
     (void)pfnullable;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1213,9 +1507,16 @@ static Napi::Value windowssys_windows_win32_system_search_sQLDisconnect_napi(con
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLDisconnect")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(connectionhandle) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(connectionhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)connectionhandle;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1238,7 +1539,13 @@ static Napi::Value windowssys_windows_win32_system_search_sQLDriverConnect_napi(
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLDriverConnect")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdbc, hwnd, szconnstrin, cchconnstrin, szconnstrout, cchconnstroutmax, pcchconnstrout, fdrivercompletion) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdbc, hwnd, szconnstrin, cchconnstrin, szconnstrout, cchconnstroutmax, pcchconnstrout, fdrivercompletion);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdbc;
     (void)hwnd;
@@ -1248,6 +1555,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLDriverConnect_napi(
     (void)cchconnstroutmax;
     (void)pcchconnstrout;
     (void)fdrivercompletion;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1270,7 +1578,13 @@ static Napi::Value windowssys_windows_win32_system_search_sQLDriverConnectA_napi
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLDriverConnectA")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdbc, hwnd, szconnstrin, cbconnstrin, szconnstrout, cbconnstroutmax, pcbconnstrout, fdrivercompletion) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdbc, hwnd, szconnstrin, cbconnstrin, szconnstrout, cbconnstroutmax, pcbconnstrout, fdrivercompletion);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdbc;
     (void)hwnd;
@@ -1280,6 +1594,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLDriverConnectA_napi
     (void)cbconnstroutmax;
     (void)pcbconnstrout;
     (void)fdrivercompletion;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1302,7 +1617,13 @@ static Napi::Value windowssys_windows_win32_system_search_sQLDriverConnectW_napi
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLDriverConnectW")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdbc, hwnd, szconnstrin, cchconnstrin, szconnstrout, cchconnstroutmax, pcchconnstrout, fdrivercompletion) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdbc, hwnd, szconnstrin, cchconnstrin, szconnstrout, cchconnstroutmax, pcchconnstrout, fdrivercompletion);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdbc;
     (void)hwnd;
@@ -1312,6 +1633,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLDriverConnectW_napi
     (void)cchconnstroutmax;
     (void)pcchconnstrout;
     (void)fdrivercompletion;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1334,7 +1656,13 @@ static Napi::Value windowssys_windows_win32_system_search_sQLDrivers_napi(const 
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLDrivers")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(henv, fdirection, szdriverdesc, cchdriverdescmax, pcchdriverdesc, szdriverattributes, cchdrvrattrmax, pcchdrvrattr) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(henv, fdirection, szdriverdesc, cchdriverdescmax, pcchdriverdesc, szdriverattributes, cchdrvrattrmax, pcchdrvrattr);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)henv;
     (void)fdirection;
@@ -1344,6 +1672,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLDrivers_napi(const 
     (void)szdriverattributes;
     (void)cchdrvrattrmax;
     (void)pcchdrvrattr;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1366,7 +1695,13 @@ static Napi::Value windowssys_windows_win32_system_search_sQLDriversA_napi(const
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLDriversA")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(henv, fdirection, szdriverdesc, cbdriverdescmax, pcbdriverdesc, szdriverattributes, cbdrvrattrmax, pcbdrvrattr) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(henv, fdirection, szdriverdesc, cbdriverdescmax, pcbdriverdesc, szdriverattributes, cbdrvrattrmax, pcbdrvrattr);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)henv;
     (void)fdirection;
@@ -1376,6 +1711,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLDriversA_napi(const
     (void)szdriverattributes;
     (void)cbdrvrattrmax;
     (void)pcbdrvrattr;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1398,7 +1734,13 @@ static Napi::Value windowssys_windows_win32_system_search_sQLDriversW_napi(const
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLDriversW")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(henv, fdirection, szdriverdesc, cchdriverdescmax, pcchdriverdesc, szdriverattributes, cchdrvrattrmax, pcchdrvrattr) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(henv, fdirection, szdriverdesc, cchdriverdescmax, pcchdriverdesc, szdriverattributes, cchdrvrattrmax, pcchdrvrattr);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)henv;
     (void)fdirection;
@@ -1408,6 +1750,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLDriversW_napi(const
     (void)szdriverattributes;
     (void)cchdrvrattrmax;
     (void)pcchdrvrattr;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1425,11 +1768,18 @@ static Napi::Value windowssys_windows_win32_system_search_sQLEndTran_napi(const 
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLEndTran")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(handletype, handle, completiontype) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(handletype, handle, completiontype);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)handletype;
     (void)handle;
     (void)completiontype;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1452,7 +1802,13 @@ static Napi::Value windowssys_windows_win32_system_search_sQLError_napi(const Na
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLError")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(environmenthandle, connectionhandle, statementhandle, sqlstate, nativeerror, messagetext, bufferlength, textlength) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(environmenthandle, connectionhandle, statementhandle, sqlstate, nativeerror, messagetext, bufferlength, textlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)environmenthandle;
     (void)connectionhandle;
@@ -1462,6 +1818,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLError_napi(const Na
     (void)messagetext;
     (void)bufferlength;
     (void)textlength;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1484,7 +1841,13 @@ static Napi::Value windowssys_windows_win32_system_search_sQLErrorA_napi(const N
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLErrorA")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(henv, hdbc, hstmt, szsqlstate, pfnativeerror, szerrormsg, cberrormsgmax, pcberrormsg) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(henv, hdbc, hstmt, szsqlstate, pfnativeerror, szerrormsg, cberrormsgmax, pcberrormsg);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)henv;
     (void)hdbc;
@@ -1494,6 +1857,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLErrorA_napi(const N
     (void)szerrormsg;
     (void)cberrormsgmax;
     (void)pcberrormsg;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1516,7 +1880,13 @@ static Napi::Value windowssys_windows_win32_system_search_sQLErrorW_napi(const N
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLErrorW")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(henv, hdbc, hstmt, wszsqlstate, pfnativeerror, wszerrormsg, ccherrormsgmax, pccherrormsg) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(henv, hdbc, hstmt, wszsqlstate, pfnativeerror, wszerrormsg, ccherrormsgmax, pccherrormsg);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)henv;
     (void)hdbc;
@@ -1526,6 +1896,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLErrorW_napi(const N
     (void)wszerrormsg;
     (void)ccherrormsgmax;
     (void)pccherrormsg;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1543,11 +1914,18 @@ static Napi::Value windowssys_windows_win32_system_search_sQLExecDirect_napi(con
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLExecDirect")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(statementhandle, statementtext, textlength) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(statementhandle, statementtext, textlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)statementhandle;
     (void)statementtext;
     (void)textlength;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1565,11 +1943,18 @@ static Napi::Value windowssys_windows_win32_system_search_sQLExecDirectA_napi(co
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLExecDirectA")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hstmt, szsqlstr, cbsqlstr) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hstmt, szsqlstr, cbsqlstr);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)szsqlstr;
     (void)cbsqlstr;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1587,11 +1972,18 @@ static Napi::Value windowssys_windows_win32_system_search_sQLExecDirectW_napi(co
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLExecDirectW")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hstmt, szsqlstr, textlength) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hstmt, szsqlstr, textlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)szsqlstr;
     (void)textlength;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1607,9 +1999,16 @@ static Napi::Value windowssys_windows_win32_system_search_sQLExecute_napi(const 
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLExecute")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(statementhandle) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(statementhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)statementhandle;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1629,13 +2028,20 @@ static Napi::Value windowssys_windows_win32_system_search_sQLExtendedFetch_napi(
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLExtendedFetch")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hstmt, ffetchtype, irow, pcrow, rgfrowstatus) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hstmt, ffetchtype, irow, pcrow, rgfrowstatus);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)ffetchtype;
     (void)irow;
     (void)pcrow;
     (void)rgfrowstatus;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1651,9 +2057,16 @@ static Napi::Value windowssys_windows_win32_system_search_sQLFetch_napi(const Na
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLFetch")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(statementhandle) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(statementhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)statementhandle;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1671,11 +2084,18 @@ static Napi::Value windowssys_windows_win32_system_search_sQLFetchScroll_napi(co
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLFetchScroll")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(statementhandle, fetchorientation, fetchoffset) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(statementhandle, fetchorientation, fetchoffset);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)statementhandle;
     (void)fetchorientation;
     (void)fetchoffset;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1703,7 +2123,13 @@ static Napi::Value windowssys_windows_win32_system_search_sQLForeignKeys_napi(co
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLForeignKeys")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hstmt, szpkcatalogname, cchpkcatalogname, szpkschemaname, cchpkschemaname, szpktablename, cchpktablename, szfkcatalogname, cchfkcatalogname, szfkschemaname, cchfkschemaname, szfktablename, cchfktablename) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hstmt, szpkcatalogname, cchpkcatalogname, szpkschemaname, cchpkschemaname, szpktablename, cchpktablename, szfkcatalogname, cchfkcatalogname, szfkschemaname, cchfkschemaname, szfktablename, cchfktablename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)szpkcatalogname;
@@ -1718,6 +2144,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLForeignKeys_napi(co
     (void)cchfkschemaname;
     (void)szfktablename;
     (void)cchfktablename;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1745,7 +2172,13 @@ static Napi::Value windowssys_windows_win32_system_search_sQLForeignKeysA_napi(c
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLForeignKeysA")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hstmt, szpkcatalogname, cbpkcatalogname, szpkschemaname, cbpkschemaname, szpktablename, cbpktablename, szfkcatalogname, cbfkcatalogname, szfkschemaname, cbfkschemaname, szfktablename, cbfktablename) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hstmt, szpkcatalogname, cbpkcatalogname, szpkschemaname, cbpkschemaname, szpktablename, cbpktablename, szfkcatalogname, cbfkcatalogname, szfkschemaname, cbfkschemaname, szfktablename, cbfktablename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)szpkcatalogname;
@@ -1760,6 +2193,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLForeignKeysA_napi(c
     (void)cbfkschemaname;
     (void)szfktablename;
     (void)cbfktablename;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1787,7 +2221,13 @@ static Napi::Value windowssys_windows_win32_system_search_sQLForeignKeysW_napi(c
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLForeignKeysW")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hstmt, szpkcatalogname, cchpkcatalogname, szpkschemaname, cchpkschemaname, szpktablename, cchpktablename, szfkcatalogname, cchfkcatalogname, szfkschemaname, cchfkschemaname, szfktablename, cchfktablename) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hstmt, szpkcatalogname, cchpkcatalogname, szpkschemaname, cchpkschemaname, szpktablename, cchpktablename, szfkcatalogname, cchfkcatalogname, szfkschemaname, cchfkschemaname, szfktablename, cchfktablename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)szpkcatalogname;
@@ -1802,6 +2242,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLForeignKeysW_napi(c
     (void)cchfkschemaname;
     (void)szfktablename;
     (void)cchfktablename;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1817,9 +2258,16 @@ static Napi::Value windowssys_windows_win32_system_search_sQLFreeConnect_napi(co
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLFreeConnect")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(connectionhandle) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(connectionhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)connectionhandle;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1835,9 +2283,16 @@ static Napi::Value windowssys_windows_win32_system_search_sQLFreeEnv_napi(const 
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLFreeEnv")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(environmenthandle) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(environmenthandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)environmenthandle;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1854,10 +2309,17 @@ static Napi::Value windowssys_windows_win32_system_search_sQLFreeHandle_napi(con
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLFreeHandle")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(handletype, handle) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(handletype, handle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)handletype;
     (void)handle;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1874,10 +2336,17 @@ static Napi::Value windowssys_windows_win32_system_search_sQLFreeStmt_napi(const
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLFreeStmt")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(statementhandle, option) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(statementhandle, option);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)statementhandle;
     (void)option;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1897,13 +2366,20 @@ static Napi::Value windowssys_windows_win32_system_search_sQLGetConnectAttr_napi
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLGetConnectAttr")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(connectionhandle, attribute, value, bufferlength, stringlengthptr) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(connectionhandle, attribute, value, bufferlength, stringlengthptr);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)connectionhandle;
     (void)attribute;
     (void)value;
     (void)bufferlength;
     (void)stringlengthptr;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1923,13 +2399,20 @@ static Napi::Value windowssys_windows_win32_system_search_sQLGetConnectAttrA_nap
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLGetConnectAttrA")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdbc, fattribute, rgbvalue, cbvaluemax, pcbvalue) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdbc, fattribute, rgbvalue, cbvaluemax, pcbvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdbc;
     (void)fattribute;
     (void)rgbvalue;
     (void)cbvaluemax;
     (void)pcbvalue;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1949,13 +2432,20 @@ static Napi::Value windowssys_windows_win32_system_search_sQLGetConnectAttrW_nap
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLGetConnectAttrW")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdbc, fattribute, rgbvalue, cbvaluemax, pcbvalue) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdbc, fattribute, rgbvalue, cbvaluemax, pcbvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdbc;
     (void)fattribute;
     (void)rgbvalue;
     (void)cbvaluemax;
     (void)pcbvalue;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1973,11 +2463,18 @@ static Napi::Value windowssys_windows_win32_system_search_sQLGetConnectOption_na
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLGetConnectOption")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(connectionhandle, option, value) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(connectionhandle, option, value);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)connectionhandle;
     (void)option;
     (void)value;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1995,11 +2492,18 @@ static Napi::Value windowssys_windows_win32_system_search_sQLGetConnectOptionA_n
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLGetConnectOptionA")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdbc, foption, pvparam) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdbc, foption, pvparam);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdbc;
     (void)foption;
     (void)pvparam;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2017,11 +2521,18 @@ static Napi::Value windowssys_windows_win32_system_search_sQLGetConnectOptionW_n
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLGetConnectOptionW")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdbc, foption, pvparam) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdbc, foption, pvparam);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdbc;
     (void)foption;
     (void)pvparam;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2040,12 +2551,19 @@ static Napi::Value windowssys_windows_win32_system_search_sQLGetCursorName_napi(
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLGetCursorName")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(statementhandle, cursorname, bufferlength, namelengthptr) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(statementhandle, cursorname, bufferlength, namelengthptr);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)statementhandle;
     (void)cursorname;
     (void)bufferlength;
     (void)namelengthptr;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2064,12 +2582,19 @@ static Napi::Value windowssys_windows_win32_system_search_sQLGetCursorNameA_napi
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLGetCursorNameA")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hstmt, szcursor, cbcursormax, pcbcursor) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hstmt, szcursor, cbcursormax, pcbcursor);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)szcursor;
     (void)cbcursormax;
     (void)pcbcursor;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2088,12 +2613,19 @@ static Napi::Value windowssys_windows_win32_system_search_sQLGetCursorNameW_napi
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLGetCursorNameW")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hstmt, szcursor, cchcursormax, pcchcursor) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hstmt, szcursor, cchcursormax, pcchcursor);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)szcursor;
     (void)cchcursormax;
     (void)pcchcursor;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2114,7 +2646,13 @@ static Napi::Value windowssys_windows_win32_system_search_sQLGetData_napi(const 
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLGetData")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(statementhandle, columnnumber, targettype, targetvalue, bufferlength, strlen_or_indptr) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(statementhandle, columnnumber, targettype, targetvalue, bufferlength, strlen_or_indptr);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)statementhandle;
     (void)columnnumber;
@@ -2122,6 +2660,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLGetData_napi(const 
     (void)targetvalue;
     (void)bufferlength;
     (void)strlen_or_indptr;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2142,7 +2681,13 @@ static Napi::Value windowssys_windows_win32_system_search_sQLGetDescField_napi(c
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLGetDescField")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(descriptorhandle, recnumber, fieldidentifier, value, bufferlength, stringlength) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(descriptorhandle, recnumber, fieldidentifier, value, bufferlength, stringlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)descriptorhandle;
     (void)recnumber;
@@ -2150,6 +2695,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLGetDescField_napi(c
     (void)value;
     (void)bufferlength;
     (void)stringlength;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2170,7 +2716,13 @@ static Napi::Value windowssys_windows_win32_system_search_sQLGetDescFieldA_napi(
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLGetDescFieldA")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdesc, irecord, ifield, rgbvalue, cbbufferlength, stringlength) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdesc, irecord, ifield, rgbvalue, cbbufferlength, stringlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdesc;
     (void)irecord;
@@ -2178,6 +2730,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLGetDescFieldA_napi(
     (void)rgbvalue;
     (void)cbbufferlength;
     (void)stringlength;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2198,7 +2751,13 @@ static Napi::Value windowssys_windows_win32_system_search_sQLGetDescFieldW_napi(
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLGetDescFieldW")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdesc, irecord, ifield, rgbvalue, cbbufferlength, stringlength) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdesc, irecord, ifield, rgbvalue, cbbufferlength, stringlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdesc;
     (void)irecord;
@@ -2206,6 +2765,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLGetDescFieldW_napi(
     (void)rgbvalue;
     (void)cbbufferlength;
     (void)stringlength;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2231,7 +2791,13 @@ static Napi::Value windowssys_windows_win32_system_search_sQLGetDescRec_napi(con
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLGetDescRec")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(descriptorhandle, recnumber, name, bufferlength, stringlengthptr, typeptr, subtypeptr, lengthptr, precisionptr, scaleptr, nullableptr) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(descriptorhandle, recnumber, name, bufferlength, stringlengthptr, typeptr, subtypeptr, lengthptr, precisionptr, scaleptr, nullableptr);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)descriptorhandle;
     (void)recnumber;
@@ -2244,6 +2810,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLGetDescRec_napi(con
     (void)precisionptr;
     (void)scaleptr;
     (void)nullableptr;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2269,7 +2836,13 @@ static Napi::Value windowssys_windows_win32_system_search_sQLGetDescRecA_napi(co
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLGetDescRecA")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdesc, irecord, szname, cbnamemax, pcbname, pftype, pfsubtype, plength, pprecision, pscale, pnullable) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdesc, irecord, szname, cbnamemax, pcbname, pftype, pfsubtype, plength, pprecision, pscale, pnullable);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdesc;
     (void)irecord;
@@ -2282,6 +2855,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLGetDescRecA_napi(co
     (void)pprecision;
     (void)pscale;
     (void)pnullable;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2307,7 +2881,13 @@ static Napi::Value windowssys_windows_win32_system_search_sQLGetDescRecW_napi(co
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLGetDescRecW")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdesc, irecord, szname, cchnamemax, pcchname, pftype, pfsubtype, plength, pprecision, pscale, pnullable) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdesc, irecord, szname, cchnamemax, pcchname, pftype, pfsubtype, plength, pprecision, pscale, pnullable);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdesc;
     (void)irecord;
@@ -2320,6 +2900,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLGetDescRecW_napi(co
     (void)pprecision;
     (void)pscale;
     (void)pnullable;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2341,7 +2922,13 @@ static Napi::Value windowssys_windows_win32_system_search_sQLGetDiagField_napi(c
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLGetDiagField")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(handletype, handle, recnumber, diagidentifier, diaginfo, bufferlength, stringlength) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(handletype, handle, recnumber, diagidentifier, diaginfo, bufferlength, stringlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)handletype;
     (void)handle;
@@ -2350,6 +2937,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLGetDiagField_napi(c
     (void)diaginfo;
     (void)bufferlength;
     (void)stringlength;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2371,7 +2959,13 @@ static Napi::Value windowssys_windows_win32_system_search_sQLGetDiagFieldA_napi(
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLGetDiagFieldA")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(fhandletype, handle, irecord, fdiagfield, rgbdiaginfo, cbdiaginfomax, pcbdiaginfo) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(fhandletype, handle, irecord, fdiagfield, rgbdiaginfo, cbdiaginfomax, pcbdiaginfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)fhandletype;
     (void)handle;
@@ -2380,6 +2974,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLGetDiagFieldA_napi(
     (void)rgbdiaginfo;
     (void)cbdiaginfomax;
     (void)pcbdiaginfo;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2401,7 +2996,13 @@ static Napi::Value windowssys_windows_win32_system_search_sQLGetDiagFieldW_napi(
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLGetDiagFieldW")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(fhandletype, handle, irecord, fdiagfield, rgbdiaginfo, cbbufferlength, pcbstringlength) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(fhandletype, handle, irecord, fdiagfield, rgbdiaginfo, cbbufferlength, pcbstringlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)fhandletype;
     (void)handle;
@@ -2410,6 +3011,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLGetDiagFieldW_napi(
     (void)rgbdiaginfo;
     (void)cbbufferlength;
     (void)pcbstringlength;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2432,7 +3034,13 @@ static Napi::Value windowssys_windows_win32_system_search_sQLGetDiagRec_napi(con
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLGetDiagRec")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(handletype, handle, recnumber, sqlstate, nativeerror, messagetext, bufferlength, textlength) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(handletype, handle, recnumber, sqlstate, nativeerror, messagetext, bufferlength, textlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)handletype;
     (void)handle;
@@ -2442,6 +3050,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLGetDiagRec_napi(con
     (void)messagetext;
     (void)bufferlength;
     (void)textlength;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2464,7 +3073,13 @@ static Napi::Value windowssys_windows_win32_system_search_sQLGetDiagRecA_napi(co
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLGetDiagRecA")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(fhandletype, handle, irecord, szsqlstate, pfnativeerror, szerrormsg, cberrormsgmax, pcberrormsg) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(fhandletype, handle, irecord, szsqlstate, pfnativeerror, szerrormsg, cberrormsgmax, pcberrormsg);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)fhandletype;
     (void)handle;
@@ -2474,6 +3089,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLGetDiagRecA_napi(co
     (void)szerrormsg;
     (void)cberrormsgmax;
     (void)pcberrormsg;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2496,7 +3112,13 @@ static Napi::Value windowssys_windows_win32_system_search_sQLGetDiagRecW_napi(co
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLGetDiagRecW")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(fhandletype, handle, irecord, szsqlstate, pfnativeerror, szerrormsg, ccherrormsgmax, pccherrormsg) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(fhandletype, handle, irecord, szsqlstate, pfnativeerror, szerrormsg, ccherrormsgmax, pccherrormsg);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)fhandletype;
     (void)handle;
@@ -2506,6 +3128,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLGetDiagRecW_napi(co
     (void)szerrormsg;
     (void)ccherrormsgmax;
     (void)pccherrormsg;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2525,13 +3148,20 @@ static Napi::Value windowssys_windows_win32_system_search_sQLGetEnvAttr_napi(con
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLGetEnvAttr")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(environmenthandle, attribute, value, bufferlength, stringlength) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(environmenthandle, attribute, value, bufferlength, stringlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)environmenthandle;
     (void)attribute;
     (void)value;
     (void)bufferlength;
     (void)stringlength;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2549,11 +3179,18 @@ static Napi::Value windowssys_windows_win32_system_search_sQLGetFunctions_napi(c
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLGetFunctions")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(connectionhandle, functionid, supported) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(connectionhandle, functionid, supported);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)connectionhandle;
     (void)functionid;
     (void)supported;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2573,13 +3210,20 @@ static Napi::Value windowssys_windows_win32_system_search_sQLGetInfo_napi(const 
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLGetInfo")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(connectionhandle, infotype, infovalue, bufferlength, stringlengthptr) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(connectionhandle, infotype, infovalue, bufferlength, stringlengthptr);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)connectionhandle;
     (void)infotype;
     (void)infovalue;
     (void)bufferlength;
     (void)stringlengthptr;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2599,13 +3243,20 @@ static Napi::Value windowssys_windows_win32_system_search_sQLGetInfoA_napi(const
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLGetInfoA")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdbc, finfotype, rgbinfovalue, cbinfovaluemax, pcbinfovalue) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdbc, finfotype, rgbinfovalue, cbinfovaluemax, pcbinfovalue);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdbc;
     (void)finfotype;
     (void)rgbinfovalue;
     (void)cbinfovaluemax;
     (void)pcbinfovalue;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2625,13 +3276,20 @@ static Napi::Value windowssys_windows_win32_system_search_sQLGetInfoW_napi(const
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLGetInfoW")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdbc, finfotype, rgbinfovalue, cbinfovaluemax, pcbinfovalue) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdbc, finfotype, rgbinfovalue, cbinfovaluemax, pcbinfovalue);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdbc;
     (void)finfotype;
     (void)rgbinfovalue;
     (void)cbinfovaluemax;
     (void)pcbinfovalue;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2649,11 +3307,18 @@ static Napi::Value windowssys_windows_win32_system_search_sQLGetNextEnumeration_
         HMODULE km_h_mod = LoadLibraryA("odbcbcp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLGetNextEnumeration")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(henumhandle, prgenumdata, pienumlength) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(henumhandle, prgenumdata, pienumlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)henumhandle;
     (void)prgenumdata;
     (void)pienumlength;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2673,13 +3338,20 @@ static Napi::Value windowssys_windows_win32_system_search_sQLGetStmtAttr_napi(co
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLGetStmtAttr")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(statementhandle, attribute, value, bufferlength, stringlength) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(statementhandle, attribute, value, bufferlength, stringlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)statementhandle;
     (void)attribute;
     (void)value;
     (void)bufferlength;
     (void)stringlength;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2699,13 +3371,20 @@ static Napi::Value windowssys_windows_win32_system_search_sQLGetStmtAttrA_napi(c
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLGetStmtAttrA")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hstmt, fattribute, rgbvalue, cbvaluemax, pcbvalue) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hstmt, fattribute, rgbvalue, cbvaluemax, pcbvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)fattribute;
     (void)rgbvalue;
     (void)cbvaluemax;
     (void)pcbvalue;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2725,13 +3404,20 @@ static Napi::Value windowssys_windows_win32_system_search_sQLGetStmtAttrW_napi(c
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLGetStmtAttrW")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hstmt, fattribute, rgbvalue, cbvaluemax, pcbvalue) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hstmt, fattribute, rgbvalue, cbvaluemax, pcbvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)fattribute;
     (void)rgbvalue;
     (void)cbvaluemax;
     (void)pcbvalue;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2749,11 +3435,18 @@ static Napi::Value windowssys_windows_win32_system_search_sQLGetStmtOption_napi(
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLGetStmtOption")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(statementhandle, option, value) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(statementhandle, option, value);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)statementhandle;
     (void)option;
     (void)value;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2770,10 +3463,17 @@ static Napi::Value windowssys_windows_win32_system_search_sQLGetTypeInfo_napi(co
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLGetTypeInfo")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(statementhandle, datatype) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(statementhandle, datatype);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)statementhandle;
     (void)datatype;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2790,10 +3490,17 @@ static Napi::Value windowssys_windows_win32_system_search_sQLGetTypeInfoA_napi(c
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLGetTypeInfoA")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(statementhandle, datatype) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(statementhandle, datatype);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)statementhandle;
     (void)datatype;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2810,10 +3517,17 @@ static Napi::Value windowssys_windows_win32_system_search_sQLGetTypeInfoW_napi(c
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLGetTypeInfoW")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(statementhandle, datatype) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(statementhandle, datatype);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)statementhandle;
     (void)datatype;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2830,11 +3544,18 @@ static Napi::Value windowssys_windows_win32_system_search_sQLInitEnumServers_nap
         HMODULE km_h_mod = LoadLibraryA("odbcbcp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLInitEnumServers")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pwchservername, pwchinstancename) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pwchservername, pwchinstancename);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pwchservername;
     (void)pwchinstancename;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -2851,11 +3572,18 @@ static Napi::Value windowssys_windows_win32_system_search_sQLLinkedCatalogsA_nap
         HMODULE km_h_mod = LoadLibraryA("odbcbcp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLLinkedCatalogsA")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2873,11 +3601,18 @@ static Napi::Value windowssys_windows_win32_system_search_sQLLinkedCatalogsW_nap
         HMODULE km_h_mod = LoadLibraryA("odbcbcp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLLinkedCatalogsW")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2893,9 +3628,16 @@ static Napi::Value windowssys_windows_win32_system_search_sQLLinkedServers_napi(
         HMODULE km_h_mod = LoadLibraryA("odbcbcp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLLinkedServers")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)param0;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2911,9 +3653,16 @@ static Napi::Value windowssys_windows_win32_system_search_sQLMoreResults_napi(co
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLMoreResults")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hstmt) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hstmt);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2934,7 +3683,13 @@ static Napi::Value windowssys_windows_win32_system_search_sQLNativeSql_napi(cons
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLNativeSql")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdbc, szsqlstrin, cchsqlstrin, szsqlstr, cchsqlstrmax, pcbsqlstr) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdbc, szsqlstrin, cchsqlstrin, szsqlstr, cchsqlstrmax, pcbsqlstr);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdbc;
     (void)szsqlstrin;
@@ -2942,6 +3697,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLNativeSql_napi(cons
     (void)szsqlstr;
     (void)cchsqlstrmax;
     (void)pcbsqlstr;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2962,7 +3718,13 @@ static Napi::Value windowssys_windows_win32_system_search_sQLNativeSqlA_napi(con
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLNativeSqlA")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdbc, szsqlstrin, cbsqlstrin, szsqlstr, cbsqlstrmax, pcbsqlstr) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdbc, szsqlstrin, cbsqlstrin, szsqlstr, cbsqlstrmax, pcbsqlstr);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdbc;
     (void)szsqlstrin;
@@ -2970,6 +3732,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLNativeSqlA_napi(con
     (void)szsqlstr;
     (void)cbsqlstrmax;
     (void)pcbsqlstr;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2990,7 +3753,13 @@ static Napi::Value windowssys_windows_win32_system_search_sQLNativeSqlW_napi(con
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLNativeSqlW")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdbc, szsqlstrin, cchsqlstrin, szsqlstr, cchsqlstrmax, pcchsqlstr) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdbc, szsqlstrin, cchsqlstrin, szsqlstr, cchsqlstrmax, pcchsqlstr);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdbc;
     (void)szsqlstrin;
@@ -2998,6 +3767,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLNativeSqlW_napi(con
     (void)szsqlstr;
     (void)cchsqlstrmax;
     (void)pcchsqlstr;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3014,10 +3784,17 @@ static Napi::Value windowssys_windows_win32_system_search_sQLNumParams_napi(cons
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLNumParams")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hstmt, pcpar) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hstmt, pcpar);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)pcpar;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3034,10 +3811,17 @@ static Napi::Value windowssys_windows_win32_system_search_sQLNumResultCols_napi(
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLNumResultCols")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(statementhandle, columncount) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(statementhandle, columncount);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)statementhandle;
     (void)columncount;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3054,10 +3838,17 @@ static Napi::Value windowssys_windows_win32_system_search_sQLParamData_napi(cons
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLParamData")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(statementhandle, value) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(statementhandle, value);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)statementhandle;
     (void)value;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3075,11 +3866,18 @@ static Napi::Value windowssys_windows_win32_system_search_sQLParamOptions_napi(c
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLParamOptions")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hstmt, crow, pirow) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hstmt, crow, pirow);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)crow;
     (void)pirow;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3097,11 +3895,18 @@ static Napi::Value windowssys_windows_win32_system_search_sQLPrepare_napi(const 
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLPrepare")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(statementhandle, statementtext, textlength) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(statementhandle, statementtext, textlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)statementhandle;
     (void)statementtext;
     (void)textlength;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3119,11 +3924,18 @@ static Napi::Value windowssys_windows_win32_system_search_sQLPrepareA_napi(const
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLPrepareA")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hstmt, szsqlstr, cbsqlstr) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hstmt, szsqlstr, cbsqlstr);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)szsqlstr;
     (void)cbsqlstr;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3141,11 +3953,18 @@ static Napi::Value windowssys_windows_win32_system_search_sQLPrepareW_napi(const
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLPrepareW")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hstmt, szsqlstr, cchsqlstr) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hstmt, szsqlstr, cchsqlstr);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)szsqlstr;
     (void)cchsqlstr;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3167,7 +3986,13 @@ static Napi::Value windowssys_windows_win32_system_search_sQLPrimaryKeys_napi(co
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLPrimaryKeys")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hstmt, szcatalogname, cchcatalogname, szschemaname, cchschemaname, sztablename, cchtablename) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hstmt, szcatalogname, cchcatalogname, szschemaname, cchschemaname, sztablename, cchtablename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)szcatalogname;
@@ -3176,6 +4001,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLPrimaryKeys_napi(co
     (void)cchschemaname;
     (void)sztablename;
     (void)cchtablename;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3197,7 +4023,13 @@ static Napi::Value windowssys_windows_win32_system_search_sQLPrimaryKeysA_napi(c
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLPrimaryKeysA")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hstmt, szcatalogname, cbcatalogname, szschemaname, cbschemaname, sztablename, cbtablename) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hstmt, szcatalogname, cbcatalogname, szschemaname, cbschemaname, sztablename, cbtablename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)szcatalogname;
@@ -3206,6 +4038,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLPrimaryKeysA_napi(c
     (void)cbschemaname;
     (void)sztablename;
     (void)cbtablename;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3227,7 +4060,13 @@ static Napi::Value windowssys_windows_win32_system_search_sQLPrimaryKeysW_napi(c
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLPrimaryKeysW")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hstmt, szcatalogname, cchcatalogname, szschemaname, cchschemaname, sztablename, cchtablename) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hstmt, szcatalogname, cchcatalogname, szschemaname, cchschemaname, sztablename, cchtablename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)szcatalogname;
@@ -3236,6 +4075,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLPrimaryKeysW_napi(c
     (void)cchschemaname;
     (void)sztablename;
     (void)cchtablename;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3259,7 +4099,13 @@ static Napi::Value windowssys_windows_win32_system_search_sQLProcedureColumns_na
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLProcedureColumns")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hstmt, szcatalogname, cchcatalogname, szschemaname, cchschemaname, szprocname, cchprocname, szcolumnname, cchcolumnname) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hstmt, szcatalogname, cchcatalogname, szschemaname, cchschemaname, szprocname, cchprocname, szcolumnname, cchcolumnname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)szcatalogname;
@@ -3270,6 +4116,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLProcedureColumns_na
     (void)cchprocname;
     (void)szcolumnname;
     (void)cchcolumnname;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3293,7 +4140,13 @@ static Napi::Value windowssys_windows_win32_system_search_sQLProcedureColumnsA_n
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLProcedureColumnsA")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hstmt, szcatalogname, cbcatalogname, szschemaname, cbschemaname, szprocname, cbprocname, szcolumnname, cbcolumnname) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hstmt, szcatalogname, cbcatalogname, szschemaname, cbschemaname, szprocname, cbprocname, szcolumnname, cbcolumnname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)szcatalogname;
@@ -3304,6 +4157,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLProcedureColumnsA_n
     (void)cbprocname;
     (void)szcolumnname;
     (void)cbcolumnname;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3327,7 +4181,13 @@ static Napi::Value windowssys_windows_win32_system_search_sQLProcedureColumnsW_n
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLProcedureColumnsW")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hstmt, szcatalogname, cchcatalogname, szschemaname, cchschemaname, szprocname, cchprocname, szcolumnname, cchcolumnname) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hstmt, szcatalogname, cchcatalogname, szschemaname, cchschemaname, szprocname, cchprocname, szcolumnname, cchcolumnname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)szcatalogname;
@@ -3338,6 +4198,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLProcedureColumnsW_n
     (void)cchprocname;
     (void)szcolumnname;
     (void)cchcolumnname;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3359,7 +4220,13 @@ static Napi::Value windowssys_windows_win32_system_search_sQLProcedures_napi(con
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLProcedures")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hstmt, szcatalogname, cchcatalogname, szschemaname, cchschemaname, szprocname, cchprocname) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hstmt, szcatalogname, cchcatalogname, szschemaname, cchschemaname, szprocname, cchprocname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)szcatalogname;
@@ -3368,6 +4235,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLProcedures_napi(con
     (void)cchschemaname;
     (void)szprocname;
     (void)cchprocname;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3389,7 +4257,13 @@ static Napi::Value windowssys_windows_win32_system_search_sQLProceduresA_napi(co
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLProceduresA")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hstmt, szcatalogname, cbcatalogname, szschemaname, cbschemaname, szprocname, cbprocname) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hstmt, szcatalogname, cbcatalogname, szschemaname, cbschemaname, szprocname, cbprocname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)szcatalogname;
@@ -3398,6 +4272,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLProceduresA_napi(co
     (void)cbschemaname;
     (void)szprocname;
     (void)cbprocname;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3419,7 +4294,13 @@ static Napi::Value windowssys_windows_win32_system_search_sQLProceduresW_napi(co
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLProceduresW")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hstmt, szcatalogname, cchcatalogname, szschemaname, cchschemaname, szprocname, cchprocname) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hstmt, szcatalogname, cchcatalogname, szschemaname, cchschemaname, szprocname, cchprocname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)szcatalogname;
@@ -3428,6 +4309,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLProceduresW_napi(co
     (void)cchschemaname;
     (void)szprocname;
     (void)cchprocname;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3445,11 +4327,18 @@ static Napi::Value windowssys_windows_win32_system_search_sQLPutData_napi(const 
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLPutData")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(statementhandle, data, strlen_or_ind) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(statementhandle, data, strlen_or_ind);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)statementhandle;
     (void)data;
     (void)strlen_or_ind;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3466,10 +4355,17 @@ static Napi::Value windowssys_windows_win32_system_search_sQLRowCount_napi(const
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLRowCount")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(statementhandle, rowcount) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(statementhandle, rowcount);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)statementhandle;
     (void)rowcount;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3488,12 +4384,19 @@ static Napi::Value windowssys_windows_win32_system_search_sQLSetConnectAttr_napi
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLSetConnectAttr")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(connectionhandle, attribute, value, stringlength) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(connectionhandle, attribute, value, stringlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)connectionhandle;
     (void)attribute;
     (void)value;
     (void)stringlength;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3512,12 +4415,19 @@ static Napi::Value windowssys_windows_win32_system_search_sQLSetConnectAttrA_nap
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLSetConnectAttrA")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdbc, fattribute, rgbvalue, cbvalue) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdbc, fattribute, rgbvalue, cbvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdbc;
     (void)fattribute;
     (void)rgbvalue;
     (void)cbvalue;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3536,12 +4446,19 @@ static Napi::Value windowssys_windows_win32_system_search_sQLSetConnectAttrW_nap
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLSetConnectAttrW")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdbc, fattribute, rgbvalue, cbvalue) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdbc, fattribute, rgbvalue, cbvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdbc;
     (void)fattribute;
     (void)rgbvalue;
     (void)cbvalue;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3559,11 +4476,18 @@ static Napi::Value windowssys_windows_win32_system_search_sQLSetConnectOption_na
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLSetConnectOption")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(connectionhandle, option, value) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(connectionhandle, option, value);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)connectionhandle;
     (void)option;
     (void)value;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3581,11 +4505,18 @@ static Napi::Value windowssys_windows_win32_system_search_sQLSetConnectOptionA_n
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLSetConnectOptionA")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdbc, foption, vparam) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdbc, foption, vparam);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdbc;
     (void)foption;
     (void)vparam;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3603,11 +4534,18 @@ static Napi::Value windowssys_windows_win32_system_search_sQLSetConnectOptionW_n
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLSetConnectOptionW")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdbc, foption, vparam) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdbc, foption, vparam);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdbc;
     (void)foption;
     (void)vparam;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3625,11 +4563,18 @@ static Napi::Value windowssys_windows_win32_system_search_sQLSetCursorName_napi(
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLSetCursorName")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(statementhandle, cursorname, namelength) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(statementhandle, cursorname, namelength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)statementhandle;
     (void)cursorname;
     (void)namelength;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3647,11 +4592,18 @@ static Napi::Value windowssys_windows_win32_system_search_sQLSetCursorNameA_napi
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLSetCursorNameA")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hstmt, szcursor, cbcursor) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hstmt, szcursor, cbcursor);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)szcursor;
     (void)cbcursor;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3669,11 +4621,18 @@ static Napi::Value windowssys_windows_win32_system_search_sQLSetCursorNameW_napi
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLSetCursorNameW")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hstmt, szcursor, cchcursor) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hstmt, szcursor, cchcursor);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)szcursor;
     (void)cchcursor;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3693,13 +4652,20 @@ static Napi::Value windowssys_windows_win32_system_search_sQLSetDescField_napi(c
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLSetDescField")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(descriptorhandle, recnumber, fieldidentifier, value, bufferlength) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(descriptorhandle, recnumber, fieldidentifier, value, bufferlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)descriptorhandle;
     (void)recnumber;
     (void)fieldidentifier;
     (void)value;
     (void)bufferlength;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3719,13 +4685,20 @@ static Napi::Value windowssys_windows_win32_system_search_sQLSetDescFieldW_napi(
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLSetDescFieldW")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(descriptorhandle, recnumber, fieldidentifier, value, bufferlength) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(descriptorhandle, recnumber, fieldidentifier, value, bufferlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)descriptorhandle;
     (void)recnumber;
     (void)fieldidentifier;
     (void)value;
     (void)bufferlength;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3750,7 +4723,13 @@ static Napi::Value windowssys_windows_win32_system_search_sQLSetDescRec_napi(con
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLSetDescRec")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(descriptorhandle, recnumber, type, subtype, length, precision, scale, data, stringlength, indicator) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(descriptorhandle, recnumber, type, subtype, length, precision, scale, data, stringlength, indicator);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)descriptorhandle;
     (void)recnumber;
@@ -3762,6 +4741,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLSetDescRec_napi(con
     (void)data;
     (void)stringlength;
     (void)indicator;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3780,12 +4760,19 @@ static Napi::Value windowssys_windows_win32_system_search_sQLSetEnvAttr_napi(con
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLSetEnvAttr")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(environmenthandle, attribute, value, stringlength) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(environmenthandle, attribute, value, stringlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)environmenthandle;
     (void)attribute;
     (void)value;
     (void)stringlength;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3808,7 +4795,13 @@ static Napi::Value windowssys_windows_win32_system_search_sQLSetParam_napi(const
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLSetParam")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(statementhandle, parameternumber, valuetype, parametertype, lengthprecision, parameterscale, parametervalue, strlen_or_ind) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(statementhandle, parameternumber, valuetype, parametertype, lengthprecision, parameterscale, parametervalue, strlen_or_ind);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)statementhandle;
     (void)parameternumber;
@@ -3818,6 +4811,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLSetParam_napi(const
     (void)parameterscale;
     (void)parametervalue;
     (void)strlen_or_ind;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3836,12 +4830,19 @@ static Napi::Value windowssys_windows_win32_system_search_sQLSetPos_napi(const N
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLSetPos")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hstmt, irow, foption, flock) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hstmt, irow, foption, flock);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)irow;
     (void)foption;
     (void)flock;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3860,12 +4861,19 @@ static Napi::Value windowssys_windows_win32_system_search_sQLSetScrollOptions_na
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLSetScrollOptions")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hstmt, fconcurrency, crowkeyset, crowrowset) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hstmt, fconcurrency, crowkeyset, crowrowset);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)fconcurrency;
     (void)crowkeyset;
     (void)crowrowset;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3884,12 +4892,19 @@ static Napi::Value windowssys_windows_win32_system_search_sQLSetStmtAttr_napi(co
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLSetStmtAttr")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(statementhandle, attribute, value, stringlength) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(statementhandle, attribute, value, stringlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)statementhandle;
     (void)attribute;
     (void)value;
     (void)stringlength;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3908,12 +4923,19 @@ static Napi::Value windowssys_windows_win32_system_search_sQLSetStmtAttrW_napi(c
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLSetStmtAttrW")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hstmt, fattribute, rgbvalue, cbvaluemax) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hstmt, fattribute, rgbvalue, cbvaluemax);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)fattribute;
     (void)rgbvalue;
     (void)cbvaluemax;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3931,11 +4953,18 @@ static Napi::Value windowssys_windows_win32_system_search_sQLSetStmtOption_napi(
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLSetStmtOption")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(statementhandle, option, value) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(statementhandle, option, value);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)statementhandle;
     (void)option;
     (void)value;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3960,7 +4989,13 @@ static Napi::Value windowssys_windows_win32_system_search_sQLSpecialColumns_napi
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLSpecialColumns")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(statementhandle, identifiertype, catalogname, namelength1, schemaname, namelength2, tablename, namelength3, scope, nullable) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(statementhandle, identifiertype, catalogname, namelength1, schemaname, namelength2, tablename, namelength3, scope, nullable);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)statementhandle;
     (void)identifiertype;
@@ -3972,6 +5007,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLSpecialColumns_napi
     (void)namelength3;
     (void)scope;
     (void)nullable;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3996,7 +5032,13 @@ static Napi::Value windowssys_windows_win32_system_search_sQLSpecialColumnsA_nap
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLSpecialColumnsA")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hstmt, fcoltype, szcatalogname, cbcatalogname, szschemaname, cbschemaname, sztablename, cbtablename, fscope, fnullable) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hstmt, fcoltype, szcatalogname, cbcatalogname, szschemaname, cbschemaname, sztablename, cbtablename, fscope, fnullable);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)fcoltype;
@@ -4008,6 +5050,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLSpecialColumnsA_nap
     (void)cbtablename;
     (void)fscope;
     (void)fnullable;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4032,7 +5075,13 @@ static Napi::Value windowssys_windows_win32_system_search_sQLSpecialColumnsW_nap
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLSpecialColumnsW")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hstmt, fcoltype, szcatalogname, cchcatalogname, szschemaname, cchschemaname, sztablename, cchtablename, fscope, fnullable) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hstmt, fcoltype, szcatalogname, cchcatalogname, szschemaname, cchschemaname, sztablename, cchtablename, fscope, fnullable);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)fcoltype;
@@ -4044,6 +5093,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLSpecialColumnsW_nap
     (void)cchtablename;
     (void)fscope;
     (void)fnullable;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4067,7 +5117,13 @@ static Napi::Value windowssys_windows_win32_system_search_sQLStatistics_napi(con
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLStatistics")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(statementhandle, catalogname, namelength1, schemaname, namelength2, tablename, namelength3, unique, reserved) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(statementhandle, catalogname, namelength1, schemaname, namelength2, tablename, namelength3, unique, reserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)statementhandle;
     (void)catalogname;
@@ -4078,6 +5134,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLStatistics_napi(con
     (void)namelength3;
     (void)unique;
     (void)reserved;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4101,7 +5158,13 @@ static Napi::Value windowssys_windows_win32_system_search_sQLStatisticsA_napi(co
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLStatisticsA")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hstmt, szcatalogname, cbcatalogname, szschemaname, cbschemaname, sztablename, cbtablename, funique, faccuracy) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hstmt, szcatalogname, cbcatalogname, szschemaname, cbschemaname, sztablename, cbtablename, funique, faccuracy);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)szcatalogname;
@@ -4112,6 +5175,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLStatisticsA_napi(co
     (void)cbtablename;
     (void)funique;
     (void)faccuracy;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4135,7 +5199,13 @@ static Napi::Value windowssys_windows_win32_system_search_sQLStatisticsW_napi(co
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLStatisticsW")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hstmt, szcatalogname, cchcatalogname, szschemaname, cchschemaname, sztablename, cchtablename, funique, faccuracy) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hstmt, szcatalogname, cchcatalogname, szschemaname, cchschemaname, sztablename, cchtablename, funique, faccuracy);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)szcatalogname;
@@ -4146,6 +5216,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLStatisticsW_napi(co
     (void)cchtablename;
     (void)funique;
     (void)faccuracy;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4167,7 +5238,13 @@ static Napi::Value windowssys_windows_win32_system_search_sQLTablePrivileges_nap
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLTablePrivileges")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hstmt, szcatalogname, cchcatalogname, szschemaname, cchschemaname, sztablename, cchtablename) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hstmt, szcatalogname, cchcatalogname, szschemaname, cchschemaname, sztablename, cchtablename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)szcatalogname;
@@ -4176,6 +5253,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLTablePrivileges_nap
     (void)cchschemaname;
     (void)sztablename;
     (void)cchtablename;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4197,7 +5275,13 @@ static Napi::Value windowssys_windows_win32_system_search_sQLTablePrivilegesA_na
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLTablePrivilegesA")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hstmt, szcatalogname, cbcatalogname, szschemaname, cbschemaname, sztablename, cbtablename) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hstmt, szcatalogname, cbcatalogname, szschemaname, cbschemaname, sztablename, cbtablename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)szcatalogname;
@@ -4206,6 +5290,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLTablePrivilegesA_na
     (void)cbschemaname;
     (void)sztablename;
     (void)cbtablename;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4227,7 +5312,13 @@ static Napi::Value windowssys_windows_win32_system_search_sQLTablePrivilegesW_na
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLTablePrivilegesW")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hstmt, szcatalogname, cchcatalogname, szschemaname, cchschemaname, sztablename, cchtablename) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hstmt, szcatalogname, cchcatalogname, szschemaname, cchschemaname, sztablename, cchtablename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)szcatalogname;
@@ -4236,6 +5327,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLTablePrivilegesW_na
     (void)cchschemaname;
     (void)sztablename;
     (void)cchtablename;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4259,7 +5351,13 @@ static Napi::Value windowssys_windows_win32_system_search_sQLTables_napi(const N
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLTables")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(statementhandle, catalogname, namelength1, schemaname, namelength2, tablename, namelength3, tabletype, namelength4) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(statementhandle, catalogname, namelength1, schemaname, namelength2, tablename, namelength3, tabletype, namelength4);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)statementhandle;
     (void)catalogname;
@@ -4270,6 +5368,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLTables_napi(const N
     (void)namelength3;
     (void)tabletype;
     (void)namelength4;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4293,7 +5392,13 @@ static Napi::Value windowssys_windows_win32_system_search_sQLTablesA_napi(const 
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLTablesA")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hstmt, szcatalogname, cbcatalogname, szschemaname, cbschemaname, sztablename, cbtablename, sztabletype, cbtabletype) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hstmt, szcatalogname, cbcatalogname, szschemaname, cbschemaname, sztablename, cbtablename, sztabletype, cbtabletype);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)szcatalogname;
@@ -4304,6 +5409,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLTablesA_napi(const 
     (void)cbtablename;
     (void)sztabletype;
     (void)cbtabletype;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4327,7 +5433,13 @@ static Napi::Value windowssys_windows_win32_system_search_sQLTablesW_napi(const 
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLTablesW")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hstmt, szcatalogname, cchcatalogname, szschemaname, cchschemaname, sztablename, cchtablename, sztabletype, cchtabletype) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hstmt, szcatalogname, cchcatalogname, szschemaname, cchschemaname, sztablename, cchtablename, sztabletype, cchtabletype);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)szcatalogname;
@@ -4338,6 +5450,7 @@ static Napi::Value windowssys_windows_win32_system_search_sQLTablesW_napi(const 
     (void)cchtablename;
     (void)sztabletype;
     (void)cchtabletype;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4355,11 +5468,18 @@ static Napi::Value windowssys_windows_win32_system_search_sQLTransact_napi(const
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SQLTransact")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(environmenthandle, connectionhandle, completiontype) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(environmenthandle, connectionhandle, completiontype);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)environmenthandle;
     (void)connectionhandle;
     (void)completiontype;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4375,9 +5495,16 @@ static Napi::Value windowssys_windows_win32_system_search_bcpBatch_napi(const Na
         HMODULE km_h_mod = LoadLibraryA("odbcbcp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "bcp_batch")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)param0;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4400,7 +5527,13 @@ static Napi::Value windowssys_windows_win32_system_search_bcpBind_napi(const Nap
         HMODULE km_h_mod = LoadLibraryA("odbcbcp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "bcp_bind")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2, param3, param4, param5, param6, param7) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2, param3, param4, param5, param6, param7);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)param0;
     (void)param1;
@@ -4410,6 +5543,7 @@ static Napi::Value windowssys_windows_win32_system_search_bcpBind_napi(const Nap
     (void)param5;
     (void)param6;
     (void)param7;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4432,7 +5566,13 @@ static Napi::Value windowssys_windows_win32_system_search_bcpColfmt_napi(const N
         HMODULE km_h_mod = LoadLibraryA("odbcbcp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "bcp_colfmt")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2, param3, param4, param5, param6, param7) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2, param3, param4, param5, param6, param7);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)param0;
     (void)param1;
@@ -4442,6 +5582,7 @@ static Napi::Value windowssys_windows_win32_system_search_bcpColfmt_napi(const N
     (void)param5;
     (void)param6;
     (void)param7;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4459,11 +5600,18 @@ static Napi::Value windowssys_windows_win32_system_search_bcpCollen_napi(const N
         HMODULE km_h_mod = LoadLibraryA("odbcbcp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "bcp_collen")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4481,11 +5629,18 @@ static Napi::Value windowssys_windows_win32_system_search_bcpColptr_napi(const N
         HMODULE km_h_mod = LoadLibraryA("odbcbcp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "bcp_colptr")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4502,10 +5657,17 @@ static Napi::Value windowssys_windows_win32_system_search_bcpColumns_napi(const 
         HMODULE km_h_mod = LoadLibraryA("odbcbcp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "bcp_columns")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)param0;
     (void)param1;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4523,11 +5685,18 @@ static Napi::Value windowssys_windows_win32_system_search_bcpControl_napi(const 
         HMODULE km_h_mod = LoadLibraryA("odbcbcp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "bcp_control")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4543,9 +5712,16 @@ static Napi::Value windowssys_windows_win32_system_search_bcpDone_napi(const Nap
         HMODULE km_h_mod = LoadLibraryA("odbcbcp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "bcp_done")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)param0;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4562,10 +5738,17 @@ static Napi::Value windowssys_windows_win32_system_search_bcpExec_napi(const Nap
         HMODULE km_h_mod = LoadLibraryA("odbcbcp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "bcp_exec")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)param0;
     (void)param1;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4586,7 +5769,13 @@ static Napi::Value windowssys_windows_win32_system_search_bcpGetcolfmt_napi(cons
         HMODULE km_h_mod = LoadLibraryA("odbcbcp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "bcp_getcolfmt")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2, param3, param4, param5) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2, param3, param4, param5);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)param0;
     (void)param1;
@@ -4594,6 +5783,7 @@ static Napi::Value windowssys_windows_win32_system_search_bcpGetcolfmt_napi(cons
     (void)param3;
     (void)param4;
     (void)param5;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4613,13 +5803,20 @@ static Napi::Value windowssys_windows_win32_system_search_bcpInitA_napi(const Na
         HMODULE km_h_mod = LoadLibraryA("odbcbcp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "bcp_initA")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2, param3, param4) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2, param3, param4);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
     (void)param3;
     (void)param4;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4639,13 +5836,20 @@ static Napi::Value windowssys_windows_win32_system_search_bcpInitW_napi(const Na
         HMODULE km_h_mod = LoadLibraryA("odbcbcp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "bcp_initW")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2, param3, param4) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2, param3, param4);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
     (void)param3;
     (void)param4;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4663,11 +5867,18 @@ static Napi::Value windowssys_windows_win32_system_search_bcpMoretext_napi(const
         HMODULE km_h_mod = LoadLibraryA("odbcbcp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "bcp_moretext")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4684,10 +5895,17 @@ static Napi::Value windowssys_windows_win32_system_search_bcpReadfmtA_napi(const
         HMODULE km_h_mod = LoadLibraryA("odbcbcp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "bcp_readfmtA")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)param0;
     (void)param1;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4704,10 +5922,17 @@ static Napi::Value windowssys_windows_win32_system_search_bcpReadfmtW_napi(const
         HMODULE km_h_mod = LoadLibraryA("odbcbcp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "bcp_readfmtW")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)param0;
     (void)param1;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4723,9 +5948,16 @@ static Napi::Value windowssys_windows_win32_system_search_bcpSendrow_napi(const 
         HMODULE km_h_mod = LoadLibraryA("odbcbcp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "bcp_sendrow")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)param0;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4745,13 +5977,20 @@ static Napi::Value windowssys_windows_win32_system_search_bcpSetcolfmt_napi(cons
         HMODULE km_h_mod = LoadLibraryA("odbcbcp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "bcp_setcolfmt")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2, param3, param4) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2, param3, param4);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
     (void)param3;
     (void)param4;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4768,10 +6007,17 @@ static Napi::Value windowssys_windows_win32_system_search_bcpWritefmtA_napi(cons
         HMODULE km_h_mod = LoadLibraryA("odbcbcp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "bcp_writefmtA")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)param0;
     (void)param1;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4788,10 +6034,17 @@ static Napi::Value windowssys_windows_win32_system_search_bcpWritefmtW_napi(cons
         HMODULE km_h_mod = LoadLibraryA("odbcbcp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "bcp_writefmtW")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)param0;
     (void)param1;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4807,10 +6060,17 @@ static Napi::Value windowssys_windows_win32_system_search_dbprtypeA_napi(const N
         HMODULE km_h_mod = LoadLibraryA("odbcbcp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "dbprtypeA")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)param0;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -4825,10 +6085,17 @@ static Napi::Value windowssys_windows_win32_system_search_dbprtypeW_napi(const N
         HMODULE km_h_mod = LoadLibraryA("odbcbcp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "dbprtypeW")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)param0;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }

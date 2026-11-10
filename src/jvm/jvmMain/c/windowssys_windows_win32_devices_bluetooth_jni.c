@@ -5,6 +5,7 @@
 #include <stdbool.h>
 #include <stddef.h>
 #include <stdint.h>
+#include <stdlib.h>
 #include <errno.h>
 #ifdef _WIN32
 #ifndef WIN32_LEAN_AND_MEAN
@@ -28,13 +29,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("bthprops.cpl");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BluetoothAuthenticateDevice");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hwndparent, (void*)(uintptr_t)hradio, (void*)(uintptr_t)pbtbi, (void*)(uintptr_t)pszpasskey, (uint32_t)ulpasskeylength) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hwndparent, (void*)(uintptr_t)hradio, (void*)(uintptr_t)pbtbi, (void*)(uintptr_t)pszpasskey, (uint32_t)ulpasskeylength);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hwndparent;
     (void)hradio;
     (void)pbtbi;
     (void)pszpasskey;
     (void)ulpasskeylength;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -50,13 +58,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("bthprops.cpl");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BluetoothAuthenticateDeviceEx");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hwndparentin, (void*)(uintptr_t)hradioin, (void*)(uintptr_t)pbtdiinout, (void*)(uintptr_t)pbtoobdata, (int32_t)authenticationrequirement) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hwndparentin, (void*)(uintptr_t)hradioin, (void*)(uintptr_t)pbtdiinout, (void*)(uintptr_t)pbtoobdata, (int32_t)authenticationrequirement);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hwndparentin;
     (void)hradioin;
     (void)pbtdiinout;
     (void)pbtoobdata;
     (void)authenticationrequirement;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -72,12 +87,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("bthprops.cpl");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BluetoothAuthenticateMultipleDevices");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hwndparent, (void*)(uintptr_t)hradio, (uint32_t)cdevices, (void*)(uintptr_t)rgbtdi) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hwndparent, (void*)(uintptr_t)hradio, (uint32_t)cdevices, (void*)(uintptr_t)rgbtdi);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hwndparent;
     (void)hradio;
     (void)cdevices;
     (void)rgbtdi;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -93,10 +115,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("bthprops.cpl");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BluetoothDisplayDeviceProperties");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hwndparent, (void*)(uintptr_t)pbtdi) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hwndparent, (void*)(uintptr_t)pbtdi);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwndparent;
     (void)pbtdi;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -112,10 +141,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("bluetoothapis.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BluetoothEnableDiscovery");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hradio, (int32_t)fenabled) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hradio, (int32_t)fenabled);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hradio;
     (void)fenabled;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -131,10 +167,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("bluetoothapis.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BluetoothEnableIncomingConnections");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hradio, (int32_t)fenabled) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hradio, (int32_t)fenabled);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hradio;
     (void)fenabled;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -150,12 +193,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("bluetoothapis.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BluetoothEnumerateInstalledServices");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hradio, (void*)(uintptr_t)pbtdi, (void*)(uintptr_t)pcserviceinout, (void*)(uintptr_t)pguidservices) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hradio, (void*)(uintptr_t)pbtdi, (void*)(uintptr_t)pcserviceinout, (void*)(uintptr_t)pguidservices);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hradio;
     (void)pbtdi;
     (void)pcserviceinout;
     (void)pguidservices;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -171,9 +221,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("bluetoothapis.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BluetoothFindDeviceClose");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hfind) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hfind);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hfind;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -189,10 +246,17 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
         HMODULE km_h_mod = LoadLibraryA("bluetoothapis.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BluetoothFindFirstDevice");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pbtsp, (void*)(uintptr_t)pbtdi) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pbtsp, (void*)(uintptr_t)pbtdi);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)pbtsp;
     (void)pbtdi;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -208,10 +272,17 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devi
         HMODULE km_h_mod = LoadLibraryA("bluetoothapis.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BluetoothFindFirstRadio");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pbtfrp, (void*)(uintptr_t)phradio) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pbtfrp, (void*)(uintptr_t)phradio);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)pbtfrp;
     (void)phradio;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -227,10 +298,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("bluetoothapis.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BluetoothFindNextDevice");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hfind, (void*)(uintptr_t)pbtdi) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hfind, (void*)(uintptr_t)pbtdi);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hfind;
     (void)pbtdi;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -246,10 +324,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("bluetoothapis.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BluetoothFindNextRadio");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hfind, (void*)(uintptr_t)phradio) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hfind, (void*)(uintptr_t)phradio);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hfind;
     (void)phradio;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -265,9 +350,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("bluetoothapis.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BluetoothFindRadioClose");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hfind) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hfind);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hfind;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -283,11 +375,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("bluetoothapis.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BluetoothGATTAbortReliableWrite");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hdevice, (uint64_t)reliablewritecontext, (uint32_t)flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hdevice, (uint64_t)reliablewritecontext, (uint32_t)flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdevice;
     (void)reliablewritecontext;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -303,11 +402,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("bluetoothapis.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BluetoothGATTBeginReliableWrite");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hdevice, (void*)(uintptr_t)reliablewritecontext, (uint32_t)flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hdevice, (void*)(uintptr_t)reliablewritecontext, (uint32_t)flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdevice;
     (void)reliablewritecontext;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -323,11 +429,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("bluetoothapis.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BluetoothGATTEndReliableWrite");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hdevice, (uint64_t)reliablewritecontext, (uint32_t)flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hdevice, (uint64_t)reliablewritecontext, (uint32_t)flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdevice;
     (void)reliablewritecontext;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -343,7 +456,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("bluetoothapis.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BluetoothGATTGetCharacteristicValue");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hdevice, (void*)(uintptr_t)characteristic, (uint32_t)characteristicvaluedatasize, (void*)(uintptr_t)characteristicvalue, (void*)(uintptr_t)characteristicvaluesizerequired, (uint32_t)flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hdevice, (void*)(uintptr_t)characteristic, (uint32_t)characteristicvaluedatasize, (void*)(uintptr_t)characteristicvalue, (void*)(uintptr_t)characteristicvaluesizerequired, (uint32_t)flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdevice;
     (void)characteristic;
@@ -351,6 +470,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     (void)characteristicvalue;
     (void)characteristicvaluesizerequired;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -366,7 +486,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("bluetoothapis.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BluetoothGATTGetCharacteristics");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hdevice, (void*)(uintptr_t)service, (uint16_t)characteristicsbuffercount, (void*)(uintptr_t)characteristicsbuffer, (void*)(uintptr_t)characteristicsbufferactual, (uint32_t)flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hdevice, (void*)(uintptr_t)service, (uint16_t)characteristicsbuffercount, (void*)(uintptr_t)characteristicsbuffer, (void*)(uintptr_t)characteristicsbufferactual, (uint32_t)flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdevice;
     (void)service;
@@ -374,6 +500,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     (void)characteristicsbuffer;
     (void)characteristicsbufferactual;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -389,7 +516,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("bluetoothapis.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BluetoothGATTGetDescriptorValue");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hdevice, (void*)(uintptr_t)descriptor, (uint32_t)descriptorvaluedatasize, (void*)(uintptr_t)descriptorvalue, (void*)(uintptr_t)descriptorvaluesizerequired, (uint32_t)flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hdevice, (void*)(uintptr_t)descriptor, (uint32_t)descriptorvaluedatasize, (void*)(uintptr_t)descriptorvalue, (void*)(uintptr_t)descriptorvaluesizerequired, (uint32_t)flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdevice;
     (void)descriptor;
@@ -397,6 +530,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     (void)descriptorvalue;
     (void)descriptorvaluesizerequired;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -412,7 +546,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("bluetoothapis.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BluetoothGATTGetDescriptors");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hdevice, (void*)(uintptr_t)characteristic, (uint16_t)descriptorsbuffercount, (void*)(uintptr_t)descriptorsbuffer, (void*)(uintptr_t)descriptorsbufferactual, (uint32_t)flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hdevice, (void*)(uintptr_t)characteristic, (uint16_t)descriptorsbuffercount, (void*)(uintptr_t)descriptorsbuffer, (void*)(uintptr_t)descriptorsbufferactual, (uint32_t)flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdevice;
     (void)characteristic;
@@ -420,6 +560,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     (void)descriptorsbuffer;
     (void)descriptorsbufferactual;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -435,7 +576,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("bluetoothapis.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BluetoothGATTGetIncludedServices");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hdevice, (void*)(uintptr_t)parentservice, (uint16_t)includedservicesbuffercount, (void*)(uintptr_t)includedservicesbuffer, (void*)(uintptr_t)includedservicesbufferactual, (uint32_t)flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hdevice, (void*)(uintptr_t)parentservice, (uint16_t)includedservicesbuffercount, (void*)(uintptr_t)includedservicesbuffer, (void*)(uintptr_t)includedservicesbufferactual, (uint32_t)flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdevice;
     (void)parentservice;
@@ -443,6 +590,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     (void)includedservicesbuffer;
     (void)includedservicesbufferactual;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -458,13 +606,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("bluetoothapis.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BluetoothGATTGetServices");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hdevice, (uint16_t)servicesbuffercount, (void*)(uintptr_t)servicesbuffer, (void*)(uintptr_t)servicesbufferactual, (uint32_t)flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hdevice, (uint16_t)servicesbuffercount, (void*)(uintptr_t)servicesbuffer, (void*)(uintptr_t)servicesbufferactual, (uint32_t)flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdevice;
     (void)servicesbuffercount;
     (void)servicesbuffer;
     (void)servicesbufferactual;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -480,7 +635,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("bluetoothapis.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BluetoothGATTRegisterEvent");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hservice, (int32_t)eventtype, (void*)(uintptr_t)eventparameterin, (void*)(uintptr_t)callback, (void*)(uintptr_t)callbackcontext, (void*)(uintptr_t)peventhandle, (uint32_t)flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hservice, (int32_t)eventtype, (void*)(uintptr_t)eventparameterin, (void*)(uintptr_t)callback, (void*)(uintptr_t)callbackcontext, (void*)(uintptr_t)peventhandle, (uint32_t)flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hservice;
     (void)eventtype;
@@ -489,6 +650,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     (void)callbackcontext;
     (void)peventhandle;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -504,13 +666,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("bluetoothapis.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BluetoothGATTSetCharacteristicValue");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hdevice, (void*)(uintptr_t)characteristic, (void*)(uintptr_t)characteristicvalue, (uint64_t)reliablewritecontext, (uint32_t)flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hdevice, (void*)(uintptr_t)characteristic, (void*)(uintptr_t)characteristicvalue, (uint64_t)reliablewritecontext, (uint32_t)flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdevice;
     (void)characteristic;
     (void)characteristicvalue;
     (void)reliablewritecontext;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -526,12 +695,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("bluetoothapis.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BluetoothGATTSetDescriptorValue");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hdevice, (void*)(uintptr_t)descriptor, (void*)(uintptr_t)descriptorvalue, (uint32_t)flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hdevice, (void*)(uintptr_t)descriptor, (void*)(uintptr_t)descriptorvalue, (uint32_t)flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdevice;
     (void)descriptor;
     (void)descriptorvalue;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -547,10 +723,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("bluetoothapis.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BluetoothGATTUnregisterEvent");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)eventhandle, (uint32_t)flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int64_t)eventhandle, (uint32_t)flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)eventhandle;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -566,10 +749,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("bluetoothapis.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BluetoothGetDeviceInfo");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hradio, (void*)(uintptr_t)pbtdi) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hradio, (void*)(uintptr_t)pbtdi);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hradio;
     (void)pbtdi;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -585,10 +775,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("bluetoothapis.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BluetoothGetRadioInfo");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hradio, (void*)(uintptr_t)pradioinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hradio, (void*)(uintptr_t)pradioinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hradio;
     (void)pradioinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -604,9 +801,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("bluetoothapis.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BluetoothIsConnectable");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hradio) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hradio);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hradio;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -622,9 +826,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("bluetoothapis.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BluetoothIsDiscoverable");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hradio) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hradio);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hradio;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -640,10 +851,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("bluetoothapis.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BluetoothIsVersionAvailable");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint8_t)majorversion, (uint8_t)minorversion) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint8_t)majorversion, (uint8_t)minorversion);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)majorversion;
     (void)minorversion;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -659,12 +877,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("bluetoothapis.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BluetoothRegisterForAuthentication");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pbtdi, (void*)(uintptr_t)phreghandle, (void*)(uintptr_t)pfncallback, (void*)(uintptr_t)pvparam) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pbtdi, (void*)(uintptr_t)phreghandle, (void*)(uintptr_t)pfncallback, (void*)(uintptr_t)pvparam);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pbtdi;
     (void)phreghandle;
     (void)pfncallback;
     (void)pvparam;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -680,12 +905,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("bluetoothapis.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BluetoothRegisterForAuthenticationEx");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pbtdiin, (void*)(uintptr_t)phreghandleout, (void*)(uintptr_t)pfncallbackin, (void*)(uintptr_t)pvparam) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pbtdiin, (void*)(uintptr_t)phreghandleout, (void*)(uintptr_t)pfncallbackin, (void*)(uintptr_t)pvparam);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pbtdiin;
     (void)phreghandleout;
     (void)pfncallbackin;
     (void)pvparam;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -701,9 +933,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("bluetoothapis.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BluetoothRemoveDevice");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)paddress) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)paddress);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)paddress;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -719,12 +958,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("bluetoothapis.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BluetoothSdpEnumAttributes");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)psdpstream, (uint32_t)cbstreamsize, (void*)(uintptr_t)pfncallback, (void*)(uintptr_t)pvparam) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)psdpstream, (uint32_t)cbstreamsize, (void*)(uintptr_t)pfncallback, (void*)(uintptr_t)pvparam);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)psdpstream;
     (void)cbstreamsize;
     (void)pfncallback;
     (void)pvparam;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -740,12 +986,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("bluetoothapis.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BluetoothSdpGetAttributeValue");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)precordstream, (uint32_t)cbrecordlength, (uint16_t)usattributeid, (void*)(uintptr_t)pattributedata) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)precordstream, (uint32_t)cbrecordlength, (uint16_t)usattributeid, (void*)(uintptr_t)pattributedata);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)precordstream;
     (void)cbrecordlength;
     (void)usattributeid;
     (void)pattributedata;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -761,12 +1014,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("bluetoothapis.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BluetoothSdpGetContainerElementData");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pcontainerstream, (uint32_t)cbcontainerlength, (void*)(uintptr_t)pelement, (void*)(uintptr_t)pdata) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pcontainerstream, (uint32_t)cbcontainerlength, (void*)(uintptr_t)pelement, (void*)(uintptr_t)pdata);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pcontainerstream;
     (void)cbcontainerlength;
     (void)pelement;
     (void)pdata;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -782,11 +1042,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("bluetoothapis.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BluetoothSdpGetElementData");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)psdpstream, (uint32_t)cbsdpstreamlength, (void*)(uintptr_t)pdata) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)psdpstream, (uint32_t)cbsdpstreamlength, (void*)(uintptr_t)pdata);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)psdpstream;
     (void)cbsdpstreamlength;
     (void)pdata;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -802,7 +1069,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("bluetoothapis.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BluetoothSdpGetString");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)precordstream, (uint32_t)cbrecordlength, (void*)(uintptr_t)pstringdata, (uint16_t)usstringoffset, (void*)(uintptr_t)pszstring, (void*)(uintptr_t)pcchstringlength) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)precordstream, (uint32_t)cbrecordlength, (void*)(uintptr_t)pstringdata, (uint16_t)usstringoffset, (void*)(uintptr_t)pszstring, (void*)(uintptr_t)pcchstringlength);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)precordstream;
     (void)cbrecordlength;
@@ -810,6 +1083,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     (void)usstringoffset;
     (void)pszstring;
     (void)pcchstringlength;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -825,9 +1099,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("bthprops.cpl");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BluetoothSelectDevices");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pbtsdp) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pbtsdp);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pbtsdp;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -843,9 +1124,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("bthprops.cpl");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BluetoothSelectDevicesFree");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pbtsdp) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pbtsdp);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pbtsdp;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -861,11 +1149,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("bluetoothapis.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BluetoothSendAuthenticationResponse");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hradio, (void*)(uintptr_t)pbtdi, (void*)(uintptr_t)pszpasskey) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hradio, (void*)(uintptr_t)pbtdi, (void*)(uintptr_t)pszpasskey);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hradio;
     (void)pbtdi;
     (void)pszpasskey;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -881,10 +1176,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("bluetoothapis.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BluetoothSendAuthenticationResponseEx");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hradioin, (void*)(uintptr_t)pauthresponse) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hradioin, (void*)(uintptr_t)pauthresponse);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hradioin;
     (void)pauthresponse;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -900,12 +1202,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("bluetoothapis.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BluetoothSetLocalServiceInfo");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hradioin, (void*)(uintptr_t)pclassguid, (uint32_t)ulinstance, (void*)(uintptr_t)pserviceinfoin) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hradioin, (void*)(uintptr_t)pclassguid, (uint32_t)ulinstance, (void*)(uintptr_t)pserviceinfoin);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hradioin;
     (void)pclassguid;
     (void)ulinstance;
     (void)pserviceinfoin;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -921,12 +1230,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("bluetoothapis.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BluetoothSetServiceState");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hradio, (void*)(uintptr_t)pbtdi, (void*)(uintptr_t)pguidservice, (uint32_t)dwserviceflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hradio, (void*)(uintptr_t)pbtdi, (void*)(uintptr_t)pguidservice, (uint32_t)dwserviceflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hradio;
     (void)pbtdi;
     (void)pguidservice;
     (void)dwserviceflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -942,9 +1258,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("bluetoothapis.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BluetoothUnregisterAuthentication");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)hreghandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int64_t)hreghandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hreghandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -960,9 +1283,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("bluetoothapis.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BluetoothUpdateDeviceRecord");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pbtdi) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pbtdi);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pbtdi;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;

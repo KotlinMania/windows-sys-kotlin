@@ -61,9 +61,16 @@ static Napi::Value windowssys_windows_win32_graphics_printing_printticket_pTClos
         HMODULE km_h_mod = LoadLibraryA("prntvpt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PTCloseProvider")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprovider) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprovider);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprovider;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -83,13 +90,20 @@ static Napi::Value windowssys_windows_win32_graphics_printing_printticket_pTConv
         HMODULE km_h_mod = LoadLibraryA("prntvpt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PTConvertDevModeToPrintTicket")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprovider, cbdevmode, pdevmode, scope, pprintticket) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprovider, cbdevmode, pdevmode, scope, pprintticket);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprovider;
     (void)cbdevmode;
     (void)pdevmode;
     (void)scope;
     (void)pprintticket;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -111,7 +125,13 @@ static Napi::Value windowssys_windows_win32_graphics_printing_printticket_pTConv
         HMODULE km_h_mod = LoadLibraryA("prntvpt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PTConvertPrintTicketToDevMode")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprovider, pprintticket, basedevmodetype, scope, pcbdevmode, ppdevmode, pbstrerrormessage) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprovider, pprintticket, basedevmodetype, scope, pcbdevmode, ppdevmode, pbstrerrormessage);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprovider;
     (void)pprintticket;
@@ -120,6 +140,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_printticket_pTConv
     (void)pcbdevmode;
     (void)ppdevmode;
     (void)pbstrerrormessage;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -138,12 +159,19 @@ static Napi::Value windowssys_windows_win32_graphics_printing_printticket_pTGetP
         HMODULE km_h_mod = LoadLibraryA("prntvpt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PTGetPrintCapabilities")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprovider, pprintticket, pcapabilities, pbstrerrormessage) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprovider, pprintticket, pcapabilities, pbstrerrormessage);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprovider;
     (void)pprintticket;
     (void)pcapabilities;
     (void)pbstrerrormessage;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -162,12 +190,19 @@ static Napi::Value windowssys_windows_win32_graphics_printing_printticket_pTGetP
         HMODULE km_h_mod = LoadLibraryA("prntvpt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PTGetPrintDeviceCapabilities")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprovider, pprintticket, pdevicecapabilities, pbstrerrormessage) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprovider, pprintticket, pdevicecapabilities, pbstrerrormessage);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprovider;
     (void)pprintticket;
     (void)pdevicecapabilities;
     (void)pbstrerrormessage;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -187,13 +222,20 @@ static Napi::Value windowssys_windows_win32_graphics_printing_printticket_pTGetP
         HMODULE km_h_mod = LoadLibraryA("prntvpt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PTGetPrintDeviceResources")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprovider, pszlocalename, pprintticket, pdeviceresources, pbstrerrormessage) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprovider, pszlocalename, pprintticket, pdeviceresources, pbstrerrormessage);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprovider;
     (void)pszlocalename;
     (void)pprintticket;
     (void)pdeviceresources;
     (void)pbstrerrormessage;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -214,7 +256,13 @@ static Napi::Value windowssys_windows_win32_graphics_printing_printticket_pTMerg
         HMODULE km_h_mod = LoadLibraryA("prntvpt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PTMergeAndValidatePrintTicket")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprovider, pbaseticket, pdeltaticket, scope, presultticket, pbstrerrormessage) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprovider, pbaseticket, pdeltaticket, scope, presultticket, pbstrerrormessage);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprovider;
     (void)pbaseticket;
@@ -222,6 +270,7 @@ static Napi::Value windowssys_windows_win32_graphics_printing_printticket_pTMerg
     (void)scope;
     (void)presultticket;
     (void)pbstrerrormessage;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -239,11 +288,18 @@ static Napi::Value windowssys_windows_win32_graphics_printing_printticket_pTOpen
         HMODULE km_h_mod = LoadLibraryA("prntvpt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PTOpenProvider")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszprintername, dwversion, phprovider) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszprintername, dwversion, phprovider);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszprintername;
     (void)dwversion;
     (void)phprovider;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -263,13 +319,20 @@ static Napi::Value windowssys_windows_win32_graphics_printing_printticket_pTOpen
         HMODULE km_h_mod = LoadLibraryA("prntvpt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PTOpenProviderEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszprintername, dwmaxversion, dwprefversion, phprovider, pusedversion) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszprintername, dwmaxversion, dwprefversion, phprovider, pusedversion);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszprintername;
     (void)dwmaxversion;
     (void)dwprefversion;
     (void)phprovider;
     (void)pusedversion;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -286,10 +349,17 @@ static Napi::Value windowssys_windows_win32_graphics_printing_printticket_pTQuer
         HMODULE km_h_mod = LoadLibraryA("prntvpt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PTQuerySchemaVersionSupport")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszprintername, pmaxversion) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszprintername, pmaxversion);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszprintername;
     (void)pmaxversion;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -305,9 +375,16 @@ static Napi::Value windowssys_windows_win32_graphics_printing_printticket_pTRele
         HMODULE km_h_mod = LoadLibraryA("prntvpt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PTReleaseMemory")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pbuffer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pbuffer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

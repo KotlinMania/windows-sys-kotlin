@@ -63,11 +63,18 @@ static Napi::Value windowssys_windows_win32_system_messagequeuing_mQADsPathToFor
         HMODULE km_h_mod = LoadLibraryA("mqrt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MQADsPathToFormatName")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpwcsadspath, lpwcsformatname, lpdwformatnamelength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpwcsadspath, lpwcsformatname, lpdwformatnamelength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpwcsadspath;
     (void)lpwcsformatname;
     (void)lpdwformatnamelength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -83,9 +90,16 @@ static Napi::Value windowssys_windows_win32_system_messagequeuing_mQBeginTransac
         HMODULE km_h_mod = LoadLibraryA("mqrt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MQBeginTransaction")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pptransaction) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pptransaction);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pptransaction;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -101,9 +115,16 @@ static Napi::Value windowssys_windows_win32_system_messagequeuing_mQCloseCursor_
         HMODULE km_h_mod = LoadLibraryA("mqrt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MQCloseCursor")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcursor) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcursor);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcursor;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -119,9 +140,16 @@ static Napi::Value windowssys_windows_win32_system_messagequeuing_mQCloseQueue_n
         HMODULE km_h_mod = LoadLibraryA("mqrt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MQCloseQueue")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hqueue) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hqueue);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hqueue;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -138,10 +166,17 @@ static Napi::Value windowssys_windows_win32_system_messagequeuing_mQCreateCursor
         HMODULE km_h_mod = LoadLibraryA("mqrt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MQCreateCursor")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hqueue, phcursor) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hqueue, phcursor);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hqueue;
     (void)phcursor;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -160,12 +195,19 @@ static Napi::Value windowssys_windows_win32_system_messagequeuing_mQCreateQueue_
         HMODULE km_h_mod = LoadLibraryA("mqrt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MQCreateQueue")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(psecuritydescriptor, pqueueprops, lpwcsformatname, lpdwformatnamelength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(psecuritydescriptor, pqueueprops, lpwcsformatname, lpdwformatnamelength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)psecuritydescriptor;
     (void)pqueueprops;
     (void)lpwcsformatname;
     (void)lpdwformatnamelength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -181,9 +223,16 @@ static Napi::Value windowssys_windows_win32_system_messagequeuing_mQDeleteQueue_
         HMODULE km_h_mod = LoadLibraryA("mqrt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MQDeleteQueue")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpwcsformatname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpwcsformatname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpwcsformatname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -199,9 +248,14 @@ static Napi::Value windowssys_windows_win32_system_messagequeuing_mQFreeMemory_n
         HMODULE km_h_mod = LoadLibraryA("mqrt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MQFreeMemory")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pvmemory);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pvmemory);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pvmemory;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -216,9 +270,14 @@ static Napi::Value windowssys_windows_win32_system_messagequeuing_mQFreeSecurity
         HMODULE km_h_mod = LoadLibraryA("mqrt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MQFreeSecurityContext")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(hsecuritycontext);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(hsecuritycontext);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)hsecuritycontext;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -235,11 +294,18 @@ static Napi::Value windowssys_windows_win32_system_messagequeuing_mQGetMachinePr
         HMODULE km_h_mod = LoadLibraryA("mqrt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MQGetMachineProperties")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpwcsmachinename, pguidmachineid, pqmprops) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpwcsmachinename, pguidmachineid, pqmprops);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpwcsmachinename;
     (void)pguidmachineid;
     (void)pqmprops;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -255,9 +321,16 @@ static Napi::Value windowssys_windows_win32_system_messagequeuing_mQGetOverlappe
         HMODULE km_h_mod = LoadLibraryA("mqrt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MQGetOverlappedResult")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpoverlapped) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpoverlapped);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpoverlapped;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -274,10 +347,17 @@ static Napi::Value windowssys_windows_win32_system_messagequeuing_mQGetPrivateCo
         HMODULE km_h_mod = LoadLibraryA("mqrt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MQGetPrivateComputerInformation")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpwcscomputername, pprivateprops) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpwcscomputername, pprivateprops);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpwcscomputername;
     (void)pprivateprops;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -294,10 +374,17 @@ static Napi::Value windowssys_windows_win32_system_messagequeuing_mQGetQueueProp
         HMODULE km_h_mod = LoadLibraryA("mqrt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MQGetQueueProperties")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpwcsformatname, pqueueprops) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpwcsformatname, pqueueprops);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpwcsformatname;
     (void)pqueueprops;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -317,13 +404,20 @@ static Napi::Value windowssys_windows_win32_system_messagequeuing_mQGetQueueSecu
         HMODULE km_h_mod = LoadLibraryA("mqrt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MQGetQueueSecurity")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpwcsformatname, requestedinformation, psecuritydescriptor, nlength, lpnlengthneeded) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpwcsformatname, requestedinformation, psecuritydescriptor, nlength, lpnlengthneeded);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpwcsformatname;
     (void)requestedinformation;
     (void)psecuritydescriptor;
     (void)nlength;
     (void)lpnlengthneeded;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -341,11 +435,18 @@ static Napi::Value windowssys_windows_win32_system_messagequeuing_mQGetSecurityC
         HMODULE km_h_mod = LoadLibraryA("mqrt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MQGetSecurityContext")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpcertbuffer, dwcertbufferlength, phsecuritycontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpcertbuffer, dwcertbufferlength, phsecuritycontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpcertbuffer;
     (void)dwcertbufferlength;
     (void)phsecuritycontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -363,11 +464,18 @@ static Napi::Value windowssys_windows_win32_system_messagequeuing_mQGetSecurityC
         HMODULE km_h_mod = LoadLibraryA("mqrt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MQGetSecurityContextEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpcertbuffer, dwcertbufferlength, phsecuritycontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpcertbuffer, dwcertbufferlength, phsecuritycontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpcertbuffer;
     (void)dwcertbufferlength;
     (void)phsecuritycontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -385,11 +493,18 @@ static Napi::Value windowssys_windows_win32_system_messagequeuing_mQHandleToForm
         HMODULE km_h_mod = LoadLibraryA("mqrt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MQHandleToFormatName")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hqueue, lpwcsformatname, lpdwformatnamelength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hqueue, lpwcsformatname, lpdwformatnamelength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hqueue;
     (void)lpwcsformatname;
     (void)lpdwformatnamelength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -407,11 +522,18 @@ static Napi::Value windowssys_windows_win32_system_messagequeuing_mQInstanceToFo
         HMODULE km_h_mod = LoadLibraryA("mqrt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MQInstanceToFormatName")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pguid, lpwcsformatname, lpdwformatnamelength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pguid, lpwcsformatname, lpdwformatnamelength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pguid;
     (void)lpwcsformatname;
     (void)lpdwformatnamelength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -431,13 +553,20 @@ static Napi::Value windowssys_windows_win32_system_messagequeuing_mQLocateBegin_
         HMODULE km_h_mod = LoadLibraryA("mqrt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MQLocateBegin")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpwcscontext, prestriction, pcolumns, psort, phenum) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpwcscontext, prestriction, pcolumns, psort, phenum);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpwcscontext;
     (void)prestriction;
     (void)pcolumns;
     (void)psort;
     (void)phenum;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -453,9 +582,16 @@ static Napi::Value windowssys_windows_win32_system_messagequeuing_mQLocateEnd_na
         HMODULE km_h_mod = LoadLibraryA("mqrt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MQLocateEnd")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(henum) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(henum);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)henum;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -473,11 +609,18 @@ static Napi::Value windowssys_windows_win32_system_messagequeuing_mQLocateNext_n
         HMODULE km_h_mod = LoadLibraryA("mqrt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MQLocateNext")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(henum, pcprops, apropvar) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(henum, pcprops, apropvar);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)henum;
     (void)pcprops;
     (void)apropvar;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -494,10 +637,17 @@ static Napi::Value windowssys_windows_win32_system_messagequeuing_mQMarkMessageR
         HMODULE km_h_mod = LoadLibraryA("mqrt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MQMarkMessageRejected")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hqueue, ulllookupid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hqueue, ulllookupid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hqueue;
     (void)ulllookupid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -515,11 +665,18 @@ static Napi::Value windowssys_windows_win32_system_messagequeuing_mQMgmtAction_n
         HMODULE km_h_mod = LoadLibraryA("mqrt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MQMgmtAction")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pcomputername, pobjectname, paction) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pcomputername, pobjectname, paction);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pcomputername;
     (void)pobjectname;
     (void)paction;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -537,11 +694,18 @@ static Napi::Value windowssys_windows_win32_system_messagequeuing_mQMgmtGetInfo_
         HMODULE km_h_mod = LoadLibraryA("mqrt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MQMgmtGetInfo")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pcomputername, pobjectname, pmgmtprops) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pcomputername, pobjectname, pmgmtprops);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pcomputername;
     (void)pobjectname;
     (void)pmgmtprops;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -560,12 +724,19 @@ static Napi::Value windowssys_windows_win32_system_messagequeuing_mQMoveMessage_
         HMODULE km_h_mod = LoadLibraryA("mqrt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MQMoveMessage")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hsourcequeue, hdestinationqueue, ulllookupid, ptransaction) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hsourcequeue, hdestinationqueue, ulllookupid, ptransaction);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hsourcequeue;
     (void)hdestinationqueue;
     (void)ulllookupid;
     (void)ptransaction;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -584,12 +755,19 @@ static Napi::Value windowssys_windows_win32_system_messagequeuing_mQOpenQueue_na
         HMODULE km_h_mod = LoadLibraryA("mqrt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MQOpenQueue")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpwcsformatname, dwaccess, dwsharemode, phqueue) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpwcsformatname, dwaccess, dwsharemode, phqueue);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpwcsformatname;
     (void)dwaccess;
     (void)dwsharemode;
     (void)phqueue;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -607,11 +785,18 @@ static Napi::Value windowssys_windows_win32_system_messagequeuing_mQPathNameToFo
         HMODULE km_h_mod = LoadLibraryA("mqrt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MQPathNameToFormatName")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpwcspathname, lpwcsformatname, lpdwformatnamelength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpwcspathname, lpwcsformatname, lpdwformatnamelength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpwcspathname;
     (void)lpwcsformatname;
     (void)lpdwformatnamelength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -627,9 +812,16 @@ static Napi::Value windowssys_windows_win32_system_messagequeuing_mQPurgeQueue_n
         HMODULE km_h_mod = LoadLibraryA("mqrt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MQPurgeQueue")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hqueue) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hqueue);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hqueue;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -652,7 +844,13 @@ static Napi::Value windowssys_windows_win32_system_messagequeuing_mQReceiveMessa
         HMODULE km_h_mod = LoadLibraryA("mqrt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MQReceiveMessage")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hsource, dwtimeout, dwaction, pmessageprops, lpoverlapped, fnreceivecallback, hcursor, ptransaction) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hsource, dwtimeout, dwaction, pmessageprops, lpoverlapped, fnreceivecallback, hcursor, ptransaction);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hsource;
     (void)dwtimeout;
@@ -662,6 +860,7 @@ static Napi::Value windowssys_windows_win32_system_messagequeuing_mQReceiveMessa
     (void)fnreceivecallback;
     (void)hcursor;
     (void)ptransaction;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -683,7 +882,13 @@ static Napi::Value windowssys_windows_win32_system_messagequeuing_mQReceiveMessa
         HMODULE km_h_mod = LoadLibraryA("mqrt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MQReceiveMessageByLookupId")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hsource, ulllookupid, dwlookupaction, pmessageprops, lpoverlapped, fnreceivecallback, ptransaction) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hsource, ulllookupid, dwlookupaction, pmessageprops, lpoverlapped, fnreceivecallback, ptransaction);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hsource;
     (void)ulllookupid;
@@ -692,6 +897,7 @@ static Napi::Value windowssys_windows_win32_system_messagequeuing_mQReceiveMessa
     (void)lpoverlapped;
     (void)fnreceivecallback;
     (void)ptransaction;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -709,11 +915,18 @@ static Napi::Value windowssys_windows_win32_system_messagequeuing_mQRegisterCert
         HMODULE km_h_mod = LoadLibraryA("mqrt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MQRegisterCertificate")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwflags, lpcertbuffer, dwcertbufferlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwflags, lpcertbuffer, dwcertbufferlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwflags;
     (void)lpcertbuffer;
     (void)dwcertbufferlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -731,11 +944,18 @@ static Napi::Value windowssys_windows_win32_system_messagequeuing_mQSendMessage_
         HMODULE km_h_mod = LoadLibraryA("mqrt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MQSendMessage")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdestinationqueue, pmessageprops, ptransaction) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdestinationqueue, pmessageprops, ptransaction);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdestinationqueue;
     (void)pmessageprops;
     (void)ptransaction;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -752,10 +972,17 @@ static Napi::Value windowssys_windows_win32_system_messagequeuing_mQSetQueueProp
         HMODULE km_h_mod = LoadLibraryA("mqrt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MQSetQueueProperties")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpwcsformatname, pqueueprops) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpwcsformatname, pqueueprops);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpwcsformatname;
     (void)pqueueprops;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -773,11 +1000,18 @@ static Napi::Value windowssys_windows_win32_system_messagequeuing_mQSetQueueSecu
         HMODULE km_h_mod = LoadLibraryA("mqrt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MQSetQueueSecurity")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpwcsformatname, securityinformation, psecuritydescriptor) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpwcsformatname, securityinformation, psecuritydescriptor);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpwcsformatname;
     (void)securityinformation;
     (void)psecuritydescriptor;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

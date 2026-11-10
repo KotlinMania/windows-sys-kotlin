@@ -63,11 +63,16 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisAcquireRead
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisAcquireReadWriteLock")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(lock, fwrite, lockstate);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(lock, fwrite, lockstate);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)lock;
     (void)fwrite;
     (void)lockstate;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -84,11 +89,18 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisAllocateMem
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisAllocateMemoryWithTag")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(virtualaddress, length, tag) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(virtualaddress, length, tag);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)virtualaddress;
     (void)length;
     (void)tag;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -105,10 +117,15 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisCancelTimer
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisCancelTimer")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(timer, timercancelled);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(timer, timercancelled);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)timer;
     (void)timercancelled;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -126,12 +143,19 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisClAddParty_
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisClAddParty")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ndisvchandle, protocolpartycontext, callparameters, ndispartyhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ndisvchandle, protocolpartycontext, callparameters, ndispartyhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ndisvchandle;
     (void)protocolpartycontext;
     (void)callparameters;
     (void)ndispartyhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -147,9 +171,16 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisClCloseAddr
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisClCloseAddressFamily")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ndisafhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ndisafhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ndisafhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -168,12 +199,19 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisClCloseCall
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisClCloseCall")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ndisvchandle, ndispartyhandle, buffer, size) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ndisvchandle, ndispartyhandle, buffer, size);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ndisvchandle;
     (void)ndispartyhandle;
     (void)buffer;
     (void)size;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -189,9 +227,16 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisClDeregiste
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisClDeregisterSap")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ndissaphandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ndissaphandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ndissaphandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -209,11 +254,18 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisClDropParty
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisClDropParty")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ndispartyhandle, buffer, size) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ndispartyhandle, buffer, size);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ndispartyhandle;
     (void)buffer;
     (void)size;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -231,11 +283,16 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisClIncomingC
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisClIncomingCallComplete")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(status, ndisvchandle, callparameters);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(status, ndisvchandle, callparameters);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)status;
     (void)ndisvchandle;
     (void)callparameters;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -253,12 +310,19 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisClMakeCall_
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisClMakeCall")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ndisvchandle, callparameters, protocolpartycontext, ndispartyhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ndisvchandle, callparameters, protocolpartycontext, ndispartyhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ndisvchandle;
     (void)callparameters;
     (void)protocolpartycontext;
     (void)ndispartyhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -275,10 +339,17 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisClModifyCal
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisClModifyCallQoS")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ndisvchandle, callparameters) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ndisvchandle, callparameters);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ndisvchandle;
     (void)callparameters;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -297,12 +368,19 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisClRegisterS
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisClRegisterSap")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ndisafhandle, protocolsapcontext, sap, ndissaphandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ndisafhandle, protocolsapcontext, sap, ndissaphandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ndisafhandle;
     (void)protocolsapcontext;
     (void)sap;
     (void)ndissaphandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -318,9 +396,14 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisCloseConfig
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisCloseConfiguration")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(configurationhandle);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(configurationhandle);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)configurationhandle;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -335,9 +418,14 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisCloseFile_n
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisCloseFile")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(filehandle);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(filehandle);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)filehandle;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -353,10 +441,17 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisCmActivateV
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisCmActivateVc")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ndisvchandle, callparameters) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ndisvchandle, callparameters);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ndisvchandle;
     (void)callparameters;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -375,12 +470,17 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisCmAddPartyC
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisCmAddPartyComplete")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(status, ndispartyhandle, callmgrpartycontext, callparameters);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(status, ndispartyhandle, callmgrpartycontext, callparameters);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)status;
     (void)ndispartyhandle;
     (void)callmgrpartycontext;
     (void)callparameters;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -396,10 +496,15 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisCmCloseAddr
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisCmCloseAddressFamilyComplete")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(status, ndisafhandle);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(status, ndisafhandle);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)status;
     (void)ndisafhandle;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -416,11 +521,16 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisCmCloseCall
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisCmCloseCallComplete")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(status, ndisvchandle, ndispartyhandle);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(status, ndisvchandle, ndispartyhandle);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)status;
     (void)ndisvchandle;
     (void)ndispartyhandle;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -435,9 +545,16 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisCmDeactivat
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisCmDeactivateVc")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ndisvchandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ndisvchandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ndisvchandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -454,10 +571,15 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisCmDeregiste
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisCmDeregisterSapComplete")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(status, ndissaphandle);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(status, ndissaphandle);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)status;
     (void)ndissaphandle;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -472,9 +594,14 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisCmDispatchC
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisCmDispatchCallConnected")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(ndisvchandle);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(ndisvchandle);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)ndisvchandle;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -491,11 +618,18 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisCmDispatchI
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisCmDispatchIncomingCall")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ndissaphandle, ndisvchandle, callparameters) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ndissaphandle, ndisvchandle, callparameters);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ndissaphandle;
     (void)ndisvchandle;
     (void)callparameters;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -512,10 +646,15 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisCmDispatchI
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisCmDispatchIncomingCallQoSChange")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(ndisvchandle, callparameters);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(ndisvchandle, callparameters);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)ndisvchandle;
     (void)callparameters;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -533,12 +672,17 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisCmDispatchI
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisCmDispatchIncomingCloseCall")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(closestatus, ndisvchandle, buffer, size);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(closestatus, ndisvchandle, buffer, size);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)closestatus;
     (void)ndisvchandle;
     (void)buffer;
     (void)size;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -556,12 +700,17 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisCmDispatchI
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisCmDispatchIncomingDropParty")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(dropstatus, ndispartyhandle, buffer, size);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(dropstatus, ndispartyhandle, buffer, size);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)dropstatus;
     (void)ndispartyhandle;
     (void)buffer;
     (void)size;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -577,10 +726,15 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisCmDropParty
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisCmDropPartyComplete")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(status, ndispartyhandle);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(status, ndispartyhandle);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)status;
     (void)ndispartyhandle;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -599,13 +753,18 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisCmMakeCallC
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisCmMakeCallComplete")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(status, ndisvchandle, ndispartyhandle, callmgrpartycontext, callparameters);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(status, ndisvchandle, ndispartyhandle, callmgrpartycontext, callparameters);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)status;
     (void)ndisvchandle;
     (void)ndispartyhandle;
     (void)callmgrpartycontext;
     (void)callparameters;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -622,11 +781,16 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisCmModifyCal
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisCmModifyCallQoSComplete")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(status, ndisvchandle, callparameters);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(status, ndisvchandle, callparameters);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)status;
     (void)ndisvchandle;
     (void)callparameters;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -643,11 +807,16 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisCmOpenAddre
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisCmOpenAddressFamilyComplete")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(status, ndisafhandle, callmgrafcontext);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(status, ndisafhandle, callmgrafcontext);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)status;
     (void)ndisafhandle;
     (void)callmgrafcontext;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -664,11 +833,16 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisCmRegisterS
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisCmRegisterSapComplete")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(status, ndissaphandle, callmgrsapcontext);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(status, ndissaphandle, callmgrsapcontext);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)status;
     (void)ndissaphandle;
     (void)callmgrsapcontext;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -685,11 +859,18 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisCoAssignIns
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisCoAssignInstanceName")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ndisvchandle, baseinstancename, vcinstancename) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ndisvchandle, baseinstancename, vcinstancename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ndisvchandle;
     (void)baseinstancename;
     (void)vcinstancename;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -708,12 +889,19 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisCoCreateVc_
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisCoCreateVc")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ndisbindinghandle, ndisafhandle, protocolvccontext, ndisvchandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ndisbindinghandle, ndisafhandle, protocolvccontext, ndisvchandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ndisbindinghandle;
     (void)ndisafhandle;
     (void)protocolvccontext;
     (void)ndisvchandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -729,9 +917,16 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisCoDeleteVc_
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisCoDeleteVc")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ndisvchandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ndisvchandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ndisvchandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -748,10 +943,17 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisCoGetTapiCa
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisCoGetTapiCallId")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ndisvchandle, tapicallid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ndisvchandle, tapicallid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ndisvchandle;
     (void)tapicallid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -772,7 +974,11 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisCompleteDma
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisCompleteDmaTransfer")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(status, ndisdmahandle, buffer, offset, length, writetodevice);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(status, ndisdmahandle, buffer, offset, length, writetodevice);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)status;
     (void)ndisdmahandle;
@@ -780,6 +986,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisCompleteDma
     (void)offset;
     (void)length;
     (void)writetodevice;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -799,7 +1006,11 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisCopyBuffer_
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisCopyBuffer")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(status, buffer, poolhandle, memorydescriptor, offset, length);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(status, buffer, poolhandle, memorydescriptor, offset, length);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)status;
     (void)buffer;
@@ -807,6 +1018,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisCopyBuffer_
     (void)memorydescriptor;
     (void)offset;
     (void)length;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -820,8 +1032,13 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisDeregisterT
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisDeregisterTdiCallBack")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr();
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+    }
 #else
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -838,11 +1055,16 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisFreeMemory_
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisFreeMemory")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(virtualaddress, length, memoryflags);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(virtualaddress, length, memoryflags);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)virtualaddress;
     (void)length;
     (void)memoryflags;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -856,8 +1078,15 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisGeneratePar
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisGeneratePartialCancelId")));
     }
-    uint8_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : 0;
+    uint8_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
+    errno = ENOSYS;
     uint8_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -875,11 +1104,16 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisGetCurrentP
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisGetCurrentProcessorCounts")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pidlecount, pkernelanduser, pindex);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pidlecount, pkernelanduser, pindex);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pidlecount;
     (void)pkernelanduser;
     (void)pindex;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -894,9 +1128,14 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisGetCurrentP
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisGetCurrentProcessorCpuUsage")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pcpuusage);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pcpuusage);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pcpuusage;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -911,10 +1150,17 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisGetRoutineA
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisGetRoutineAddress")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ndisroutinename) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ndisroutinename);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)ndisroutinename;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -928,8 +1174,15 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisGetSharedDa
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisGetSharedDataAlignment")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -944,8 +1197,15 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisGetVersion_
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisGetVersion")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -962,10 +1222,15 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisIMAssociate
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisIMAssociateMiniport")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(driverhandle, protocolhandle);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(driverhandle, protocolhandle);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)driverhandle;
     (void)protocolhandle;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -981,10 +1246,17 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisIMCancelIni
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisIMCancelInitializeDeviceInstance")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(driverhandle, deviceinstance) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(driverhandle, deviceinstance);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)driverhandle;
     (void)deviceinstance;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1000,9 +1272,16 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisIMDeInitial
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisIMDeInitializeDeviceInstance")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ndisminiporthandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ndisminiporthandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ndisminiporthandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1018,10 +1297,17 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisIMGetBindin
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisIMGetBindingContext")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ndisbindinghandle) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ndisbindinghandle);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)ndisbindinghandle;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1038,11 +1324,18 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisIMInitializ
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisIMInitializeDeviceInstanceEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(driverhandle, driverinstance, devicecontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(driverhandle, driverinstance, devicecontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)driverhandle;
     (void)driverinstance;
     (void)devicecontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1058,9 +1351,14 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisInitializeE
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisInitializeEvent")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(event);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(event);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)event;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -1075,9 +1373,14 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisInitializeR
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisInitializeReadWriteLock")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(lock);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(lock);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)lock;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -1093,10 +1396,15 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisInitializeS
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisInitializeString")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(destination, source);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(destination, source);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)destination;
     (void)source;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -1113,11 +1421,16 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisInitializeT
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisInitializeTimer")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(timer, timerfunction, functioncontext);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(timer, timerfunction, functioncontext);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)timer;
     (void)timerfunction;
     (void)functioncontext;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -1136,13 +1449,18 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisMAllocateSh
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisMAllocateSharedMemory")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(miniportadapterhandle, length, cached, virtualaddress, physicaladdress);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(miniportadapterhandle, length, cached, virtualaddress, physicaladdress);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)miniportadapterhandle;
     (void)length;
     (void)cached;
     (void)virtualaddress;
     (void)physicaladdress;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -1160,12 +1478,19 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisMAllocateSh
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisMAllocateSharedMemoryAsync")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(miniportadapterhandle, length, cached, context) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(miniportadapterhandle, length, cached, context);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)miniportadapterhandle;
     (void)length;
     (void)cached;
     (void)context;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1182,10 +1507,15 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisMCancelTime
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisMCancelTimer")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(timer, timercancelled);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(timer, timercancelled);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)timer;
     (void)timercancelled;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -1200,9 +1530,14 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisMCloseLog_n
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisMCloseLog")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(loghandle);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(loghandle);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)loghandle;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -1218,10 +1553,17 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisMCmActivate
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisMCmActivateVc")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ndisvchandle, callparameters) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ndisvchandle, callparameters);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ndisvchandle;
     (void)callparameters;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1240,12 +1582,19 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisMCmCreateVc
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisMCmCreateVc")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(miniportadapterhandle, ndisafhandle, miniportvccontext, ndisvchandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(miniportadapterhandle, ndisafhandle, miniportvccontext, ndisvchandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)miniportadapterhandle;
     (void)ndisafhandle;
     (void)miniportvccontext;
     (void)ndisvchandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1261,9 +1610,16 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisMCmDeactiva
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisMCmDeactivateVc")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ndisvchandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ndisvchandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ndisvchandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1279,9 +1635,16 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisMCmDeleteVc
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisMCmDeleteVc")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ndisvchandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ndisvchandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ndisvchandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1300,12 +1663,19 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisMCmRegister
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisMCmRegisterAddressFamily")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(miniportadapterhandle, addressfamily, cmcharacteristics, sizeofcmcharacteristics) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(miniportadapterhandle, addressfamily, cmcharacteristics, sizeofcmcharacteristics);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)miniportadapterhandle;
     (void)addressfamily;
     (void)cmcharacteristics;
     (void)sizeofcmcharacteristics;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1323,11 +1693,16 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisMCoActivate
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisMCoActivateVcComplete")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(status, ndisvchandle, callparameters);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(status, ndisvchandle, callparameters);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)status;
     (void)ndisvchandle;
     (void)callparameters;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -1343,10 +1718,15 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisMCoDeactiva
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisMCoDeactivateVcComplete")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(status, ndisvchandle);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(status, ndisvchandle);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)status;
     (void)ndisvchandle;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -1363,11 +1743,18 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisMCreateLog_
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisMCreateLog")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(miniportadapterhandle, size, loghandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(miniportadapterhandle, size, loghandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)miniportadapterhandle;
     (void)size;
     (void)loghandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1383,9 +1770,14 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisMDeregister
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisMDeregisterDmaChannel")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(miniportdmahandle);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(miniportdmahandle);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)miniportdmahandle;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -1403,12 +1795,17 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisMDeregister
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisMDeregisterIoPortRange")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(miniportadapterhandle, initialport, numberofports, portoffset);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(miniportadapterhandle, initialport, numberofports, portoffset);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)miniportadapterhandle;
     (void)initialport;
     (void)numberofports;
     (void)portoffset;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -1423,9 +1820,14 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisMFlushLog_n
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisMFlushLog")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(loghandle);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(loghandle);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)loghandle;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -1444,13 +1846,18 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisMFreeShared
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisMFreeSharedMemory")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(miniportadapterhandle, length, cached, virtualaddress, physicaladdress);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(miniportadapterhandle, length, cached, virtualaddress, physicaladdress);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)miniportadapterhandle;
     (void)length;
     (void)cached;
     (void)virtualaddress;
     (void)physicaladdress;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -1470,7 +1877,11 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisMGetDeviceP
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisMGetDeviceProperty")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(miniportadapterhandle, physicaldeviceobject, functionaldeviceobject, nextdeviceobject, allocatedresources, allocatedresourcestranslated);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(miniportadapterhandle, physicaldeviceobject, functionaldeviceobject, nextdeviceobject, allocatedresources, allocatedresourcestranslated);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)miniportadapterhandle;
     (void)physicaldeviceobject;
@@ -1478,6 +1889,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisMGetDeviceP
     (void)nextdeviceobject;
     (void)allocatedresources;
     (void)allocatedresourcestranslated;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -1492,9 +1904,16 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisMGetDmaAlig
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisMGetDmaAlignment")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(miniportadapterhandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(miniportadapterhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)miniportadapterhandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1513,12 +1932,17 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisMInitialize
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisMInitializeTimer")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(timer, miniportadapterhandle, timerfunction, functioncontext);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(timer, miniportadapterhandle, timerfunction, functioncontext);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)timer;
     (void)miniportadapterhandle;
     (void)timerfunction;
     (void)functioncontext;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -1536,12 +1960,19 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisMMapIoSpace
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisMMapIoSpace")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(virtualaddress, miniportadapterhandle, physicaladdress, length) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(virtualaddress, miniportadapterhandle, physicaladdress, length);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)virtualaddress;
     (void)miniportadapterhandle;
     (void)physicaladdress;
     (void)length;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1558,10 +1989,17 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisMQueryAdapt
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisMQueryAdapterInstanceName")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(padapterinstancename, miniporthandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(padapterinstancename, miniporthandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)padapterinstancename;
     (void)miniporthandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1577,9 +2015,16 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisMReadDmaCou
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisMReadDmaCounter")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(miniportdmahandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(miniportdmahandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)miniportdmahandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1600,7 +2045,13 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisMRegisterDm
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisMRegisterDmaChannel")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(miniportdmahandle, miniportadapterhandle, dmachannel, dma32bitaddresses, dmadescription, maximumlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(miniportdmahandle, miniportadapterhandle, dmachannel, dma32bitaddresses, dmadescription, maximumlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)miniportdmahandle;
     (void)miniportadapterhandle;
@@ -1608,6 +2059,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisMRegisterDm
     (void)dma32bitaddresses;
     (void)dmadescription;
     (void)maximumlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1626,12 +2078,19 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisMRegisterIo
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisMRegisterIoPortRange")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(portoffset, miniportadapterhandle, initialport, numberofports) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(portoffset, miniportadapterhandle, initialport, numberofports);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)portoffset;
     (void)miniportadapterhandle;
     (void)initialport;
     (void)numberofports;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1647,9 +2106,16 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisMRemoveMini
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisMRemoveMiniport")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(miniporthandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(miniporthandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)miniporthandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1666,10 +2132,15 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisMSetPeriodi
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisMSetPeriodicTimer")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(timer, millisecondperiod);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(timer, millisecondperiod);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)timer;
     (void)millisecondperiod;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -1684,9 +2155,14 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisMSleep_napi
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisMSleep")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(microsecondstosleep);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(microsecondstosleep);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)microsecondstosleep;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -1703,11 +2179,16 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisMUnmapIoSpa
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisMUnmapIoSpace")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(miniportadapterhandle, virtualaddress, length);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(miniportadapterhandle, virtualaddress, length);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)miniportadapterhandle;
     (void)virtualaddress;
     (void)length;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -1724,11 +2205,18 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisMWriteLogDa
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisMWriteLogData")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(loghandle, logbuffer, logbuffersize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(loghandle, logbuffer, logbuffersize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)loghandle;
     (void)logbuffer;
     (void)logbuffersize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1746,11 +2234,16 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisMapFile_nap
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisMapFile")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(status, mappedbuffer, filehandle);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(status, mappedbuffer, filehandle);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)status;
     (void)mappedbuffer;
     (void)filehandle;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -1769,13 +2262,18 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisOpenConfigu
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisOpenConfigurationKeyByIndex")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(status, configurationhandle, arg_2_index, keyname, keyhandle);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(status, configurationhandle, arg_2_index, keyname, keyhandle);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)status;
     (void)configurationhandle;
     (void)arg_2_index;
     (void)keyname;
     (void)keyhandle;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -1793,12 +2291,17 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisOpenConfigu
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisOpenConfigurationKeyByName")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(status, configurationhandle, subkeyname, subkeyhandle);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(status, configurationhandle, subkeyname, subkeyhandle);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)status;
     (void)configurationhandle;
     (void)subkeyname;
     (void)subkeyhandle;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -1817,13 +2320,18 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisOpenFile_na
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisOpenFile")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(status, filehandle, filelength, filename, highestacceptableaddress);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(status, filehandle, filelength, filename, highestacceptableaddress);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)status;
     (void)filehandle;
     (void)filelength;
     (void)filename;
     (void)highestacceptableaddress;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -1839,10 +2347,17 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisQueryAdapte
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisQueryAdapterInstanceName")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(padapterinstancename, ndisbindinghandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(padapterinstancename, ndisbindinghandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)padapterinstancename;
     (void)ndisbindinghandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1859,10 +2374,17 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisQueryBindIn
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisQueryBindInstanceName")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(padapterinstancename, bindingcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(padapterinstancename, bindingcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)padapterinstancename;
     (void)bindingcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1878,9 +2400,14 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisReEnumerate
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisReEnumerateProtocolBindings")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(ndisprotocolhandle);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(ndisprotocolhandle);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)ndisprotocolhandle;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -1899,13 +2426,18 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisReadConfigu
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisReadConfiguration")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(status, parametervalue, configurationhandle, keyword, parametertype);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(status, parametervalue, configurationhandle, keyword, parametertype);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)status;
     (void)parametervalue;
     (void)configurationhandle;
     (void)keyword;
     (void)parametertype;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -1923,12 +2455,17 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisReadNetwork
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisReadNetworkAddress")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(status, networkaddress, networkaddresslength, configurationhandle);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(status, networkaddress, networkaddresslength, configurationhandle);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)status;
     (void)networkaddress;
     (void)networkaddresslength;
     (void)configurationhandle;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -1944,10 +2481,15 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisRegisterTdi
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisRegisterTdiCallBack")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(registercallback, pnphandler);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(registercallback, pnphandler);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)registercallback;
     (void)pnphandler;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -1963,10 +2505,15 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisReleaseRead
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisReleaseReadWriteLock")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(lock, lockstate);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(lock, lockstate);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)lock;
     (void)lockstate;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -1981,9 +2528,14 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisResetEvent_
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisResetEvent")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(event);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(event);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)event;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -1998,9 +2550,14 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisSetEvent_na
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisSetEvent")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(event);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(event);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)event;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -2016,10 +2573,15 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisSetPeriodic
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisSetPeriodicTimer")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(ndistimer, millisecondsperiod);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(ndistimer, millisecondsperiod);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)ndistimer;
     (void)millisecondsperiod;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -2035,10 +2597,15 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisSetTimer_na
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisSetTimer")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(timer, millisecondstodelay);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(timer, millisecondstodelay);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)timer;
     (void)millisecondstodelay;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -2055,11 +2622,16 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisSetTimerEx_
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisSetTimerEx")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(ndistimer, millisecondstodelay, functioncontext);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(ndistimer, millisecondstodelay, functioncontext);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)ndistimer;
     (void)millisecondstodelay;
     (void)functioncontext;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -2079,7 +2651,11 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisSetupDmaTra
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisSetupDmaTransfer")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(status, ndisdmahandle, buffer, offset, length, writetodevice);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(status, ndisdmahandle, buffer, offset, length, writetodevice);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)status;
     (void)ndisdmahandle;
@@ -2087,6 +2663,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisSetupDmaTra
     (void)offset;
     (void)length;
     (void)writetodevice;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -2100,8 +2677,15 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisSystemProce
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisSystemProcessorCount")));
     }
-    int8_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+    int8_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
+    errno = ENOSYS;
     int8_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2117,9 +2701,14 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisUnmapFile_n
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisUnmapFile")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(filehandle);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(filehandle);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)filehandle;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -2137,12 +2726,17 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisUpdateShare
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisUpdateSharedMemory")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(ndisadapterhandle, length, virtualaddress, physicaladdress);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(ndisadapterhandle, length, virtualaddress, physicaladdress);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)ndisadapterhandle;
     (void)length;
     (void)virtualaddress;
     (void)physicaladdress;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -2158,10 +2752,17 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisWaitEvent_n
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisWaitEvent")));
     }
-    bool km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(event, mstowait) : false;
+    bool km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(event, mstowait);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)event;
     (void)mstowait;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return Napi::Boolean::New(km_env, km_res);
@@ -2180,12 +2781,17 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisWriteConfig
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisWriteConfiguration")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(status, configurationhandle, keyword, parametervalue);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(status, configurationhandle, keyword, parametervalue);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)status;
     (void)configurationhandle;
     (void)keyword;
     (void)parametervalue;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -2215,12 +2821,15 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisWriteErrorL
             case 3: km_fn_ptr(ndisadapterhandle, errorcode, numberoferrorvalues, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2)); break;
             default: km_fn_ptr(ndisadapterhandle, errorcode, numberoferrorvalues, static_cast<intptr_t>(km_va0), static_cast<intptr_t>(km_va1), static_cast<intptr_t>(km_va2), static_cast<intptr_t>(km_va3)); break;
         }
+    } else {
+        errno = ENOSYS;
     }
 #else
     (void)ndisadapterhandle;
     (void)errorcode;
     (void)numberoferrorvalues;
     (void)km_vac; (void)km_va0; (void)km_va1; (void)km_va2; (void)km_va3;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -2241,7 +2850,13 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisWriteEventL
         HMODULE km_h_mod = LoadLibraryA("ndis.sys");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NdisWriteEventLogEntry")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(loghandle, eventcode, uniqueeventvalue, numstrings, stringslist, datasize, data) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(loghandle, eventcode, uniqueeventvalue, numstrings, stringslist, datasize, data);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)loghandle;
     (void)eventcode;
@@ -2250,6 +2865,7 @@ static Napi::Value windowssys_windows_wdk_networkmanagement_ndis_ndisWriteEventL
     (void)stringslist;
     (void)datasize;
     (void)data;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

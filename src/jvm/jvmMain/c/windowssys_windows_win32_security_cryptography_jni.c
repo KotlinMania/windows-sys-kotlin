@@ -5,6 +5,7 @@
 #include <stdbool.h>
 #include <stddef.h>
 #include <stdint.h>
+#include <stdlib.h>
 #include <errno.h>
 #ifdef _WIN32
 #ifndef WIN32_LEAN_AND_MEAN
@@ -28,13 +29,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("bcrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BCryptAddContextFunction");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwtable, (void*)(uintptr_t)pszcontext, (uint32_t)dwinterface, (void*)(uintptr_t)pszfunction, (uint32_t)dwposition) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwtable, (void*)(uintptr_t)pszcontext, (uint32_t)dwinterface, (void*)(uintptr_t)pszfunction, (uint32_t)dwposition);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwtable;
     (void)pszcontext;
     (void)dwinterface;
     (void)pszfunction;
     (void)dwposition;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -50,7 +58,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("bcrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BCryptAddContextFunctionProvider");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwtable, (void*)(uintptr_t)pszcontext, (uint32_t)dwinterface, (void*)(uintptr_t)pszfunction, (void*)(uintptr_t)pszprovider, (uint32_t)dwposition) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwtable, (void*)(uintptr_t)pszcontext, (uint32_t)dwinterface, (void*)(uintptr_t)pszfunction, (void*)(uintptr_t)pszprovider, (uint32_t)dwposition);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwtable;
     (void)pszcontext;
@@ -58,6 +72,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)pszfunction;
     (void)pszprovider;
     (void)dwposition;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -73,10 +88,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("bcrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BCryptCloseAlgorithmProvider");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)halgorithm, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)halgorithm, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)halgorithm;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -92,11 +114,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("bcrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BCryptConfigureContext");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwtable, (void*)(uintptr_t)pszcontext, (void*)(uintptr_t)pconfig) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwtable, (void*)(uintptr_t)pszcontext, (void*)(uintptr_t)pconfig);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwtable;
     (void)pszcontext;
     (void)pconfig;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -112,13 +141,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("bcrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BCryptConfigureContextFunction");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwtable, (void*)(uintptr_t)pszcontext, (uint32_t)dwinterface, (void*)(uintptr_t)pszfunction, (void*)(uintptr_t)pconfig) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwtable, (void*)(uintptr_t)pszcontext, (uint32_t)dwinterface, (void*)(uintptr_t)pszfunction, (void*)(uintptr_t)pconfig);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwtable;
     (void)pszcontext;
     (void)dwinterface;
     (void)pszfunction;
     (void)pconfig;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -134,11 +170,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("bcrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BCryptCreateContext");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwtable, (void*)(uintptr_t)pszcontext, (void*)(uintptr_t)pconfig) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwtable, (void*)(uintptr_t)pszcontext, (void*)(uintptr_t)pconfig);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwtable;
     (void)pszcontext;
     (void)pconfig;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -154,7 +197,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("bcrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BCryptCreateHash");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)halgorithm, (void*)(uintptr_t)phhash, (void*)(uintptr_t)pbhashobject, (uint32_t)cbhashobject, (void*)(uintptr_t)pbsecret, (uint32_t)cbsecret, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)halgorithm, (void*)(uintptr_t)phhash, (void*)(uintptr_t)pbhashobject, (uint32_t)cbhashobject, (void*)(uintptr_t)pbsecret, (uint32_t)cbsecret, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)halgorithm;
     (void)phhash;
@@ -163,6 +212,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)pbsecret;
     (void)cbsecret;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -178,7 +228,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("bcrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BCryptCreateMultiHash");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)halgorithm, (void*)(uintptr_t)phhash, (uint32_t)nhashes, (void*)(uintptr_t)pbhashobject, (uint32_t)cbhashobject, (void*)(uintptr_t)pbsecret, (uint32_t)cbsecret, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)halgorithm, (void*)(uintptr_t)phhash, (uint32_t)nhashes, (void*)(uintptr_t)pbhashobject, (uint32_t)cbhashobject, (void*)(uintptr_t)pbsecret, (uint32_t)cbsecret, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)halgorithm;
     (void)phhash;
@@ -188,6 +244,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)pbsecret;
     (void)cbsecret;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -203,7 +260,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("bcrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BCryptDecrypt");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hkey, (void*)(uintptr_t)pbinput, (uint32_t)cbinput, (void*)(uintptr_t)ppaddinginfo, (void*)(uintptr_t)pbiv, (uint32_t)cbiv, (void*)(uintptr_t)pboutput, (uint32_t)cboutput, (void*)(uintptr_t)pcbresult, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hkey, (void*)(uintptr_t)pbinput, (uint32_t)cbinput, (void*)(uintptr_t)ppaddinginfo, (void*)(uintptr_t)pbiv, (uint32_t)cbiv, (void*)(uintptr_t)pboutput, (uint32_t)cboutput, (void*)(uintptr_t)pcbresult, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hkey;
     (void)pbinput;
@@ -215,6 +278,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)cboutput;
     (void)pcbresult;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -230,10 +294,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("bcrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BCryptDeleteContext");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwtable, (void*)(uintptr_t)pszcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwtable, (void*)(uintptr_t)pszcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwtable;
     (void)pszcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -249,7 +320,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("bcrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BCryptDeriveKey");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hsharedsecret, (void*)(uintptr_t)pwszkdf, (void*)(uintptr_t)pparameterlist, (void*)(uintptr_t)pbderivedkey, (uint32_t)cbderivedkey, (void*)(uintptr_t)pcbresult, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hsharedsecret, (void*)(uintptr_t)pwszkdf, (void*)(uintptr_t)pparameterlist, (void*)(uintptr_t)pbderivedkey, (uint32_t)cbderivedkey, (void*)(uintptr_t)pcbresult, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hsharedsecret;
     (void)pwszkdf;
@@ -258,6 +335,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)cbderivedkey;
     (void)pcbresult;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -273,13 +351,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("bcrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BCryptDeriveKeyCapi");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hhash, (void*)(uintptr_t)htargetalg, (void*)(uintptr_t)pbderivedkey, (uint32_t)cbderivedkey, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hhash, (void*)(uintptr_t)htargetalg, (void*)(uintptr_t)pbderivedkey, (uint32_t)cbderivedkey, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hhash;
     (void)htargetalg;
     (void)pbderivedkey;
     (void)cbderivedkey;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -295,7 +380,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("bcrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BCryptDeriveKeyPBKDF2");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hprf, (void*)(uintptr_t)pbpassword, (uint32_t)cbpassword, (void*)(uintptr_t)pbsalt, (uint32_t)cbsalt, (uint64_t)citerations, (void*)(uintptr_t)pbderivedkey, (uint32_t)cbderivedkey, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hprf, (void*)(uintptr_t)pbpassword, (uint32_t)cbpassword, (void*)(uintptr_t)pbsalt, (uint32_t)cbsalt, (uint64_t)citerations, (void*)(uintptr_t)pbderivedkey, (uint32_t)cbderivedkey, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprf;
     (void)pbpassword;
@@ -306,6 +397,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)pbderivedkey;
     (void)cbderivedkey;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -321,9 +413,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("bcrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BCryptDestroyHash");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hhash) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hhash);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hhash;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -339,9 +438,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("bcrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BCryptDestroyKey");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hkey) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hkey);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hkey;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -357,9 +463,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("bcrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BCryptDestroySecret");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hsecret) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hsecret);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hsecret;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -375,13 +488,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("bcrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BCryptDuplicateHash");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hhash, (void*)(uintptr_t)phnewhash, (void*)(uintptr_t)pbhashobject, (uint32_t)cbhashobject, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hhash, (void*)(uintptr_t)phnewhash, (void*)(uintptr_t)pbhashobject, (uint32_t)cbhashobject, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hhash;
     (void)phnewhash;
     (void)pbhashobject;
     (void)cbhashobject;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -397,13 +517,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("bcrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BCryptDuplicateKey");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hkey, (void*)(uintptr_t)phnewkey, (void*)(uintptr_t)pbkeyobject, (uint32_t)cbkeyobject, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hkey, (void*)(uintptr_t)phnewkey, (void*)(uintptr_t)pbkeyobject, (uint32_t)cbkeyobject, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hkey;
     (void)phnewkey;
     (void)pbkeyobject;
     (void)cbkeyobject;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -419,7 +546,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("bcrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BCryptEncrypt");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hkey, (void*)(uintptr_t)pbinput, (uint32_t)cbinput, (void*)(uintptr_t)ppaddinginfo, (void*)(uintptr_t)pbiv, (uint32_t)cbiv, (void*)(uintptr_t)pboutput, (uint32_t)cboutput, (void*)(uintptr_t)pcbresult, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hkey, (void*)(uintptr_t)pbinput, (uint32_t)cbinput, (void*)(uintptr_t)ppaddinginfo, (void*)(uintptr_t)pbiv, (uint32_t)cbiv, (void*)(uintptr_t)pboutput, (uint32_t)cboutput, (void*)(uintptr_t)pcbresult, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hkey;
     (void)pbinput;
@@ -431,6 +564,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)cboutput;
     (void)pcbresult;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -446,12 +580,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("bcrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BCryptEnumAlgorithms");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwalgoperations, (void*)(uintptr_t)palgcount, (void*)(uintptr_t)ppalglist, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwalgoperations, (void*)(uintptr_t)palgcount, (void*)(uintptr_t)ppalglist, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwalgoperations;
     (void)palgcount;
     (void)ppalglist;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -467,7 +608,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("bcrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BCryptEnumContextFunctionProviders");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwtable, (void*)(uintptr_t)pszcontext, (uint32_t)dwinterface, (void*)(uintptr_t)pszfunction, (void*)(uintptr_t)pcbbuffer, (void*)(uintptr_t)ppbuffer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwtable, (void*)(uintptr_t)pszcontext, (uint32_t)dwinterface, (void*)(uintptr_t)pszfunction, (void*)(uintptr_t)pcbbuffer, (void*)(uintptr_t)ppbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwtable;
     (void)pszcontext;
@@ -475,6 +622,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)pszfunction;
     (void)pcbbuffer;
     (void)ppbuffer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -490,13 +638,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("bcrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BCryptEnumContextFunctions");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwtable, (void*)(uintptr_t)pszcontext, (uint32_t)dwinterface, (void*)(uintptr_t)pcbbuffer, (void*)(uintptr_t)ppbuffer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwtable, (void*)(uintptr_t)pszcontext, (uint32_t)dwinterface, (void*)(uintptr_t)pcbbuffer, (void*)(uintptr_t)ppbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwtable;
     (void)pszcontext;
     (void)dwinterface;
     (void)pcbbuffer;
     (void)ppbuffer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -512,11 +667,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("bcrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BCryptEnumContexts");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwtable, (void*)(uintptr_t)pcbbuffer, (void*)(uintptr_t)ppbuffer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwtable, (void*)(uintptr_t)pcbbuffer, (void*)(uintptr_t)ppbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwtable;
     (void)pcbbuffer;
     (void)ppbuffer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -532,12 +694,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("bcrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BCryptEnumProviders");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pszalgid, (void*)(uintptr_t)pimplcount, (void*)(uintptr_t)ppimpllist, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pszalgid, (void*)(uintptr_t)pimplcount, (void*)(uintptr_t)ppimpllist, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszalgid;
     (void)pimplcount;
     (void)ppimpllist;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -553,10 +722,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("bcrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BCryptEnumRegisteredProviders");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pcbbuffer, (void*)(uintptr_t)ppbuffer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pcbbuffer, (void*)(uintptr_t)ppbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pcbbuffer;
     (void)ppbuffer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -572,7 +748,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("bcrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BCryptExportKey");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hkey, (void*)(uintptr_t)hexportkey, (void*)(uintptr_t)pszblobtype, (void*)(uintptr_t)pboutput, (uint32_t)cboutput, (void*)(uintptr_t)pcbresult, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hkey, (void*)(uintptr_t)hexportkey, (void*)(uintptr_t)pszblobtype, (void*)(uintptr_t)pboutput, (uint32_t)cboutput, (void*)(uintptr_t)pcbresult, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hkey;
     (void)hexportkey;
@@ -581,6 +763,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)cboutput;
     (void)pcbresult;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -596,10 +779,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("bcrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BCryptFinalizeKeyPair");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hkey, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hkey, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hkey;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -615,12 +805,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("bcrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BCryptFinishHash");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hhash, (void*)(uintptr_t)pboutput, (uint32_t)cboutput, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hhash, (void*)(uintptr_t)pboutput, (uint32_t)cboutput, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hhash;
     (void)pboutput;
     (void)cboutput;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -636,9 +833,14 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("bcrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BCryptFreeBuffer");
     }
-    if (km_fn_ptr != NULL) km_fn_ptr((void*)(uintptr_t)pvbuffer);
+    if (km_fn_ptr != NULL) {
+        km_fn_ptr((void*)(uintptr_t)pvbuffer);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pvbuffer;
+    errno = ENOSYS;
 #endif
 }
 
@@ -652,12 +854,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("bcrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BCryptGenRandom");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)halgorithm, (void*)(uintptr_t)pbbuffer, (uint32_t)cbbuffer, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)halgorithm, (void*)(uintptr_t)pbbuffer, (uint32_t)cbbuffer, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)halgorithm;
     (void)pbbuffer;
     (void)cbbuffer;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -673,12 +882,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("bcrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BCryptGenerateKeyPair");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)halgorithm, (void*)(uintptr_t)phkey, (uint32_t)dwlength, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)halgorithm, (void*)(uintptr_t)phkey, (uint32_t)dwlength, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)halgorithm;
     (void)phkey;
     (void)dwlength;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -694,7 +910,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("bcrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BCryptGenerateSymmetricKey");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)halgorithm, (void*)(uintptr_t)phkey, (void*)(uintptr_t)pbkeyobject, (uint32_t)cbkeyobject, (void*)(uintptr_t)pbsecret, (uint32_t)cbsecret, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)halgorithm, (void*)(uintptr_t)phkey, (void*)(uintptr_t)pbkeyobject, (uint32_t)cbkeyobject, (void*)(uintptr_t)pbsecret, (uint32_t)cbsecret, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)halgorithm;
     (void)phkey;
@@ -703,6 +925,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)pbsecret;
     (void)cbsecret;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -718,9 +941,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("bcrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BCryptGetFipsAlgorithmMode");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pfenabled) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pfenabled);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pfenabled;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -736,7 +966,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("bcrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BCryptGetProperty");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hobject, (void*)(uintptr_t)pszproperty, (void*)(uintptr_t)pboutput, (uint32_t)cboutput, (void*)(uintptr_t)pcbresult, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hobject, (void*)(uintptr_t)pszproperty, (void*)(uintptr_t)pboutput, (uint32_t)cboutput, (void*)(uintptr_t)pcbresult, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hobject;
     (void)pszproperty;
@@ -744,6 +980,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)cboutput;
     (void)pcbresult;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -759,7 +996,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("bcrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BCryptHash");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)halgorithm, (void*)(uintptr_t)pbsecret, (uint32_t)cbsecret, (void*)(uintptr_t)pbinput, (uint32_t)cbinput, (void*)(uintptr_t)pboutput, (uint32_t)cboutput) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)halgorithm, (void*)(uintptr_t)pbsecret, (uint32_t)cbsecret, (void*)(uintptr_t)pbinput, (uint32_t)cbinput, (void*)(uintptr_t)pboutput, (uint32_t)cboutput);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)halgorithm;
     (void)pbsecret;
@@ -768,6 +1011,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)cbinput;
     (void)pboutput;
     (void)cboutput;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -783,12 +1027,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("bcrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BCryptHashData");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hhash, (void*)(uintptr_t)pbinput, (uint32_t)cbinput, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hhash, (void*)(uintptr_t)pbinput, (uint32_t)cbinput, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hhash;
     (void)pbinput;
     (void)cbinput;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -804,7 +1055,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("bcrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BCryptImportKey");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)halgorithm, (void*)(uintptr_t)himportkey, (void*)(uintptr_t)pszblobtype, (void*)(uintptr_t)phkey, (void*)(uintptr_t)pbkeyobject, (uint32_t)cbkeyobject, (void*)(uintptr_t)pbinput, (uint32_t)cbinput, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)halgorithm, (void*)(uintptr_t)himportkey, (void*)(uintptr_t)pszblobtype, (void*)(uintptr_t)phkey, (void*)(uintptr_t)pbkeyobject, (uint32_t)cbkeyobject, (void*)(uintptr_t)pbinput, (uint32_t)cbinput, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)halgorithm;
     (void)himportkey;
@@ -815,6 +1072,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)pbinput;
     (void)cbinput;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -830,7 +1088,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("bcrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BCryptImportKeyPair");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)halgorithm, (void*)(uintptr_t)himportkey, (void*)(uintptr_t)pszblobtype, (void*)(uintptr_t)phkey, (void*)(uintptr_t)pbinput, (uint32_t)cbinput, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)halgorithm, (void*)(uintptr_t)himportkey, (void*)(uintptr_t)pszblobtype, (void*)(uintptr_t)phkey, (void*)(uintptr_t)pbinput, (uint32_t)cbinput, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)halgorithm;
     (void)himportkey;
@@ -839,6 +1103,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)pbinput;
     (void)cbinput;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -854,7 +1119,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("bcrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BCryptKeyDerivation");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hkey, (void*)(uintptr_t)pparameterlist, (void*)(uintptr_t)pbderivedkey, (uint32_t)cbderivedkey, (void*)(uintptr_t)pcbresult, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hkey, (void*)(uintptr_t)pparameterlist, (void*)(uintptr_t)pbderivedkey, (uint32_t)cbderivedkey, (void*)(uintptr_t)pcbresult, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hkey;
     (void)pparameterlist;
@@ -862,6 +1133,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)cbderivedkey;
     (void)pcbresult;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -877,12 +1149,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("bcrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BCryptOpenAlgorithmProvider");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)phalgorithm, (void*)(uintptr_t)pszalgid, (void*)(uintptr_t)pszimplementation, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)phalgorithm, (void*)(uintptr_t)pszalgid, (void*)(uintptr_t)pszimplementation, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)phalgorithm;
     (void)pszalgid;
     (void)pszimplementation;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -898,13 +1177,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("bcrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BCryptProcessMultiOperations");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hobject, (int32_t)operationtype, (void*)(uintptr_t)poperations, (uint32_t)cboperations, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hobject, (int32_t)operationtype, (void*)(uintptr_t)poperations, (uint32_t)cboperations, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hobject;
     (void)operationtype;
     (void)poperations;
     (void)cboperations;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -920,12 +1206,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("bcrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BCryptQueryContextConfiguration");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwtable, (void*)(uintptr_t)pszcontext, (void*)(uintptr_t)pcbbuffer, (void*)(uintptr_t)ppbuffer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwtable, (void*)(uintptr_t)pszcontext, (void*)(uintptr_t)pcbbuffer, (void*)(uintptr_t)ppbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwtable;
     (void)pszcontext;
     (void)pcbbuffer;
     (void)ppbuffer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -941,7 +1234,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("bcrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BCryptQueryContextFunctionConfiguration");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwtable, (void*)(uintptr_t)pszcontext, (uint32_t)dwinterface, (void*)(uintptr_t)pszfunction, (void*)(uintptr_t)pcbbuffer, (void*)(uintptr_t)ppbuffer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwtable, (void*)(uintptr_t)pszcontext, (uint32_t)dwinterface, (void*)(uintptr_t)pszfunction, (void*)(uintptr_t)pcbbuffer, (void*)(uintptr_t)ppbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwtable;
     (void)pszcontext;
@@ -949,6 +1248,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)pszfunction;
     (void)pcbbuffer;
     (void)ppbuffer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -964,7 +1264,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("bcrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BCryptQueryContextFunctionProperty");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwtable, (void*)(uintptr_t)pszcontext, (uint32_t)dwinterface, (void*)(uintptr_t)pszfunction, (void*)(uintptr_t)pszproperty, (void*)(uintptr_t)pcbvalue, (void*)(uintptr_t)ppbvalue) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwtable, (void*)(uintptr_t)pszcontext, (uint32_t)dwinterface, (void*)(uintptr_t)pszfunction, (void*)(uintptr_t)pszproperty, (void*)(uintptr_t)pcbvalue, (void*)(uintptr_t)ppbvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwtable;
     (void)pszcontext;
@@ -973,6 +1279,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)pszproperty;
     (void)pcbvalue;
     (void)ppbvalue;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -988,13 +1295,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("bcrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BCryptQueryProviderRegistration");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pszprovider, (uint32_t)dwmode, (uint32_t)dwinterface, (void*)(uintptr_t)pcbbuffer, (void*)(uintptr_t)ppbuffer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pszprovider, (uint32_t)dwmode, (uint32_t)dwinterface, (void*)(uintptr_t)pcbbuffer, (void*)(uintptr_t)ppbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszprovider;
     (void)dwmode;
     (void)dwinterface;
     (void)pcbbuffer;
     (void)ppbuffer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1010,9 +1324,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("bcrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BCryptRegisterConfigChangeNotify");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)phevent) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)phevent);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)phevent;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1028,11 +1349,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("bcrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BCryptRegisterProvider");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pszprovider, (uint32_t)dwflags, (void*)(uintptr_t)preg) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pszprovider, (uint32_t)dwflags, (void*)(uintptr_t)preg);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszprovider;
     (void)dwflags;
     (void)preg;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1048,12 +1376,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("bcrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BCryptRemoveContextFunction");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwtable, (void*)(uintptr_t)pszcontext, (uint32_t)dwinterface, (void*)(uintptr_t)pszfunction) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwtable, (void*)(uintptr_t)pszcontext, (uint32_t)dwinterface, (void*)(uintptr_t)pszfunction);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwtable;
     (void)pszcontext;
     (void)dwinterface;
     (void)pszfunction;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1069,13 +1404,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("bcrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BCryptRemoveContextFunctionProvider");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwtable, (void*)(uintptr_t)pszcontext, (uint32_t)dwinterface, (void*)(uintptr_t)pszfunction, (void*)(uintptr_t)pszprovider) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwtable, (void*)(uintptr_t)pszcontext, (uint32_t)dwinterface, (void*)(uintptr_t)pszfunction, (void*)(uintptr_t)pszprovider);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwtable;
     (void)pszcontext;
     (void)dwinterface;
     (void)pszfunction;
     (void)pszprovider;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1091,7 +1433,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("bcrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BCryptResolveProviders");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pszcontext, (uint32_t)dwinterface, (void*)(uintptr_t)pszfunction, (void*)(uintptr_t)pszprovider, (uint32_t)dwmode, (uint32_t)dwflags, (void*)(uintptr_t)pcbbuffer, (void*)(uintptr_t)ppbuffer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pszcontext, (uint32_t)dwinterface, (void*)(uintptr_t)pszfunction, (void*)(uintptr_t)pszprovider, (uint32_t)dwmode, (uint32_t)dwflags, (void*)(uintptr_t)pcbbuffer, (void*)(uintptr_t)ppbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszcontext;
     (void)dwinterface;
@@ -1101,6 +1449,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)dwflags;
     (void)pcbbuffer;
     (void)ppbuffer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1116,12 +1465,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("bcrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BCryptSecretAgreement");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hprivkey, (void*)(uintptr_t)hpubkey, (void*)(uintptr_t)phagreedsecret, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hprivkey, (void*)(uintptr_t)hpubkey, (void*)(uintptr_t)phagreedsecret, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprivkey;
     (void)hpubkey;
     (void)phagreedsecret;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1137,7 +1493,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("bcrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BCryptSetContextFunctionProperty");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwtable, (void*)(uintptr_t)pszcontext, (uint32_t)dwinterface, (void*)(uintptr_t)pszfunction, (void*)(uintptr_t)pszproperty, (uint32_t)cbvalue, (void*)(uintptr_t)pbvalue) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwtable, (void*)(uintptr_t)pszcontext, (uint32_t)dwinterface, (void*)(uintptr_t)pszfunction, (void*)(uintptr_t)pszproperty, (uint32_t)cbvalue, (void*)(uintptr_t)pbvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwtable;
     (void)pszcontext;
@@ -1146,6 +1508,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)pszproperty;
     (void)cbvalue;
     (void)pbvalue;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1161,13 +1524,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("bcrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BCryptSetProperty");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hobject, (void*)(uintptr_t)pszproperty, (void*)(uintptr_t)pbinput, (uint32_t)cbinput, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hobject, (void*)(uintptr_t)pszproperty, (void*)(uintptr_t)pbinput, (uint32_t)cbinput, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hobject;
     (void)pszproperty;
     (void)pbinput;
     (void)cbinput;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1183,7 +1553,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("bcrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BCryptSignHash");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hkey, (void*)(uintptr_t)ppaddinginfo, (void*)(uintptr_t)pbinput, (uint32_t)cbinput, (void*)(uintptr_t)pboutput, (uint32_t)cboutput, (void*)(uintptr_t)pcbresult, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hkey, (void*)(uintptr_t)ppaddinginfo, (void*)(uintptr_t)pbinput, (uint32_t)cbinput, (void*)(uintptr_t)pboutput, (uint32_t)cboutput, (void*)(uintptr_t)pcbresult, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hkey;
     (void)ppaddinginfo;
@@ -1193,6 +1569,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)cboutput;
     (void)pcbresult;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1208,9 +1585,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("bcrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BCryptUnregisterConfigChangeNotify");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hevent) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hevent);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hevent;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1226,9 +1610,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("bcrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BCryptUnregisterProvider");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pszprovider) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pszprovider);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszprovider;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1244,7 +1635,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("bcrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "BCryptVerifySignature");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hkey, (void*)(uintptr_t)ppaddinginfo, (void*)(uintptr_t)pbhash, (uint32_t)cbhash, (void*)(uintptr_t)pbsignature, (uint32_t)cbsignature, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hkey, (void*)(uintptr_t)ppaddinginfo, (void*)(uintptr_t)pbhash, (uint32_t)cbhash, (void*)(uintptr_t)pbsignature, (uint32_t)cbsignature, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hkey;
     (void)ppaddinginfo;
@@ -1253,6 +1650,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)pbsignature;
     (void)cbsignature;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1268,12 +1666,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertAddCRLContextToStore");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hcertstore, (void*)(uintptr_t)pcrlcontext, (uint32_t)dwadddisposition, (void*)(uintptr_t)ppstorecontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hcertstore, (void*)(uintptr_t)pcrlcontext, (uint32_t)dwadddisposition, (void*)(uintptr_t)ppstorecontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcertstore;
     (void)pcrlcontext;
     (void)dwadddisposition;
     (void)ppstorecontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1289,12 +1694,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertAddCRLLinkToStore");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hcertstore, (void*)(uintptr_t)pcrlcontext, (uint32_t)dwadddisposition, (void*)(uintptr_t)ppstorecontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hcertstore, (void*)(uintptr_t)pcrlcontext, (uint32_t)dwadddisposition, (void*)(uintptr_t)ppstorecontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcertstore;
     (void)pcrlcontext;
     (void)dwadddisposition;
     (void)ppstorecontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1310,12 +1722,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertAddCTLContextToStore");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hcertstore, (void*)(uintptr_t)pctlcontext, (uint32_t)dwadddisposition, (void*)(uintptr_t)ppstorecontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hcertstore, (void*)(uintptr_t)pctlcontext, (uint32_t)dwadddisposition, (void*)(uintptr_t)ppstorecontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcertstore;
     (void)pctlcontext;
     (void)dwadddisposition;
     (void)ppstorecontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1331,12 +1750,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertAddCTLLinkToStore");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hcertstore, (void*)(uintptr_t)pctlcontext, (uint32_t)dwadddisposition, (void*)(uintptr_t)ppstorecontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hcertstore, (void*)(uintptr_t)pctlcontext, (uint32_t)dwadddisposition, (void*)(uintptr_t)ppstorecontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcertstore;
     (void)pctlcontext;
     (void)dwadddisposition;
     (void)ppstorecontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1352,12 +1778,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertAddCertificateContextToStore");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hcertstore, (void*)(uintptr_t)pcertcontext, (uint32_t)dwadddisposition, (void*)(uintptr_t)ppstorecontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hcertstore, (void*)(uintptr_t)pcertcontext, (uint32_t)dwadddisposition, (void*)(uintptr_t)ppstorecontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcertstore;
     (void)pcertcontext;
     (void)dwadddisposition;
     (void)ppstorecontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1373,12 +1806,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertAddCertificateLinkToStore");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hcertstore, (void*)(uintptr_t)pcertcontext, (uint32_t)dwadddisposition, (void*)(uintptr_t)ppstorecontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hcertstore, (void*)(uintptr_t)pcertcontext, (uint32_t)dwadddisposition, (void*)(uintptr_t)ppstorecontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcertstore;
     (void)pcertcontext;
     (void)dwadddisposition;
     (void)ppstorecontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1394,7 +1834,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertAddEncodedCRLToStore");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hcertstore, (uint32_t)dwcertencodingtype, (void*)(uintptr_t)pbcrlencoded, (uint32_t)cbcrlencoded, (uint32_t)dwadddisposition, (void*)(uintptr_t)ppcrlcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hcertstore, (uint32_t)dwcertencodingtype, (void*)(uintptr_t)pbcrlencoded, (uint32_t)cbcrlencoded, (uint32_t)dwadddisposition, (void*)(uintptr_t)ppcrlcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcertstore;
     (void)dwcertencodingtype;
@@ -1402,6 +1848,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)cbcrlencoded;
     (void)dwadddisposition;
     (void)ppcrlcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1417,7 +1864,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertAddEncodedCTLToStore");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hcertstore, (uint32_t)dwmsgandcertencodingtype, (void*)(uintptr_t)pbctlencoded, (uint32_t)cbctlencoded, (uint32_t)dwadddisposition, (void*)(uintptr_t)ppctlcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hcertstore, (uint32_t)dwmsgandcertencodingtype, (void*)(uintptr_t)pbctlencoded, (uint32_t)cbctlencoded, (uint32_t)dwadddisposition, (void*)(uintptr_t)ppctlcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcertstore;
     (void)dwmsgandcertencodingtype;
@@ -1425,6 +1878,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)cbctlencoded;
     (void)dwadddisposition;
     (void)ppctlcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1440,7 +1894,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertAddEncodedCertificateToStore");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hcertstore, (uint32_t)dwcertencodingtype, (void*)(uintptr_t)pbcertencoded, (uint32_t)cbcertencoded, (uint32_t)dwadddisposition, (void*)(uintptr_t)ppcertcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hcertstore, (uint32_t)dwcertencodingtype, (void*)(uintptr_t)pbcertencoded, (uint32_t)cbcertencoded, (uint32_t)dwadddisposition, (void*)(uintptr_t)ppcertcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcertstore;
     (void)dwcertencodingtype;
@@ -1448,6 +1908,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)cbcertencoded;
     (void)dwadddisposition;
     (void)ppcertcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1463,11 +1924,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertAddEncodedCertificateToSystemStoreA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)szcertstorename, (void*)(uintptr_t)pbcertencoded, (uint32_t)cbcertencoded) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)szcertstorename, (void*)(uintptr_t)pbcertencoded, (uint32_t)cbcertencoded);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)szcertstorename;
     (void)pbcertencoded;
     (void)cbcertencoded;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1483,11 +1951,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertAddEncodedCertificateToSystemStoreW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)szcertstorename, (void*)(uintptr_t)pbcertencoded, (uint32_t)cbcertencoded) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)szcertstorename, (void*)(uintptr_t)pbcertencoded, (uint32_t)cbcertencoded);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)szcertstorename;
     (void)pbcertencoded;
     (void)cbcertencoded;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1503,10 +1978,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertAddEnhancedKeyUsageIdentifier");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pcertcontext, (void*)(uintptr_t)pszusageidentifier) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pcertcontext, (void*)(uintptr_t)pszusageidentifier);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pcertcontext;
     (void)pszusageidentifier;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1522,9 +2004,14 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertAddRefServerOcspResponse");
     }
-    if (km_fn_ptr != NULL) km_fn_ptr((void*)(uintptr_t)hserverocspresponse);
+    if (km_fn_ptr != NULL) {
+        km_fn_ptr((void*)(uintptr_t)hserverocspresponse);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)hserverocspresponse;
+    errno = ENOSYS;
 #endif
 }
 
@@ -1538,9 +2025,14 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertAddRefServerOcspResponseContext");
     }
-    if (km_fn_ptr != NULL) km_fn_ptr((void*)(uintptr_t)pserverocspresponsecontext);
+    if (km_fn_ptr != NULL) {
+        km_fn_ptr((void*)(uintptr_t)pserverocspresponsecontext);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pserverocspresponsecontext;
+    errno = ENOSYS;
 #endif
 }
 
@@ -1554,7 +2046,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertAddSerializedElementToStore");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hcertstore, (void*)(uintptr_t)pbelement, (uint32_t)cbelement, (uint32_t)dwadddisposition, (uint32_t)dwflags, (uint32_t)dwcontexttypeflags, (void*)(uintptr_t)pdwcontexttype, (void*)(uintptr_t)ppvcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hcertstore, (void*)(uintptr_t)pbelement, (uint32_t)cbelement, (uint32_t)dwadddisposition, (uint32_t)dwflags, (uint32_t)dwcontexttypeflags, (void*)(uintptr_t)pdwcontexttype, (void*)(uintptr_t)ppvcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcertstore;
     (void)pbelement;
@@ -1564,6 +2062,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)dwcontexttypeflags;
     (void)pdwcontexttype;
     (void)ppvcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1579,12 +2078,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertAddStoreToCollection");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hcollectionstore, (void*)(uintptr_t)hsiblingstore, (uint32_t)dwupdateflags, (uint32_t)dwpriority) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hcollectionstore, (void*)(uintptr_t)hsiblingstore, (uint32_t)dwupdateflags, (uint32_t)dwpriority);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcollectionstore;
     (void)hsiblingstore;
     (void)dwupdateflags;
     (void)dwpriority;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1600,9 +2106,16 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertAlgIdToOID");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwalgid) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwalgid);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)dwalgid;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -1618,10 +2131,15 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertCloseServerOcspResponse");
     }
-    if (km_fn_ptr != NULL) km_fn_ptr((void*)(uintptr_t)hserverocspresponse, (uint32_t)dwflags);
+    if (km_fn_ptr != NULL) {
+        km_fn_ptr((void*)(uintptr_t)hserverocspresponse, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)hserverocspresponse;
     (void)dwflags;
+    errno = ENOSYS;
 #endif
 }
 
@@ -1635,10 +2153,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertCloseStore");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hcertstore, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hcertstore, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcertstore;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1654,11 +2179,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertCompareCertificate");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwcertencodingtype, (void*)(uintptr_t)pcertid1, (void*)(uintptr_t)pcertid2) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwcertencodingtype, (void*)(uintptr_t)pcertid1, (void*)(uintptr_t)pcertid2);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwcertencodingtype;
     (void)pcertid1;
     (void)pcertid2;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1674,11 +2206,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertCompareCertificateName");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwcertencodingtype, (void*)(uintptr_t)pcertname1, (void*)(uintptr_t)pcertname2) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwcertencodingtype, (void*)(uintptr_t)pcertname1, (void*)(uintptr_t)pcertname2);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwcertencodingtype;
     (void)pcertname1;
     (void)pcertname2;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1694,10 +2233,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertCompareIntegerBlob");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pint1, (void*)(uintptr_t)pint2) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pint1, (void*)(uintptr_t)pint2);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pint1;
     (void)pint2;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1713,11 +2259,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertComparePublicKeyInfo");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwcertencodingtype, (void*)(uintptr_t)ppublickey1, (void*)(uintptr_t)ppublickey2) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwcertencodingtype, (void*)(uintptr_t)ppublickey1, (void*)(uintptr_t)ppublickey2);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwcertencodingtype;
     (void)ppublickey1;
     (void)ppublickey2;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1733,12 +2286,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertControlStore");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hcertstore, (uint32_t)dwflags, (uint32_t)dwctrltype, (void*)(uintptr_t)pvctrlpara) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hcertstore, (uint32_t)dwflags, (uint32_t)dwctrltype, (void*)(uintptr_t)pvctrlpara);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcertstore;
     (void)dwflags;
     (void)dwctrltype;
     (void)pvctrlpara;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1754,11 +2314,18 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertCreateCRLContext");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwcertencodingtype, (void*)(uintptr_t)pbcrlencoded, (uint32_t)cbcrlencoded) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwcertencodingtype, (void*)(uintptr_t)pbcrlencoded, (uint32_t)cbcrlencoded);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)dwcertencodingtype;
     (void)pbcrlencoded;
     (void)cbcrlencoded;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -1774,11 +2341,18 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertCreateCTLContext");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwmsgandcertencodingtype, (void*)(uintptr_t)pbctlencoded, (uint32_t)cbctlencoded) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwmsgandcertencodingtype, (void*)(uintptr_t)pbctlencoded, (uint32_t)cbctlencoded);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)dwmsgandcertencodingtype;
     (void)pbctlencoded;
     (void)cbctlencoded;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -1794,7 +2368,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertCreateCTLEntryFromCertificateContextProperties");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pcertcontext, (uint32_t)coptattr, (void*)(uintptr_t)rgoptattr, (uint32_t)dwflags, (void*)(uintptr_t)pvreserved, (void*)(uintptr_t)pctlentry, (void*)(uintptr_t)pcbctlentry) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pcertcontext, (uint32_t)coptattr, (void*)(uintptr_t)rgoptattr, (uint32_t)dwflags, (void*)(uintptr_t)pvreserved, (void*)(uintptr_t)pctlentry, (void*)(uintptr_t)pcbctlentry);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pcertcontext;
     (void)coptattr;
@@ -1803,6 +2383,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)pvreserved;
     (void)pctlentry;
     (void)pcbctlentry;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1818,10 +2399,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertCreateCertificateChainEngine");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pconfig, (void*)(uintptr_t)phchainengine) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pconfig, (void*)(uintptr_t)phchainengine);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pconfig;
     (void)phchainengine;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1837,11 +2425,18 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertCreateCertificateContext");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwcertencodingtype, (void*)(uintptr_t)pbcertencoded, (uint32_t)cbcertencoded) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwcertencodingtype, (void*)(uintptr_t)pbcertencoded, (uint32_t)cbcertencoded);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)dwcertencodingtype;
     (void)pbcertencoded;
     (void)cbcertencoded;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -1857,7 +2452,13 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertCreateContext");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwcontexttype, (uint32_t)dwencodingtype, (void*)(uintptr_t)pbencoded, (uint32_t)cbencoded, (uint32_t)dwflags, (void*)(uintptr_t)pcreatepara) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwcontexttype, (uint32_t)dwencodingtype, (void*)(uintptr_t)pbencoded, (uint32_t)cbencoded, (uint32_t)dwflags, (void*)(uintptr_t)pcreatepara);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)dwcontexttype;
     (void)dwencodingtype;
@@ -1865,6 +2466,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
     (void)cbencoded;
     (void)dwflags;
     (void)pcreatepara;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -1880,7 +2482,13 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertCreateSelfSignCertificate");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hcryptprovorncryptkey, (void*)(uintptr_t)psubjectissuerblob, (uint32_t)dwflags, (void*)(uintptr_t)pkeyprovinfo, (void*)(uintptr_t)psignaturealgorithm, (void*)(uintptr_t)pstarttime, (void*)(uintptr_t)pendtime, (void*)(uintptr_t)pextensions) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hcryptprovorncryptkey, (void*)(uintptr_t)psubjectissuerblob, (uint32_t)dwflags, (void*)(uintptr_t)pkeyprovinfo, (void*)(uintptr_t)psignaturealgorithm, (void*)(uintptr_t)pstarttime, (void*)(uintptr_t)pendtime, (void*)(uintptr_t)pextensions);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)hcryptprovorncryptkey;
     (void)psubjectissuerblob;
@@ -1890,6 +2498,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
     (void)pstarttime;
     (void)pendtime;
     (void)pextensions;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -1905,9 +2514,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertDeleteCRLFromStore");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pcrlcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pcrlcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pcrlcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1923,9 +2539,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertDeleteCTLFromStore");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pctlcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pctlcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pctlcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1941,9 +2564,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertDeleteCertificateFromStore");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pcertcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pcertcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pcertcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1959,9 +2589,16 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertDuplicateCRLContext");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pcrlcontext) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pcrlcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)pcrlcontext;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -1977,9 +2614,16 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertDuplicateCTLContext");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pctlcontext) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pctlcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)pctlcontext;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -1995,9 +2639,16 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertDuplicateCertificateChain");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pchaincontext) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pchaincontext);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)pchaincontext;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -2013,9 +2664,16 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertDuplicateCertificateContext");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pcertcontext) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pcertcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)pcertcontext;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -2031,9 +2689,16 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertDuplicateStore");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hcertstore) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hcertstore);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)hcertstore;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -2049,10 +2714,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertEnumCRLContextProperties");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pcrlcontext, (uint32_t)dwpropid) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pcrlcontext, (uint32_t)dwpropid);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pcrlcontext;
     (void)dwpropid;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -2068,10 +2740,17 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertEnumCRLsInStore");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hcertstore, (void*)(uintptr_t)pprevcrlcontext) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hcertstore, (void*)(uintptr_t)pprevcrlcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)hcertstore;
     (void)pprevcrlcontext;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -2087,10 +2766,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertEnumCTLContextProperties");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pctlcontext, (uint32_t)dwpropid) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pctlcontext, (uint32_t)dwpropid);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pctlcontext;
     (void)dwpropid;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -2106,10 +2792,17 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertEnumCTLsInStore");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hcertstore, (void*)(uintptr_t)pprevctlcontext) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hcertstore, (void*)(uintptr_t)pprevctlcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)hcertstore;
     (void)pprevctlcontext;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -2125,10 +2818,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertEnumCertificateContextProperties");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pcertcontext, (uint32_t)dwpropid) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pcertcontext, (uint32_t)dwpropid);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pcertcontext;
     (void)dwpropid;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -2144,10 +2844,17 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertEnumCertificatesInStore");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hcertstore, (void*)(uintptr_t)pprevcertcontext) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hcertstore, (void*)(uintptr_t)pprevcertcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)hcertstore;
     (void)pprevcertcontext;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -2163,12 +2870,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertEnumPhysicalStore");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pvsystemstore, (uint32_t)dwflags, (void*)(uintptr_t)pvarg, (void*)(uintptr_t)pfnenum) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pvsystemstore, (uint32_t)dwflags, (void*)(uintptr_t)pvarg, (void*)(uintptr_t)pfnenum);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pvsystemstore;
     (void)dwflags;
     (void)pvarg;
     (void)pfnenum;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -2184,12 +2898,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertEnumSubjectInSortedCTL");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pctlcontext, (void*)(uintptr_t)ppvnextsubject, (void*)(uintptr_t)psubjectidentifier, (void*)(uintptr_t)pencodedattributes) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pctlcontext, (void*)(uintptr_t)ppvnextsubject, (void*)(uintptr_t)psubjectidentifier, (void*)(uintptr_t)pencodedattributes);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pctlcontext;
     (void)ppvnextsubject;
     (void)psubjectidentifier;
     (void)pencodedattributes;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -2205,12 +2926,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertEnumSystemStore");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwflags, (void*)(uintptr_t)pvsystemstorelocationpara, (void*)(uintptr_t)pvarg, (void*)(uintptr_t)pfnenum) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwflags, (void*)(uintptr_t)pvsystemstorelocationpara, (void*)(uintptr_t)pvarg, (void*)(uintptr_t)pfnenum);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwflags;
     (void)pvsystemstorelocationpara;
     (void)pvarg;
     (void)pfnenum;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -2226,11 +2954,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertEnumSystemStoreLocation");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwflags, (void*)(uintptr_t)pvarg, (void*)(uintptr_t)pfnenum) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwflags, (void*)(uintptr_t)pvarg, (void*)(uintptr_t)pfnenum);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwflags;
     (void)pvarg;
     (void)pfnenum;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -2246,11 +2981,18 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertFindAttribute");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pszobjid, (uint32_t)cattr, (void*)(uintptr_t)rgattr) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pszobjid, (uint32_t)cattr, (void*)(uintptr_t)rgattr);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)pszobjid;
     (void)cattr;
     (void)rgattr;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -2266,7 +3008,13 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertFindCRLInStore");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hcertstore, (uint32_t)dwcertencodingtype, (uint32_t)dwfindflags, (uint32_t)dwfindtype, (void*)(uintptr_t)pvfindpara, (void*)(uintptr_t)pprevcrlcontext) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hcertstore, (uint32_t)dwcertencodingtype, (uint32_t)dwfindflags, (uint32_t)dwfindtype, (void*)(uintptr_t)pvfindpara, (void*)(uintptr_t)pprevcrlcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)hcertstore;
     (void)dwcertencodingtype;
@@ -2274,6 +3022,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
     (void)dwfindtype;
     (void)pvfindpara;
     (void)pprevcrlcontext;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -2289,7 +3038,13 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertFindCTLInStore");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hcertstore, (uint32_t)dwmsgandcertencodingtype, (uint32_t)dwfindflags, (uint32_t)dwfindtype, (void*)(uintptr_t)pvfindpara, (void*)(uintptr_t)pprevctlcontext) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hcertstore, (uint32_t)dwmsgandcertencodingtype, (uint32_t)dwfindflags, (uint32_t)dwfindtype, (void*)(uintptr_t)pvfindpara, (void*)(uintptr_t)pprevctlcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)hcertstore;
     (void)dwmsgandcertencodingtype;
@@ -2297,6 +3052,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
     (void)dwfindtype;
     (void)pvfindpara;
     (void)pprevctlcontext;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -2312,13 +3068,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertFindCertificateInCRL");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pcert, (void*)(uintptr_t)pcrlcontext, (uint32_t)dwflags, (void*)(uintptr_t)pvreserved, (void*)(uintptr_t)ppcrlentry) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pcert, (void*)(uintptr_t)pcrlcontext, (uint32_t)dwflags, (void*)(uintptr_t)pvreserved, (void*)(uintptr_t)ppcrlentry);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pcert;
     (void)pcrlcontext;
     (void)dwflags;
     (void)pvreserved;
     (void)ppcrlentry;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -2334,7 +3097,13 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertFindCertificateInStore");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hcertstore, (uint32_t)dwcertencodingtype, (uint32_t)dwfindflags, (uint32_t)dwfindtype, (void*)(uintptr_t)pvfindpara, (void*)(uintptr_t)pprevcertcontext) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hcertstore, (uint32_t)dwcertencodingtype, (uint32_t)dwfindflags, (uint32_t)dwfindtype, (void*)(uintptr_t)pvfindpara, (void*)(uintptr_t)pprevcertcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)hcertstore;
     (void)dwcertencodingtype;
@@ -2342,6 +3111,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
     (void)dwfindtype;
     (void)pvfindpara;
     (void)pprevcertcontext;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -2357,7 +3127,13 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertFindChainInStore");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hcertstore, (uint32_t)dwcertencodingtype, (uint32_t)dwfindflags, (uint32_t)dwfindtype, (void*)(uintptr_t)pvfindpara, (void*)(uintptr_t)pprevchaincontext) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hcertstore, (uint32_t)dwcertencodingtype, (uint32_t)dwfindflags, (uint32_t)dwfindtype, (void*)(uintptr_t)pvfindpara, (void*)(uintptr_t)pprevchaincontext);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)hcertstore;
     (void)dwcertencodingtype;
@@ -2365,6 +3141,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
     (void)dwfindtype;
     (void)pvfindpara;
     (void)pprevchaincontext;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -2380,11 +3157,18 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertFindExtension");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pszobjid, (uint32_t)cextensions, (void*)(uintptr_t)rgextensions) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pszobjid, (uint32_t)cextensions, (void*)(uintptr_t)rgextensions);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)pszobjid;
     (void)cextensions;
     (void)rgextensions;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -2400,10 +3184,17 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertFindRDNAttr");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pszobjid, (void*)(uintptr_t)pname) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pszobjid, (void*)(uintptr_t)pname);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)pszobjid;
     (void)pname;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -2419,13 +3210,20 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertFindSubjectInCTL");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwencodingtype, (uint32_t)dwsubjecttype, (void*)(uintptr_t)pvsubject, (void*)(uintptr_t)pctlcontext, (uint32_t)dwflags) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwencodingtype, (uint32_t)dwsubjecttype, (void*)(uintptr_t)pvsubject, (void*)(uintptr_t)pctlcontext, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)dwencodingtype;
     (void)dwsubjecttype;
     (void)pvsubject;
     (void)pctlcontext;
     (void)dwflags;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -2441,13 +3239,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertFindSubjectInSortedCTL");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)psubjectidentifier, (void*)(uintptr_t)pctlcontext, (uint32_t)dwflags, (void*)(uintptr_t)pvreserved, (void*)(uintptr_t)pencodedattributes) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)psubjectidentifier, (void*)(uintptr_t)pctlcontext, (uint32_t)dwflags, (void*)(uintptr_t)pvreserved, (void*)(uintptr_t)pencodedattributes);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)psubjectidentifier;
     (void)pctlcontext;
     (void)dwflags;
     (void)pvreserved;
     (void)pencodedattributes;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -2463,9 +3268,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertFreeCRLContext");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pcrlcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pcrlcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pcrlcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -2481,9 +3293,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertFreeCTLContext");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pctlcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pctlcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pctlcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -2499,9 +3318,14 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertFreeCertificateChain");
     }
-    if (km_fn_ptr != NULL) km_fn_ptr((void*)(uintptr_t)pchaincontext);
+    if (km_fn_ptr != NULL) {
+        km_fn_ptr((void*)(uintptr_t)pchaincontext);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pchaincontext;
+    errno = ENOSYS;
 #endif
 }
 
@@ -2515,9 +3339,14 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertFreeCertificateChainEngine");
     }
-    if (km_fn_ptr != NULL) km_fn_ptr((void*)(uintptr_t)hchainengine);
+    if (km_fn_ptr != NULL) {
+        km_fn_ptr((void*)(uintptr_t)hchainengine);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)hchainengine;
+    errno = ENOSYS;
 #endif
 }
 
@@ -2531,9 +3360,14 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertFreeCertificateChainList");
     }
-    if (km_fn_ptr != NULL) km_fn_ptr((void*)(uintptr_t)prgpselection);
+    if (km_fn_ptr != NULL) {
+        km_fn_ptr((void*)(uintptr_t)prgpselection);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)prgpselection;
+    errno = ENOSYS;
 #endif
 }
 
@@ -2547,9 +3381,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertFreeCertificateContext");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pcertcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pcertcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pcertcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -2565,9 +3406,14 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertFreeServerOcspResponseContext");
     }
-    if (km_fn_ptr != NULL) km_fn_ptr((void*)(uintptr_t)pserverocspresponsecontext);
+    if (km_fn_ptr != NULL) {
+        km_fn_ptr((void*)(uintptr_t)pserverocspresponsecontext);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pserverocspresponsecontext;
+    errno = ENOSYS;
 #endif
 }
 
@@ -2581,12 +3427,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertGetCRLContextProperty");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pcrlcontext, (uint32_t)dwpropid, (void*)(uintptr_t)pvdata, (void*)(uintptr_t)pcbdata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pcrlcontext, (uint32_t)dwpropid, (void*)(uintptr_t)pvdata, (void*)(uintptr_t)pcbdata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pcrlcontext;
     (void)dwpropid;
     (void)pvdata;
     (void)pcbdata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -2602,12 +3455,19 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertGetCRLFromStore");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hcertstore, (void*)(uintptr_t)pissuercontext, (void*)(uintptr_t)pprevcrlcontext, (void*)(uintptr_t)pdwflags) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hcertstore, (void*)(uintptr_t)pissuercontext, (void*)(uintptr_t)pprevcrlcontext, (void*)(uintptr_t)pdwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)hcertstore;
     (void)pissuercontext;
     (void)pprevcrlcontext;
     (void)pdwflags;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -2623,12 +3483,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertGetCTLContextProperty");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pctlcontext, (uint32_t)dwpropid, (void*)(uintptr_t)pvdata, (void*)(uintptr_t)pcbdata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pctlcontext, (uint32_t)dwpropid, (void*)(uintptr_t)pvdata, (void*)(uintptr_t)pcbdata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pctlcontext;
     (void)dwpropid;
     (void)pvdata;
     (void)pcbdata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -2644,7 +3511,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertGetCertificateChain");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hchainengine, (void*)(uintptr_t)pcertcontext, (void*)(uintptr_t)ptime, (void*)(uintptr_t)hadditionalstore, (void*)(uintptr_t)pchainpara, (uint32_t)dwflags, (void*)(uintptr_t)pvreserved, (void*)(uintptr_t)ppchaincontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hchainengine, (void*)(uintptr_t)pcertcontext, (void*)(uintptr_t)ptime, (void*)(uintptr_t)hadditionalstore, (void*)(uintptr_t)pchainpara, (uint32_t)dwflags, (void*)(uintptr_t)pvreserved, (void*)(uintptr_t)ppchaincontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hchainengine;
     (void)pcertcontext;
@@ -2654,6 +3527,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)dwflags;
     (void)pvreserved;
     (void)ppchaincontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -2669,12 +3543,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertGetCertificateContextProperty");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pcertcontext, (uint32_t)dwpropid, (void*)(uintptr_t)pvdata, (void*)(uintptr_t)pcbdata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pcertcontext, (uint32_t)dwpropid, (void*)(uintptr_t)pvdata, (void*)(uintptr_t)pcbdata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pcertcontext;
     (void)dwpropid;
     (void)pvdata;
     (void)pcbdata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -2690,12 +3571,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertGetEnhancedKeyUsage");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pcertcontext, (uint32_t)dwflags, (void*)(uintptr_t)pusage, (void*)(uintptr_t)pcbusage) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pcertcontext, (uint32_t)dwflags, (void*)(uintptr_t)pusage, (void*)(uintptr_t)pcbusage);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pcertcontext;
     (void)dwflags;
     (void)pusage;
     (void)pcbusage;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -2711,12 +3599,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertGetIntendedKeyUsage");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwcertencodingtype, (void*)(uintptr_t)pcertinfo, (void*)(uintptr_t)pbkeyusage, (uint32_t)cbkeyusage) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwcertencodingtype, (void*)(uintptr_t)pcertinfo, (void*)(uintptr_t)pbkeyusage, (uint32_t)cbkeyusage);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwcertencodingtype;
     (void)pcertinfo;
     (void)pbkeyusage;
     (void)cbkeyusage;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -2732,12 +3627,19 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertGetIssuerCertificateFromStore");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hcertstore, (void*)(uintptr_t)psubjectcontext, (void*)(uintptr_t)pprevissuercontext, (void*)(uintptr_t)pdwflags) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hcertstore, (void*)(uintptr_t)psubjectcontext, (void*)(uintptr_t)pprevissuercontext, (void*)(uintptr_t)pdwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)hcertstore;
     (void)psubjectcontext;
     (void)pprevissuercontext;
     (void)pdwflags;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -2753,7 +3655,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertGetNameStringA");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pcertcontext, (uint32_t)dwtype, (uint32_t)dwflags, (void*)(uintptr_t)pvtypepara, (void*)(uintptr_t)psznamestring, (uint32_t)cchnamestring) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pcertcontext, (uint32_t)dwtype, (uint32_t)dwflags, (void*)(uintptr_t)pvtypepara, (void*)(uintptr_t)psznamestring, (uint32_t)cchnamestring);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pcertcontext;
     (void)dwtype;
@@ -2761,6 +3669,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)pvtypepara;
     (void)psznamestring;
     (void)cchnamestring;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -2776,7 +3685,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertGetNameStringW");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pcertcontext, (uint32_t)dwtype, (uint32_t)dwflags, (void*)(uintptr_t)pvtypepara, (void*)(uintptr_t)psznamestring, (uint32_t)cchnamestring) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pcertcontext, (uint32_t)dwtype, (uint32_t)dwflags, (void*)(uintptr_t)pvtypepara, (void*)(uintptr_t)psznamestring, (uint32_t)cchnamestring);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pcertcontext;
     (void)dwtype;
@@ -2784,6 +3699,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)pvtypepara;
     (void)psznamestring;
     (void)cchnamestring;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -2799,10 +3715,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertGetPublicKeyLength");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwcertencodingtype, (void*)(uintptr_t)ppublickey) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwcertencodingtype, (void*)(uintptr_t)ppublickey);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dwcertencodingtype;
     (void)ppublickey;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -2818,11 +3741,18 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertGetServerOcspResponseContext");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hserverocspresponse, (uint32_t)dwflags, (void*)(uintptr_t)pvreserved) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hserverocspresponse, (uint32_t)dwflags, (void*)(uintptr_t)pvreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)hserverocspresponse;
     (void)dwflags;
     (void)pvreserved;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -2838,12 +3768,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertGetStoreProperty");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hcertstore, (uint32_t)dwpropid, (void*)(uintptr_t)pvdata, (void*)(uintptr_t)pcbdata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hcertstore, (uint32_t)dwpropid, (void*)(uintptr_t)pvdata, (void*)(uintptr_t)pcbdata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcertstore;
     (void)dwpropid;
     (void)pvdata;
     (void)pcbdata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -2859,11 +3796,18 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertGetSubjectCertificateFromStore");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hcertstore, (uint32_t)dwcertencodingtype, (void*)(uintptr_t)pcertid) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hcertstore, (uint32_t)dwcertencodingtype, (void*)(uintptr_t)pcertid);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)hcertstore;
     (void)dwcertencodingtype;
     (void)pcertid;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -2879,13 +3823,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertGetValidUsages");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)ccerts, (void*)(uintptr_t)rghcerts, (void*)(uintptr_t)cnumoids, (void*)(uintptr_t)rghoids, (void*)(uintptr_t)pcboids) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)ccerts, (void*)(uintptr_t)rghcerts, (void*)(uintptr_t)cnumoids, (void*)(uintptr_t)rghoids, (void*)(uintptr_t)pcboids);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ccerts;
     (void)rghcerts;
     (void)cnumoids;
     (void)rghoids;
     (void)pcboids;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -2901,12 +3852,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertIsRDNAttrsInCertificateName");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwcertencodingtype, (uint32_t)dwflags, (void*)(uintptr_t)pcertname, (void*)(uintptr_t)prdn) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwcertencodingtype, (uint32_t)dwflags, (void*)(uintptr_t)pcertname, (void*)(uintptr_t)prdn);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwcertencodingtype;
     (void)dwflags;
     (void)pcertname;
     (void)prdn;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -2922,11 +3880,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertIsStrongHashToSign");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pstrongsignpara, (void*)(uintptr_t)pwszcnghashalgid, (void*)(uintptr_t)psigningcert) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pstrongsignpara, (void*)(uintptr_t)pwszcnghashalgid, (void*)(uintptr_t)psigningcert);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pstrongsignpara;
     (void)pwszcnghashalgid;
     (void)psigningcert;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -2942,12 +3907,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertIsValidCRLForCertificate");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pcert, (void*)(uintptr_t)pcrl, (uint32_t)dwflags, (void*)(uintptr_t)pvreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pcert, (void*)(uintptr_t)pcrl, (uint32_t)dwflags, (void*)(uintptr_t)pvreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pcert;
     (void)pcrl;
     (void)dwflags;
     (void)pvreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -2963,7 +3935,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertIsWeakHash");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwhashusetype, (void*)(uintptr_t)pwszcnghashalgid, (uint32_t)dwchainflags, (void*)(uintptr_t)psignerchaincontext, (void*)(uintptr_t)ptimestamp, (void*)(uintptr_t)pwszfilename) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwhashusetype, (void*)(uintptr_t)pwszcnghashalgid, (uint32_t)dwchainflags, (void*)(uintptr_t)psignerchaincontext, (void*)(uintptr_t)ptimestamp, (void*)(uintptr_t)pwszfilename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwhashusetype;
     (void)pwszcnghashalgid;
@@ -2971,6 +3949,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)psignerchaincontext;
     (void)ptimestamp;
     (void)pwszfilename;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -2986,13 +3965,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertNameToStrA");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwcertencodingtype, (void*)(uintptr_t)pname, (uint32_t)dwstrtype, (void*)(uintptr_t)psz, (uint32_t)csz) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwcertencodingtype, (void*)(uintptr_t)pname, (uint32_t)dwstrtype, (void*)(uintptr_t)psz, (uint32_t)csz);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dwcertencodingtype;
     (void)pname;
     (void)dwstrtype;
     (void)psz;
     (void)csz;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -3008,13 +3994,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertNameToStrW");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwcertencodingtype, (void*)(uintptr_t)pname, (uint32_t)dwstrtype, (void*)(uintptr_t)psz, (uint32_t)csz) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwcertencodingtype, (void*)(uintptr_t)pname, (uint32_t)dwstrtype, (void*)(uintptr_t)psz, (uint32_t)csz);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dwcertencodingtype;
     (void)pname;
     (void)dwstrtype;
     (void)psz;
     (void)csz;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -3030,9 +4023,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertOIDToAlgId");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pszobjid) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pszobjid);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pszobjid;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -3048,11 +4048,18 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertOpenServerOcspResponse");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pchaincontext, (uint32_t)dwflags, (void*)(uintptr_t)popenpara) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pchaincontext, (uint32_t)dwflags, (void*)(uintptr_t)popenpara);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)pchaincontext;
     (void)dwflags;
     (void)popenpara;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -3068,13 +4075,20 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertOpenStore");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)lpszstoreprovider, (uint32_t)dwencodingtype, (uint64_t)hcryptprov, (uint32_t)dwflags, (void*)(uintptr_t)pvpara) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)lpszstoreprovider, (uint32_t)dwencodingtype, (uint64_t)hcryptprov, (uint32_t)dwflags, (void*)(uintptr_t)pvpara);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)lpszstoreprovider;
     (void)dwencodingtype;
     (void)hcryptprov;
     (void)dwflags;
     (void)pvpara;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -3090,10 +4104,17 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertOpenSystemStoreA");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hprov, (void*)(uintptr_t)szsubsystemprotocol) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hprov, (void*)(uintptr_t)szsubsystemprotocol);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)hprov;
     (void)szsubsystemprotocol;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -3109,10 +4130,17 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertOpenSystemStoreW");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hprov, (void*)(uintptr_t)szsubsystemprotocol) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hprov, (void*)(uintptr_t)szsubsystemprotocol);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)hprov;
     (void)szsubsystemprotocol;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -3128,12 +4156,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertRDNValueToStrA");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwvaluetype, (void*)(uintptr_t)pvalue, (void*)(uintptr_t)psz, (uint32_t)csz) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwvaluetype, (void*)(uintptr_t)pvalue, (void*)(uintptr_t)psz, (uint32_t)csz);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dwvaluetype;
     (void)pvalue;
     (void)psz;
     (void)csz;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -3149,12 +4184,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertRDNValueToStrW");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwvaluetype, (void*)(uintptr_t)pvalue, (void*)(uintptr_t)psz, (uint32_t)csz) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwvaluetype, (void*)(uintptr_t)pvalue, (void*)(uintptr_t)psz, (uint32_t)csz);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dwvaluetype;
     (void)pvalue;
     (void)psz;
     (void)csz;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -3170,13 +4212,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertRegisterPhysicalStore");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pvsystemstore, (uint32_t)dwflags, (void*)(uintptr_t)pwszstorename, (void*)(uintptr_t)pstoreinfo, (void*)(uintptr_t)pvreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pvsystemstore, (uint32_t)dwflags, (void*)(uintptr_t)pwszstorename, (void*)(uintptr_t)pstoreinfo, (void*)(uintptr_t)pvreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pvsystemstore;
     (void)dwflags;
     (void)pwszstorename;
     (void)pstoreinfo;
     (void)pvreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -3192,12 +4241,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertRegisterSystemStore");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pvsystemstore, (uint32_t)dwflags, (void*)(uintptr_t)pstoreinfo, (void*)(uintptr_t)pvreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pvsystemstore, (uint32_t)dwflags, (void*)(uintptr_t)pstoreinfo, (void*)(uintptr_t)pvreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pvsystemstore;
     (void)dwflags;
     (void)pstoreinfo;
     (void)pvreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -3213,10 +4269,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertRemoveEnhancedKeyUsageIdentifier");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pcertcontext, (void*)(uintptr_t)pszusageidentifier) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pcertcontext, (void*)(uintptr_t)pszusageidentifier);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pcertcontext;
     (void)pszusageidentifier;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -3232,10 +4295,15 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertRemoveStoreFromCollection");
     }
-    if (km_fn_ptr != NULL) km_fn_ptr((void*)(uintptr_t)hcollectionstore, (void*)(uintptr_t)hsiblingstore);
+    if (km_fn_ptr != NULL) {
+        km_fn_ptr((void*)(uintptr_t)hcollectionstore, (void*)(uintptr_t)hsiblingstore);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)hcollectionstore;
     (void)hsiblingstore;
+    errno = ENOSYS;
 #endif
 }
 
@@ -3249,9 +4317,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertResyncCertificateChainEngine");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hchainengine) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hchainengine);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hchainengine;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -3267,7 +4342,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertRetrieveLogoOrBiometricInfo");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pcertcontext, (void*)(uintptr_t)lpszlogoorbiometrictype, (uint32_t)dwretrievalflags, (uint32_t)dwtimeout, (uint32_t)dwflags, (void*)(uintptr_t)pvreserved, (void*)(uintptr_t)ppbdata, (void*)(uintptr_t)pcbdata, (void*)(uintptr_t)ppwszmimetype) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pcertcontext, (void*)(uintptr_t)lpszlogoorbiometrictype, (uint32_t)dwretrievalflags, (uint32_t)dwtimeout, (uint32_t)dwflags, (void*)(uintptr_t)pvreserved, (void*)(uintptr_t)ppbdata, (void*)(uintptr_t)pcbdata, (void*)(uintptr_t)ppwszmimetype);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pcertcontext;
     (void)lpszlogoorbiometrictype;
@@ -3278,6 +4359,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)ppbdata;
     (void)pcbdata;
     (void)ppwszmimetype;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -3293,7 +4375,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertSaveStore");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hcertstore, (uint32_t)dwencodingtype, (uint32_t)dwsaveas, (uint32_t)dwsaveto, (void*)(uintptr_t)pvsavetopara, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hcertstore, (uint32_t)dwencodingtype, (uint32_t)dwsaveas, (uint32_t)dwsaveto, (void*)(uintptr_t)pvsavetopara, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcertstore;
     (void)dwencodingtype;
@@ -3301,6 +4389,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)dwsaveto;
     (void)pvsavetopara;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -3316,7 +4405,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertSelectCertificateChains");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pselectioncontext, (uint32_t)dwflags, (void*)(uintptr_t)pchainparameters, (uint32_t)ccriteria, (void*)(uintptr_t)rgpcriteria, (void*)(uintptr_t)hstore, (void*)(uintptr_t)pcselection, (void*)(uintptr_t)pprgpselection) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pselectioncontext, (uint32_t)dwflags, (void*)(uintptr_t)pchainparameters, (uint32_t)ccriteria, (void*)(uintptr_t)rgpcriteria, (void*)(uintptr_t)hstore, (void*)(uintptr_t)pcselection, (void*)(uintptr_t)pprgpselection);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pselectioncontext;
     (void)dwflags;
@@ -3326,6 +4421,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)hstore;
     (void)pcselection;
     (void)pprgpselection;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -3341,12 +4437,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertSerializeCRLStoreElement");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pcrlcontext, (uint32_t)dwflags, (void*)(uintptr_t)pbelement, (void*)(uintptr_t)pcbelement) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pcrlcontext, (uint32_t)dwflags, (void*)(uintptr_t)pbelement, (void*)(uintptr_t)pcbelement);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pcrlcontext;
     (void)dwflags;
     (void)pbelement;
     (void)pcbelement;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -3362,12 +4465,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertSerializeCTLStoreElement");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pctlcontext, (uint32_t)dwflags, (void*)(uintptr_t)pbelement, (void*)(uintptr_t)pcbelement) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pctlcontext, (uint32_t)dwflags, (void*)(uintptr_t)pbelement, (void*)(uintptr_t)pcbelement);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pctlcontext;
     (void)dwflags;
     (void)pbelement;
     (void)pcbelement;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -3383,12 +4493,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertSerializeCertificateStoreElement");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pcertcontext, (uint32_t)dwflags, (void*)(uintptr_t)pbelement, (void*)(uintptr_t)pcbelement) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pcertcontext, (uint32_t)dwflags, (void*)(uintptr_t)pbelement, (void*)(uintptr_t)pcbelement);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pcertcontext;
     (void)dwflags;
     (void)pbelement;
     (void)pcbelement;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -3404,12 +4521,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertSetCRLContextProperty");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pcrlcontext, (uint32_t)dwpropid, (uint32_t)dwflags, (void*)(uintptr_t)pvdata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pcrlcontext, (uint32_t)dwpropid, (uint32_t)dwflags, (void*)(uintptr_t)pvdata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pcrlcontext;
     (void)dwpropid;
     (void)dwflags;
     (void)pvdata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -3425,12 +4549,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertSetCTLContextProperty");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pctlcontext, (uint32_t)dwpropid, (uint32_t)dwflags, (void*)(uintptr_t)pvdata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pctlcontext, (uint32_t)dwpropid, (uint32_t)dwflags, (void*)(uintptr_t)pvdata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pctlcontext;
     (void)dwpropid;
     (void)dwflags;
     (void)pvdata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -3446,11 +4577,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertSetCertificateContextPropertiesFromCTLEntry");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pcertcontext, (void*)(uintptr_t)pctlentry, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pcertcontext, (void*)(uintptr_t)pctlentry, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pcertcontext;
     (void)pctlentry;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -3466,12 +4604,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertSetCertificateContextProperty");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pcertcontext, (uint32_t)dwpropid, (uint32_t)dwflags, (void*)(uintptr_t)pvdata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pcertcontext, (uint32_t)dwpropid, (uint32_t)dwflags, (void*)(uintptr_t)pvdata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pcertcontext;
     (void)dwpropid;
     (void)dwflags;
     (void)pvdata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -3487,10 +4632,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertSetEnhancedKeyUsage");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pcertcontext, (void*)(uintptr_t)pusage) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pcertcontext, (void*)(uintptr_t)pusage);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pcertcontext;
     (void)pusage;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -3506,12 +4658,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertSetStoreProperty");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hcertstore, (uint32_t)dwpropid, (uint32_t)dwflags, (void*)(uintptr_t)pvdata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hcertstore, (uint32_t)dwpropid, (uint32_t)dwflags, (void*)(uintptr_t)pvdata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcertstore;
     (void)dwpropid;
     (void)dwflags;
     (void)pvdata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -3527,7 +4686,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertStrToNameA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwcertencodingtype, (void*)(uintptr_t)pszx500, (uint32_t)dwstrtype, (void*)(uintptr_t)pvreserved, (void*)(uintptr_t)pbencoded, (void*)(uintptr_t)pcbencoded, (void*)(uintptr_t)ppszerror) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwcertencodingtype, (void*)(uintptr_t)pszx500, (uint32_t)dwstrtype, (void*)(uintptr_t)pvreserved, (void*)(uintptr_t)pbencoded, (void*)(uintptr_t)pcbencoded, (void*)(uintptr_t)ppszerror);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwcertencodingtype;
     (void)pszx500;
@@ -3536,6 +4701,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)pbencoded;
     (void)pcbencoded;
     (void)ppszerror;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -3551,7 +4717,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertStrToNameW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwcertencodingtype, (void*)(uintptr_t)pszx500, (uint32_t)dwstrtype, (void*)(uintptr_t)pvreserved, (void*)(uintptr_t)pbencoded, (void*)(uintptr_t)pcbencoded, (void*)(uintptr_t)ppszerror) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwcertencodingtype, (void*)(uintptr_t)pszx500, (uint32_t)dwstrtype, (void*)(uintptr_t)pvreserved, (void*)(uintptr_t)pbencoded, (void*)(uintptr_t)pcbencoded, (void*)(uintptr_t)ppszerror);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwcertencodingtype;
     (void)pszx500;
@@ -3560,6 +4732,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)pbencoded;
     (void)pcbencoded;
     (void)ppszerror;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -3575,11 +4748,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertUnregisterPhysicalStore");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pvsystemstore, (uint32_t)dwflags, (void*)(uintptr_t)pwszstorename) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pvsystemstore, (uint32_t)dwflags, (void*)(uintptr_t)pwszstorename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pvsystemstore;
     (void)dwflags;
     (void)pwszstorename;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -3595,10 +4775,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertUnregisterSystemStore");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pvsystemstore, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pvsystemstore, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pvsystemstore;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -3614,12 +4801,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertVerifyCRLRevocation");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwcertencodingtype, (void*)(uintptr_t)pcertid, (uint32_t)ccrlinfo, (void*)(uintptr_t)rgpcrlinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwcertencodingtype, (void*)(uintptr_t)pcertid, (uint32_t)ccrlinfo, (void*)(uintptr_t)rgpcrlinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwcertencodingtype;
     (void)pcertid;
     (void)ccrlinfo;
     (void)rgpcrlinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -3635,10 +4829,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertVerifyCRLTimeValidity");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ptimetoverify, (void*)(uintptr_t)pcrlinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ptimetoverify, (void*)(uintptr_t)pcrlinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ptimetoverify;
     (void)pcrlinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -3654,7 +4855,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertVerifyCTLUsage");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwencodingtype, (uint32_t)dwsubjecttype, (void*)(uintptr_t)pvsubject, (void*)(uintptr_t)psubjectusage, (uint32_t)dwflags, (void*)(uintptr_t)pverifyusagepara, (void*)(uintptr_t)pverifyusagestatus) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwencodingtype, (uint32_t)dwsubjecttype, (void*)(uintptr_t)pvsubject, (void*)(uintptr_t)psubjectusage, (uint32_t)dwflags, (void*)(uintptr_t)pverifyusagepara, (void*)(uintptr_t)pverifyusagestatus);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwencodingtype;
     (void)dwsubjecttype;
@@ -3663,6 +4870,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)dwflags;
     (void)pverifyusagepara;
     (void)pverifyusagestatus;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -3678,12 +4886,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertVerifyCertificateChainPolicy");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pszpolicyoid, (void*)(uintptr_t)pchaincontext, (void*)(uintptr_t)ppolicypara, (void*)(uintptr_t)ppolicystatus) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pszpolicyoid, (void*)(uintptr_t)pchaincontext, (void*)(uintptr_t)ppolicypara, (void*)(uintptr_t)ppolicystatus);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszpolicyoid;
     (void)pchaincontext;
     (void)ppolicypara;
     (void)ppolicystatus;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -3699,7 +4914,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertVerifyRevocation");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwencodingtype, (uint32_t)dwrevtype, (uint32_t)ccontext, (void*)(uintptr_t)rgpvcontext, (uint32_t)dwflags, (void*)(uintptr_t)prevpara, (void*)(uintptr_t)prevstatus) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwencodingtype, (uint32_t)dwrevtype, (uint32_t)ccontext, (void*)(uintptr_t)rgpvcontext, (uint32_t)dwflags, (void*)(uintptr_t)prevpara, (void*)(uintptr_t)prevstatus);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwencodingtype;
     (void)dwrevtype;
@@ -3708,6 +4929,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)dwflags;
     (void)prevpara;
     (void)prevstatus;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -3723,11 +4945,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertVerifySubjectCertificateContext");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)psubject, (void*)(uintptr_t)pissuer, (void*)(uintptr_t)pdwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)psubject, (void*)(uintptr_t)pissuer, (void*)(uintptr_t)pdwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)psubject;
     (void)pissuer;
     (void)pdwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -3743,10 +4972,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertVerifyTimeValidity");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ptimetoverify, (void*)(uintptr_t)pcertinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ptimetoverify, (void*)(uintptr_t)pcertinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ptimetoverify;
     (void)pcertinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -3762,10 +4998,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CertVerifyValidityNesting");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)psubjectinfo, (void*)(uintptr_t)pissuerinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)psubjectinfo, (void*)(uintptr_t)pissuerinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)psubjectinfo;
     (void)pissuerinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -3781,9 +5024,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("infocardapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CloseCryptoHandle");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hcrypto) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hcrypto);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcrypto;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -3799,7 +5049,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptAcquireCertificatePrivateKey");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pcert, (uint32_t)dwflags, (void*)(uintptr_t)pvparameters, (void*)(uintptr_t)phcryptprovorncryptkey, (void*)(uintptr_t)pdwkeyspec, (void*)(uintptr_t)pfcallerfreeprovorncryptkey) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pcert, (uint32_t)dwflags, (void*)(uintptr_t)pvparameters, (void*)(uintptr_t)phcryptprovorncryptkey, (void*)(uintptr_t)pdwkeyspec, (void*)(uintptr_t)pfcallerfreeprovorncryptkey);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pcert;
     (void)dwflags;
@@ -3807,6 +5063,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)phcryptprovorncryptkey;
     (void)pdwkeyspec;
     (void)pfcallerfreeprovorncryptkey;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -3822,13 +5079,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptAcquireContextA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)phprov, (void*)(uintptr_t)szcontainer, (void*)(uintptr_t)szprovider, (uint32_t)dwprovtype, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)phprov, (void*)(uintptr_t)szcontainer, (void*)(uintptr_t)szprovider, (uint32_t)dwprovtype, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)phprov;
     (void)szcontainer;
     (void)szprovider;
     (void)dwprovtype;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -3844,13 +5108,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptAcquireContextW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)phprov, (void*)(uintptr_t)szcontainer, (void*)(uintptr_t)szprovider, (uint32_t)dwprovtype, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)phprov, (void*)(uintptr_t)szcontainer, (void*)(uintptr_t)szprovider, (uint32_t)dwprovtype, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)phprov;
     (void)szcontainer;
     (void)szprovider;
     (void)dwprovtype;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -3866,13 +5137,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptBinaryToStringA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pbbinary, (uint32_t)cbbinary, (uint32_t)dwflags, (void*)(uintptr_t)pszstring, (void*)(uintptr_t)pcchstring) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pbbinary, (uint32_t)cbbinary, (uint32_t)dwflags, (void*)(uintptr_t)pszstring, (void*)(uintptr_t)pcchstring);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pbbinary;
     (void)cbbinary;
     (void)dwflags;
     (void)pszstring;
     (void)pcchstring;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -3888,13 +5166,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptBinaryToStringW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pbbinary, (uint32_t)cbbinary, (uint32_t)dwflags, (void*)(uintptr_t)pszstring, (void*)(uintptr_t)pcchstring) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pbbinary, (uint32_t)cbbinary, (uint32_t)dwflags, (void*)(uintptr_t)pszstring, (void*)(uintptr_t)pcchstring);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pbbinary;
     (void)cbbinary;
     (void)dwflags;
     (void)pszstring;
     (void)pcchstring;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -3910,9 +5195,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptCloseAsyncHandle");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)hasync) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int64_t)hasync);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hasync;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -3928,11 +5220,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptContextAddRef");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hprov, (void*)(uintptr_t)pdwreserved, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hprov, (void*)(uintptr_t)pdwreserved, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprov;
     (void)pdwreserved;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -3948,10 +5247,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptCreateAsyncHandle");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwflags, (void*)(uintptr_t)phasync) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwflags, (void*)(uintptr_t)phasync);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwflags;
     (void)phasync;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -3967,13 +5273,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptCreateHash");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hprov, (uint32_t)algid, (uint64_t)hkey, (uint32_t)dwflags, (void*)(uintptr_t)phhash) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hprov, (uint32_t)algid, (uint64_t)hkey, (uint32_t)dwflags, (void*)(uintptr_t)phhash);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprov;
     (void)algid;
     (void)hkey;
     (void)dwflags;
     (void)phhash;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -3989,7 +5302,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptCreateKeyIdentifierFromCSP");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwcertencodingtype, (void*)(uintptr_t)pszpubkeyoid, (void*)(uintptr_t)ppubkeystruc, (uint32_t)cbpubkeystruc, (uint32_t)dwflags, (void*)(uintptr_t)pvreserved, (void*)(uintptr_t)pbhash, (void*)(uintptr_t)pcbhash) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwcertencodingtype, (void*)(uintptr_t)pszpubkeyoid, (void*)(uintptr_t)ppubkeystruc, (uint32_t)cbpubkeystruc, (uint32_t)dwflags, (void*)(uintptr_t)pvreserved, (void*)(uintptr_t)pbhash, (void*)(uintptr_t)pcbhash);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwcertencodingtype;
     (void)pszpubkeyoid;
@@ -3999,6 +5318,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)pvreserved;
     (void)pbhash;
     (void)pcbhash;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -4014,7 +5334,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptDecodeMessage");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwmsgtypeflags, (void*)(uintptr_t)pdecryptpara, (void*)(uintptr_t)pverifypara, (uint32_t)dwsignerindex, (void*)(uintptr_t)pbencodedblob, (uint32_t)cbencodedblob, (uint32_t)dwprevinnercontenttype, (void*)(uintptr_t)pdwmsgtype, (void*)(uintptr_t)pdwinnercontenttype, (void*)(uintptr_t)pbdecoded, (void*)(uintptr_t)pcbdecoded, (void*)(uintptr_t)ppxchgcert, (void*)(uintptr_t)ppsignercert) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwmsgtypeflags, (void*)(uintptr_t)pdecryptpara, (void*)(uintptr_t)pverifypara, (uint32_t)dwsignerindex, (void*)(uintptr_t)pbencodedblob, (uint32_t)cbencodedblob, (uint32_t)dwprevinnercontenttype, (void*)(uintptr_t)pdwmsgtype, (void*)(uintptr_t)pdwinnercontenttype, (void*)(uintptr_t)pbdecoded, (void*)(uintptr_t)pcbdecoded, (void*)(uintptr_t)ppxchgcert, (void*)(uintptr_t)ppsignercert);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwmsgtypeflags;
     (void)pdecryptpara;
@@ -4029,6 +5355,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)pcbdecoded;
     (void)ppxchgcert;
     (void)ppsignercert;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -4044,7 +5371,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptDecodeObject");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwcertencodingtype, (void*)(uintptr_t)lpszstructtype, (void*)(uintptr_t)pbencoded, (uint32_t)cbencoded, (uint32_t)dwflags, (void*)(uintptr_t)pvstructinfo, (void*)(uintptr_t)pcbstructinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwcertencodingtype, (void*)(uintptr_t)lpszstructtype, (void*)(uintptr_t)pbencoded, (uint32_t)cbencoded, (uint32_t)dwflags, (void*)(uintptr_t)pvstructinfo, (void*)(uintptr_t)pcbstructinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwcertencodingtype;
     (void)lpszstructtype;
@@ -4053,6 +5386,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)dwflags;
     (void)pvstructinfo;
     (void)pcbstructinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -4068,7 +5402,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptDecodeObjectEx");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwcertencodingtype, (void*)(uintptr_t)lpszstructtype, (void*)(uintptr_t)pbencoded, (uint32_t)cbencoded, (uint32_t)dwflags, (void*)(uintptr_t)pdecodepara, (void*)(uintptr_t)pvstructinfo, (void*)(uintptr_t)pcbstructinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwcertencodingtype, (void*)(uintptr_t)lpszstructtype, (void*)(uintptr_t)pbencoded, (uint32_t)cbencoded, (uint32_t)dwflags, (void*)(uintptr_t)pdecodepara, (void*)(uintptr_t)pvstructinfo, (void*)(uintptr_t)pcbstructinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwcertencodingtype;
     (void)lpszstructtype;
@@ -4078,6 +5418,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)pdecodepara;
     (void)pvstructinfo;
     (void)pcbstructinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -4093,7 +5434,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptDecrypt");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hkey, (uint64_t)hhash, (int32_t)final, (uint32_t)dwflags, (void*)(uintptr_t)pbdata, (void*)(uintptr_t)pdwdatalen) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hkey, (uint64_t)hhash, (int32_t)final, (uint32_t)dwflags, (void*)(uintptr_t)pbdata, (void*)(uintptr_t)pdwdatalen);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hkey;
     (void)hhash;
@@ -4101,6 +5448,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)dwflags;
     (void)pbdata;
     (void)pdwdatalen;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -4116,7 +5464,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptDecryptAndVerifyMessageSignature");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pdecryptpara, (void*)(uintptr_t)pverifypara, (uint32_t)dwsignerindex, (void*)(uintptr_t)pbencryptedblob, (uint32_t)cbencryptedblob, (void*)(uintptr_t)pbdecrypted, (void*)(uintptr_t)pcbdecrypted, (void*)(uintptr_t)ppxchgcert, (void*)(uintptr_t)ppsignercert) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pdecryptpara, (void*)(uintptr_t)pverifypara, (uint32_t)dwsignerindex, (void*)(uintptr_t)pbencryptedblob, (uint32_t)cbencryptedblob, (void*)(uintptr_t)pbdecrypted, (void*)(uintptr_t)pcbdecrypted, (void*)(uintptr_t)ppxchgcert, (void*)(uintptr_t)ppsignercert);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pdecryptpara;
     (void)pverifypara;
@@ -4127,6 +5481,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)pcbdecrypted;
     (void)ppxchgcert;
     (void)ppsignercert;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -4142,7 +5497,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptDecryptMessage");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pdecryptpara, (void*)(uintptr_t)pbencryptedblob, (uint32_t)cbencryptedblob, (void*)(uintptr_t)pbdecrypted, (void*)(uintptr_t)pcbdecrypted, (void*)(uintptr_t)ppxchgcert) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pdecryptpara, (void*)(uintptr_t)pbencryptedblob, (uint32_t)cbencryptedblob, (void*)(uintptr_t)pbdecrypted, (void*)(uintptr_t)pcbdecrypted, (void*)(uintptr_t)ppxchgcert);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pdecryptpara;
     (void)pbencryptedblob;
@@ -4150,6 +5511,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)pbdecrypted;
     (void)pcbdecrypted;
     (void)ppxchgcert;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -4165,13 +5527,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptDeriveKey");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hprov, (uint32_t)algid, (uint64_t)hbasedata, (uint32_t)dwflags, (void*)(uintptr_t)phkey) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hprov, (uint32_t)algid, (uint64_t)hbasedata, (uint32_t)dwflags, (void*)(uintptr_t)phkey);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprov;
     (void)algid;
     (void)hbasedata;
     (void)dwflags;
     (void)phkey;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -4187,9 +5556,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptDestroyHash");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hhash) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hhash);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hhash;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -4205,9 +5581,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptDestroyKey");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hkey) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hkey);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hkey;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -4223,12 +5606,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptDuplicateHash");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hhash, (void*)(uintptr_t)pdwreserved, (uint32_t)dwflags, (void*)(uintptr_t)phhash) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hhash, (void*)(uintptr_t)pdwreserved, (uint32_t)dwflags, (void*)(uintptr_t)phhash);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hhash;
     (void)pdwreserved;
     (void)dwflags;
     (void)phhash;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -4244,12 +5634,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptDuplicateKey");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hkey, (void*)(uintptr_t)pdwreserved, (uint32_t)dwflags, (void*)(uintptr_t)phkey) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hkey, (void*)(uintptr_t)pdwreserved, (uint32_t)dwflags, (void*)(uintptr_t)phkey);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hkey;
     (void)pdwreserved;
     (void)dwflags;
     (void)phkey;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -4265,13 +5662,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptEncodeObject");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwcertencodingtype, (void*)(uintptr_t)lpszstructtype, (void*)(uintptr_t)pvstructinfo, (void*)(uintptr_t)pbencoded, (void*)(uintptr_t)pcbencoded) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwcertencodingtype, (void*)(uintptr_t)lpszstructtype, (void*)(uintptr_t)pvstructinfo, (void*)(uintptr_t)pbencoded, (void*)(uintptr_t)pcbencoded);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwcertencodingtype;
     (void)lpszstructtype;
     (void)pvstructinfo;
     (void)pbencoded;
     (void)pcbencoded;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -4287,7 +5691,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptEncodeObjectEx");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwcertencodingtype, (void*)(uintptr_t)lpszstructtype, (void*)(uintptr_t)pvstructinfo, (uint32_t)dwflags, (void*)(uintptr_t)pencodepara, (void*)(uintptr_t)pvencoded, (void*)(uintptr_t)pcbencoded) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwcertencodingtype, (void*)(uintptr_t)lpszstructtype, (void*)(uintptr_t)pvstructinfo, (uint32_t)dwflags, (void*)(uintptr_t)pencodepara, (void*)(uintptr_t)pvencoded, (void*)(uintptr_t)pcbencoded);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwcertencodingtype;
     (void)lpszstructtype;
@@ -4296,6 +5706,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)pencodepara;
     (void)pvencoded;
     (void)pcbencoded;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -4311,7 +5722,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptEncrypt");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hkey, (uint64_t)hhash, (int32_t)final, (uint32_t)dwflags, (void*)(uintptr_t)pbdata, (void*)(uintptr_t)pdwdatalen, (uint32_t)dwbuflen) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hkey, (uint64_t)hhash, (int32_t)final, (uint32_t)dwflags, (void*)(uintptr_t)pbdata, (void*)(uintptr_t)pdwdatalen, (uint32_t)dwbuflen);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hkey;
     (void)hhash;
@@ -4320,6 +5737,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)pbdata;
     (void)pdwdatalen;
     (void)dwbuflen;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -4335,7 +5753,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptEncryptMessage");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pencryptpara, (uint32_t)crecipientcert, (void*)(uintptr_t)rgprecipientcert, (void*)(uintptr_t)pbtobeencrypted, (uint32_t)cbtobeencrypted, (void*)(uintptr_t)pbencryptedblob, (void*)(uintptr_t)pcbencryptedblob) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pencryptpara, (uint32_t)crecipientcert, (void*)(uintptr_t)rgprecipientcert, (void*)(uintptr_t)pbtobeencrypted, (uint32_t)cbtobeencrypted, (void*)(uintptr_t)pbencryptedblob, (void*)(uintptr_t)pcbencryptedblob);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pencryptpara;
     (void)crecipientcert;
@@ -4344,6 +5768,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)cbtobeencrypted;
     (void)pbencryptedblob;
     (void)pcbencryptedblob;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -4359,7 +5784,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptEnumKeyIdentifierProperties");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pkeyidentifier, (uint32_t)dwpropid, (uint32_t)dwflags, (void*)(uintptr_t)pwszcomputername, (void*)(uintptr_t)pvreserved, (void*)(uintptr_t)pvarg, (void*)(uintptr_t)pfnenum) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pkeyidentifier, (uint32_t)dwpropid, (uint32_t)dwflags, (void*)(uintptr_t)pwszcomputername, (void*)(uintptr_t)pvreserved, (void*)(uintptr_t)pvarg, (void*)(uintptr_t)pfnenum);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pkeyidentifier;
     (void)dwpropid;
@@ -4368,6 +5799,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)pvreserved;
     (void)pvarg;
     (void)pfnenum;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -4383,7 +5815,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptEnumOIDFunction");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwencodingtype, (void*)(uintptr_t)pszfuncname, (void*)(uintptr_t)pszoid, (uint32_t)dwflags, (void*)(uintptr_t)pvarg, (void*)(uintptr_t)pfnenumoidfunc) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwencodingtype, (void*)(uintptr_t)pszfuncname, (void*)(uintptr_t)pszoid, (uint32_t)dwflags, (void*)(uintptr_t)pvarg, (void*)(uintptr_t)pfnenumoidfunc);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwencodingtype;
     (void)pszfuncname;
@@ -4391,6 +5829,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)dwflags;
     (void)pvarg;
     (void)pfnenumoidfunc;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -4406,12 +5845,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptEnumOIDInfo");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwgroupid, (uint32_t)dwflags, (void*)(uintptr_t)pvarg, (void*)(uintptr_t)pfnenumoidinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwgroupid, (uint32_t)dwflags, (void*)(uintptr_t)pvarg, (void*)(uintptr_t)pfnenumoidinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwgroupid;
     (void)dwflags;
     (void)pvarg;
     (void)pfnenumoidinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -4427,7 +5873,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptEnumProviderTypesA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwindex, (void*)(uintptr_t)pdwreserved, (uint32_t)dwflags, (void*)(uintptr_t)pdwprovtype, (void*)(uintptr_t)sztypename, (void*)(uintptr_t)pcbtypename) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwindex, (void*)(uintptr_t)pdwreserved, (uint32_t)dwflags, (void*)(uintptr_t)pdwprovtype, (void*)(uintptr_t)sztypename, (void*)(uintptr_t)pcbtypename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwindex;
     (void)pdwreserved;
@@ -4435,6 +5887,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)pdwprovtype;
     (void)sztypename;
     (void)pcbtypename;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -4450,7 +5903,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptEnumProviderTypesW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwindex, (void*)(uintptr_t)pdwreserved, (uint32_t)dwflags, (void*)(uintptr_t)pdwprovtype, (void*)(uintptr_t)sztypename, (void*)(uintptr_t)pcbtypename) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwindex, (void*)(uintptr_t)pdwreserved, (uint32_t)dwflags, (void*)(uintptr_t)pdwprovtype, (void*)(uintptr_t)sztypename, (void*)(uintptr_t)pcbtypename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwindex;
     (void)pdwreserved;
@@ -4458,6 +5917,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)pdwprovtype;
     (void)sztypename;
     (void)pcbtypename;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -4473,7 +5933,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptEnumProvidersA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwindex, (void*)(uintptr_t)pdwreserved, (uint32_t)dwflags, (void*)(uintptr_t)pdwprovtype, (void*)(uintptr_t)szprovname, (void*)(uintptr_t)pcbprovname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwindex, (void*)(uintptr_t)pdwreserved, (uint32_t)dwflags, (void*)(uintptr_t)pdwprovtype, (void*)(uintptr_t)szprovname, (void*)(uintptr_t)pcbprovname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwindex;
     (void)pdwreserved;
@@ -4481,6 +5947,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)pdwprovtype;
     (void)szprovname;
     (void)pcbprovname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -4496,7 +5963,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptEnumProvidersW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwindex, (void*)(uintptr_t)pdwreserved, (uint32_t)dwflags, (void*)(uintptr_t)pdwprovtype, (void*)(uintptr_t)szprovname, (void*)(uintptr_t)pcbprovname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwindex, (void*)(uintptr_t)pdwreserved, (uint32_t)dwflags, (void*)(uintptr_t)pdwprovtype, (void*)(uintptr_t)szprovname, (void*)(uintptr_t)pcbprovname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwindex;
     (void)pdwreserved;
@@ -4504,6 +5977,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)pdwprovtype;
     (void)szprovname;
     (void)pcbprovname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -4519,7 +5993,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptExportKey");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hkey, (uint64_t)hexpkey, (uint32_t)dwblobtype, (uint32_t)dwflags, (void*)(uintptr_t)pbdata, (void*)(uintptr_t)pdwdatalen) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hkey, (uint64_t)hexpkey, (uint32_t)dwblobtype, (uint32_t)dwflags, (void*)(uintptr_t)pbdata, (void*)(uintptr_t)pdwdatalen);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hkey;
     (void)hexpkey;
@@ -4527,6 +6007,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)dwflags;
     (void)pbdata;
     (void)pdwdatalen;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -4542,7 +6023,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptExportPKCS8");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hcryptprov, (uint32_t)dwkeyspec, (void*)(uintptr_t)pszprivatekeyobjid, (uint32_t)dwflags, (void*)(uintptr_t)pvauxinfo, (void*)(uintptr_t)pbprivatekeyblob, (void*)(uintptr_t)pcbprivatekeyblob) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hcryptprov, (uint32_t)dwkeyspec, (void*)(uintptr_t)pszprivatekeyobjid, (uint32_t)dwflags, (void*)(uintptr_t)pvauxinfo, (void*)(uintptr_t)pbprivatekeyblob, (void*)(uintptr_t)pcbprivatekeyblob);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcryptprov;
     (void)dwkeyspec;
@@ -4551,6 +6038,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)pvauxinfo;
     (void)pbprivatekeyblob;
     (void)pcbprivatekeyblob;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -4566,13 +6054,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptExportPublicKeyInfo");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hcryptprovorncryptkey, (uint32_t)dwkeyspec, (uint32_t)dwcertencodingtype, (void*)(uintptr_t)pinfo, (void*)(uintptr_t)pcbinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hcryptprovorncryptkey, (uint32_t)dwkeyspec, (uint32_t)dwcertencodingtype, (void*)(uintptr_t)pinfo, (void*)(uintptr_t)pcbinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcryptprovorncryptkey;
     (void)dwkeyspec;
     (void)dwcertencodingtype;
     (void)pinfo;
     (void)pcbinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -4588,7 +6083,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptExportPublicKeyInfoEx");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hcryptprovorncryptkey, (uint32_t)dwkeyspec, (uint32_t)dwcertencodingtype, (void*)(uintptr_t)pszpublickeyobjid, (uint32_t)dwflags, (void*)(uintptr_t)pvauxinfo, (void*)(uintptr_t)pinfo, (void*)(uintptr_t)pcbinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hcryptprovorncryptkey, (uint32_t)dwkeyspec, (uint32_t)dwcertencodingtype, (void*)(uintptr_t)pszpublickeyobjid, (uint32_t)dwflags, (void*)(uintptr_t)pvauxinfo, (void*)(uintptr_t)pinfo, (void*)(uintptr_t)pcbinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcryptprovorncryptkey;
     (void)dwkeyspec;
@@ -4598,6 +6099,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)pvauxinfo;
     (void)pinfo;
     (void)pcbinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -4613,7 +6115,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptExportPublicKeyInfoFromBCryptKeyHandle");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hbcryptkey, (uint32_t)dwcertencodingtype, (void*)(uintptr_t)pszpublickeyobjid, (uint32_t)dwflags, (void*)(uintptr_t)pvauxinfo, (void*)(uintptr_t)pinfo, (void*)(uintptr_t)pcbinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hbcryptkey, (uint32_t)dwcertencodingtype, (void*)(uintptr_t)pszpublickeyobjid, (uint32_t)dwflags, (void*)(uintptr_t)pvauxinfo, (void*)(uintptr_t)pinfo, (void*)(uintptr_t)pcbinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hbcryptkey;
     (void)dwcertencodingtype;
@@ -4622,6 +6130,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)pvauxinfo;
     (void)pinfo;
     (void)pcbinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -4637,11 +6146,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptFindCertificateKeyProvInfo");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pcert, (uint32_t)dwflags, (void*)(uintptr_t)pvreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pcert, (uint32_t)dwflags, (void*)(uintptr_t)pvreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pcert;
     (void)dwflags;
     (void)pvreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -4657,9 +6173,16 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptFindLocalizedName");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pwszcryptname) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pwszcryptname);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)pwszcryptname;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -4675,11 +6198,18 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptFindOIDInfo");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwkeytype, (void*)(uintptr_t)pvkey, (uint32_t)dwgroupid) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwkeytype, (void*)(uintptr_t)pvkey, (uint32_t)dwgroupid);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)dwkeytype;
     (void)pvkey;
     (void)dwgroupid;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -4695,7 +6225,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptFormatObject");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwcertencodingtype, (uint32_t)dwformattype, (uint32_t)dwformatstrtype, (void*)(uintptr_t)pformatstruct, (void*)(uintptr_t)lpszstructtype, (void*)(uintptr_t)pbencoded, (uint32_t)cbencoded, (void*)(uintptr_t)pbformat, (void*)(uintptr_t)pcbformat) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwcertencodingtype, (uint32_t)dwformattype, (uint32_t)dwformatstrtype, (void*)(uintptr_t)pformatstruct, (void*)(uintptr_t)lpszstructtype, (void*)(uintptr_t)pbencoded, (uint32_t)cbencoded, (void*)(uintptr_t)pbformat, (void*)(uintptr_t)pcbformat);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwcertencodingtype;
     (void)dwformattype;
@@ -4706,6 +6242,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)cbencoded;
     (void)pbformat;
     (void)pcbformat;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -4721,10 +6258,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptFreeOIDFunctionAddress");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hfuncaddr, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hfuncaddr, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hfuncaddr;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -4740,12 +6284,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptGenKey");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hprov, (uint32_t)algid, (uint32_t)dwflags, (void*)(uintptr_t)phkey) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hprov, (uint32_t)algid, (uint32_t)dwflags, (void*)(uintptr_t)phkey);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprov;
     (void)algid;
     (void)dwflags;
     (void)phkey;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -4761,11 +6312,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptGenRandom");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hprov, (uint32_t)dwlen, (void*)(uintptr_t)pbbuffer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hprov, (uint32_t)dwlen, (void*)(uintptr_t)pbbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprov;
     (void)dwlen;
     (void)pbbuffer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -4781,12 +6339,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptGetAsyncParam");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)hasync, (void*)(uintptr_t)pszparamoid, (void*)(uintptr_t)ppvparam, (void*)(uintptr_t)ppfnfree) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int64_t)hasync, (void*)(uintptr_t)pszparamoid, (void*)(uintptr_t)ppvparam, (void*)(uintptr_t)ppfnfree);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hasync;
     (void)pszparamoid;
     (void)ppvparam;
     (void)ppfnfree;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -4802,12 +6367,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptGetDefaultOIDDllList");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hfuncset, (uint32_t)dwencodingtype, (void*)(uintptr_t)pwszdlllist, (void*)(uintptr_t)pcchdlllist) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hfuncset, (uint32_t)dwencodingtype, (void*)(uintptr_t)pwszdlllist, (void*)(uintptr_t)pcchdlllist);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hfuncset;
     (void)dwencodingtype;
     (void)pwszdlllist;
     (void)pcchdlllist;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -4823,7 +6395,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptGetDefaultOIDFunctionAddress");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hfuncset, (uint32_t)dwencodingtype, (void*)(uintptr_t)pwszdll, (uint32_t)dwflags, (void*)(uintptr_t)ppvfuncaddr, (void*)(uintptr_t)phfuncaddr) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hfuncset, (uint32_t)dwencodingtype, (void*)(uintptr_t)pwszdll, (uint32_t)dwflags, (void*)(uintptr_t)ppvfuncaddr, (void*)(uintptr_t)phfuncaddr);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hfuncset;
     (void)dwencodingtype;
@@ -4831,6 +6409,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)dwflags;
     (void)ppvfuncaddr;
     (void)phfuncaddr;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -4846,13 +6425,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptGetDefaultProviderA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwprovtype, (void*)(uintptr_t)pdwreserved, (uint32_t)dwflags, (void*)(uintptr_t)pszprovname, (void*)(uintptr_t)pcbprovname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwprovtype, (void*)(uintptr_t)pdwreserved, (uint32_t)dwflags, (void*)(uintptr_t)pszprovname, (void*)(uintptr_t)pcbprovname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwprovtype;
     (void)pdwreserved;
     (void)dwflags;
     (void)pszprovname;
     (void)pcbprovname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -4868,13 +6454,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptGetDefaultProviderW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwprovtype, (void*)(uintptr_t)pdwreserved, (uint32_t)dwflags, (void*)(uintptr_t)pszprovname, (void*)(uintptr_t)pcbprovname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwprovtype, (void*)(uintptr_t)pdwreserved, (uint32_t)dwflags, (void*)(uintptr_t)pszprovname, (void*)(uintptr_t)pcbprovname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwprovtype;
     (void)pdwreserved;
     (void)dwflags;
     (void)pszprovname;
     (void)pcbprovname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -4890,13 +6483,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptGetHashParam");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hhash, (uint32_t)dwparam, (void*)(uintptr_t)pbdata, (void*)(uintptr_t)pdwdatalen, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hhash, (uint32_t)dwparam, (void*)(uintptr_t)pbdata, (void*)(uintptr_t)pdwdatalen, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hhash;
     (void)dwparam;
     (void)pbdata;
     (void)pdwdatalen;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -4912,7 +6512,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptGetKeyIdentifierProperty");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pkeyidentifier, (uint32_t)dwpropid, (uint32_t)dwflags, (void*)(uintptr_t)pwszcomputername, (void*)(uintptr_t)pvreserved, (void*)(uintptr_t)pvdata, (void*)(uintptr_t)pcbdata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pkeyidentifier, (uint32_t)dwpropid, (uint32_t)dwflags, (void*)(uintptr_t)pwszcomputername, (void*)(uintptr_t)pvreserved, (void*)(uintptr_t)pvdata, (void*)(uintptr_t)pcbdata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pkeyidentifier;
     (void)dwpropid;
@@ -4921,6 +6527,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)pvreserved;
     (void)pvdata;
     (void)pcbdata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -4936,13 +6543,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptGetKeyParam");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hkey, (uint32_t)dwparam, (void*)(uintptr_t)pbdata, (void*)(uintptr_t)pdwdatalen, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hkey, (uint32_t)dwparam, (void*)(uintptr_t)pbdata, (void*)(uintptr_t)pdwdatalen, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hkey;
     (void)dwparam;
     (void)pbdata;
     (void)pdwdatalen;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -4958,13 +6572,20 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptGetMessageCertificates");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwmsgandcertencodingtype, (uint64_t)hcryptprov, (uint32_t)dwflags, (void*)(uintptr_t)pbsignedblob, (uint32_t)cbsignedblob) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwmsgandcertencodingtype, (uint64_t)hcryptprov, (uint32_t)dwflags, (void*)(uintptr_t)pbsignedblob, (uint32_t)cbsignedblob);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)dwmsgandcertencodingtype;
     (void)hcryptprov;
     (void)dwflags;
     (void)pbsignedblob;
     (void)cbsignedblob;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -4980,11 +6601,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptGetMessageSignerCount");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwmsgencodingtype, (void*)(uintptr_t)pbsignedblob, (uint32_t)cbsignedblob) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwmsgencodingtype, (void*)(uintptr_t)pbsignedblob, (uint32_t)cbsignedblob);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwmsgencodingtype;
     (void)pbsignedblob;
     (void)cbsignedblob;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -5000,7 +6628,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptGetOIDFunctionAddress");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hfuncset, (uint32_t)dwencodingtype, (void*)(uintptr_t)pszoid, (uint32_t)dwflags, (void*)(uintptr_t)ppvfuncaddr, (void*)(uintptr_t)phfuncaddr) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hfuncset, (uint32_t)dwencodingtype, (void*)(uintptr_t)pszoid, (uint32_t)dwflags, (void*)(uintptr_t)ppvfuncaddr, (void*)(uintptr_t)phfuncaddr);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hfuncset;
     (void)dwencodingtype;
@@ -5008,6 +6642,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)dwflags;
     (void)ppvfuncaddr;
     (void)phfuncaddr;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -5023,7 +6658,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptGetOIDFunctionValue");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwencodingtype, (void*)(uintptr_t)pszfuncname, (void*)(uintptr_t)pszoid, (void*)(uintptr_t)pwszvaluename, (void*)(uintptr_t)pdwvaluetype, (void*)(uintptr_t)pbvaluedata, (void*)(uintptr_t)pcbvaluedata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwencodingtype, (void*)(uintptr_t)pszfuncname, (void*)(uintptr_t)pszoid, (void*)(uintptr_t)pwszvaluename, (void*)(uintptr_t)pdwvaluetype, (void*)(uintptr_t)pbvaluedata, (void*)(uintptr_t)pcbvaluedata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwencodingtype;
     (void)pszfuncname;
@@ -5032,6 +6673,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)pdwvaluetype;
     (void)pbvaluedata;
     (void)pcbvaluedata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -5047,7 +6689,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("cryptnet.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptGetObjectUrl");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pszurloid, (void*)(uintptr_t)pvpara, (uint32_t)dwflags, (void*)(uintptr_t)purlarray, (void*)(uintptr_t)pcburlarray, (void*)(uintptr_t)purlinfo, (void*)(uintptr_t)pcburlinfo, (void*)(uintptr_t)pvreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pszurloid, (void*)(uintptr_t)pvpara, (uint32_t)dwflags, (void*)(uintptr_t)purlarray, (void*)(uintptr_t)pcburlarray, (void*)(uintptr_t)purlinfo, (void*)(uintptr_t)pcburlinfo, (void*)(uintptr_t)pvreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszurloid;
     (void)pvpara;
@@ -5057,6 +6705,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)purlinfo;
     (void)pcburlinfo;
     (void)pvreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -5072,13 +6721,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptGetProvParam");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hprov, (uint32_t)dwparam, (void*)(uintptr_t)pbdata, (void*)(uintptr_t)pdwdatalen, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hprov, (uint32_t)dwparam, (void*)(uintptr_t)pbdata, (void*)(uintptr_t)pdwdatalen, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprov;
     (void)dwparam;
     (void)pbdata;
     (void)pdwdatalen;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -5094,11 +6750,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptGetUserKey");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hprov, (uint32_t)dwkeyspec, (void*)(uintptr_t)phuserkey) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hprov, (uint32_t)dwkeyspec, (void*)(uintptr_t)phuserkey);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprov;
     (void)dwkeyspec;
     (void)phuserkey;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -5114,7 +6777,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptHashCertificate");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hcryptprov, (uint32_t)algid, (uint32_t)dwflags, (void*)(uintptr_t)pbencoded, (uint32_t)cbencoded, (void*)(uintptr_t)pbcomputedhash, (void*)(uintptr_t)pcbcomputedhash) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hcryptprov, (uint32_t)algid, (uint32_t)dwflags, (void*)(uintptr_t)pbencoded, (uint32_t)cbencoded, (void*)(uintptr_t)pbcomputedhash, (void*)(uintptr_t)pcbcomputedhash);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcryptprov;
     (void)algid;
@@ -5123,6 +6792,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)cbencoded;
     (void)pbcomputedhash;
     (void)pcbcomputedhash;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -5138,7 +6808,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptHashCertificate2");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pwszcnghashalgid, (uint32_t)dwflags, (void*)(uintptr_t)pvreserved, (void*)(uintptr_t)pbencoded, (uint32_t)cbencoded, (void*)(uintptr_t)pbcomputedhash, (void*)(uintptr_t)pcbcomputedhash) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pwszcnghashalgid, (uint32_t)dwflags, (void*)(uintptr_t)pvreserved, (void*)(uintptr_t)pbencoded, (uint32_t)cbencoded, (void*)(uintptr_t)pbcomputedhash, (void*)(uintptr_t)pcbcomputedhash);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pwszcnghashalgid;
     (void)dwflags;
@@ -5147,6 +6823,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)cbencoded;
     (void)pbcomputedhash;
     (void)pcbcomputedhash;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -5162,12 +6839,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptHashData");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hhash, (void*)(uintptr_t)pbdata, (uint32_t)dwdatalen, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hhash, (void*)(uintptr_t)pbdata, (uint32_t)dwdatalen, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hhash;
     (void)pbdata;
     (void)dwdatalen;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -5183,7 +6867,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptHashMessage");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)phashpara, (int32_t)fdetachedhash, (uint32_t)ctobehashed, (void*)(uintptr_t)rgpbtobehashed, (void*)(uintptr_t)rgcbtobehashed, (void*)(uintptr_t)pbhashedblob, (void*)(uintptr_t)pcbhashedblob, (void*)(uintptr_t)pbcomputedhash, (void*)(uintptr_t)pcbcomputedhash) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)phashpara, (int32_t)fdetachedhash, (uint32_t)ctobehashed, (void*)(uintptr_t)rgpbtobehashed, (void*)(uintptr_t)rgcbtobehashed, (void*)(uintptr_t)pbhashedblob, (void*)(uintptr_t)pcbhashedblob, (void*)(uintptr_t)pbcomputedhash, (void*)(uintptr_t)pcbcomputedhash);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)phashpara;
     (void)fdetachedhash;
@@ -5194,6 +6884,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)pcbhashedblob;
     (void)pbcomputedhash;
     (void)pcbcomputedhash;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -5209,7 +6900,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptHashPublicKeyInfo");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hcryptprov, (uint32_t)algid, (uint32_t)dwflags, (uint32_t)dwcertencodingtype, (void*)(uintptr_t)pinfo, (void*)(uintptr_t)pbcomputedhash, (void*)(uintptr_t)pcbcomputedhash) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hcryptprov, (uint32_t)algid, (uint32_t)dwflags, (uint32_t)dwcertencodingtype, (void*)(uintptr_t)pinfo, (void*)(uintptr_t)pbcomputedhash, (void*)(uintptr_t)pcbcomputedhash);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcryptprov;
     (void)algid;
@@ -5218,6 +6915,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)pinfo;
     (void)pbcomputedhash;
     (void)pcbcomputedhash;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -5233,11 +6931,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptHashSessionKey");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hhash, (uint64_t)hkey, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hhash, (uint64_t)hkey, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hhash;
     (void)hkey;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -5253,7 +6958,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptHashToBeSigned");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hcryptprov, (uint32_t)dwcertencodingtype, (void*)(uintptr_t)pbencoded, (uint32_t)cbencoded, (void*)(uintptr_t)pbcomputedhash, (void*)(uintptr_t)pcbcomputedhash) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hcryptprov, (uint32_t)dwcertencodingtype, (void*)(uintptr_t)pbencoded, (uint32_t)cbencoded, (void*)(uintptr_t)pbcomputedhash, (void*)(uintptr_t)pcbcomputedhash);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcryptprov;
     (void)dwcertencodingtype;
@@ -5261,6 +6972,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)cbencoded;
     (void)pbcomputedhash;
     (void)pcbcomputedhash;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -5276,7 +6988,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptImportKey");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hprov, (void*)(uintptr_t)pbdata, (uint32_t)dwdatalen, (uint64_t)hpubkey, (uint32_t)dwflags, (void*)(uintptr_t)phkey) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hprov, (void*)(uintptr_t)pbdata, (uint32_t)dwdatalen, (uint64_t)hpubkey, (uint32_t)dwflags, (void*)(uintptr_t)phkey);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprov;
     (void)pbdata;
@@ -5284,6 +7002,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)hpubkey;
     (void)dwflags;
     (void)phkey;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -5299,12 +7018,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptImportPublicKeyInfo");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hcryptprov, (uint32_t)dwcertencodingtype, (void*)(uintptr_t)pinfo, (void*)(uintptr_t)phkey) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hcryptprov, (uint32_t)dwcertencodingtype, (void*)(uintptr_t)pinfo, (void*)(uintptr_t)phkey);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcryptprov;
     (void)dwcertencodingtype;
     (void)pinfo;
     (void)phkey;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -5320,7 +7046,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptImportPublicKeyInfoEx");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hcryptprov, (uint32_t)dwcertencodingtype, (void*)(uintptr_t)pinfo, (uint32_t)aikeyalg, (uint32_t)dwflags, (void*)(uintptr_t)pvauxinfo, (void*)(uintptr_t)phkey) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hcryptprov, (uint32_t)dwcertencodingtype, (void*)(uintptr_t)pinfo, (uint32_t)aikeyalg, (uint32_t)dwflags, (void*)(uintptr_t)pvauxinfo, (void*)(uintptr_t)phkey);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcryptprov;
     (void)dwcertencodingtype;
@@ -5329,6 +7061,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)dwflags;
     (void)pvauxinfo;
     (void)phkey;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -5344,13 +7077,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptImportPublicKeyInfoEx2");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwcertencodingtype, (void*)(uintptr_t)pinfo, (uint32_t)dwflags, (void*)(uintptr_t)pvauxinfo, (void*)(uintptr_t)phkey) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwcertencodingtype, (void*)(uintptr_t)pinfo, (uint32_t)dwflags, (void*)(uintptr_t)pvauxinfo, (void*)(uintptr_t)phkey);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwcertencodingtype;
     (void)pinfo;
     (void)dwflags;
     (void)pvauxinfo;
     (void)phkey;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -5366,10 +7106,17 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptInitOIDFunctionSet");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pszfuncname, (uint32_t)dwflags) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pszfuncname, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)pszfuncname;
     (void)dwflags;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -5385,12 +7132,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("cryptnet.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptInstallCancelRetrieval");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pfncancel, (void*)(uintptr_t)pvarg, (uint32_t)dwflags, (void*)(uintptr_t)pvreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pfncancel, (void*)(uintptr_t)pvarg, (uint32_t)dwflags, (void*)(uintptr_t)pvreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pfncancel;
     (void)pvarg;
     (void)dwflags;
     (void)pvreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -5406,7 +7160,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptInstallDefaultContext");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hcryptprov, (uint32_t)dwdefaulttype, (void*)(uintptr_t)pvdefaultpara, (uint32_t)dwflags, (void*)(uintptr_t)pvreserved, (void*)(uintptr_t)phdefaultcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hcryptprov, (uint32_t)dwdefaulttype, (void*)(uintptr_t)pvdefaultpara, (uint32_t)dwflags, (void*)(uintptr_t)pvreserved, (void*)(uintptr_t)phdefaultcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcryptprov;
     (void)dwdefaulttype;
@@ -5414,6 +7174,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)dwflags;
     (void)pvreserved;
     (void)phdefaultcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -5429,7 +7190,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptInstallOIDFunctionAddress");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hmodule, (uint32_t)dwencodingtype, (void*)(uintptr_t)pszfuncname, (uint32_t)cfuncentry, (void*)(uintptr_t)rgfuncentry, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hmodule, (uint32_t)dwencodingtype, (void*)(uintptr_t)pszfuncname, (uint32_t)cfuncentry, (void*)(uintptr_t)rgfuncentry, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hmodule;
     (void)dwencodingtype;
@@ -5437,6 +7204,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)cfuncentry;
     (void)rgfuncentry;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -5452,9 +7220,16 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptMemAlloc");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)cbsize) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)cbsize);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)cbsize;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -5470,9 +7245,14 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptMemFree");
     }
-    if (km_fn_ptr != NULL) km_fn_ptr((void*)(uintptr_t)pv);
+    if (km_fn_ptr != NULL) {
+        km_fn_ptr((void*)(uintptr_t)pv);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pv;
+    errno = ENOSYS;
 #endif
 }
 
@@ -5486,10 +7266,17 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptMemRealloc");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pv, (uint32_t)cbsize) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pv, (uint32_t)cbsize);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)pv;
     (void)cbsize;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -5505,7 +7292,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptMsgCalculateEncodedLength");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwmsgencodingtype, (uint32_t)dwflags, (uint32_t)dwmsgtype, (void*)(uintptr_t)pvmsgencodeinfo, (void*)(uintptr_t)pszinnercontentobjid, (uint32_t)cbdata) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwmsgencodingtype, (uint32_t)dwflags, (uint32_t)dwmsgtype, (void*)(uintptr_t)pvmsgencodeinfo, (void*)(uintptr_t)pszinnercontentobjid, (uint32_t)cbdata);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dwmsgencodingtype;
     (void)dwflags;
@@ -5513,6 +7306,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)pvmsgencodeinfo;
     (void)pszinnercontentobjid;
     (void)cbdata;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -5528,9 +7322,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptMsgClose");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hcryptmsg) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hcryptmsg);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcryptmsg;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -5546,12 +7347,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptMsgControl");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hcryptmsg, (uint32_t)dwflags, (uint32_t)dwctrltype, (void*)(uintptr_t)pvctrlpara) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hcryptmsg, (uint32_t)dwflags, (uint32_t)dwctrltype, (void*)(uintptr_t)pvctrlpara);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcryptmsg;
     (void)dwflags;
     (void)dwctrltype;
     (void)pvctrlpara;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -5567,12 +7375,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptMsgCountersign");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hcryptmsg, (uint32_t)dwindex, (uint32_t)ccountersigners, (void*)(uintptr_t)rgcountersigners) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hcryptmsg, (uint32_t)dwindex, (uint32_t)ccountersigners, (void*)(uintptr_t)rgcountersigners);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcryptmsg;
     (void)dwindex;
     (void)ccountersigners;
     (void)rgcountersigners;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -5588,7 +7403,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptMsgCountersignEncoded");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwencodingtype, (void*)(uintptr_t)pbsignerinfo, (uint32_t)cbsignerinfo, (uint32_t)ccountersigners, (void*)(uintptr_t)rgcountersigners, (void*)(uintptr_t)pbcountersignature, (void*)(uintptr_t)pcbcountersignature) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwencodingtype, (void*)(uintptr_t)pbsignerinfo, (uint32_t)cbsignerinfo, (uint32_t)ccountersigners, (void*)(uintptr_t)rgcountersigners, (void*)(uintptr_t)pbcountersignature, (void*)(uintptr_t)pcbcountersignature);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwencodingtype;
     (void)pbsignerinfo;
@@ -5597,6 +7418,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)rgcountersigners;
     (void)pbcountersignature;
     (void)pcbcountersignature;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -5612,9 +7434,16 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptMsgDuplicate");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hcryptmsg) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hcryptmsg);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)hcryptmsg;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -5630,7 +7459,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptMsgEncodeAndSignCTL");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwmsgencodingtype, (void*)(uintptr_t)pctlinfo, (void*)(uintptr_t)psigninfo, (uint32_t)dwflags, (void*)(uintptr_t)pbencoded, (void*)(uintptr_t)pcbencoded) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwmsgencodingtype, (void*)(uintptr_t)pctlinfo, (void*)(uintptr_t)psigninfo, (uint32_t)dwflags, (void*)(uintptr_t)pbencoded, (void*)(uintptr_t)pcbencoded);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwmsgencodingtype;
     (void)pctlinfo;
@@ -5638,6 +7473,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)dwflags;
     (void)pbencoded;
     (void)pcbencoded;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -5653,7 +7489,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptMsgGetAndVerifySigner");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hcryptmsg, (uint32_t)csignerstore, (void*)(uintptr_t)rghsignerstore, (uint32_t)dwflags, (void*)(uintptr_t)ppsigner, (void*)(uintptr_t)pdwsignerindex) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hcryptmsg, (uint32_t)csignerstore, (void*)(uintptr_t)rghsignerstore, (uint32_t)dwflags, (void*)(uintptr_t)ppsigner, (void*)(uintptr_t)pdwsignerindex);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcryptmsg;
     (void)csignerstore;
@@ -5661,6 +7503,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)dwflags;
     (void)ppsigner;
     (void)pdwsignerindex;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -5676,13 +7519,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptMsgGetParam");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hcryptmsg, (uint32_t)dwparamtype, (uint32_t)dwindex, (void*)(uintptr_t)pvdata, (void*)(uintptr_t)pcbdata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hcryptmsg, (uint32_t)dwparamtype, (uint32_t)dwindex, (void*)(uintptr_t)pvdata, (void*)(uintptr_t)pcbdata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcryptmsg;
     (void)dwparamtype;
     (void)dwindex;
     (void)pvdata;
     (void)pcbdata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -5698,7 +7548,13 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptMsgOpenToDecode");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwmsgencodingtype, (uint32_t)dwflags, (uint32_t)dwmsgtype, (uint64_t)hcryptprov, (void*)(uintptr_t)precipientinfo, (void*)(uintptr_t)pstreaminfo) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwmsgencodingtype, (uint32_t)dwflags, (uint32_t)dwmsgtype, (uint64_t)hcryptprov, (void*)(uintptr_t)precipientinfo, (void*)(uintptr_t)pstreaminfo);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)dwmsgencodingtype;
     (void)dwflags;
@@ -5706,6 +7562,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
     (void)hcryptprov;
     (void)precipientinfo;
     (void)pstreaminfo;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -5721,7 +7578,13 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptMsgOpenToEncode");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwmsgencodingtype, (uint32_t)dwflags, (uint32_t)dwmsgtype, (void*)(uintptr_t)pvmsgencodeinfo, (void*)(uintptr_t)pszinnercontentobjid, (void*)(uintptr_t)pstreaminfo) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwmsgencodingtype, (uint32_t)dwflags, (uint32_t)dwmsgtype, (void*)(uintptr_t)pvmsgencodeinfo, (void*)(uintptr_t)pszinnercontentobjid, (void*)(uintptr_t)pstreaminfo);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)dwmsgencodingtype;
     (void)dwflags;
@@ -5729,6 +7592,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
     (void)pvmsgencodeinfo;
     (void)pszinnercontentobjid;
     (void)pstreaminfo;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -5744,7 +7608,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptMsgSignCTL");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwmsgencodingtype, (void*)(uintptr_t)pbctlcontent, (uint32_t)cbctlcontent, (void*)(uintptr_t)psigninfo, (uint32_t)dwflags, (void*)(uintptr_t)pbencoded, (void*)(uintptr_t)pcbencoded) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwmsgencodingtype, (void*)(uintptr_t)pbctlcontent, (uint32_t)cbctlcontent, (void*)(uintptr_t)psigninfo, (uint32_t)dwflags, (void*)(uintptr_t)pbencoded, (void*)(uintptr_t)pcbencoded);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwmsgencodingtype;
     (void)pbctlcontent;
@@ -5753,6 +7623,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)dwflags;
     (void)pbencoded;
     (void)pcbencoded;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -5768,12 +7639,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptMsgUpdate");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hcryptmsg, (void*)(uintptr_t)pbdata, (uint32_t)cbdata, (int32_t)ffinal) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hcryptmsg, (void*)(uintptr_t)pbdata, (uint32_t)cbdata, (int32_t)ffinal);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcryptmsg;
     (void)pbdata;
     (void)cbdata;
     (void)ffinal;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -5789,7 +7667,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptMsgVerifyCountersignatureEncoded");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hcryptprov, (uint32_t)dwencodingtype, (void*)(uintptr_t)pbsignerinfo, (uint32_t)cbsignerinfo, (void*)(uintptr_t)pbsignerinfocountersignature, (uint32_t)cbsignerinfocountersignature, (void*)(uintptr_t)pcicountersigner) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hcryptprov, (uint32_t)dwencodingtype, (void*)(uintptr_t)pbsignerinfo, (uint32_t)cbsignerinfo, (void*)(uintptr_t)pbsignerinfocountersignature, (uint32_t)cbsignerinfocountersignature, (void*)(uintptr_t)pcicountersigner);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcryptprov;
     (void)dwencodingtype;
@@ -5798,6 +7682,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)pbsignerinfocountersignature;
     (void)cbsignerinfocountersignature;
     (void)pcicountersigner;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -5813,7 +7698,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptMsgVerifyCountersignatureEncodedEx");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hcryptprov, (uint32_t)dwencodingtype, (void*)(uintptr_t)pbsignerinfo, (uint32_t)cbsignerinfo, (void*)(uintptr_t)pbsignerinfocountersignature, (uint32_t)cbsignerinfocountersignature, (uint32_t)dwsignertype, (void*)(uintptr_t)pvsigner, (uint32_t)dwflags, (void*)(uintptr_t)pvextra) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hcryptprov, (uint32_t)dwencodingtype, (void*)(uintptr_t)pbsignerinfo, (uint32_t)cbsignerinfo, (void*)(uintptr_t)pbsignerinfocountersignature, (uint32_t)cbsignerinfocountersignature, (uint32_t)dwsignertype, (void*)(uintptr_t)pvsigner, (uint32_t)dwflags, (void*)(uintptr_t)pvextra);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcryptprov;
     (void)dwencodingtype;
@@ -5825,6 +7716,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)pvsigner;
     (void)dwflags;
     (void)pvextra;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -5840,7 +7732,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptProtectData");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pdatain, (void*)(uintptr_t)szdatadescr, (void*)(uintptr_t)poptionalentropy, (void*)(uintptr_t)pvreserved, (void*)(uintptr_t)ppromptstruct, (uint32_t)dwflags, (void*)(uintptr_t)pdataout) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pdatain, (void*)(uintptr_t)szdatadescr, (void*)(uintptr_t)poptionalentropy, (void*)(uintptr_t)pvreserved, (void*)(uintptr_t)ppromptstruct, (uint32_t)dwflags, (void*)(uintptr_t)pdataout);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pdatain;
     (void)szdatadescr;
@@ -5849,6 +7747,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)ppromptstruct;
     (void)dwflags;
     (void)pdataout;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -5864,11 +7763,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptProtectMemory");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pdatain, (uint32_t)cbdatain, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pdatain, (uint32_t)cbdatain, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pdatain;
     (void)cbdatain;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -5884,7 +7790,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptQueryObject");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwobjecttype, (void*)(uintptr_t)pvobject, (uint32_t)dwexpectedcontenttypeflags, (uint32_t)dwexpectedformattypeflags, (uint32_t)dwflags, (void*)(uintptr_t)pdwmsgandcertencodingtype, (void*)(uintptr_t)pdwcontenttype, (void*)(uintptr_t)pdwformattype, (void*)(uintptr_t)phcertstore, (void*)(uintptr_t)phmsg, (void*)(uintptr_t)ppvcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwobjecttype, (void*)(uintptr_t)pvobject, (uint32_t)dwexpectedcontenttypeflags, (uint32_t)dwexpectedformattypeflags, (uint32_t)dwflags, (void*)(uintptr_t)pdwmsgandcertencodingtype, (void*)(uintptr_t)pdwcontenttype, (void*)(uintptr_t)pdwformattype, (void*)(uintptr_t)phcertstore, (void*)(uintptr_t)phmsg, (void*)(uintptr_t)ppvcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwobjecttype;
     (void)pvobject;
@@ -5897,6 +7809,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)phcertstore;
     (void)phmsg;
     (void)ppvcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -5912,12 +7825,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptRegisterDefaultOIDFunction");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwencodingtype, (void*)(uintptr_t)pszfuncname, (uint32_t)dwindex, (void*)(uintptr_t)pwszdll) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwencodingtype, (void*)(uintptr_t)pszfuncname, (uint32_t)dwindex, (void*)(uintptr_t)pwszdll);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwencodingtype;
     (void)pszfuncname;
     (void)dwindex;
     (void)pwszdll;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -5933,13 +7853,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptRegisterOIDFunction");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwencodingtype, (void*)(uintptr_t)pszfuncname, (void*)(uintptr_t)pszoid, (void*)(uintptr_t)pwszdll, (void*)(uintptr_t)pszoverridefuncname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwencodingtype, (void*)(uintptr_t)pszfuncname, (void*)(uintptr_t)pszoid, (void*)(uintptr_t)pwszdll, (void*)(uintptr_t)pszoverridefuncname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwencodingtype;
     (void)pszfuncname;
     (void)pszoid;
     (void)pwszdll;
     (void)pszoverridefuncname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -5955,10 +7882,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptRegisterOIDInfo");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pinfo, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pinfo, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pinfo;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -5974,10 +7908,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptReleaseContext");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hprov, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hprov, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprov;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -5993,7 +7934,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("cryptnet.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptRetrieveObjectByUrlA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pszurl, (void*)(uintptr_t)pszobjectoid, (uint32_t)dwretrievalflags, (uint32_t)dwtimeout, (void*)(uintptr_t)ppvobject, (int64_t)hasyncretrieve, (void*)(uintptr_t)pcredentials, (void*)(uintptr_t)pvverify, (void*)(uintptr_t)pauxinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pszurl, (void*)(uintptr_t)pszobjectoid, (uint32_t)dwretrievalflags, (uint32_t)dwtimeout, (void*)(uintptr_t)ppvobject, (int64_t)hasyncretrieve, (void*)(uintptr_t)pcredentials, (void*)(uintptr_t)pvverify, (void*)(uintptr_t)pauxinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszurl;
     (void)pszobjectoid;
@@ -6004,6 +7951,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)pcredentials;
     (void)pvverify;
     (void)pauxinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -6019,7 +7967,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("cryptnet.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptRetrieveObjectByUrlW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pszurl, (void*)(uintptr_t)pszobjectoid, (uint32_t)dwretrievalflags, (uint32_t)dwtimeout, (void*)(uintptr_t)ppvobject, (int64_t)hasyncretrieve, (void*)(uintptr_t)pcredentials, (void*)(uintptr_t)pvverify, (void*)(uintptr_t)pauxinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pszurl, (void*)(uintptr_t)pszobjectoid, (uint32_t)dwretrievalflags, (uint32_t)dwtimeout, (void*)(uintptr_t)ppvobject, (int64_t)hasyncretrieve, (void*)(uintptr_t)pcredentials, (void*)(uintptr_t)pvverify, (void*)(uintptr_t)pauxinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszurl;
     (void)pszobjectoid;
@@ -6030,6 +7984,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)pcredentials;
     (void)pvverify;
     (void)pauxinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -6045,7 +8000,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptRetrieveTimeStamp");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)wszurl, (uint32_t)dwretrievalflags, (uint32_t)dwtimeout, (void*)(uintptr_t)pszhashid, (void*)(uintptr_t)ppara, (void*)(uintptr_t)pbdata, (uint32_t)cbdata, (void*)(uintptr_t)pptscontext, (void*)(uintptr_t)pptssigner, (void*)(uintptr_t)phstore) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)wszurl, (uint32_t)dwretrievalflags, (uint32_t)dwtimeout, (void*)(uintptr_t)pszhashid, (void*)(uintptr_t)ppara, (void*)(uintptr_t)pbdata, (uint32_t)cbdata, (void*)(uintptr_t)pptscontext, (void*)(uintptr_t)pptssigner, (void*)(uintptr_t)phstore);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)wszurl;
     (void)dwretrievalflags;
@@ -6057,6 +8018,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)pptscontext;
     (void)pptssigner;
     (void)phstore;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -6072,12 +8034,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptSetAsyncParam");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)hasync, (void*)(uintptr_t)pszparamoid, (void*)(uintptr_t)pvparam, (void*)(uintptr_t)pfnfree) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int64_t)hasync, (void*)(uintptr_t)pszparamoid, (void*)(uintptr_t)pvparam, (void*)(uintptr_t)pfnfree);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hasync;
     (void)pszparamoid;
     (void)pvparam;
     (void)pfnfree;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -6093,12 +8062,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptSetHashParam");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hhash, (uint32_t)dwparam, (void*)(uintptr_t)pbdata, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hhash, (uint32_t)dwparam, (void*)(uintptr_t)pbdata, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hhash;
     (void)dwparam;
     (void)pbdata;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -6114,7 +8090,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptSetKeyIdentifierProperty");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pkeyidentifier, (uint32_t)dwpropid, (uint32_t)dwflags, (void*)(uintptr_t)pwszcomputername, (void*)(uintptr_t)pvreserved, (void*)(uintptr_t)pvdata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pkeyidentifier, (uint32_t)dwpropid, (uint32_t)dwflags, (void*)(uintptr_t)pwszcomputername, (void*)(uintptr_t)pvreserved, (void*)(uintptr_t)pvdata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pkeyidentifier;
     (void)dwpropid;
@@ -6122,6 +8104,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)pwszcomputername;
     (void)pvreserved;
     (void)pvdata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -6137,12 +8120,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptSetKeyParam");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hkey, (uint32_t)dwparam, (void*)(uintptr_t)pbdata, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hkey, (uint32_t)dwparam, (void*)(uintptr_t)pbdata, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hkey;
     (void)dwparam;
     (void)pbdata;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -6158,7 +8148,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptSetOIDFunctionValue");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwencodingtype, (void*)(uintptr_t)pszfuncname, (void*)(uintptr_t)pszoid, (void*)(uintptr_t)pwszvaluename, (uint32_t)dwvaluetype, (void*)(uintptr_t)pbvaluedata, (uint32_t)cbvaluedata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwencodingtype, (void*)(uintptr_t)pszfuncname, (void*)(uintptr_t)pszoid, (void*)(uintptr_t)pwszvaluename, (uint32_t)dwvaluetype, (void*)(uintptr_t)pbvaluedata, (uint32_t)cbvaluedata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwencodingtype;
     (void)pszfuncname;
@@ -6167,6 +8163,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)dwvaluetype;
     (void)pbvaluedata;
     (void)cbvaluedata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -6182,12 +8179,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptSetProvParam");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hprov, (uint32_t)dwparam, (void*)(uintptr_t)pbdata, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hprov, (uint32_t)dwparam, (void*)(uintptr_t)pbdata, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprov;
     (void)dwparam;
     (void)pbdata;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -6203,10 +8207,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptSetProviderA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pszprovname, (uint32_t)dwprovtype) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pszprovname, (uint32_t)dwprovtype);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszprovname;
     (void)dwprovtype;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -6222,12 +8233,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptSetProviderExA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pszprovname, (uint32_t)dwprovtype, (void*)(uintptr_t)pdwreserved, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pszprovname, (uint32_t)dwprovtype, (void*)(uintptr_t)pdwreserved, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszprovname;
     (void)dwprovtype;
     (void)pdwreserved;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -6243,12 +8261,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptSetProviderExW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pszprovname, (uint32_t)dwprovtype, (void*)(uintptr_t)pdwreserved, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pszprovname, (uint32_t)dwprovtype, (void*)(uintptr_t)pdwreserved, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszprovname;
     (void)dwprovtype;
     (void)pdwreserved;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -6264,10 +8289,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptSetProviderW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pszprovname, (uint32_t)dwprovtype) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pszprovname, (uint32_t)dwprovtype);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszprovname;
     (void)dwprovtype;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -6283,7 +8315,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptSignAndEncodeCertificate");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hcryptprovorncryptkey, (uint32_t)dwkeyspec, (uint32_t)dwcertencodingtype, (void*)(uintptr_t)lpszstructtype, (void*)(uintptr_t)pvstructinfo, (void*)(uintptr_t)psignaturealgorithm, (void*)(uintptr_t)pvhashauxinfo, (void*)(uintptr_t)pbencoded, (void*)(uintptr_t)pcbencoded) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hcryptprovorncryptkey, (uint32_t)dwkeyspec, (uint32_t)dwcertencodingtype, (void*)(uintptr_t)lpszstructtype, (void*)(uintptr_t)pvstructinfo, (void*)(uintptr_t)psignaturealgorithm, (void*)(uintptr_t)pvhashauxinfo, (void*)(uintptr_t)pbencoded, (void*)(uintptr_t)pcbencoded);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcryptprovorncryptkey;
     (void)dwkeyspec;
@@ -6294,6 +8332,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)pvhashauxinfo;
     (void)pbencoded;
     (void)pcbencoded;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -6309,7 +8348,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptSignAndEncryptMessage");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)psignpara, (void*)(uintptr_t)pencryptpara, (uint32_t)crecipientcert, (void*)(uintptr_t)rgprecipientcert, (void*)(uintptr_t)pbtobesignedandencrypted, (uint32_t)cbtobesignedandencrypted, (void*)(uintptr_t)pbsignedandencryptedblob, (void*)(uintptr_t)pcbsignedandencryptedblob) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)psignpara, (void*)(uintptr_t)pencryptpara, (uint32_t)crecipientcert, (void*)(uintptr_t)rgprecipientcert, (void*)(uintptr_t)pbtobesignedandencrypted, (uint32_t)cbtobesignedandencrypted, (void*)(uintptr_t)pbsignedandencryptedblob, (void*)(uintptr_t)pcbsignedandencryptedblob);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)psignpara;
     (void)pencryptpara;
@@ -6319,6 +8364,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)cbtobesignedandencrypted;
     (void)pbsignedandencryptedblob;
     (void)pcbsignedandencryptedblob;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -6334,7 +8380,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptSignCertificate");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hcryptprovorncryptkey, (uint32_t)dwkeyspec, (uint32_t)dwcertencodingtype, (void*)(uintptr_t)pbencodedtobesigned, (uint32_t)cbencodedtobesigned, (void*)(uintptr_t)psignaturealgorithm, (void*)(uintptr_t)pvhashauxinfo, (void*)(uintptr_t)pbsignature, (void*)(uintptr_t)pcbsignature) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hcryptprovorncryptkey, (uint32_t)dwkeyspec, (uint32_t)dwcertencodingtype, (void*)(uintptr_t)pbencodedtobesigned, (uint32_t)cbencodedtobesigned, (void*)(uintptr_t)psignaturealgorithm, (void*)(uintptr_t)pvhashauxinfo, (void*)(uintptr_t)pbsignature, (void*)(uintptr_t)pcbsignature);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcryptprovorncryptkey;
     (void)dwkeyspec;
@@ -6345,6 +8397,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)pvhashauxinfo;
     (void)pbsignature;
     (void)pcbsignature;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -6360,7 +8413,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptSignHashA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hhash, (uint32_t)dwkeyspec, (void*)(uintptr_t)szdescription, (uint32_t)dwflags, (void*)(uintptr_t)pbsignature, (void*)(uintptr_t)pdwsiglen) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hhash, (uint32_t)dwkeyspec, (void*)(uintptr_t)szdescription, (uint32_t)dwflags, (void*)(uintptr_t)pbsignature, (void*)(uintptr_t)pdwsiglen);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hhash;
     (void)dwkeyspec;
@@ -6368,6 +8427,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)dwflags;
     (void)pbsignature;
     (void)pdwsiglen;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -6383,7 +8443,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptSignHashW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hhash, (uint32_t)dwkeyspec, (void*)(uintptr_t)szdescription, (uint32_t)dwflags, (void*)(uintptr_t)pbsignature, (void*)(uintptr_t)pdwsiglen) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hhash, (uint32_t)dwkeyspec, (void*)(uintptr_t)szdescription, (uint32_t)dwflags, (void*)(uintptr_t)pbsignature, (void*)(uintptr_t)pdwsiglen);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hhash;
     (void)dwkeyspec;
@@ -6391,6 +8457,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)dwflags;
     (void)pbsignature;
     (void)pdwsiglen;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -6406,7 +8473,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptSignMessage");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)psignpara, (int32_t)fdetachedsignature, (uint32_t)ctobesigned, (void*)(uintptr_t)rgpbtobesigned, (void*)(uintptr_t)rgcbtobesigned, (void*)(uintptr_t)pbsignedblob, (void*)(uintptr_t)pcbsignedblob) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)psignpara, (int32_t)fdetachedsignature, (uint32_t)ctobesigned, (void*)(uintptr_t)rgpbtobesigned, (void*)(uintptr_t)rgcbtobesigned, (void*)(uintptr_t)pbsignedblob, (void*)(uintptr_t)pcbsignedblob);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)psignpara;
     (void)fdetachedsignature;
@@ -6415,6 +8488,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)rgcbtobesigned;
     (void)pbsignedblob;
     (void)pcbsignedblob;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -6430,13 +8504,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptSignMessageWithKey");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)psignpara, (void*)(uintptr_t)pbtobesigned, (uint32_t)cbtobesigned, (void*)(uintptr_t)pbsignedblob, (void*)(uintptr_t)pcbsignedblob) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)psignpara, (void*)(uintptr_t)pbtobesigned, (uint32_t)cbtobesigned, (void*)(uintptr_t)pbsignedblob, (void*)(uintptr_t)pcbsignedblob);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)psignpara;
     (void)pbtobesigned;
     (void)cbtobesigned;
     (void)pbsignedblob;
     (void)pcbsignedblob;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -6452,7 +8533,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptStringToBinaryA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pszstring, (uint32_t)cchstring, (uint32_t)dwflags, (void*)(uintptr_t)pbbinary, (void*)(uintptr_t)pcbbinary, (void*)(uintptr_t)pdwskip, (void*)(uintptr_t)pdwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pszstring, (uint32_t)cchstring, (uint32_t)dwflags, (void*)(uintptr_t)pbbinary, (void*)(uintptr_t)pcbbinary, (void*)(uintptr_t)pdwskip, (void*)(uintptr_t)pdwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszstring;
     (void)cchstring;
@@ -6461,6 +8548,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)pcbbinary;
     (void)pdwskip;
     (void)pdwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -6476,7 +8564,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptStringToBinaryW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pszstring, (uint32_t)cchstring, (uint32_t)dwflags, (void*)(uintptr_t)pbbinary, (void*)(uintptr_t)pcbbinary, (void*)(uintptr_t)pdwskip, (void*)(uintptr_t)pdwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pszstring, (uint32_t)cchstring, (uint32_t)dwflags, (void*)(uintptr_t)pbbinary, (void*)(uintptr_t)pcbbinary, (void*)(uintptr_t)pdwskip, (void*)(uintptr_t)pdwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszstring;
     (void)cchstring;
@@ -6485,6 +8579,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)pcbbinary;
     (void)pdwskip;
     (void)pdwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -6500,10 +8595,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("cryptnet.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptUninstallCancelRetrieval");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwflags, (void*)(uintptr_t)pvreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwflags, (void*)(uintptr_t)pvreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwflags;
     (void)pvreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -6519,11 +8621,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptUninstallDefaultContext");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hdefaultcontext, (uint32_t)dwflags, (void*)(uintptr_t)pvreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hdefaultcontext, (uint32_t)dwflags, (void*)(uintptr_t)pvreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdefaultcontext;
     (void)dwflags;
     (void)pvreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -6539,7 +8648,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptUnprotectData");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pdatain, (void*)(uintptr_t)ppszdatadescr, (void*)(uintptr_t)poptionalentropy, (void*)(uintptr_t)pvreserved, (void*)(uintptr_t)ppromptstruct, (uint32_t)dwflags, (void*)(uintptr_t)pdataout) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pdatain, (void*)(uintptr_t)ppszdatadescr, (void*)(uintptr_t)poptionalentropy, (void*)(uintptr_t)pvreserved, (void*)(uintptr_t)ppromptstruct, (uint32_t)dwflags, (void*)(uintptr_t)pdataout);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pdatain;
     (void)ppszdatadescr;
@@ -6548,6 +8663,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)ppromptstruct;
     (void)dwflags;
     (void)pdataout;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -6563,11 +8679,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptUnprotectMemory");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pdatain, (uint32_t)cbdatain, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pdatain, (uint32_t)cbdatain, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pdatain;
     (void)cbdatain;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -6583,11 +8706,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptUnregisterDefaultOIDFunction");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwencodingtype, (void*)(uintptr_t)pszfuncname, (void*)(uintptr_t)pwszdll) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwencodingtype, (void*)(uintptr_t)pszfuncname, (void*)(uintptr_t)pwszdll);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwencodingtype;
     (void)pszfuncname;
     (void)pwszdll;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -6603,11 +8733,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptUnregisterOIDFunction");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwencodingtype, (void*)(uintptr_t)pszfuncname, (void*)(uintptr_t)pszoid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwencodingtype, (void*)(uintptr_t)pszfuncname, (void*)(uintptr_t)pszoid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwencodingtype;
     (void)pszfuncname;
     (void)pszoid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -6623,9 +8760,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptUnregisterOIDInfo");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -6641,13 +8785,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptUpdateProtectedState");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)poldsid, (void*)(uintptr_t)pwszoldpassword, (uint32_t)dwflags, (void*)(uintptr_t)pdwsuccesscount, (void*)(uintptr_t)pdwfailurecount) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)poldsid, (void*)(uintptr_t)pwszoldpassword, (uint32_t)dwflags, (void*)(uintptr_t)pdwsuccesscount, (void*)(uintptr_t)pdwfailurecount);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)poldsid;
     (void)pwszoldpassword;
     (void)dwflags;
     (void)pdwsuccesscount;
     (void)pdwfailurecount;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -6663,13 +8814,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptVerifyCertificateSignature");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hcryptprov, (uint32_t)dwcertencodingtype, (void*)(uintptr_t)pbencoded, (uint32_t)cbencoded, (void*)(uintptr_t)ppublickey) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hcryptprov, (uint32_t)dwcertencodingtype, (void*)(uintptr_t)pbencoded, (uint32_t)cbencoded, (void*)(uintptr_t)ppublickey);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcryptprov;
     (void)dwcertencodingtype;
     (void)pbencoded;
     (void)cbencoded;
     (void)ppublickey;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -6685,7 +8843,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptVerifyCertificateSignatureEx");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hcryptprov, (uint32_t)dwcertencodingtype, (uint32_t)dwsubjecttype, (void*)(uintptr_t)pvsubject, (uint32_t)dwissuertype, (void*)(uintptr_t)pvissuer, (uint32_t)dwflags, (void*)(uintptr_t)pvextra) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hcryptprov, (uint32_t)dwcertencodingtype, (uint32_t)dwsubjecttype, (void*)(uintptr_t)pvsubject, (uint32_t)dwissuertype, (void*)(uintptr_t)pvissuer, (uint32_t)dwflags, (void*)(uintptr_t)pvextra);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcryptprov;
     (void)dwcertencodingtype;
@@ -6695,6 +8859,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)pvissuer;
     (void)dwflags;
     (void)pvextra;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -6710,7 +8875,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptVerifyDetachedMessageHash");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)phashpara, (void*)(uintptr_t)pbdetachedhashblob, (uint32_t)cbdetachedhashblob, (uint32_t)ctobehashed, (void*)(uintptr_t)rgpbtobehashed, (void*)(uintptr_t)rgcbtobehashed, (void*)(uintptr_t)pbcomputedhash, (void*)(uintptr_t)pcbcomputedhash) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)phashpara, (void*)(uintptr_t)pbdetachedhashblob, (uint32_t)cbdetachedhashblob, (uint32_t)ctobehashed, (void*)(uintptr_t)rgpbtobehashed, (void*)(uintptr_t)rgcbtobehashed, (void*)(uintptr_t)pbcomputedhash, (void*)(uintptr_t)pcbcomputedhash);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)phashpara;
     (void)pbdetachedhashblob;
@@ -6720,6 +8891,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)rgcbtobehashed;
     (void)pbcomputedhash;
     (void)pcbcomputedhash;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -6735,7 +8907,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptVerifyDetachedMessageSignature");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pverifypara, (uint32_t)dwsignerindex, (void*)(uintptr_t)pbdetachedsignblob, (uint32_t)cbdetachedsignblob, (uint32_t)ctobesigned, (void*)(uintptr_t)rgpbtobesigned, (void*)(uintptr_t)rgcbtobesigned, (void*)(uintptr_t)ppsignercert) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pverifypara, (uint32_t)dwsignerindex, (void*)(uintptr_t)pbdetachedsignblob, (uint32_t)cbdetachedsignblob, (uint32_t)ctobesigned, (void*)(uintptr_t)rgpbtobesigned, (void*)(uintptr_t)rgcbtobesigned, (void*)(uintptr_t)ppsignercert);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pverifypara;
     (void)dwsignerindex;
@@ -6745,6 +8923,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)rgpbtobesigned;
     (void)rgcbtobesigned;
     (void)ppsignercert;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -6760,7 +8939,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptVerifyMessageHash");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)phashpara, (void*)(uintptr_t)pbhashedblob, (uint32_t)cbhashedblob, (void*)(uintptr_t)pbtobehashed, (void*)(uintptr_t)pcbtobehashed, (void*)(uintptr_t)pbcomputedhash, (void*)(uintptr_t)pcbcomputedhash) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)phashpara, (void*)(uintptr_t)pbhashedblob, (uint32_t)cbhashedblob, (void*)(uintptr_t)pbtobehashed, (void*)(uintptr_t)pcbtobehashed, (void*)(uintptr_t)pbcomputedhash, (void*)(uintptr_t)pcbcomputedhash);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)phashpara;
     (void)pbhashedblob;
@@ -6769,6 +8954,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)pcbtobehashed;
     (void)pbcomputedhash;
     (void)pcbcomputedhash;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -6784,7 +8970,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptVerifyMessageSignature");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pverifypara, (uint32_t)dwsignerindex, (void*)(uintptr_t)pbsignedblob, (uint32_t)cbsignedblob, (void*)(uintptr_t)pbdecoded, (void*)(uintptr_t)pcbdecoded, (void*)(uintptr_t)ppsignercert) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pverifypara, (uint32_t)dwsignerindex, (void*)(uintptr_t)pbsignedblob, (uint32_t)cbsignedblob, (void*)(uintptr_t)pbdecoded, (void*)(uintptr_t)pcbdecoded, (void*)(uintptr_t)ppsignercert);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pverifypara;
     (void)dwsignerindex;
@@ -6793,6 +8985,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)pbdecoded;
     (void)pcbdecoded;
     (void)ppsignercert;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -6808,7 +9001,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptVerifyMessageSignatureWithKey");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pverifypara, (void*)(uintptr_t)ppublickeyinfo, (void*)(uintptr_t)pbsignedblob, (uint32_t)cbsignedblob, (void*)(uintptr_t)pbdecoded, (void*)(uintptr_t)pcbdecoded) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pverifypara, (void*)(uintptr_t)ppublickeyinfo, (void*)(uintptr_t)pbsignedblob, (uint32_t)cbsignedblob, (void*)(uintptr_t)pbdecoded, (void*)(uintptr_t)pcbdecoded);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pverifypara;
     (void)ppublickeyinfo;
@@ -6816,6 +9015,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)cbsignedblob;
     (void)pbdecoded;
     (void)pcbdecoded;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -6831,7 +9031,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptVerifySignatureA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hhash, (void*)(uintptr_t)pbsignature, (uint32_t)dwsiglen, (uint64_t)hpubkey, (void*)(uintptr_t)szdescription, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hhash, (void*)(uintptr_t)pbsignature, (uint32_t)dwsiglen, (uint64_t)hpubkey, (void*)(uintptr_t)szdescription, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hhash;
     (void)pbsignature;
@@ -6839,6 +9045,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)hpubkey;
     (void)szdescription;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -6854,7 +9061,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptVerifySignatureW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hhash, (void*)(uintptr_t)pbsignature, (uint32_t)dwsiglen, (uint64_t)hpubkey, (void*)(uintptr_t)szdescription, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hhash, (void*)(uintptr_t)pbsignature, (uint32_t)dwsiglen, (uint64_t)hpubkey, (void*)(uintptr_t)szdescription, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hhash;
     (void)pbsignature;
@@ -6862,6 +9075,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)hpubkey;
     (void)szdescription;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -6877,7 +9091,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptVerifyTimeStampSignature");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pbtscontentinfo, (uint32_t)cbtscontentinfo, (void*)(uintptr_t)pbdata, (uint32_t)cbdata, (void*)(uintptr_t)hadditionalstore, (void*)(uintptr_t)pptscontext, (void*)(uintptr_t)pptssigner, (void*)(uintptr_t)phstore) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pbtscontentinfo, (uint32_t)cbtscontentinfo, (void*)(uintptr_t)pbdata, (uint32_t)cbdata, (void*)(uintptr_t)hadditionalstore, (void*)(uintptr_t)pptscontext, (void*)(uintptr_t)pptssigner, (void*)(uintptr_t)phstore);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pbtscontentinfo;
     (void)cbtscontentinfo;
@@ -6887,6 +9107,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)pptscontext;
     (void)pptssigner;
     (void)phstore;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -6902,7 +9123,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("cryptxml.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptXmlAddObject");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hsignatureorobject, (uint32_t)dwflags, (void*)(uintptr_t)rgproperty, (uint32_t)cproperty, (void*)(uintptr_t)pencoded, (void*)(uintptr_t)ppobject) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hsignatureorobject, (uint32_t)dwflags, (void*)(uintptr_t)rgproperty, (uint32_t)cproperty, (void*)(uintptr_t)pencoded, (void*)(uintptr_t)ppobject);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hsignatureorobject;
     (void)dwflags;
@@ -6910,6 +9137,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)cproperty;
     (void)pencoded;
     (void)ppobject;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -6925,9 +9153,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("cryptxml.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptXmlClose");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hcryptxml) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hcryptxml);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcryptxml;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -6943,7 +9178,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("cryptxml.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptXmlCreateReference");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hcryptxml, (uint32_t)dwflags, (void*)(uintptr_t)wszid, (void*)(uintptr_t)wszuri, (void*)(uintptr_t)wsztype, (void*)(uintptr_t)pdigestmethod, (uint32_t)ctransform, (void*)(uintptr_t)rgtransform, (void*)(uintptr_t)phreference) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hcryptxml, (uint32_t)dwflags, (void*)(uintptr_t)wszid, (void*)(uintptr_t)wszuri, (void*)(uintptr_t)wsztype, (void*)(uintptr_t)pdigestmethod, (uint32_t)ctransform, (void*)(uintptr_t)rgtransform, (void*)(uintptr_t)phreference);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcryptxml;
     (void)dwflags;
@@ -6954,6 +9195,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)ctransform;
     (void)rgtransform;
     (void)phreference;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -6969,11 +9211,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("cryptxml.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptXmlDigestReference");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hreference, (uint32_t)dwflags, (void*)(uintptr_t)pdataproviderin) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hreference, (uint32_t)dwflags, (void*)(uintptr_t)pdataproviderin);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hreference;
     (void)dwflags;
     (void)pdataproviderin;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -6989,7 +9238,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("cryptxml.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptXmlEncode");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hcryptxml, (int32_t)dwcharset, (void*)(uintptr_t)rgproperty, (uint32_t)cproperty, (void*)(uintptr_t)pvcallbackstate, (void*)(uintptr_t)pfnwrite) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hcryptxml, (int32_t)dwcharset, (void*)(uintptr_t)rgproperty, (uint32_t)cproperty, (void*)(uintptr_t)pvcallbackstate, (void*)(uintptr_t)pfnwrite);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcryptxml;
     (void)dwcharset;
@@ -6997,6 +9252,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)cproperty;
     (void)pvcallbackstate;
     (void)pfnwrite;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -7012,12 +9268,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("cryptxml.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptXmlEnumAlgorithmInfo");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwgroupid, (uint32_t)dwflags, (void*)(uintptr_t)pvarg, (void*)(uintptr_t)pfnenumalginfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwgroupid, (uint32_t)dwflags, (void*)(uintptr_t)pvarg, (void*)(uintptr_t)pfnenumalginfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwgroupid;
     (void)dwflags;
     (void)pvarg;
     (void)pfnenumalginfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -7033,12 +9296,19 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
         HMODULE km_h_mod = LoadLibraryA("cryptxml.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptXmlFindAlgorithmInfo");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwfindbytype, (void*)(uintptr_t)pvfindby, (uint32_t)dwgroupid, (uint32_t)dwflags) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwfindbytype, (void*)(uintptr_t)pvfindby, (uint32_t)dwgroupid, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)dwfindbytype;
     (void)pvfindby;
     (void)dwgroupid;
     (void)dwflags;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -7054,11 +9324,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("cryptxml.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptXmlGetAlgorithmInfo");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pxmlalgorithm, (uint32_t)dwflags, (void*)(uintptr_t)ppalginfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pxmlalgorithm, (uint32_t)dwflags, (void*)(uintptr_t)ppalginfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pxmlalgorithm;
     (void)dwflags;
     (void)ppalginfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -7074,10 +9351,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("cryptxml.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptXmlGetDocContext");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hcryptxml, (void*)(uintptr_t)ppstruct) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hcryptxml, (void*)(uintptr_t)ppstruct);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcryptxml;
     (void)ppstruct;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -7093,10 +9377,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("cryptxml.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptXmlGetReference");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hcryptxml, (void*)(uintptr_t)ppstruct) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hcryptxml, (void*)(uintptr_t)ppstruct);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcryptxml;
     (void)ppstruct;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -7112,10 +9403,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("cryptxml.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptXmlGetSignature");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hcryptxml, (void*)(uintptr_t)ppstruct) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hcryptxml, (void*)(uintptr_t)ppstruct);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcryptxml;
     (void)ppstruct;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -7131,10 +9429,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("cryptxml.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptXmlGetStatus");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hcryptxml, (void*)(uintptr_t)pstatus) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hcryptxml, (void*)(uintptr_t)pstatus);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcryptxml;
     (void)pstatus;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -7150,9 +9455,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("cryptxml.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptXmlGetTransforms");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ppconfig) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ppconfig);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ppconfig;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -7168,11 +9480,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("cryptxml.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptXmlImportPublicKey");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwflags, (void*)(uintptr_t)pkeyvalue, (void*)(uintptr_t)phkey) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwflags, (void*)(uintptr_t)pkeyvalue, (void*)(uintptr_t)phkey);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwflags;
     (void)pkeyvalue;
     (void)phkey;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -7188,7 +9507,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("cryptxml.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptXmlOpenToDecode");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pconfig, (uint32_t)dwflags, (void*)(uintptr_t)rgproperty, (uint32_t)cproperty, (void*)(uintptr_t)pencoded, (void*)(uintptr_t)phcryptxml) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pconfig, (uint32_t)dwflags, (void*)(uintptr_t)rgproperty, (uint32_t)cproperty, (void*)(uintptr_t)pencoded, (void*)(uintptr_t)phcryptxml);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pconfig;
     (void)dwflags;
@@ -7196,6 +9521,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)cproperty;
     (void)pencoded;
     (void)phcryptxml;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -7211,7 +9537,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("cryptxml.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptXmlOpenToEncode");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pconfig, (uint32_t)dwflags, (void*)(uintptr_t)wszid, (void*)(uintptr_t)rgproperty, (uint32_t)cproperty, (void*)(uintptr_t)pencoded, (void*)(uintptr_t)phsignature) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pconfig, (uint32_t)dwflags, (void*)(uintptr_t)wszid, (void*)(uintptr_t)rgproperty, (uint32_t)cproperty, (void*)(uintptr_t)pencoded, (void*)(uintptr_t)phsignature);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pconfig;
     (void)dwflags;
@@ -7220,6 +9552,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)cproperty;
     (void)pencoded;
     (void)phsignature;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -7235,11 +9568,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("cryptxml.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptXmlSetHMACSecret");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hsignature, (void*)(uintptr_t)pbsecret, (uint32_t)cbsecret) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hsignature, (void*)(uintptr_t)pbsecret, (uint32_t)cbsecret);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hsignature;
     (void)pbsecret;
     (void)cbsecret;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -7255,7 +9595,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("cryptxml.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptXmlSign");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hsignature, (uint64_t)hkey, (uint32_t)dwkeyspec, (uint32_t)dwflags, (int32_t)dwkeyinfospec, (void*)(uintptr_t)pvkeyinfospec, (void*)(uintptr_t)psignaturemethod, (void*)(uintptr_t)pcanonicalization) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hsignature, (uint64_t)hkey, (uint32_t)dwkeyspec, (uint32_t)dwflags, (int32_t)dwkeyinfospec, (void*)(uintptr_t)pvkeyinfospec, (void*)(uintptr_t)psignaturemethod, (void*)(uintptr_t)pcanonicalization);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hsignature;
     (void)hkey;
@@ -7265,6 +9611,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)pvkeyinfospec;
     (void)psignaturemethod;
     (void)pcanonicalization;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -7280,11 +9627,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("cryptxml.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CryptXmlVerifySignature");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hsignature, (void*)(uintptr_t)hkey, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hsignature, (void*)(uintptr_t)hkey, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hsignature;
     (void)hkey;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -7300,7 +9654,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("infocardapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "Decrypt");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hcrypto, (int32_t)foaep, (uint32_t)cbindata, (void*)(uintptr_t)pindata, (void*)(uintptr_t)pcboutdata, (void*)(uintptr_t)ppoutdata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hcrypto, (int32_t)foaep, (uint32_t)cbindata, (void*)(uintptr_t)pindata, (void*)(uintptr_t)pcboutdata, (void*)(uintptr_t)ppoutdata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcrypto;
     (void)foaep;
@@ -7308,6 +9668,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)pindata;
     (void)pcboutdata;
     (void)ppoutdata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -7323,7 +9684,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("infocardapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "Encrypt");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hcrypto, (int32_t)foaep, (uint32_t)cbindata, (void*)(uintptr_t)pindata, (void*)(uintptr_t)pcboutdata, (void*)(uintptr_t)ppoutdata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hcrypto, (int32_t)foaep, (uint32_t)cbindata, (void*)(uintptr_t)pindata, (void*)(uintptr_t)pcboutdata, (void*)(uintptr_t)ppoutdata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcrypto;
     (void)foaep;
@@ -7331,6 +9698,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)pindata;
     (void)pcboutdata;
     (void)ppoutdata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -7346,7 +9714,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "FindCertsByIssuer");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pcertchains, (void*)(uintptr_t)pcbcertchains, (void*)(uintptr_t)pccertchains, (void*)(uintptr_t)pbencodedissuername, (uint32_t)cbencodedissuername, (void*)(uintptr_t)pwszpurpose, (uint32_t)dwkeyspec) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pcertchains, (void*)(uintptr_t)pcbcertchains, (void*)(uintptr_t)pccertchains, (void*)(uintptr_t)pbencodedissuername, (uint32_t)cbencodedissuername, (void*)(uintptr_t)pwszpurpose, (uint32_t)dwkeyspec);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pcertchains;
     (void)pcbcertchains;
@@ -7355,6 +9729,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)cbencodedissuername;
     (void)pwszpurpose;
     (void)dwkeyspec;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -7370,9 +9745,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("infocardapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "FreeToken");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pallocmemory) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pallocmemory);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pallocmemory;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -7388,7 +9770,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("infocardapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GenerateDerivedKey");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hcrypto, (uint32_t)cblabel, (void*)(uintptr_t)plabel, (uint32_t)cbnonce, (void*)(uintptr_t)pnonce, (uint32_t)derivedkeylength, (uint32_t)offset, (void*)(uintptr_t)algid, (void*)(uintptr_t)pcbkey, (void*)(uintptr_t)ppkey) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hcrypto, (uint32_t)cblabel, (void*)(uintptr_t)plabel, (uint32_t)cbnonce, (void*)(uintptr_t)pnonce, (uint32_t)derivedkeylength, (uint32_t)offset, (void*)(uintptr_t)algid, (void*)(uintptr_t)pcbkey, (void*)(uintptr_t)ppkey);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcrypto;
     (void)cblabel;
@@ -7400,6 +9788,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)algid;
     (void)pcbkey;
     (void)ppkey;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -7415,12 +9804,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("bcryptprimitives.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetAsymmetricEncryptionInterface");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pszprovidername, (void*)(uintptr_t)pszalgid, (void*)(uintptr_t)ppfunctiontable, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pszprovidername, (void*)(uintptr_t)pszalgid, (void*)(uintptr_t)ppfunctiontable, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszprovidername;
     (void)pszalgid;
     (void)ppfunctiontable;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -7436,12 +9832,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("infocardapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetBrowserToken");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwparamtype, (void*)(uintptr_t)pparam, (void*)(uintptr_t)pcbtoken, (void*)(uintptr_t)pptoken) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwparamtype, (void*)(uintptr_t)pparam, (void*)(uintptr_t)pcbtoken, (void*)(uintptr_t)pptoken);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwparamtype;
     (void)pparam;
     (void)pcbtoken;
     (void)pptoken;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -7457,12 +9860,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("bcryptprimitives.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetCipherInterface");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pszprovidername, (void*)(uintptr_t)pszalgid, (void*)(uintptr_t)ppfunctiontable, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pszprovidername, (void*)(uintptr_t)pszalgid, (void*)(uintptr_t)ppfunctiontable, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszprovidername;
     (void)pszalgid;
     (void)ppfunctiontable;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -7478,12 +9888,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("bcryptprimitives.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetHashInterface");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pszprovidername, (void*)(uintptr_t)pszalgid, (void*)(uintptr_t)ppfunctiontable, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pszprovidername, (void*)(uintptr_t)pszalgid, (void*)(uintptr_t)ppfunctiontable, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszprovidername;
     (void)pszalgid;
     (void)ppfunctiontable;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -7499,12 +9916,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("bcryptprimitives.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetKeyDerivationInterface");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pszprovidername, (void*)(uintptr_t)pszalgid, (void*)(uintptr_t)ppfunctiontable, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pszprovidername, (void*)(uintptr_t)pszalgid, (void*)(uintptr_t)ppfunctiontable, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszprovidername;
     (void)pszalgid;
     (void)ppfunctiontable;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -7520,11 +9944,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("ncrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetKeyStorageInterface");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pszprovidername, (void*)(uintptr_t)ppfunctiontable, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pszprovidername, (void*)(uintptr_t)ppfunctiontable, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszprovidername;
     (void)ppfunctiontable;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -7540,10 +9971,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("infocardapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetKeyedHash");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hsymmetriccrypto, (void*)(uintptr_t)pphhash) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hsymmetriccrypto, (void*)(uintptr_t)pphhash);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hsymmetriccrypto;
     (void)pphhash;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -7559,11 +9997,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("bcryptprimitives.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetRngInterface");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pszprovidername, (void*)(uintptr_t)ppfunctiontable, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pszprovidername, (void*)(uintptr_t)ppfunctiontable, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszprovidername;
     (void)ppfunctiontable;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -7579,11 +10024,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("ncrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetSChannelInterface");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pszprovidername, (void*)(uintptr_t)ppfunctiontable, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pszprovidername, (void*)(uintptr_t)ppfunctiontable, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszprovidername;
     (void)ppfunctiontable;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -7599,12 +10051,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("bcryptprimitives.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetSecretAgreementInterface");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pszprovidername, (void*)(uintptr_t)pszalgid, (void*)(uintptr_t)ppfunctiontable, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pszprovidername, (void*)(uintptr_t)pszalgid, (void*)(uintptr_t)ppfunctiontable, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszprovidername;
     (void)pszalgid;
     (void)ppfunctiontable;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -7620,12 +10079,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("bcryptprimitives.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetSignatureInterface");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pszprovidername, (void*)(uintptr_t)pszalgid, (void*)(uintptr_t)ppfunctiontable, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pszprovidername, (void*)(uintptr_t)pszalgid, (void*)(uintptr_t)ppfunctiontable, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszprovidername;
     (void)pszalgid;
     (void)ppfunctiontable;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -7641,12 +10107,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("infocardapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetToken");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)cpolicychain, (void*)(uintptr_t)ppolicychain, (void*)(uintptr_t)securitytoken, (void*)(uintptr_t)phprooftokencrypto) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)cpolicychain, (void*)(uintptr_t)ppolicychain, (void*)(uintptr_t)securitytoken, (void*)(uintptr_t)phprooftokencrypto);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)cpolicychain;
     (void)ppolicychain;
     (void)securitytoken;
     (void)phprooftokencrypto;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -7662,11 +10135,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("infocardapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HashCore");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hcrypto, (uint32_t)cbindata, (void*)(uintptr_t)pindata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hcrypto, (uint32_t)cbindata, (void*)(uintptr_t)pindata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcrypto;
     (void)cbindata;
     (void)pindata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -7682,13 +10162,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("infocardapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HashFinal");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hcrypto, (uint32_t)cbindata, (void*)(uintptr_t)pindata, (void*)(uintptr_t)pcboutdata, (void*)(uintptr_t)ppoutdata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hcrypto, (uint32_t)cbindata, (void*)(uintptr_t)pindata, (void*)(uintptr_t)pcboutdata, (void*)(uintptr_t)ppoutdata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcrypto;
     (void)cbindata;
     (void)pindata;
     (void)pcboutdata;
     (void)ppoutdata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -7704,9 +10191,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("infocardapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ImportInformationCard");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)filename) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)filename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)filename;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -7722,8 +10216,15 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("infocardapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ManageCardSpace");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr() : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -7739,9 +10240,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("ncrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "NCryptCloseProtectionDescriptor");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hdescriptor) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hdescriptor);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdescriptor;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -7757,7 +10265,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("ncrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "NCryptCreateClaim");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hsubjectkey, (uint64_t)hauthoritykey, (uint32_t)dwclaimtype, (void*)(uintptr_t)pparameterlist, (void*)(uintptr_t)pbclaimblob, (uint32_t)cbclaimblob, (void*)(uintptr_t)pcbresult, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hsubjectkey, (uint64_t)hauthoritykey, (uint32_t)dwclaimtype, (void*)(uintptr_t)pparameterlist, (void*)(uintptr_t)pbclaimblob, (uint32_t)cbclaimblob, (void*)(uintptr_t)pcbresult, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hsubjectkey;
     (void)hauthoritykey;
@@ -7767,6 +10281,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)cbclaimblob;
     (void)pcbresult;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -7782,7 +10297,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("ncrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "NCryptCreatePersistedKey");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hprovider, (void*)(uintptr_t)phkey, (void*)(uintptr_t)pszalgid, (void*)(uintptr_t)pszkeyname, (uint32_t)dwlegacykeyspec, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hprovider, (void*)(uintptr_t)phkey, (void*)(uintptr_t)pszalgid, (void*)(uintptr_t)pszkeyname, (uint32_t)dwlegacykeyspec, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprovider;
     (void)phkey;
@@ -7790,6 +10311,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)pszkeyname;
     (void)dwlegacykeyspec;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -7805,11 +10327,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("ncrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "NCryptCreateProtectionDescriptor");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pwszdescriptorstring, (uint32_t)dwflags, (void*)(uintptr_t)phdescriptor) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pwszdescriptorstring, (uint32_t)dwflags, (void*)(uintptr_t)phdescriptor);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pwszdescriptorstring;
     (void)dwflags;
     (void)phdescriptor;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -7825,7 +10354,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("ncrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "NCryptDecrypt");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hkey, (void*)(uintptr_t)pbinput, (uint32_t)cbinput, (void*)(uintptr_t)ppaddinginfo, (void*)(uintptr_t)pboutput, (uint32_t)cboutput, (void*)(uintptr_t)pcbresult, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hkey, (void*)(uintptr_t)pbinput, (uint32_t)cbinput, (void*)(uintptr_t)ppaddinginfo, (void*)(uintptr_t)pboutput, (uint32_t)cboutput, (void*)(uintptr_t)pcbresult, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hkey;
     (void)pbinput;
@@ -7835,6 +10370,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)cboutput;
     (void)pcbresult;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -7850,10 +10386,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("ncrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "NCryptDeleteKey");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hkey, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hkey, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hkey;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -7869,7 +10412,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("ncrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "NCryptDeriveKey");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hsharedsecret, (void*)(uintptr_t)pwszkdf, (void*)(uintptr_t)pparameterlist, (void*)(uintptr_t)pbderivedkey, (uint32_t)cbderivedkey, (void*)(uintptr_t)pcbresult, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hsharedsecret, (void*)(uintptr_t)pwszkdf, (void*)(uintptr_t)pparameterlist, (void*)(uintptr_t)pbderivedkey, (uint32_t)cbderivedkey, (void*)(uintptr_t)pcbresult, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hsharedsecret;
     (void)pwszkdf;
@@ -7878,6 +10427,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)cbderivedkey;
     (void)pcbresult;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -7893,7 +10443,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("ncrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "NCryptEncrypt");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hkey, (void*)(uintptr_t)pbinput, (uint32_t)cbinput, (void*)(uintptr_t)ppaddinginfo, (void*)(uintptr_t)pboutput, (uint32_t)cboutput, (void*)(uintptr_t)pcbresult, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hkey, (void*)(uintptr_t)pbinput, (uint32_t)cbinput, (void*)(uintptr_t)ppaddinginfo, (void*)(uintptr_t)pboutput, (uint32_t)cboutput, (void*)(uintptr_t)pcbresult, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hkey;
     (void)pbinput;
@@ -7903,6 +10459,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)cboutput;
     (void)pcbresult;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -7918,13 +10475,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("ncrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "NCryptEnumAlgorithms");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hprovider, (uint32_t)dwalgoperations, (void*)(uintptr_t)pdwalgcount, (void*)(uintptr_t)ppalglist, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hprovider, (uint32_t)dwalgoperations, (void*)(uintptr_t)pdwalgcount, (void*)(uintptr_t)ppalglist, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprovider;
     (void)dwalgoperations;
     (void)pdwalgcount;
     (void)ppalglist;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -7940,13 +10504,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("ncrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "NCryptEnumKeys");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hprovider, (void*)(uintptr_t)pszscope, (void*)(uintptr_t)ppkeyname, (void*)(uintptr_t)ppenumstate, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hprovider, (void*)(uintptr_t)pszscope, (void*)(uintptr_t)ppkeyname, (void*)(uintptr_t)ppenumstate, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprovider;
     (void)pszscope;
     (void)ppkeyname;
     (void)ppenumstate;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -7962,11 +10533,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("ncrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "NCryptEnumStorageProviders");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pdwprovidercount, (void*)(uintptr_t)ppproviderlist, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pdwprovidercount, (void*)(uintptr_t)ppproviderlist, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pdwprovidercount;
     (void)ppproviderlist;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -7982,7 +10560,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("ncrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "NCryptExportKey");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hkey, (uint64_t)hexportkey, (void*)(uintptr_t)pszblobtype, (void*)(uintptr_t)pparameterlist, (void*)(uintptr_t)pboutput, (uint32_t)cboutput, (void*)(uintptr_t)pcbresult, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hkey, (uint64_t)hexportkey, (void*)(uintptr_t)pszblobtype, (void*)(uintptr_t)pparameterlist, (void*)(uintptr_t)pboutput, (uint32_t)cboutput, (void*)(uintptr_t)pcbresult, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hkey;
     (void)hexportkey;
@@ -7992,6 +10576,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)cboutput;
     (void)pcbresult;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -8007,10 +10592,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("ncrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "NCryptFinalizeKey");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hkey, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hkey, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hkey;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -8026,9 +10618,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("ncrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "NCryptFreeBuffer");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pvinput) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pvinput);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pvinput;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -8044,9 +10643,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("ncrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "NCryptFreeObject");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hobject) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hobject);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hobject;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -8062,7 +10668,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("ncrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "NCryptGetProperty");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hobject, (void*)(uintptr_t)pszproperty, (void*)(uintptr_t)pboutput, (uint32_t)cboutput, (void*)(uintptr_t)pcbresult, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hobject, (void*)(uintptr_t)pszproperty, (void*)(uintptr_t)pboutput, (uint32_t)cboutput, (void*)(uintptr_t)pcbresult, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hobject;
     (void)pszproperty;
@@ -8070,6 +10682,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)cboutput;
     (void)pcbresult;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -8085,12 +10698,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("ncrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "NCryptGetProtectionDescriptorInfo");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hdescriptor, (void*)(uintptr_t)pmempara, (uint32_t)dwinfotype, (void*)(uintptr_t)ppvinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hdescriptor, (void*)(uintptr_t)pmempara, (uint32_t)dwinfotype, (void*)(uintptr_t)ppvinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdescriptor;
     (void)pmempara;
     (void)dwinfotype;
     (void)ppvinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -8106,7 +10726,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("ncrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "NCryptImportKey");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hprovider, (uint64_t)himportkey, (void*)(uintptr_t)pszblobtype, (void*)(uintptr_t)pparameterlist, (void*)(uintptr_t)phkey, (void*)(uintptr_t)pbdata, (uint32_t)cbdata, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hprovider, (uint64_t)himportkey, (void*)(uintptr_t)pszblobtype, (void*)(uintptr_t)pparameterlist, (void*)(uintptr_t)phkey, (void*)(uintptr_t)pbdata, (uint32_t)cbdata, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprovider;
     (void)himportkey;
@@ -8116,6 +10742,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)pbdata;
     (void)cbdata;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -8131,11 +10758,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("ncrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "NCryptIsAlgSupported");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hprovider, (void*)(uintptr_t)pszalgid, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hprovider, (void*)(uintptr_t)pszalgid, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprovider;
     (void)pszalgid;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -8151,9 +10785,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("ncrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "NCryptIsKeyHandle");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hkey) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hkey);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hkey;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -8169,7 +10810,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("ncrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "NCryptKeyDerivation");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hkey, (void*)(uintptr_t)pparameterlist, (void*)(uintptr_t)pbderivedkey, (uint32_t)cbderivedkey, (void*)(uintptr_t)pcbresult, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hkey, (void*)(uintptr_t)pparameterlist, (void*)(uintptr_t)pbderivedkey, (uint32_t)cbderivedkey, (void*)(uintptr_t)pcbresult, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hkey;
     (void)pparameterlist;
@@ -8177,6 +10824,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)cbderivedkey;
     (void)pcbresult;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -8192,11 +10840,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("ncrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "NCryptNotifyChangeKey");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hprovider, (void*)(uintptr_t)phevent, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hprovider, (void*)(uintptr_t)phevent, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprovider;
     (void)phevent;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -8212,13 +10867,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("ncrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "NCryptOpenKey");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hprovider, (void*)(uintptr_t)phkey, (void*)(uintptr_t)pszkeyname, (uint32_t)dwlegacykeyspec, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hprovider, (void*)(uintptr_t)phkey, (void*)(uintptr_t)pszkeyname, (uint32_t)dwlegacykeyspec, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprovider;
     (void)phkey;
     (void)pszkeyname;
     (void)dwlegacykeyspec;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -8234,11 +10896,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("ncrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "NCryptOpenStorageProvider");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)phprovider, (void*)(uintptr_t)pszprovidername, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)phprovider, (void*)(uintptr_t)pszprovidername, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)phprovider;
     (void)pszprovidername;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -8254,7 +10923,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("ncrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "NCryptProtectSecret");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hdescriptor, (uint32_t)dwflags, (void*)(uintptr_t)pbdata, (uint32_t)cbdata, (void*)(uintptr_t)pmempara, (void*)(uintptr_t)hwnd, (void*)(uintptr_t)ppbprotectedblob, (void*)(uintptr_t)pcbprotectedblob) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hdescriptor, (uint32_t)dwflags, (void*)(uintptr_t)pbdata, (uint32_t)cbdata, (void*)(uintptr_t)pmempara, (void*)(uintptr_t)hwnd, (void*)(uintptr_t)ppbprotectedblob, (void*)(uintptr_t)pcbprotectedblob);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdescriptor;
     (void)dwflags;
@@ -8264,6 +10939,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)hwnd;
     (void)ppbprotectedblob;
     (void)pcbprotectedblob;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -8279,12 +10955,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("ncrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "NCryptQueryProtectionDescriptorName");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pwszname, (void*)(uintptr_t)pwszdescriptorstring, (void*)(uintptr_t)pcdescriptorstring, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pwszname, (void*)(uintptr_t)pwszdescriptorstring, (void*)(uintptr_t)pcdescriptorstring, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pwszname;
     (void)pwszdescriptorstring;
     (void)pcdescriptorstring;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -8300,11 +10983,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("ncrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "NCryptRegisterProtectionDescriptorName");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pwszname, (void*)(uintptr_t)pwszdescriptorstring, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pwszname, (void*)(uintptr_t)pwszdescriptorstring, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pwszname;
     (void)pwszdescriptorstring;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -8320,12 +11010,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("ncrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "NCryptSecretAgreement");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hprivkey, (uint64_t)hpubkey, (void*)(uintptr_t)phagreedsecret, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hprivkey, (uint64_t)hpubkey, (void*)(uintptr_t)phagreedsecret, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprivkey;
     (void)hpubkey;
     (void)phagreedsecret;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -8341,13 +11038,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("ncrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "NCryptSetProperty");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hobject, (void*)(uintptr_t)pszproperty, (void*)(uintptr_t)pbinput, (uint32_t)cbinput, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hobject, (void*)(uintptr_t)pszproperty, (void*)(uintptr_t)pbinput, (uint32_t)cbinput, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hobject;
     (void)pszproperty;
     (void)pbinput;
     (void)cbinput;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -8363,7 +11067,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("ncrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "NCryptSignHash");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hkey, (void*)(uintptr_t)ppaddinginfo, (void*)(uintptr_t)pbhashvalue, (uint32_t)cbhashvalue, (void*)(uintptr_t)pbsignature, (uint32_t)cbsignature, (void*)(uintptr_t)pcbresult, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hkey, (void*)(uintptr_t)ppaddinginfo, (void*)(uintptr_t)pbhashvalue, (uint32_t)cbhashvalue, (void*)(uintptr_t)pbsignature, (uint32_t)cbsignature, (void*)(uintptr_t)pcbresult, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hkey;
     (void)ppaddinginfo;
@@ -8373,6 +11083,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)cbsignature;
     (void)pcbresult;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -8388,9 +11099,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("ncrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "NCryptStreamClose");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hstream) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hstream);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstream;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -8406,13 +11124,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("ncrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "NCryptStreamOpenToProtect");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hdescriptor, (uint32_t)dwflags, (void*)(uintptr_t)hwnd, (void*)(uintptr_t)pstreaminfo, (void*)(uintptr_t)phstream) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hdescriptor, (uint32_t)dwflags, (void*)(uintptr_t)hwnd, (void*)(uintptr_t)pstreaminfo, (void*)(uintptr_t)phstream);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdescriptor;
     (void)dwflags;
     (void)hwnd;
     (void)pstreaminfo;
     (void)phstream;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -8428,12 +11153,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("ncrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "NCryptStreamOpenToUnprotect");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pstreaminfo, (uint32_t)dwflags, (void*)(uintptr_t)hwnd, (void*)(uintptr_t)phstream) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pstreaminfo, (uint32_t)dwflags, (void*)(uintptr_t)hwnd, (void*)(uintptr_t)phstream);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pstreaminfo;
     (void)dwflags;
     (void)hwnd;
     (void)phstream;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -8449,12 +11181,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("ncrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "NCryptStreamOpenToUnprotectEx");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pstreaminfo, (uint32_t)dwflags, (void*)(uintptr_t)hwnd, (void*)(uintptr_t)phstream) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pstreaminfo, (uint32_t)dwflags, (void*)(uintptr_t)hwnd, (void*)(uintptr_t)phstream);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pstreaminfo;
     (void)dwflags;
     (void)hwnd;
     (void)phstream;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -8470,12 +11209,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("ncrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "NCryptStreamUpdate");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hstream, (void*)(uintptr_t)pbdata, (uint64_t)cbdata, (int32_t)ffinal) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hstream, (void*)(uintptr_t)pbdata, (uint64_t)cbdata, (int32_t)ffinal);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstream;
     (void)pbdata;
     (void)cbdata;
     (void)ffinal;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -8491,7 +11237,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("ncrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "NCryptTranslateHandle");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)phprovider, (void*)(uintptr_t)phkey, (uint64_t)hlegacyprov, (uint64_t)hlegacykey, (uint32_t)dwlegacykeyspec, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)phprovider, (void*)(uintptr_t)phkey, (uint64_t)hlegacyprov, (uint64_t)hlegacykey, (uint32_t)dwlegacykeyspec, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)phprovider;
     (void)phkey;
@@ -8499,6 +11251,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)hlegacykey;
     (void)dwlegacykeyspec;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -8514,7 +11267,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("ncrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "NCryptUnprotectSecret");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)phdescriptor, (uint32_t)dwflags, (void*)(uintptr_t)pbprotectedblob, (uint32_t)cbprotectedblob, (void*)(uintptr_t)pmempara, (void*)(uintptr_t)hwnd, (void*)(uintptr_t)ppbdata, (void*)(uintptr_t)pcbdata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)phdescriptor, (uint32_t)dwflags, (void*)(uintptr_t)pbprotectedblob, (uint32_t)cbprotectedblob, (void*)(uintptr_t)pmempara, (void*)(uintptr_t)hwnd, (void*)(uintptr_t)ppbdata, (void*)(uintptr_t)pcbdata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)phdescriptor;
     (void)dwflags;
@@ -8524,6 +11283,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)hwnd;
     (void)ppbdata;
     (void)pcbdata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -8539,7 +11299,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("ncrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "NCryptVerifyClaim");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hsubjectkey, (uint64_t)hauthoritykey, (uint32_t)dwclaimtype, (void*)(uintptr_t)pparameterlist, (void*)(uintptr_t)pbclaimblob, (uint32_t)cbclaimblob, (void*)(uintptr_t)poutput, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hsubjectkey, (uint64_t)hauthoritykey, (uint32_t)dwclaimtype, (void*)(uintptr_t)pparameterlist, (void*)(uintptr_t)pbclaimblob, (uint32_t)cbclaimblob, (void*)(uintptr_t)poutput, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hsubjectkey;
     (void)hauthoritykey;
@@ -8549,6 +11315,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)cbclaimblob;
     (void)poutput;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -8564,7 +11331,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("ncrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "NCryptVerifySignature");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hkey, (void*)(uintptr_t)ppaddinginfo, (void*)(uintptr_t)pbhashvalue, (uint32_t)cbhashvalue, (void*)(uintptr_t)pbsignature, (uint32_t)cbsignature, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hkey, (void*)(uintptr_t)ppaddinginfo, (void*)(uintptr_t)pbhashvalue, (uint32_t)cbhashvalue, (void*)(uintptr_t)pbsignature, (uint32_t)cbsignature, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hkey;
     (void)ppaddinginfo;
@@ -8573,6 +11346,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)pbsignature;
     (void)cbsignature;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -8588,12 +11362,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PFXExportCertStore");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hstore, (void*)(uintptr_t)ppfx, (void*)(uintptr_t)szpassword, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hstore, (void*)(uintptr_t)ppfx, (void*)(uintptr_t)szpassword, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstore;
     (void)ppfx;
     (void)szpassword;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -8609,13 +11390,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PFXExportCertStoreEx");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hstore, (void*)(uintptr_t)ppfx, (void*)(uintptr_t)szpassword, (void*)(uintptr_t)pvpara, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hstore, (void*)(uintptr_t)ppfx, (void*)(uintptr_t)szpassword, (void*)(uintptr_t)pvpara, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstore;
     (void)ppfx;
     (void)szpassword;
     (void)pvpara;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -8631,11 +11419,18 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secu
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PFXImportCertStore");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ppfx, (void*)(uintptr_t)szpassword, (uint32_t)dwflags) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ppfx, (void*)(uintptr_t)szpassword, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)ppfx;
     (void)szpassword;
     (void)dwflags;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -8651,9 +11446,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PFXIsPFXBlob");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ppfx) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ppfx);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ppfx;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -8669,11 +11471,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "PFXVerifyPassword");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)ppfx, (void*)(uintptr_t)szpassword, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)ppfx, (void*)(uintptr_t)szpassword, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ppfx;
     (void)szpassword;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -8689,10 +11498,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("bcryptprimitives.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ProcessPrng");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pbdata, (uint64_t)cbdata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pbdata, (uint64_t)cbdata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pbdata;
     (void)cbdata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -8708,8 +11524,15 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("mssign32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SignError");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr() : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -8725,7 +11548,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("infocardapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SignHash");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hcrypto, (uint32_t)cbhash, (void*)(uintptr_t)phash, (void*)(uintptr_t)hashalgoid, (void*)(uintptr_t)pcbsig, (void*)(uintptr_t)ppsig) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hcrypto, (uint32_t)cbhash, (void*)(uintptr_t)phash, (void*)(uintptr_t)hashalgoid, (void*)(uintptr_t)pcbsig, (void*)(uintptr_t)ppsig);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcrypto;
     (void)cbhash;
@@ -8733,6 +11562,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)hashalgoid;
     (void)pcbsig;
     (void)ppsig;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -8748,9 +11578,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("mssign32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SignerFreeSignerContext");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)psignercontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)psignercontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)psignercontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -8766,7 +11603,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("mssign32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SignerSign");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)psubjectinfo, (void*)(uintptr_t)psignercert, (void*)(uintptr_t)psignatureinfo, (void*)(uintptr_t)pproviderinfo, (void*)(uintptr_t)pwszhttptimestamp, (void*)(uintptr_t)psrequest, (void*)(uintptr_t)psipdata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)psubjectinfo, (void*)(uintptr_t)psignercert, (void*)(uintptr_t)psignatureinfo, (void*)(uintptr_t)pproviderinfo, (void*)(uintptr_t)pwszhttptimestamp, (void*)(uintptr_t)psrequest, (void*)(uintptr_t)psipdata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)psubjectinfo;
     (void)psignercert;
@@ -8775,6 +11618,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)pwszhttptimestamp;
     (void)psrequest;
     (void)psipdata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -8790,7 +11634,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("mssign32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SignerSignEx");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwflags, (void*)(uintptr_t)psubjectinfo, (void*)(uintptr_t)psignercert, (void*)(uintptr_t)psignatureinfo, (void*)(uintptr_t)pproviderinfo, (void*)(uintptr_t)pwszhttptimestamp, (void*)(uintptr_t)psrequest, (void*)(uintptr_t)psipdata, (void*)(uintptr_t)ppsignercontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwflags, (void*)(uintptr_t)psubjectinfo, (void*)(uintptr_t)psignercert, (void*)(uintptr_t)psignatureinfo, (void*)(uintptr_t)pproviderinfo, (void*)(uintptr_t)pwszhttptimestamp, (void*)(uintptr_t)psrequest, (void*)(uintptr_t)psipdata, (void*)(uintptr_t)ppsignercontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwflags;
     (void)psubjectinfo;
@@ -8801,6 +11651,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)psrequest;
     (void)psipdata;
     (void)ppsignercontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -8816,7 +11667,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("mssign32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SignerSignEx2");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwflags, (void*)(uintptr_t)psubjectinfo, (void*)(uintptr_t)psignercert, (void*)(uintptr_t)psignatureinfo, (void*)(uintptr_t)pproviderinfo, (uint32_t)dwtimestampflags, (void*)(uintptr_t)psztimestampalgorithmoid, (void*)(uintptr_t)pwszhttptimestamp, (void*)(uintptr_t)psrequest, (void*)(uintptr_t)psipdata, (void*)(uintptr_t)ppsignercontext, (void*)(uintptr_t)pcryptopolicy, (void*)(uintptr_t)preserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwflags, (void*)(uintptr_t)psubjectinfo, (void*)(uintptr_t)psignercert, (void*)(uintptr_t)psignatureinfo, (void*)(uintptr_t)pproviderinfo, (uint32_t)dwtimestampflags, (void*)(uintptr_t)psztimestampalgorithmoid, (void*)(uintptr_t)pwszhttptimestamp, (void*)(uintptr_t)psrequest, (void*)(uintptr_t)psipdata, (void*)(uintptr_t)ppsignercontext, (void*)(uintptr_t)pcryptopolicy, (void*)(uintptr_t)preserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwflags;
     (void)psubjectinfo;
@@ -8831,6 +11688,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)ppsignercontext;
     (void)pcryptopolicy;
     (void)preserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -8846,7 +11704,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("mssign32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SignerSignEx3");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwflags, (void*)(uintptr_t)psubjectinfo, (void*)(uintptr_t)psignercert, (void*)(uintptr_t)psignatureinfo, (void*)(uintptr_t)pproviderinfo, (uint32_t)dwtimestampflags, (void*)(uintptr_t)psztimestampalgorithmoid, (void*)(uintptr_t)pwszhttptimestamp, (void*)(uintptr_t)psrequest, (void*)(uintptr_t)psipdata, (void*)(uintptr_t)ppsignercontext, (void*)(uintptr_t)pcryptopolicy, (void*)(uintptr_t)pdigestsigninfo, (void*)(uintptr_t)preserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwflags, (void*)(uintptr_t)psubjectinfo, (void*)(uintptr_t)psignercert, (void*)(uintptr_t)psignatureinfo, (void*)(uintptr_t)pproviderinfo, (uint32_t)dwtimestampflags, (void*)(uintptr_t)psztimestampalgorithmoid, (void*)(uintptr_t)pwszhttptimestamp, (void*)(uintptr_t)psrequest, (void*)(uintptr_t)psipdata, (void*)(uintptr_t)ppsignercontext, (void*)(uintptr_t)pcryptopolicy, (void*)(uintptr_t)pdigestsigninfo, (void*)(uintptr_t)preserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwflags;
     (void)psubjectinfo;
@@ -8862,6 +11726,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)pcryptopolicy;
     (void)pdigestsigninfo;
     (void)preserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -8877,12 +11742,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("mssign32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SignerTimeStamp");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)psubjectinfo, (void*)(uintptr_t)pwszhttptimestamp, (void*)(uintptr_t)psrequest, (void*)(uintptr_t)psipdata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)psubjectinfo, (void*)(uintptr_t)pwszhttptimestamp, (void*)(uintptr_t)psrequest, (void*)(uintptr_t)psipdata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)psubjectinfo;
     (void)pwszhttptimestamp;
     (void)psrequest;
     (void)psipdata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -8898,7 +11770,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("mssign32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SignerTimeStampEx");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwflags, (void*)(uintptr_t)psubjectinfo, (void*)(uintptr_t)pwszhttptimestamp, (void*)(uintptr_t)psrequest, (void*)(uintptr_t)psipdata, (void*)(uintptr_t)ppsignercontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwflags, (void*)(uintptr_t)psubjectinfo, (void*)(uintptr_t)pwszhttptimestamp, (void*)(uintptr_t)psrequest, (void*)(uintptr_t)psipdata, (void*)(uintptr_t)ppsignercontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwflags;
     (void)psubjectinfo;
@@ -8906,6 +11784,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)psrequest;
     (void)psipdata;
     (void)ppsignercontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -8921,7 +11800,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("mssign32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SignerTimeStampEx2");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwflags, (void*)(uintptr_t)psubjectinfo, (void*)(uintptr_t)pwszhttptimestamp, (uint32_t)dwalgid, (void*)(uintptr_t)psrequest, (void*)(uintptr_t)psipdata, (void*)(uintptr_t)ppsignercontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwflags, (void*)(uintptr_t)psubjectinfo, (void*)(uintptr_t)pwszhttptimestamp, (uint32_t)dwalgid, (void*)(uintptr_t)psrequest, (void*)(uintptr_t)psipdata, (void*)(uintptr_t)ppsignercontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwflags;
     (void)psubjectinfo;
@@ -8930,6 +11815,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)psrequest;
     (void)psipdata;
     (void)ppsignercontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -8945,7 +11831,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("mssign32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SignerTimeStampEx3");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwflags, (uint32_t)dwindex, (void*)(uintptr_t)psubjectinfo, (void*)(uintptr_t)pwszhttptimestamp, (void*)(uintptr_t)pszalgorithmoid, (void*)(uintptr_t)psrequest, (void*)(uintptr_t)psipdata, (void*)(uintptr_t)ppsignercontext, (void*)(uintptr_t)pcryptopolicy, (void*)(uintptr_t)preserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwflags, (uint32_t)dwindex, (void*)(uintptr_t)psubjectinfo, (void*)(uintptr_t)pwszhttptimestamp, (void*)(uintptr_t)pszalgorithmoid, (void*)(uintptr_t)psrequest, (void*)(uintptr_t)psipdata, (void*)(uintptr_t)ppsignercontext, (void*)(uintptr_t)pcryptopolicy, (void*)(uintptr_t)preserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwflags;
     (void)dwindex;
@@ -8957,6 +11849,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)ppsignercontext;
     (void)pcryptopolicy;
     (void)preserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -8972,10 +11865,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("ncrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SslChangeNotify");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hevent, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hevent, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hevent;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -8991,7 +11891,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("ncrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SslComputeClientAuthHash");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hsslprovider, (uint64_t)hmasterkey, (uint64_t)hhandshakehash, (void*)(uintptr_t)pszalgid, (void*)(uintptr_t)pboutput, (uint32_t)cboutput, (void*)(uintptr_t)pcbresult, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hsslprovider, (uint64_t)hmasterkey, (uint64_t)hhandshakehash, (void*)(uintptr_t)pszalgid, (void*)(uintptr_t)pboutput, (uint32_t)cboutput, (void*)(uintptr_t)pcbresult, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hsslprovider;
     (void)hmasterkey;
@@ -9001,6 +11907,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)cboutput;
     (void)pcbresult;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -9016,7 +11923,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("ncrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SslComputeEapKeyBlock");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hsslprovider, (uint64_t)hmasterkey, (void*)(uintptr_t)pbrandoms, (uint32_t)cbrandoms, (void*)(uintptr_t)pboutput, (uint32_t)cboutput, (void*)(uintptr_t)pcbresult, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hsslprovider, (uint64_t)hmasterkey, (void*)(uintptr_t)pbrandoms, (uint32_t)cbrandoms, (void*)(uintptr_t)pboutput, (uint32_t)cboutput, (void*)(uintptr_t)pcbresult, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hsslprovider;
     (void)hmasterkey;
@@ -9026,6 +11939,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)cboutput;
     (void)pcbresult;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -9041,7 +11955,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("ncrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SslComputeFinishedHash");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hsslprovider, (uint64_t)hmasterkey, (uint64_t)hhandshakehash, (void*)(uintptr_t)pboutput, (uint32_t)cboutput, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hsslprovider, (uint64_t)hmasterkey, (uint64_t)hhandshakehash, (void*)(uintptr_t)pboutput, (uint32_t)cboutput, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hsslprovider;
     (void)hmasterkey;
@@ -9049,6 +11969,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)pboutput;
     (void)cboutput;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -9064,7 +11985,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("ncrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SslComputeSessionHash");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hsslprovider, (uint64_t)hhandshakehash, (uint32_t)dwprotocol, (void*)(uintptr_t)pboutput, (uint32_t)cboutput, (void*)(uintptr_t)pcbresult, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hsslprovider, (uint64_t)hhandshakehash, (uint32_t)dwprotocol, (void*)(uintptr_t)pboutput, (uint32_t)cboutput, (void*)(uintptr_t)pcbresult, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hsslprovider;
     (void)hhandshakehash;
@@ -9073,6 +12000,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)cboutput;
     (void)pcbresult;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -9088,7 +12016,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("ncrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SslCreateClientAuthHash");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hsslprovider, (void*)(uintptr_t)phhandshakehash, (uint32_t)dwprotocol, (uint32_t)dwciphersuite, (void*)(uintptr_t)pszhashalgid, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hsslprovider, (void*)(uintptr_t)phhandshakehash, (uint32_t)dwprotocol, (uint32_t)dwciphersuite, (void*)(uintptr_t)pszhashalgid, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hsslprovider;
     (void)phhandshakehash;
@@ -9096,6 +12030,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)dwciphersuite;
     (void)pszhashalgid;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -9111,7 +12046,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("ncrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SslCreateEphemeralKey");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hsslprovider, (void*)(uintptr_t)phephemeralkey, (uint32_t)dwprotocol, (uint32_t)dwciphersuite, (uint32_t)dwkeytype, (uint32_t)dwkeybitlen, (void*)(uintptr_t)pbparams, (uint32_t)cbparams, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hsslprovider, (void*)(uintptr_t)phephemeralkey, (uint32_t)dwprotocol, (uint32_t)dwciphersuite, (uint32_t)dwkeytype, (uint32_t)dwkeybitlen, (void*)(uintptr_t)pbparams, (uint32_t)cbparams, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hsslprovider;
     (void)phephemeralkey;
@@ -9122,6 +12063,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)pbparams;
     (void)cbparams;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -9137,13 +12079,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("ncrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SslCreateHandshakeHash");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hsslprovider, (void*)(uintptr_t)phhandshakehash, (uint32_t)dwprotocol, (uint32_t)dwciphersuite, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hsslprovider, (void*)(uintptr_t)phhandshakehash, (uint32_t)dwprotocol, (uint32_t)dwciphersuite, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hsslprovider;
     (void)phhandshakehash;
     (void)dwprotocol;
     (void)dwciphersuite;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -9159,9 +12108,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("ncrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SslDecrementProviderReferenceCount");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hsslprovider) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hsslprovider);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hsslprovider;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -9177,7 +12133,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("ncrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SslDecryptPacket");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hsslprovider, (uint64_t)hkey, (void*)(uintptr_t)pbinput, (uint32_t)cbinput, (void*)(uintptr_t)pboutput, (uint32_t)cboutput, (void*)(uintptr_t)pcbresult, (uint64_t)sequencenumber, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hsslprovider, (uint64_t)hkey, (void*)(uintptr_t)pbinput, (uint32_t)cbinput, (void*)(uintptr_t)pboutput, (uint32_t)cboutput, (void*)(uintptr_t)pcbresult, (uint64_t)sequencenumber, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hsslprovider;
     (void)hkey;
@@ -9188,6 +12150,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)pcbresult;
     (void)sequencenumber;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -9203,12 +12166,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("ncrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SslDuplicateTranscriptHash");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hsslprovider, (uint64_t)htranscripthash, (void*)(uintptr_t)phtranscripthash, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hsslprovider, (uint64_t)htranscripthash, (void*)(uintptr_t)phtranscripthash, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hsslprovider;
     (void)htranscripthash;
     (void)phtranscripthash;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -9224,7 +12194,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("ncrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SslEncryptPacket");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hsslprovider, (uint64_t)hkey, (void*)(uintptr_t)pbinput, (uint32_t)cbinput, (void*)(uintptr_t)pboutput, (uint32_t)cboutput, (void*)(uintptr_t)pcbresult, (uint64_t)sequencenumber, (uint32_t)dwcontenttype, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hsslprovider, (uint64_t)hkey, (void*)(uintptr_t)pbinput, (uint32_t)cbinput, (void*)(uintptr_t)pboutput, (uint32_t)cboutput, (void*)(uintptr_t)pcbresult, (uint64_t)sequencenumber, (uint32_t)dwcontenttype, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hsslprovider;
     (void)hkey;
@@ -9236,6 +12212,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)sequencenumber;
     (void)dwcontenttype;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -9251,13 +12228,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("ncrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SslEnumCipherSuites");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hsslprovider, (uint64_t)hprivatekey, (void*)(uintptr_t)ppciphersuite, (void*)(uintptr_t)ppenumstate, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hsslprovider, (uint64_t)hprivatekey, (void*)(uintptr_t)ppciphersuite, (void*)(uintptr_t)ppenumstate, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hsslprovider;
     (void)hprivatekey;
     (void)ppciphersuite;
     (void)ppenumstate;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -9273,13 +12257,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("ncrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SslEnumCipherSuitesEx");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hsslprovider, (uint64_t)hprivatekey, (void*)(uintptr_t)ppciphersuite, (void*)(uintptr_t)ppenumstate, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hsslprovider, (uint64_t)hprivatekey, (void*)(uintptr_t)ppciphersuite, (void*)(uintptr_t)ppenumstate, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hsslprovider;
     (void)hprivatekey;
     (void)ppciphersuite;
     (void)ppenumstate;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -9295,12 +12286,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("ncrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SslEnumEccCurves");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hsslprovider, (void*)(uintptr_t)pecccurvecount, (void*)(uintptr_t)ppecccurve, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hsslprovider, (void*)(uintptr_t)pecccurvecount, (void*)(uintptr_t)ppecccurve, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hsslprovider;
     (void)pecccurvecount;
     (void)ppecccurve;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -9316,11 +12314,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("ncrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SslEnumProtocolProviders");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pdwprovidercount, (void*)(uintptr_t)ppproviderlist, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pdwprovidercount, (void*)(uintptr_t)ppproviderlist, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pdwprovidercount;
     (void)ppproviderlist;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -9336,13 +12341,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("ncrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SslExpandBinderKey");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hsslprovider, (uint64_t)hearlykey, (void*)(uintptr_t)phbinderkey, (void*)(uintptr_t)pparameterlist, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hsslprovider, (uint64_t)hearlykey, (void*)(uintptr_t)phbinderkey, (void*)(uintptr_t)pparameterlist, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hsslprovider;
     (void)hearlykey;
     (void)phbinderkey;
     (void)pparameterlist;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -9358,7 +12370,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("ncrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SslExpandExporterMasterKey");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hsslprovider, (uint64_t)hbasekey, (uint64_t)hhashvalue, (void*)(uintptr_t)phexportermasterkey, (void*)(uintptr_t)pparameterlist, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hsslprovider, (uint64_t)hbasekey, (uint64_t)hhashvalue, (void*)(uintptr_t)phexportermasterkey, (void*)(uintptr_t)pparameterlist, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hsslprovider;
     (void)hbasekey;
@@ -9366,6 +12384,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)phexportermasterkey;
     (void)pparameterlist;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -9381,7 +12400,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("ncrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SslExpandPreSharedKey");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hsslprovider, (uint64_t)hresumptionmasterkey, (void*)(uintptr_t)pbticketnonce, (uint32_t)cbticketnonce, (void*)(uintptr_t)phpresharedkey, (void*)(uintptr_t)pparameterlist, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hsslprovider, (uint64_t)hresumptionmasterkey, (void*)(uintptr_t)pbticketnonce, (uint32_t)cbticketnonce, (void*)(uintptr_t)phpresharedkey, (void*)(uintptr_t)pparameterlist, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hsslprovider;
     (void)hresumptionmasterkey;
@@ -9390,6 +12415,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)phpresharedkey;
     (void)pparameterlist;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -9405,7 +12431,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("ncrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SslExpandResumptionMasterKey");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hsslprovider, (uint64_t)hmasterkey, (uint64_t)hhashvalue, (void*)(uintptr_t)phresumptionmasterkey, (void*)(uintptr_t)pparameterlist, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hsslprovider, (uint64_t)hmasterkey, (uint64_t)hhashvalue, (void*)(uintptr_t)phresumptionmasterkey, (void*)(uintptr_t)pparameterlist, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hsslprovider;
     (void)hmasterkey;
@@ -9413,6 +12445,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)phresumptionmasterkey;
     (void)pparameterlist;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -9428,7 +12461,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("ncrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SslExpandTrafficKeys");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hsslprovider, (uint64_t)hbasekey, (uint64_t)hhashvalue, (void*)(uintptr_t)phclienttraffickey, (void*)(uintptr_t)phservertraffickey, (void*)(uintptr_t)pparameterlist, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hsslprovider, (uint64_t)hbasekey, (uint64_t)hhashvalue, (void*)(uintptr_t)phclienttraffickey, (void*)(uintptr_t)phservertraffickey, (void*)(uintptr_t)pparameterlist, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hsslprovider;
     (void)hbasekey;
@@ -9437,6 +12476,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)phservertraffickey;
     (void)pparameterlist;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -9452,13 +12492,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("ncrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SslExpandWriteKey");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hsslprovider, (uint64_t)hbasetraffickey, (void*)(uintptr_t)phwritekey, (void*)(uintptr_t)pparameterlist, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hsslprovider, (uint64_t)hbasetraffickey, (void*)(uintptr_t)phwritekey, (void*)(uintptr_t)pparameterlist, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hsslprovider;
     (void)hbasetraffickey;
     (void)phwritekey;
     (void)pparameterlist;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -9474,7 +12521,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("ncrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SslExportKey");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hsslprovider, (uint64_t)hkey, (void*)(uintptr_t)pszblobtype, (void*)(uintptr_t)pboutput, (uint32_t)cboutput, (void*)(uintptr_t)pcbresult, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hsslprovider, (uint64_t)hkey, (void*)(uintptr_t)pszblobtype, (void*)(uintptr_t)pboutput, (uint32_t)cboutput, (void*)(uintptr_t)pcbresult, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hsslprovider;
     (void)hkey;
@@ -9483,6 +12536,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)cboutput;
     (void)pcbresult;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -9498,7 +12552,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("ncrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SslExportKeyingMaterial");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hsslprovider, (uint64_t)hmasterkey, (void*)(uintptr_t)slabel, (void*)(uintptr_t)pbrandoms, (uint32_t)cbrandoms, (void*)(uintptr_t)pbcontextvalue, (uint16_t)cbcontextvalue, (void*)(uintptr_t)pboutput, (uint32_t)cboutput, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hsslprovider, (uint64_t)hmasterkey, (void*)(uintptr_t)slabel, (void*)(uintptr_t)pbrandoms, (uint32_t)cbrandoms, (void*)(uintptr_t)pbcontextvalue, (uint16_t)cbcontextvalue, (void*)(uintptr_t)pboutput, (uint32_t)cboutput, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hsslprovider;
     (void)hmasterkey;
@@ -9510,6 +12570,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)pboutput;
     (void)cboutput;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -9525,7 +12586,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("ncrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SslExtractEarlyKey");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hsslprovider, (uint64_t)hpresharedkey, (void*)(uintptr_t)phearlykey, (uint32_t)dwprotocol, (uint32_t)dwciphersuite, (void*)(uintptr_t)pparameterlist, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hsslprovider, (uint64_t)hpresharedkey, (void*)(uintptr_t)phearlykey, (uint32_t)dwprotocol, (uint32_t)dwciphersuite, (void*)(uintptr_t)pparameterlist, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hsslprovider;
     (void)hpresharedkey;
@@ -9534,6 +12601,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)dwciphersuite;
     (void)pparameterlist;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -9549,7 +12617,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("ncrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SslExtractHandshakeKey");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hsslprovider, (uint64_t)hprivatekey, (uint64_t)hpublickey, (uint64_t)hearlykey, (void*)(uintptr_t)phhandshakekey, (void*)(uintptr_t)pparameterlist, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hsslprovider, (uint64_t)hprivatekey, (uint64_t)hpublickey, (uint64_t)hearlykey, (void*)(uintptr_t)phhandshakekey, (void*)(uintptr_t)pparameterlist, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hsslprovider;
     (void)hprivatekey;
@@ -9558,6 +12632,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)phhandshakekey;
     (void)pparameterlist;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -9573,13 +12648,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("ncrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SslExtractMasterKey");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hsslprovider, (uint64_t)hhandshakekey, (void*)(uintptr_t)phmasterkey, (void*)(uintptr_t)pparameterlist, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hsslprovider, (uint64_t)hhandshakekey, (void*)(uintptr_t)phmasterkey, (void*)(uintptr_t)pparameterlist, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hsslprovider;
     (void)hhandshakekey;
     (void)phmasterkey;
     (void)pparameterlist;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -9595,9 +12677,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("ncrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SslFreeBuffer");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pvinput) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pvinput);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pvinput;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -9613,10 +12702,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("ncrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SslFreeObject");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hobject, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hobject, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hobject;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -9632,7 +12728,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("ncrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SslGenerateMasterKey");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hsslprovider, (uint64_t)hprivatekey, (uint64_t)hpublickey, (void*)(uintptr_t)phmasterkey, (uint32_t)dwprotocol, (uint32_t)dwciphersuite, (void*)(uintptr_t)pparameterlist, (void*)(uintptr_t)pboutput, (uint32_t)cboutput, (void*)(uintptr_t)pcbresult, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hsslprovider, (uint64_t)hprivatekey, (uint64_t)hpublickey, (void*)(uintptr_t)phmasterkey, (uint32_t)dwprotocol, (uint32_t)dwciphersuite, (void*)(uintptr_t)pparameterlist, (void*)(uintptr_t)pboutput, (uint32_t)cboutput, (void*)(uintptr_t)pcbresult, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hsslprovider;
     (void)hprivatekey;
@@ -9645,6 +12747,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)cboutput;
     (void)pcbresult;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -9660,7 +12763,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("ncrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SslGeneratePreMasterKey");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hsslprovider, (uint64_t)hpublickey, (void*)(uintptr_t)phpremasterkey, (uint32_t)dwprotocol, (uint32_t)dwciphersuite, (void*)(uintptr_t)pparameterlist, (void*)(uintptr_t)pboutput, (uint32_t)cboutput, (void*)(uintptr_t)pcbresult, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hsslprovider, (uint64_t)hpublickey, (void*)(uintptr_t)phpremasterkey, (uint32_t)dwprotocol, (uint32_t)dwciphersuite, (void*)(uintptr_t)pparameterlist, (void*)(uintptr_t)pboutput, (uint32_t)cboutput, (void*)(uintptr_t)pcbresult, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hsslprovider;
     (void)hpublickey;
@@ -9672,6 +12781,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)cboutput;
     (void)pcbresult;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -9687,7 +12797,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("ncrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SslGenerateSessionKeys");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hsslprovider, (uint64_t)hmasterkey, (void*)(uintptr_t)phreadkey, (void*)(uintptr_t)phwritekey, (void*)(uintptr_t)pparameterlist, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hsslprovider, (uint64_t)hmasterkey, (void*)(uintptr_t)phreadkey, (void*)(uintptr_t)phwritekey, (void*)(uintptr_t)pparameterlist, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hsslprovider;
     (void)hmasterkey;
@@ -9695,6 +12811,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)phwritekey;
     (void)pparameterlist;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -9710,7 +12827,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("ncrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SslGetCipherSuitePRFHashAlgorithm");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hsslprovider, (uint32_t)dwprotocol, (uint32_t)dwciphersuite, (uint32_t)dwkeytype, (void*)(uintptr_t)szprfhash, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hsslprovider, (uint32_t)dwprotocol, (uint32_t)dwciphersuite, (uint32_t)dwkeytype, (void*)(uintptr_t)szprfhash, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hsslprovider;
     (void)dwprotocol;
@@ -9718,6 +12841,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)dwkeytype;
     (void)szprfhash;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -9733,13 +12857,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("ncrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SslGetKeyProperty");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hkey, (void*)(uintptr_t)pszproperty, (void*)(uintptr_t)ppboutput, (void*)(uintptr_t)pcboutput, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hkey, (void*)(uintptr_t)pszproperty, (void*)(uintptr_t)ppboutput, (void*)(uintptr_t)pcboutput, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hkey;
     (void)pszproperty;
     (void)ppboutput;
     (void)pcboutput;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -9755,7 +12886,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("ncrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SslGetProviderProperty");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hsslprovider, (void*)(uintptr_t)pszproperty, (void*)(uintptr_t)ppboutput, (void*)(uintptr_t)pcboutput, (void*)(uintptr_t)ppenumstate, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hsslprovider, (void*)(uintptr_t)pszproperty, (void*)(uintptr_t)ppboutput, (void*)(uintptr_t)pcboutput, (void*)(uintptr_t)ppenumstate, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hsslprovider;
     (void)pszproperty;
@@ -9763,6 +12900,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)pcboutput;
     (void)ppenumstate;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -9778,13 +12916,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("ncrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SslHashHandshake");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hsslprovider, (uint64_t)hhandshakehash, (void*)(uintptr_t)pbinput, (uint32_t)cbinput, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hsslprovider, (uint64_t)hhandshakehash, (void*)(uintptr_t)pbinput, (uint32_t)cbinput, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hsslprovider;
     (void)hhandshakehash;
     (void)pbinput;
     (void)cbinput;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -9800,7 +12945,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("ncrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SslImportKey");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hsslprovider, (void*)(uintptr_t)phkey, (void*)(uintptr_t)pszblobtype, (void*)(uintptr_t)pbkeyblob, (uint32_t)cbkeyblob, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hsslprovider, (void*)(uintptr_t)phkey, (void*)(uintptr_t)pszblobtype, (void*)(uintptr_t)pbkeyblob, (uint32_t)cbkeyblob, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hsslprovider;
     (void)phkey;
@@ -9808,6 +12959,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)pbkeyblob;
     (void)cbkeyblob;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -9823,7 +12975,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("ncrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SslImportMasterKey");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hsslprovider, (uint64_t)hprivatekey, (void*)(uintptr_t)phmasterkey, (uint32_t)dwprotocol, (uint32_t)dwciphersuite, (void*)(uintptr_t)pparameterlist, (void*)(uintptr_t)pbencryptedkey, (uint32_t)cbencryptedkey, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hsslprovider, (uint64_t)hprivatekey, (void*)(uintptr_t)phmasterkey, (uint32_t)dwprotocol, (uint32_t)dwciphersuite, (void*)(uintptr_t)pparameterlist, (void*)(uintptr_t)pbencryptedkey, (uint32_t)cbencryptedkey, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hsslprovider;
     (void)hprivatekey;
@@ -9834,6 +12992,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)pbencryptedkey;
     (void)cbencryptedkey;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -9849,9 +13008,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("ncrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SslIncrementProviderReferenceCount");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hsslprovider) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hsslprovider);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hsslprovider;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -9867,7 +13033,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("ncrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SslLookupCipherLengths");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hsslprovider, (uint32_t)dwprotocol, (uint32_t)dwciphersuite, (uint32_t)dwkeytype, (void*)(uintptr_t)pcipherlengths, (uint32_t)cbcipherlengths, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hsslprovider, (uint32_t)dwprotocol, (uint32_t)dwciphersuite, (uint32_t)dwkeytype, (void*)(uintptr_t)pcipherlengths, (uint32_t)cbcipherlengths, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hsslprovider;
     (void)dwprotocol;
@@ -9876,6 +13048,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)pcipherlengths;
     (void)cbcipherlengths;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -9891,7 +13064,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("ncrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SslLookupCipherSuiteInfo");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hsslprovider, (uint32_t)dwprotocol, (uint32_t)dwciphersuite, (uint32_t)dwkeytype, (void*)(uintptr_t)pciphersuite, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hsslprovider, (uint32_t)dwprotocol, (uint32_t)dwciphersuite, (uint32_t)dwkeytype, (void*)(uintptr_t)pciphersuite, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hsslprovider;
     (void)dwprotocol;
@@ -9899,6 +13078,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)dwkeytype;
     (void)pciphersuite;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -9914,12 +13094,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("ncrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SslOpenPrivateKey");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hsslprovider, (void*)(uintptr_t)phprivatekey, (void*)(uintptr_t)pcertcontext, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hsslprovider, (void*)(uintptr_t)phprivatekey, (void*)(uintptr_t)pcertcontext, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hsslprovider;
     (void)phprivatekey;
     (void)pcertcontext;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -9935,11 +13122,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("ncrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SslOpenProvider");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)phsslprovider, (void*)(uintptr_t)pszprovidername, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)phsslprovider, (void*)(uintptr_t)pszprovidername, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)phsslprovider;
     (void)pszprovidername;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -9955,7 +13149,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("ncrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SslSignHash");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hsslprovider, (uint64_t)hprivatekey, (void*)(uintptr_t)pbhashvalue, (uint32_t)cbhashvalue, (void*)(uintptr_t)pbsignature, (uint32_t)cbsignature, (void*)(uintptr_t)pcbresult, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hsslprovider, (uint64_t)hprivatekey, (void*)(uintptr_t)pbhashvalue, (uint32_t)cbhashvalue, (void*)(uintptr_t)pbsignature, (uint32_t)cbsignature, (void*)(uintptr_t)pcbresult, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hsslprovider;
     (void)hprivatekey;
@@ -9965,6 +13165,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)cbsignature;
     (void)pcbresult;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -9980,7 +13181,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("ncrypt.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SslVerifySignature");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint64_t)hsslprovider, (uint64_t)hpublickey, (void*)(uintptr_t)pbhashvalue, (uint32_t)cbhashvalue, (void*)(uintptr_t)pbsignature, (uint32_t)cbsignature, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint64_t)hsslprovider, (uint64_t)hpublickey, (void*)(uintptr_t)pbhashvalue, (uint32_t)cbhashvalue, (void*)(uintptr_t)pbsignature, (uint32_t)cbsignature, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hsslprovider;
     (void)hpublickey;
@@ -9989,6 +13196,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)pbsignature;
     (void)cbsignature;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -10004,10 +13212,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("bcryptprimitives.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SystemPrng");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pbrandomdata, (uint64_t)cbrandomdata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pbrandomdata, (uint64_t)cbrandomdata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pbrandomdata;
     (void)cbrandomdata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -10023,13 +13238,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("infocardapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "TransformBlock");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hcrypto, (uint32_t)cbindata, (void*)(uintptr_t)pindata, (void*)(uintptr_t)pcboutdata, (void*)(uintptr_t)ppoutdata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hcrypto, (uint32_t)cbindata, (void*)(uintptr_t)pindata, (void*)(uintptr_t)pcboutdata, (void*)(uintptr_t)ppoutdata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcrypto;
     (void)cbindata;
     (void)pindata;
     (void)pcboutdata;
     (void)ppoutdata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -10045,13 +13267,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("infocardapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "TransformFinalBlock");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hcrypto, (uint32_t)cbindata, (void*)(uintptr_t)pindata, (void*)(uintptr_t)pcboutdata, (void*)(uintptr_t)ppoutdata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hcrypto, (uint32_t)cbindata, (void*)(uintptr_t)pindata, (void*)(uintptr_t)pcboutdata, (void*)(uintptr_t)ppoutdata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcrypto;
     (void)cbindata;
     (void)pindata;
     (void)pcboutdata;
     (void)ppoutdata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -10067,7 +13296,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
         HMODULE km_h_mod = LoadLibraryA("infocardapi.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "VerifyHash");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hcrypto, (uint32_t)cbhash, (void*)(uintptr_t)phash, (void*)(uintptr_t)hashalgoid, (uint32_t)cbsig, (void*)(uintptr_t)psig, (void*)(uintptr_t)pfverified) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hcrypto, (uint32_t)cbhash, (void*)(uintptr_t)phash, (void*)(uintptr_t)hashalgoid, (uint32_t)cbsig, (void*)(uintptr_t)psig, (void*)(uintptr_t)pfverified);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcrypto;
     (void)cbhash;
@@ -10076,6 +13311,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_secur
     (void)cbsig;
     (void)psig;
     (void)pfverified;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;

@@ -5,6 +5,7 @@
 #include <stdbool.h>
 #include <stddef.h>
 #include <stdint.h>
+#include <stdlib.h>
 #include <errno.h>
 #ifdef _WIN32
 #ifndef WIN32_LEAN_AND_MEAN
@@ -28,9 +29,14 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
         HMODULE km_h_mod = LoadLibraryA("xinput1_4.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "XInputEnable");
     }
-    if (km_fn_ptr != NULL) km_fn_ptr((int32_t)enable);
+    if (km_fn_ptr != NULL) {
+        km_fn_ptr((int32_t)enable);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)enable;
+    errno = ENOSYS;
 #endif
 }
 
@@ -44,13 +50,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
         HMODULE km_h_mod = LoadLibraryA("xinput1_4.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "XInputGetAudioDeviceIds");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwuserindex, (void*)(uintptr_t)prenderdeviceid, (void*)(uintptr_t)prendercount, (void*)(uintptr_t)pcapturedeviceid, (void*)(uintptr_t)pcapturecount) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwuserindex, (void*)(uintptr_t)prenderdeviceid, (void*)(uintptr_t)prendercount, (void*)(uintptr_t)pcapturedeviceid, (void*)(uintptr_t)pcapturecount);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dwuserindex;
     (void)prenderdeviceid;
     (void)prendercount;
     (void)pcapturedeviceid;
     (void)pcapturecount;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -66,11 +79,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
         HMODULE km_h_mod = LoadLibraryA("xinput1_4.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "XInputGetBatteryInformation");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwuserindex, (uint8_t)devtype, (void*)(uintptr_t)pbatteryinformation) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwuserindex, (uint8_t)devtype, (void*)(uintptr_t)pbatteryinformation);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dwuserindex;
     (void)devtype;
     (void)pbatteryinformation;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -86,11 +106,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
         HMODULE km_h_mod = LoadLibraryA("xinput1_4.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "XInputGetCapabilities");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwuserindex, (uint32_t)dwflags, (void*)(uintptr_t)pcapabilities) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwuserindex, (uint32_t)dwflags, (void*)(uintptr_t)pcapabilities);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dwuserindex;
     (void)dwflags;
     (void)pcapabilities;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -106,11 +133,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
         HMODULE km_h_mod = LoadLibraryA("xinput1_4.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "XInputGetKeystroke");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwuserindex, (uint32_t)dwreserved, (void*)(uintptr_t)pkeystroke) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwuserindex, (uint32_t)dwreserved, (void*)(uintptr_t)pkeystroke);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dwuserindex;
     (void)dwreserved;
     (void)pkeystroke;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -126,10 +160,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
         HMODULE km_h_mod = LoadLibraryA("xinput1_4.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "XInputGetState");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwuserindex, (void*)(uintptr_t)pstate) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwuserindex, (void*)(uintptr_t)pstate);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dwuserindex;
     (void)pstate;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -145,10 +186,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_in
         HMODULE km_h_mod = LoadLibraryA("xinput1_4.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "XInputSetState");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwuserindex, (void*)(uintptr_t)pvibration) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwuserindex, (void*)(uintptr_t)pvibration);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dwuserindex;
     (void)pvibration;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;

@@ -64,12 +64,19 @@ static Napi::Value windowssys_windows_win32_gaming_checkGamingPrivilegeSilently_
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-gaming-tcui-l1-1-1.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CheckGamingPrivilegeSilently")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(privilegeid, scope, policy, hasprivilege) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(privilegeid, scope, policy, hasprivilege);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)privilegeid;
     (void)scope;
     (void)policy;
     (void)hasprivilege;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -89,13 +96,20 @@ static Napi::Value windowssys_windows_win32_gaming_checkGamingPrivilegeSilentlyF
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-gaming-tcui-l1-1-2.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CheckGamingPrivilegeSilentlyForUser")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(user, privilegeid, scope, policy, hasprivilege) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(user, privilegeid, scope, policy, hasprivilege);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)user;
     (void)privilegeid;
     (void)scope;
     (void)policy;
     (void)hasprivilege;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -116,7 +130,13 @@ static Napi::Value windowssys_windows_win32_gaming_checkGamingPrivilegeWithUI_na
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-gaming-tcui-l1-1-1.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CheckGamingPrivilegeWithUI")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(privilegeid, scope, policy, friendlymessage, completionroutine, context) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(privilegeid, scope, policy, friendlymessage, completionroutine, context);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)privilegeid;
     (void)scope;
@@ -124,6 +144,7 @@ static Napi::Value windowssys_windows_win32_gaming_checkGamingPrivilegeWithUI_na
     (void)friendlymessage;
     (void)completionroutine;
     (void)context;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -145,7 +166,13 @@ static Napi::Value windowssys_windows_win32_gaming_checkGamingPrivilegeWithUIFor
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-gaming-tcui-l1-1-2.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CheckGamingPrivilegeWithUIForUser")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(user, privilegeid, scope, policy, friendlymessage, completionroutine, context) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(user, privilegeid, scope, policy, friendlymessage, completionroutine, context);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)user;
     (void)privilegeid;
@@ -154,6 +181,7 @@ static Napi::Value windowssys_windows_win32_gaming_checkGamingPrivilegeWithUIFor
     (void)friendlymessage;
     (void)completionroutine;
     (void)context;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -169,9 +197,16 @@ static Napi::Value windowssys_windows_win32_gaming_getExpandedResourceExclusiveC
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-gaming-expandedresources-l1-1-0.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetExpandedResourceExclusiveCpuCount")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(exclusivecpucount) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(exclusivecpucount);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)exclusivecpucount;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -187,9 +222,16 @@ static Napi::Value windowssys_windows_win32_gaming_getGamingDeviceModelInformati
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-gaming-deviceinformation-l1-1-0.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetGamingDeviceModelInformation")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(information) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(information);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)information;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -205,9 +247,16 @@ static Napi::Value windowssys_windows_win32_gaming_hasExpandedResources_napi(con
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-gaming-expandedresources-l1-1-0.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HasExpandedResources")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hasexpandedresources) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hasexpandedresources);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hasexpandedresources;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -223,9 +272,16 @@ static Napi::Value windowssys_windows_win32_gaming_processPendingGameUI_napi(con
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-gaming-tcui-l1-1-0.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ProcessPendingGameUI")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(waitforcompletion) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(waitforcompletion);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)waitforcompletion;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -240,8 +296,15 @@ static Napi::Value windowssys_windows_win32_gaming_releaseExclusiveCpuSets_napi(
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-gaming-expandedresources-l1-1-0.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ReleaseExclusiveCpuSets")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -259,11 +322,18 @@ static Napi::Value windowssys_windows_win32_gaming_showChangeFriendRelationshipU
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-gaming-tcui-l1-1-0.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ShowChangeFriendRelationshipUI")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(targetuserxuid, completionroutine, context) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(targetuserxuid, completionroutine, context);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)targetuserxuid;
     (void)completionroutine;
     (void)context;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -282,12 +352,19 @@ static Napi::Value windowssys_windows_win32_gaming_showChangeFriendRelationshipU
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-gaming-tcui-l1-1-2.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ShowChangeFriendRelationshipUIForUser")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(user, targetuserxuid, completionroutine, context) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(user, targetuserxuid, completionroutine, context);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)user;
     (void)targetuserxuid;
     (void)completionroutine;
     (void)context;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -304,10 +381,17 @@ static Napi::Value windowssys_windows_win32_gaming_showCustomizeUserProfileUI_na
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-gaming-tcui-l1-1-4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ShowCustomizeUserProfileUI")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(completionroutine, context) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(completionroutine, context);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)completionroutine;
     (void)context;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -325,11 +409,18 @@ static Napi::Value windowssys_windows_win32_gaming_showCustomizeUserProfileUIFor
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-gaming-tcui-l1-1-4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ShowCustomizeUserProfileUIForUser")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(user, completionroutine, context) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(user, completionroutine, context);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)user;
     (void)completionroutine;
     (void)context;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -346,10 +437,17 @@ static Napi::Value windowssys_windows_win32_gaming_showFindFriendsUI_napi(const 
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-gaming-tcui-l1-1-4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ShowFindFriendsUI")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(completionroutine, context) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(completionroutine, context);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)completionroutine;
     (void)context;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -367,11 +465,18 @@ static Napi::Value windowssys_windows_win32_gaming_showFindFriendsUIForUser_napi
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-gaming-tcui-l1-1-4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ShowFindFriendsUIForUser")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(user, completionroutine, context) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(user, completionroutine, context);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)user;
     (void)completionroutine;
     (void)context;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -389,11 +494,18 @@ static Napi::Value windowssys_windows_win32_gaming_showGameInfoUI_napi(const Nap
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-gaming-tcui-l1-1-4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ShowGameInfoUI")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(titleid, completionroutine, context) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(titleid, completionroutine, context);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)titleid;
     (void)completionroutine;
     (void)context;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -412,12 +524,19 @@ static Napi::Value windowssys_windows_win32_gaming_showGameInfoUIForUser_napi(co
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-gaming-tcui-l1-1-4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ShowGameInfoUIForUser")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(user, titleid, completionroutine, context) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(user, titleid, completionroutine, context);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)user;
     (void)titleid;
     (void)completionroutine;
     (void)context;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -438,7 +557,13 @@ static Napi::Value windowssys_windows_win32_gaming_showGameInviteUI_napi(const N
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-gaming-tcui-l1-1-0.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ShowGameInviteUI")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serviceconfigurationid, sessiontemplatename, sessionid, invitationdisplaytext, completionroutine, context) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serviceconfigurationid, sessiontemplatename, sessionid, invitationdisplaytext, completionroutine, context);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)serviceconfigurationid;
     (void)sessiontemplatename;
@@ -446,6 +571,7 @@ static Napi::Value windowssys_windows_win32_gaming_showGameInviteUI_napi(const N
     (void)invitationdisplaytext;
     (void)completionroutine;
     (void)context;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -467,7 +593,13 @@ static Napi::Value windowssys_windows_win32_gaming_showGameInviteUIForUser_napi(
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-gaming-tcui-l1-1-2.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ShowGameInviteUIForUser")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(user, serviceconfigurationid, sessiontemplatename, sessionid, invitationdisplaytext, completionroutine, context) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(user, serviceconfigurationid, sessiontemplatename, sessionid, invitationdisplaytext, completionroutine, context);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)user;
     (void)serviceconfigurationid;
@@ -476,6 +608,7 @@ static Napi::Value windowssys_windows_win32_gaming_showGameInviteUIForUser_napi(
     (void)invitationdisplaytext;
     (void)completionroutine;
     (void)context;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -497,7 +630,13 @@ static Napi::Value windowssys_windows_win32_gaming_showGameInviteUIWithContext_n
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-gaming-tcui-l1-1-3.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ShowGameInviteUIWithContext")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serviceconfigurationid, sessiontemplatename, sessionid, invitationdisplaytext, customactivationcontext, completionroutine, context) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serviceconfigurationid, sessiontemplatename, sessionid, invitationdisplaytext, customactivationcontext, completionroutine, context);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)serviceconfigurationid;
     (void)sessiontemplatename;
@@ -506,6 +645,7 @@ static Napi::Value windowssys_windows_win32_gaming_showGameInviteUIWithContext_n
     (void)customactivationcontext;
     (void)completionroutine;
     (void)context;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -528,7 +668,13 @@ static Napi::Value windowssys_windows_win32_gaming_showGameInviteUIWithContextFo
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-gaming-tcui-l1-1-3.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ShowGameInviteUIWithContextForUser")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(user, serviceconfigurationid, sessiontemplatename, sessionid, invitationdisplaytext, customactivationcontext, completionroutine, context) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(user, serviceconfigurationid, sessiontemplatename, sessionid, invitationdisplaytext, customactivationcontext, completionroutine, context);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)user;
     (void)serviceconfigurationid;
@@ -538,6 +684,7 @@ static Napi::Value windowssys_windows_win32_gaming_showGameInviteUIWithContextFo
     (void)customactivationcontext;
     (void)completionroutine;
     (void)context;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -561,7 +708,13 @@ static Napi::Value windowssys_windows_win32_gaming_showPlayerPickerUI_napi(const
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-gaming-tcui-l1-1-0.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ShowPlayerPickerUI")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(promptdisplaytext, xuids, xuidscount, preselectedxuids, preselectedxuidscount, minselectioncount, maxselectioncount, completionroutine, context) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(promptdisplaytext, xuids, xuidscount, preselectedxuids, preselectedxuidscount, minselectioncount, maxselectioncount, completionroutine, context);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)promptdisplaytext;
     (void)xuids;
@@ -572,6 +725,7 @@ static Napi::Value windowssys_windows_win32_gaming_showPlayerPickerUI_napi(const
     (void)maxselectioncount;
     (void)completionroutine;
     (void)context;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -596,7 +750,13 @@ static Napi::Value windowssys_windows_win32_gaming_showPlayerPickerUIForUser_nap
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-gaming-tcui-l1-1-2.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ShowPlayerPickerUIForUser")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(user, promptdisplaytext, xuids, xuidscount, preselectedxuids, preselectedxuidscount, minselectioncount, maxselectioncount, completionroutine, context) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(user, promptdisplaytext, xuids, xuidscount, preselectedxuids, preselectedxuidscount, minselectioncount, maxselectioncount, completionroutine, context);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)user;
     (void)promptdisplaytext;
@@ -608,6 +768,7 @@ static Napi::Value windowssys_windows_win32_gaming_showPlayerPickerUIForUser_nap
     (void)maxselectioncount;
     (void)completionroutine;
     (void)context;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -625,11 +786,18 @@ static Napi::Value windowssys_windows_win32_gaming_showProfileCardUI_napi(const 
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-gaming-tcui-l1-1-0.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ShowProfileCardUI")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(targetuserxuid, completionroutine, context) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(targetuserxuid, completionroutine, context);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)targetuserxuid;
     (void)completionroutine;
     (void)context;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -648,12 +816,19 @@ static Napi::Value windowssys_windows_win32_gaming_showProfileCardUIForUser_napi
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-gaming-tcui-l1-1-2.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ShowProfileCardUIForUser")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(user, targetuserxuid, completionroutine, context) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(user, targetuserxuid, completionroutine, context);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)user;
     (void)targetuserxuid;
     (void)completionroutine;
     (void)context;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -671,11 +846,18 @@ static Napi::Value windowssys_windows_win32_gaming_showTitleAchievementsUI_napi(
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-gaming-tcui-l1-1-0.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ShowTitleAchievementsUI")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(titleid, completionroutine, context) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(titleid, completionroutine, context);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)titleid;
     (void)completionroutine;
     (void)context;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -694,12 +876,19 @@ static Napi::Value windowssys_windows_win32_gaming_showTitleAchievementsUIForUse
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-gaming-tcui-l1-1-2.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ShowTitleAchievementsUIForUser")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(user, titleid, completionroutine, context) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(user, titleid, completionroutine, context);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)user;
     (void)titleid;
     (void)completionroutine;
     (void)context;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -716,10 +905,17 @@ static Napi::Value windowssys_windows_win32_gaming_showUserSettingsUI_napi(const
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-gaming-tcui-l1-1-4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ShowUserSettingsUI")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(completionroutine, context) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(completionroutine, context);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)completionroutine;
     (void)context;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -737,11 +933,18 @@ static Napi::Value windowssys_windows_win32_gaming_showUserSettingsUIForUser_nap
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-gaming-tcui-l1-1-4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ShowUserSettingsUIForUser")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(user, completionroutine, context) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(user, completionroutine, context);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)user;
     (void)completionroutine;
     (void)context;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -756,8 +959,15 @@ static Napi::Value windowssys_windows_win32_gaming_tryCancelPendingGameUI_napi(c
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-gaming-tcui-l1-1-0.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TryCancelPendingGameUI")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

@@ -64,12 +64,19 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMAcquireAdvi
         HMODULE km_h_mod = LoadLibraryA("msdrm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DRMAcquireAdvisories")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hlicensestorage, wszlicense, wszurl, pvcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hlicensestorage, wszlicense, wszurl, pvcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hlicensestorage;
     (void)wszlicense;
     (void)wszurl;
     (void)pvcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -91,7 +98,13 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMAcquireIssu
         HMODULE km_h_mod = LoadLibraryA("msdrm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DRMAcquireIssuanceLicenseTemplate")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hclient, uflags, pvreserved, ctemplates, pwsztemplateids, wszurl, pvcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hclient, uflags, pvreserved, ctemplates, pwsztemplateids, wszurl, pvcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hclient;
     (void)uflags;
@@ -100,6 +113,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMAcquireIssu
     (void)pwsztemplateids;
     (void)wszurl;
     (void)pvcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -121,7 +135,13 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMAcquireLice
         HMODULE km_h_mod = LoadLibraryA("msdrm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DRMAcquireLicense")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hsession, uflags, wszgroupidentitycredential, wszrequestedrights, wszcustomdata, wszurl, pvcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hsession, uflags, wszgroupidentitycredential, wszrequestedrights, wszcustomdata, wszurl, pvcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hsession;
     (void)uflags;
@@ -130,6 +150,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMAcquireLice
     (void)wszcustomdata;
     (void)wszurl;
     (void)pvcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -150,7 +171,13 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMActivate_na
         HMODULE km_h_mod = LoadLibraryA("msdrm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DRMActivate")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hclient, uflags, ulangid, pactservinfo, pvcontext, hparentwnd) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hclient, uflags, ulangid, pactservinfo, pvcontext, hparentwnd);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hclient;
     (void)uflags;
@@ -158,6 +185,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMActivate_na
     (void)pactservinfo;
     (void)pvcontext;
     (void)hparentwnd;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -175,11 +203,18 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMAddLicense_
         HMODULE km_h_mod = LoadLibraryA("msdrm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DRMAddLicense")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hlicensestorage, uflags, wszlicense) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hlicensestorage, uflags, wszlicense);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hlicensestorage;
     (void)uflags;
     (void)wszlicense;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -197,11 +232,18 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMAddRightWit
         HMODULE km_h_mod = LoadLibraryA("msdrm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DRMAddRightWithUser")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hissuancelicense, hright, huser) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hissuancelicense, hright, huser);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hissuancelicense;
     (void)hright;
     (void)huser;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -221,13 +263,20 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMAttest_napi
         HMODULE km_h_mod = LoadLibraryA("msdrm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DRMAttest")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(henablingprincipal, wszdata, etype, pcattestedblob, wszattestedblob) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(henablingprincipal, wszdata, etype, pcattestedblob, wszattestedblob);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)henablingprincipal;
     (void)wszdata;
     (void)etype;
     (void)pcattestedblob;
     (void)wszattestedblob;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -244,10 +293,17 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMCheckSecuri
         HMODULE km_h_mod = LoadLibraryA("msdrm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DRMCheckSecurity")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(henv, clevel) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(henv, clevel);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)henv;
     (void)clevel;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -263,9 +319,16 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMClearAllRig
         HMODULE km_h_mod = LoadLibraryA("msdrm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DRMClearAllRights")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hissuancelicense) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hissuancelicense);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hissuancelicense;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -281,9 +344,16 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMCloseEnviro
         HMODULE km_h_mod = LoadLibraryA("msdrm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DRMCloseEnvironmentHandle")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(henv) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(henv);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)henv;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -299,9 +369,16 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMCloseHandle
         HMODULE km_h_mod = LoadLibraryA("msdrm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DRMCloseHandle")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(handle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(handle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)handle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -317,9 +394,16 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMClosePubHan
         HMODULE km_h_mod = LoadLibraryA("msdrm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DRMClosePubHandle")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hpub) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hpub);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hpub;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -335,9 +419,16 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMCloseQueryH
         HMODULE km_h_mod = LoadLibraryA("msdrm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DRMCloseQueryHandle")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hquery) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hquery);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hquery;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -353,9 +444,16 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMCloseSessio
         HMODULE km_h_mod = LoadLibraryA("msdrm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DRMCloseSession")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hsession) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hsession);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hsession;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -374,12 +472,19 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMConstructCe
         HMODULE km_h_mod = LoadLibraryA("msdrm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DRMConstructCertificateChain")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ccertificates, rgwszcertificates, pcchain, wszchain) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ccertificates, rgwszcertificates, pcchain, wszchain);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ccertificates;
     (void)rgwszcertificates;
     (void)pcchain;
     (void)wszchain;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -399,13 +504,20 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMCreateBound
         HMODULE km_h_mod = LoadLibraryA("msdrm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DRMCreateBoundLicense")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(henv, pparams, wszlicensechain, phboundlicense, pherrorlog) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(henv, pparams, wszlicensechain, phboundlicense, pherrorlog);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)henv;
     (void)pparams;
     (void)wszlicensechain;
     (void)phboundlicense;
     (void)pherrorlog;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -425,13 +537,20 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMCreateClien
         HMODULE km_h_mod = LoadLibraryA("msdrm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DRMCreateClientSession")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pfncallback, ucallbackversion, wszgroupidprovidertype, wszgroupid, phclient) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pfncallback, ucallbackversion, wszgroupidprovidertype, wszgroupid, phclient);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pfncallback;
     (void)ucallbackversion;
     (void)wszgroupidprovidertype;
     (void)wszgroupid;
     (void)phclient;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -451,13 +570,20 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMCreateEnabl
         HMODULE km_h_mod = LoadLibraryA("msdrm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DRMCreateEnablingBitsDecryptor")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hboundlicense, wszright, hauxlib, wszauxplug, phdecryptor) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hboundlicense, wszright, hauxlib, wszauxplug, phdecryptor);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hboundlicense;
     (void)wszright;
     (void)hauxlib;
     (void)wszauxplug;
     (void)phdecryptor;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -477,13 +603,20 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMCreateEnabl
         HMODULE km_h_mod = LoadLibraryA("msdrm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DRMCreateEnablingBitsEncryptor")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hboundlicense, wszright, hauxlib, wszauxplug, phencryptor) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hboundlicense, wszright, hauxlib, wszauxplug, phencryptor);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hboundlicense;
     (void)wszright;
     (void)hauxlib;
     (void)wszauxplug;
     (void)phencryptor;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -504,7 +637,13 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMCreateEnabl
         HMODULE km_h_mod = LoadLibraryA("msdrm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DRMCreateEnablingPrincipal")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(henv, hlibrary, wszobject, pidprincipal, wszcredentials, phenablingprincipal) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(henv, hlibrary, wszobject, pidprincipal, wszcredentials, phenablingprincipal);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)henv;
     (void)hlibrary;
@@ -512,6 +651,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMCreateEnabl
     (void)pidprincipal;
     (void)wszcredentials;
     (void)phenablingprincipal;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -534,7 +674,13 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMCreateIssua
         HMODULE km_h_mod = LoadLibraryA("msdrm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DRMCreateIssuanceLicense")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(psttimefrom, psttimeuntil, wszreferralinfoname, wszreferralinfourl, howner, wszissuancelicense, hboundlicense, phissuancelicense) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(psttimefrom, psttimeuntil, wszreferralinfoname, wszreferralinfourl, howner, wszissuancelicense, hboundlicense, phissuancelicense);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)psttimefrom;
     (void)psttimeuntil;
@@ -544,6 +690,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMCreateIssua
     (void)wszissuancelicense;
     (void)hboundlicense;
     (void)phissuancelicense;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -564,7 +711,13 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMCreateLicen
         HMODULE km_h_mod = LoadLibraryA("msdrm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DRMCreateLicenseStorageSession")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(henv, hdefaultlibrary, hclient, uflags, wszissuancelicense, phlicensestorage) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(henv, hdefaultlibrary, hclient, uflags, wszissuancelicense, phlicensestorage);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)henv;
     (void)hdefaultlibrary;
@@ -572,6 +725,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMCreateLicen
     (void)uflags;
     (void)wszissuancelicense;
     (void)phlicensestorage;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -593,7 +747,13 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMCreateRight
         HMODULE km_h_mod = LoadLibraryA("msdrm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DRMCreateRight")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(wszrightname, pstfrom, pstuntil, cextendedinfo, pwszextendedinfoname, pwszextendedinfovalue, phright) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(wszrightname, pstfrom, pstuntil, cextendedinfo, pwszextendedinfoname, pwszextendedinfovalue, phright);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)wszrightname;
     (void)pstfrom;
@@ -602,6 +762,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMCreateRight
     (void)pwszextendedinfoname;
     (void)pwszextendedinfovalue;
     (void)phright;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -620,12 +781,19 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMCreateUser_
         HMODULE km_h_mod = LoadLibraryA("msdrm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DRMCreateUser")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(wszusername, wszuserid, wszuseridtype, phuser) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(wszusername, wszuserid, wszuseridtype, phuser);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)wszusername;
     (void)wszuserid;
     (void)wszuseridtype;
     (void)phuser;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -644,12 +812,19 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMDecode_napi
         HMODULE km_h_mod = LoadLibraryA("msdrm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DRMDecode")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(wszalgid, wszencodedstring, pudecodeddatalen, pbdecodeddata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(wszalgid, wszencodedstring, pudecodeddatalen, pbdecodeddata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)wszalgid;
     (void)wszencodedstring;
     (void)pudecodeddatalen;
     (void)pbdecodeddata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -668,12 +843,19 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMDeconstruct
         HMODULE km_h_mod = LoadLibraryA("msdrm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DRMDeconstructCertificateChain")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(wszchain, iwhich, pccert, wszcert) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(wszchain, iwhich, pccert, wszcert);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)wszchain;
     (void)iwhich;
     (void)pccert;
     (void)wszcert;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -694,7 +876,13 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMDecrypt_nap
         HMODULE km_h_mod = LoadLibraryA("msdrm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DRMDecrypt")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcryptoprovider, iposition, cnuminbytes, pbindata, pcnumoutbytes, pboutdata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcryptoprovider, iposition, cnuminbytes, pbindata, pcnumoutbytes, pboutdata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcryptoprovider;
     (void)iposition;
@@ -702,6 +890,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMDecrypt_nap
     (void)pbindata;
     (void)pcnumoutbytes;
     (void)pboutdata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -718,10 +907,17 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMDeleteLicen
         HMODULE km_h_mod = LoadLibraryA("msdrm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DRMDeleteLicense")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hsession, wszlicenseid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hsession, wszlicenseid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hsession;
     (void)wszlicenseid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -738,10 +934,17 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMDuplicateEn
         HMODULE km_h_mod = LoadLibraryA("msdrm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DRMDuplicateEnvironmentHandle")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(htocopy, phcopy) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(htocopy, phcopy);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)htocopy;
     (void)phcopy;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -758,10 +961,17 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMDuplicateHa
         HMODULE km_h_mod = LoadLibraryA("msdrm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DRMDuplicateHandle")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(htocopy, phcopy) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(htocopy, phcopy);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)htocopy;
     (void)phcopy;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -778,10 +988,17 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMDuplicatePu
         HMODULE km_h_mod = LoadLibraryA("msdrm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DRMDuplicatePubHandle")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hpubin, phpubout) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hpubin, phpubout);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hpubin;
     (void)phpubout;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -798,10 +1015,17 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMDuplicateSe
         HMODULE km_h_mod = LoadLibraryA("msdrm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DRMDuplicateSession")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hsessionin, phsessionout) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hsessionin, phsessionout);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hsessionin;
     (void)phsessionout;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -821,13 +1045,20 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMEncode_napi
         HMODULE km_h_mod = LoadLibraryA("msdrm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DRMEncode")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(wszalgid, udatalen, pbdecodeddata, puencodedstringlen, wszencodedstring) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(wszalgid, udatalen, pbdecodeddata, puencodedstringlen, wszencodedstring);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)wszalgid;
     (void)udatalen;
     (void)pbdecodeddata;
     (void)puencodedstringlen;
     (void)wszencodedstring;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -848,7 +1079,13 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMEncrypt_nap
         HMODULE km_h_mod = LoadLibraryA("msdrm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DRMEncrypt")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcryptoprovider, iposition, cnuminbytes, pbindata, pcnumoutbytes, pboutdata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcryptoprovider, iposition, cnuminbytes, pbindata, pcnumoutbytes, pboutdata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcryptoprovider;
     (void)iposition;
@@ -856,6 +1093,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMEncrypt_nap
     (void)pbindata;
     (void)pcnumoutbytes;
     (void)pboutdata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -876,7 +1114,13 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMEnumerateLi
         HMODULE km_h_mod = LoadLibraryA("msdrm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DRMEnumerateLicense")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hsession, uflags, uindex, pfsharedflag, pucertificatedatalen, wszcertificatedata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hsession, uflags, uindex, pfsharedflag, pucertificatedatalen, wszcertificatedata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hsession;
     (void)uflags;
@@ -884,6 +1128,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMEnumerateLi
     (void)pfsharedflag;
     (void)pucertificatedatalen;
     (void)wszcertificatedata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -904,7 +1149,13 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetApplicat
         HMODULE km_h_mod = LoadLibraryA("msdrm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DRMGetApplicationSpecificData")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hissuancelicense, uindex, punamelength, wszname, puvaluelength, wszvalue) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hissuancelicense, uindex, punamelength, wszname, puvaluelength, wszvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hissuancelicense;
     (void)uindex;
@@ -912,6 +1163,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetApplicat
     (void)wszname;
     (void)puvaluelength;
     (void)wszvalue;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -932,7 +1184,13 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetBoundLic
         HMODULE km_h_mod = LoadLibraryA("msdrm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DRMGetBoundLicenseAttribute")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hqueryroot, wszattribute, iwhich, peencoding, pcbuffer, pbbuffer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hqueryroot, wszattribute, iwhich, peencoding, pcbuffer, pbbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hqueryroot;
     (void)wszattribute;
@@ -940,6 +1198,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetBoundLic
     (void)peencoding;
     (void)pcbuffer;
     (void)pbbuffer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -957,11 +1216,18 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetBoundLic
         HMODULE km_h_mod = LoadLibraryA("msdrm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DRMGetBoundLicenseAttributeCount")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hqueryroot, wszattribute, pcattributes) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hqueryroot, wszattribute, pcattributes);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hqueryroot;
     (void)wszattribute;
     (void)pcattributes;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -980,12 +1246,19 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetBoundLic
         HMODULE km_h_mod = LoadLibraryA("msdrm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DRMGetBoundLicenseObject")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hqueryroot, wszsubobjecttype, iwhich, phsubobject) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hqueryroot, wszsubobjecttype, iwhich, phsubobject);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hqueryroot;
     (void)wszsubobjecttype;
     (void)iwhich;
     (void)phsubobject;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1003,11 +1276,18 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetBoundLic
         HMODULE km_h_mod = LoadLibraryA("msdrm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DRMGetBoundLicenseObjectCount")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hqueryroot, wszsubobjecttype, pcsubobjects) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hqueryroot, wszsubobjecttype, pcsubobjects);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hqueryroot;
     (void)wszsubobjecttype;
     (void)pcsubobjects;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1024,10 +1304,17 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetCertific
         HMODULE km_h_mod = LoadLibraryA("msdrm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DRMGetCertificateChainCount")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(wszchain, pccertcount) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(wszchain, pccertcount);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)wszchain;
     (void)pccertcount;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1043,9 +1330,16 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetClientVe
         HMODULE km_h_mod = LoadLibraryA("msdrm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DRMGetClientVersion")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pdrmclientversioninfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pdrmclientversioninfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pdrmclientversioninfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1065,13 +1359,20 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetEnvironm
         HMODULE km_h_mod = LoadLibraryA("msdrm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DRMGetEnvironmentInfo")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(handle, wszattribute, peencoding, pcbuffer, pbbuffer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(handle, wszattribute, peencoding, pcbuffer, pbbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)handle;
     (void)wszattribute;
     (void)peencoding;
     (void)pcbuffer;
     (void)pbbuffer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1091,13 +1392,20 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetInfo_nap
         HMODULE km_h_mod = LoadLibraryA("msdrm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DRMGetInfo")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(handle, wszattribute, peencoding, pcbuffer, pbbuffer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(handle, wszattribute, peencoding, pcbuffer, pbbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)handle;
     (void)wszattribute;
     (void)peencoding;
     (void)pcbuffer;
     (void)pbbuffer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1114,10 +1422,17 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetInterval
         HMODULE km_h_mod = LoadLibraryA("msdrm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DRMGetIntervalTime")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hissuancelicense, pcdays) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hissuancelicense, pcdays);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hissuancelicense;
     (void)pcdays;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1142,7 +1457,13 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetIssuance
         HMODULE km_h_mod = LoadLibraryA("msdrm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DRMGetIssuanceLicenseInfo")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hissuancelicense, psttimefrom, psttimeuntil, uflags, pudistributionpointnamelength, wszdistributionpointname, pudistributionpointurllength, wszdistributionpointurl, phowner, pfofficial) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hissuancelicense, psttimefrom, psttimeuntil, uflags, pudistributionpointnamelength, wszdistributionpointname, pudistributionpointurllength, wszdistributionpointurl, phowner, pfofficial);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hissuancelicense;
     (void)psttimefrom;
@@ -1154,6 +1475,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetIssuance
     (void)wszdistributionpointurl;
     (void)phowner;
     (void)pfofficial;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1171,11 +1493,18 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetIssuance
         HMODULE km_h_mod = LoadLibraryA("msdrm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DRMGetIssuanceLicenseTemplate")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hissuancelicense, puissuancelicensetemplatelength, wszissuancelicensetemplate) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hissuancelicense, puissuancelicensetemplatelength, wszissuancelicensetemplate);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hissuancelicense;
     (void)puissuancelicensetemplatelength;
     (void)wszissuancelicensetemplate;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1203,7 +1532,13 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetMetaData
         HMODULE km_h_mod = LoadLibraryA("msdrm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DRMGetMetaData")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hissuancelicense, pucontentidlength, wszcontentid, pucontentidtypelength, wszcontentidtype, puskuidlength, wszskuid, puskuidtypelength, wszskuidtype, pucontenttypelength, wszcontenttype, pucontentnamelength, wszcontentname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hissuancelicense, pucontentidlength, wszcontentid, pucontentidtypelength, wszcontentidtype, puskuidlength, wszskuid, puskuidtypelength, wszskuidtype, pucontenttypelength, wszcontenttype, pucontentnamelength, wszcontentname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hissuancelicense;
     (void)pucontentidlength;
@@ -1218,6 +1553,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetMetaData
     (void)wszcontenttype;
     (void)pucontentnamelength;
     (void)wszcontentname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1239,7 +1575,13 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetNameAndD
         HMODULE km_h_mod = LoadLibraryA("msdrm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DRMGetNameAndDescription")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hissuancelicense, uindex, pulcid, punamelength, wszname, pudescriptionlength, wszdescription) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hissuancelicense, uindex, pulcid, punamelength, wszname, pudescriptionlength, wszdescription);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hissuancelicense;
     (void)uindex;
@@ -1248,6 +1590,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetNameAndD
     (void)wszname;
     (void)pudescriptionlength;
     (void)wszdescription;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1265,11 +1608,18 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetOwnerLic
         HMODULE km_h_mod = LoadLibraryA("msdrm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DRMGetOwnerLicense")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hissuancelicense, puownerlicenselength, wszownerlicense) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hissuancelicense, puownerlicenselength, wszownerlicense);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hissuancelicense;
     (void)puownerlicenselength;
     (void)wszownerlicense;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1287,11 +1637,18 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetProcAddr
         HMODULE km_h_mod = LoadLibraryA("msdrm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DRMGetProcAddress")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hlibrary, wszprocname, ppfnprocaddress) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hlibrary, wszprocname, ppfnprocaddress);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hlibrary;
     (void)wszprocname;
     (void)ppfnprocaddress;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1318,7 +1675,13 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetRevocati
         HMODULE km_h_mod = LoadLibraryA("msdrm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DRMGetRevocationPoint")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hissuancelicense, puidlength, wszid, puidtypelength, wszidtype, puurllength, wszrl, pstfrequency, punamelength, wszname, pupublickeylength, wszpublickey) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hissuancelicense, puidlength, wszid, puidtypelength, wszidtype, puurllength, wszrl, pstfrequency, punamelength, wszname, pupublickeylength, wszpublickey);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hissuancelicense;
     (void)puidlength;
@@ -1332,6 +1695,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetRevocati
     (void)wszname;
     (void)pupublickeylength;
     (void)wszpublickey;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1352,7 +1716,13 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetRightExt
         HMODULE km_h_mod = LoadLibraryA("msdrm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DRMGetRightExtendedInfo")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hright, uindex, puextendedinfonamelength, wszextendedinfoname, puextendedinfovaluelength, wszextendedinfovalue) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hright, uindex, puextendedinfonamelength, wszextendedinfoname, puextendedinfovaluelength, wszextendedinfovalue);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hright;
     (void)uindex;
@@ -1360,6 +1730,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetRightExt
     (void)wszextendedinfoname;
     (void)puextendedinfovaluelength;
     (void)wszextendedinfovalue;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1379,13 +1750,20 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetRightInf
         HMODULE km_h_mod = LoadLibraryA("msdrm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DRMGetRightInfo")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hright, purightnamelength, wszrightname, pstfrom, pstuntil) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hright, purightnamelength, wszrightname, pstfrom, pstuntil);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hright;
     (void)purightnamelength;
     (void)wszrightname;
     (void)pstfrom;
     (void)pstuntil;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1405,13 +1783,20 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetSecurity
         HMODULE km_h_mod = LoadLibraryA("msdrm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DRMGetSecurityProvider")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(uflags, putypelen, wsztype, pupathlen, wszpath) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(uflags, putypelen, wsztype, pupathlen, wszpath);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)uflags;
     (void)putypelen;
     (void)wsztype;
     (void)pupathlen;
     (void)wszpath;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1432,7 +1817,13 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetServiceL
         HMODULE km_h_mod = LoadLibraryA("msdrm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DRMGetServiceLocation")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hclient, uservicetype, uservicelocation, wszissuancelicense, puserviceurllength, wszserviceurl) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hclient, uservicetype, uservicelocation, wszissuancelicense, puserviceurllength, wszserviceurl);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hclient;
     (void)uservicetype;
@@ -1440,6 +1831,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetServiceL
     (void)wszissuancelicense;
     (void)puserviceurllength;
     (void)wszserviceurl;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1464,7 +1856,13 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetSignedIs
         HMODULE km_h_mod = LoadLibraryA("msdrm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DRMGetSignedIssuanceLicense")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(henv, hissuancelicense, uflags, pbsymkey, cbsymkey, wszsymkeytype, wszclientlicensorcertificate, pfncallback, wszurl, pvcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(henv, hissuancelicense, uflags, pbsymkey, cbsymkey, wszsymkeytype, wszclientlicensorcertificate, pfncallback, wszurl, pvcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)henv;
     (void)hissuancelicense;
@@ -1476,6 +1874,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetSignedIs
     (void)pfncallback;
     (void)wszurl;
     (void)pvcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1501,7 +1900,13 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetSignedIs
         HMODULE km_h_mod = LoadLibraryA("msdrm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DRMGetSignedIssuanceLicenseEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(henv, hissuancelicense, uflags, pbsymkey, cbsymkey, wszsymkeytype, pvreserved, henablingprincipal, hboundlicenseclc, pfncallback, pvcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(henv, hissuancelicense, uflags, pbsymkey, cbsymkey, wszsymkeytype, pvreserved, henablingprincipal, hboundlicenseclc, pfncallback, pvcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)henv;
     (void)hissuancelicense;
@@ -1514,6 +1919,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetSignedIs
     (void)hboundlicenseclc;
     (void)pfncallback;
     (void)pvcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1531,11 +1937,18 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetTime_nap
         HMODULE km_h_mod = LoadLibraryA("msdrm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DRMGetTime")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(henv, etimeridtype, potimeobject) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(henv, etimeridtype, potimeobject);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)henv;
     (void)etimeridtype;
     (void)potimeobject;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1556,7 +1969,13 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetUnboundL
         HMODULE km_h_mod = LoadLibraryA("msdrm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DRMGetUnboundLicenseAttribute")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hqueryroot, wszattributetype, iwhich, peencoding, pcbuffer, pbbuffer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hqueryroot, wszattributetype, iwhich, peencoding, pcbuffer, pbbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hqueryroot;
     (void)wszattributetype;
@@ -1564,6 +1983,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetUnboundL
     (void)peencoding;
     (void)pcbuffer;
     (void)pbbuffer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1581,11 +2001,18 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetUnboundL
         HMODULE km_h_mod = LoadLibraryA("msdrm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DRMGetUnboundLicenseAttributeCount")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hqueryroot, wszattributetype, pcattributes) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hqueryroot, wszattributetype, pcattributes);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hqueryroot;
     (void)wszattributetype;
     (void)pcattributes;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1604,12 +2031,19 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetUnboundL
         HMODULE km_h_mod = LoadLibraryA("msdrm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DRMGetUnboundLicenseObject")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hqueryroot, wszsubobjecttype, iindex, phsubquery) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hqueryroot, wszsubobjecttype, iindex, phsubquery);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hqueryroot;
     (void)wszsubobjecttype;
     (void)iindex;
     (void)phsubquery;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1627,11 +2061,18 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetUnboundL
         HMODULE km_h_mod = LoadLibraryA("msdrm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DRMGetUnboundLicenseObjectCount")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hqueryroot, wszsubobjecttype, pcsubobjects) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hqueryroot, wszsubobjecttype, pcsubobjects);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hqueryroot;
     (void)wszsubobjecttype;
     (void)pcsubobjects;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1662,7 +2103,13 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetUsagePol
         HMODULE km_h_mod = LoadLibraryA("msdrm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DRMGetUsagePolicy")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hissuancelicense, uindex, peusagepolicytype, pfexclusion, punamelength, wszname, puminversionlength, wszminversion, pumaxversionlength, wszmaxversion, pupublickeylength, wszpublickey, pudigestalgorithmlength, wszdigestalgorithm, pcbdigest, pbdigest) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hissuancelicense, uindex, peusagepolicytype, pfexclusion, punamelength, wszname, puminversionlength, wszminversion, pumaxversionlength, wszmaxversion, pupublickeylength, wszpublickey, pudigestalgorithmlength, wszdigestalgorithm, pcbdigest, pbdigest);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hissuancelicense;
     (void)uindex;
@@ -1680,6 +2127,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetUsagePol
     (void)wszdigestalgorithm;
     (void)pcbdigest;
     (void)pbdigest;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1701,7 +2149,13 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetUserInfo
         HMODULE km_h_mod = LoadLibraryA("msdrm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DRMGetUserInfo")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(huser, puusernamelength, wszusername, puuseridlength, wszuserid, puuseridtypelength, wszuseridtype) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(huser, puusernamelength, wszusername, puuseridlength, wszuserid, puuseridtypelength, wszuseridtype);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)huser;
     (void)puusernamelength;
@@ -1710,6 +2164,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetUserInfo
     (void)wszuserid;
     (void)puuseridtypelength;
     (void)wszuseridtype;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1728,12 +2183,19 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetUserRigh
         HMODULE km_h_mod = LoadLibraryA("msdrm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DRMGetUserRights")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hissuancelicense, huser, uindex, phright) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hissuancelicense, huser, uindex, phright);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hissuancelicense;
     (void)huser;
     (void)uindex;
     (void)phright;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1751,11 +2213,18 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMGetUsers_na
         HMODULE km_h_mod = LoadLibraryA("msdrm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DRMGetUsers")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hissuancelicense, uindex, phuser) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hissuancelicense, uindex, phuser);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hissuancelicense;
     (void)uindex;
     (void)phuser;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1777,7 +2246,13 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMInitEnviron
         HMODULE km_h_mod = LoadLibraryA("msdrm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DRMInitEnvironment")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(esecurityprovidertype, especification, wszsecurityprovider, wszmanifestcredentials, wszmachinecredentials, phenv, phdefaultlibrary) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(esecurityprovidertype, especification, wszsecurityprovider, wszmanifestcredentials, wszmachinecredentials, phenv, phdefaultlibrary);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)esecurityprovidertype;
     (void)especification;
@@ -1786,6 +2261,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMInitEnviron
     (void)wszmachinecredentials;
     (void)phenv;
     (void)phdefaultlibrary;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1803,11 +2279,18 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMIsActivated
         HMODULE km_h_mod = LoadLibraryA("msdrm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DRMIsActivated")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hclient, uflags, pactservinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hclient, uflags, pactservinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hclient;
     (void)uflags;
     (void)pactservinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1824,10 +2307,17 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMIsWindowPro
         HMODULE km_h_mod = LoadLibraryA("msdrm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DRMIsWindowProtected")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, pfprotected) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, pfprotected);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)pfprotected;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1847,13 +2337,20 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMLoadLibrary
         HMODULE km_h_mod = LoadLibraryA("msdrm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DRMLoadLibrary")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(henv, especification, wszlibraryprovider, wszcredentials, phlibrary) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(henv, especification, wszlibraryprovider, wszcredentials, phlibrary);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)henv;
     (void)especification;
     (void)wszlibraryprovider;
     (void)wszcredentials;
     (void)phlibrary;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1870,10 +2367,17 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMParseUnboun
         HMODULE km_h_mod = LoadLibraryA("msdrm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DRMParseUnboundLicense")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(wszcertificate, phqueryroot) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(wszcertificate, phqueryroot);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)wszcertificate;
     (void)phqueryroot;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1889,9 +2393,16 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMRegisterCon
         HMODULE km_h_mod = LoadLibraryA("msdrm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DRMRegisterContent")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(fregister) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(fregister);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)fregister;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1908,10 +2419,17 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMRegisterPro
         HMODULE km_h_mod = LoadLibraryA("msdrm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DRMRegisterProtectedWindow")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(henv, hwnd) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(henv, hwnd);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)henv;
     (void)hwnd;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1928,10 +2446,17 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMRegisterRev
         HMODULE km_h_mod = LoadLibraryA("msdrm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DRMRegisterRevocationList")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(henv, wszrevocationlist) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(henv, wszrevocationlist);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)henv;
     (void)wszrevocationlist;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1946,8 +2471,15 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMRepair_napi
         HMODULE km_h_mod = LoadLibraryA("msdrm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DRMRepair")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1966,12 +2498,19 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMSetApplicat
         HMODULE km_h_mod = LoadLibraryA("msdrm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DRMSetApplicationSpecificData")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hissuancelicense, fdelete, wszname, wszvalue) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hissuancelicense, fdelete, wszname, wszvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hissuancelicense;
     (void)fdelete;
     (void)wszname;
     (void)wszvalue;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1989,11 +2528,18 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMSetGlobalOp
         HMODULE km_h_mod = LoadLibraryA("msdrm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DRMSetGlobalOptions")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(eglobaloptions, pvdata, dwlen) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(eglobaloptions, pvdata, dwlen);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)eglobaloptions;
     (void)pvdata;
     (void)dwlen;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2010,10 +2556,17 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMSetInterval
         HMODULE km_h_mod = LoadLibraryA("msdrm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DRMSetIntervalTime")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hissuancelicense, cdays) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hissuancelicense, cdays);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hissuancelicense;
     (void)cdays;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2035,7 +2588,13 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMSetMetaData
         HMODULE km_h_mod = LoadLibraryA("msdrm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DRMSetMetaData")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hissuancelicense, wszcontentid, wszcontentidtype, wszskuid, wszskuidtype, wszcontenttype, wszcontentname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hissuancelicense, wszcontentid, wszcontentidtype, wszskuid, wszskuidtype, wszcontenttype, wszcontentname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hissuancelicense;
     (void)wszcontentid;
@@ -2044,6 +2603,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMSetMetaData
     (void)wszskuidtype;
     (void)wszcontenttype;
     (void)wszcontentname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2063,13 +2623,20 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMSetNameAndD
         HMODULE km_h_mod = LoadLibraryA("msdrm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DRMSetNameAndDescription")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hissuancelicense, fdelete, lcid, wszname, wszdescription) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hissuancelicense, fdelete, lcid, wszname, wszdescription);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hissuancelicense;
     (void)fdelete;
     (void)lcid;
     (void)wszname;
     (void)wszdescription;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2092,7 +2659,13 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMSetRevocati
         HMODULE km_h_mod = LoadLibraryA("msdrm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DRMSetRevocationPoint")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hissuancelicense, fdelete, wszid, wszidtype, wszurl, pstfrequency, wszname, wszpublickey) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hissuancelicense, fdelete, wszid, wszidtype, wszurl, pstfrequency, wszname, wszpublickey);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hissuancelicense;
     (void)fdelete;
@@ -2102,6 +2675,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMSetRevocati
     (void)pstfrequency;
     (void)wszname;
     (void)wszpublickey;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2127,7 +2701,13 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMSetUsagePol
         HMODULE km_h_mod = LoadLibraryA("msdrm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DRMSetUsagePolicy")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hissuancelicense, eusagepolicytype, fdelete, fexclusion, wszname, wszminversion, wszmaxversion, wszpublickey, wszdigestalgorithm, pbdigest, cbdigest) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hissuancelicense, eusagepolicytype, fdelete, fexclusion, wszname, wszminversion, wszmaxversion, wszpublickey, wszdigestalgorithm, pbdigest, cbdigest);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hissuancelicense;
     (void)eusagepolicytype;
@@ -2140,6 +2720,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMSetUsagePol
     (void)wszdigestalgorithm;
     (void)pbdigest;
     (void)cbdigest;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2162,7 +2743,13 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMVerify_napi
         HMODULE km_h_mod = LoadLibraryA("msdrm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DRMVerify")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(wszdata, pcattesteddata, wszattesteddata, petype, pcprincipal, wszprincipal, pcmanifest, wszmanifest) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(wszdata, pcattesteddata, wszattesteddata, petype, pcprincipal, wszprincipal, pcmanifest, wszmanifest);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)wszdata;
     (void)pcattesteddata;
@@ -2172,6 +2759,7 @@ static Napi::Value windowssys_windows_win32_data_rightsmanagement_dRMVerify_napi
     (void)wszprincipal;
     (void)pcmanifest;
     (void)wszmanifest;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

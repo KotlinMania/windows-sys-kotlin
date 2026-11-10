@@ -61,9 +61,16 @@ static Napi::Value windowssys_windows_win32_system_eventcollector_ecClose_napi(c
         HMODULE km_h_mod = LoadLibraryA("wecapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EcClose")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(object) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(object);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)object;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -80,10 +87,17 @@ static Napi::Value windowssys_windows_win32_system_eventcollector_ecDeleteSubscr
         HMODULE km_h_mod = LoadLibraryA("wecapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EcDeleteSubscription")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(subscriptionname, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(subscriptionname, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)subscriptionname;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -102,12 +116,19 @@ static Napi::Value windowssys_windows_win32_system_eventcollector_ecEnumNextSubs
         HMODULE km_h_mod = LoadLibraryA("wecapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EcEnumNextSubscription")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(subscriptionenum, subscriptionnamebuffersize, subscriptionnamebuffer, subscriptionnamebufferused) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(subscriptionenum, subscriptionnamebuffersize, subscriptionnamebuffer, subscriptionnamebufferused);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)subscriptionenum;
     (void)subscriptionnamebuffersize;
     (void)subscriptionnamebuffer;
     (void)subscriptionnamebufferused;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -129,7 +150,13 @@ static Napi::Value windowssys_windows_win32_system_eventcollector_ecGetObjectArr
         HMODULE km_h_mod = LoadLibraryA("wecapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EcGetObjectArrayProperty")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(objectarray, propertyid, arrayindex, flags, propertyvaluebuffersize, propertyvaluebuffer, propertyvaluebufferused) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(objectarray, propertyid, arrayindex, flags, propertyvaluebuffersize, propertyvaluebuffer, propertyvaluebufferused);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)objectarray;
     (void)propertyid;
@@ -138,6 +165,7 @@ static Napi::Value windowssys_windows_win32_system_eventcollector_ecGetObjectArr
     (void)propertyvaluebuffersize;
     (void)propertyvaluebuffer;
     (void)propertyvaluebufferused;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -154,10 +182,17 @@ static Napi::Value windowssys_windows_win32_system_eventcollector_ecGetObjectArr
         HMODULE km_h_mod = LoadLibraryA("wecapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EcGetObjectArraySize")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(objectarray, objectarraysize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(objectarray, objectarraysize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)objectarray;
     (void)objectarraysize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -178,7 +213,13 @@ static Napi::Value windowssys_windows_win32_system_eventcollector_ecGetSubscript
         HMODULE km_h_mod = LoadLibraryA("wecapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EcGetSubscriptionProperty")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(subscription, propertyid, flags, propertyvaluebuffersize, propertyvaluebuffer, propertyvaluebufferused) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(subscription, propertyid, flags, propertyvaluebuffersize, propertyvaluebuffer, propertyvaluebufferused);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)subscription;
     (void)propertyid;
@@ -186,6 +227,7 @@ static Napi::Value windowssys_windows_win32_system_eventcollector_ecGetSubscript
     (void)propertyvaluebuffersize;
     (void)propertyvaluebuffer;
     (void)propertyvaluebufferused;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -207,7 +249,13 @@ static Napi::Value windowssys_windows_win32_system_eventcollector_ecGetSubscript
         HMODULE km_h_mod = LoadLibraryA("wecapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EcGetSubscriptionRunTimeStatus")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(subscriptionname, statusinfoid, eventsourcename, flags, statusvaluebuffersize, statusvaluebuffer, statusvaluebufferused) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(subscriptionname, statusinfoid, eventsourcename, flags, statusvaluebuffersize, statusvaluebuffer, statusvaluebufferused);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)subscriptionname;
     (void)statusinfoid;
@@ -216,6 +264,7 @@ static Napi::Value windowssys_windows_win32_system_eventcollector_ecGetSubscript
     (void)statusvaluebuffersize;
     (void)statusvaluebuffer;
     (void)statusvaluebufferused;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -232,10 +281,17 @@ static Napi::Value windowssys_windows_win32_system_eventcollector_ecInsertObject
         HMODULE km_h_mod = LoadLibraryA("wecapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EcInsertObjectArrayElement")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(objectarray, arrayindex) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(objectarray, arrayindex);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)objectarray;
     (void)arrayindex;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -253,11 +309,18 @@ static Napi::Value windowssys_windows_win32_system_eventcollector_ecOpenSubscrip
         HMODULE km_h_mod = LoadLibraryA("wecapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EcOpenSubscription")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(subscriptionname, accessmask, flags) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(subscriptionname, accessmask, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)subscriptionname;
     (void)accessmask;
     (void)flags;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -273,9 +336,16 @@ static Napi::Value windowssys_windows_win32_system_eventcollector_ecOpenSubscrip
         HMODULE km_h_mod = LoadLibraryA("wecapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EcOpenSubscriptionEnum")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(flags) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)flags;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -292,10 +362,17 @@ static Napi::Value windowssys_windows_win32_system_eventcollector_ecRemoveObject
         HMODULE km_h_mod = LoadLibraryA("wecapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EcRemoveObjectArrayElement")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(objectarray, arrayindex) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(objectarray, arrayindex);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)objectarray;
     (void)arrayindex;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -313,11 +390,18 @@ static Napi::Value windowssys_windows_win32_system_eventcollector_ecRetrySubscri
         HMODULE km_h_mod = LoadLibraryA("wecapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EcRetrySubscription")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(subscriptionname, eventsourcename, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(subscriptionname, eventsourcename, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)subscriptionname;
     (void)eventsourcename;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -334,10 +418,17 @@ static Napi::Value windowssys_windows_win32_system_eventcollector_ecSaveSubscrip
         HMODULE km_h_mod = LoadLibraryA("wecapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EcSaveSubscription")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(subscription, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(subscription, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)subscription;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -357,13 +448,20 @@ static Napi::Value windowssys_windows_win32_system_eventcollector_ecSetObjectArr
         HMODULE km_h_mod = LoadLibraryA("wecapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EcSetObjectArrayProperty")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(objectarray, propertyid, arrayindex, flags, propertyvalue) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(objectarray, propertyid, arrayindex, flags, propertyvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)objectarray;
     (void)propertyid;
     (void)arrayindex;
     (void)flags;
     (void)propertyvalue;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -382,12 +480,19 @@ static Napi::Value windowssys_windows_win32_system_eventcollector_ecSetSubscript
         HMODULE km_h_mod = LoadLibraryA("wecapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EcSetSubscriptionProperty")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(subscription, propertyid, flags, propertyvalue) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(subscription, propertyid, flags, propertyvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)subscription;
     (void)propertyid;
     (void)flags;
     (void)propertyvalue;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

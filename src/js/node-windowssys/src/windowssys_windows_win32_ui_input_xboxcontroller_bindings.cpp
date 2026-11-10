@@ -61,9 +61,14 @@ static Napi::Value windowssys_windows_win32_ui_input_xboxcontroller_xInputEnable
         HMODULE km_h_mod = LoadLibraryA("xinput1_4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "XInputEnable")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(enable);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(enable);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)enable;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -82,13 +87,20 @@ static Napi::Value windowssys_windows_win32_ui_input_xboxcontroller_xInputGetAud
         HMODULE km_h_mod = LoadLibraryA("xinput1_4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "XInputGetAudioDeviceIds")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwuserindex, prenderdeviceid, prendercount, pcapturedeviceid, pcapturecount) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwuserindex, prenderdeviceid, prendercount, pcapturedeviceid, pcapturecount);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dwuserindex;
     (void)prenderdeviceid;
     (void)prendercount;
     (void)pcapturedeviceid;
     (void)pcapturecount;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -106,11 +118,18 @@ static Napi::Value windowssys_windows_win32_ui_input_xboxcontroller_xInputGetBat
         HMODULE km_h_mod = LoadLibraryA("xinput1_4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "XInputGetBatteryInformation")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwuserindex, devtype, pbatteryinformation) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwuserindex, devtype, pbatteryinformation);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dwuserindex;
     (void)devtype;
     (void)pbatteryinformation;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -128,11 +147,18 @@ static Napi::Value windowssys_windows_win32_ui_input_xboxcontroller_xInputGetCap
         HMODULE km_h_mod = LoadLibraryA("xinput1_4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "XInputGetCapabilities")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwuserindex, dwflags, pcapabilities) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwuserindex, dwflags, pcapabilities);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dwuserindex;
     (void)dwflags;
     (void)pcapabilities;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -150,11 +176,18 @@ static Napi::Value windowssys_windows_win32_ui_input_xboxcontroller_xInputGetKey
         HMODULE km_h_mod = LoadLibraryA("xinput1_4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "XInputGetKeystroke")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwuserindex, dwreserved, pkeystroke) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwuserindex, dwreserved, pkeystroke);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dwuserindex;
     (void)dwreserved;
     (void)pkeystroke;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -171,10 +204,17 @@ static Napi::Value windowssys_windows_win32_ui_input_xboxcontroller_xInputGetSta
         HMODULE km_h_mod = LoadLibraryA("xinput1_4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "XInputGetState")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwuserindex, pstate) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwuserindex, pstate);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dwuserindex;
     (void)pstate;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -191,10 +231,17 @@ static Napi::Value windowssys_windows_win32_ui_input_xboxcontroller_xInputSetSta
         HMODULE km_h_mod = LoadLibraryA("xinput1_4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "XInputSetState")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwuserindex, pvibration) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwuserindex, pvibration);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dwuserindex;
     (void)pvibration;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

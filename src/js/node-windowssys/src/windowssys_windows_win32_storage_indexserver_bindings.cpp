@@ -63,11 +63,18 @@ static Napi::Value windowssys_windows_win32_storage_indexserver_bindIFilterFromS
         HMODULE km_h_mod = LoadLibraryA("query.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "BindIFilterFromStorage")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pstg, punkouter, ppiunk) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pstg, punkouter, ppiunk);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pstg;
     (void)punkouter;
     (void)ppiunk;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -85,11 +92,18 @@ static Napi::Value windowssys_windows_win32_storage_indexserver_bindIFilterFromS
         HMODULE km_h_mod = LoadLibraryA("query.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "BindIFilterFromStream")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pstm, punkouter, ppiunk) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pstm, punkouter, ppiunk);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pstm;
     (void)punkouter;
     (void)ppiunk;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -107,11 +121,18 @@ static Napi::Value windowssys_windows_win32_storage_indexserver_loadIFilter_napi
         HMODULE km_h_mod = LoadLibraryA("query.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LoadIFilter")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pwcspath, punkouter, ppiunk) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pwcspath, punkouter, ppiunk);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pwcspath;
     (void)punkouter;
     (void)ppiunk;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -130,12 +151,19 @@ static Napi::Value windowssys_windows_win32_storage_indexserver_loadIFilterEx_na
         HMODULE km_h_mod = LoadLibraryA("query.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LoadIFilterEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pwcspath, dwflags, riid, ppiunk) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pwcspath, dwflags, riid, ppiunk);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pwcspath;
     (void)dwflags;
     (void)riid;
     (void)ppiunk;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

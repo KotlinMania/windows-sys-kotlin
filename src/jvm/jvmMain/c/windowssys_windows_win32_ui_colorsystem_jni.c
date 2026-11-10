@@ -5,6 +5,7 @@
 #include <stdbool.h>
 #include <stddef.h>
 #include <stdint.h>
+#include <stdlib.h>
 #include <errno.h>
 #ifdef _WIN32
 #ifndef WIN32_LEAN_AND_MEAN
@@ -28,11 +29,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "AssociateColorProfileWithDeviceA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pmachinename, (void*)(uintptr_t)pprofilename, (void*)(uintptr_t)pdevicename) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pmachinename, (void*)(uintptr_t)pprofilename, (void*)(uintptr_t)pdevicename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pmachinename;
     (void)pprofilename;
     (void)pdevicename;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -48,11 +56,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "AssociateColorProfileWithDeviceW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pmachinename, (void*)(uintptr_t)pprofilename, (void*)(uintptr_t)pdevicename) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pmachinename, (void*)(uintptr_t)pprofilename, (void*)(uintptr_t)pdevicename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pmachinename;
     (void)pprofilename;
     (void)pdevicename;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -68,13 +83,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
         HMODULE km_h_mod = LoadLibraryA("icm32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CMCheckColors");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)hcmtransform, (void*)(uintptr_t)lpainputcolors, (uint32_t)ncolors, (int32_t)ctinput, (void*)(uintptr_t)lparesult) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int64_t)hcmtransform, (void*)(uintptr_t)lpainputcolors, (uint32_t)ncolors, (int32_t)ctinput, (void*)(uintptr_t)lparesult);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcmtransform;
     (void)lpainputcolors;
     (void)ncolors;
     (void)ctinput;
     (void)lparesult;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -90,12 +112,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
         HMODULE km_h_mod = LoadLibraryA("icm32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CMCheckColorsInGamut");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)hcmtransform, (void*)(uintptr_t)lpargbtriple, (void*)(uintptr_t)lparesult, (uint32_t)ncount) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int64_t)hcmtransform, (void*)(uintptr_t)lpargbtriple, (void*)(uintptr_t)lparesult, (uint32_t)ncount);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcmtransform;
     (void)lpargbtriple;
     (void)lparesult;
     (void)ncount;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -111,7 +140,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
         HMODULE km_h_mod = LoadLibraryA("icm32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CMCheckRGBs");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)hcmtransform, (void*)(uintptr_t)lpsrcbits, (int32_t)bminput, (uint32_t)dwwidth, (uint32_t)dwheight, (uint32_t)dwstride, (void*)(uintptr_t)lparesult, (void*)(uintptr_t)pfncallback, (int64_t)ulcallbackdata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int64_t)hcmtransform, (void*)(uintptr_t)lpsrcbits, (int32_t)bminput, (uint32_t)dwwidth, (uint32_t)dwheight, (uint32_t)dwstride, (void*)(uintptr_t)lparesult, (void*)(uintptr_t)pfncallback, (int64_t)ulcallbackdata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcmtransform;
     (void)lpsrcbits;
@@ -122,6 +157,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     (void)lparesult;
     (void)pfncallback;
     (void)ulcallbackdata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -137,12 +173,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
         HMODULE km_h_mod = LoadLibraryA("icm32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CMConvertColorNameToIndex");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)hprofile, (void*)(uintptr_t)pacolorname, (void*)(uintptr_t)paindex, (uint32_t)dwcount) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int64_t)hprofile, (void*)(uintptr_t)pacolorname, (void*)(uintptr_t)paindex, (uint32_t)dwcount);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprofile;
     (void)pacolorname;
     (void)paindex;
     (void)dwcount;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -158,12 +201,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
         HMODULE km_h_mod = LoadLibraryA("icm32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CMConvertIndexToColorName");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)hprofile, (void*)(uintptr_t)paindex, (void*)(uintptr_t)pacolorname, (uint32_t)dwcount) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int64_t)hprofile, (void*)(uintptr_t)paindex, (void*)(uintptr_t)pacolorname, (uint32_t)dwcount);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprofile;
     (void)paindex;
     (void)pacolorname;
     (void)dwcount;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -179,7 +229,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
         HMODULE km_h_mod = LoadLibraryA("icm32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CMCreateDeviceLinkProfile");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pahprofiles, (uint32_t)nprofiles, (void*)(uintptr_t)padwintents, (uint32_t)nintents, (uint32_t)dwflags, (void*)(uintptr_t)lpprofiledata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pahprofiles, (uint32_t)nprofiles, (void*)(uintptr_t)padwintents, (uint32_t)nintents, (uint32_t)dwflags, (void*)(uintptr_t)lpprofiledata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pahprofiles;
     (void)nprofiles;
@@ -187,6 +243,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     (void)nintents;
     (void)dwflags;
     (void)lpprofiledata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -202,13 +259,20 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_c
         HMODULE km_h_mod = LoadLibraryA("icm32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CMCreateMultiProfileTransform");
     }
-    int64_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pahprofiles, (uint32_t)nprofiles, (void*)(uintptr_t)padwintents, (uint32_t)nintents, (uint32_t)dwflags) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pahprofiles, (uint32_t)nprofiles, (void*)(uintptr_t)padwintents, (uint32_t)nintents, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pahprofiles;
     (void)nprofiles;
     (void)padwintents;
     (void)nintents;
     (void)dwflags;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return (jlong)km_res;
@@ -224,10 +288,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
         HMODULE km_h_mod = LoadLibraryA("icm32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CMCreateProfile");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)lpcolorspace, (void*)(uintptr_t)lpprofiledata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)lpcolorspace, (void*)(uintptr_t)lpprofiledata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpcolorspace;
     (void)lpprofiledata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -243,10 +314,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
         HMODULE km_h_mod = LoadLibraryA("icm32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CMCreateProfileW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)lpcolorspace, (void*)(uintptr_t)lpprofiledata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)lpcolorspace, (void*)(uintptr_t)lpprofiledata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpcolorspace;
     (void)lpprofiledata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -262,11 +340,18 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_c
         HMODULE km_h_mod = LoadLibraryA("icm32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CMCreateTransform");
     }
-    int64_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)lpcolorspace, (void*)(uintptr_t)lpdevcharacter, (void*)(uintptr_t)lptargetdevcharacter) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)lpcolorspace, (void*)(uintptr_t)lpdevcharacter, (void*)(uintptr_t)lptargetdevcharacter);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpcolorspace;
     (void)lpdevcharacter;
     (void)lptargetdevcharacter;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return (jlong)km_res;
@@ -282,12 +367,19 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_c
         HMODULE km_h_mod = LoadLibraryA("icm32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CMCreateTransformExt");
     }
-    int64_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)lpcolorspace, (void*)(uintptr_t)lpdevcharacter, (void*)(uintptr_t)lptargetdevcharacter, (uint32_t)dwflags) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)lpcolorspace, (void*)(uintptr_t)lpdevcharacter, (void*)(uintptr_t)lptargetdevcharacter, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpcolorspace;
     (void)lpdevcharacter;
     (void)lptargetdevcharacter;
     (void)dwflags;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return (jlong)km_res;
@@ -303,12 +395,19 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_c
         HMODULE km_h_mod = LoadLibraryA("icm32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CMCreateTransformExtW");
     }
-    int64_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)lpcolorspace, (void*)(uintptr_t)lpdevcharacter, (void*)(uintptr_t)lptargetdevcharacter, (uint32_t)dwflags) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)lpcolorspace, (void*)(uintptr_t)lpdevcharacter, (void*)(uintptr_t)lptargetdevcharacter, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpcolorspace;
     (void)lpdevcharacter;
     (void)lptargetdevcharacter;
     (void)dwflags;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return (jlong)km_res;
@@ -324,11 +423,18 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_c
         HMODULE km_h_mod = LoadLibraryA("icm32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CMCreateTransformW");
     }
-    int64_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)lpcolorspace, (void*)(uintptr_t)lpdevcharacter, (void*)(uintptr_t)lptargetdevcharacter) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)lpcolorspace, (void*)(uintptr_t)lpdevcharacter, (void*)(uintptr_t)lptargetdevcharacter);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpcolorspace;
     (void)lpdevcharacter;
     (void)lptargetdevcharacter;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return (jlong)km_res;
@@ -344,9 +450,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
         HMODULE km_h_mod = LoadLibraryA("icm32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CMDeleteTransform");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)hcmtransform) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int64_t)hcmtransform);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcmtransform;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -362,9 +475,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
         HMODULE km_h_mod = LoadLibraryA("icm32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CMGetInfo");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dwinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -380,10 +500,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
         HMODULE km_h_mod = LoadLibraryA("icm32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CMGetNamedProfileInfo");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)hprofile, (void*)(uintptr_t)pnamedprofileinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int64_t)hprofile, (void*)(uintptr_t)pnamedprofileinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprofile;
     (void)pnamedprofileinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -399,10 +526,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
         HMODULE km_h_mod = LoadLibraryA("icm32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CMIsProfileValid");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)hprofile, (void*)(uintptr_t)lpbvalid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int64_t)hprofile, (void*)(uintptr_t)lpbvalid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprofile;
     (void)lpbvalid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -418,7 +552,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
         HMODULE km_h_mod = LoadLibraryA("icm32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CMTranslateColors");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)hcmtransform, (void*)(uintptr_t)lpainputcolors, (uint32_t)ncolors, (int32_t)ctinput, (void*)(uintptr_t)lpaoutputcolors, (int32_t)ctoutput) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int64_t)hcmtransform, (void*)(uintptr_t)lpainputcolors, (uint32_t)ncolors, (int32_t)ctinput, (void*)(uintptr_t)lpaoutputcolors, (int32_t)ctoutput);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcmtransform;
     (void)lpainputcolors;
@@ -426,6 +566,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     (void)ctinput;
     (void)lpaoutputcolors;
     (void)ctoutput;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -441,12 +582,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
         HMODULE km_h_mod = LoadLibraryA("icm32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CMTranslateRGB");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)hcmtransform, (uint32_t)colorref, (void*)(uintptr_t)lpcolorref, (uint32_t)dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int64_t)hcmtransform, (uint32_t)colorref, (void*)(uintptr_t)lpcolorref, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcmtransform;
     (void)colorref;
     (void)lpcolorref;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -462,7 +610,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
         HMODULE km_h_mod = LoadLibraryA("icm32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CMTranslateRGBs");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)hcmtransform, (void*)(uintptr_t)lpsrcbits, (int32_t)bminput, (uint32_t)dwwidth, (uint32_t)dwheight, (uint32_t)dwstride, (void*)(uintptr_t)lpdestbits, (int32_t)bmoutput, (uint32_t)dwtranslatedirection) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int64_t)hcmtransform, (void*)(uintptr_t)lpsrcbits, (int32_t)bminput, (uint32_t)dwwidth, (uint32_t)dwheight, (uint32_t)dwstride, (void*)(uintptr_t)lpdestbits, (int32_t)bmoutput, (uint32_t)dwtranslatedirection);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcmtransform;
     (void)lpsrcbits;
@@ -473,6 +627,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     (void)lpdestbits;
     (void)bmoutput;
     (void)dwtranslatedirection;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -488,7 +643,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
         HMODULE km_h_mod = LoadLibraryA("icm32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CMTranslateRGBsExt");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)hcmtransform, (void*)(uintptr_t)lpsrcbits, (int32_t)bminput, (uint32_t)dwwidth, (uint32_t)dwheight, (uint32_t)dwinputstride, (void*)(uintptr_t)lpdestbits, (int32_t)bmoutput, (uint32_t)dwoutputstride, (void*)(uintptr_t)lpfncallback, (int64_t)ulcallbackdata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int64_t)hcmtransform, (void*)(uintptr_t)lpsrcbits, (int32_t)bminput, (uint32_t)dwwidth, (uint32_t)dwheight, (uint32_t)dwinputstride, (void*)(uintptr_t)lpdestbits, (int32_t)bmoutput, (uint32_t)dwoutputstride, (void*)(uintptr_t)lpfncallback, (int64_t)ulcallbackdata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcmtransform;
     (void)lpsrcbits;
@@ -501,6 +662,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     (void)dwoutputstride;
     (void)lpfncallback;
     (void)ulcallbackdata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -516,7 +678,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CheckBitmapBits");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)hcolortransform, (void*)(uintptr_t)psrcbits, (int32_t)bminput, (uint32_t)dwwidth, (uint32_t)dwheight, (uint32_t)dwstride, (void*)(uintptr_t)paresult, (void*)(uintptr_t)pfncallback, (int64_t)lpcallbackdata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int64_t)hcolortransform, (void*)(uintptr_t)psrcbits, (int32_t)bminput, (uint32_t)dwwidth, (uint32_t)dwheight, (uint32_t)dwstride, (void*)(uintptr_t)paresult, (void*)(uintptr_t)pfncallback, (int64_t)lpcallbackdata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcolortransform;
     (void)psrcbits;
@@ -527,6 +695,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     (void)paresult;
     (void)pfncallback;
     (void)lpcallbackdata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -542,13 +711,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CheckColors");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)hcolortransform, (void*)(uintptr_t)painputcolors, (uint32_t)ncolors, (int32_t)ctinput, (void*)(uintptr_t)paresult) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int64_t)hcolortransform, (void*)(uintptr_t)painputcolors, (uint32_t)ncolors, (int32_t)ctinput, (void*)(uintptr_t)paresult);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcolortransform;
     (void)painputcolors;
     (void)ncolors;
     (void)ctinput;
     (void)paresult;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -564,12 +740,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CheckColorsInGamut");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hdc, (void*)(uintptr_t)lprgbtriple, (void*)(uintptr_t)dlpbuffer, (uint32_t)ncount) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hdc, (void*)(uintptr_t)lprgbtriple, (void*)(uintptr_t)dlpbuffer, (uint32_t)ncount);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)lprgbtriple;
     (void)dlpbuffer;
     (void)ncount;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -585,9 +768,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CloseColorProfile");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)hprofile) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int64_t)hprofile);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprofile;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -603,12 +793,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ColorCorrectPalette");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hdc, (void*)(uintptr_t)hpal, (uint32_t)defirst, (uint32_t)num) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hdc, (void*)(uintptr_t)hpal, (uint32_t)defirst, (uint32_t)num);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)hpal;
     (void)defirst;
     (void)num;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -624,11 +821,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ColorMatchToTarget");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hdc, (void*)(uintptr_t)hdctarget, (uint32_t)action) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hdc, (void*)(uintptr_t)hdctarget, (uint32_t)action);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)hdctarget;
     (void)action;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -644,12 +848,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ConvertColorNameToIndex");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)hprofile, (void*)(uintptr_t)pacolorname, (void*)(uintptr_t)paindex, (uint32_t)dwcount) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int64_t)hprofile, (void*)(uintptr_t)pacolorname, (void*)(uintptr_t)paindex, (uint32_t)dwcount);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprofile;
     (void)pacolorname;
     (void)paindex;
     (void)dwcount;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -665,12 +876,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ConvertIndexToColorName");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)hprofile, (void*)(uintptr_t)paindex, (void*)(uintptr_t)pacolorname, (uint32_t)dwcount) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int64_t)hprofile, (void*)(uintptr_t)paindex, (void*)(uintptr_t)pacolorname, (uint32_t)dwcount);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprofile;
     (void)paindex;
     (void)pacolorname;
     (void)dwcount;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -686,9 +904,16 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_c
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CreateColorSpaceA");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)lplcs) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)lplcs);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)lplcs;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -704,9 +929,16 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_c
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CreateColorSpaceW");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)lplcs) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)lplcs);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)lplcs;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -722,12 +954,19 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_c
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CreateColorTransformA");
     }
-    int64_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)plogcolorspace, (int64_t)hdestprofile, (int64_t)htargetprofile, (uint32_t)dwflags) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)plogcolorspace, (int64_t)hdestprofile, (int64_t)htargetprofile, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)plogcolorspace;
     (void)hdestprofile;
     (void)htargetprofile;
     (void)dwflags;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return (jlong)km_res;
@@ -743,12 +982,19 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_c
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CreateColorTransformW");
     }
-    int64_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)plogcolorspace, (int64_t)hdestprofile, (int64_t)htargetprofile, (uint32_t)dwflags) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)plogcolorspace, (int64_t)hdestprofile, (int64_t)htargetprofile, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)plogcolorspace;
     (void)hdestprofile;
     (void)htargetprofile;
     (void)dwflags;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return (jlong)km_res;
@@ -764,7 +1010,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CreateDeviceLinkProfile");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hprofile, (uint32_t)nprofiles, (void*)(uintptr_t)padwintent, (uint32_t)nintents, (uint32_t)dwflags, (void*)(uintptr_t)pprofiledata, (uint32_t)indexpreferredcmm) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hprofile, (uint32_t)nprofiles, (void*)(uintptr_t)padwintent, (uint32_t)nintents, (uint32_t)dwflags, (void*)(uintptr_t)pprofiledata, (uint32_t)indexpreferredcmm);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprofile;
     (void)nprofiles;
@@ -773,6 +1025,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     (void)dwflags;
     (void)pprofiledata;
     (void)indexpreferredcmm;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -788,7 +1041,13 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_c
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CreateMultiProfileTransform");
     }
-    int64_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pahprofiles, (uint32_t)nprofiles, (void*)(uintptr_t)padwintent, (uint32_t)nintents, (uint32_t)dwflags, (uint32_t)indexpreferredcmm) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pahprofiles, (uint32_t)nprofiles, (void*)(uintptr_t)padwintent, (uint32_t)nintents, (uint32_t)dwflags, (uint32_t)indexpreferredcmm);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pahprofiles;
     (void)nprofiles;
@@ -796,6 +1055,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_c
     (void)nintents;
     (void)dwflags;
     (void)indexpreferredcmm;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return (jlong)km_res;
@@ -811,10 +1071,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CreateProfileFromLogColorSpaceA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)plogcolorspace, (void*)(uintptr_t)pprofile) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)plogcolorspace, (void*)(uintptr_t)pprofile);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)plogcolorspace;
     (void)pprofile;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -830,10 +1097,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CreateProfileFromLogColorSpaceW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)plogcolorspace, (void*)(uintptr_t)pprofile) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)plogcolorspace, (void*)(uintptr_t)pprofile);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)plogcolorspace;
     (void)pprofile;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -849,9 +1123,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DeleteColorSpace");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hcs) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hcs);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcs;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -867,9 +1148,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DeleteColorTransform");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)hxform) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int64_t)hxform);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hxform;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -885,11 +1173,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DisassociateColorProfileFromDeviceA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pmachinename, (void*)(uintptr_t)pprofilename, (void*)(uintptr_t)pdevicename) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pmachinename, (void*)(uintptr_t)pprofilename, (void*)(uintptr_t)pdevicename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pmachinename;
     (void)pprofilename;
     (void)pdevicename;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -905,11 +1200,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DisassociateColorProfileFromDeviceW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pmachinename, (void*)(uintptr_t)pprofilename, (void*)(uintptr_t)pdevicename) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pmachinename, (void*)(uintptr_t)pprofilename, (void*)(uintptr_t)pdevicename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pmachinename;
     (void)pprofilename;
     (void)pdevicename;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -925,13 +1227,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "EnumColorProfilesA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pmachinename, (void*)(uintptr_t)penumrecord, (void*)(uintptr_t)penumerationbuffer, (void*)(uintptr_t)pdwsizeofenumerationbuffer, (void*)(uintptr_t)pnprofiles) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pmachinename, (void*)(uintptr_t)penumrecord, (void*)(uintptr_t)penumerationbuffer, (void*)(uintptr_t)pdwsizeofenumerationbuffer, (void*)(uintptr_t)pnprofiles);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pmachinename;
     (void)penumrecord;
     (void)penumerationbuffer;
     (void)pdwsizeofenumerationbuffer;
     (void)pnprofiles;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -947,13 +1256,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "EnumColorProfilesW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pmachinename, (void*)(uintptr_t)penumrecord, (void*)(uintptr_t)penumerationbuffer, (void*)(uintptr_t)pdwsizeofenumerationbuffer, (void*)(uintptr_t)pnprofiles) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pmachinename, (void*)(uintptr_t)penumrecord, (void*)(uintptr_t)penumerationbuffer, (void*)(uintptr_t)pdwsizeofenumerationbuffer, (void*)(uintptr_t)pnprofiles);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pmachinename;
     (void)penumrecord;
     (void)penumerationbuffer;
     (void)pdwsizeofenumerationbuffer;
     (void)pnprofiles;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -969,11 +1285,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "EnumICMProfilesA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hdc, (void*)(uintptr_t)proc, (int64_t)param2) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hdc, (void*)(uintptr_t)proc, (int64_t)param2);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)proc;
     (void)param2;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -989,11 +1312,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "EnumICMProfilesW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hdc, (void*)(uintptr_t)proc, (int64_t)param2) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hdc, (void*)(uintptr_t)proc, (int64_t)param2);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)proc;
     (void)param2;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1009,10 +1339,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetCMMInfo");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)hcolortransform, (uint32_t)param1) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int64_t)hcolortransform, (uint32_t)param1);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hcolortransform;
     (void)param1;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -1028,11 +1365,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetColorDirectoryA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pmachinename, (void*)(uintptr_t)pbuffer, (void*)(uintptr_t)pdwsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pmachinename, (void*)(uintptr_t)pbuffer, (void*)(uintptr_t)pdwsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pmachinename;
     (void)pbuffer;
     (void)pdwsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1048,11 +1392,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetColorDirectoryW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pmachinename, (void*)(uintptr_t)pbuffer, (void*)(uintptr_t)pdwsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pmachinename, (void*)(uintptr_t)pbuffer, (void*)(uintptr_t)pdwsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pmachinename;
     (void)pbuffer;
     (void)pdwsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1068,7 +1419,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetColorProfileElement");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)hprofile, (uint32_t)tag, (uint32_t)dwoffset, (void*)(uintptr_t)pcbelement, (void*)(uintptr_t)pelement, (void*)(uintptr_t)pbreference) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int64_t)hprofile, (uint32_t)tag, (uint32_t)dwoffset, (void*)(uintptr_t)pcbelement, (void*)(uintptr_t)pelement, (void*)(uintptr_t)pbreference);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprofile;
     (void)tag;
@@ -1076,6 +1433,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     (void)pcbelement;
     (void)pelement;
     (void)pbreference;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1091,11 +1449,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetColorProfileElementTag");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)hprofile, (uint32_t)dwindex, (void*)(uintptr_t)ptag) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int64_t)hprofile, (uint32_t)dwindex, (void*)(uintptr_t)ptag);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprofile;
     (void)dwindex;
     (void)ptag;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1111,11 +1476,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetColorProfileFromHandle");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)hprofile, (void*)(uintptr_t)pprofile, (void*)(uintptr_t)pcbprofile) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int64_t)hprofile, (void*)(uintptr_t)pprofile, (void*)(uintptr_t)pcbprofile);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprofile;
     (void)pprofile;
     (void)pcbprofile;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1131,10 +1503,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetColorProfileHeader");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)hprofile, (void*)(uintptr_t)pheader) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int64_t)hprofile, (void*)(uintptr_t)pheader);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprofile;
     (void)pheader;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1150,9 +1529,16 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_c
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetColorSpace");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hdc) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hdc);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)hdc;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -1168,10 +1554,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetCountColorProfileElements");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)hprofile, (void*)(uintptr_t)pnelementcount) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int64_t)hprofile, (void*)(uintptr_t)pnelementcount);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprofile;
     (void)pnelementcount;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1187,10 +1580,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetDeviceGammaRamp");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hdc, (void*)(uintptr_t)lpramp) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hdc, (void*)(uintptr_t)lpramp);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)lpramp;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1206,11 +1606,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetICMProfileA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hdc, (void*)(uintptr_t)pbufsize, (void*)(uintptr_t)pszfilename) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hdc, (void*)(uintptr_t)pbufsize, (void*)(uintptr_t)pszfilename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)pbufsize;
     (void)pszfilename;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1226,11 +1633,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetICMProfileW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hdc, (void*)(uintptr_t)pbufsize, (void*)(uintptr_t)pszfilename) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hdc, (void*)(uintptr_t)pbufsize, (void*)(uintptr_t)pszfilename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)pbufsize;
     (void)pszfilename;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1246,11 +1660,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetLogColorSpaceA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hcolorspace, (void*)(uintptr_t)lpbuffer, (uint32_t)nsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hcolorspace, (void*)(uintptr_t)lpbuffer, (uint32_t)nsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcolorspace;
     (void)lpbuffer;
     (void)nsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1266,11 +1687,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetLogColorSpaceW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hcolorspace, (void*)(uintptr_t)lpbuffer, (uint32_t)nsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hcolorspace, (void*)(uintptr_t)lpbuffer, (uint32_t)nsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcolorspace;
     (void)lpbuffer;
     (void)nsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1286,10 +1714,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetNamedProfileInfo");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)hprofile, (void*)(uintptr_t)pnamedprofileinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int64_t)hprofile, (void*)(uintptr_t)pnamedprofileinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprofile;
     (void)pnamedprofileinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1305,13 +1740,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetPS2ColorRenderingDictionary");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)hprofile, (uint32_t)dwintent, (void*)(uintptr_t)pps2colorrenderingdictionary, (void*)(uintptr_t)pcbps2colorrenderingdictionary, (void*)(uintptr_t)pbbinary) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int64_t)hprofile, (uint32_t)dwintent, (void*)(uintptr_t)pps2colorrenderingdictionary, (void*)(uintptr_t)pcbps2colorrenderingdictionary, (void*)(uintptr_t)pbbinary);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprofile;
     (void)dwintent;
     (void)pps2colorrenderingdictionary;
     (void)pcbps2colorrenderingdictionary;
     (void)pbbinary;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1327,12 +1769,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetPS2ColorRenderingIntent");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)hprofile, (uint32_t)dwintent, (void*)(uintptr_t)pbuffer, (void*)(uintptr_t)pcbps2colorrenderingintent) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int64_t)hprofile, (uint32_t)dwintent, (void*)(uintptr_t)pbuffer, (void*)(uintptr_t)pcbps2colorrenderingintent);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprofile;
     (void)dwintent;
     (void)pbuffer;
     (void)pcbps2colorrenderingintent;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1348,7 +1797,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetPS2ColorSpaceArray");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)hprofile, (uint32_t)dwintent, (uint32_t)dwcsatype, (void*)(uintptr_t)pps2colorspacearray, (void*)(uintptr_t)pcbps2colorspacearray, (void*)(uintptr_t)pbbinary) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int64_t)hprofile, (uint32_t)dwintent, (uint32_t)dwcsatype, (void*)(uintptr_t)pps2colorspacearray, (void*)(uintptr_t)pcbps2colorspacearray, (void*)(uintptr_t)pbbinary);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprofile;
     (void)dwintent;
@@ -1356,6 +1811,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     (void)pps2colorspacearray;
     (void)pcbps2colorspacearray;
     (void)pbbinary;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1371,12 +1827,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetStandardColorSpaceProfileA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pmachinename, (uint32_t)dwscs, (void*)(uintptr_t)pbuffer, (void*)(uintptr_t)pcbsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pmachinename, (uint32_t)dwscs, (void*)(uintptr_t)pbuffer, (void*)(uintptr_t)pcbsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pmachinename;
     (void)dwscs;
     (void)pbuffer;
     (void)pcbsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1392,12 +1855,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetStandardColorSpaceProfileW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pmachinename, (uint32_t)dwscs, (void*)(uintptr_t)pbuffer, (void*)(uintptr_t)pcbsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pmachinename, (uint32_t)dwscs, (void*)(uintptr_t)pbuffer, (void*)(uintptr_t)pcbsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pmachinename;
     (void)dwscs;
     (void)pbuffer;
     (void)pcbsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1413,10 +1883,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "InstallColorProfileA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pmachinename, (void*)(uintptr_t)pprofilename) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pmachinename, (void*)(uintptr_t)pprofilename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pmachinename;
     (void)pprofilename;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1432,10 +1909,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "InstallColorProfileW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pmachinename, (void*)(uintptr_t)pprofilename) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pmachinename, (void*)(uintptr_t)pprofilename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pmachinename;
     (void)pprofilename;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1451,11 +1935,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "IsColorProfileTagPresent");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)hprofile, (uint32_t)tag, (void*)(uintptr_t)pbpresent) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int64_t)hprofile, (uint32_t)tag, (void*)(uintptr_t)pbpresent);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprofile;
     (void)tag;
     (void)pbpresent;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1471,10 +1962,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "IsColorProfileValid");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)hprofile, (void*)(uintptr_t)pbvalid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int64_t)hprofile, (void*)(uintptr_t)pbvalid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprofile;
     (void)pbvalid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1490,12 +1988,19 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_c
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OpenColorProfileA");
     }
-    int64_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pprofile, (uint32_t)dwdesiredaccess, (uint32_t)dwsharemode, (uint32_t)dwcreationmode) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pprofile, (uint32_t)dwdesiredaccess, (uint32_t)dwsharemode, (uint32_t)dwcreationmode);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pprofile;
     (void)dwdesiredaccess;
     (void)dwsharemode;
     (void)dwcreationmode;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return (jlong)km_res;
@@ -1511,12 +2016,19 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_c
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OpenColorProfileW");
     }
-    int64_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pprofile, (uint32_t)dwdesiredaccess, (uint32_t)dwsharemode, (uint32_t)dwcreationmode) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pprofile, (uint32_t)dwdesiredaccess, (uint32_t)dwsharemode, (uint32_t)dwcreationmode);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pprofile;
     (void)dwdesiredaccess;
     (void)dwsharemode;
     (void)dwcreationmode;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return (jlong)km_res;
@@ -1532,11 +2044,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "RegisterCMMA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pmachinename, (uint32_t)cmmid, (void*)(uintptr_t)pcmmdll) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pmachinename, (uint32_t)cmmid, (void*)(uintptr_t)pcmmdll);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pmachinename;
     (void)cmmid;
     (void)pcmmdll;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1552,11 +2071,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "RegisterCMMW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pmachinename, (uint32_t)cmmid, (void*)(uintptr_t)pcmmdll) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pmachinename, (uint32_t)cmmid, (void*)(uintptr_t)pcmmdll);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pmachinename;
     (void)cmmid;
     (void)pcmmdll;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1572,9 +2098,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SelectCMM");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwcmmtype) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwcmmtype);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwcmmtype;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1590,13 +2123,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SetColorProfileElement");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)hprofile, (uint32_t)tag, (uint32_t)dwoffset, (void*)(uintptr_t)pcbelement, (void*)(uintptr_t)pelement) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int64_t)hprofile, (uint32_t)tag, (uint32_t)dwoffset, (void*)(uintptr_t)pcbelement, (void*)(uintptr_t)pelement);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprofile;
     (void)tag;
     (void)dwoffset;
     (void)pcbelement;
     (void)pelement;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1612,11 +2152,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SetColorProfileElementReference");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)hprofile, (uint32_t)newtag, (uint32_t)reftag) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int64_t)hprofile, (uint32_t)newtag, (uint32_t)reftag);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprofile;
     (void)newtag;
     (void)reftag;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1632,11 +2179,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SetColorProfileElementSize");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)hprofile, (uint32_t)tagtype, (uint32_t)pcbelement) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int64_t)hprofile, (uint32_t)tagtype, (uint32_t)pcbelement);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprofile;
     (void)tagtype;
     (void)pcbelement;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1652,10 +2206,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SetColorProfileHeader");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)hprofile, (void*)(uintptr_t)pheader) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int64_t)hprofile, (void*)(uintptr_t)pheader);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprofile;
     (void)pheader;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1671,10 +2232,17 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_c
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SetColorSpace");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hdc, (void*)(uintptr_t)hcs) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hdc, (void*)(uintptr_t)hcs);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)hdc;
     (void)hcs;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -1690,10 +2258,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SetDeviceGammaRamp");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hdc, (void*)(uintptr_t)lpramp) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hdc, (void*)(uintptr_t)lpramp);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)lpramp;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1709,10 +2284,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SetICMMode");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hdc, (int32_t)mode) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hdc, (int32_t)mode);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)mode;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1728,10 +2310,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SetICMProfileA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hdc, (void*)(uintptr_t)lpfilename) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hdc, (void*)(uintptr_t)lpfilename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)lpfilename;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1747,10 +2336,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SetICMProfileW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hdc, (void*)(uintptr_t)lpfilename) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hdc, (void*)(uintptr_t)lpfilename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdc;
     (void)lpfilename;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1766,11 +2362,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SetStandardColorSpaceProfileA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pmachinename, (uint32_t)dwprofileid, (void*)(uintptr_t)pprofilename) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pmachinename, (uint32_t)dwprofileid, (void*)(uintptr_t)pprofilename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pmachinename;
     (void)dwprofileid;
     (void)pprofilename;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1786,11 +2389,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SetStandardColorSpaceProfileW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pmachinename, (uint32_t)dwprofileid, (void*)(uintptr_t)pprofilename) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pmachinename, (uint32_t)dwprofileid, (void*)(uintptr_t)pprofilename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pmachinename;
     (void)dwprofileid;
     (void)pprofilename;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1806,9 +2416,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
         HMODULE km_h_mod = LoadLibraryA("icmui.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SetupColorMatchingA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pcms) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pcms);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pcms;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1824,9 +2441,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
         HMODULE km_h_mod = LoadLibraryA("icmui.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SetupColorMatchingW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pcms) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pcms);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pcms;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1842,7 +2466,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "TranslateBitmapBits");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)hcolortransform, (void*)(uintptr_t)psrcbits, (int32_t)bminput, (uint32_t)dwwidth, (uint32_t)dwheight, (uint32_t)dwinputstride, (void*)(uintptr_t)pdestbits, (int32_t)bmoutput, (uint32_t)dwoutputstride, (void*)(uintptr_t)pfncallback, (int64_t)ulcallbackdata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int64_t)hcolortransform, (void*)(uintptr_t)psrcbits, (int32_t)bminput, (uint32_t)dwwidth, (uint32_t)dwheight, (uint32_t)dwinputstride, (void*)(uintptr_t)pdestbits, (int32_t)bmoutput, (uint32_t)dwoutputstride, (void*)(uintptr_t)pfncallback, (int64_t)ulcallbackdata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcolortransform;
     (void)psrcbits;
@@ -1855,6 +2485,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     (void)dwoutputstride;
     (void)pfncallback;
     (void)ulcallbackdata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1870,7 +2501,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "TranslateColors");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)hcolortransform, (void*)(uintptr_t)painputcolors, (uint32_t)ncolors, (int32_t)ctinput, (void*)(uintptr_t)paoutputcolors, (int32_t)ctoutput) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int64_t)hcolortransform, (void*)(uintptr_t)painputcolors, (uint32_t)ncolors, (int32_t)ctinput, (void*)(uintptr_t)paoutputcolors, (int32_t)ctoutput);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcolortransform;
     (void)painputcolors;
@@ -1878,6 +2515,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     (void)ctinput;
     (void)paoutputcolors;
     (void)ctoutput;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1893,11 +2531,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "UninstallColorProfileA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pmachinename, (void*)(uintptr_t)pprofilename, (int32_t)bdelete) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pmachinename, (void*)(uintptr_t)pprofilename, (int32_t)bdelete);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pmachinename;
     (void)pprofilename;
     (void)bdelete;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1913,11 +2558,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "UninstallColorProfileW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pmachinename, (void*)(uintptr_t)pprofilename, (int32_t)bdelete) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pmachinename, (void*)(uintptr_t)pprofilename, (int32_t)bdelete);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pmachinename;
     (void)pprofilename;
     (void)bdelete;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1933,10 +2585,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "UnregisterCMMA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pmachinename, (uint32_t)cmmid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pmachinename, (uint32_t)cmmid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pmachinename;
     (void)cmmid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1952,10 +2611,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "UnregisterCMMW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pmachinename, (uint32_t)cmmid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pmachinename, (uint32_t)cmmid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pmachinename;
     (void)cmmid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1971,12 +2637,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "UpdateICMRegKeyA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)reserved, (void*)(uintptr_t)lpszcmid, (void*)(uintptr_t)lpszfilename, (uint32_t)command) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)reserved, (void*)(uintptr_t)lpszcmid, (void*)(uintptr_t)lpszfilename, (uint32_t)command);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)reserved;
     (void)lpszcmid;
     (void)lpszfilename;
     (void)command;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1992,12 +2665,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
         HMODULE km_h_mod = LoadLibraryA("gdi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "UpdateICMRegKeyW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)reserved, (void*)(uintptr_t)lpszcmid, (void*)(uintptr_t)lpszfilename, (uint32_t)command) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)reserved, (void*)(uintptr_t)lpszcmid, (void*)(uintptr_t)lpszfilename, (uint32_t)command);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)reserved;
     (void)lpszcmid;
     (void)lpszfilename;
     (void)command;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -2013,11 +2693,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WcsAssociateColorProfileWithDevice");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int32_t)scope, (void*)(uintptr_t)pprofilename, (void*)(uintptr_t)pdevicename) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int32_t)scope, (void*)(uintptr_t)pprofilename, (void*)(uintptr_t)pdevicename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)scope;
     (void)pprofilename;
     (void)pdevicename;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -2033,7 +2720,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WcsCheckColors");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)hcolortransform, (uint32_t)ncolors, (uint32_t)ninputchannels, (int32_t)cdtinput, (uint32_t)cbinput, (void*)(uintptr_t)pinputdata, (void*)(uintptr_t)paresult) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int64_t)hcolortransform, (uint32_t)ncolors, (uint32_t)ninputchannels, (int32_t)cdtinput, (uint32_t)cbinput, (void*)(uintptr_t)pinputdata, (void*)(uintptr_t)paresult);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcolortransform;
     (void)ncolors;
@@ -2042,6 +2735,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     (void)cbinput;
     (void)pinputdata;
     (void)paresult;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -2057,10 +2751,17 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_c
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WcsCreateIccProfile");
     }
-    int64_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)hwcsprofile, (uint32_t)dwoptions) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int64_t)hwcsprofile, (uint32_t)dwoptions);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwcsprofile;
     (void)dwoptions;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return (jlong)km_res;
@@ -2076,11 +2777,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WcsDisassociateColorProfileFromDevice");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int32_t)scope, (void*)(uintptr_t)pprofilename, (void*)(uintptr_t)pdevicename) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int32_t)scope, (void*)(uintptr_t)pprofilename, (void*)(uintptr_t)pdevicename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)scope;
     (void)pprofilename;
     (void)pdevicename;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -2096,13 +2804,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WcsEnumColorProfiles");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int32_t)scope, (void*)(uintptr_t)penumrecord, (void*)(uintptr_t)pbuffer, (uint32_t)dwsize, (void*)(uintptr_t)pnprofiles) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int32_t)scope, (void*)(uintptr_t)penumrecord, (void*)(uintptr_t)pbuffer, (uint32_t)dwsize, (void*)(uintptr_t)pnprofiles);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)scope;
     (void)penumrecord;
     (void)pbuffer;
     (void)dwsize;
     (void)pnprofiles;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -2118,11 +2833,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WcsEnumColorProfilesSize");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int32_t)scope, (void*)(uintptr_t)penumrecord, (void*)(uintptr_t)pdwsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int32_t)scope, (void*)(uintptr_t)penumrecord, (void*)(uintptr_t)pdwsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)scope;
     (void)penumrecord;
     (void)pdwsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -2138,9 +2860,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WcsGetCalibrationManagementState");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pbisenabled) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pbisenabled);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pbisenabled;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -2156,7 +2885,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WcsGetDefaultColorProfile");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int32_t)scope, (void*)(uintptr_t)pdevicename, (int32_t)cptcolorprofiletype, (int32_t)cpstcolorprofilesubtype, (uint32_t)dwprofileid, (uint32_t)cbprofilename, (void*)(uintptr_t)pprofilename) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int32_t)scope, (void*)(uintptr_t)pdevicename, (int32_t)cptcolorprofiletype, (int32_t)cpstcolorprofilesubtype, (uint32_t)dwprofileid, (uint32_t)cbprofilename, (void*)(uintptr_t)pprofilename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)scope;
     (void)pdevicename;
@@ -2165,6 +2900,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     (void)dwprofileid;
     (void)cbprofilename;
     (void)pprofilename;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -2180,7 +2916,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WcsGetDefaultColorProfileSize");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int32_t)scope, (void*)(uintptr_t)pdevicename, (int32_t)cptcolorprofiletype, (int32_t)cpstcolorprofilesubtype, (uint32_t)dwprofileid, (void*)(uintptr_t)pcbprofilename) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int32_t)scope, (void*)(uintptr_t)pdevicename, (int32_t)cptcolorprofiletype, (int32_t)cpstcolorprofilesubtype, (uint32_t)dwprofileid, (void*)(uintptr_t)pcbprofilename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)scope;
     (void)pdevicename;
@@ -2188,6 +2930,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     (void)cpstcolorprofilesubtype;
     (void)dwprofileid;
     (void)pcbprofilename;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -2203,10 +2946,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WcsGetDefaultRenderingIntent");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int32_t)scope, (void*)(uintptr_t)pdwrenderingintent) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int32_t)scope, (void*)(uintptr_t)pdwrenderingintent);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)scope;
     (void)pdwrenderingintent;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -2222,11 +2972,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WcsGetUsePerUserProfiles");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pdevicename, (uint32_t)dwdeviceclass, (void*)(uintptr_t)puseperuserprofiles) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pdevicename, (uint32_t)dwdeviceclass, (void*)(uintptr_t)puseperuserprofiles);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pdevicename;
     (void)dwdeviceclass;
     (void)puseperuserprofiles;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -2242,7 +2999,13 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_c
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WcsOpenColorProfileA");
     }
-    int64_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pcdmpprofile, (void*)(uintptr_t)pcampprofile, (void*)(uintptr_t)pgmmpprofile, (uint32_t)dwdesireaccess, (uint32_t)dwsharemode, (uint32_t)dwcreationmode, (uint32_t)dwflags) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pcdmpprofile, (void*)(uintptr_t)pcampprofile, (void*)(uintptr_t)pgmmpprofile, (uint32_t)dwdesireaccess, (uint32_t)dwsharemode, (uint32_t)dwcreationmode, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pcdmpprofile;
     (void)pcampprofile;
@@ -2251,6 +3014,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_c
     (void)dwsharemode;
     (void)dwcreationmode;
     (void)dwflags;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return (jlong)km_res;
@@ -2266,7 +3030,13 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_c
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WcsOpenColorProfileW");
     }
-    int64_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pcdmpprofile, (void*)(uintptr_t)pcampprofile, (void*)(uintptr_t)pgmmpprofile, (uint32_t)dwdesireaccess, (uint32_t)dwsharemode, (uint32_t)dwcreationmode, (uint32_t)dwflags) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pcdmpprofile, (void*)(uintptr_t)pcampprofile, (void*)(uintptr_t)pgmmpprofile, (uint32_t)dwdesireaccess, (uint32_t)dwsharemode, (uint32_t)dwcreationmode, (uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pcdmpprofile;
     (void)pcampprofile;
@@ -2275,6 +3045,7 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_c
     (void)dwsharemode;
     (void)dwcreationmode;
     (void)dwflags;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return (jlong)km_res;
@@ -2290,9 +3061,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WcsSetCalibrationManagementState");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int32_t)bisenabled) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int32_t)bisenabled);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bisenabled;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -2308,7 +3086,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WcsSetDefaultColorProfile");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int32_t)scope, (void*)(uintptr_t)pdevicename, (int32_t)cptcolorprofiletype, (int32_t)cpstcolorprofilesubtype, (uint32_t)dwprofileid, (void*)(uintptr_t)pprofilename) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int32_t)scope, (void*)(uintptr_t)pdevicename, (int32_t)cptcolorprofiletype, (int32_t)cpstcolorprofilesubtype, (uint32_t)dwprofileid, (void*)(uintptr_t)pprofilename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)scope;
     (void)pdevicename;
@@ -2316,6 +3100,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     (void)cpstcolorprofilesubtype;
     (void)dwprofileid;
     (void)pprofilename;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -2331,10 +3116,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WcsSetDefaultRenderingIntent");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int32_t)scope, (uint32_t)dwrenderingintent) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int32_t)scope, (uint32_t)dwrenderingintent);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)scope;
     (void)dwrenderingintent;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -2350,11 +3142,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WcsSetUsePerUserProfiles");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pdevicename, (uint32_t)dwdeviceclass, (int32_t)useperuserprofiles) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pdevicename, (uint32_t)dwdeviceclass, (int32_t)useperuserprofiles);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pdevicename;
     (void)dwdeviceclass;
     (void)useperuserprofiles;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -2370,7 +3169,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
         HMODULE km_h_mod = LoadLibraryA("mscms.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "WcsTranslateColors");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)hcolortransform, (uint32_t)ncolors, (uint32_t)ninputchannels, (int32_t)cdtinput, (uint32_t)cbinput, (void*)(uintptr_t)pinputdata, (uint32_t)noutputchannels, (int32_t)cdtoutput, (uint32_t)cboutput, (void*)(uintptr_t)poutputdata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int64_t)hcolortransform, (uint32_t)ncolors, (uint32_t)ninputchannels, (int32_t)cdtinput, (uint32_t)cbinput, (void*)(uintptr_t)pinputdata, (uint32_t)noutputchannels, (int32_t)cdtoutput, (uint32_t)cboutput, (void*)(uintptr_t)poutputdata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcolortransform;
     (void)ncolors;
@@ -2382,6 +3187,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_ui_co
     (void)cdtoutput;
     (void)cboutput;
     (void)poutputdata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;

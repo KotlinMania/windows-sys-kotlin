@@ -62,10 +62,17 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_processIdToSess
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ProcessIdToSessionId")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwprocessid, psessionid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwprocessid, psessionid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwprocessid;
     (void)psessionid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -81,9 +88,14 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSCloseServer_
         HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WTSCloseServer")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(hserver);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(hserver);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)hserver;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -101,12 +113,19 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSConnectSessi
         HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WTSConnectSessionA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(logonid, targetlogonid, ppassword, bwait) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(logonid, targetlogonid, ppassword, bwait);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)logonid;
     (void)targetlogonid;
     (void)ppassword;
     (void)bwait;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -125,12 +144,19 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSConnectSessi
         HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WTSConnectSessionW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(logonid, targetlogonid, ppassword, bwait) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(logonid, targetlogonid, ppassword, bwait);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)logonid;
     (void)targetlogonid;
     (void)ppassword;
     (void)bwait;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -151,7 +177,13 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSCreateListen
         HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WTSCreateListenerA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hserver, preserved, reserved, plistenername, pbuffer, flag) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hserver, preserved, reserved, plistenername, pbuffer, flag);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hserver;
     (void)preserved;
@@ -159,6 +191,7 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSCreateListen
     (void)plistenername;
     (void)pbuffer;
     (void)flag;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -179,7 +212,13 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSCreateListen
         HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WTSCreateListenerW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hserver, preserved, reserved, plistenername, pbuffer, flag) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hserver, preserved, reserved, plistenername, pbuffer, flag);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hserver;
     (void)preserved;
@@ -187,6 +226,7 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSCreateListen
     (void)plistenername;
     (void)pbuffer;
     (void)flag;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -204,11 +244,18 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSDisconnectSe
         HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WTSDisconnectSession")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hserver, sessionid, bwait) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hserver, sessionid, bwait);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hserver;
     (void)sessionid;
     (void)bwait;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -224,9 +271,16 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSEnableChildS
         HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WTSEnableChildSessions")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(benable) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(benable);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)benable;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -246,13 +300,20 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSEnumerateLis
         HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WTSEnumerateListenersA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hserver, preserved, reserved, plisteners, pcount) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hserver, preserved, reserved, plisteners, pcount);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hserver;
     (void)preserved;
     (void)reserved;
     (void)plisteners;
     (void)pcount;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -272,13 +333,20 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSEnumerateLis
         HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WTSEnumerateListenersW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hserver, preserved, reserved, plisteners, pcount) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hserver, preserved, reserved, plisteners, pcount);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hserver;
     (void)preserved;
     (void)reserved;
     (void)plisteners;
     (void)pcount;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -298,13 +366,20 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSEnumeratePro
         HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WTSEnumerateProcessesA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hserver, reserved, version, ppprocessinfo, pcount) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hserver, reserved, version, ppprocessinfo, pcount);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hserver;
     (void)reserved;
     (void)version;
     (void)ppprocessinfo;
     (void)pcount;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -324,13 +399,20 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSEnumeratePro
         HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WTSEnumerateProcessesExA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hserver, plevel, sessionid, ppprocessinfo, pcount) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hserver, plevel, sessionid, ppprocessinfo, pcount);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hserver;
     (void)plevel;
     (void)sessionid;
     (void)ppprocessinfo;
     (void)pcount;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -350,13 +432,20 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSEnumeratePro
         HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WTSEnumerateProcessesExW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hserver, plevel, sessionid, ppprocessinfo, pcount) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hserver, plevel, sessionid, ppprocessinfo, pcount);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hserver;
     (void)plevel;
     (void)sessionid;
     (void)ppprocessinfo;
     (void)pcount;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -376,13 +465,20 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSEnumeratePro
         HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WTSEnumerateProcessesW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hserver, reserved, version, ppprocessinfo, pcount) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hserver, reserved, version, ppprocessinfo, pcount);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hserver;
     (void)reserved;
     (void)version;
     (void)ppprocessinfo;
     (void)pcount;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -402,13 +498,20 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSEnumerateSer
         HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WTSEnumerateServersA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pdomainname, reserved, version, ppserverinfo, pcount) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pdomainname, reserved, version, ppserverinfo, pcount);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pdomainname;
     (void)reserved;
     (void)version;
     (void)ppserverinfo;
     (void)pcount;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -428,13 +531,20 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSEnumerateSer
         HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WTSEnumerateServersW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pdomainname, reserved, version, ppserverinfo, pcount) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pdomainname, reserved, version, ppserverinfo, pcount);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pdomainname;
     (void)reserved;
     (void)version;
     (void)ppserverinfo;
     (void)pcount;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -454,13 +564,20 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSEnumerateSes
         HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WTSEnumerateSessionsA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hserver, reserved, version, ppsessioninfo, pcount) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hserver, reserved, version, ppsessioninfo, pcount);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hserver;
     (void)reserved;
     (void)version;
     (void)ppsessioninfo;
     (void)pcount;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -480,13 +597,20 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSEnumerateSes
         HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WTSEnumerateSessionsExA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hserver, plevel, filter, ppsessioninfo, pcount) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hserver, plevel, filter, ppsessioninfo, pcount);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hserver;
     (void)plevel;
     (void)filter;
     (void)ppsessioninfo;
     (void)pcount;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -506,13 +630,20 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSEnumerateSes
         HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WTSEnumerateSessionsExW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hserver, plevel, filter, ppsessioninfo, pcount) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hserver, plevel, filter, ppsessioninfo, pcount);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hserver;
     (void)plevel;
     (void)filter;
     (void)ppsessioninfo;
     (void)pcount;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -532,13 +663,20 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSEnumerateSes
         HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WTSEnumerateSessionsW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hserver, reserved, version, ppsessioninfo, pcount) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hserver, reserved, version, ppsessioninfo, pcount);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hserver;
     (void)reserved;
     (void)version;
     (void)ppsessioninfo;
     (void)pcount;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -554,9 +692,14 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSFreeMemory_n
         HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WTSFreeMemory")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pmemory);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pmemory);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pmemory;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -573,11 +716,18 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSFreeMemoryEx
         HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WTSFreeMemoryExA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(wtstypeclass, pmemory, numberofentries) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(wtstypeclass, pmemory, numberofentries);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)wtstypeclass;
     (void)pmemory;
     (void)numberofentries;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -595,11 +745,18 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSFreeMemoryEx
         HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WTSFreeMemoryExW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(wtstypeclass, pmemory, numberofentries) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(wtstypeclass, pmemory, numberofentries);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)wtstypeclass;
     (void)pmemory;
     (void)numberofentries;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -614,8 +771,15 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSGetActiveCon
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WTSGetActiveConsoleSessionId")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -631,9 +795,16 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSGetChildSess
         HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WTSGetChildSessionId")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(psessionid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(psessionid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)psessionid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -656,7 +827,13 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSGetListenerS
         HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WTSGetListenerSecurityA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hserver, preserved, reserved, plistenername, securityinformation, psecuritydescriptor, nlength, lpnlengthneeded) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hserver, preserved, reserved, plistenername, securityinformation, psecuritydescriptor, nlength, lpnlengthneeded);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hserver;
     (void)preserved;
@@ -666,6 +843,7 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSGetListenerS
     (void)psecuritydescriptor;
     (void)nlength;
     (void)lpnlengthneeded;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -688,7 +866,13 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSGetListenerS
         HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WTSGetListenerSecurityW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hserver, preserved, reserved, plistenername, securityinformation, psecuritydescriptor, nlength, lpnlengthneeded) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hserver, preserved, reserved, plistenername, securityinformation, psecuritydescriptor, nlength, lpnlengthneeded);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hserver;
     (void)preserved;
@@ -698,6 +882,7 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSGetListenerS
     (void)psecuritydescriptor;
     (void)nlength;
     (void)lpnlengthneeded;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -713,9 +898,16 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSIsChildSessi
         HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WTSIsChildSessionsEnabled")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pbenabled) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pbenabled);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pbenabled;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -733,11 +925,18 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSLogoffSessio
         HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WTSLogoffSession")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hserver, sessionid, bwait) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hserver, sessionid, bwait);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hserver;
     (void)sessionid;
     (void)bwait;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -753,10 +952,17 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSOpenServerA_
         HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WTSOpenServerA")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pservername) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pservername);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pservername;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -771,10 +977,17 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSOpenServerEx
         HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WTSOpenServerExA")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pservername) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pservername);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pservername;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -789,10 +1002,17 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSOpenServerEx
         HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WTSOpenServerExW")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pservername) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pservername);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pservername;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -807,10 +1027,17 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSOpenServerW_
         HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WTSOpenServerW")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pservername) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pservername);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pservername;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -829,13 +1056,20 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSQueryListene
         HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WTSQueryListenerConfigA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hserver, preserved, reserved, plistenername, pbuffer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hserver, preserved, reserved, plistenername, pbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hserver;
     (void)preserved;
     (void)reserved;
     (void)plistenername;
     (void)pbuffer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -855,13 +1089,20 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSQueryListene
         HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WTSQueryListenerConfigW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hserver, preserved, reserved, plistenername, pbuffer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hserver, preserved, reserved, plistenername, pbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hserver;
     (void)preserved;
     (void)reserved;
     (void)plistenername;
     (void)pbuffer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -881,13 +1122,20 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSQuerySession
         HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WTSQuerySessionInformationA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hserver, sessionid, wtsinfoclass, ppbuffer, pbytesreturned) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hserver, sessionid, wtsinfoclass, ppbuffer, pbytesreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hserver;
     (void)sessionid;
     (void)wtsinfoclass;
     (void)ppbuffer;
     (void)pbytesreturned;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -907,13 +1155,20 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSQuerySession
         HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WTSQuerySessionInformationW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hserver, sessionid, wtsinfoclass, ppbuffer, pbytesreturned) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hserver, sessionid, wtsinfoclass, ppbuffer, pbytesreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hserver;
     (void)sessionid;
     (void)wtsinfoclass;
     (void)ppbuffer;
     (void)pbytesreturned;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -933,13 +1188,20 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSQueryUserCon
         HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WTSQueryUserConfigA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pservername, pusername, wtsconfigclass, ppbuffer, pbytesreturned) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pservername, pusername, wtsconfigclass, ppbuffer, pbytesreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pservername;
     (void)pusername;
     (void)wtsconfigclass;
     (void)ppbuffer;
     (void)pbytesreturned;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -959,13 +1221,20 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSQueryUserCon
         HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WTSQueryUserConfigW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pservername, pusername, wtsconfigclass, ppbuffer, pbytesreturned) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pservername, pusername, wtsconfigclass, ppbuffer, pbytesreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pservername;
     (void)pusername;
     (void)wtsconfigclass;
     (void)ppbuffer;
     (void)pbytesreturned;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -982,10 +1251,17 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSQueryUserTok
         HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WTSQueryUserToken")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sessionid, phtoken) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sessionid, phtoken);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sessionid;
     (void)phtoken;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1002,10 +1278,17 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSRegisterSess
         HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WTSRegisterSessionNotification")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1023,11 +1306,18 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSRegisterSess
         HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WTSRegisterSessionNotificationEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hserver, hwnd, dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hserver, hwnd, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hserver;
     (void)hwnd;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1052,7 +1342,13 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSSendMessageA
         HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WTSSendMessageA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hserver, sessionid, ptitle, titlelength, pmessage, messagelength, style, timeout, presponse, bwait) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hserver, sessionid, ptitle, titlelength, pmessage, messagelength, style, timeout, presponse, bwait);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hserver;
     (void)sessionid;
@@ -1064,6 +1360,7 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSSendMessageA
     (void)timeout;
     (void)presponse;
     (void)bwait;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1088,7 +1385,13 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSSendMessageW
         HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WTSSendMessageW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hserver, sessionid, ptitle, titlelength, pmessage, messagelength, style, timeout, presponse, bwait) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hserver, sessionid, ptitle, titlelength, pmessage, messagelength, style, timeout, presponse, bwait);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hserver;
     (void)sessionid;
@@ -1100,6 +1403,7 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSSendMessageW
     (void)timeout;
     (void)presponse;
     (void)bwait;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1120,7 +1424,13 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSSetListenerS
         HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WTSSetListenerSecurityA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hserver, preserved, reserved, plistenername, securityinformation, psecuritydescriptor) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hserver, preserved, reserved, plistenername, securityinformation, psecuritydescriptor);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hserver;
     (void)preserved;
@@ -1128,6 +1438,7 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSSetListenerS
     (void)plistenername;
     (void)securityinformation;
     (void)psecuritydescriptor;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1148,7 +1459,13 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSSetListenerS
         HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WTSSetListenerSecurityW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hserver, preserved, reserved, plistenername, securityinformation, psecuritydescriptor) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hserver, preserved, reserved, plistenername, securityinformation, psecuritydescriptor);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hserver;
     (void)preserved;
@@ -1156,6 +1473,7 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSSetListenerS
     (void)plistenername;
     (void)securityinformation;
     (void)psecuritydescriptor;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1175,13 +1493,20 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSSetRenderHin
         HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WTSSetRenderHint")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(prenderhintid, hwndowner, renderhinttype, cbhintdatalength, phintdata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(prenderhintid, hwndowner, renderhinttype, cbhintdatalength, phintdata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)prenderhintid;
     (void)hwndowner;
     (void)renderhinttype;
     (void)cbhintdatalength;
     (void)phintdata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1201,13 +1526,20 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSSetUserConfi
         HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WTSSetUserConfigA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pservername, pusername, wtsconfigclass, pbuffer, datalength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pservername, pusername, wtsconfigclass, pbuffer, datalength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pservername;
     (void)pusername;
     (void)wtsconfigclass;
     (void)pbuffer;
     (void)datalength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1227,13 +1559,20 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSSetUserConfi
         HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WTSSetUserConfigW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pservername, pusername, wtsconfigclass, pbuffer, datalength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pservername, pusername, wtsconfigclass, pbuffer, datalength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pservername;
     (void)pusername;
     (void)wtsconfigclass;
     (void)pbuffer;
     (void)datalength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1250,10 +1589,17 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSShutdownSyst
         HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WTSShutdownSystem")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hserver, shutdownflag) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hserver, shutdownflag);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hserver;
     (void)shutdownflag;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1272,12 +1618,19 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSStartRemoteC
         HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WTSStartRemoteControlSessionA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ptargetservername, targetlogonid, hotkeyvk, hotkeymodifiers) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ptargetservername, targetlogonid, hotkeyvk, hotkeymodifiers);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ptargetservername;
     (void)targetlogonid;
     (void)hotkeyvk;
     (void)hotkeymodifiers;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1296,12 +1649,19 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSStartRemoteC
         HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WTSStartRemoteControlSessionW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ptargetservername, targetlogonid, hotkeyvk, hotkeymodifiers) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ptargetservername, targetlogonid, hotkeyvk, hotkeymodifiers);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ptargetservername;
     (void)targetlogonid;
     (void)hotkeyvk;
     (void)hotkeymodifiers;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1317,9 +1677,16 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSStopRemoteCo
         HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WTSStopRemoteControlSession")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(logonid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(logonid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)logonid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1337,11 +1704,18 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSTerminatePro
         HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WTSTerminateProcess")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hserver, processid, exitcode) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hserver, processid, exitcode);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hserver;
     (void)processid;
     (void)exitcode;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1357,9 +1731,16 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSUnRegisterSe
         HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WTSUnRegisterSessionNotification")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1376,10 +1757,17 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSUnRegisterSe
         HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WTSUnRegisterSessionNotificationEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hserver, hwnd) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hserver, hwnd);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hserver;
     (void)hwnd;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1395,9 +1783,16 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSVirtualChann
         HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WTSVirtualChannelClose")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hchannelhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hchannelhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hchannelhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1415,12 +1810,19 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSVirtualChann
         HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WTSVirtualChannelOpen")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hserver, sessionid, pvirtualname) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hserver, sessionid, pvirtualname);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hserver;
     (void)sessionid;
     (void)pvirtualname;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1437,12 +1839,19 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSVirtualChann
         HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WTSVirtualChannelOpenEx")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sessionid, pvirtualname, flags) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sessionid, pvirtualname, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)sessionid;
     (void)pvirtualname;
     (void)flags;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1457,9 +1866,16 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSVirtualChann
         HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WTSVirtualChannelPurgeInput")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hchannelhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hchannelhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hchannelhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1475,9 +1891,16 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSVirtualChann
         HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WTSVirtualChannelPurgeOutput")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hchannelhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hchannelhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hchannelhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1496,12 +1919,19 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSVirtualChann
         HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WTSVirtualChannelQuery")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hchannelhandle, param1, ppbuffer, pbytesreturned) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hchannelhandle, param1, ppbuffer, pbytesreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hchannelhandle;
     (void)param1;
     (void)ppbuffer;
     (void)pbytesreturned;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1521,13 +1951,20 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSVirtualChann
         HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WTSVirtualChannelRead")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hchannelhandle, timeout, buffer, buffersize, pbytesread) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hchannelhandle, timeout, buffer, buffersize, pbytesread);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hchannelhandle;
     (void)timeout;
     (void)buffer;
     (void)buffersize;
     (void)pbytesread;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1546,12 +1983,19 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSVirtualChann
         HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WTSVirtualChannelWrite")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hchannelhandle, buffer, length, pbyteswritten) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hchannelhandle, buffer, length, pbyteswritten);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hchannelhandle;
     (void)buffer;
     (void)length;
     (void)pbyteswritten;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1569,11 +2013,18 @@ static Napi::Value windowssys_windows_win32_system_remotedesktop_wTSWaitSystemEv
         HMODULE km_h_mod = LoadLibraryA("wtsapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WTSWaitSystemEvent")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hserver, eventmask, peventflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hserver, eventmask, peventflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hserver;
     (void)eventmask;
     (void)peventflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

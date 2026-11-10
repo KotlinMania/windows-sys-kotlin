@@ -62,10 +62,17 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ActivateActCtx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hactctx, lpcookie) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hactctx, lpcookie);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hactctx;
     (void)lpcookie;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -81,9 +88,14 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AddRefActCtx")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(hactctx);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(hactctx);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)hactctx;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -101,12 +113,19 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msdelta.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ApplyDeltaA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(applyflags, lpsourcename, lpdeltaname, lptargetname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(applyflags, lpsourcename, lpdeltaname, lptargetname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)applyflags;
     (void)lpsourcename;
     (void)lpdeltaname;
     (void)lptargetname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -125,12 +144,19 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msdelta.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ApplyDeltaW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(applyflags, lpsourcename, lpdeltaname, lptargetname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(applyflags, lpsourcename, lpdeltaname, lptargetname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)applyflags;
     (void)lpsourcename;
     (void)lpdeltaname;
     (void)lptargetname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -149,12 +175,19 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("mspatcha.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ApplyPatchToFileA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(patchfilename, oldfilename, newfilename, applyoptionflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(patchfilename, oldfilename, newfilename, applyoptionflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)patchfilename;
     (void)oldfilename;
     (void)newfilename;
     (void)applyoptionflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -180,7 +213,13 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("mspatcha.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ApplyPatchToFileByBuffers")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(patchfilemapped, patchfilesize, oldfilemapped, oldfilesize, newfilebuffer, newfilebuffersize, newfileactualsize, newfiletime, applyoptionflags, progresscallback, callbackcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(patchfilemapped, patchfilesize, oldfilemapped, oldfilesize, newfilebuffer, newfilebuffersize, newfileactualsize, newfiletime, applyoptionflags, progresscallback, callbackcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)patchfilemapped;
     (void)patchfilesize;
@@ -193,6 +232,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     (void)applyoptionflags;
     (void)progresscallback;
     (void)callbackcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -211,12 +251,19 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("mspatcha.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ApplyPatchToFileByHandles")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(patchfilehandle, oldfilehandle, newfilehandle, applyoptionflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(patchfilehandle, oldfilehandle, newfilehandle, applyoptionflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)patchfilehandle;
     (void)oldfilehandle;
     (void)newfilehandle;
     (void)applyoptionflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -237,7 +284,13 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("mspatcha.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ApplyPatchToFileByHandlesEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(patchfilehandle, oldfilehandle, newfilehandle, applyoptionflags, progresscallback, callbackcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(patchfilehandle, oldfilehandle, newfilehandle, applyoptionflags, progresscallback, callbackcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)patchfilehandle;
     (void)oldfilehandle;
@@ -245,6 +298,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     (void)applyoptionflags;
     (void)progresscallback;
     (void)callbackcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -265,7 +319,13 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("mspatcha.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ApplyPatchToFileExA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(patchfilename, oldfilename, newfilename, applyoptionflags, progresscallback, callbackcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(patchfilename, oldfilename, newfilename, applyoptionflags, progresscallback, callbackcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)patchfilename;
     (void)oldfilename;
@@ -273,6 +333,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     (void)applyoptionflags;
     (void)progresscallback;
     (void)callbackcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -293,7 +354,13 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("mspatcha.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ApplyPatchToFileExW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(patchfilename, oldfilename, newfilename, applyoptionflags, progresscallback, callbackcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(patchfilename, oldfilename, newfilename, applyoptionflags, progresscallback, callbackcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)patchfilename;
     (void)oldfilename;
@@ -301,6 +368,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     (void)applyoptionflags;
     (void)progresscallback;
     (void)callbackcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -319,12 +387,19 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("mspatcha.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ApplyPatchToFileW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(patchfilename, oldfilename, newfilename, applyoptionflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(patchfilename, oldfilename, newfilename, applyoptionflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)patchfilename;
     (void)oldfilename;
     (void)newfilename;
     (void)applyoptionflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -340,10 +415,17 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateActCtxA")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pactctx) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pactctx);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pactctx;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -358,10 +440,17 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateActCtxW")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pactctx) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pactctx);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pactctx;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -380,13 +469,20 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("mspatchc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreatePatchFileA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(oldfilename, newfilename, patchfilename, optionflags, optiondata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(oldfilename, newfilename, patchfilename, optionflags, optiondata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)oldfilename;
     (void)newfilename;
     (void)patchfilename;
     (void)optionflags;
     (void)optiondata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -406,13 +502,20 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("mspatchc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreatePatchFileByHandles")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(oldfilehandle, newfilehandle, patchfilehandle, optionflags, optiondata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(oldfilehandle, newfilehandle, patchfilehandle, optionflags, optiondata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)oldfilehandle;
     (void)newfilehandle;
     (void)patchfilehandle;
     (void)optionflags;
     (void)optiondata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -435,7 +538,13 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("mspatchc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreatePatchFileByHandlesEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(oldfilecount, oldfileinfoarray, newfilehandle, patchfilehandle, optionflags, optiondata, progresscallback, callbackcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(oldfilecount, oldfileinfoarray, newfilehandle, patchfilehandle, optionflags, optiondata, progresscallback, callbackcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)oldfilecount;
     (void)oldfileinfoarray;
@@ -445,6 +554,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     (void)optiondata;
     (void)progresscallback;
     (void)callbackcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -467,7 +577,13 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("mspatchc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreatePatchFileExA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(oldfilecount, oldfileinfoarray, newfilename, patchfilename, optionflags, optiondata, progresscallback, callbackcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(oldfilecount, oldfileinfoarray, newfilename, patchfilename, optionflags, optiondata, progresscallback, callbackcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)oldfilecount;
     (void)oldfileinfoarray;
@@ -477,6 +593,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     (void)optiondata;
     (void)progresscallback;
     (void)callbackcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -499,7 +616,13 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("mspatchc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreatePatchFileExW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(oldfilecount, oldfileinfoarray, newfilename, patchfilename, optionflags, optiondata, progresscallback, callbackcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(oldfilecount, oldfileinfoarray, newfilename, patchfilename, optionflags, optiondata, progresscallback, callbackcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)oldfilecount;
     (void)oldfileinfoarray;
@@ -509,6 +632,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     (void)optiondata;
     (void)progresscallback;
     (void)callbackcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -528,13 +652,20 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("mspatchc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreatePatchFileW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(oldfilename, newfilename, patchfilename, optionflags, optiondata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(oldfilename, newfilename, patchfilename, optionflags, optiondata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)oldfilename;
     (void)newfilename;
     (void)patchfilename;
     (void)optionflags;
     (void)optiondata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -551,10 +682,17 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DeactivateActCtx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwflags, ulcookie) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwflags, ulcookie);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwflags;
     (void)ulcookie;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -570,9 +708,16 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msdelta.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DeltaFree")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpmemory) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpmemory);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpmemory;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -589,10 +734,17 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("mspatchc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ExtractPatchHeaderToFileA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(patchfilename, patchheaderfilename) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(patchfilename, patchheaderfilename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)patchfilename;
     (void)patchheaderfilename;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -609,10 +761,17 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("mspatchc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ExtractPatchHeaderToFileByHandles")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(patchfilehandle, patchheaderfilehandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(patchfilehandle, patchheaderfilehandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)patchfilehandle;
     (void)patchheaderfilehandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -629,10 +788,17 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("mspatchc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ExtractPatchHeaderToFileW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(patchfilename, patchheaderfilename) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(patchfilename, patchheaderfilename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)patchfilename;
     (void)patchheaderfilename;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -652,13 +818,20 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FindActCtxSectionGuid")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwflags, lpextensionguid, ulsectionid, lpguidtofind, returneddata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwflags, lpextensionguid, ulsectionid, lpguidtofind, returneddata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwflags;
     (void)lpextensionguid;
     (void)ulsectionid;
     (void)lpguidtofind;
     (void)returneddata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -678,13 +851,20 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FindActCtxSectionStringA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwflags, lpextensionguid, ulsectionid, lpstringtofind, returneddata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwflags, lpextensionguid, ulsectionid, lpstringtofind, returneddata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwflags;
     (void)lpextensionguid;
     (void)ulsectionid;
     (void)lpstringtofind;
     (void)returneddata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -704,13 +884,20 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FindActCtxSectionStringW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwflags, lpextensionguid, ulsectionid, lpstringtofind, returneddata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwflags, lpextensionguid, ulsectionid, lpstringtofind, returneddata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwflags;
     (void)lpextensionguid;
     (void)ulsectionid;
     (void)lpstringtofind;
     (void)returneddata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -726,9 +913,16 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetCurrentActCtx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lphactctx) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lphactctx);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lphactctx;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -745,10 +939,17 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msdelta.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetDeltaInfoA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpdeltaname, lpheaderinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpdeltaname, lpheaderinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpdeltaname;
     (void)lpheaderinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -765,10 +966,17 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msdelta.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetDeltaInfoW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpdeltaname, lpheaderinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpdeltaname, lpheaderinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpdeltaname;
     (void)lpheaderinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -787,12 +995,19 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msdelta.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetDeltaSignatureA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(filetypeset, hashalgid, lpsourcename, lphash) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(filetypeset, hashalgid, lpsourcename, lphash);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)filetypeset;
     (void)hashalgid;
     (void)lpsourcename;
     (void)lphash;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -811,12 +1026,19 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msdelta.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetDeltaSignatureW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(filetypeset, hashalgid, lpsourcename, lphash) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(filetypeset, hashalgid, lpsourcename, lphash);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)filetypeset;
     (void)hashalgid;
     (void)lpsourcename;
     (void)lphash;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -840,7 +1062,13 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("mspatcha.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetFilePatchSignatureA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(filename, optionflags, optiondata, ignorerangecount, ignorerangearray, retainrangecount, retainrangearray, signaturebuffersize, signaturebuffer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(filename, optionflags, optiondata, ignorerangecount, ignorerangearray, retainrangecount, retainrangearray, signaturebuffersize, signaturebuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)filename;
     (void)optionflags;
@@ -851,6 +1079,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     (void)retainrangearray;
     (void)signaturebuffersize;
     (void)signaturebuffer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -875,7 +1104,13 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("mspatcha.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetFilePatchSignatureByBuffer")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(filebufferwritable, filesize, optionflags, optiondata, ignorerangecount, ignorerangearray, retainrangecount, retainrangearray, signaturebuffersize, signaturebuffer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(filebufferwritable, filesize, optionflags, optiondata, ignorerangecount, ignorerangearray, retainrangecount, retainrangearray, signaturebuffersize, signaturebuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)filebufferwritable;
     (void)filesize;
@@ -887,6 +1122,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     (void)retainrangearray;
     (void)signaturebuffersize;
     (void)signaturebuffer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -910,7 +1146,13 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("mspatcha.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetFilePatchSignatureByHandle")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(filehandle, optionflags, optiondata, ignorerangecount, ignorerangearray, retainrangecount, retainrangearray, signaturebuffersize, signaturebuffer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(filehandle, optionflags, optiondata, ignorerangecount, ignorerangearray, retainrangecount, retainrangearray, signaturebuffersize, signaturebuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)filehandle;
     (void)optionflags;
@@ -921,6 +1163,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     (void)retainrangearray;
     (void)signaturebuffersize;
     (void)signaturebuffer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -944,7 +1187,13 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("mspatcha.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetFilePatchSignatureW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(filename, optionflags, optiondata, ignorerangecount, ignorerangearray, retainrangecount, retainrangearray, signaturebuffersize, signaturebuffer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(filename, optionflags, optiondata, ignorerangecount, ignorerangearray, retainrangecount, retainrangearray, signaturebuffersize, signaturebuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)filename;
     (void)optionflags;
@@ -955,6 +1204,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     (void)retainrangearray;
     (void)signaturebuffersize;
     (void)signaturebuffer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -973,12 +1223,19 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiAdvertiseProductA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szpackagepath, szscriptfilepath, sztransforms, lgidlanguage) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szpackagepath, szscriptfilepath, sztransforms, lgidlanguage);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szpackagepath;
     (void)szscriptfilepath;
     (void)sztransforms;
     (void)lgidlanguage;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -999,7 +1256,13 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiAdvertiseProductExA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szpackagepath, szscriptfilepath, sztransforms, lgidlanguage, dwplatform, dwoptions) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szpackagepath, szscriptfilepath, sztransforms, lgidlanguage, dwplatform, dwoptions);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szpackagepath;
     (void)szscriptfilepath;
@@ -1007,6 +1270,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     (void)lgidlanguage;
     (void)dwplatform;
     (void)dwoptions;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1027,7 +1291,13 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiAdvertiseProductExW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szpackagepath, szscriptfilepath, sztransforms, lgidlanguage, dwplatform, dwoptions) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szpackagepath, szscriptfilepath, sztransforms, lgidlanguage, dwplatform, dwoptions);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szpackagepath;
     (void)szscriptfilepath;
@@ -1035,6 +1305,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     (void)lgidlanguage;
     (void)dwplatform;
     (void)dwoptions;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1053,12 +1324,19 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiAdvertiseProductW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szpackagepath, szscriptfilepath, sztransforms, lgidlanguage) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szpackagepath, szscriptfilepath, sztransforms, lgidlanguage);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szpackagepath;
     (void)szscriptfilepath;
     (void)sztransforms;
     (void)lgidlanguage;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1077,12 +1355,19 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiAdvertiseScriptA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szscriptfile, dwflags, phregdata, fremoveitems) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szscriptfile, dwflags, phregdata, fremoveitems);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szscriptfile;
     (void)dwflags;
     (void)phregdata;
     (void)fremoveitems;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1101,12 +1386,19 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiAdvertiseScriptW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szscriptfile, dwflags, phregdata, fremoveitems) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szscriptfile, dwflags, phregdata, fremoveitems);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szscriptfile;
     (void)dwflags;
     (void)phregdata;
     (void)fremoveitems;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1124,11 +1416,18 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiApplyMultiplePatchesA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szpatchpackages, szproductcode, szpropertieslist) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szpatchpackages, szproductcode, szpropertieslist);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szpatchpackages;
     (void)szproductcode;
     (void)szpropertieslist;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1146,11 +1445,18 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiApplyMultiplePatchesW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szpatchpackages, szproductcode, szpropertieslist) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szpatchpackages, szproductcode, szpropertieslist);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szpatchpackages;
     (void)szproductcode;
     (void)szpropertieslist;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1169,12 +1475,19 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiApplyPatchA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szpatchpackage, szinstallpackage, einstalltype, szcommandline) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szpatchpackage, szinstallpackage, einstalltype, szcommandline);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szpatchpackage;
     (void)szinstallpackage;
     (void)einstalltype;
     (void)szcommandline;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1193,12 +1506,19 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiApplyPatchW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szpatchpackage, szinstallpackage, einstalltype, szcommandline) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szpatchpackage, szinstallpackage, einstalltype, szcommandline);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szpatchpackage;
     (void)szinstallpackage;
     (void)einstalltype;
     (void)szcommandline;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1217,12 +1537,19 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiBeginTransactionA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szname, dwtransactionattributes, phtransactionhandle, phchangeofownerevent) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szname, dwtransactionattributes, phtransactionhandle, phchangeofownerevent);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szname;
     (void)dwtransactionattributes;
     (void)phtransactionhandle;
     (void)phchangeofownerevent;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1241,12 +1568,19 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiBeginTransactionW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szname, dwtransactionattributes, phtransactionhandle, phchangeofownerevent) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szname, dwtransactionattributes, phtransactionhandle, phchangeofownerevent);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szname;
     (void)dwtransactionattributes;
     (void)phtransactionhandle;
     (void)phchangeofownerevent;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1261,8 +1595,15 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiCloseAllHandles")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1278,9 +1619,16 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiCloseHandle")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hany) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hany);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hany;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1296,9 +1644,16 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiCollectUserInfoA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szproduct) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szproduct);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szproduct;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1314,9 +1669,16 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiCollectUserInfoW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szproduct) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szproduct);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szproduct;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1334,11 +1696,18 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiConfigureFeatureA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szproduct, szfeature, einstallstate) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szproduct, szfeature, einstallstate);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szproduct;
     (void)szfeature;
     (void)einstallstate;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1356,11 +1725,18 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiConfigureFeatureW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szproduct, szfeature, einstallstate) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szproduct, szfeature, einstallstate);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szproduct;
     (void)szfeature;
     (void)einstallstate;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1378,11 +1754,18 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiConfigureProductA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szproduct, iinstalllevel, einstallstate) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szproduct, iinstalllevel, einstallstate);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szproduct;
     (void)iinstalllevel;
     (void)einstallstate;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1401,12 +1784,19 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiConfigureProductExA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szproduct, iinstalllevel, einstallstate, szcommandline) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szproduct, iinstalllevel, einstallstate, szcommandline);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szproduct;
     (void)iinstalllevel;
     (void)einstallstate;
     (void)szcommandline;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1425,12 +1815,19 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiConfigureProductExW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szproduct, iinstalllevel, einstallstate, szcommandline) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szproduct, iinstalllevel, einstallstate, szcommandline);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szproduct;
     (void)iinstalllevel;
     (void)einstallstate;
     (void)szcommandline;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1448,11 +1845,18 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiConfigureProductW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szproduct, iinstalllevel, einstallstate) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szproduct, iinstalllevel, einstallstate);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szproduct;
     (void)iinstalllevel;
     (void)einstallstate;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1468,9 +1872,16 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiCreateRecord")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(cparams) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(cparams);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)cparams;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1490,13 +1901,20 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiCreateTransformSummaryInfoA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdatabase, hdatabasereference, sztransformfile, ierrorconditions, ivalidation) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdatabase, hdatabasereference, sztransformfile, ierrorconditions, ivalidation);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hdatabase;
     (void)hdatabasereference;
     (void)sztransformfile;
     (void)ierrorconditions;
     (void)ivalidation;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1516,13 +1934,20 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiCreateTransformSummaryInfoW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdatabase, hdatabasereference, sztransformfile, ierrorconditions, ivalidation) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdatabase, hdatabasereference, sztransformfile, ierrorconditions, ivalidation);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hdatabase;
     (void)hdatabasereference;
     (void)sztransformfile;
     (void)ierrorconditions;
     (void)ivalidation;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1540,11 +1965,18 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiDatabaseApplyTransformA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdatabase, sztransformfile, ierrorconditions) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdatabase, sztransformfile, ierrorconditions);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hdatabase;
     (void)sztransformfile;
     (void)ierrorconditions;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1562,11 +1994,18 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiDatabaseApplyTransformW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdatabase, sztransformfile, ierrorconditions) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdatabase, sztransformfile, ierrorconditions);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hdatabase;
     (void)sztransformfile;
     (void)ierrorconditions;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1582,9 +2021,16 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiDatabaseCommit")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdatabase) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdatabase);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hdatabase;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1603,12 +2049,19 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiDatabaseExportA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdatabase, sztablename, szfolderpath, szfilename) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdatabase, sztablename, szfolderpath, szfilename);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hdatabase;
     (void)sztablename;
     (void)szfolderpath;
     (void)szfilename;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1627,12 +2080,19 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiDatabaseExportW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdatabase, sztablename, szfolderpath, szfilename) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdatabase, sztablename, szfolderpath, szfilename);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hdatabase;
     (void)sztablename;
     (void)szfolderpath;
     (void)szfilename;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1652,13 +2112,20 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiDatabaseGenerateTransformA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdatabase, hdatabasereference, sztransformfile, ireserved1, ireserved2) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdatabase, hdatabasereference, sztransformfile, ireserved1, ireserved2);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hdatabase;
     (void)hdatabasereference;
     (void)sztransformfile;
     (void)ireserved1;
     (void)ireserved2;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1678,13 +2145,20 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiDatabaseGenerateTransformW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdatabase, hdatabasereference, sztransformfile, ireserved1, ireserved2) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdatabase, hdatabasereference, sztransformfile, ireserved1, ireserved2);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hdatabase;
     (void)hdatabasereference;
     (void)sztransformfile;
     (void)ireserved1;
     (void)ireserved2;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1702,11 +2176,18 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiDatabaseGetPrimaryKeysA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdatabase, sztablename, phrecord) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdatabase, sztablename, phrecord);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hdatabase;
     (void)sztablename;
     (void)phrecord;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1724,11 +2205,18 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiDatabaseGetPrimaryKeysW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdatabase, sztablename, phrecord) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdatabase, sztablename, phrecord);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hdatabase;
     (void)sztablename;
     (void)phrecord;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1746,11 +2234,18 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiDatabaseImportA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdatabase, szfolderpath, szfilename) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdatabase, szfolderpath, szfilename);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hdatabase;
     (void)szfolderpath;
     (void)szfilename;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1768,11 +2263,18 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiDatabaseImportW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdatabase, szfolderpath, szfilename) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdatabase, szfolderpath, szfilename);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hdatabase;
     (void)szfolderpath;
     (void)szfilename;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1789,10 +2291,17 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiDatabaseIsTablePersistentA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdatabase, sztablename) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdatabase, sztablename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdatabase;
     (void)sztablename;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1809,10 +2318,17 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiDatabaseIsTablePersistentW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdatabase, sztablename) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdatabase, sztablename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdatabase;
     (void)sztablename;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1830,11 +2346,18 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiDatabaseMergeA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdatabase, hdatabasemerge, sztablename) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdatabase, hdatabasemerge, sztablename);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hdatabase;
     (void)hdatabasemerge;
     (void)sztablename;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1852,11 +2375,18 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiDatabaseMergeW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdatabase, hdatabasemerge, sztablename) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdatabase, hdatabasemerge, sztablename);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hdatabase;
     (void)hdatabasemerge;
     (void)sztablename;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1874,11 +2404,18 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiDatabaseOpenViewA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdatabase, szquery, phview) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdatabase, szquery, phview);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hdatabase;
     (void)szquery;
     (void)phview;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1896,11 +2433,18 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiDatabaseOpenViewW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdatabase, szquery, phview) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdatabase, szquery, phview);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hdatabase;
     (void)szquery;
     (void)phview;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1918,11 +2462,18 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiDetermineApplicablePatchesA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szproductpackagepath, cpatchinfo, ppatchinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szproductpackagepath, cpatchinfo, ppatchinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szproductpackagepath;
     (void)cpatchinfo;
     (void)ppatchinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1940,11 +2491,18 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiDetermineApplicablePatchesW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szproductpackagepath, cpatchinfo, ppatchinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szproductpackagepath, cpatchinfo, ppatchinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szproductpackagepath;
     (void)cpatchinfo;
     (void)ppatchinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1964,13 +2522,20 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiDeterminePatchSequenceA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szproductcode, szusersid, dwcontext, cpatchinfo, ppatchinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szproductcode, szusersid, dwcontext, cpatchinfo, ppatchinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szproductcode;
     (void)szusersid;
     (void)dwcontext;
     (void)cpatchinfo;
     (void)ppatchinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1990,13 +2555,20 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiDeterminePatchSequenceW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szproductcode, szusersid, dwcontext, cpatchinfo, ppatchinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szproductcode, szusersid, dwcontext, cpatchinfo, ppatchinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szproductcode;
     (void)szusersid;
     (void)dwcontext;
     (void)cpatchinfo;
     (void)ppatchinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2013,10 +2585,17 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiDoActionA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hinstall, szaction) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hinstall, szaction);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hinstall;
     (void)szaction;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2033,10 +2612,17 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiDoActionW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hinstall, szaction) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hinstall, szaction);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hinstall;
     (void)szaction;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2054,11 +2640,18 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiEnableLogA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwlogmode, szlogfile, dwlogattributes) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwlogmode, szlogfile, dwlogattributes);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dwlogmode;
     (void)szlogfile;
     (void)dwlogattributes;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2076,11 +2669,18 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiEnableLogW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwlogmode, szlogfile, dwlogattributes) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwlogmode, szlogfile, dwlogattributes);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dwlogmode;
     (void)szlogfile;
     (void)dwlogattributes;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2097,10 +2697,17 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiEnableUIPreview")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdatabase, phpreview) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdatabase, phpreview);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hdatabase;
     (void)phpreview;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2116,9 +2723,16 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiEndTransaction")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwtransactionstate) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwtransactionstate);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dwtransactionstate;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2136,11 +2750,18 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiEnumClientsA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szcomponent, iproductindex, lpproductbuf) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szcomponent, iproductindex, lpproductbuf);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szcomponent;
     (void)iproductindex;
     (void)lpproductbuf;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2163,7 +2784,13 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiEnumClientsExA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szcomponent, szusersid, dwcontext, dwproductindex, szproductbuf, pdwinstalledcontext, szsid, pcchsid) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szcomponent, szusersid, dwcontext, dwproductindex, szproductbuf, pdwinstalledcontext, szsid, pcchsid);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szcomponent;
     (void)szusersid;
@@ -2173,6 +2800,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     (void)pdwinstalledcontext;
     (void)szsid;
     (void)pcchsid;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2195,7 +2823,13 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiEnumClientsExW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szcomponent, szusersid, dwcontext, dwproductindex, szproductbuf, pdwinstalledcontext, szsid, pcchsid) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szcomponent, szusersid, dwcontext, dwproductindex, szproductbuf, pdwinstalledcontext, szsid, pcchsid);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szcomponent;
     (void)szusersid;
@@ -2205,6 +2839,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     (void)pdwinstalledcontext;
     (void)szsid;
     (void)pcchsid;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2222,11 +2857,18 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiEnumClientsW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szcomponent, iproductindex, lpproductbuf) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szcomponent, iproductindex, lpproductbuf);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szcomponent;
     (void)iproductindex;
     (void)lpproductbuf;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2249,7 +2891,13 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiEnumComponentCostsA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hinstall, szcomponent, dwindex, istate, szdrivebuf, pcchdrivebuf, picost, pitempcost) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hinstall, szcomponent, dwindex, istate, szdrivebuf, pcchdrivebuf, picost, pitempcost);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hinstall;
     (void)szcomponent;
@@ -2259,6 +2907,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     (void)pcchdrivebuf;
     (void)picost;
     (void)pitempcost;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2281,7 +2930,13 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiEnumComponentCostsW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hinstall, szcomponent, dwindex, istate, szdrivebuf, pcchdrivebuf, picost, pitempcost) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hinstall, szcomponent, dwindex, istate, szdrivebuf, pcchdrivebuf, picost, pitempcost);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hinstall;
     (void)szcomponent;
@@ -2291,6 +2946,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     (void)pcchdrivebuf;
     (void)picost;
     (void)pitempcost;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2311,7 +2967,13 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiEnumComponentQualifiersA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szcomponent, iindex, lpqualifierbuf, pcchqualifierbuf, lpapplicationdatabuf, pcchapplicationdatabuf) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szcomponent, iindex, lpqualifierbuf, pcchqualifierbuf, lpapplicationdatabuf, pcchapplicationdatabuf);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szcomponent;
     (void)iindex;
@@ -2319,6 +2981,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     (void)pcchqualifierbuf;
     (void)lpapplicationdatabuf;
     (void)pcchapplicationdatabuf;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2339,7 +3002,13 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiEnumComponentQualifiersW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szcomponent, iindex, lpqualifierbuf, pcchqualifierbuf, lpapplicationdatabuf, pcchapplicationdatabuf) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szcomponent, iindex, lpqualifierbuf, pcchqualifierbuf, lpapplicationdatabuf, pcchapplicationdatabuf);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szcomponent;
     (void)iindex;
@@ -2347,6 +3016,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     (void)pcchqualifierbuf;
     (void)lpapplicationdatabuf;
     (void)pcchapplicationdatabuf;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2363,10 +3033,17 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiEnumComponentsA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(icomponentindex, lpcomponentbuf) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(icomponentindex, lpcomponentbuf);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)icomponentindex;
     (void)lpcomponentbuf;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2388,7 +3065,13 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiEnumComponentsExA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szusersid, dwcontext, dwindex, szinstalledcomponentcode, pdwinstalledcontext, szsid, pcchsid) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szusersid, dwcontext, dwindex, szinstalledcomponentcode, pdwinstalledcontext, szsid, pcchsid);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szusersid;
     (void)dwcontext;
@@ -2397,6 +3080,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     (void)pdwinstalledcontext;
     (void)szsid;
     (void)pcchsid;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2418,7 +3102,13 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiEnumComponentsExW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szusersid, dwcontext, dwindex, szinstalledcomponentcode, pdwinstalledcontext, szsid, pcchsid) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szusersid, dwcontext, dwindex, szinstalledcomponentcode, pdwinstalledcontext, szsid, pcchsid);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szusersid;
     (void)dwcontext;
@@ -2427,6 +3117,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     (void)pdwinstalledcontext;
     (void)szsid;
     (void)pcchsid;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2443,10 +3134,17 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiEnumComponentsW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(icomponentindex, lpcomponentbuf) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(icomponentindex, lpcomponentbuf);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)icomponentindex;
     (void)lpcomponentbuf;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2465,12 +3163,19 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiEnumFeaturesA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szproduct, ifeatureindex, lpfeaturebuf, lpparentbuf) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szproduct, ifeatureindex, lpfeaturebuf, lpparentbuf);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szproduct;
     (void)ifeatureindex;
     (void)lpfeaturebuf;
     (void)lpparentbuf;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2489,12 +3194,19 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiEnumFeaturesW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szproduct, ifeatureindex, lpfeaturebuf, lpparentbuf) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szproduct, ifeatureindex, lpfeaturebuf, lpparentbuf);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szproduct;
     (void)ifeatureindex;
     (void)lpfeaturebuf;
     (void)lpparentbuf;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2514,13 +3226,20 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiEnumPatchesA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szproduct, ipatchindex, lppatchbuf, lptransformsbuf, pcchtransformsbuf) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szproduct, ipatchindex, lppatchbuf, lptransformsbuf, pcchtransformsbuf);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szproduct;
     (void)ipatchindex;
     (void)lppatchbuf;
     (void)lptransformsbuf;
     (void)pcchtransformsbuf;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2545,7 +3264,13 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiEnumPatchesExA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szproductcode, szusersid, dwcontext, dwfilter, dwindex, szpatchcode, sztargetproductcode, pdwtargetproductcontext, sztargetusersid, pcchtargetusersid) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szproductcode, szusersid, dwcontext, dwfilter, dwindex, szpatchcode, sztargetproductcode, pdwtargetproductcontext, sztargetusersid, pcchtargetusersid);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szproductcode;
     (void)szusersid;
@@ -2557,6 +3282,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     (void)pdwtargetproductcontext;
     (void)sztargetusersid;
     (void)pcchtargetusersid;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2581,7 +3307,13 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiEnumPatchesExW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szproductcode, szusersid, dwcontext, dwfilter, dwindex, szpatchcode, sztargetproductcode, pdwtargetproductcontext, sztargetusersid, pcchtargetusersid) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szproductcode, szusersid, dwcontext, dwfilter, dwindex, szpatchcode, sztargetproductcode, pdwtargetproductcontext, sztargetusersid, pcchtargetusersid);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szproductcode;
     (void)szusersid;
@@ -2593,6 +3325,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     (void)pdwtargetproductcontext;
     (void)sztargetusersid;
     (void)pcchtargetusersid;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2612,13 +3345,20 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiEnumPatchesW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szproduct, ipatchindex, lppatchbuf, lptransformsbuf, pcchtransformsbuf) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szproduct, ipatchindex, lppatchbuf, lptransformsbuf, pcchtransformsbuf);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szproduct;
     (void)ipatchindex;
     (void)lppatchbuf;
     (void)lptransformsbuf;
     (void)pcchtransformsbuf;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2635,10 +3375,17 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiEnumProductsA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(iproductindex, lpproductbuf) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(iproductindex, lpproductbuf);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)iproductindex;
     (void)lpproductbuf;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2661,7 +3408,13 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiEnumProductsExA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szproductcode, szusersid, dwcontext, dwindex, szinstalledproductcode, pdwinstalledcontext, szsid, pcchsid) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szproductcode, szusersid, dwcontext, dwindex, szinstalledproductcode, pdwinstalledcontext, szsid, pcchsid);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szproductcode;
     (void)szusersid;
@@ -2671,6 +3424,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     (void)pdwinstalledcontext;
     (void)szsid;
     (void)pcchsid;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2693,7 +3447,13 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiEnumProductsExW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szproductcode, szusersid, dwcontext, dwindex, szinstalledproductcode, pdwinstalledcontext, szsid, pcchsid) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szproductcode, szusersid, dwcontext, dwindex, szinstalledproductcode, pdwinstalledcontext, szsid, pcchsid);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szproductcode;
     (void)szusersid;
@@ -2703,6 +3463,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     (void)pdwinstalledcontext;
     (void)szsid;
     (void)pcchsid;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2719,10 +3480,17 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiEnumProductsW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(iproductindex, lpproductbuf) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(iproductindex, lpproductbuf);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)iproductindex;
     (void)lpproductbuf;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2741,12 +3509,19 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiEnumRelatedProductsA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpupgradecode, dwreserved, iproductindex, lpproductbuf) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpupgradecode, dwreserved, iproductindex, lpproductbuf);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpupgradecode;
     (void)dwreserved;
     (void)iproductindex;
     (void)lpproductbuf;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2765,12 +3540,19 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiEnumRelatedProductsW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpupgradecode, dwreserved, iproductindex, lpproductbuf) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpupgradecode, dwreserved, iproductindex, lpproductbuf);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpupgradecode;
     (void)dwreserved;
     (void)iproductindex;
     (void)lpproductbuf;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2787,10 +3569,17 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiEvaluateConditionA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hinstall, szcondition) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hinstall, szcondition);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hinstall;
     (void)szcondition;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2807,10 +3596,17 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiEvaluateConditionW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hinstall, szcondition) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hinstall, szcondition);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hinstall;
     (void)szcondition;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2829,12 +3625,19 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiExtractPatchXMLDataA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szpatchpath, dwreserved, szxmldata, pcchxmldata) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szpatchpath, dwreserved, szxmldata, pcchxmldata);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szpatchpath;
     (void)dwreserved;
     (void)szxmldata;
     (void)pcchxmldata;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2853,12 +3656,19 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiExtractPatchXMLDataW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szpatchpath, dwreserved, szxmldata, pcchxmldata) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szpatchpath, dwreserved, szxmldata, pcchxmldata);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szpatchpath;
     (void)dwreserved;
     (void)szxmldata;
     (void)pcchxmldata;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2877,12 +3687,19 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiFormatRecordA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hinstall, hrecord, szresultbuf, pcchresultbuf) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hinstall, hrecord, szresultbuf, pcchresultbuf);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hinstall;
     (void)hrecord;
     (void)szresultbuf;
     (void)pcchresultbuf;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2901,12 +3718,19 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiFormatRecordW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hinstall, hrecord, szresultbuf, pcchresultbuf) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hinstall, hrecord, szresultbuf, pcchresultbuf);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hinstall;
     (void)hrecord;
     (void)szresultbuf;
     (void)pcchresultbuf;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2922,9 +3746,16 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiGetActiveDatabase")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hinstall) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hinstall);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hinstall;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2943,12 +3774,19 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiGetComponentPathA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szproduct, szcomponent, lppathbuf, pcchbuf) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szproduct, szcomponent, lppathbuf, pcchbuf);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)szproduct;
     (void)szcomponent;
     (void)lppathbuf;
     (void)pcchbuf;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2969,7 +3807,13 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiGetComponentPathExA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szproductcode, szcomponentcode, szusersid, dwcontext, lpoutpathbuffer, pcchoutpathbuffer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szproductcode, szcomponentcode, szusersid, dwcontext, lpoutpathbuffer, pcchoutpathbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)szproductcode;
     (void)szcomponentcode;
@@ -2977,6 +3821,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     (void)dwcontext;
     (void)lpoutpathbuffer;
     (void)pcchoutpathbuffer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2997,7 +3842,13 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiGetComponentPathExW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szproductcode, szcomponentcode, szusersid, dwcontext, lpoutpathbuffer, pcchoutpathbuffer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szproductcode, szcomponentcode, szusersid, dwcontext, lpoutpathbuffer, pcchoutpathbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)szproductcode;
     (void)szcomponentcode;
@@ -3005,6 +3856,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     (void)dwcontext;
     (void)lpoutpathbuffer;
     (void)pcchoutpathbuffer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3023,12 +3875,19 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiGetComponentPathW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szproduct, szcomponent, lppathbuf, pcchbuf) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szproduct, szcomponent, lppathbuf, pcchbuf);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)szproduct;
     (void)szcomponent;
     (void)lppathbuf;
     (void)pcchbuf;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3047,12 +3906,19 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiGetComponentStateA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hinstall, szcomponent, piinstalled, piaction) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hinstall, szcomponent, piinstalled, piaction);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hinstall;
     (void)szcomponent;
     (void)piinstalled;
     (void)piaction;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3071,12 +3937,19 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiGetComponentStateW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hinstall, szcomponent, piinstalled, piaction) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hinstall, szcomponent, piinstalled, piaction);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hinstall;
     (void)szcomponent;
     (void)piinstalled;
     (void)piaction;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3092,9 +3965,16 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiGetDatabaseState")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdatabase) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdatabase);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdatabase;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3114,13 +3994,20 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiGetFeatureCostA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hinstall, szfeature, icosttree, istate, picost) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hinstall, szfeature, icosttree, istate, picost);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hinstall;
     (void)szfeature;
     (void)icosttree;
     (void)istate;
     (void)picost;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3140,13 +4027,20 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiGetFeatureCostW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hinstall, szfeature, icosttree, istate, picost) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hinstall, szfeature, icosttree, istate, picost);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hinstall;
     (void)szfeature;
     (void)icosttree;
     (void)istate;
     (void)picost;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3168,7 +4062,13 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiGetFeatureInfoA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hproduct, szfeature, lpattributes, lptitlebuf, pcchtitlebuf, lphelpbuf, pcchhelpbuf) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hproduct, szfeature, lpattributes, lptitlebuf, pcchtitlebuf, lphelpbuf, pcchhelpbuf);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hproduct;
     (void)szfeature;
@@ -3177,6 +4077,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     (void)pcchtitlebuf;
     (void)lphelpbuf;
     (void)pcchhelpbuf;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3198,7 +4099,13 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiGetFeatureInfoW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hproduct, szfeature, lpattributes, lptitlebuf, pcchtitlebuf, lphelpbuf, pcchhelpbuf) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hproduct, szfeature, lpattributes, lptitlebuf, pcchtitlebuf, lphelpbuf, pcchhelpbuf);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hproduct;
     (void)szfeature;
@@ -3207,6 +4114,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     (void)pcchtitlebuf;
     (void)lphelpbuf;
     (void)pcchhelpbuf;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3225,12 +4133,19 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiGetFeatureStateA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hinstall, szfeature, piinstalled, piaction) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hinstall, szfeature, piinstalled, piaction);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hinstall;
     (void)szfeature;
     (void)piinstalled;
     (void)piaction;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3249,12 +4164,19 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiGetFeatureStateW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hinstall, szfeature, piinstalled, piaction) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hinstall, szfeature, piinstalled, piaction);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hinstall;
     (void)szfeature;
     (void)piinstalled;
     (void)piaction;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3273,12 +4195,19 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiGetFeatureUsageA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szproduct, szfeature, pdwusecount, pwdateused) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szproduct, szfeature, pdwusecount, pwdateused);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szproduct;
     (void)szfeature;
     (void)pdwusecount;
     (void)pwdateused;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3297,12 +4226,19 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiGetFeatureUsageW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szproduct, szfeature, pdwusecount, pwdateused) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szproduct, szfeature, pdwusecount, pwdateused);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szproduct;
     (void)szfeature;
     (void)pdwusecount;
     (void)pwdateused;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3320,11 +4256,18 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiGetFeatureValidStatesA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hinstall, szfeature, lpinstallstates) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hinstall, szfeature, lpinstallstates);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hinstall;
     (void)szfeature;
     (void)lpinstallstates;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3342,11 +4285,18 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiGetFeatureValidStatesW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hinstall, szfeature, lpinstallstates) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hinstall, szfeature, lpinstallstates);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hinstall;
     (void)szfeature;
     (void)lpinstallstates;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3364,11 +4314,18 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiGetFileHashA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szfilepath, dwoptions, phash) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szfilepath, dwoptions, phash);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szfilepath;
     (void)dwoptions;
     (void)phash;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3386,11 +4343,18 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiGetFileHashW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szfilepath, dwoptions, phash) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szfilepath, dwoptions, phash);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szfilepath;
     (void)dwoptions;
     (void)phash;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3410,13 +4374,20 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiGetFileSignatureInformationA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szsignedobjectpath, dwflags, ppccertcontext, pbhashdata, pcbhashdata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szsignedobjectpath, dwflags, ppccertcontext, pbhashdata, pcbhashdata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)szsignedobjectpath;
     (void)dwflags;
     (void)ppccertcontext;
     (void)pbhashdata;
     (void)pcbhashdata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3436,13 +4407,20 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiGetFileSignatureInformationW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szsignedobjectpath, dwflags, ppccertcontext, pbhashdata, pcbhashdata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szsignedobjectpath, dwflags, ppccertcontext, pbhashdata, pcbhashdata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)szsignedobjectpath;
     (void)dwflags;
     (void)ppccertcontext;
     (void)pbhashdata;
     (void)pcbhashdata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3462,13 +4440,20 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiGetFileVersionA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szfilepath, lpversionbuf, pcchversionbuf, lplangbuf, pcchlangbuf) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szfilepath, lpversionbuf, pcchversionbuf, lplangbuf, pcchlangbuf);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szfilepath;
     (void)lpversionbuf;
     (void)pcchversionbuf;
     (void)lplangbuf;
     (void)pcchlangbuf;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3488,13 +4473,20 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiGetFileVersionW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szfilepath, lpversionbuf, pcchversionbuf, lplangbuf, pcchlangbuf) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szfilepath, lpversionbuf, pcchversionbuf, lplangbuf, pcchlangbuf);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szfilepath;
     (void)lpversionbuf;
     (void)pcchversionbuf;
     (void)lplangbuf;
     (void)pcchlangbuf;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3510,9 +4502,16 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiGetLanguage")));
     }
-    uint16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hinstall) : 0;
+    uint16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hinstall);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hinstall;
+    errno = ENOSYS;
     uint16_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3527,8 +4526,15 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiGetLastErrorRecord")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3545,10 +4551,17 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiGetMode")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hinstall, erunmode) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hinstall, erunmode);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hinstall;
     (void)erunmode;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3567,12 +4580,19 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiGetPatchFileListA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szproductcode, szpatchpackages, pcfiles, pphfilerecords) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szproductcode, szpatchpackages, pcfiles, pphfilerecords);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szproductcode;
     (void)szpatchpackages;
     (void)pcfiles;
     (void)pphfilerecords;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3591,12 +4611,19 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiGetPatchFileListW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szproductcode, szpatchpackages, pcfiles, pphfilerecords) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szproductcode, szpatchpackages, pcfiles, pphfilerecords);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szproductcode;
     (void)szpatchpackages;
     (void)pcfiles;
     (void)pphfilerecords;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3615,12 +4642,19 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiGetPatchInfoA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szpatch, szattribute, lpvaluebuf, pcchvaluebuf) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szpatch, szattribute, lpvaluebuf, pcchvaluebuf);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szpatch;
     (void)szattribute;
     (void)lpvaluebuf;
     (void)pcchvaluebuf;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3642,7 +4676,13 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiGetPatchInfoExA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szpatchcode, szproductcode, szusersid, dwcontext, szproperty, lpvalue, pcchvalue) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szpatchcode, szproductcode, szusersid, dwcontext, szproperty, lpvalue, pcchvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szpatchcode;
     (void)szproductcode;
@@ -3651,6 +4691,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     (void)szproperty;
     (void)lpvalue;
     (void)pcchvalue;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3672,7 +4713,13 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiGetPatchInfoExW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szpatchcode, szproductcode, szusersid, dwcontext, szproperty, lpvalue, pcchvalue) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szpatchcode, szproductcode, szusersid, dwcontext, szproperty, lpvalue, pcchvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szpatchcode;
     (void)szproductcode;
@@ -3681,6 +4728,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     (void)szproperty;
     (void)lpvalue;
     (void)pcchvalue;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3699,12 +4747,19 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiGetPatchInfoW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szpatch, szattribute, lpvaluebuf, pcchvaluebuf) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szpatch, szattribute, lpvaluebuf, pcchvaluebuf);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szpatch;
     (void)szattribute;
     (void)lpvaluebuf;
     (void)pcchvaluebuf;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3721,10 +4776,17 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiGetProductCodeA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szcomponent, lpbuf39) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szcomponent, lpbuf39);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szcomponent;
     (void)lpbuf39;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3741,10 +4803,17 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiGetProductCodeW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szcomponent, lpbuf39) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szcomponent, lpbuf39);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szcomponent;
     (void)lpbuf39;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3763,12 +4832,19 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiGetProductInfoA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szproduct, szattribute, lpvaluebuf, pcchvaluebuf) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szproduct, szattribute, lpvaluebuf, pcchvaluebuf);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szproduct;
     (void)szattribute;
     (void)lpvaluebuf;
     (void)pcchvaluebuf;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3789,7 +4865,13 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiGetProductInfoExA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szproductcode, szusersid, dwcontext, szproperty, szvalue, pcchvalue) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szproductcode, szusersid, dwcontext, szproperty, szvalue, pcchvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szproductcode;
     (void)szusersid;
@@ -3797,6 +4879,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     (void)szproperty;
     (void)szvalue;
     (void)pcchvalue;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3817,7 +4900,13 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiGetProductInfoExW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szproductcode, szusersid, dwcontext, szproperty, szvalue, pcchvalue) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szproductcode, szusersid, dwcontext, szproperty, szvalue, pcchvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szproductcode;
     (void)szusersid;
@@ -3825,6 +4914,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     (void)szproperty;
     (void)szvalue;
     (void)pcchvalue;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3847,7 +4937,13 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiGetProductInfoFromScriptA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szscriptfile, lpproductbuf39, plgidlanguage, pdwversion, lpnamebuf, pcchnamebuf, lppackagebuf, pcchpackagebuf) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szscriptfile, lpproductbuf39, plgidlanguage, pdwversion, lpnamebuf, pcchnamebuf, lppackagebuf, pcchpackagebuf);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szscriptfile;
     (void)lpproductbuf39;
@@ -3857,6 +4953,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     (void)pcchnamebuf;
     (void)lppackagebuf;
     (void)pcchpackagebuf;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3879,7 +4976,13 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiGetProductInfoFromScriptW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szscriptfile, lpproductbuf39, plgidlanguage, pdwversion, lpnamebuf, pcchnamebuf, lppackagebuf, pcchpackagebuf) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szscriptfile, lpproductbuf39, plgidlanguage, pdwversion, lpnamebuf, pcchnamebuf, lppackagebuf, pcchpackagebuf);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szscriptfile;
     (void)lpproductbuf39;
@@ -3889,6 +4992,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     (void)pcchnamebuf;
     (void)lppackagebuf;
     (void)pcchpackagebuf;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3907,12 +5011,19 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiGetProductInfoW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szproduct, szattribute, lpvaluebuf, pcchvaluebuf) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szproduct, szattribute, lpvaluebuf, pcchvaluebuf);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szproduct;
     (void)szattribute;
     (void)lpvaluebuf;
     (void)pcchvaluebuf;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3931,12 +5042,19 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiGetProductPropertyA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hproduct, szproperty, lpvaluebuf, pcchvaluebuf) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hproduct, szproperty, lpvaluebuf, pcchvaluebuf);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hproduct;
     (void)szproperty;
     (void)lpvaluebuf;
     (void)pcchvaluebuf;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3955,12 +5073,19 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiGetProductPropertyW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hproduct, szproperty, lpvaluebuf, pcchvaluebuf) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hproduct, szproperty, lpvaluebuf, pcchvaluebuf);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hproduct;
     (void)szproperty;
     (void)lpvaluebuf;
     (void)pcchvaluebuf;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3979,12 +5104,19 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiGetPropertyA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hinstall, szname, szvaluebuf, pcchvaluebuf) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hinstall, szname, szvaluebuf, pcchvaluebuf);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hinstall;
     (void)szname;
     (void)szvaluebuf;
     (void)pcchvaluebuf;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4003,12 +5135,19 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiGetPropertyW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hinstall, szname, szvaluebuf, pcchvaluebuf) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hinstall, szname, szvaluebuf, pcchvaluebuf);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hinstall;
     (void)szname;
     (void)szvaluebuf;
     (void)pcchvaluebuf;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4027,12 +5166,19 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiGetShortcutTargetA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szshortcutpath, szproductcode, szfeatureid, szcomponentcode) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szshortcutpath, szproductcode, szfeatureid, szcomponentcode);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szshortcutpath;
     (void)szproductcode;
     (void)szfeatureid;
     (void)szcomponentcode;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4051,12 +5197,19 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiGetShortcutTargetW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szshortcutpath, szproductcode, szfeatureid, szcomponentcode) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szshortcutpath, szproductcode, szfeatureid, szcomponentcode);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szshortcutpath;
     (void)szproductcode;
     (void)szfeatureid;
     (void)szcomponentcode;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4075,12 +5228,19 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiGetSourcePathA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hinstall, szfolder, szpathbuf, pcchpathbuf) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hinstall, szfolder, szpathbuf, pcchpathbuf);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hinstall;
     (void)szfolder;
     (void)szpathbuf;
     (void)pcchpathbuf;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4099,12 +5259,19 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiGetSourcePathW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hinstall, szfolder, szpathbuf, pcchpathbuf) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hinstall, szfolder, szpathbuf, pcchpathbuf);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hinstall;
     (void)szfolder;
     (void)szpathbuf;
     (void)pcchpathbuf;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4123,12 +5290,19 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiGetSummaryInformationA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdatabase, szdatabasepath, uiupdatecount, phsummaryinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdatabase, szdatabasepath, uiupdatecount, phsummaryinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hdatabase;
     (void)szdatabasepath;
     (void)uiupdatecount;
     (void)phsummaryinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4147,12 +5321,19 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiGetSummaryInformationW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdatabase, szdatabasepath, uiupdatecount, phsummaryinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdatabase, szdatabasepath, uiupdatecount, phsummaryinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hdatabase;
     (void)szdatabasepath;
     (void)uiupdatecount;
     (void)phsummaryinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4171,12 +5352,19 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiGetTargetPathA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hinstall, szfolder, szpathbuf, pcchpathbuf) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hinstall, szfolder, szpathbuf, pcchpathbuf);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hinstall;
     (void)szfolder;
     (void)szpathbuf;
     (void)pcchpathbuf;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4195,12 +5383,19 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiGetTargetPathW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hinstall, szfolder, szpathbuf, pcchpathbuf) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hinstall, szfolder, szpathbuf, pcchpathbuf);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hinstall;
     (void)szfolder;
     (void)szpathbuf;
     (void)pcchpathbuf;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4222,7 +5417,13 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiGetUserInfoA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szproduct, lpusernamebuf, pcchusernamebuf, lporgnamebuf, pcchorgnamebuf, lpserialbuf, pcchserialbuf) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szproduct, lpusernamebuf, pcchusernamebuf, lporgnamebuf, pcchorgnamebuf, lpserialbuf, pcchserialbuf);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)szproduct;
     (void)lpusernamebuf;
@@ -4231,6 +5432,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     (void)pcchorgnamebuf;
     (void)lpserialbuf;
     (void)pcchserialbuf;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4252,7 +5454,13 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiGetUserInfoW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szproduct, lpusernamebuf, pcchusernamebuf, lporgnamebuf, pcchorgnamebuf, lpserialbuf, pcchserialbuf) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szproduct, lpusernamebuf, pcchusernamebuf, lporgnamebuf, pcchorgnamebuf, lpserialbuf, pcchserialbuf);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)szproduct;
     (void)lpusernamebuf;
@@ -4261,6 +5469,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     (void)pcchorgnamebuf;
     (void)lpserialbuf;
     (void)pcchserialbuf;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4278,11 +5487,18 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiInstallMissingComponentA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szproduct, szcomponent, einstallstate) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szproduct, szcomponent, einstallstate);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szproduct;
     (void)szcomponent;
     (void)einstallstate;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4300,11 +5516,18 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiInstallMissingComponentW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szproduct, szcomponent, einstallstate) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szproduct, szcomponent, einstallstate);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szproduct;
     (void)szcomponent;
     (void)einstallstate;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4321,10 +5544,17 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiInstallMissingFileA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szproduct, szfile) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szproduct, szfile);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szproduct;
     (void)szfile;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4341,10 +5571,17 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiInstallMissingFileW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szproduct, szfile) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szproduct, szfile);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szproduct;
     (void)szfile;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4361,10 +5598,17 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiInstallProductA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szpackagepath, szcommandline) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szpackagepath, szcommandline);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szpackagepath;
     (void)szcommandline;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4381,10 +5625,17 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiInstallProductW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szpackagepath, szcommandline) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szpackagepath, szcommandline);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szpackagepath;
     (void)szcommandline;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4401,10 +5652,17 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiIsProductElevatedA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szproduct, pfelevated) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szproduct, pfelevated);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szproduct;
     (void)pfelevated;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4421,10 +5679,17 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiIsProductElevatedW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szproduct, pfelevated) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szproduct, pfelevated);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szproduct;
     (void)pfelevated;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4442,11 +5707,18 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiJoinTransaction")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(htransactionhandle, dwtransactionattributes, phchangeofownerevent) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(htransactionhandle, dwtransactionattributes, phchangeofownerevent);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)htransactionhandle;
     (void)dwtransactionattributes;
     (void)phchangeofownerevent;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4464,11 +5736,18 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiLocateComponentA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szcomponent, lppathbuf, pcchbuf) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szcomponent, lppathbuf, pcchbuf);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)szcomponent;
     (void)lppathbuf;
     (void)pcchbuf;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4486,11 +5765,18 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiLocateComponentW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szcomponent, lppathbuf, pcchbuf) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szcomponent, lppathbuf, pcchbuf);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)szcomponent;
     (void)lppathbuf;
     (void)pcchbuf;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4507,10 +5793,17 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiNotifySidChangeA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(poldsid, pnewsid) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(poldsid, pnewsid);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)poldsid;
     (void)pnewsid;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4527,10 +5820,17 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiNotifySidChangeW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(poldsid, pnewsid) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(poldsid, pnewsid);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)poldsid;
     (void)pnewsid;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4548,11 +5848,18 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiOpenDatabaseA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szdatabasepath, szpersist, phdatabase) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szdatabasepath, szpersist, phdatabase);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szdatabasepath;
     (void)szpersist;
     (void)phdatabase;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4570,11 +5877,18 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiOpenDatabaseW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szdatabasepath, szpersist, phdatabase) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szdatabasepath, szpersist, phdatabase);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szdatabasepath;
     (void)szpersist;
     (void)phdatabase;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4591,10 +5905,17 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiOpenPackageA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szpackagepath, hproduct) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szpackagepath, hproduct);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szpackagepath;
     (void)hproduct;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4612,11 +5933,18 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiOpenPackageExA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szpackagepath, dwoptions, hproduct) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szpackagepath, dwoptions, hproduct);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szpackagepath;
     (void)dwoptions;
     (void)hproduct;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4634,11 +5962,18 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiOpenPackageExW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szpackagepath, dwoptions, hproduct) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szpackagepath, dwoptions, hproduct);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szpackagepath;
     (void)dwoptions;
     (void)hproduct;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4655,10 +5990,17 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiOpenPackageW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szpackagepath, hproduct) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szpackagepath, hproduct);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szpackagepath;
     (void)hproduct;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4675,10 +6017,17 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiOpenProductA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szproduct, hproduct) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szproduct, hproduct);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szproduct;
     (void)hproduct;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4695,10 +6044,17 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiOpenProductW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szproduct, hproduct) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szproduct, hproduct);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szproduct;
     (void)hproduct;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4716,11 +6072,18 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiPreviewBillboardA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hpreview, szcontrolname, szbillboard) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hpreview, szcontrolname, szbillboard);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hpreview;
     (void)szcontrolname;
     (void)szbillboard;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4738,11 +6101,18 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiPreviewBillboardW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hpreview, szcontrolname, szbillboard) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hpreview, szcontrolname, szbillboard);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hpreview;
     (void)szcontrolname;
     (void)szbillboard;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4759,10 +6129,17 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiPreviewDialogA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hpreview, szdialogname) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hpreview, szdialogname);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hpreview;
     (void)szdialogname;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4779,10 +6156,17 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiPreviewDialogW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hpreview, szdialogname) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hpreview, szdialogname);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hpreview;
     (void)szdialogname;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4802,13 +6186,20 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiProcessAdvertiseScriptA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szscriptfile, sziconfolder, hregdata, fshortcuts, fremoveitems) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szscriptfile, sziconfolder, hregdata, fshortcuts, fremoveitems);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szscriptfile;
     (void)sziconfolder;
     (void)hregdata;
     (void)fshortcuts;
     (void)fremoveitems;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4828,13 +6219,20 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiProcessAdvertiseScriptW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szscriptfile, sziconfolder, hregdata, fshortcuts, fremoveitems) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szscriptfile, sziconfolder, hregdata, fshortcuts, fremoveitems);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szscriptfile;
     (void)sziconfolder;
     (void)hregdata;
     (void)fshortcuts;
     (void)fremoveitems;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4852,11 +6250,18 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiProcessMessage")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hinstall, emessagetype, hrecord) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hinstall, emessagetype, hrecord);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hinstall;
     (void)emessagetype;
     (void)hrecord;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4877,7 +6282,13 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiProvideAssemblyA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szassemblyname, szappcontext, dwinstallmode, dwassemblyinfo, lppathbuf, pcchpathbuf) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szassemblyname, szappcontext, dwinstallmode, dwassemblyinfo, lppathbuf, pcchpathbuf);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szassemblyname;
     (void)szappcontext;
@@ -4885,6 +6296,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     (void)dwassemblyinfo;
     (void)lppathbuf;
     (void)pcchpathbuf;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4905,7 +6317,13 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiProvideAssemblyW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szassemblyname, szappcontext, dwinstallmode, dwassemblyinfo, lppathbuf, pcchpathbuf) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szassemblyname, szappcontext, dwinstallmode, dwassemblyinfo, lppathbuf, pcchpathbuf);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szassemblyname;
     (void)szappcontext;
@@ -4913,6 +6331,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     (void)dwassemblyinfo;
     (void)lppathbuf;
     (void)pcchpathbuf;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4933,7 +6352,13 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiProvideComponentA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szproduct, szfeature, szcomponent, dwinstallmode, lppathbuf, pcchpathbuf) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szproduct, szfeature, szcomponent, dwinstallmode, lppathbuf, pcchpathbuf);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szproduct;
     (void)szfeature;
@@ -4941,6 +6366,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     (void)dwinstallmode;
     (void)lppathbuf;
     (void)pcchpathbuf;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4961,7 +6387,13 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiProvideComponentW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szproduct, szfeature, szcomponent, dwinstallmode, lppathbuf, pcchpathbuf) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szproduct, szfeature, szcomponent, dwinstallmode, lppathbuf, pcchpathbuf);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szproduct;
     (void)szfeature;
@@ -4969,6 +6401,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     (void)dwinstallmode;
     (void)lppathbuf;
     (void)pcchpathbuf;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4988,13 +6421,20 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiProvideQualifiedComponentA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szcategory, szqualifier, dwinstallmode, lppathbuf, pcchpathbuf) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szcategory, szqualifier, dwinstallmode, lppathbuf, pcchpathbuf);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szcategory;
     (void)szqualifier;
     (void)dwinstallmode;
     (void)lppathbuf;
     (void)pcchpathbuf;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5017,7 +6457,13 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiProvideQualifiedComponentExA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szcategory, szqualifier, dwinstallmode, szproduct, dwunused1, dwunused2, lppathbuf, pcchpathbuf) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szcategory, szqualifier, dwinstallmode, szproduct, dwunused1, dwunused2, lppathbuf, pcchpathbuf);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szcategory;
     (void)szqualifier;
@@ -5027,6 +6473,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     (void)dwunused2;
     (void)lppathbuf;
     (void)pcchpathbuf;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5049,7 +6496,13 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiProvideQualifiedComponentExW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szcategory, szqualifier, dwinstallmode, szproduct, dwunused1, dwunused2, lppathbuf, pcchpathbuf) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szcategory, szqualifier, dwinstallmode, szproduct, dwunused1, dwunused2, lppathbuf, pcchpathbuf);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szcategory;
     (void)szqualifier;
@@ -5059,6 +6512,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     (void)dwunused2;
     (void)lppathbuf;
     (void)pcchpathbuf;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5078,13 +6532,20 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiProvideQualifiedComponentW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szcategory, szqualifier, dwinstallmode, lppathbuf, pcchpathbuf) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szcategory, szqualifier, dwinstallmode, lppathbuf, pcchpathbuf);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szcategory;
     (void)szqualifier;
     (void)dwinstallmode;
     (void)lppathbuf;
     (void)pcchpathbuf;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5104,13 +6565,20 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiQueryComponentStateA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szproductcode, szusersid, dwcontext, szcomponentcode, pdwstate) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szproductcode, szusersid, dwcontext, szcomponentcode, pdwstate);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szproductcode;
     (void)szusersid;
     (void)dwcontext;
     (void)szcomponentcode;
     (void)pdwstate;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5130,13 +6598,20 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiQueryComponentStateW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szproductcode, szusersid, dwcontext, szcomponentcode, pdwstate) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szproductcode, szusersid, dwcontext, szcomponentcode, pdwstate);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szproductcode;
     (void)szusersid;
     (void)dwcontext;
     (void)szcomponentcode;
     (void)pdwstate;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5153,10 +6628,17 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiQueryFeatureStateA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szproduct, szfeature) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szproduct, szfeature);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)szproduct;
     (void)szfeature;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5176,13 +6658,20 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiQueryFeatureStateExA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szproductcode, szusersid, dwcontext, szfeature, pdwstate) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szproductcode, szusersid, dwcontext, szfeature, pdwstate);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szproductcode;
     (void)szusersid;
     (void)dwcontext;
     (void)szfeature;
     (void)pdwstate;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5202,13 +6691,20 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiQueryFeatureStateExW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szproductcode, szusersid, dwcontext, szfeature, pdwstate) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szproductcode, szusersid, dwcontext, szfeature, pdwstate);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szproductcode;
     (void)szusersid;
     (void)dwcontext;
     (void)szfeature;
     (void)pdwstate;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5225,10 +6721,17 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiQueryFeatureStateW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szproduct, szfeature) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szproduct, szfeature);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)szproduct;
     (void)szfeature;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5244,9 +6747,16 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiQueryProductStateA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szproduct) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szproduct);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)szproduct;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5262,9 +6772,16 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiQueryProductStateW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szproduct) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szproduct);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)szproduct;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5280,9 +6797,16 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiRecordClearData")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hrecord) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hrecord);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hrecord;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5299,10 +6823,17 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiRecordDataSize")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hrecord, ifield) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hrecord, ifield);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hrecord;
     (void)ifield;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5318,9 +6849,16 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiRecordGetFieldCount")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hrecord) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hrecord);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hrecord;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5337,10 +6875,17 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiRecordGetInteger")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hrecord, ifield) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hrecord, ifield);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hrecord;
     (void)ifield;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5359,12 +6904,19 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiRecordGetStringA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hrecord, ifield, szvaluebuf, pcchvaluebuf) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hrecord, ifield, szvaluebuf, pcchvaluebuf);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hrecord;
     (void)ifield;
     (void)szvaluebuf;
     (void)pcchvaluebuf;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5383,12 +6935,19 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiRecordGetStringW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hrecord, ifield, szvaluebuf, pcchvaluebuf) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hrecord, ifield, szvaluebuf, pcchvaluebuf);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hrecord;
     (void)ifield;
     (void)szvaluebuf;
     (void)pcchvaluebuf;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5405,10 +6964,17 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiRecordIsNull")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hrecord, ifield) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hrecord, ifield);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hrecord;
     (void)ifield;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5427,12 +6993,19 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiRecordReadStream")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hrecord, ifield, szdatabuf, pcbdatabuf) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hrecord, ifield, szdatabuf, pcbdatabuf);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hrecord;
     (void)ifield;
     (void)szdatabuf;
     (void)pcbdatabuf;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5450,11 +7023,18 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiRecordSetInteger")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hrecord, ifield, ivalue) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hrecord, ifield, ivalue);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hrecord;
     (void)ifield;
     (void)ivalue;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5472,11 +7052,18 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiRecordSetStreamA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hrecord, ifield, szfilepath) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hrecord, ifield, szfilepath);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hrecord;
     (void)ifield;
     (void)szfilepath;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5494,11 +7081,18 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiRecordSetStreamW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hrecord, ifield, szfilepath) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hrecord, ifield, szfilepath);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hrecord;
     (void)ifield;
     (void)szfilepath;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5516,11 +7110,18 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiRecordSetStringA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hrecord, ifield, szvalue) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hrecord, ifield, szvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hrecord;
     (void)ifield;
     (void)szvalue;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5538,11 +7139,18 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiRecordSetStringW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hrecord, ifield, szvalue) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hrecord, ifield, szvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hrecord;
     (void)ifield;
     (void)szvalue;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5560,11 +7168,18 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiReinstallFeatureA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szproduct, szfeature, dwreinstallmode) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szproduct, szfeature, dwreinstallmode);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szproduct;
     (void)szfeature;
     (void)dwreinstallmode;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5582,11 +7197,18 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiReinstallFeatureW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szproduct, szfeature, dwreinstallmode) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szproduct, szfeature, dwreinstallmode);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szproduct;
     (void)szfeature;
     (void)dwreinstallmode;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5603,10 +7225,17 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiReinstallProductA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szproduct, szreinstallmode) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szproduct, szreinstallmode);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szproduct;
     (void)szreinstallmode;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5623,10 +7252,17 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiReinstallProductW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szproduct, szreinstallmode) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szproduct, szreinstallmode);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szproduct;
     (void)szreinstallmode;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5645,12 +7281,19 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiRemovePatchesA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szpatchlist, szproductcode, euninstalltype, szpropertylist) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szpatchlist, szproductcode, euninstalltype, szpropertylist);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szpatchlist;
     (void)szproductcode;
     (void)euninstalltype;
     (void)szpropertylist;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5669,12 +7312,19 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiRemovePatchesW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szpatchlist, szproductcode, euninstalltype, szpropertylist) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szpatchlist, szproductcode, euninstalltype, szpropertylist);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szpatchlist;
     (void)szproductcode;
     (void)euninstalltype;
     (void)szpropertylist;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5692,11 +7342,18 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiSequenceA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hinstall, sztable, isequencemode) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hinstall, sztable, isequencemode);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hinstall;
     (void)sztable;
     (void)isequencemode;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5714,11 +7371,18 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiSequenceW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hinstall, sztable, isequencemode) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hinstall, sztable, isequencemode);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hinstall;
     (void)sztable;
     (void)isequencemode;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5736,11 +7400,18 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiSetComponentStateA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hinstall, szcomponent, istate) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hinstall, szcomponent, istate);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hinstall;
     (void)szcomponent;
     (void)istate;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5758,11 +7429,18 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiSetComponentStateW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hinstall, szcomponent, istate) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hinstall, szcomponent, istate);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hinstall;
     (void)szcomponent;
     (void)istate;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5780,12 +7458,19 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiSetExternalUIA")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(puihandler, dwmessagefilter, pvcontext) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(puihandler, dwmessagefilter, pvcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)puihandler;
     (void)dwmessagefilter;
     (void)pvcontext;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -5803,12 +7488,19 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiSetExternalUIRecord")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(puihandler, dwmessagefilter, pvcontext, ppuiprevhandler) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(puihandler, dwmessagefilter, pvcontext, ppuiprevhandler);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)puihandler;
     (void)dwmessagefilter;
     (void)pvcontext;
     (void)ppuiprevhandler;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5826,12 +7518,19 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiSetExternalUIW")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(puihandler, dwmessagefilter, pvcontext) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(puihandler, dwmessagefilter, pvcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)puihandler;
     (void)dwmessagefilter;
     (void)pvcontext;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -5848,11 +7547,18 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiSetFeatureAttributesA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hinstall, szfeature, dwattributes) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hinstall, szfeature, dwattributes);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hinstall;
     (void)szfeature;
     (void)dwattributes;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5870,11 +7576,18 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiSetFeatureAttributesW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hinstall, szfeature, dwattributes) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hinstall, szfeature, dwattributes);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hinstall;
     (void)szfeature;
     (void)dwattributes;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5892,11 +7605,18 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiSetFeatureStateA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hinstall, szfeature, istate) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hinstall, szfeature, istate);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hinstall;
     (void)szfeature;
     (void)istate;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5914,11 +7634,18 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiSetFeatureStateW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hinstall, szfeature, istate) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hinstall, szfeature, istate);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hinstall;
     (void)szfeature;
     (void)istate;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5935,10 +7662,17 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiSetInstallLevel")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hinstall, iinstalllevel) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hinstall, iinstalllevel);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hinstall;
     (void)iinstalllevel;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5955,10 +7689,17 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiSetInternalUI")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwuilevel, phwnd) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwuilevel, phwnd);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwuilevel;
     (void)phwnd;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5976,11 +7717,18 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiSetMode")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hinstall, erunmode, fstate) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hinstall, erunmode, fstate);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hinstall;
     (void)erunmode;
     (void)fstate;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5998,11 +7746,18 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiSetPropertyA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hinstall, szname, szvalue) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hinstall, szname, szvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hinstall;
     (void)szname;
     (void)szvalue;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6020,11 +7775,18 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiSetPropertyW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hinstall, szname, szvalue) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hinstall, szname, szvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hinstall;
     (void)szname;
     (void)szvalue;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6042,11 +7804,18 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiSetTargetPathA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hinstall, szfolder, szfolderpath) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hinstall, szfolder, szfolderpath);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hinstall;
     (void)szfolder;
     (void)szfolderpath;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6064,11 +7833,18 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiSetTargetPathW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hinstall, szfolder, szfolderpath) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hinstall, szfolder, szfolderpath);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hinstall;
     (void)szfolder;
     (void)szfolderpath;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6090,7 +7866,13 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiSourceListAddMediaDiskA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szproductcodeorpatchcode, szusersid, dwcontext, dwoptions, dwdiskid, szvolumelabel, szdiskprompt) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szproductcodeorpatchcode, szusersid, dwcontext, dwoptions, dwdiskid, szvolumelabel, szdiskprompt);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szproductcodeorpatchcode;
     (void)szusersid;
@@ -6099,6 +7881,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     (void)dwdiskid;
     (void)szvolumelabel;
     (void)szdiskprompt;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6120,7 +7903,13 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiSourceListAddMediaDiskW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szproductcodeorpatchcode, szusersid, dwcontext, dwoptions, dwdiskid, szvolumelabel, szdiskprompt) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szproductcodeorpatchcode, szusersid, dwcontext, dwoptions, dwdiskid, szvolumelabel, szdiskprompt);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szproductcodeorpatchcode;
     (void)szusersid;
@@ -6129,6 +7918,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     (void)dwdiskid;
     (void)szvolumelabel;
     (void)szdiskprompt;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6147,12 +7937,19 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiSourceListAddSourceA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szproduct, szusername, dwreserved, szsource) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szproduct, szusername, dwreserved, szsource);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szproduct;
     (void)szusername;
     (void)dwreserved;
     (void)szsource;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6173,7 +7970,13 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiSourceListAddSourceExA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szproductcodeorpatchcode, szusersid, dwcontext, dwoptions, szsource, dwindex) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szproductcodeorpatchcode, szusersid, dwcontext, dwoptions, szsource, dwindex);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szproductcodeorpatchcode;
     (void)szusersid;
@@ -6181,6 +7984,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     (void)dwoptions;
     (void)szsource;
     (void)dwindex;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6201,7 +8005,13 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiSourceListAddSourceExW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szproductcodeorpatchcode, szusersid, dwcontext, dwoptions, szsource, dwindex) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szproductcodeorpatchcode, szusersid, dwcontext, dwoptions, szsource, dwindex);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szproductcodeorpatchcode;
     (void)szusersid;
@@ -6209,6 +8019,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     (void)dwoptions;
     (void)szsource;
     (void)dwindex;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6227,12 +8038,19 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiSourceListAddSourceW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szproduct, szusername, dwreserved, szsource) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szproduct, szusername, dwreserved, szsource);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szproduct;
     (void)szusername;
     (void)dwreserved;
     (void)szsource;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6250,11 +8068,18 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiSourceListClearAllA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szproduct, szusername, dwreserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szproduct, szusername, dwreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szproduct;
     (void)szusername;
     (void)dwreserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6273,12 +8098,19 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiSourceListClearAllExA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szproductcodeorpatchcode, szusersid, dwcontext, dwoptions) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szproductcodeorpatchcode, szusersid, dwcontext, dwoptions);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szproductcodeorpatchcode;
     (void)szusersid;
     (void)dwcontext;
     (void)dwoptions;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6297,12 +8129,19 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiSourceListClearAllExW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szproductcodeorpatchcode, szusersid, dwcontext, dwoptions) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szproductcodeorpatchcode, szusersid, dwcontext, dwoptions);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szproductcodeorpatchcode;
     (void)szusersid;
     (void)dwcontext;
     (void)dwoptions;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6320,11 +8159,18 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiSourceListClearAllW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szproduct, szusername, dwreserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szproduct, szusername, dwreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szproduct;
     (void)szusername;
     (void)dwreserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6344,13 +8190,20 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiSourceListClearMediaDiskA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szproductcodeorpatchcode, szusersid, dwcontext, dwoptions, dwdiskid) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szproductcodeorpatchcode, szusersid, dwcontext, dwoptions, dwdiskid);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szproductcodeorpatchcode;
     (void)szusersid;
     (void)dwcontext;
     (void)dwoptions;
     (void)dwdiskid;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6370,13 +8223,20 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiSourceListClearMediaDiskW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szproductcodeorpatchcode, szusersid, dwcontext, dwoptions, dwdiskid) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szproductcodeorpatchcode, szusersid, dwcontext, dwoptions, dwdiskid);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szproductcodeorpatchcode;
     (void)szusersid;
     (void)dwcontext;
     (void)dwoptions;
     (void)dwdiskid;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6396,13 +8256,20 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiSourceListClearSourceA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szproductcodeorpatchcode, szusersid, dwcontext, dwoptions, szsource) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szproductcodeorpatchcode, szusersid, dwcontext, dwoptions, szsource);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szproductcodeorpatchcode;
     (void)szusersid;
     (void)dwcontext;
     (void)dwoptions;
     (void)szsource;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6422,13 +8289,20 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiSourceListClearSourceW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szproductcodeorpatchcode, szusersid, dwcontext, dwoptions, szsource) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szproductcodeorpatchcode, szusersid, dwcontext, dwoptions, szsource);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szproductcodeorpatchcode;
     (void)szusersid;
     (void)dwcontext;
     (void)dwoptions;
     (void)szsource;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6453,7 +8327,13 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiSourceListEnumMediaDisksA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szproductcodeorpatchcode, szusersid, dwcontext, dwoptions, dwindex, pdwdiskid, szvolumelabel, pcchvolumelabel, szdiskprompt, pcchdiskprompt) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szproductcodeorpatchcode, szusersid, dwcontext, dwoptions, dwindex, pdwdiskid, szvolumelabel, pcchvolumelabel, szdiskprompt, pcchdiskprompt);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szproductcodeorpatchcode;
     (void)szusersid;
@@ -6465,6 +8345,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     (void)pcchvolumelabel;
     (void)szdiskprompt;
     (void)pcchdiskprompt;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6489,7 +8370,13 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiSourceListEnumMediaDisksW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szproductcodeorpatchcode, szusersid, dwcontext, dwoptions, dwindex, pdwdiskid, szvolumelabel, pcchvolumelabel, szdiskprompt, pcchdiskprompt) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szproductcodeorpatchcode, szusersid, dwcontext, dwoptions, dwindex, pdwdiskid, szvolumelabel, pcchvolumelabel, szdiskprompt, pcchdiskprompt);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szproductcodeorpatchcode;
     (void)szusersid;
@@ -6501,6 +8388,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     (void)pcchvolumelabel;
     (void)szdiskprompt;
     (void)pcchdiskprompt;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6522,7 +8410,13 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiSourceListEnumSourcesA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szproductcodeorpatchcode, szusersid, dwcontext, dwoptions, dwindex, szsource, pcchsource) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szproductcodeorpatchcode, szusersid, dwcontext, dwoptions, dwindex, szsource, pcchsource);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szproductcodeorpatchcode;
     (void)szusersid;
@@ -6531,6 +8425,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     (void)dwindex;
     (void)szsource;
     (void)pcchsource;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6552,7 +8447,13 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiSourceListEnumSourcesW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szproductcodeorpatchcode, szusersid, dwcontext, dwoptions, dwindex, szsource, pcchsource) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szproductcodeorpatchcode, szusersid, dwcontext, dwoptions, dwindex, szsource, pcchsource);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szproductcodeorpatchcode;
     (void)szusersid;
@@ -6561,6 +8462,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     (void)dwindex;
     (void)szsource;
     (void)pcchsource;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6578,11 +8480,18 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiSourceListForceResolutionA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szproduct, szusername, dwreserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szproduct, szusername, dwreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szproduct;
     (void)szusername;
     (void)dwreserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6601,12 +8510,19 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiSourceListForceResolutionExA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szproductcodeorpatchcode, szusersid, dwcontext, dwoptions) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szproductcodeorpatchcode, szusersid, dwcontext, dwoptions);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szproductcodeorpatchcode;
     (void)szusersid;
     (void)dwcontext;
     (void)dwoptions;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6625,12 +8541,19 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiSourceListForceResolutionExW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szproductcodeorpatchcode, szusersid, dwcontext, dwoptions) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szproductcodeorpatchcode, szusersid, dwcontext, dwoptions);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szproductcodeorpatchcode;
     (void)szusersid;
     (void)dwcontext;
     (void)dwoptions;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6648,11 +8571,18 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiSourceListForceResolutionW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szproduct, szusername, dwreserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szproduct, szusername, dwreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szproduct;
     (void)szusername;
     (void)dwreserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6674,7 +8604,13 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiSourceListGetInfoA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szproductcodeorpatchcode, szusersid, dwcontext, dwoptions, szproperty, szvalue, pcchvalue) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szproductcodeorpatchcode, szusersid, dwcontext, dwoptions, szproperty, szvalue, pcchvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szproductcodeorpatchcode;
     (void)szusersid;
@@ -6683,6 +8619,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     (void)szproperty;
     (void)szvalue;
     (void)pcchvalue;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6704,7 +8641,13 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiSourceListGetInfoW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szproductcodeorpatchcode, szusersid, dwcontext, dwoptions, szproperty, szvalue, pcchvalue) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szproductcodeorpatchcode, szusersid, dwcontext, dwoptions, szproperty, szvalue, pcchvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szproductcodeorpatchcode;
     (void)szusersid;
@@ -6713,6 +8656,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     (void)szproperty;
     (void)szvalue;
     (void)pcchvalue;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6733,7 +8677,13 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiSourceListSetInfoA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szproductcodeorpatchcode, szusersid, dwcontext, dwoptions, szproperty, szvalue) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szproductcodeorpatchcode, szusersid, dwcontext, dwoptions, szproperty, szvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szproductcodeorpatchcode;
     (void)szusersid;
@@ -6741,6 +8691,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     (void)dwoptions;
     (void)szproperty;
     (void)szvalue;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6761,7 +8712,13 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiSourceListSetInfoW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szproductcodeorpatchcode, szusersid, dwcontext, dwoptions, szproperty, szvalue) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szproductcodeorpatchcode, szusersid, dwcontext, dwoptions, szproperty, szvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szproductcodeorpatchcode;
     (void)szusersid;
@@ -6769,6 +8726,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     (void)dwoptions;
     (void)szproperty;
     (void)szvalue;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6790,7 +8748,13 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiSummaryInfoGetPropertyA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hsummaryinfo, uiproperty, puidatatype, pivalue, pftvalue, szvaluebuf, pcchvaluebuf) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hsummaryinfo, uiproperty, puidatatype, pivalue, pftvalue, szvaluebuf, pcchvaluebuf);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hsummaryinfo;
     (void)uiproperty;
@@ -6799,6 +8763,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     (void)pftvalue;
     (void)szvaluebuf;
     (void)pcchvaluebuf;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6815,10 +8780,17 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiSummaryInfoGetPropertyCount")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hsummaryinfo, puipropertycount) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hsummaryinfo, puipropertycount);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hsummaryinfo;
     (void)puipropertycount;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6840,7 +8812,13 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiSummaryInfoGetPropertyW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hsummaryinfo, uiproperty, puidatatype, pivalue, pftvalue, szvaluebuf, pcchvaluebuf) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hsummaryinfo, uiproperty, puidatatype, pivalue, pftvalue, szvaluebuf, pcchvaluebuf);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hsummaryinfo;
     (void)uiproperty;
@@ -6849,6 +8827,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     (void)pftvalue;
     (void)szvaluebuf;
     (void)pcchvaluebuf;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6864,9 +8843,16 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiSummaryInfoPersist")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hsummaryinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hsummaryinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hsummaryinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6887,7 +8873,13 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiSummaryInfoSetPropertyA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hsummaryinfo, uiproperty, uidatatype, ivalue, pftvalue, szvalue) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hsummaryinfo, uiproperty, uidatatype, ivalue, pftvalue, szvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hsummaryinfo;
     (void)uiproperty;
@@ -6895,6 +8887,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     (void)ivalue;
     (void)pftvalue;
     (void)szvalue;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6915,7 +8908,13 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiSummaryInfoSetPropertyW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hsummaryinfo, uiproperty, uidatatype, ivalue, pftvalue, szvalue) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hsummaryinfo, uiproperty, uidatatype, ivalue, pftvalue, szvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hsummaryinfo;
     (void)uiproperty;
@@ -6923,6 +8922,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     (void)ivalue;
     (void)pftvalue;
     (void)szvalue;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6939,10 +8939,17 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiUseFeatureA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szproduct, szfeature) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szproduct, szfeature);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)szproduct;
     (void)szfeature;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6961,12 +8968,19 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiUseFeatureExA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szproduct, szfeature, dwinstallmode, dwreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szproduct, szfeature, dwinstallmode, dwreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)szproduct;
     (void)szfeature;
     (void)dwinstallmode;
     (void)dwreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6985,12 +8999,19 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiUseFeatureExW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szproduct, szfeature, dwinstallmode, dwreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szproduct, szfeature, dwinstallmode, dwreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)szproduct;
     (void)szfeature;
     (void)dwinstallmode;
     (void)dwreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7007,10 +9028,17 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiUseFeatureW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szproduct, szfeature) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szproduct, szfeature);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)szproduct;
     (void)szfeature;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7026,9 +9054,16 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiVerifyDiskSpace")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hinstall) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hinstall);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hinstall;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7044,9 +9079,16 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiVerifyPackageA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szpackagepath) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szpackagepath);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szpackagepath;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7062,9 +9104,16 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiVerifyPackageW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szpackagepath) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szpackagepath);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)szpackagepath;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7080,9 +9129,16 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiViewClose")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hview) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hview);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hview;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7099,10 +9155,17 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiViewExecute")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hview, hrecord) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hview, hrecord);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hview;
     (void)hrecord;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7119,10 +9182,17 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiViewFetch")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hview, phrecord) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hview, phrecord);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hview;
     (void)phrecord;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7140,11 +9210,18 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiViewGetColumnInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hview, ecolumninfo, phrecord) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hview, ecolumninfo, phrecord);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hview;
     (void)ecolumninfo;
     (void)phrecord;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7162,11 +9239,18 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiViewGetErrorA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hview, szcolumnnamebuffer, pcchbuf) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hview, szcolumnnamebuffer, pcchbuf);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hview;
     (void)szcolumnnamebuffer;
     (void)pcchbuf;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7184,11 +9268,18 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiViewGetErrorW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hview, szcolumnnamebuffer, pcchbuf) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hview, szcolumnnamebuffer, pcchbuf);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hview;
     (void)szcolumnnamebuffer;
     (void)pcchbuf;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7206,11 +9297,18 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("msi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MsiViewModify")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hview, emodifymode, hrecord) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hview, emodifymode, hrecord);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hview;
     (void)emodifymode;
     (void)hrecord;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7235,7 +9333,13 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("mspatcha.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NormalizeFileForPatchSignature")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(filebuffer, filesize, optionflags, optiondata, newfilecoffbase, newfilecofftime, ignorerangecount, ignorerangearray, retainrangecount, retainrangearray) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(filebuffer, filesize, optionflags, optiondata, newfilecoffbase, newfilecofftime, ignorerangecount, ignorerangearray, retainrangecount, retainrangearray);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)filebuffer;
     (void)filesize;
@@ -7247,6 +9351,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     (void)ignorerangearray;
     (void)retainrangecount;
     (void)retainrangearray;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7268,7 +9373,13 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "QueryActCtxSettingsW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwflags, hactctx, settingsnamespace, settingname, pvbuffer, dwbuffer, pdwwrittenorrequired) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwflags, hactctx, settingsnamespace, settingname, pvbuffer, dwbuffer, pdwwrittenorrequired);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwflags;
     (void)hactctx;
@@ -7277,6 +9388,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     (void)pvbuffer;
     (void)dwbuffer;
     (void)pdwwrittenorrequired;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7298,7 +9410,13 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "QueryActCtxW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwflags, hactctx, pvsubinstance, ulinfoclass, pvbuffer, cbbuffer, pcbwrittenorrequired) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwflags, hactctx, pvsubinstance, ulinfoclass, pvbuffer, cbbuffer, pcbwrittenorrequired);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwflags;
     (void)hactctx;
@@ -7307,6 +9425,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     (void)pvbuffer;
     (void)cbbuffer;
     (void)pcbwrittenorrequired;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7322,9 +9441,14 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ReleaseActCtx")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(hactctx);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(hactctx);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)hactctx;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -7340,10 +9464,17 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("sfc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SfcGetNextProtectedFile")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rpchandle, protfiledata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rpchandle, protfiledata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)rpchandle;
     (void)protfiledata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7360,10 +9491,17 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("sfc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SfcIsFileProtected")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rpchandle, protfilename) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rpchandle, protfilename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)rpchandle;
     (void)protfilename;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7381,11 +9519,18 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("sfc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SfcIsKeyProtected")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(keyhandle, subkeyname, keysam) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(keyhandle, subkeyname, keysam);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)keyhandle;
     (void)subkeyname;
     (void)keysam;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7403,11 +9548,18 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("sfc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SfpVerifyFile")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszfilename, pszerror, dwerrsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszfilename, pszerror, dwerrsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszfilename;
     (void)pszerror;
     (void)dwerrsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7425,11 +9577,18 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("mspatcha.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TestApplyPatchToFileA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(patchfilename, oldfilename, applyoptionflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(patchfilename, oldfilename, applyoptionflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)patchfilename;
     (void)oldfilename;
     (void)applyoptionflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7450,7 +9609,13 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("mspatcha.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TestApplyPatchToFileByBuffers")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(patchfilebuffer, patchfilesize, oldfilebuffer, oldfilesize, newfilesize, applyoptionflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(patchfilebuffer, patchfilesize, oldfilebuffer, oldfilesize, newfilesize, applyoptionflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)patchfilebuffer;
     (void)patchfilesize;
@@ -7458,6 +9623,7 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
     (void)oldfilesize;
     (void)newfilesize;
     (void)applyoptionflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7475,11 +9641,18 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("mspatcha.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TestApplyPatchToFileByHandles")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(patchfilehandle, oldfilehandle, applyoptionflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(patchfilehandle, oldfilehandle, applyoptionflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)patchfilehandle;
     (void)oldfilehandle;
     (void)applyoptionflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7497,11 +9670,18 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("mspatcha.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TestApplyPatchToFileW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(patchfilename, oldfilename, applyoptionflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(patchfilename, oldfilename, applyoptionflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)patchfilename;
     (void)oldfilename;
     (void)applyoptionflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -7517,9 +9697,16 @@ static Napi::Value windowssys_windows_win32_system_applicationinstallationandser
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ZombifyActCtx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hactctx) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hactctx);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hactctx;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

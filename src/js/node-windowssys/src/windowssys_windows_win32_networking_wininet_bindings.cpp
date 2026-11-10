@@ -68,7 +68,13 @@ static Napi::Value windowssys_windows_win32_networking_wininet_appCacheCheckMani
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AppCacheCheckManifest")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pwszmasterurl, pwszmanifesturl, pbmanifestdata, dwmanifestdatasize, pbmanifestresponseheaders, dwmanifestresponseheaderssize, pestate, phnewappcache) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pwszmasterurl, pwszmanifesturl, pbmanifestdata, dwmanifestdatasize, pbmanifestresponseheaders, dwmanifestresponseheaderssize, pestate, phnewappcache);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pwszmasterurl;
     (void)pwszmanifesturl;
@@ -78,6 +84,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_appCacheCheckMani
     (void)dwmanifestresponseheaderssize;
     (void)pestate;
     (void)phnewappcache;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -93,9 +100,14 @@ static Napi::Value windowssys_windows_win32_networking_wininet_appCacheCloseHand
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AppCacheCloseHandle")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(happcache);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(happcache);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)happcache;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -114,13 +126,20 @@ static Napi::Value windowssys_windows_win32_networking_wininet_appCacheCreateAnd
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AppCacheCreateAndCommitFile")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(happcache, pwszsourcefilepath, pwszurl, pbresponseheaders, dwresponseheaderssize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(happcache, pwszsourcefilepath, pwszurl, pbresponseheaders, dwresponseheaderssize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)happcache;
     (void)pwszsourcefilepath;
     (void)pwszurl;
     (void)pbresponseheaders;
     (void)dwresponseheaderssize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -136,9 +155,16 @@ static Napi::Value windowssys_windows_win32_networking_wininet_appCacheDeleteGro
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AppCacheDeleteGroup")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pwszmanifesturl) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pwszmanifesturl);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pwszmanifesturl;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -154,9 +180,16 @@ static Napi::Value windowssys_windows_win32_networking_wininet_appCacheDeleteIEG
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AppCacheDeleteIEGroup")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pwszmanifesturl) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pwszmanifesturl);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pwszmanifesturl;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -173,10 +206,17 @@ static Napi::Value windowssys_windows_win32_networking_wininet_appCacheDuplicate
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AppCacheDuplicateHandle")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(happcache, phduplicatedappcache) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(happcache, phduplicatedappcache);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)happcache;
     (void)phduplicatedappcache;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -195,12 +235,19 @@ static Napi::Value windowssys_windows_win32_networking_wininet_appCacheFinalize_
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AppCacheFinalize")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(happcache, pbmanifestdata, dwmanifestdatasize, pestate) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(happcache, pbmanifestdata, dwmanifestdatasize, pestate);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)happcache;
     (void)pbmanifestdata;
     (void)dwmanifestdatasize;
     (void)pestate;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -216,9 +263,14 @@ static Napi::Value windowssys_windows_win32_networking_wininet_appCacheFreeDownl
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AppCacheFreeDownloadList")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pdownloadlist);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pdownloadlist);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pdownloadlist;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -233,9 +285,14 @@ static Napi::Value windowssys_windows_win32_networking_wininet_appCacheFreeGroup
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AppCacheFreeGroupList")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pappcachegrouplist);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pappcachegrouplist);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pappcachegrouplist;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -251,10 +308,17 @@ static Napi::Value windowssys_windows_win32_networking_wininet_appCacheGetDownlo
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AppCacheGetDownloadList")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(happcache, pdownloadlist) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(happcache, pdownloadlist);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)happcache;
     (void)pdownloadlist;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -272,11 +336,18 @@ static Napi::Value windowssys_windows_win32_networking_wininet_appCacheGetFallba
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AppCacheGetFallbackUrl")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(happcache, pwszurl, ppwszfallbackurl) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(happcache, pwszurl, ppwszfallbackurl);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)happcache;
     (void)pwszurl;
     (void)ppwszfallbackurl;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -292,9 +363,16 @@ static Napi::Value windowssys_windows_win32_networking_wininet_appCacheGetGroupL
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AppCacheGetGroupList")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pappcachegrouplist) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pappcachegrouplist);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pappcachegrouplist;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -310,9 +388,16 @@ static Napi::Value windowssys_windows_win32_networking_wininet_appCacheGetIEGrou
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AppCacheGetIEGroupList")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pappcachegrouplist) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pappcachegrouplist);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pappcachegrouplist;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -329,10 +414,17 @@ static Napi::Value windowssys_windows_win32_networking_wininet_appCacheGetInfo_n
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AppCacheGetInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(happcache, pappcacheinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(happcache, pappcacheinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)happcache;
     (void)pappcacheinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -349,10 +441,17 @@ static Napi::Value windowssys_windows_win32_networking_wininet_appCacheGetManife
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AppCacheGetManifestUrl")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(happcache, ppwszmanifesturl) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(happcache, ppwszmanifesturl);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)happcache;
     (void)ppwszmanifesturl;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -370,11 +469,18 @@ static Napi::Value windowssys_windows_win32_networking_wininet_appCacheLookup_na
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AppCacheLookup")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pwszurl, dwflags, phappcache) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pwszurl, dwflags, phappcache);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pwszurl;
     (void)dwflags;
     (void)phappcache;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -393,12 +499,19 @@ static Napi::Value windowssys_windows_win32_networking_wininet_createMD5SSOHash_
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateMD5SSOHash")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszchallengeinfo, pwszrealm, pwsztarget, pbhexhash) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszchallengeinfo, pwszrealm, pwsztarget, pbhexhash);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszchallengeinfo;
     (void)pwszrealm;
     (void)pwsztarget;
     (void)pbhexhash;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -421,7 +534,13 @@ static Napi::Value windowssys_windows_win32_networking_wininet_createUrlCacheCon
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateUrlCacheContainerA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(name, lpcacheprefix, lpszcachepath, kbcachelimit, dwcontainertype, dwoptions, pvbuffer, cbbuffer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(name, lpcacheprefix, lpszcachepath, kbcachelimit, dwcontainertype, dwoptions, pvbuffer, cbbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)name;
     (void)lpcacheprefix;
@@ -431,6 +550,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_createUrlCacheCon
     (void)dwoptions;
     (void)pvbuffer;
     (void)cbbuffer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -453,7 +573,13 @@ static Napi::Value windowssys_windows_win32_networking_wininet_createUrlCacheCon
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateUrlCacheContainerW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(name, lpcacheprefix, lpszcachepath, kbcachelimit, dwcontainertype, dwoptions, pvbuffer, cbbuffer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(name, lpcacheprefix, lpszcachepath, kbcachelimit, dwcontainertype, dwoptions, pvbuffer, cbbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)name;
     (void)lpcacheprefix;
@@ -463,6 +589,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_createUrlCacheCon
     (void)dwoptions;
     (void)pvbuffer;
     (void)cbbuffer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -482,13 +609,20 @@ static Napi::Value windowssys_windows_win32_networking_wininet_createUrlCacheEnt
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateUrlCacheEntryA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszurlname, dwexpectedfilesize, lpszfileextension, lpszfilename, dwreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszurlname, dwexpectedfilesize, lpszfileextension, lpszfilename, dwreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszurlname;
     (void)dwexpectedfilesize;
     (void)lpszfileextension;
     (void)lpszfilename;
     (void)dwreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -509,7 +643,13 @@ static Napi::Value windowssys_windows_win32_networking_wininet_createUrlCacheEnt
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateUrlCacheEntryExW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszurlname, dwexpectedfilesize, lpszfileextension, lpszfilename, dwreserved, fpreserveincomingfilename) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszurlname, dwexpectedfilesize, lpszfileextension, lpszfilename, dwreserved, fpreserveincomingfilename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszurlname;
     (void)dwexpectedfilesize;
@@ -517,6 +657,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_createUrlCacheEnt
     (void)lpszfilename;
     (void)dwreserved;
     (void)fpreserveincomingfilename;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -536,13 +677,20 @@ static Napi::Value windowssys_windows_win32_networking_wininet_createUrlCacheEnt
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateUrlCacheEntryW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszurlname, dwexpectedfilesize, lpszfileextension, lpszfilename, dwreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszurlname, dwexpectedfilesize, lpszfileextension, lpszfilename, dwreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszurlname;
     (void)dwexpectedfilesize;
     (void)lpszfileextension;
     (void)lpszfilename;
     (void)dwreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -559,10 +707,17 @@ static Napi::Value windowssys_windows_win32_networking_wininet_createUrlCacheGro
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateUrlCacheGroup")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwflags, lpreserved) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwflags, lpreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwflags;
     (void)lpreserved;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -581,12 +736,19 @@ static Napi::Value windowssys_windows_win32_networking_wininet_deleteIE3Cache_na
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DeleteIE3Cache")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, hinst, lpszcmd, ncmdshow) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, hinst, lpszcmd, ncmdshow);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hwnd;
     (void)hinst;
     (void)lpszcmd;
     (void)ncmdshow;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -603,10 +765,17 @@ static Napi::Value windowssys_windows_win32_networking_wininet_deleteUrlCacheCon
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DeleteUrlCacheContainerA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(name, dwoptions) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(name, dwoptions);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)name;
     (void)dwoptions;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -623,10 +792,17 @@ static Napi::Value windowssys_windows_win32_networking_wininet_deleteUrlCacheCon
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DeleteUrlCacheContainerW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(name, dwoptions) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(name, dwoptions);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)name;
     (void)dwoptions;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -642,9 +818,16 @@ static Napi::Value windowssys_windows_win32_networking_wininet_deleteUrlCacheEnt
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DeleteUrlCacheEntry")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszurlname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszurlname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszurlname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -660,9 +843,16 @@ static Napi::Value windowssys_windows_win32_networking_wininet_deleteUrlCacheEnt
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DeleteUrlCacheEntryA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszurlname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszurlname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszurlname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -678,9 +868,16 @@ static Napi::Value windowssys_windows_win32_networking_wininet_deleteUrlCacheEnt
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DeleteUrlCacheEntryW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszurlname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszurlname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszurlname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -698,11 +895,18 @@ static Napi::Value windowssys_windows_win32_networking_wininet_deleteUrlCacheGro
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DeleteUrlCacheGroup")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(groupid, dwflags, lpreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(groupid, dwflags, lpreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)groupid;
     (void)dwflags;
     (void)lpreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -718,9 +922,16 @@ static Napi::Value windowssys_windows_win32_networking_wininet_deleteWpadCacheFo
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DeleteWpadCacheForNetworks")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)param0;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -738,11 +949,18 @@ static Napi::Value windowssys_windows_win32_networking_wininet_detectAutoProxyUr
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DetectAutoProxyUrl")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszautoproxyurl, cchautoproxyurl, dwdetectflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszautoproxyurl, cchautoproxyurl, dwdetectflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszautoproxyurl;
     (void)cchautoproxyurl;
     (void)dwdetectflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -757,8 +975,15 @@ static Napi::Value windowssys_windows_win32_networking_wininet_doConnectoidsExis
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DoConnectoidsExist")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -775,10 +1000,17 @@ static Napi::Value windowssys_windows_win32_networking_wininet_exportCookieFileA
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ExportCookieFileA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szfilename, fappend) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szfilename, fappend);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)szfilename;
     (void)fappend;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -795,10 +1027,17 @@ static Napi::Value windowssys_windows_win32_networking_wininet_exportCookieFileW
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ExportCookieFileW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szfilename, fappend) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szfilename, fappend);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)szfilename;
     (void)fappend;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -814,9 +1053,16 @@ static Napi::Value windowssys_windows_win32_networking_wininet_findCloseUrlCache
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FindCloseUrlCache")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(henumhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(henumhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)henumhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -835,13 +1081,20 @@ static Napi::Value windowssys_windows_win32_networking_wininet_findFirstUrlCache
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FindFirstUrlCacheContainerA")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pdwmodified, lpcontainerinfo, lpcbcontainerinfo, dwoptions) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pdwmodified, lpcontainerinfo, lpcbcontainerinfo, dwoptions);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pdwmodified;
     (void)lpcontainerinfo;
     (void)lpcbcontainerinfo;
     (void)dwoptions;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -859,13 +1112,20 @@ static Napi::Value windowssys_windows_win32_networking_wininet_findFirstUrlCache
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FindFirstUrlCacheContainerW")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pdwmodified, lpcontainerinfo, lpcbcontainerinfo, dwoptions) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pdwmodified, lpcontainerinfo, lpcbcontainerinfo, dwoptions);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pdwmodified;
     (void)lpcontainerinfo;
     (void)lpcbcontainerinfo;
     (void)dwoptions;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -882,12 +1142,19 @@ static Napi::Value windowssys_windows_win32_networking_wininet_findFirstUrlCache
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FindFirstUrlCacheEntryA")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszurlsearchpattern, lpfirstcacheentryinfo, lpcbcacheentryinfo) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszurlsearchpattern, lpfirstcacheentryinfo, lpcbcacheentryinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)lpszurlsearchpattern;
     (void)lpfirstcacheentryinfo;
     (void)lpcbcacheentryinfo;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -910,7 +1177,13 @@ static Napi::Value windowssys_windows_win32_networking_wininet_findFirstUrlCache
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FindFirstUrlCacheEntryExA")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszurlsearchpattern, dwflags, dwfilter, groupid, lpfirstcacheentryinfo, lpcbcacheentryinfo, lpgroupattributes, lpcbgroupattributes, lpreserved) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszurlsearchpattern, dwflags, dwfilter, groupid, lpfirstcacheentryinfo, lpcbcacheentryinfo, lpgroupattributes, lpcbgroupattributes, lpreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)lpszurlsearchpattern;
     (void)dwflags;
@@ -921,7 +1194,8 @@ static Napi::Value windowssys_windows_win32_networking_wininet_findFirstUrlCache
     (void)lpgroupattributes;
     (void)lpcbgroupattributes;
     (void)lpreserved;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -944,7 +1218,13 @@ static Napi::Value windowssys_windows_win32_networking_wininet_findFirstUrlCache
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FindFirstUrlCacheEntryExW")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszurlsearchpattern, dwflags, dwfilter, groupid, lpfirstcacheentryinfo, lpcbcacheentryinfo, lpgroupattributes, lpcbgroupattributes, lpreserved) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszurlsearchpattern, dwflags, dwfilter, groupid, lpfirstcacheentryinfo, lpcbcacheentryinfo, lpgroupattributes, lpcbgroupattributes, lpreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)lpszurlsearchpattern;
     (void)dwflags;
@@ -955,7 +1235,8 @@ static Napi::Value windowssys_windows_win32_networking_wininet_findFirstUrlCache
     (void)lpgroupattributes;
     (void)lpcbgroupattributes;
     (void)lpreserved;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -972,12 +1253,19 @@ static Napi::Value windowssys_windows_win32_networking_wininet_findFirstUrlCache
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FindFirstUrlCacheEntryW")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszurlsearchpattern, lpfirstcacheentryinfo, lpcbcacheentryinfo) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszurlsearchpattern, lpfirstcacheentryinfo, lpcbcacheentryinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)lpszurlsearchpattern;
     (void)lpfirstcacheentryinfo;
     (void)lpcbcacheentryinfo;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -997,7 +1285,13 @@ static Napi::Value windowssys_windows_win32_networking_wininet_findFirstUrlCache
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FindFirstUrlCacheGroup")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwflags, dwfilter, lpsearchcondition, dwsearchcondition, lpgroupid, lpreserved) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwflags, dwfilter, lpsearchcondition, dwsearchcondition, lpgroupid, lpreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)dwflags;
     (void)dwfilter;
@@ -1005,7 +1299,8 @@ static Napi::Value windowssys_windows_win32_networking_wininet_findFirstUrlCache
     (void)dwsearchcondition;
     (void)lpgroupid;
     (void)lpreserved;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1022,11 +1317,18 @@ static Napi::Value windowssys_windows_win32_networking_wininet_findNextUrlCacheC
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FindNextUrlCacheContainerA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(henumhandle, lpcontainerinfo, lpcbcontainerinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(henumhandle, lpcontainerinfo, lpcbcontainerinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)henumhandle;
     (void)lpcontainerinfo;
     (void)lpcbcontainerinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1044,11 +1346,18 @@ static Napi::Value windowssys_windows_win32_networking_wininet_findNextUrlCacheC
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FindNextUrlCacheContainerW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(henumhandle, lpcontainerinfo, lpcbcontainerinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(henumhandle, lpcontainerinfo, lpcbcontainerinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)henumhandle;
     (void)lpcontainerinfo;
     (void)lpcbcontainerinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1066,11 +1375,18 @@ static Napi::Value windowssys_windows_win32_networking_wininet_findNextUrlCacheE
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FindNextUrlCacheEntryA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(henumhandle, lpnextcacheentryinfo, lpcbcacheentryinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(henumhandle, lpnextcacheentryinfo, lpcbcacheentryinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)henumhandle;
     (void)lpnextcacheentryinfo;
     (void)lpcbcacheentryinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1091,7 +1407,13 @@ static Napi::Value windowssys_windows_win32_networking_wininet_findNextUrlCacheE
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FindNextUrlCacheEntryExA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(henumhandle, lpnextcacheentryinfo, lpcbcacheentryinfo, lpgroupattributes, lpcbgroupattributes, lpreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(henumhandle, lpnextcacheentryinfo, lpcbcacheentryinfo, lpgroupattributes, lpcbgroupattributes, lpreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)henumhandle;
     (void)lpnextcacheentryinfo;
@@ -1099,6 +1421,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_findNextUrlCacheE
     (void)lpgroupattributes;
     (void)lpcbgroupattributes;
     (void)lpreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1119,7 +1442,13 @@ static Napi::Value windowssys_windows_win32_networking_wininet_findNextUrlCacheE
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FindNextUrlCacheEntryExW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(henumhandle, lpnextcacheentryinfo, lpcbcacheentryinfo, lpgroupattributes, lpcbgroupattributes, lpreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(henumhandle, lpnextcacheentryinfo, lpcbcacheentryinfo, lpgroupattributes, lpcbgroupattributes, lpreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)henumhandle;
     (void)lpnextcacheentryinfo;
@@ -1127,6 +1456,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_findNextUrlCacheE
     (void)lpgroupattributes;
     (void)lpcbgroupattributes;
     (void)lpreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1144,11 +1474,18 @@ static Napi::Value windowssys_windows_win32_networking_wininet_findNextUrlCacheE
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FindNextUrlCacheEntryW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(henumhandle, lpnextcacheentryinfo, lpcbcacheentryinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(henumhandle, lpnextcacheentryinfo, lpcbcacheentryinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)henumhandle;
     (void)lpnextcacheentryinfo;
     (void)lpcbcacheentryinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1166,11 +1503,18 @@ static Napi::Value windowssys_windows_win32_networking_wininet_findNextUrlCacheG
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FindNextUrlCacheGroup")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hfind, lpgroupid, lpreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hfind, lpgroupid, lpreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hfind;
     (void)lpgroupid;
     (void)lpreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1186,9 +1530,16 @@ static Napi::Value windowssys_windows_win32_networking_wininet_findP3PPolicySymb
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FindP3PPolicySymbol")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszsymbol) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszsymbol);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszsymbol;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1206,11 +1557,18 @@ static Napi::Value windowssys_windows_win32_networking_wininet_freeUrlCacheSpace
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FreeUrlCacheSpaceA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszcachepath, dwsize, dwfilter) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszcachepath, dwsize, dwfilter);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszcachepath;
     (void)dwsize;
     (void)dwfilter;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1228,11 +1586,18 @@ static Napi::Value windowssys_windows_win32_networking_wininet_freeUrlCacheSpace
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FreeUrlCacheSpaceW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszcachepath, dwsize, dwfilter) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszcachepath, dwsize, dwfilter);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszcachepath;
     (void)dwsize;
     (void)dwfilter;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1253,7 +1618,13 @@ static Napi::Value windowssys_windows_win32_networking_wininet_ftpCommandA_napi(
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FtpCommandA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hconnect, fexpectresponse, dwflags, lpszcommand, dwcontext, phftpcommand) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hconnect, fexpectresponse, dwflags, lpszcommand, dwcontext, phftpcommand);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hconnect;
     (void)fexpectresponse;
@@ -1261,6 +1632,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_ftpCommandA_napi(
     (void)lpszcommand;
     (void)dwcontext;
     (void)phftpcommand;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1281,7 +1653,13 @@ static Napi::Value windowssys_windows_win32_networking_wininet_ftpCommandW_napi(
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FtpCommandW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hconnect, fexpectresponse, dwflags, lpszcommand, dwcontext, phftpcommand) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hconnect, fexpectresponse, dwflags, lpszcommand, dwcontext, phftpcommand);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hconnect;
     (void)fexpectresponse;
@@ -1289,6 +1667,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_ftpCommandW_napi(
     (void)lpszcommand;
     (void)dwcontext;
     (void)phftpcommand;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1305,10 +1684,17 @@ static Napi::Value windowssys_windows_win32_networking_wininet_ftpCreateDirector
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FtpCreateDirectoryA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hconnect, lpszdirectory) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hconnect, lpszdirectory);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hconnect;
     (void)lpszdirectory;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1325,10 +1711,17 @@ static Napi::Value windowssys_windows_win32_networking_wininet_ftpCreateDirector
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FtpCreateDirectoryW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hconnect, lpszdirectory) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hconnect, lpszdirectory);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hconnect;
     (void)lpszdirectory;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1345,10 +1738,17 @@ static Napi::Value windowssys_windows_win32_networking_wininet_ftpDeleteFileA_na
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FtpDeleteFileA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hconnect, lpszfilename) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hconnect, lpszfilename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hconnect;
     (void)lpszfilename;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1365,10 +1765,17 @@ static Napi::Value windowssys_windows_win32_networking_wininet_ftpDeleteFileW_na
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FtpDeleteFileW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hconnect, lpszfilename) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hconnect, lpszfilename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hconnect;
     (void)lpszfilename;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1388,14 +1795,21 @@ static Napi::Value windowssys_windows_win32_networking_wininet_ftpFindFirstFileA
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FtpFindFirstFileA")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hconnect, lpszsearchfile, lpfindfiledata, dwflags, dwcontext) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hconnect, lpszsearchfile, lpfindfiledata, dwflags, dwcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hconnect;
     (void)lpszsearchfile;
     (void)lpfindfiledata;
     (void)dwflags;
     (void)dwcontext;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1414,14 +1828,21 @@ static Napi::Value windowssys_windows_win32_networking_wininet_ftpFindFirstFileW
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FtpFindFirstFileW")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hconnect, lpszsearchfile, lpfindfiledata, dwflags, dwcontext) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hconnect, lpszsearchfile, lpfindfiledata, dwflags, dwcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hconnect;
     (void)lpszsearchfile;
     (void)lpfindfiledata;
     (void)dwflags;
     (void)dwcontext;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1438,11 +1859,18 @@ static Napi::Value windowssys_windows_win32_networking_wininet_ftpGetCurrentDire
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FtpGetCurrentDirectoryA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hconnect, lpszcurrentdirectory, lpdwcurrentdirectory) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hconnect, lpszcurrentdirectory, lpdwcurrentdirectory);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hconnect;
     (void)lpszcurrentdirectory;
     (void)lpdwcurrentdirectory;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1460,11 +1888,18 @@ static Napi::Value windowssys_windows_win32_networking_wininet_ftpGetCurrentDire
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FtpGetCurrentDirectoryW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hconnect, lpszcurrentdirectory, lpdwcurrentdirectory) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hconnect, lpszcurrentdirectory, lpdwcurrentdirectory);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hconnect;
     (void)lpszcurrentdirectory;
     (void)lpdwcurrentdirectory;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1486,7 +1921,13 @@ static Napi::Value windowssys_windows_win32_networking_wininet_ftpGetFileA_napi(
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FtpGetFileA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hconnect, lpszremotefile, lpsznewfile, ffailifexists, dwflagsandattributes, dwflags, dwcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hconnect, lpszremotefile, lpsznewfile, ffailifexists, dwflagsandattributes, dwflags, dwcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hconnect;
     (void)lpszremotefile;
@@ -1495,6 +1936,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_ftpGetFileA_napi(
     (void)dwflagsandattributes;
     (void)dwflags;
     (void)dwcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1516,7 +1958,13 @@ static Napi::Value windowssys_windows_win32_networking_wininet_ftpGetFileEx_napi
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FtpGetFileEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hftpsession, lpszremotefile, lpsznewfile, ffailifexists, dwflagsandattributes, dwflags, dwcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hftpsession, lpszremotefile, lpsznewfile, ffailifexists, dwflagsandattributes, dwflags, dwcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hftpsession;
     (void)lpszremotefile;
@@ -1525,6 +1973,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_ftpGetFileEx_napi
     (void)dwflagsandattributes;
     (void)dwflags;
     (void)dwcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1541,10 +1990,17 @@ static Napi::Value windowssys_windows_win32_networking_wininet_ftpGetFileSize_na
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FtpGetFileSize")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hfile, lpdwfilesizehigh) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hfile, lpdwfilesizehigh);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hfile;
     (void)lpdwfilesizehigh;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1566,7 +2022,13 @@ static Napi::Value windowssys_windows_win32_networking_wininet_ftpGetFileW_napi(
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FtpGetFileW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hconnect, lpszremotefile, lpsznewfile, ffailifexists, dwflagsandattributes, dwflags, dwcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hconnect, lpszremotefile, lpsznewfile, ffailifexists, dwflagsandattributes, dwflags, dwcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hconnect;
     (void)lpszremotefile;
@@ -1575,6 +2037,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_ftpGetFileW_napi(
     (void)dwflagsandattributes;
     (void)dwflags;
     (void)dwcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1594,14 +2057,21 @@ static Napi::Value windowssys_windows_win32_networking_wininet_ftpOpenFileA_napi
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FtpOpenFileA")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hconnect, lpszfilename, dwaccess, dwflags, dwcontext) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hconnect, lpszfilename, dwaccess, dwflags, dwcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hconnect;
     (void)lpszfilename;
     (void)dwaccess;
     (void)dwflags;
     (void)dwcontext;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1620,14 +2090,21 @@ static Napi::Value windowssys_windows_win32_networking_wininet_ftpOpenFileW_napi
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FtpOpenFileW")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hconnect, lpszfilename, dwaccess, dwflags, dwcontext) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hconnect, lpszfilename, dwaccess, dwflags, dwcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hconnect;
     (void)lpszfilename;
     (void)dwaccess;
     (void)dwflags;
     (void)dwcontext;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1646,13 +2123,20 @@ static Napi::Value windowssys_windows_win32_networking_wininet_ftpPutFileA_napi(
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FtpPutFileA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hconnect, lpszlocalfile, lpsznewremotefile, dwflags, dwcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hconnect, lpszlocalfile, lpsznewremotefile, dwflags, dwcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hconnect;
     (void)lpszlocalfile;
     (void)lpsznewremotefile;
     (void)dwflags;
     (void)dwcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1672,13 +2156,20 @@ static Napi::Value windowssys_windows_win32_networking_wininet_ftpPutFileEx_napi
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FtpPutFileEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hftpsession, lpszlocalfile, lpsznewremotefile, dwflags, dwcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hftpsession, lpszlocalfile, lpsznewremotefile, dwflags, dwcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hftpsession;
     (void)lpszlocalfile;
     (void)lpsznewremotefile;
     (void)dwflags;
     (void)dwcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1698,13 +2189,20 @@ static Napi::Value windowssys_windows_win32_networking_wininet_ftpPutFileW_napi(
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FtpPutFileW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hconnect, lpszlocalfile, lpsznewremotefile, dwflags, dwcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hconnect, lpszlocalfile, lpsznewremotefile, dwflags, dwcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hconnect;
     (void)lpszlocalfile;
     (void)lpsznewremotefile;
     (void)dwflags;
     (void)dwcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1721,10 +2219,17 @@ static Napi::Value windowssys_windows_win32_networking_wininet_ftpRemoveDirector
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FtpRemoveDirectoryA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hconnect, lpszdirectory) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hconnect, lpszdirectory);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hconnect;
     (void)lpszdirectory;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1741,10 +2246,17 @@ static Napi::Value windowssys_windows_win32_networking_wininet_ftpRemoveDirector
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FtpRemoveDirectoryW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hconnect, lpszdirectory) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hconnect, lpszdirectory);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hconnect;
     (void)lpszdirectory;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1762,11 +2274,18 @@ static Napi::Value windowssys_windows_win32_networking_wininet_ftpRenameFileA_na
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FtpRenameFileA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hconnect, lpszexisting, lpsznew) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hconnect, lpszexisting, lpsznew);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hconnect;
     (void)lpszexisting;
     (void)lpsznew;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1784,11 +2303,18 @@ static Napi::Value windowssys_windows_win32_networking_wininet_ftpRenameFileW_na
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FtpRenameFileW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hconnect, lpszexisting, lpsznew) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hconnect, lpszexisting, lpsznew);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hconnect;
     (void)lpszexisting;
     (void)lpsznew;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1805,10 +2331,17 @@ static Napi::Value windowssys_windows_win32_networking_wininet_ftpSetCurrentDire
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FtpSetCurrentDirectoryA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hconnect, lpszdirectory) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hconnect, lpszdirectory);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hconnect;
     (void)lpszdirectory;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1825,10 +2358,17 @@ static Napi::Value windowssys_windows_win32_networking_wininet_ftpSetCurrentDire
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FtpSetCurrentDirectoryW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hconnect, lpszdirectory) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hconnect, lpszdirectory);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hconnect;
     (void)lpszdirectory;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1847,12 +2387,19 @@ static Napi::Value windowssys_windows_win32_networking_wininet_getDiskInfoA_napi
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetDiskInfoA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszpath, pdwclustersize, pdlavail, pdltotal) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszpath, pdwclustersize, pdlavail, pdltotal);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszpath;
     (void)pdwclustersize;
     (void)pdlavail;
     (void)pdltotal;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1870,11 +2417,18 @@ static Napi::Value windowssys_windows_win32_networking_wininet_getUrlCacheConfig
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetUrlCacheConfigInfoA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpcacheconfiginfo, lpcbcacheconfiginfo, dwfieldcontrol) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpcacheconfiginfo, lpcbcacheconfiginfo, dwfieldcontrol);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpcacheconfiginfo;
     (void)lpcbcacheconfiginfo;
     (void)dwfieldcontrol;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1892,11 +2446,18 @@ static Napi::Value windowssys_windows_win32_networking_wininet_getUrlCacheConfig
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetUrlCacheConfigInfoW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpcacheconfiginfo, lpcbcacheconfiginfo, dwfieldcontrol) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpcacheconfiginfo, lpcbcacheconfiginfo, dwfieldcontrol);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpcacheconfiginfo;
     (void)lpcbcacheconfiginfo;
     (void)dwfieldcontrol;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1918,7 +2479,13 @@ static Napi::Value windowssys_windows_win32_networking_wininet_getUrlCacheEntryB
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetUrlCacheEntryBinaryBlob")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pwszurlname, dwtype, pftexpiretime, pftaccesstime, pftmodifiedtime, ppbblob, pcbblob) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pwszurlname, dwtype, pftexpiretime, pftaccesstime, pftmodifiedtime, ppbblob, pcbblob);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pwszurlname;
     (void)dwtype;
@@ -1927,6 +2494,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_getUrlCacheEntryB
     (void)pftmodifiedtime;
     (void)ppbblob;
     (void)pcbblob;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1944,11 +2512,18 @@ static Napi::Value windowssys_windows_win32_networking_wininet_getUrlCacheEntryI
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetUrlCacheEntryInfoA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszurlname, lpcacheentryinfo, lpcbcacheentryinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszurlname, lpcacheentryinfo, lpcbcacheentryinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszurlname;
     (void)lpcacheentryinfo;
     (void)lpcbcacheentryinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1970,7 +2545,13 @@ static Napi::Value windowssys_windows_win32_networking_wininet_getUrlCacheEntryI
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetUrlCacheEntryInfoExA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszurl, lpcacheentryinfo, lpcbcacheentryinfo, lpszredirecturl, lpcbredirecturl, lpreserved, dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszurl, lpcacheentryinfo, lpcbcacheentryinfo, lpszredirecturl, lpcbredirecturl, lpreserved, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszurl;
     (void)lpcacheentryinfo;
@@ -1979,6 +2560,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_getUrlCacheEntryI
     (void)lpcbredirecturl;
     (void)lpreserved;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2000,7 +2582,13 @@ static Napi::Value windowssys_windows_win32_networking_wininet_getUrlCacheEntryI
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetUrlCacheEntryInfoExW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszurl, lpcacheentryinfo, lpcbcacheentryinfo, lpszredirecturl, lpcbredirecturl, lpreserved, dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszurl, lpcacheentryinfo, lpcbcacheentryinfo, lpszredirecturl, lpcbredirecturl, lpreserved, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszurl;
     (void)lpcacheentryinfo;
@@ -2009,6 +2597,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_getUrlCacheEntryI
     (void)lpcbredirecturl;
     (void)lpreserved;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2026,11 +2615,18 @@ static Napi::Value windowssys_windows_win32_networking_wininet_getUrlCacheEntryI
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetUrlCacheEntryInfoW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszurlname, lpcacheentryinfo, lpcbcacheentryinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszurlname, lpcacheentryinfo, lpcbcacheentryinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszurlname;
     (void)lpcacheentryinfo;
     (void)lpcbcacheentryinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2051,7 +2647,13 @@ static Napi::Value windowssys_windows_win32_networking_wininet_getUrlCacheGroupA
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetUrlCacheGroupAttributeA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(gid, dwflags, dwattributes, lpgroupinfo, lpcbgroupinfo, lpreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(gid, dwflags, dwattributes, lpgroupinfo, lpcbgroupinfo, lpreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)gid;
     (void)dwflags;
@@ -2059,6 +2661,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_getUrlCacheGroupA
     (void)lpgroupinfo;
     (void)lpcbgroupinfo;
     (void)lpreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2079,7 +2682,13 @@ static Napi::Value windowssys_windows_win32_networking_wininet_getUrlCacheGroupA
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetUrlCacheGroupAttributeW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(gid, dwflags, dwattributes, lpgroupinfo, lpcbgroupinfo, lpreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(gid, dwflags, dwattributes, lpgroupinfo, lpcbgroupinfo, lpreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)gid;
     (void)dwflags;
@@ -2087,6 +2696,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_getUrlCacheGroupA
     (void)lpgroupinfo;
     (void)lpcbgroupinfo;
     (void)lpreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2103,10 +2713,17 @@ static Napi::Value windowssys_windows_win32_networking_wininet_getUrlCacheHeader
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetUrlCacheHeaderData")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(nidx, lpdwdata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(nidx, lpdwdata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)nidx;
     (void)lpdwdata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2128,7 +2745,13 @@ static Napi::Value windowssys_windows_win32_networking_wininet_gopherCreateLocat
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GopherCreateLocatorA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszhost, nserverport, lpszdisplaystring, lpszselectorstring, dwgophertype, lpszlocator, lpdwbufferlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszhost, nserverport, lpszdisplaystring, lpszselectorstring, dwgophertype, lpszlocator, lpdwbufferlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszhost;
     (void)nserverport;
@@ -2137,6 +2760,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_gopherCreateLocat
     (void)dwgophertype;
     (void)lpszlocator;
     (void)lpdwbufferlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2158,7 +2782,13 @@ static Napi::Value windowssys_windows_win32_networking_wininet_gopherCreateLocat
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GopherCreateLocatorW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszhost, nserverport, lpszdisplaystring, lpszselectorstring, dwgophertype, lpszlocator, lpdwbufferlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszhost, nserverport, lpszdisplaystring, lpszselectorstring, dwgophertype, lpszlocator, lpdwbufferlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszhost;
     (void)nserverport;
@@ -2167,6 +2797,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_gopherCreateLocat
     (void)dwgophertype;
     (void)lpszlocator;
     (void)lpdwbufferlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2187,7 +2818,13 @@ static Napi::Value windowssys_windows_win32_networking_wininet_gopherFindFirstFi
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GopherFindFirstFileA")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hconnect, lpszlocator, lpszsearchstring, lpfinddata, dwflags, dwcontext) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hconnect, lpszlocator, lpszsearchstring, lpfinddata, dwflags, dwcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hconnect;
     (void)lpszlocator;
@@ -2195,7 +2832,8 @@ static Napi::Value windowssys_windows_win32_networking_wininet_gopherFindFirstFi
     (void)lpfinddata;
     (void)dwflags;
     (void)dwcontext;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -2215,7 +2853,13 @@ static Napi::Value windowssys_windows_win32_networking_wininet_gopherFindFirstFi
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GopherFindFirstFileW")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hconnect, lpszlocator, lpszsearchstring, lpfinddata, dwflags, dwcontext) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hconnect, lpszlocator, lpszsearchstring, lpfinddata, dwflags, dwcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hconnect;
     (void)lpszlocator;
@@ -2223,7 +2867,8 @@ static Napi::Value windowssys_windows_win32_networking_wininet_gopherFindFirstFi
     (void)lpfinddata;
     (void)dwflags;
     (void)dwcontext;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -2245,7 +2890,13 @@ static Napi::Value windowssys_windows_win32_networking_wininet_gopherGetAttribut
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GopherGetAttributeA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hconnect, lpszlocator, lpszattributename, lpbuffer, dwbufferlength, lpdwcharactersreturned, lpfnenumerator, dwcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hconnect, lpszlocator, lpszattributename, lpbuffer, dwbufferlength, lpdwcharactersreturned, lpfnenumerator, dwcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hconnect;
     (void)lpszlocator;
@@ -2255,6 +2906,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_gopherGetAttribut
     (void)lpdwcharactersreturned;
     (void)lpfnenumerator;
     (void)dwcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2277,7 +2929,13 @@ static Napi::Value windowssys_windows_win32_networking_wininet_gopherGetAttribut
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GopherGetAttributeW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hconnect, lpszlocator, lpszattributename, lpbuffer, dwbufferlength, lpdwcharactersreturned, lpfnenumerator, dwcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hconnect, lpszlocator, lpszattributename, lpbuffer, dwbufferlength, lpdwcharactersreturned, lpfnenumerator, dwcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hconnect;
     (void)lpszlocator;
@@ -2287,6 +2945,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_gopherGetAttribut
     (void)lpdwcharactersreturned;
     (void)lpfnenumerator;
     (void)dwcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2303,10 +2962,17 @@ static Napi::Value windowssys_windows_win32_networking_wininet_gopherGetLocatorT
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GopherGetLocatorTypeA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszlocator, lpdwgophertype) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszlocator, lpdwgophertype);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszlocator;
     (void)lpdwgophertype;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2323,10 +2989,17 @@ static Napi::Value windowssys_windows_win32_networking_wininet_gopherGetLocatorT
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GopherGetLocatorTypeW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszlocator, lpdwgophertype) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszlocator, lpdwgophertype);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszlocator;
     (void)lpdwgophertype;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2346,14 +3019,21 @@ static Napi::Value windowssys_windows_win32_networking_wininet_gopherOpenFileA_n
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GopherOpenFileA")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hconnect, lpszlocator, lpszview, dwflags, dwcontext) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hconnect, lpszlocator, lpszview, dwflags, dwcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hconnect;
     (void)lpszlocator;
     (void)lpszview;
     (void)dwflags;
     (void)dwcontext;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -2372,14 +3052,21 @@ static Napi::Value windowssys_windows_win32_networking_wininet_gopherOpenFileW_n
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GopherOpenFileW")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hconnect, lpszlocator, lpszview, dwflags, dwcontext) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hconnect, lpszlocator, lpszview, dwflags, dwcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hconnect;
     (void)lpszlocator;
     (void)lpszview;
     (void)dwflags;
     (void)dwcontext;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -2397,12 +3084,19 @@ static Napi::Value windowssys_windows_win32_networking_wininet_httpAddRequestHea
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HttpAddRequestHeadersA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hrequest, lpszheaders, dwheaderslength, dwmodifiers) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hrequest, lpszheaders, dwheaderslength, dwmodifiers);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hrequest;
     (void)lpszheaders;
     (void)dwheaderslength;
     (void)dwmodifiers;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2421,12 +3115,19 @@ static Napi::Value windowssys_windows_win32_networking_wininet_httpAddRequestHea
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HttpAddRequestHeadersW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hrequest, lpszheaders, dwheaderslength, dwmodifiers) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hrequest, lpszheaders, dwheaderslength, dwmodifiers);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hrequest;
     (void)lpszheaders;
     (void)dwheaderslength;
     (void)dwmodifiers;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2446,13 +3147,20 @@ static Napi::Value windowssys_windows_win32_networking_wininet_httpCheckDavCompl
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HttpCheckDavComplianceA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszurl, lpszcompliancetoken, lpffound, hwnd, lpvreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszurl, lpszcompliancetoken, lpffound, hwnd, lpvreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszurl;
     (void)lpszcompliancetoken;
     (void)lpffound;
     (void)hwnd;
     (void)lpvreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2472,13 +3180,20 @@ static Napi::Value windowssys_windows_win32_networking_wininet_httpCheckDavCompl
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HttpCheckDavComplianceW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszurl, lpszcompliancetoken, lpffound, hwnd, lpvreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszurl, lpszcompliancetoken, lpffound, hwnd, lpvreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszurl;
     (void)lpszcompliancetoken;
     (void)lpffound;
     (void)hwnd;
     (void)lpvreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2494,9 +3209,14 @@ static Napi::Value windowssys_windows_win32_networking_wininet_httpCloseDependen
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HttpCloseDependencyHandle")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(hdependencyhandle);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(hdependencyhandle);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)hdependencyhandle;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -2512,10 +3232,17 @@ static Napi::Value windowssys_windows_win32_networking_wininet_httpDuplicateDepe
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HttpDuplicateDependencyHandle")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdependencyhandle, phduplicateddependencyhandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdependencyhandle, phduplicateddependencyhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hdependencyhandle;
     (void)phduplicateddependencyhandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2534,12 +3261,19 @@ static Napi::Value windowssys_windows_win32_networking_wininet_httpEndRequestA_n
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HttpEndRequestA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hrequest, lpbuffersout, dwflags, dwcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hrequest, lpbuffersout, dwflags, dwcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hrequest;
     (void)lpbuffersout;
     (void)dwflags;
     (void)dwcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2558,12 +3292,19 @@ static Napi::Value windowssys_windows_win32_networking_wininet_httpEndRequestW_n
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HttpEndRequestW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hrequest, lpbuffersout, dwflags, dwcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hrequest, lpbuffersout, dwflags, dwcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hrequest;
     (void)lpbuffersout;
     (void)dwflags;
     (void)dwcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2581,11 +3322,18 @@ static Napi::Value windowssys_windows_win32_networking_wininet_httpGetServerCred
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HttpGetServerCredentials")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pwszurl, ppwszusername, ppwszpassword) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pwszurl, ppwszusername, ppwszpassword);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pwszurl;
     (void)ppwszusername;
     (void)ppwszpassword;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2601,9 +3349,16 @@ static Napi::Value windowssys_windows_win32_networking_wininet_httpIndicatePageL
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HttpIndicatePageLoadComplete")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdependencyhandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdependencyhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hdependencyhandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2620,10 +3375,17 @@ static Napi::Value windowssys_windows_win32_networking_wininet_httpIsHostHstsEna
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HttpIsHostHstsEnabled")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pcwszurl, pfishsts) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pcwszurl, pfishsts);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pcwszurl;
     (void)pfishsts;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2641,11 +3403,18 @@ static Napi::Value windowssys_windows_win32_networking_wininet_httpOpenDependenc
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HttpOpenDependencyHandle")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hrequesthandle, fbackground, phdependencyhandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hrequesthandle, fbackground, phdependencyhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hrequesthandle;
     (void)fbackground;
     (void)phdependencyhandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2668,7 +3437,13 @@ static Napi::Value windowssys_windows_win32_networking_wininet_httpOpenRequestA_
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HttpOpenRequestA")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hconnect, lpszverb, lpszobjectname, lpszversion, lpszreferrer, lplpszaccepttypes, dwflags, dwcontext) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hconnect, lpszverb, lpszobjectname, lpszversion, lpszreferrer, lplpszaccepttypes, dwflags, dwcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hconnect;
     (void)lpszverb;
@@ -2678,7 +3453,8 @@ static Napi::Value windowssys_windows_win32_networking_wininet_httpOpenRequestA_
     (void)lplpszaccepttypes;
     (void)dwflags;
     (void)dwcontext;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -2700,7 +3476,13 @@ static Napi::Value windowssys_windows_win32_networking_wininet_httpOpenRequestW_
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HttpOpenRequestW")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hconnect, lpszverb, lpszobjectname, lpszversion, lpszreferrer, lplpszaccepttypes, dwflags, dwcontext) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hconnect, lpszverb, lpszobjectname, lpszversion, lpszreferrer, lplpszaccepttypes, dwflags, dwcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hconnect;
     (void)lpszverb;
@@ -2710,7 +3492,8 @@ static Napi::Value windowssys_windows_win32_networking_wininet_httpOpenRequestW_
     (void)lplpszaccepttypes;
     (void)dwflags;
     (void)dwcontext;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -2725,9 +3508,14 @@ static Napi::Value windowssys_windows_win32_networking_wininet_httpPushClose_nap
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HttpPushClose")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(hwait);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(hwait);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)hwait;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -2744,11 +3532,18 @@ static Napi::Value windowssys_windows_win32_networking_wininet_httpPushEnable_na
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HttpPushEnable")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hrequest, ptransportsetting, phwait) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hrequest, ptransportsetting, phwait);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hrequest;
     (void)ptransportsetting;
     (void)phwait;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2766,11 +3561,18 @@ static Napi::Value windowssys_windows_win32_networking_wininet_httpPushWait_napi
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HttpPushWait")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwait, etype, pnotificationstatus) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwait, etype, pnotificationstatus);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hwait;
     (void)etype;
     (void)pnotificationstatus;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2790,13 +3592,20 @@ static Napi::Value windowssys_windows_win32_networking_wininet_httpQueryInfoA_na
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HttpQueryInfoA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hrequest, dwinfolevel, lpbuffer, lpdwbufferlength, lpdwindex) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hrequest, dwinfolevel, lpbuffer, lpdwbufferlength, lpdwindex);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hrequest;
     (void)dwinfolevel;
     (void)lpbuffer;
     (void)lpdwbufferlength;
     (void)lpdwindex;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2816,13 +3625,20 @@ static Napi::Value windowssys_windows_win32_networking_wininet_httpQueryInfoW_na
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HttpQueryInfoW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hrequest, dwinfolevel, lpbuffer, lpdwbufferlength, lpdwindex) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hrequest, dwinfolevel, lpbuffer, lpdwbufferlength, lpdwindex);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hrequest;
     (void)dwinfolevel;
     (void)lpbuffer;
     (void)lpdwbufferlength;
     (void)lpdwindex;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2842,13 +3658,20 @@ static Napi::Value windowssys_windows_win32_networking_wininet_httpSendRequestA_
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HttpSendRequestA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hrequest, lpszheaders, dwheaderslength, lpoptional, dwoptionallength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hrequest, lpszheaders, dwheaderslength, lpoptional, dwoptionallength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hrequest;
     (void)lpszheaders;
     (void)dwheaderslength;
     (void)lpoptional;
     (void)dwoptionallength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2868,13 +3691,20 @@ static Napi::Value windowssys_windows_win32_networking_wininet_httpSendRequestEx
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HttpSendRequestExA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hrequest, lpbuffersin, lpbuffersout, dwflags, dwcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hrequest, lpbuffersin, lpbuffersout, dwflags, dwcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hrequest;
     (void)lpbuffersin;
     (void)lpbuffersout;
     (void)dwflags;
     (void)dwcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2894,13 +3724,20 @@ static Napi::Value windowssys_windows_win32_networking_wininet_httpSendRequestEx
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HttpSendRequestExW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hrequest, lpbuffersin, lpbuffersout, dwflags, dwcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hrequest, lpbuffersin, lpbuffersout, dwflags, dwcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hrequest;
     (void)lpbuffersin;
     (void)lpbuffersout;
     (void)dwflags;
     (void)dwcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2920,13 +3757,20 @@ static Napi::Value windowssys_windows_win32_networking_wininet_httpSendRequestW_
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HttpSendRequestW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hrequest, lpszheaders, dwheaderslength, lpoptional, dwoptionallength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hrequest, lpszheaders, dwheaderslength, lpoptional, dwoptionallength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hrequest;
     (void)lpszheaders;
     (void)dwheaderslength;
     (void)lpoptional;
     (void)dwoptionallength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2945,12 +3789,19 @@ static Napi::Value windowssys_windows_win32_networking_wininet_httpWebSocketClos
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HttpWebSocketClose")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwebsocket, usstatus, pvreason, dwreasonlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwebsocket, usstatus, pvreason, dwreasonlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwebsocket;
     (void)usstatus;
     (void)pvreason;
     (void)dwreasonlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2967,11 +3818,18 @@ static Napi::Value windowssys_windows_win32_networking_wininet_httpWebSocketComp
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HttpWebSocketCompleteUpgrade")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hrequest, dwcontext) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hrequest, dwcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hrequest;
     (void)dwcontext;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -2990,13 +3848,20 @@ static Napi::Value windowssys_windows_win32_networking_wininet_httpWebSocketQuer
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HttpWebSocketQueryCloseStatus")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwebsocket, pusstatus, pvreason, dwreasonlength, pdwreasonlengthconsumed) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwebsocket, pusstatus, pvreason, dwreasonlength, pdwreasonlengthconsumed);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwebsocket;
     (void)pusstatus;
     (void)pvreason;
     (void)dwreasonlength;
     (void)pdwreasonlengthconsumed;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3016,13 +3881,20 @@ static Napi::Value windowssys_windows_win32_networking_wininet_httpWebSocketRece
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HttpWebSocketReceive")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwebsocket, pvbuffer, dwbufferlength, pdwbytesread, pbuffertype) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwebsocket, pvbuffer, dwbufferlength, pdwbytesread, pbuffertype);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwebsocket;
     (void)pvbuffer;
     (void)dwbufferlength;
     (void)pdwbytesread;
     (void)pbuffertype;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3041,12 +3913,19 @@ static Napi::Value windowssys_windows_win32_networking_wininet_httpWebSocketSend
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HttpWebSocketSend")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwebsocket, buffertype, pvbuffer, dwbufferlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwebsocket, buffertype, pvbuffer, dwbufferlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwebsocket;
     (void)buffertype;
     (void)pvbuffer;
     (void)dwbufferlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3065,12 +3944,19 @@ static Napi::Value windowssys_windows_win32_networking_wininet_httpWebSocketShut
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HttpWebSocketShutdown")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwebsocket, usstatus, pvreason, dwreasonlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwebsocket, usstatus, pvreason, dwreasonlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwebsocket;
     (void)usstatus;
     (void)pvreason;
     (void)dwreasonlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3086,9 +3972,16 @@ static Napi::Value windowssys_windows_win32_networking_wininet_importCookieFileA
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ImportCookieFileA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szfilename) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szfilename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)szfilename;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3104,9 +3997,16 @@ static Napi::Value windowssys_windows_win32_networking_wininet_importCookieFileW
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ImportCookieFileW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szfilename) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szfilename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)szfilename;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3123,10 +4023,17 @@ static Napi::Value windowssys_windows_win32_networking_wininet_incrementUrlCache
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IncrementUrlCacheHeaderData")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(nidx, lpdwdata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(nidx, lpdwdata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)nidx;
     (void)lpdwdata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3144,11 +4051,18 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internalInternetG
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternalInternetGetCookie")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszurl, lpszcookiedata, lpdwdatasize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszurl, lpszcookiedata, lpdwdatasize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpszurl;
     (void)lpszcookiedata;
     (void)lpdwdatasize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3167,12 +4081,19 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetAlgIdToSt
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternetAlgIdToStringA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ai, lpstr, lpdwstrlength, dwreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ai, lpstr, lpdwstrlength, dwreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ai;
     (void)lpstr;
     (void)lpdwstrlength;
     (void)dwreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3191,12 +4112,19 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetAlgIdToSt
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternetAlgIdToStringW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ai, lpstr, lpdwstrlength, dwreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ai, lpstr, lpdwstrlength, dwreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ai;
     (void)lpstr;
     (void)lpdwstrlength;
     (void)dwreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3212,9 +4140,16 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetAttemptCo
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternetAttemptConnect")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwreserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dwreserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3231,10 +4166,17 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetAutodial_
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternetAutodial")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwflags, hwndparent) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwflags, hwndparent);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwflags;
     (void)hwndparent;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3250,9 +4192,16 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetAutodialH
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternetAutodialHangup")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3271,12 +4220,19 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetCanonical
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternetCanonicalizeUrlA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszurl, lpszbuffer, lpdwbufferlength, dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszurl, lpszbuffer, lpdwbufferlength, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszurl;
     (void)lpszbuffer;
     (void)lpdwbufferlength;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3295,12 +4251,19 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetCanonical
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternetCanonicalizeUrlW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszurl, lpszbuffer, lpdwbufferlength, dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszurl, lpszbuffer, lpdwbufferlength, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszurl;
     (void)lpszbuffer;
     (void)lpdwbufferlength;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3318,11 +4281,18 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetCheckConn
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternetCheckConnectionA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszurl, dwflags, dwreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszurl, dwflags, dwreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszurl;
     (void)dwflags;
     (void)dwreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3340,11 +4310,18 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetCheckConn
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternetCheckConnectionW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszurl, dwflags, dwreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszurl, dwflags, dwreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszurl;
     (void)dwflags;
     (void)dwreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3359,8 +4336,15 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetClearAllP
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternetClearAllPerSiteCookieDecisions")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3376,9 +4360,16 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetCloseHand
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternetCloseHandle")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hinternet) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hinternet);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hinternet;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3398,13 +4389,20 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetCombineUr
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternetCombineUrlA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszbaseurl, lpszrelativeurl, lpszbuffer, lpdwbufferlength, dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszbaseurl, lpszrelativeurl, lpszbuffer, lpdwbufferlength, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszbaseurl;
     (void)lpszrelativeurl;
     (void)lpszbuffer;
     (void)lpdwbufferlength;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3424,13 +4422,20 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetCombineUr
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternetCombineUrlW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszbaseurl, lpszrelativeurl, lpszbuffer, lpdwbufferlength, dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszbaseurl, lpszrelativeurl, lpszbuffer, lpdwbufferlength, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszbaseurl;
     (void)lpszrelativeurl;
     (void)lpszbuffer;
     (void)lpdwbufferlength;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3449,12 +4454,19 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetConfirmZo
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternetConfirmZoneCrossing")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, szurlprev, szurlnew, bpost) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, szurlprev, szurlnew, bpost);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hwnd;
     (void)szurlprev;
     (void)szurlnew;
     (void)bpost;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3473,12 +4485,19 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetConfirmZo
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternetConfirmZoneCrossingA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, szurlprev, szurlnew, bpost) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, szurlprev, szurlnew, bpost);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hwnd;
     (void)szurlprev;
     (void)szurlnew;
     (void)bpost;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3497,12 +4516,19 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetConfirmZo
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternetConfirmZoneCrossingW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, szurlprev, szurlnew, bpost) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, szurlprev, szurlnew, bpost);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hwnd;
     (void)szurlprev;
     (void)szurlnew;
     (void)bpost;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3525,7 +4551,13 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetConnectA_
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternetConnectA")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hinternet, lpszservername, nserverport, lpszusername, lpszpassword, dwservice, dwflags, dwcontext) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hinternet, lpszservername, nserverport, lpszusername, lpszpassword, dwservice, dwflags, dwcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hinternet;
     (void)lpszservername;
@@ -3535,7 +4567,8 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetConnectA_
     (void)dwservice;
     (void)dwflags;
     (void)dwcontext;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -3557,7 +4590,13 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetConnectW_
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternetConnectW")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hinternet, lpszservername, nserverport, lpszusername, lpszpassword, dwservice, dwflags, dwcontext) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hinternet, lpszservername, nserverport, lpszusername, lpszpassword, dwservice, dwflags, dwcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hinternet;
     (void)lpszservername;
@@ -3567,7 +4606,8 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetConnectW_
     (void)dwservice;
     (void)dwflags;
     (void)dwcontext;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -3589,7 +4629,13 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetConvertUr
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternetConvertUrlFromWireToWideChar")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pcszurl, cchurl, pcwszbaseurl, dwcodepagehost, dwcodepagepath, fencodepathextra, dwcodepageextra, ppwszconvertedurl) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pcszurl, cchurl, pcwszbaseurl, dwcodepagehost, dwcodepagepath, fencodepathextra, dwcodepageextra, ppwszconvertedurl);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pcszurl;
     (void)cchurl;
@@ -3599,6 +4645,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetConvertUr
     (void)fencodepathextra;
     (void)dwcodepageextra;
     (void)ppwszconvertedurl;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3617,12 +4664,19 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetCrackUrlA
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternetCrackUrlA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszurl, dwurllength, dwflags, lpurlcomponents) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszurl, dwurllength, dwflags, lpurlcomponents);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszurl;
     (void)dwurllength;
     (void)dwflags;
     (void)lpurlcomponents;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3641,12 +4695,19 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetCrackUrlW
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternetCrackUrlW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszurl, dwurllength, dwflags, lpurlcomponents) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszurl, dwurllength, dwflags, lpurlcomponents);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszurl;
     (void)dwurllength;
     (void)dwflags;
     (void)lpurlcomponents;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3665,12 +4726,19 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetCreateUrl
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternetCreateUrlA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpurlcomponents, dwflags, lpszurl, lpdwurllength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpurlcomponents, dwflags, lpszurl, lpdwurllength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpurlcomponents;
     (void)dwflags;
     (void)lpszurl;
     (void)lpdwurllength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3689,12 +4757,19 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetCreateUrl
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternetCreateUrlW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpurlcomponents, dwflags, lpszurl, lpdwurllength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpurlcomponents, dwflags, lpszurl, lpdwurllength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpurlcomponents;
     (void)dwflags;
     (void)lpszurl;
     (void)lpdwurllength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3714,13 +4789,20 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetDial_napi
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternetDial")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwndparent, lpszconnectoid, dwflags, lpdwconnection, dwreserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwndparent, lpszconnectoid, dwflags, lpdwconnection, dwreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hwndparent;
     (void)lpszconnectoid;
     (void)dwflags;
     (void)lpdwconnection;
     (void)dwreserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3740,13 +4822,20 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetDialA_nap
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternetDialA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwndparent, lpszconnectoid, dwflags, lpdwconnection, dwreserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwndparent, lpszconnectoid, dwflags, lpdwconnection, dwreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hwndparent;
     (void)lpszconnectoid;
     (void)dwflags;
     (void)lpdwconnection;
     (void)dwreserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3766,13 +4855,20 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetDialW_nap
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternetDialW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwndparent, lpszconnectoid, dwflags, lpdwconnection, dwreserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwndparent, lpszconnectoid, dwflags, lpdwconnection, dwreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hwndparent;
     (void)lpszconnectoid;
     (void)dwflags;
     (void)lpdwconnection;
     (void)dwreserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3791,12 +4887,19 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetEnumPerSi
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternetEnumPerSiteCookieDecisionA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszsitename, pcsitenamesize, pdwdecision, dwindex) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszsitename, pcsitenamesize, pdwdecision, dwindex);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszsitename;
     (void)pcsitenamesize;
     (void)pdwdecision;
     (void)dwindex;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3815,12 +4918,19 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetEnumPerSi
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternetEnumPerSiteCookieDecisionW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszsitename, pcsitenamesize, pdwdecision, dwindex) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszsitename, pcsitenamesize, pdwdecision, dwindex);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszsitename;
     (void)pcsitenamesize;
     (void)pdwdecision;
     (void)dwindex;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3840,13 +4950,20 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetErrorDlg_
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternetErrorDlg")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, hrequest, dwerror, dwflags, lppvdata) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, hrequest, dwerror, dwflags, lppvdata);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hwnd;
     (void)hrequest;
     (void)dwerror;
     (void)dwflags;
     (void)lppvdata;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3863,10 +4980,17 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetFindNextF
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternetFindNextFileA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hfind, lpvfinddata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hfind, lpvfinddata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hfind;
     (void)lpvfinddata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3883,10 +5007,17 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetFindNextF
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternetFindNextFileW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hfind, lpvfinddata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hfind, lpvfinddata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hfind;
     (void)lpvfinddata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3904,11 +5035,18 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetFortezzaC
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternetFortezzaCommand")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwcommand, hwnd, dwreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwcommand, hwnd, dwreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwcommand;
     (void)hwnd;
     (void)dwreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3925,10 +5063,15 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetFreeCooki
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternetFreeCookies")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pcookies, dwcookiecount);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pcookies, dwcookiecount);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pcookies;
     (void)dwcookiecount;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -3943,9 +5086,14 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetFreeProxy
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternetFreeProxyInfoList")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pproxyinfolist);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pproxyinfolist);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pproxyinfolist;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -3961,10 +5109,17 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetGetConnec
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternetGetConnectedState")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpdwflags, dwreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpdwflags, dwreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpdwflags;
     (void)dwreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3983,12 +5138,19 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetGetConnec
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternetGetConnectedStateEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpdwflags, lpszconnectionname, dwnamelen, dwreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpdwflags, lpszconnectionname, dwnamelen, dwreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpdwflags;
     (void)lpszconnectionname;
     (void)dwnamelen;
     (void)dwreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4007,12 +5169,19 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetGetConnec
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternetGetConnectedStateExA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpdwflags, lpszconnectionname, cchnamelen, dwreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpdwflags, lpszconnectionname, cchnamelen, dwreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpdwflags;
     (void)lpszconnectionname;
     (void)cchnamelen;
     (void)dwreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4031,12 +5200,19 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetGetConnec
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternetGetConnectedStateExW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpdwflags, lpszconnectionname, cchnamelen, dwreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpdwflags, lpszconnectionname, cchnamelen, dwreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpdwflags;
     (void)lpszconnectionname;
     (void)cchnamelen;
     (void)dwreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4055,12 +5231,19 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetGetCookie
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternetGetCookieA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszurl, lpszcookiename, lpszcookiedata, lpdwsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszurl, lpszcookiename, lpszcookiedata, lpdwsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszurl;
     (void)lpszcookiename;
     (void)lpszcookiedata;
     (void)lpdwsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4080,13 +5263,20 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetGetCookie
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternetGetCookieEx2")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pcwszurl, pcwszcookiename, dwflags, ppcookies, pdwcookiecount) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pcwszurl, pcwszcookiename, dwflags, ppcookies, pdwcookiecount);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pcwszurl;
     (void)pcwszcookiename;
     (void)dwflags;
     (void)ppcookies;
     (void)pdwcookiecount;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4107,7 +5297,13 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetGetCookie
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternetGetCookieExA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszurl, lpszcookiename, lpszcookiedata, lpdwsize, dwflags, lpreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszurl, lpszcookiename, lpszcookiedata, lpdwsize, dwflags, lpreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszurl;
     (void)lpszcookiename;
@@ -4115,6 +5311,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetGetCookie
     (void)lpdwsize;
     (void)dwflags;
     (void)lpreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4135,7 +5332,13 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetGetCookie
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternetGetCookieExW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszurl, lpszcookiename, lpszcookiedata, lpdwsize, dwflags, lpreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszurl, lpszcookiename, lpszcookiedata, lpdwsize, dwflags, lpreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszurl;
     (void)lpszcookiename;
@@ -4143,6 +5346,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetGetCookie
     (void)lpdwsize;
     (void)dwflags;
     (void)lpreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4161,12 +5365,19 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetGetCookie
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternetGetCookieW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszurl, lpszcookiename, lpszcookiedata, lpdwsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszurl, lpszcookiename, lpszcookiedata, lpdwsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszurl;
     (void)lpszcookiename;
     (void)lpszcookiedata;
     (void)lpdwsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4184,11 +5395,18 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetGetLastRe
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternetGetLastResponseInfoA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpdwerror, lpszbuffer, lpdwbufferlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpdwerror, lpszbuffer, lpdwbufferlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpdwerror;
     (void)lpszbuffer;
     (void)lpdwbufferlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4206,11 +5424,18 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetGetLastRe
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternetGetLastResponseInfoW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpdwerror, lpszbuffer, lpdwbufferlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpdwerror, lpszbuffer, lpdwbufferlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpdwerror;
     (void)lpszbuffer;
     (void)lpdwbufferlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4227,10 +5452,17 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetGetPerSit
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternetGetPerSiteCookieDecisionA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pchhostname, presult) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pchhostname, presult);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pchhostname;
     (void)presult;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4247,10 +5479,17 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetGetPerSit
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternetGetPerSiteCookieDecisionW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pchhostname, presult) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pchhostname, presult);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pchhostname;
     (void)presult;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4268,11 +5507,18 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetGetProxyF
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternetGetProxyForUrl")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hinternet, pcwszurl, pproxyinfolist) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hinternet, pcwszurl, pproxyinfolist);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hinternet;
     (void)pcwszurl;
     (void)pproxyinfolist;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4290,11 +5536,18 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetGetSecuri
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternetGetSecurityInfoByURL")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszurl, ppcertchain, pdwsecureflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszurl, ppcertchain, pdwsecureflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszurl;
     (void)ppcertchain;
     (void)pdwsecureflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4312,11 +5565,18 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetGetSecuri
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternetGetSecurityInfoByURLA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszurl, ppcertchain, pdwsecureflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszurl, ppcertchain, pdwsecureflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszurl;
     (void)ppcertchain;
     (void)pdwsecureflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4334,11 +5594,18 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetGetSecuri
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternetGetSecurityInfoByURLW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszurl, ppcertchain, pdwsecureflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszurl, ppcertchain, pdwsecureflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszurl;
     (void)ppcertchain;
     (void)pdwsecureflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4356,11 +5623,18 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetGoOnline_
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternetGoOnline")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszurl, hwndparent, dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszurl, hwndparent, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszurl;
     (void)hwndparent;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4378,11 +5652,18 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetGoOnlineA
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternetGoOnlineA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszurl, hwndparent, dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszurl, hwndparent, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszurl;
     (void)hwndparent;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4400,11 +5681,18 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetGoOnlineW
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternetGoOnlineW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszurl, hwndparent, dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszurl, hwndparent, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszurl;
     (void)hwndparent;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4421,10 +5709,17 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetHangUp_na
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternetHangUp")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwconnection, dwreserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwconnection, dwreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dwconnection;
     (void)dwreserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4440,9 +5735,16 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetInitializ
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternetInitializeAutoProxyDll")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4459,10 +5761,17 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetLockReque
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternetLockRequestFile")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hinternet, lphlockrequestinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hinternet, lphlockrequestinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hinternet;
     (void)lphlockrequestinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4482,14 +5791,21 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetOpenA_nap
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternetOpenA")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszagent, dwaccesstype, lpszproxy, lpszproxybypass, dwflags) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszagent, dwaccesstype, lpszproxy, lpszproxybypass, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)lpszagent;
     (void)dwaccesstype;
     (void)lpszproxy;
     (void)lpszproxybypass;
     (void)dwflags;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -4509,7 +5825,13 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetOpenUrlA_
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternetOpenUrlA")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hinternet, lpszurl, lpszheaders, dwheaderslength, dwflags, dwcontext) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hinternet, lpszurl, lpszheaders, dwheaderslength, dwflags, dwcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hinternet;
     (void)lpszurl;
@@ -4517,7 +5839,8 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetOpenUrlA_
     (void)dwheaderslength;
     (void)dwflags;
     (void)dwcontext;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -4537,7 +5860,13 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetOpenUrlW_
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternetOpenUrlW")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hinternet, lpszurl, lpszheaders, dwheaderslength, dwflags, dwcontext) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hinternet, lpszurl, lpszheaders, dwheaderslength, dwflags, dwcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hinternet;
     (void)lpszurl;
@@ -4545,7 +5874,8 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetOpenUrlW_
     (void)dwheaderslength;
     (void)dwflags;
     (void)dwcontext;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -4564,14 +5894,21 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetOpenW_nap
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternetOpenW")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszagent, dwaccesstype, lpszproxy, lpszproxybypass, dwflags) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszagent, dwaccesstype, lpszproxy, lpszproxybypass, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)lpszagent;
     (void)dwaccesstype;
     (void)lpszproxy;
     (void)lpszproxybypass;
     (void)dwflags;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -4589,12 +5926,19 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetQueryData
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternetQueryDataAvailable")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hfile, lpdwnumberofbytesavailable, dwflags, dwcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hfile, lpdwnumberofbytesavailable, dwflags, dwcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hfile;
     (void)lpdwnumberofbytesavailable;
     (void)dwflags;
     (void)dwcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4611,10 +5955,17 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetQueryFort
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternetQueryFortezzaStatus")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pdwstatus, dwreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pdwstatus, dwreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pdwstatus;
     (void)dwreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4633,12 +5984,19 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetQueryOpti
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternetQueryOptionA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hinternet, dwoption, lpbuffer, lpdwbufferlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hinternet, dwoption, lpbuffer, lpdwbufferlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hinternet;
     (void)dwoption;
     (void)lpbuffer;
     (void)lpdwbufferlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4657,12 +6015,19 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetQueryOpti
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternetQueryOptionW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hinternet, dwoption, lpbuffer, lpdwbufferlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hinternet, dwoption, lpbuffer, lpdwbufferlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hinternet;
     (void)dwoption;
     (void)lpbuffer;
     (void)lpdwbufferlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4681,12 +6046,19 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetReadFile_
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternetReadFile")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hfile, lpbuffer, dwnumberofbytestoread, lpdwnumberofbytesread) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hfile, lpbuffer, dwnumberofbytestoread, lpdwnumberofbytesread);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hfile;
     (void)lpbuffer;
     (void)dwnumberofbytestoread;
     (void)lpdwnumberofbytesread;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4705,12 +6077,19 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetReadFileE
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternetReadFileExA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hfile, lpbuffersout, dwflags, dwcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hfile, lpbuffersout, dwflags, dwcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hfile;
     (void)lpbuffersout;
     (void)dwflags;
     (void)dwcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4729,12 +6108,19 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetReadFileE
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternetReadFileExW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hfile, lpbuffersout, dwflags, dwcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hfile, lpbuffersout, dwflags, dwcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hfile;
     (void)lpbuffersout;
     (void)dwflags;
     (void)dwcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4753,12 +6139,19 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetSecurityP
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternetSecurityProtocolToStringA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwprotocol, lpstr, lpdwstrlength, dwreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwprotocol, lpstr, lpdwstrlength, dwreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwprotocol;
     (void)lpstr;
     (void)lpdwstrlength;
     (void)dwreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4777,12 +6170,19 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetSecurityP
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternetSecurityProtocolToStringW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwprotocol, lpstr, lpdwstrlength, dwreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwprotocol, lpstr, lpdwstrlength, dwreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwprotocol;
     (void)lpstr;
     (void)lpdwstrlength;
     (void)dwreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4800,11 +6200,18 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetSetCookie
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternetSetCookieA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszurl, lpszcookiename, lpszcookiedata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszurl, lpszcookiename, lpszcookiedata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszurl;
     (void)lpszcookiename;
     (void)lpszcookiedata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4824,13 +6231,20 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetSetCookie
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternetSetCookieEx2")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pcwszurl, pcookie, pcwszp3ppolicy, dwflags, pdwcookiestate) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pcwszurl, pcookie, pcwszp3ppolicy, dwflags, pdwcookiestate);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pcwszurl;
     (void)pcookie;
     (void)pcwszp3ppolicy;
     (void)dwflags;
     (void)pdwcookiestate;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4850,13 +6264,20 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetSetCookie
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternetSetCookieExA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszurl, lpszcookiename, lpszcookiedata, dwflags, dwreserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszurl, lpszcookiename, lpszcookiedata, dwflags, dwreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpszurl;
     (void)lpszcookiename;
     (void)lpszcookiedata;
     (void)dwflags;
     (void)dwreserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4876,13 +6297,20 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetSetCookie
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternetSetCookieExW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszurl, lpszcookiename, lpszcookiedata, dwflags, dwreserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszurl, lpszcookiename, lpszcookiedata, dwflags, dwreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpszurl;
     (void)lpszcookiename;
     (void)lpszcookiedata;
     (void)dwflags;
     (void)dwreserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4900,11 +6328,18 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetSetCookie
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternetSetCookieW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszurl, lpszcookiename, lpszcookiedata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszurl, lpszcookiename, lpszcookiedata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszurl;
     (void)lpszcookiename;
     (void)lpszcookiedata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4922,11 +6357,18 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetSetDialSt
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternetSetDialState")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszconnectoid, dwstate, dwreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszconnectoid, dwstate, dwreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszconnectoid;
     (void)dwstate;
     (void)dwreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4944,11 +6386,18 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetSetDialSt
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternetSetDialStateA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszconnectoid, dwstate, dwreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszconnectoid, dwstate, dwreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszconnectoid;
     (void)dwstate;
     (void)dwreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4966,11 +6415,18 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetSetDialSt
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternetSetDialStateW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszconnectoid, dwstate, dwreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszconnectoid, dwstate, dwreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszconnectoid;
     (void)dwstate;
     (void)dwreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4990,13 +6446,20 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetSetFilePo
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternetSetFilePointer")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hfile, ldistancetomove, lpdistancetomovehigh, dwmovemethod, dwcontext) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hfile, ldistancetomove, lpdistancetomovehigh, dwmovemethod, dwcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hfile;
     (void)ldistancetomove;
     (void)lpdistancetomovehigh;
     (void)dwmovemethod;
     (void)dwcontext;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5015,12 +6478,19 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetSetOption
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternetSetOptionA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hinternet, dwoption, lpbuffer, dwbufferlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hinternet, dwoption, lpbuffer, dwbufferlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hinternet;
     (void)dwoption;
     (void)lpbuffer;
     (void)dwbufferlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5040,13 +6510,20 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetSetOption
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternetSetOptionExA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hinternet, dwoption, lpbuffer, dwbufferlength, dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hinternet, dwoption, lpbuffer, dwbufferlength, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hinternet;
     (void)dwoption;
     (void)lpbuffer;
     (void)dwbufferlength;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5066,13 +6543,20 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetSetOption
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternetSetOptionExW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hinternet, dwoption, lpbuffer, dwbufferlength, dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hinternet, dwoption, lpbuffer, dwbufferlength, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hinternet;
     (void)dwoption;
     (void)lpbuffer;
     (void)dwbufferlength;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5091,12 +6575,19 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetSetOption
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternetSetOptionW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hinternet, dwoption, lpbuffer, dwbufferlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hinternet, dwoption, lpbuffer, dwbufferlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hinternet;
     (void)dwoption;
     (void)lpbuffer;
     (void)dwbufferlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5113,10 +6604,17 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetSetPerSit
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternetSetPerSiteCookieDecisionA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pchhostname, dwdecision) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pchhostname, dwdecision);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pchhostname;
     (void)dwdecision;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5133,10 +6631,17 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetSetPerSit
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternetSetPerSiteCookieDecisionW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pchhostname, dwdecision) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pchhostname, dwdecision);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pchhostname;
     (void)dwdecision;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5153,11 +6658,18 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetSetStatus
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternetSetStatusCallback")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hinternet, lpfninternetcallback) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hinternet, lpfninternetcallback);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hinternet;
     (void)lpfninternetcallback;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -5173,11 +6685,18 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetSetStatus
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternetSetStatusCallbackA")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hinternet, lpfninternetcallback) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hinternet, lpfninternetcallback);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hinternet;
     (void)lpfninternetcallback;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -5193,11 +6712,18 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetSetStatus
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternetSetStatusCallbackW")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hinternet, lpfninternetcallback) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hinternet, lpfninternetcallback);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hinternet;
     (void)lpfninternetcallback;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -5213,10 +6739,17 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetShowSecur
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternetShowSecurityInfoByURL")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszurl, hwndparent) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszurl, hwndparent);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszurl;
     (void)hwndparent;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5233,10 +6766,17 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetShowSecur
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternetShowSecurityInfoByURLA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszurl, hwndparent) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszurl, hwndparent);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszurl;
     (void)hwndparent;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5253,10 +6793,17 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetShowSecur
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternetShowSecurityInfoByURLW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszurl, hwndparent) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszurl, hwndparent);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszurl;
     (void)hwndparent;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5275,12 +6822,19 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetTimeFromS
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternetTimeFromSystemTime")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pst, dwrfc, lpsztime, cbtime) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pst, dwrfc, lpsztime, cbtime);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pst;
     (void)dwrfc;
     (void)lpsztime;
     (void)cbtime;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5299,12 +6853,19 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetTimeFromS
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternetTimeFromSystemTimeA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pst, dwrfc, lpsztime, cbtime) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pst, dwrfc, lpsztime, cbtime);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pst;
     (void)dwrfc;
     (void)lpsztime;
     (void)cbtime;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5323,12 +6884,19 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetTimeFromS
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternetTimeFromSystemTimeW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pst, dwrfc, lpsztime, cbtime) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pst, dwrfc, lpsztime, cbtime);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pst;
     (void)dwrfc;
     (void)lpsztime;
     (void)cbtime;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5346,11 +6914,18 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetTimeToSys
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternetTimeToSystemTime")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpsztime, pst, dwreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpsztime, pst, dwreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpsztime;
     (void)pst;
     (void)dwreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5368,11 +6943,18 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetTimeToSys
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternetTimeToSystemTimeA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpsztime, pst, dwreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpsztime, pst, dwreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpsztime;
     (void)pst;
     (void)dwreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5390,11 +6972,18 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetTimeToSys
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternetTimeToSystemTimeW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpsztime, pst, dwreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpsztime, pst, dwreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpsztime;
     (void)pst;
     (void)dwreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5410,9 +6999,16 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetUnlockReq
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternetUnlockRequestFile")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hlockrequestinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hlockrequestinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hlockrequestinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5431,12 +7027,19 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetWriteFile
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternetWriteFile")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hfile, lpbuffer, dwnumberofbytestowrite, lpdwnumberofbyteswritten) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hfile, lpbuffer, dwnumberofbytestowrite, lpdwnumberofbyteswritten);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hfile;
     (void)lpbuffer;
     (void)dwnumberofbytestowrite;
     (void)lpdwnumberofbyteswritten;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5455,12 +7058,19 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetWriteFile
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternetWriteFileExA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hfile, lpbuffersin, dwflags, dwcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hfile, lpbuffersin, dwflags, dwcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hfile;
     (void)lpbuffersin;
     (void)dwflags;
     (void)dwcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5479,12 +7089,19 @@ static Napi::Value windowssys_windows_win32_networking_wininet_internetWriteFile
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InternetWriteFileExW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hfile, lpbuffersin, dwflags, dwcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hfile, lpbuffersin, dwflags, dwcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hfile;
     (void)lpbuffersin;
     (void)dwflags;
     (void)dwcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5501,10 +7118,17 @@ static Napi::Value windowssys_windows_win32_networking_wininet_isDomainLegalCook
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IsDomainLegalCookieDomainA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pchdomain, pchfulldomain) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pchdomain, pchfulldomain);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pchdomain;
     (void)pchfulldomain;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5521,10 +7145,17 @@ static Napi::Value windowssys_windows_win32_networking_wininet_isDomainLegalCook
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IsDomainLegalCookieDomainW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pchdomain, pchfulldomain) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pchdomain, pchfulldomain);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pchdomain;
     (void)pchfulldomain;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5542,11 +7173,18 @@ static Napi::Value windowssys_windows_win32_networking_wininet_isHostInProxyBypa
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IsHostInProxyBypassList")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(tscheme, lpszhost, cchhost) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(tscheme, lpszhost, cchhost);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)tscheme;
     (void)lpszhost;
     (void)cchhost;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5561,8 +7199,15 @@ static Napi::Value windowssys_windows_win32_networking_wininet_isProfilesEnabled
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IsProfilesEnabled")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5580,11 +7225,18 @@ static Napi::Value windowssys_windows_win32_networking_wininet_isUrlCacheEntryEx
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IsUrlCacheEntryExpiredA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszurlname, dwflags, pftlastmodified) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszurlname, dwflags, pftlastmodified);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszurlname;
     (void)dwflags;
     (void)pftlastmodified;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5602,11 +7254,18 @@ static Napi::Value windowssys_windows_win32_networking_wininet_isUrlCacheEntryEx
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IsUrlCacheEntryExpiredW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszurlname, dwflags, pftlastmodified) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszurlname, dwflags, pftlastmodified);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszurlname;
     (void)dwflags;
     (void)pftlastmodified;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5621,8 +7280,15 @@ static Napi::Value windowssys_windows_win32_networking_wininet_loadUrlCacheConte
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LoadUrlCacheContent")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5641,12 +7307,19 @@ static Napi::Value windowssys_windows_win32_networking_wininet_parseX509EncodedC
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ParseX509EncodedCertificateForListBoxEntry")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpcert, cbcert, lpszlistboxentry, lpdwlistboxentry) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpcert, cbcert, lpszlistboxentry, lpdwlistboxentry);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpcert;
     (void)cbcert;
     (void)lpszlistboxentry;
     (void)lpdwlistboxentry;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5670,7 +7343,13 @@ static Napi::Value windowssys_windows_win32_networking_wininet_performOperationO
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PerformOperationOverUrlCacheA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszurlsearchpattern, dwflags, dwfilter, groupid, preserved1, pdwreserved2, preserved3, op, poperatordata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszurlsearchpattern, dwflags, dwfilter, groupid, preserved1, pdwreserved2, preserved3, op, poperatordata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszurlsearchpattern;
     (void)dwflags;
@@ -5681,6 +7360,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_performOperationO
     (void)preserved3;
     (void)op;
     (void)poperatordata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5700,13 +7380,20 @@ static Napi::Value windowssys_windows_win32_networking_wininet_privacyGetZonePre
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PrivacyGetZonePreferenceW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwzone, dwtype, pdwtemplate, pszbuffer, pdwbufferlength) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwzone, dwtype, pdwtemplate, pszbuffer, pdwbufferlength);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dwzone;
     (void)dwtype;
     (void)pdwtemplate;
     (void)pszbuffer;
     (void)pdwbufferlength;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5725,12 +7412,19 @@ static Napi::Value windowssys_windows_win32_networking_wininet_privacySetZonePre
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PrivacySetZonePreferenceW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwzone, dwtype, dwtemplate, pszpreference) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwzone, dwtype, dwtemplate, pszpreference);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dwzone;
     (void)dwtype;
     (void)dwtemplate;
     (void)pszpreference;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5751,7 +7445,13 @@ static Napi::Value windowssys_windows_win32_networking_wininet_readGuidsForConne
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ReadGuidsForConnectedNetworks")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pcnetworks, pppwsznetworkguids, pppbstrnetworknames, pppwszgwmacs, pcgatewaymacs, pdwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pcnetworks, pppwsznetworkguids, pppbstrnetworknames, pppwszgwmacs, pcgatewaymacs, pdwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pcnetworks;
     (void)pppwsznetworkguids;
@@ -5759,6 +7459,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_readGuidsForConne
     (void)pppwszgwmacs;
     (void)pcgatewaymacs;
     (void)pdwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5778,13 +7479,20 @@ static Napi::Value windowssys_windows_win32_networking_wininet_readUrlCacheEntry
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ReadUrlCacheEntryStream")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hurlcachestream, dwlocation, lpbuffer, lpdwlen, reserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hurlcachestream, dwlocation, lpbuffer, lpdwlen, reserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hurlcachestream;
     (void)dwlocation;
     (void)lpbuffer;
     (void)lpdwlen;
     (void)reserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5803,12 +7511,19 @@ static Napi::Value windowssys_windows_win32_networking_wininet_readUrlCacheEntry
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ReadUrlCacheEntryStreamEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hurlcachestream, qwlocation, lpbuffer, lpdwlen) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hurlcachestream, qwlocation, lpbuffer, lpdwlen);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hurlcachestream;
     (void)qwlocation;
     (void)lpbuffer;
     (void)lpdwlen;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5828,13 +7543,20 @@ static Napi::Value windowssys_windows_win32_networking_wininet_registerUrlCacheN
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegisterUrlCacheNotification")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, umsg, gid, dwopsfilter, dwreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, umsg, gid, dwopsfilter, dwreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)umsg;
     (void)gid;
     (void)dwopsfilter;
     (void)dwreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5851,10 +7573,17 @@ static Napi::Value windowssys_windows_win32_networking_wininet_resumeSuspendedDo
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResumeSuspendedDownload")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hrequest, dwresultcode) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hrequest, dwresultcode);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hrequest;
     (void)dwresultcode;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5873,12 +7602,19 @@ static Napi::Value windowssys_windows_win32_networking_wininet_retrieveUrlCacheE
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RetrieveUrlCacheEntryFileA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszurlname, lpcacheentryinfo, lpcbcacheentryinfo, dwreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszurlname, lpcacheentryinfo, lpcbcacheentryinfo, dwreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszurlname;
     (void)lpcacheentryinfo;
     (void)lpcbcacheentryinfo;
     (void)dwreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5897,12 +7633,19 @@ static Napi::Value windowssys_windows_win32_networking_wininet_retrieveUrlCacheE
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RetrieveUrlCacheEntryFileW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszurlname, lpcacheentryinfo, lpcbcacheentryinfo, dwreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszurlname, lpcacheentryinfo, lpcbcacheentryinfo, dwreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszurlname;
     (void)lpcacheentryinfo;
     (void)lpcbcacheentryinfo;
     (void)dwreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5922,14 +7665,21 @@ static Napi::Value windowssys_windows_win32_networking_wininet_retrieveUrlCacheE
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RetrieveUrlCacheEntryStreamA")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszurlname, lpcacheentryinfo, lpcbcacheentryinfo, frandomread, dwreserved) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszurlname, lpcacheentryinfo, lpcbcacheentryinfo, frandomread, dwreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)lpszurlname;
     (void)lpcacheentryinfo;
     (void)lpcbcacheentryinfo;
     (void)frandomread;
     (void)dwreserved;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -5948,14 +7698,21 @@ static Napi::Value windowssys_windows_win32_networking_wininet_retrieveUrlCacheE
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RetrieveUrlCacheEntryStreamW")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszurlname, lpcacheentryinfo, lpcbcacheentryinfo, frandomread, dwreserved) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszurlname, lpcacheentryinfo, lpcbcacheentryinfo, frandomread, dwreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)lpszurlname;
     (void)lpcacheentryinfo;
     (void)lpcbcacheentryinfo;
     (void)frandomread;
     (void)dwreserved;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -5973,12 +7730,19 @@ static Napi::Value windowssys_windows_win32_networking_wininet_runOnceUrlCache_n
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RunOnceUrlCache")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, hinst, lpszcmd, ncmdshow) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, hinst, lpszcmd, ncmdshow);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hwnd;
     (void)hinst;
     (void)lpszcmd;
     (void)ncmdshow;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5995,10 +7759,17 @@ static Napi::Value windowssys_windows_win32_networking_wininet_setUrlCacheConfig
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetUrlCacheConfigInfoA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpcacheconfiginfo, dwfieldcontrol) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpcacheconfiginfo, dwfieldcontrol);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpcacheconfiginfo;
     (void)dwfieldcontrol;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6015,10 +7786,17 @@ static Napi::Value windowssys_windows_win32_networking_wininet_setUrlCacheConfig
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetUrlCacheConfigInfoW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpcacheconfiginfo, dwfieldcontrol) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpcacheconfiginfo, dwfieldcontrol);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpcacheconfiginfo;
     (void)dwfieldcontrol;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6039,7 +7817,13 @@ static Napi::Value windowssys_windows_win32_networking_wininet_setUrlCacheEntryG
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetUrlCacheEntryGroup")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszurlname, dwflags, groupid, pbgroupattributes, cbgroupattributes, lpreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszurlname, dwflags, groupid, pbgroupattributes, cbgroupattributes, lpreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszurlname;
     (void)dwflags;
@@ -6047,6 +7831,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_setUrlCacheEntryG
     (void)pbgroupattributes;
     (void)cbgroupattributes;
     (void)lpreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6067,7 +7852,13 @@ static Napi::Value windowssys_windows_win32_networking_wininet_setUrlCacheEntryG
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetUrlCacheEntryGroupA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszurlname, dwflags, groupid, pbgroupattributes, cbgroupattributes, lpreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszurlname, dwflags, groupid, pbgroupattributes, cbgroupattributes, lpreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszurlname;
     (void)dwflags;
@@ -6075,6 +7866,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_setUrlCacheEntryG
     (void)pbgroupattributes;
     (void)cbgroupattributes;
     (void)lpreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6095,7 +7887,13 @@ static Napi::Value windowssys_windows_win32_networking_wininet_setUrlCacheEntryG
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetUrlCacheEntryGroupW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszurlname, dwflags, groupid, pbgroupattributes, cbgroupattributes, lpreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszurlname, dwflags, groupid, pbgroupattributes, cbgroupattributes, lpreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszurlname;
     (void)dwflags;
@@ -6103,6 +7901,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_setUrlCacheEntryG
     (void)pbgroupattributes;
     (void)cbgroupattributes;
     (void)lpreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6120,11 +7919,18 @@ static Napi::Value windowssys_windows_win32_networking_wininet_setUrlCacheEntryI
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetUrlCacheEntryInfoA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszurlname, lpcacheentryinfo, dwfieldcontrol) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszurlname, lpcacheentryinfo, dwfieldcontrol);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszurlname;
     (void)lpcacheentryinfo;
     (void)dwfieldcontrol;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6142,11 +7948,18 @@ static Napi::Value windowssys_windows_win32_networking_wininet_setUrlCacheEntryI
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetUrlCacheEntryInfoW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszurlname, lpcacheentryinfo, dwfieldcontrol) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszurlname, lpcacheentryinfo, dwfieldcontrol);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszurlname;
     (void)lpcacheentryinfo;
     (void)dwfieldcontrol;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6166,13 +7979,20 @@ static Napi::Value windowssys_windows_win32_networking_wininet_setUrlCacheGroupA
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetUrlCacheGroupAttributeA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(gid, dwflags, dwattributes, lpgroupinfo, lpreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(gid, dwflags, dwattributes, lpgroupinfo, lpreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)gid;
     (void)dwflags;
     (void)dwattributes;
     (void)lpgroupinfo;
     (void)lpreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6192,13 +8012,20 @@ static Napi::Value windowssys_windows_win32_networking_wininet_setUrlCacheGroupA
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetUrlCacheGroupAttributeW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(gid, dwflags, dwattributes, lpgroupinfo, lpreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(gid, dwflags, dwattributes, lpgroupinfo, lpreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)gid;
     (void)dwflags;
     (void)dwattributes;
     (void)lpgroupinfo;
     (void)lpreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6215,10 +8042,17 @@ static Napi::Value windowssys_windows_win32_networking_wininet_setUrlCacheHeader
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetUrlCacheHeaderData")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(nidx, dwdata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(nidx, dwdata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)nidx;
     (void)dwdata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6234,9 +8068,16 @@ static Napi::Value windowssys_windows_win32_networking_wininet_showClientAuthCer
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ShowClientAuthCerts")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwndparent) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwndparent);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hwndparent;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6253,10 +8094,17 @@ static Napi::Value windowssys_windows_win32_networking_wininet_showSecurityInfo_
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ShowSecurityInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwndparent, psecurityinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwndparent, psecurityinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hwndparent;
     (void)psecurityinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6274,11 +8122,18 @@ static Napi::Value windowssys_windows_win32_networking_wininet_showX509EncodedCe
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ShowX509EncodedCertificate")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwndparent, lpcert, cbcert) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwndparent, lpcert, cbcert);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hwndparent;
     (void)lpcert;
     (void)cbcert;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6295,10 +8150,17 @@ static Napi::Value windowssys_windows_win32_networking_wininet_unlockUrlCacheEnt
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UnlockUrlCacheEntryFile")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszurlname, dwreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszurlname, dwreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszurlname;
     (void)dwreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6315,10 +8177,17 @@ static Napi::Value windowssys_windows_win32_networking_wininet_unlockUrlCacheEnt
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UnlockUrlCacheEntryFileA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszurlname, dwreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszurlname, dwreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszurlname;
     (void)dwreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6335,10 +8204,17 @@ static Napi::Value windowssys_windows_win32_networking_wininet_unlockUrlCacheEnt
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UnlockUrlCacheEntryFileW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpszurlname, dwreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpszurlname, dwreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpszurlname;
     (void)dwreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6355,10 +8231,17 @@ static Napi::Value windowssys_windows_win32_networking_wininet_unlockUrlCacheEnt
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UnlockUrlCacheEntryStream")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hurlcachestream, reserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hurlcachestream, reserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hurlcachestream;
     (void)reserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6374,9 +8257,16 @@ static Napi::Value windowssys_windows_win32_networking_wininet_updateUrlCacheCon
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UpdateUrlCacheContentPath")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sznewpath) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sznewpath);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sznewpath;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6394,11 +8284,18 @@ static Napi::Value windowssys_windows_win32_networking_wininet_urlCacheCheckEntr
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UrlCacheCheckEntriesExist")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rgpwszurls, centries, rgfexist) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rgpwszurls, centries, rgfexist);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rgpwszurls;
     (void)centries;
     (void)rgfexist;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6414,9 +8311,14 @@ static Napi::Value windowssys_windows_win32_networking_wininet_urlCacheCloseEntr
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UrlCacheCloseEntryHandle")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(hentryfile);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(hentryfile);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)hentryfile;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -6432,10 +8334,17 @@ static Napi::Value windowssys_windows_win32_networking_wininet_urlCacheContainer
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UrlCacheContainerSetEntryMaximumAge")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pwszprefix, dwentrymaxage) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pwszprefix, dwentrymaxage);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pwszprefix;
     (void)dwentrymaxage;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6455,13 +8364,20 @@ static Napi::Value windowssys_windows_win32_networking_wininet_urlCacheCreateCon
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UrlCacheCreateContainer")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pwszname, pwszprefix, pwszdirectory, ulllimit, dwoptions) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pwszname, pwszprefix, pwszdirectory, ulllimit, dwoptions);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pwszname;
     (void)pwszprefix;
     (void)pwszdirectory;
     (void)ulllimit;
     (void)dwoptions;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6482,7 +8398,13 @@ static Napi::Value windowssys_windows_win32_networking_wininet_urlCacheFindFirst
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UrlCacheFindFirstEntry")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pwszprefix, dwflags, dwfilter, groupid, pcacheentryinfo, phfind) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pwszprefix, dwflags, dwfilter, groupid, pcacheentryinfo, phfind);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pwszprefix;
     (void)dwflags;
@@ -6490,6 +8412,7 @@ static Napi::Value windowssys_windows_win32_networking_wininet_urlCacheFindFirst
     (void)groupid;
     (void)pcacheentryinfo;
     (void)phfind;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6506,10 +8429,17 @@ static Napi::Value windowssys_windows_win32_networking_wininet_urlCacheFindNextE
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UrlCacheFindNextEntry")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hfind, pcacheentryinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hfind, pcacheentryinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hfind;
     (void)pcacheentryinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6525,9 +8455,14 @@ static Napi::Value windowssys_windows_win32_networking_wininet_urlCacheFreeEntry
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UrlCacheFreeEntryInfo")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pcacheentryinfo);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pcacheentryinfo);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pcacheentryinfo;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -6543,10 +8478,17 @@ static Napi::Value windowssys_windows_win32_networking_wininet_urlCacheFreeGloba
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UrlCacheFreeGlobalSpace")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ulltargetsize, dwfilter) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ulltargetsize, dwfilter);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ulltargetsize;
     (void)dwfilter;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6563,10 +8505,17 @@ static Napi::Value windowssys_windows_win32_networking_wininet_urlCacheGetConten
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UrlCacheGetContentPaths")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pppwszdirectories, pcdirectories) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pppwszdirectories, pcdirectories);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pppwszdirectories;
     (void)pcdirectories;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6584,11 +8533,18 @@ static Napi::Value windowssys_windows_win32_networking_wininet_urlCacheGetEntryI
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UrlCacheGetEntryInfo")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(happcache, pcwszurl, pcacheentryinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(happcache, pcwszurl, pcacheentryinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)happcache;
     (void)pcwszurl;
     (void)pcacheentryinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6606,11 +8562,18 @@ static Napi::Value windowssys_windows_win32_networking_wininet_urlCacheGetGlobal
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UrlCacheGetGlobalCacheSize")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwfilter, pullsize, pulllimit) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwfilter, pullsize, pulllimit);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dwfilter;
     (void)pullsize;
     (void)pulllimit;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6627,10 +8590,17 @@ static Napi::Value windowssys_windows_win32_networking_wininet_urlCacheGetGlobal
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UrlCacheGetGlobalLimit")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(limittype, pulllimit) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(limittype, pulllimit);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)limittype;
     (void)pulllimit;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6650,13 +8620,20 @@ static Napi::Value windowssys_windows_win32_networking_wininet_urlCacheReadEntry
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UrlCacheReadEntryStream")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hurlcachestream, ulllocation, pbuffer, dwbufferlen, pdwbufferlen) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hurlcachestream, ulllocation, pbuffer, dwbufferlen, pdwbufferlen);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hurlcachestream;
     (void)ulllocation;
     (void)pbuffer;
     (void)dwbufferlen;
     (void)pdwbufferlen;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6671,8 +8648,15 @@ static Napi::Value windowssys_windows_win32_networking_wininet_urlCacheReloadSet
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UrlCacheReloadSettings")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6691,12 +8675,19 @@ static Napi::Value windowssys_windows_win32_networking_wininet_urlCacheRetrieveE
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UrlCacheRetrieveEntryFile")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(happcache, pcwszurl, pcacheentryinfo, phentryfile) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(happcache, pcwszurl, pcacheentryinfo, phentryfile);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)happcache;
     (void)pcwszurl;
     (void)pcacheentryinfo;
     (void)phentryfile;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6716,13 +8707,20 @@ static Napi::Value windowssys_windows_win32_networking_wininet_urlCacheRetrieveE
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UrlCacheRetrieveEntryStream")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(happcache, pcwszurl, frandomread, pcacheentryinfo, phentrystream) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(happcache, pcwszurl, frandomread, pcacheentryinfo, phentrystream);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)happcache;
     (void)pcwszurl;
     (void)frandomread;
     (void)pcacheentryinfo;
     (void)phentrystream;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6737,8 +8735,15 @@ static Napi::Value windowssys_windows_win32_networking_wininet_urlCacheServer_na
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UrlCacheServer")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6755,10 +8760,17 @@ static Napi::Value windowssys_windows_win32_networking_wininet_urlCacheSetGlobal
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UrlCacheSetGlobalLimit")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(limittype, ulllimit) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(limittype, ulllimit);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)limittype;
     (void)ulllimit;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -6777,12 +8789,19 @@ static Napi::Value windowssys_windows_win32_networking_wininet_urlCacheUpdateEnt
         HMODULE km_h_mod = LoadLibraryA("wininet.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UrlCacheUpdateEntryExtraData")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(happcache, pcwszurl, pbextradata, cbextradata) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(happcache, pcwszurl, pbextradata, cbextradata);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)happcache;
     (void)pcwszurl;
     (void)pbextradata;
     (void)cbextradata;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

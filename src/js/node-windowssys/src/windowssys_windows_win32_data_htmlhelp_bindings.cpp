@@ -64,13 +64,20 @@ static Napi::Value windowssys_windows_win32_data_htmlhelp_htmlHelpA_napi(const N
         HMODULE km_h_mod = LoadLibraryA("hhctrl.ocx");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HtmlHelpA")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwndcaller, pszfile, ucommand, dwdata) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwndcaller, pszfile, ucommand, dwdata);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hwndcaller;
     (void)pszfile;
     (void)ucommand;
     (void)dwdata;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -88,13 +95,20 @@ static Napi::Value windowssys_windows_win32_data_htmlhelp_htmlHelpW_napi(const N
         HMODULE km_h_mod = LoadLibraryA("hhctrl.ocx");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HtmlHelpW")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwndcaller, pszfile, ucommand, dwdata) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwndcaller, pszfile, ucommand, dwdata);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hwndcaller;
     (void)pszfile;
     (void)ucommand;
     (void)dwdata;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }

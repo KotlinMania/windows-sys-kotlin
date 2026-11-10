@@ -65,13 +65,20 @@ static Napi::Value windowssys_windows_win32_networking_httpserver_httpAddFragmen
         HMODULE km_h_mod = LoadLibraryA("httpapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HttpAddFragmentToCache")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(requestqueuehandle, urlprefix, datachunk, cachepolicy, overlapped) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(requestqueuehandle, urlprefix, datachunk, cachepolicy, overlapped);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)requestqueuehandle;
     (void)urlprefix;
     (void)datachunk;
     (void)cachepolicy;
     (void)overlapped;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -89,11 +96,18 @@ static Napi::Value windowssys_windows_win32_networking_httpserver_httpAddUrl_nap
         HMODULE km_h_mod = LoadLibraryA("httpapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HttpAddUrl")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(requestqueuehandle, fullyqualifiedurl, reserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(requestqueuehandle, fullyqualifiedurl, reserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)requestqueuehandle;
     (void)fullyqualifiedurl;
     (void)reserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -112,12 +126,19 @@ static Napi::Value windowssys_windows_win32_networking_httpserver_httpAddUrlToUr
         HMODULE km_h_mod = LoadLibraryA("httpapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HttpAddUrlToUrlGroup")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(urlgroupid, pfullyqualifiedurl, urlcontext, reserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(urlgroupid, pfullyqualifiedurl, urlcontext, reserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)urlgroupid;
     (void)pfullyqualifiedurl;
     (void)urlcontext;
     (void)reserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -135,11 +156,18 @@ static Napi::Value windowssys_windows_win32_networking_httpserver_httpCancelHttp
         HMODULE km_h_mod = LoadLibraryA("httpapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HttpCancelHttpRequest")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(requestqueuehandle, requestid, overlapped) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(requestqueuehandle, requestid, overlapped);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)requestqueuehandle;
     (void)requestid;
     (void)overlapped;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -155,9 +183,16 @@ static Napi::Value windowssys_windows_win32_networking_httpserver_httpCloseReque
         HMODULE km_h_mod = LoadLibraryA("httpapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HttpCloseRequestQueue")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(requestqueuehandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(requestqueuehandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)requestqueuehandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -173,9 +208,16 @@ static Napi::Value windowssys_windows_win32_networking_httpserver_httpCloseServe
         HMODULE km_h_mod = LoadLibraryA("httpapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HttpCloseServerSession")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serversessionid) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serversessionid);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serversessionid;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -191,9 +233,16 @@ static Napi::Value windowssys_windows_win32_networking_httpserver_httpCloseUrlGr
         HMODULE km_h_mod = LoadLibraryA("httpapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HttpCloseUrlGroup")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(urlgroupid) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(urlgroupid);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)urlgroupid;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -210,10 +259,17 @@ static Napi::Value windowssys_windows_win32_networking_httpserver_httpCreateHttp
         HMODULE km_h_mod = LoadLibraryA("httpapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HttpCreateHttpHandle")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(requestqueuehandle, reserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(requestqueuehandle, reserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)requestqueuehandle;
     (void)reserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -231,11 +287,18 @@ static Napi::Value windowssys_windows_win32_networking_httpserver_httpCreateUrlG
         HMODULE km_h_mod = LoadLibraryA("httpapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HttpCreateUrlGroup")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serversessionid, purlgroupid, reserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serversessionid, purlgroupid, reserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serversessionid;
     (void)purlgroupid;
     (void)reserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -256,7 +319,13 @@ static Napi::Value windowssys_windows_win32_networking_httpserver_httpDeclarePus
         HMODULE km_h_mod = LoadLibraryA("httpapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HttpDeclarePush")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(requestqueuehandle, requestid, verb, path, query, headers) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(requestqueuehandle, requestid, verb, path, query, headers);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)requestqueuehandle;
     (void)requestid;
@@ -264,6 +333,7 @@ static Napi::Value windowssys_windows_win32_networking_httpserver_httpDeclarePus
     (void)path;
     (void)query;
     (void)headers;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -284,7 +354,13 @@ static Napi::Value windowssys_windows_win32_networking_httpserver_httpDelegateRe
         HMODULE km_h_mod = LoadLibraryA("httpapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HttpDelegateRequestEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(requestqueuehandle, delegatequeuehandle, requestid, delegateurlgroupid, propertyinfosetsize, propertyinfoset) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(requestqueuehandle, delegatequeuehandle, requestid, delegateurlgroupid, propertyinfosetsize, propertyinfoset);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)requestqueuehandle;
     (void)delegatequeuehandle;
@@ -292,6 +368,7 @@ static Napi::Value windowssys_windows_win32_networking_httpserver_httpDelegateRe
     (void)delegateurlgroupid;
     (void)propertyinfosetsize;
     (void)propertyinfoset;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -311,13 +388,20 @@ static Napi::Value windowssys_windows_win32_networking_httpserver_httpDeleteServ
         HMODULE km_h_mod = LoadLibraryA("httpapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HttpDeleteServiceConfiguration")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servicehandle, configid, pconfiginformation, configinformationlength, poverlapped) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servicehandle, configid, pconfiginformation, configinformationlength, poverlapped);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servicehandle;
     (void)configid;
     (void)pconfiginformation;
     (void)configinformationlength;
     (void)poverlapped;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -335,11 +419,18 @@ static Napi::Value windowssys_windows_win32_networking_httpserver_httpFindUrlGro
         HMODULE km_h_mod = LoadLibraryA("httpapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HttpFindUrlGroupId")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(fullyqualifiedurl, requestqueuehandle, urlgroupid) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(fullyqualifiedurl, requestqueuehandle, urlgroupid);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)fullyqualifiedurl;
     (void)requestqueuehandle;
     (void)urlgroupid;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -358,12 +449,19 @@ static Napi::Value windowssys_windows_win32_networking_httpserver_httpFlushRespo
         HMODULE km_h_mod = LoadLibraryA("httpapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HttpFlushResponseCache")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(requestqueuehandle, urlprefix, flags, overlapped) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(requestqueuehandle, urlprefix, flags, overlapped);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)requestqueuehandle;
     (void)urlprefix;
     (void)flags;
     (void)overlapped;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -379,9 +477,16 @@ static Napi::Value windowssys_windows_win32_networking_httpserver_httpIsFeatureS
         HMODULE km_h_mod = LoadLibraryA("httpapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HttpIsFeatureSupported")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(featureid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(featureid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)featureid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -400,12 +505,19 @@ static Napi::Value windowssys_windows_win32_networking_httpserver_httpPrepareUrl
         HMODULE km_h_mod = LoadLibraryA("httpapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HttpPrepareUrl")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(reserved, flags, url, preparedurl) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(reserved, flags, url, preparedurl);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)reserved;
     (void)flags;
     (void)url;
     (void)preparedurl;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -427,7 +539,13 @@ static Napi::Value windowssys_windows_win32_networking_httpserver_httpQueryReque
         HMODULE km_h_mod = LoadLibraryA("httpapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HttpQueryRequestQueueProperty")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(requestqueuehandle, property, propertyinformation, propertyinformationlength, reserved1, returnlength, reserved2) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(requestqueuehandle, property, propertyinformation, propertyinformationlength, reserved1, returnlength, reserved2);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)requestqueuehandle;
     (void)property;
@@ -436,6 +554,7 @@ static Napi::Value windowssys_windows_win32_networking_httpserver_httpQueryReque
     (void)reserved1;
     (void)returnlength;
     (void)reserved2;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -455,13 +574,20 @@ static Napi::Value windowssys_windows_win32_networking_httpserver_httpQueryServe
         HMODULE km_h_mod = LoadLibraryA("httpapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HttpQueryServerSessionProperty")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serversessionid, property, propertyinformation, propertyinformationlength, returnlength) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serversessionid, property, propertyinformation, propertyinformationlength, returnlength);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serversessionid;
     (void)property;
     (void)propertyinformation;
     (void)propertyinformationlength;
     (void)returnlength;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -484,7 +610,13 @@ static Napi::Value windowssys_windows_win32_networking_httpserver_httpQueryServi
         HMODULE km_h_mod = LoadLibraryA("httpapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HttpQueryServiceConfiguration")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servicehandle, configid, pinput, inputlength, poutput, outputlength, preturnlength, poverlapped) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servicehandle, configid, pinput, inputlength, poutput, outputlength, preturnlength, poverlapped);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servicehandle;
     (void)configid;
@@ -494,6 +626,7 @@ static Napi::Value windowssys_windows_win32_networking_httpserver_httpQueryServi
     (void)outputlength;
     (void)preturnlength;
     (void)poverlapped;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -513,13 +646,20 @@ static Napi::Value windowssys_windows_win32_networking_httpserver_httpQueryUrlGr
         HMODULE km_h_mod = LoadLibraryA("httpapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HttpQueryUrlGroupProperty")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(urlgroupid, property, propertyinformation, propertyinformationlength, returnlength) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(urlgroupid, property, propertyinformation, propertyinformationlength, returnlength);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)urlgroupid;
     (void)property;
     (void)propertyinformation;
     (void)propertyinformationlength;
     (void)returnlength;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -541,7 +681,13 @@ static Napi::Value windowssys_windows_win32_networking_httpserver_httpReadFragme
         HMODULE km_h_mod = LoadLibraryA("httpapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HttpReadFragmentFromCache")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(requestqueuehandle, urlprefix, byterange, buffer, bufferlength, bytesread, overlapped) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(requestqueuehandle, urlprefix, byterange, buffer, bufferlength, bytesread, overlapped);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)requestqueuehandle;
     (void)urlprefix;
@@ -550,6 +696,7 @@ static Napi::Value windowssys_windows_win32_networking_httpserver_httpReadFragme
     (void)bufferlength;
     (void)bytesread;
     (void)overlapped;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -571,7 +718,13 @@ static Napi::Value windowssys_windows_win32_networking_httpserver_httpReceiveCli
         HMODULE km_h_mod = LoadLibraryA("httpapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HttpReceiveClientCertificate")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(requestqueuehandle, connectionid, flags, sslclientcertinfo, sslclientcertinfosize, bytesreceived, overlapped) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(requestqueuehandle, connectionid, flags, sslclientcertinfo, sslclientcertinfosize, bytesreceived, overlapped);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)requestqueuehandle;
     (void)connectionid;
@@ -580,6 +733,7 @@ static Napi::Value windowssys_windows_win32_networking_httpserver_httpReceiveCli
     (void)sslclientcertinfosize;
     (void)bytesreceived;
     (void)overlapped;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -601,7 +755,13 @@ static Napi::Value windowssys_windows_win32_networking_httpserver_httpReceiveHtt
         HMODULE km_h_mod = LoadLibraryA("httpapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HttpReceiveHttpRequest")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(requestqueuehandle, requestid, flags, requestbuffer, requestbufferlength, bytesreturned, overlapped) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(requestqueuehandle, requestid, flags, requestbuffer, requestbufferlength, bytesreturned, overlapped);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)requestqueuehandle;
     (void)requestid;
@@ -610,6 +770,7 @@ static Napi::Value windowssys_windows_win32_networking_httpserver_httpReceiveHtt
     (void)requestbufferlength;
     (void)bytesreturned;
     (void)overlapped;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -631,7 +792,13 @@ static Napi::Value windowssys_windows_win32_networking_httpserver_httpReceiveReq
         HMODULE km_h_mod = LoadLibraryA("httpapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HttpReceiveRequestEntityBody")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(requestqueuehandle, requestid, flags, entitybuffer, entitybufferlength, bytesreturned, overlapped) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(requestqueuehandle, requestid, flags, entitybuffer, entitybufferlength, bytesreturned, overlapped);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)requestqueuehandle;
     (void)requestid;
@@ -640,6 +807,7 @@ static Napi::Value windowssys_windows_win32_networking_httpserver_httpReceiveReq
     (void)entitybufferlength;
     (void)bytesreturned;
     (void)overlapped;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -656,10 +824,17 @@ static Napi::Value windowssys_windows_win32_networking_httpserver_httpRemoveUrl_
         HMODULE km_h_mod = LoadLibraryA("httpapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HttpRemoveUrl")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(requestqueuehandle, fullyqualifiedurl) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(requestqueuehandle, fullyqualifiedurl);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)requestqueuehandle;
     (void)fullyqualifiedurl;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -677,11 +852,18 @@ static Napi::Value windowssys_windows_win32_networking_httpserver_httpRemoveUrlF
         HMODULE km_h_mod = LoadLibraryA("httpapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HttpRemoveUrlFromUrlGroup")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(urlgroupid, pfullyqualifiedurl, flags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(urlgroupid, pfullyqualifiedurl, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)urlgroupid;
     (void)pfullyqualifiedurl;
     (void)flags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -706,7 +888,13 @@ static Napi::Value windowssys_windows_win32_networking_httpserver_httpSendHttpRe
         HMODULE km_h_mod = LoadLibraryA("httpapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HttpSendHttpResponse")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(requestqueuehandle, requestid, flags, httpresponse, cachepolicy, bytessent, reserved1, reserved2, overlapped, logdata) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(requestqueuehandle, requestid, flags, httpresponse, cachepolicy, bytessent, reserved1, reserved2, overlapped, logdata);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)requestqueuehandle;
     (void)requestid;
@@ -718,6 +906,7 @@ static Napi::Value windowssys_windows_win32_networking_httpserver_httpSendHttpRe
     (void)reserved2;
     (void)overlapped;
     (void)logdata;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -742,7 +931,13 @@ static Napi::Value windowssys_windows_win32_networking_httpserver_httpSendRespon
         HMODULE km_h_mod = LoadLibraryA("httpapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HttpSendResponseEntityBody")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(requestqueuehandle, requestid, flags, entitychunkcount, entitychunks, bytessent, reserved1, reserved2, overlapped, logdata) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(requestqueuehandle, requestid, flags, entitychunkcount, entitychunks, bytessent, reserved1, reserved2, overlapped, logdata);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)requestqueuehandle;
     (void)requestid;
@@ -754,6 +949,7 @@ static Napi::Value windowssys_windows_win32_networking_httpserver_httpSendRespon
     (void)reserved2;
     (void)overlapped;
     (void)logdata;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -774,7 +970,13 @@ static Napi::Value windowssys_windows_win32_networking_httpserver_httpSetRequest
         HMODULE km_h_mod = LoadLibraryA("httpapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HttpSetRequestProperty")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(requestqueuehandle, id, propertyid, input, inputpropertysize, overlapped) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(requestqueuehandle, id, propertyid, input, inputpropertysize, overlapped);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)requestqueuehandle;
     (void)id;
@@ -782,6 +984,7 @@ static Napi::Value windowssys_windows_win32_networking_httpserver_httpSetRequest
     (void)input;
     (void)inputpropertysize;
     (void)overlapped;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -802,7 +1005,13 @@ static Napi::Value windowssys_windows_win32_networking_httpserver_httpSetRequest
         HMODULE km_h_mod = LoadLibraryA("httpapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HttpSetRequestQueueProperty")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(requestqueuehandle, property, propertyinformation, propertyinformationlength, reserved1, reserved2) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(requestqueuehandle, property, propertyinformation, propertyinformationlength, reserved1, reserved2);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)requestqueuehandle;
     (void)property;
@@ -810,6 +1019,7 @@ static Napi::Value windowssys_windows_win32_networking_httpserver_httpSetRequest
     (void)propertyinformationlength;
     (void)reserved1;
     (void)reserved2;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -828,12 +1038,19 @@ static Napi::Value windowssys_windows_win32_networking_httpserver_httpSetServerS
         HMODULE km_h_mod = LoadLibraryA("httpapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HttpSetServerSessionProperty")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(serversessionid, property, propertyinformation, propertyinformationlength) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(serversessionid, property, propertyinformation, propertyinformationlength);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)serversessionid;
     (void)property;
     (void)propertyinformation;
     (void)propertyinformationlength;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -853,13 +1070,20 @@ static Napi::Value windowssys_windows_win32_networking_httpserver_httpSetService
         HMODULE km_h_mod = LoadLibraryA("httpapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HttpSetServiceConfiguration")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(servicehandle, configid, pconfiginformation, configinformationlength, poverlapped) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(servicehandle, configid, pconfiginformation, configinformationlength, poverlapped);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)servicehandle;
     (void)configid;
     (void)pconfiginformation;
     (void)configinformationlength;
     (void)poverlapped;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -878,12 +1102,19 @@ static Napi::Value windowssys_windows_win32_networking_httpserver_httpSetUrlGrou
         HMODULE km_h_mod = LoadLibraryA("httpapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HttpSetUrlGroupProperty")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(urlgroupid, property, propertyinformation, propertyinformationlength) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(urlgroupid, property, propertyinformation, propertyinformationlength);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)urlgroupid;
     (void)property;
     (void)propertyinformation;
     (void)propertyinformationlength;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -899,9 +1130,16 @@ static Napi::Value windowssys_windows_win32_networking_httpserver_httpShutdownRe
         HMODULE km_h_mod = LoadLibraryA("httpapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HttpShutdownRequestQueue")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(requestqueuehandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(requestqueuehandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)requestqueuehandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -918,10 +1156,17 @@ static Napi::Value windowssys_windows_win32_networking_httpserver_httpTerminate_
         HMODULE km_h_mod = LoadLibraryA("httpapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HttpTerminate")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(flags, preserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(flags, preserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)flags;
     (void)preserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -941,13 +1186,20 @@ static Napi::Value windowssys_windows_win32_networking_httpserver_httpUpdateServ
         HMODULE km_h_mod = LoadLibraryA("httpapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HttpUpdateServiceConfiguration")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(handle, configid, configinfo, configinfolength, overlapped) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(handle, configid, configinfo, configinfolength, overlapped);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)handle;
     (void)configid;
     (void)configinfo;
     (void)configinfolength;
     (void)overlapped;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -964,10 +1216,17 @@ static Napi::Value windowssys_windows_win32_networking_httpserver_httpWaitForDem
         HMODULE km_h_mod = LoadLibraryA("httpapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HttpWaitForDemandStart")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(requestqueuehandle, overlapped) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(requestqueuehandle, overlapped);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)requestqueuehandle;
     (void)overlapped;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -985,11 +1244,18 @@ static Napi::Value windowssys_windows_win32_networking_httpserver_httpWaitForDis
         HMODULE km_h_mod = LoadLibraryA("httpapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HttpWaitForDisconnect")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(requestqueuehandle, connectionid, overlapped) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(requestqueuehandle, connectionid, overlapped);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)requestqueuehandle;
     (void)connectionid;
     (void)overlapped;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1008,12 +1274,19 @@ static Napi::Value windowssys_windows_win32_networking_httpserver_httpWaitForDis
         HMODULE km_h_mod = LoadLibraryA("httpapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HttpWaitForDisconnectEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(requestqueuehandle, connectionid, reserved, overlapped) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(requestqueuehandle, connectionid, reserved, overlapped);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)requestqueuehandle;
     (void)connectionid;
     (void)reserved;
     (void)overlapped;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

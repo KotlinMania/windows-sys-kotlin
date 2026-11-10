@@ -62,11 +62,18 @@ static Napi::Value windowssys_windows_win32_storage_projectedfilesystem_prjAlloc
         HMODULE km_h_mod = LoadLibraryA("projectedfslib.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PrjAllocateAlignedBuffer")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(namespacevirtualizationcontext, size) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(namespacevirtualizationcontext, size);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)namespacevirtualizationcontext;
     (void)size;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -82,10 +89,17 @@ static Napi::Value windowssys_windows_win32_storage_projectedfilesystem_prjClear
         HMODULE km_h_mod = LoadLibraryA("projectedfslib.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PrjClearNegativePathCache")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(namespacevirtualizationcontext, totalentrynumber) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(namespacevirtualizationcontext, totalentrynumber);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)namespacevirtualizationcontext;
     (void)totalentrynumber;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -104,12 +118,19 @@ static Napi::Value windowssys_windows_win32_storage_projectedfilesystem_prjCompl
         HMODULE km_h_mod = LoadLibraryA("projectedfslib.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PrjCompleteCommand")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(namespacevirtualizationcontext, commandid, completionresult, extendedparameters) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(namespacevirtualizationcontext, commandid, completionresult, extendedparameters);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)namespacevirtualizationcontext;
     (void)commandid;
     (void)completionresult;
     (void)extendedparameters;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -128,12 +149,19 @@ static Napi::Value windowssys_windows_win32_storage_projectedfilesystem_prjDelet
         HMODULE km_h_mod = LoadLibraryA("projectedfslib.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PrjDeleteFile")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(namespacevirtualizationcontext, destinationfilename, updateflags, failurereason) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(namespacevirtualizationcontext, destinationfilename, updateflags, failurereason);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)namespacevirtualizationcontext;
     (void)destinationfilename;
     (void)updateflags;
     (void)failurereason;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -149,9 +177,16 @@ static Napi::Value windowssys_windows_win32_storage_projectedfilesystem_prjDoesN
         HMODULE km_h_mod = LoadLibraryA("projectedfslib.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PrjDoesNameContainWildCards")));
     }
-    bool km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(filename) : false;
+    bool km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(filename);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)filename;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return Napi::Boolean::New(km_env, km_res);
@@ -168,10 +203,17 @@ static Napi::Value windowssys_windows_win32_storage_projectedfilesystem_prjFileN
         HMODULE km_h_mod = LoadLibraryA("projectedfslib.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PrjFileNameCompare")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(filename1, filename2) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(filename1, filename2);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)filename1;
     (void)filename2;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -188,10 +230,17 @@ static Napi::Value windowssys_windows_win32_storage_projectedfilesystem_prjFileN
         HMODULE km_h_mod = LoadLibraryA("projectedfslib.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PrjFileNameMatch")));
     }
-    bool km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(filenametocheck, pattern) : false;
+    bool km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(filenametocheck, pattern);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)filenametocheck;
     (void)pattern;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return Napi::Boolean::New(km_env, km_res);
@@ -209,11 +258,18 @@ static Napi::Value windowssys_windows_win32_storage_projectedfilesystem_prjFillD
         HMODULE km_h_mod = LoadLibraryA("projectedfslib.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PrjFillDirEntryBuffer")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(filename, filebasicinfo, direntrybufferhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(filename, filebasicinfo, direntrybufferhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)filename;
     (void)filebasicinfo;
     (void)direntrybufferhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -232,12 +288,19 @@ static Napi::Value windowssys_windows_win32_storage_projectedfilesystem_prjFillD
         HMODULE km_h_mod = LoadLibraryA("projectedfslib.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PrjFillDirEntryBuffer2")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(direntrybufferhandle, filename, filebasicinfo, extendedinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(direntrybufferhandle, filename, filebasicinfo, extendedinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)direntrybufferhandle;
     (void)filename;
     (void)filebasicinfo;
     (void)extendedinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -253,9 +316,14 @@ static Napi::Value windowssys_windows_win32_storage_projectedfilesystem_prjFreeA
         HMODULE km_h_mod = LoadLibraryA("projectedfslib.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PrjFreeAlignedBuffer")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(buffer);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(buffer);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)buffer;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -271,10 +339,17 @@ static Napi::Value windowssys_windows_win32_storage_projectedfilesystem_prjGetOn
         HMODULE km_h_mod = LoadLibraryA("projectedfslib.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PrjGetOnDiskFileState")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(destinationfilename, filestate) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(destinationfilename, filestate);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)destinationfilename;
     (void)filestate;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -291,10 +366,17 @@ static Napi::Value windowssys_windows_win32_storage_projectedfilesystem_prjGetVi
         HMODULE km_h_mod = LoadLibraryA("projectedfslib.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PrjGetVirtualizationInstanceInfo")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(namespacevirtualizationcontext, virtualizationinstanceinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(namespacevirtualizationcontext, virtualizationinstanceinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)namespacevirtualizationcontext;
     (void)virtualizationinstanceinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -313,12 +395,19 @@ static Napi::Value windowssys_windows_win32_storage_projectedfilesystem_prjMarkD
         HMODULE km_h_mod = LoadLibraryA("projectedfslib.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PrjMarkDirectoryAsPlaceholder")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rootpathname, targetpathname, versioninfo, virtualizationinstanceid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rootpathname, targetpathname, versioninfo, virtualizationinstanceid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)rootpathname;
     (void)targetpathname;
     (void)versioninfo;
     (void)virtualizationinstanceid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -338,13 +427,20 @@ static Napi::Value windowssys_windows_win32_storage_projectedfilesystem_prjStart
         HMODULE km_h_mod = LoadLibraryA("projectedfslib.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PrjStartVirtualizing")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(virtualizationrootpath, callbacks, instancecontext, options, namespacevirtualizationcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(virtualizationrootpath, callbacks, instancecontext, options, namespacevirtualizationcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)virtualizationrootpath;
     (void)callbacks;
     (void)instancecontext;
     (void)options;
     (void)namespacevirtualizationcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -360,9 +456,14 @@ static Napi::Value windowssys_windows_win32_storage_projectedfilesystem_prjStopV
         HMODULE km_h_mod = LoadLibraryA("projectedfslib.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PrjStopVirtualizing")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(namespacevirtualizationcontext);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(namespacevirtualizationcontext);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)namespacevirtualizationcontext;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -382,7 +483,13 @@ static Napi::Value windowssys_windows_win32_storage_projectedfilesystem_prjUpdat
         HMODULE km_h_mod = LoadLibraryA("projectedfslib.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PrjUpdateFileIfNeeded")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(namespacevirtualizationcontext, destinationfilename, placeholderinfo, placeholderinfosize, updateflags, failurereason) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(namespacevirtualizationcontext, destinationfilename, placeholderinfo, placeholderinfosize, updateflags, failurereason);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)namespacevirtualizationcontext;
     (void)destinationfilename;
@@ -390,6 +497,7 @@ static Napi::Value windowssys_windows_win32_storage_projectedfilesystem_prjUpdat
     (void)placeholderinfosize;
     (void)updateflags;
     (void)failurereason;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -409,13 +517,20 @@ static Napi::Value windowssys_windows_win32_storage_projectedfilesystem_prjWrite
         HMODULE km_h_mod = LoadLibraryA("projectedfslib.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PrjWriteFileData")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(namespacevirtualizationcontext, datastreamid, buffer, byteoffset, length) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(namespacevirtualizationcontext, datastreamid, buffer, byteoffset, length);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)namespacevirtualizationcontext;
     (void)datastreamid;
     (void)buffer;
     (void)byteoffset;
     (void)length;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -434,12 +549,19 @@ static Napi::Value windowssys_windows_win32_storage_projectedfilesystem_prjWrite
         HMODULE km_h_mod = LoadLibraryA("projectedfslib.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PrjWritePlaceholderInfo")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(namespacevirtualizationcontext, destinationfilename, placeholderinfo, placeholderinfosize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(namespacevirtualizationcontext, destinationfilename, placeholderinfo, placeholderinfosize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)namespacevirtualizationcontext;
     (void)destinationfilename;
     (void)placeholderinfo;
     (void)placeholderinfosize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -459,13 +581,20 @@ static Napi::Value windowssys_windows_win32_storage_projectedfilesystem_prjWrite
         HMODULE km_h_mod = LoadLibraryA("projectedfslib.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PrjWritePlaceholderInfo2")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(namespacevirtualizationcontext, destinationfilename, placeholderinfo, placeholderinfosize, extendedinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(namespacevirtualizationcontext, destinationfilename, placeholderinfo, placeholderinfosize, extendedinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)namespacevirtualizationcontext;
     (void)destinationfilename;
     (void)placeholderinfo;
     (void)placeholderinfosize;
     (void)extendedinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

@@ -62,10 +62,17 @@ static Napi::Value windowssys_windows_win32_management_mobiledevicemanagementreg
         HMODULE km_h_mod = LoadLibraryA("mdmlocalmanagement.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ApplyLocalManagementSyncML")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(syncmlrequest, syncmlresult) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(syncmlrequest, syncmlresult);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)syncmlrequest;
     (void)syncmlresult;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -82,10 +89,17 @@ static Napi::Value windowssys_windows_win32_management_mobiledevicemanagementreg
         HMODULE km_h_mod = LoadLibraryA("mdmregistration.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DiscoverManagementService")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszupn, ppmgmtinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszupn, ppmgmtinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszupn;
     (void)ppmgmtinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -103,11 +117,18 @@ static Napi::Value windowssys_windows_win32_management_mobiledevicemanagementreg
         HMODULE km_h_mod = LoadLibraryA("mdmregistration.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DiscoverManagementServiceEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszupn, pszdiscoveryservicecandidate, ppmgmtinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszupn, pszdiscoveryservicecandidate, ppmgmtinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszupn;
     (void)pszdiscoveryservicecandidate;
     (void)ppmgmtinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -125,11 +146,18 @@ static Napi::Value windowssys_windows_win32_management_mobiledevicemanagementreg
         HMODULE km_h_mod = LoadLibraryA("mdmregistration.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetDeviceManagementConfigInfo")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(providerid, configstringbufferlength, configstring) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(providerid, configstringbufferlength, configstring);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)providerid;
     (void)configstringbufferlength;
     (void)configstring;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -146,10 +174,17 @@ static Napi::Value windowssys_windows_win32_management_mobiledevicemanagementreg
         HMODULE km_h_mod = LoadLibraryA("mdmregistration.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetDeviceRegistrationInfo")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(deviceinformationclass, ppdeviceregistrationinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(deviceinformationclass, ppdeviceregistrationinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)deviceinformationclass;
     (void)ppdeviceregistrationinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -166,10 +201,17 @@ static Napi::Value windowssys_windows_win32_management_mobiledevicemanagementreg
         HMODULE km_h_mod = LoadLibraryA("mdmregistration.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetManagementAppHyperlink")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(cchhyperlink, pszhyperlink) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(cchhyperlink, pszhyperlink);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)cchhyperlink;
     (void)pszhyperlink;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -187,11 +229,18 @@ static Napi::Value windowssys_windows_win32_management_mobiledevicemanagementreg
         HMODULE km_h_mod = LoadLibraryA("mdmregistration.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IsDeviceRegisteredWithManagement")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pfisdeviceregisteredwithmanagement, cchupn, pszupn) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pfisdeviceregisteredwithmanagement, cchupn, pszupn);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pfisdeviceregisteredwithmanagement;
     (void)cchupn;
     (void)pszupn;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -207,9 +256,16 @@ static Napi::Value windowssys_windows_win32_management_mobiledevicemanagementreg
         HMODULE km_h_mod = LoadLibraryA("mdmregistration.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IsManagementRegistrationAllowed")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pfismanagementregistrationallowed) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pfismanagementregistrationallowed);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pfismanagementregistrationallowed;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -225,9 +281,16 @@ static Napi::Value windowssys_windows_win32_management_mobiledevicemanagementreg
         HMODULE km_h_mod = LoadLibraryA("mdmregistration.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IsMdmUxWithoutAadAllowed")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(isenrollmentallowed) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(isenrollmentallowed);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)isenrollmentallowed;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -243,9 +306,16 @@ static Napi::Value windowssys_windows_win32_management_mobiledevicemanagementreg
         HMODULE km_h_mod = LoadLibraryA("mdmlocalmanagement.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegisterDeviceWithLocalManagement")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(alreadyregistered) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(alreadyregistered);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)alreadyregistered;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -263,11 +333,18 @@ static Napi::Value windowssys_windows_win32_management_mobiledevicemanagementreg
         HMODULE km_h_mod = LoadLibraryA("mdmregistration.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegisterDeviceWithManagement")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszupn, ppszmdmserviceuri, ppzsaccesstoken) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszupn, ppszmdmserviceuri, ppzsaccesstoken);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszupn;
     (void)ppszmdmserviceuri;
     (void)ppzsaccesstoken;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -283,9 +360,16 @@ static Napi::Value windowssys_windows_win32_management_mobiledevicemanagementreg
         HMODULE km_h_mod = LoadLibraryA("mdmregistration.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegisterDeviceWithManagementUsingAADCredentials")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(usertoken) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(usertoken);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)usertoken;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -300,8 +384,15 @@ static Napi::Value windowssys_windows_win32_management_mobiledevicemanagementreg
         HMODULE km_h_mod = LoadLibraryA("mdmregistration.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegisterDeviceWithManagementUsingAADDeviceCredentials")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -317,9 +408,16 @@ static Napi::Value windowssys_windows_win32_management_mobiledevicemanagementreg
         HMODULE km_h_mod = LoadLibraryA("mdmregistration.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegisterDeviceWithManagementUsingAADDeviceCredentials2")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(mdmapplicationid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(mdmapplicationid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)mdmapplicationid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -336,10 +434,17 @@ static Napi::Value windowssys_windows_win32_management_mobiledevicemanagementreg
         HMODULE km_h_mod = LoadLibraryA("mdmregistration.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetDeviceManagementConfigInfo")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(providerid, configstring) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(providerid, configstring);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)providerid;
     (void)configstring;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -355,9 +460,16 @@ static Napi::Value windowssys_windows_win32_management_mobiledevicemanagementreg
         HMODULE km_h_mod = LoadLibraryA("mdmregistration.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetManagedExternally")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ismanagedexternally) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ismanagedexternally);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ismanagedexternally;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -372,8 +484,15 @@ static Napi::Value windowssys_windows_win32_management_mobiledevicemanagementreg
         HMODULE km_h_mod = LoadLibraryA("mdmlocalmanagement.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UnregisterDeviceWithLocalManagement")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -389,9 +508,16 @@ static Napi::Value windowssys_windows_win32_management_mobiledevicemanagementreg
         HMODULE km_h_mod = LoadLibraryA("mdmregistration.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UnregisterDeviceWithManagement")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enrollmentid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enrollmentid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enrollmentid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

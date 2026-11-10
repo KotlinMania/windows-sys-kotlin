@@ -61,9 +61,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wFDCancelOpen
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WFDCancelOpenSession")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hsessionhandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hsessionhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hsessionhandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -79,9 +86,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wFDCloseHandl
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WFDCloseHandle")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hclienthandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hclienthandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -97,9 +111,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wFDCloseSessi
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WFDCloseSession")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hsessionhandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hsessionhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hsessionhandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -117,11 +138,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wFDOpenHandle
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WFDOpenHandle")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwclientversion, pdwnegotiatedversion, phclienthandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwclientversion, pdwnegotiatedversion, phclienthandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dwclientversion;
     (void)pdwnegotiatedversion;
     (void)phclienthandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -140,12 +168,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wFDOpenLegacy
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WFDOpenLegacySession")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hclienthandle, plegacymacaddress, phsessionhandle, pguidsessioninterface) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hclienthandle, plegacymacaddress, phsessionhandle, pguidsessioninterface);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
     (void)plegacymacaddress;
     (void)phsessionhandle;
     (void)pguidsessioninterface;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -165,13 +200,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wFDStartOpenS
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WFDStartOpenSession")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hclienthandle, pdeviceaddress, pvcontext, pfncallback, phsessionhandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hclienthandle, pdeviceaddress, pvcontext, pfncallback, phsessionhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
     (void)pdeviceaddress;
     (void)pvcontext;
     (void)pfncallback;
     (void)phsessionhandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -187,9 +229,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wFDUpdateDevi
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WFDUpdateDeviceVisibility")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pdeviceaddress) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pdeviceaddress);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pdeviceaddress;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -205,10 +254,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanAllocateM
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WlanAllocateMemory")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwmemorysize) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwmemorysize);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)dwmemorysize;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -224,10 +280,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanCloseHand
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WlanCloseHandle")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hclienthandle, preserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hclienthandle, preserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
     (void)preserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -246,12 +309,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanConnect_n
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WlanConnect")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hclienthandle, pinterfaceguid, pconnectionparameters, preserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hclienthandle, pinterfaceguid, pconnectionparameters, preserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
     (void)pinterfaceguid;
     (void)pconnectionparameters;
     (void)preserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -270,12 +340,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanConnect2_
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WlanConnect2")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hclienthandle, pinterfaceguid, pconnectionparameters, preserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hclienthandle, pinterfaceguid, pconnectionparameters, preserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
     (void)pinterfaceguid;
     (void)pconnectionparameters;
     (void)preserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -294,12 +371,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanDeletePro
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WlanDeleteProfile")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hclienthandle, pinterfaceguid, strprofilename, preserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hclienthandle, pinterfaceguid, strprofilename, preserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
     (void)pinterfaceguid;
     (void)strprofilename;
     (void)preserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -323,7 +407,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanDeviceSer
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WlanDeviceServiceCommand")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hclienthandle, pinterfaceguid, pdeviceserviceguid, dwopcode, dwinbuffersize, pinbuffer, dwoutbuffersize, poutbuffer, pdwbytesreturned) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hclienthandle, pinterfaceguid, pdeviceserviceguid, dwopcode, dwinbuffersize, pinbuffer, dwoutbuffersize, poutbuffer, pdwbytesreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
     (void)pinterfaceguid;
@@ -334,6 +424,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanDeviceSer
     (void)dwoutbuffersize;
     (void)poutbuffer;
     (void)pdwbytesreturned;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -351,11 +442,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanDisconnec
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WlanDisconnect")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hclienthandle, pinterfaceguid, preserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hclienthandle, pinterfaceguid, preserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
     (void)pinterfaceguid;
     (void)preserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -373,11 +471,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanEnumInter
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WlanEnumInterfaces")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hclienthandle, preserved, ppinterfacelist) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hclienthandle, preserved, ppinterfacelist);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
     (void)preserved;
     (void)ppinterfacelist;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -398,7 +503,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanExtractPs
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WlanExtractPsdIEDataList")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hclienthandle, dwiedatasize, prawiedata, strformat, preserved, pppsdiedatalist) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hclienthandle, dwiedatasize, prawiedata, strformat, preserved, pppsdiedatalist);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
     (void)dwiedatasize;
@@ -406,6 +517,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanExtractPs
     (void)strformat;
     (void)preserved;
     (void)pppsdiedatalist;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -421,9 +533,14 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanFreeMemor
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WlanFreeMemory")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pmemory);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pmemory);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pmemory;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -442,13 +559,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanGetAvaila
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WlanGetAvailableNetworkList")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hclienthandle, pinterfaceguid, dwflags, preserved, ppavailablenetworklist) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hclienthandle, pinterfaceguid, dwflags, preserved, ppavailablenetworklist);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
     (void)pinterfaceguid;
     (void)dwflags;
     (void)preserved;
     (void)ppavailablenetworklist;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -468,13 +592,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanGetAvaila
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WlanGetAvailableNetworkList2")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hclienthandle, pinterfaceguid, dwflags, preserved, ppavailablenetworklist) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hclienthandle, pinterfaceguid, dwflags, preserved, ppavailablenetworklist);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
     (void)pinterfaceguid;
     (void)dwflags;
     (void)preserved;
     (void)ppavailablenetworklist;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -493,12 +624,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanGetFilter
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WlanGetFilterList")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hclienthandle, wlanfilterlisttype, preserved, ppnetworklist) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hclienthandle, wlanfilterlisttype, preserved, ppnetworklist);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
     (void)wlanfilterlisttype;
     (void)preserved;
     (void)ppnetworklist;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -517,12 +655,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanGetInterf
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WlanGetInterfaceCapability")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hclienthandle, pinterfaceguid, preserved, ppcapability) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hclienthandle, pinterfaceguid, preserved, ppcapability);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
     (void)pinterfaceguid;
     (void)preserved;
     (void)ppcapability;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -544,7 +689,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanGetNetwor
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WlanGetNetworkBssList")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hclienthandle, pinterfaceguid, pdot11ssid, dot11bsstype, bsecurityenabled, preserved, ppwlanbsslist) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hclienthandle, pinterfaceguid, pdot11ssid, dot11bsstype, bsecurityenabled, preserved, ppwlanbsslist);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
     (void)pinterfaceguid;
@@ -553,6 +704,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanGetNetwor
     (void)bsecurityenabled;
     (void)preserved;
     (void)ppwlanbsslist;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -574,7 +726,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanGetProfil
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WlanGetProfile")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hclienthandle, pinterfaceguid, strprofilename, preserved, pstrprofilexml, pdwflags, pdwgrantedaccess) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hclienthandle, pinterfaceguid, strprofilename, preserved, pstrprofilexml, pdwflags, pdwgrantedaccess);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
     (void)pinterfaceguid;
@@ -583,6 +741,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanGetProfil
     (void)pstrprofilexml;
     (void)pdwflags;
     (void)pdwgrantedaccess;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -603,7 +762,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanGetProfil
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WlanGetProfileCustomUserData")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hclienthandle, pinterfaceguid, strprofilename, preserved, pdwdatasize, ppdata) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hclienthandle, pinterfaceguid, strprofilename, preserved, pdwdatasize, ppdata);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
     (void)pinterfaceguid;
@@ -611,6 +776,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanGetProfil
     (void)preserved;
     (void)pdwdatasize;
     (void)ppdata;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -629,12 +795,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanGetProfil
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WlanGetProfileList")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hclienthandle, pinterfaceguid, preserved, ppprofilelist) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hclienthandle, pinterfaceguid, preserved, ppprofilelist);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
     (void)pinterfaceguid;
     (void)preserved;
     (void)ppprofilelist;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -654,13 +827,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanGetSecuri
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WlanGetSecuritySettings")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hclienthandle, securableobject, pvaluetype, pstrcurrentsddl, pdwgrantedaccess) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hclienthandle, securableobject, pvaluetype, pstrcurrentsddl, pdwgrantedaccess);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
     (void)securableobject;
     (void)pvaluetype;
     (void)pstrcurrentsddl;
     (void)pdwgrantedaccess;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -678,11 +858,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanGetSuppor
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WlanGetSupportedDeviceServices")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hclienthandle, pinterfaceguid, ppdevsvcguidlist) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hclienthandle, pinterfaceguid, ppdevsvcguidlist);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
     (void)pinterfaceguid;
     (void)ppdevsvcguidlist;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -700,11 +887,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanHostedNet
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WlanHostedNetworkForceStart")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hclienthandle, pfailreason, pvreserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hclienthandle, pfailreason, pvreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
     (void)pfailreason;
     (void)pvreserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -722,11 +916,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanHostedNet
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WlanHostedNetworkForceStop")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hclienthandle, pfailreason, pvreserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hclienthandle, pfailreason, pvreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
     (void)pfailreason;
     (void)pvreserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -744,11 +945,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanHostedNet
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WlanHostedNetworkInitSettings")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hclienthandle, pfailreason, pvreserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hclienthandle, pfailreason, pvreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
     (void)pfailreason;
     (void)pvreserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -769,7 +977,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanHostedNet
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WlanHostedNetworkQueryProperty")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hclienthandle, opcode, pdwdatasize, ppvdata, pwlanopcodevaluetype, pvreserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hclienthandle, opcode, pdwdatasize, ppvdata, pwlanopcodevaluetype, pvreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
     (void)opcode;
@@ -777,6 +991,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanHostedNet
     (void)ppvdata;
     (void)pwlanopcodevaluetype;
     (void)pvreserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -798,7 +1013,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanHostedNet
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WlanHostedNetworkQuerySecondaryKey")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hclienthandle, pdwkeylength, ppuckeydata, pbispassphrase, pbpersistent, pfailreason, pvreserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hclienthandle, pdwkeylength, ppuckeydata, pbispassphrase, pbpersistent, pfailreason, pvreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
     (void)pdwkeylength;
@@ -807,6 +1028,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanHostedNet
     (void)pbpersistent;
     (void)pfailreason;
     (void)pvreserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -824,11 +1046,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanHostedNet
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WlanHostedNetworkQueryStatus")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hclienthandle, ppwlanhostednetworkstatus, pvreserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hclienthandle, ppwlanhostednetworkstatus, pvreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
     (void)ppwlanhostednetworkstatus;
     (void)pvreserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -846,11 +1075,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanHostedNet
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WlanHostedNetworkRefreshSecuritySettings")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hclienthandle, pfailreason, pvreserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hclienthandle, pfailreason, pvreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
     (void)pfailreason;
     (void)pvreserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -871,7 +1107,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanHostedNet
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WlanHostedNetworkSetProperty")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hclienthandle, opcode, dwdatasize, pvdata, pfailreason, pvreserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hclienthandle, opcode, dwdatasize, pvdata, pfailreason, pvreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
     (void)opcode;
@@ -879,6 +1121,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanHostedNet
     (void)pvdata;
     (void)pfailreason;
     (void)pvreserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -900,7 +1143,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanHostedNet
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WlanHostedNetworkSetSecondaryKey")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hclienthandle, dwkeylength, puckeydata, bispassphrase, bpersistent, pfailreason, pvreserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hclienthandle, dwkeylength, puckeydata, bispassphrase, bpersistent, pfailreason, pvreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
     (void)dwkeylength;
@@ -909,6 +1158,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanHostedNet
     (void)bpersistent;
     (void)pfailreason;
     (void)pvreserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -926,11 +1176,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanHostedNet
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WlanHostedNetworkStartUsing")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hclienthandle, pfailreason, pvreserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hclienthandle, pfailreason, pvreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
     (void)pfailreason;
     (void)pvreserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -948,11 +1205,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanHostedNet
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WlanHostedNetworkStopUsing")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hclienthandle, pfailreason, pvreserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hclienthandle, pfailreason, pvreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
     (void)pfailreason;
     (void)pvreserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -975,7 +1239,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanIhvContro
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WlanIhvControl")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hclienthandle, pinterfaceguid, type, dwinbuffersize, pinbuffer, dwoutbuffersize, poutbuffer, pdwbytesreturned) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hclienthandle, pinterfaceguid, type, dwinbuffersize, pinbuffer, dwoutbuffersize, poutbuffer, pdwbytesreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
     (void)pinterfaceguid;
@@ -985,6 +1255,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanIhvContro
     (void)dwoutbuffersize;
     (void)poutbuffer;
     (void)pdwbytesreturned;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1003,12 +1274,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanOpenHandl
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WlanOpenHandle")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwclientversion, preserved, pdwnegotiatedversion, phclienthandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwclientversion, preserved, pdwnegotiatedversion, phclienthandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dwclientversion;
     (void)preserved;
     (void)pdwnegotiatedversion;
     (void)phclienthandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1029,7 +1307,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanQueryAuto
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WlanQueryAutoConfigParameter")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hclienthandle, opcode, preserved, pdwdatasize, ppdata, pwlanopcodevaluetype) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hclienthandle, opcode, preserved, pdwdatasize, ppdata, pwlanopcodevaluetype);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
     (void)opcode;
@@ -1037,6 +1321,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanQueryAuto
     (void)pdwdatasize;
     (void)ppdata;
     (void)pwlanopcodevaluetype;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1058,7 +1343,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanQueryInte
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WlanQueryInterface")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hclienthandle, pinterfaceguid, opcode, preserved, pdwdatasize, ppdata, pwlanopcodevaluetype) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hclienthandle, pinterfaceguid, opcode, preserved, pdwdatasize, ppdata, pwlanopcodevaluetype);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
     (void)pinterfaceguid;
@@ -1067,6 +1358,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanQueryInte
     (void)pdwdatasize;
     (void)ppdata;
     (void)pwlanopcodevaluetype;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1085,12 +1377,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanReasonCod
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WlanReasonCodeToString")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwreasoncode, dwbuffersize, pstringbuffer, preserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwreasoncode, dwbuffersize, pstringbuffer, preserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dwreasoncode;
     (void)dwbuffersize;
     (void)pstringbuffer;
     (void)preserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1107,10 +1406,17 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanRegisterD
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WlanRegisterDeviceServiceNotification")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hclienthandle, pdevsvcguidlist) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hclienthandle, pdevsvcguidlist);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
     (void)pdevsvcguidlist;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1132,7 +1438,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanRegisterN
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WlanRegisterNotification")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hclienthandle, dwnotifsource, bignoreduplicate, funccallback, pcallbackcontext, preserved, pdwprevnotifsource) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hclienthandle, dwnotifsource, bignoreduplicate, funccallback, pcallbackcontext, preserved, pdwprevnotifsource);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
     (void)dwnotifsource;
@@ -1141,6 +1453,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanRegisterN
     (void)pcallbackcontext;
     (void)preserved;
     (void)pdwprevnotifsource;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1158,11 +1471,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanRegisterV
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WlanRegisterVirtualStationNotification")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hclienthandle, bregister, preserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hclienthandle, bregister, preserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
     (void)bregister;
     (void)preserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1182,13 +1502,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanRenamePro
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WlanRenameProfile")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hclienthandle, pinterfaceguid, stroldprofilename, strnewprofilename, preserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hclienthandle, pinterfaceguid, stroldprofilename, strnewprofilename, preserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
     (void)pinterfaceguid;
     (void)stroldprofilename;
     (void)strnewprofilename;
     (void)preserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1210,7 +1537,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanSaveTempo
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WlanSaveTemporaryProfile")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hclienthandle, pinterfaceguid, strprofilename, stralluserprofilesecurity, dwflags, boverwrite, preserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hclienthandle, pinterfaceguid, strprofilename, stralluserprofilesecurity, dwflags, boverwrite, preserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
     (void)pinterfaceguid;
@@ -1219,6 +1552,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanSaveTempo
     (void)dwflags;
     (void)boverwrite;
     (void)preserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1238,13 +1572,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanScan_napi
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WlanScan")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hclienthandle, pinterfaceguid, pdot11ssid, piedata, preserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hclienthandle, pinterfaceguid, pdot11ssid, piedata, preserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
     (void)pinterfaceguid;
     (void)pdot11ssid;
     (void)piedata;
     (void)preserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1264,13 +1605,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanSetAutoCo
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WlanSetAutoConfigParameter")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hclienthandle, opcode, dwdatasize, pdata, preserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hclienthandle, opcode, dwdatasize, pdata, preserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
     (void)opcode;
     (void)dwdatasize;
     (void)pdata;
     (void)preserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1289,12 +1637,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanSetFilter
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WlanSetFilterList")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hclienthandle, wlanfilterlisttype, pnetworklist, preserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hclienthandle, wlanfilterlisttype, pnetworklist, preserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
     (void)wlanfilterlisttype;
     (void)pnetworklist;
     (void)preserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1315,7 +1670,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanSetInterf
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WlanSetInterface")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hclienthandle, pinterfaceguid, opcode, dwdatasize, pdata, preserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hclienthandle, pinterfaceguid, opcode, dwdatasize, pdata, preserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
     (void)pinterfaceguid;
@@ -1323,6 +1684,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanSetInterf
     (void)dwdatasize;
     (void)pdata;
     (void)preserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1345,7 +1707,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanSetProfil
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WlanSetProfile")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hclienthandle, pinterfaceguid, dwflags, strprofilexml, stralluserprofilesecurity, boverwrite, preserved, pdwreasoncode) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hclienthandle, pinterfaceguid, dwflags, strprofilexml, stralluserprofilesecurity, boverwrite, preserved, pdwreasoncode);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
     (void)pinterfaceguid;
@@ -1355,6 +1723,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanSetProfil
     (void)boverwrite;
     (void)preserved;
     (void)pdwreasoncode;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1375,7 +1744,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanSetProfil
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WlanSetProfileCustomUserData")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hclienthandle, pinterfaceguid, strprofilename, dwdatasize, pdata, preserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hclienthandle, pinterfaceguid, strprofilename, dwdatasize, pdata, preserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
     (void)pinterfaceguid;
@@ -1383,6 +1758,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanSetProfil
     (void)dwdatasize;
     (void)pdata;
     (void)preserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1403,7 +1779,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanSetProfil
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WlanSetProfileEapXmlUserData")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hclienthandle, pinterfaceguid, strprofilename, dwflags, streapxmluserdata, preserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hclienthandle, pinterfaceguid, strprofilename, dwflags, streapxmluserdata, preserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
     (void)pinterfaceguid;
@@ -1411,6 +1793,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanSetProfil
     (void)dwflags;
     (void)streapxmluserdata;
     (void)preserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1430,13 +1813,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanSetProfil
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WlanSetProfileList")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hclienthandle, pinterfaceguid, dwitems, strprofilenames, preserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hclienthandle, pinterfaceguid, dwitems, strprofilenames, preserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
     (void)pinterfaceguid;
     (void)dwitems;
     (void)strprofilenames;
     (void)preserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1456,13 +1846,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanSetProfil
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WlanSetProfilePosition")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hclienthandle, pinterfaceguid, strprofilename, dwposition, preserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hclienthandle, pinterfaceguid, strprofilename, dwposition, preserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
     (void)pinterfaceguid;
     (void)strprofilename;
     (void)dwposition;
     (void)preserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1481,12 +1878,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanSetPsdIED
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WlanSetPsdIEDataList")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hclienthandle, strformat, ppsdiedatalist, preserved) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hclienthandle, strformat, ppsdiedatalist, preserved);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
     (void)strformat;
     (void)ppsdiedatalist;
     (void)preserved;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1504,11 +1908,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanSetSecuri
         HMODULE km_h_mod = LoadLibraryA("wlanapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WlanSetSecuritySettings")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hclienthandle, securableobject, strmodifiedsddl) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hclienthandle, securableobject, strmodifiedsddl);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hclienthandle;
     (void)securableobject;
     (void)strmodifiedsddl;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1530,7 +1941,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanUIEditPro
         HMODULE km_h_mod = LoadLibraryA("wlanui.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WlanUIEditProfile")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwclientversion, wstrprofilename, pinterfaceguid, hwnd, wlstartpage, preserved, pwlanreasoncode) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwclientversion, wstrprofilename, pinterfaceguid, hwnd, wlstartpage, preserved, pwlanreasoncode);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dwclientversion;
     (void)wstrprofilename;
@@ -1539,6 +1956,7 @@ static Napi::Value windowssys_windows_win32_networkmanagement_wifi_wlanUIEditPro
     (void)wlstartpage;
     (void)preserved;
     (void)pwlanreasoncode;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

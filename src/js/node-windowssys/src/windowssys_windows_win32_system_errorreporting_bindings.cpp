@@ -61,9 +61,16 @@ static Napi::Value windowssys_windows_win32_system_errorreporting_addERExcludedA
         HMODULE km_h_mod = LoadLibraryA("faultrep.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AddERExcludedApplicationA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szapplication) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szapplication);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)szapplication;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -79,9 +86,16 @@ static Napi::Value windowssys_windows_win32_system_errorreporting_addERExcludedA
         HMODULE km_h_mod = LoadLibraryA("faultrep.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AddERExcludedApplicationW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(wszapplication) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(wszapplication);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)wszapplication;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -98,10 +112,17 @@ static Napi::Value windowssys_windows_win32_system_errorreporting_reportFault_na
         HMODULE km_h_mod = LoadLibraryA("faultrep.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ReportFault")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pep, dwopt) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pep, dwopt);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pep;
     (void)dwopt;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -118,10 +139,17 @@ static Napi::Value windowssys_windows_win32_system_errorreporting_werAddExcluded
         HMODULE km_h_mod = LoadLibraryA("wer.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WerAddExcludedApplication")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pwzexename, ballusers) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pwzexename, ballusers);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pwzexename;
     (void)ballusers;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -137,9 +165,14 @@ static Napi::Value windowssys_windows_win32_system_errorreporting_werFreeString_
         HMODULE km_h_mod = LoadLibraryA("wer.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WerFreeString")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pwszstr);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pwszstr);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pwszstr;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -155,10 +188,17 @@ static Napi::Value windowssys_windows_win32_system_errorreporting_werGetFlags_na
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WerGetFlags")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, pdwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, pdwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)pdwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -175,10 +215,17 @@ static Napi::Value windowssys_windows_win32_system_errorreporting_werRegisterAdd
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WerRegisterAdditionalProcess")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(processid, captureextrainfoforthreadid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(processid, captureextrainfoforthreadid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)processid;
     (void)captureextrainfoforthreadid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -194,9 +241,16 @@ static Napi::Value windowssys_windows_win32_system_errorreporting_werRegisterApp
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WerRegisterAppLocalDump")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(localappdatarelativepath) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(localappdatarelativepath);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)localappdatarelativepath;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -213,10 +267,17 @@ static Napi::Value windowssys_windows_win32_system_errorreporting_werRegisterCus
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WerRegisterCustomMetadata")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(key, value) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(key, value);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)key;
     (void)value;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -233,10 +294,17 @@ static Napi::Value windowssys_windows_win32_system_errorreporting_werRegisterExc
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WerRegisterExcludedMemoryBlock")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(address, size) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(address, size);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)address;
     (void)size;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -254,11 +322,18 @@ static Napi::Value windowssys_windows_win32_system_errorreporting_werRegisterFil
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WerRegisterFile")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pwzfile, regfiletype, dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pwzfile, regfiletype, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pwzfile;
     (void)regfiletype;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -275,10 +350,17 @@ static Napi::Value windowssys_windows_win32_system_errorreporting_werRegisterMem
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WerRegisterMemoryBlock")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pvaddress, dwsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pvaddress, dwsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pvaddress;
     (void)dwsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -295,10 +377,17 @@ static Napi::Value windowssys_windows_win32_system_errorreporting_werRegisterRun
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WerRegisterRuntimeExceptionModule")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pwszoutofprocesscallbackdll, pcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pwszoutofprocesscallbackdll, pcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pwszoutofprocesscallbackdll;
     (void)pcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -315,10 +404,17 @@ static Napi::Value windowssys_windows_win32_system_errorreporting_werRemoveExclu
         HMODULE km_h_mod = LoadLibraryA("wer.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WerRemoveExcludedApplication")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pwzexename, ballusers) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pwzexename, ballusers);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pwzexename;
     (void)ballusers;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -340,7 +436,13 @@ static Napi::Value windowssys_windows_win32_system_errorreporting_werReportAddDu
         HMODULE km_h_mod = LoadLibraryA("wer.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WerReportAddDump")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hreporthandle, hprocess, hthread, dumptype, pexceptionparam, pdumpcustomoptions, dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hreporthandle, hprocess, hthread, dumptype, pexceptionparam, pdumpcustomoptions, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hreporthandle;
     (void)hprocess;
@@ -349,6 +451,7 @@ static Napi::Value windowssys_windows_win32_system_errorreporting_werReportAddDu
     (void)pexceptionparam;
     (void)pdumpcustomoptions;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -367,12 +470,19 @@ static Napi::Value windowssys_windows_win32_system_errorreporting_werReportAddFi
         HMODULE km_h_mod = LoadLibraryA("wer.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WerReportAddFile")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hreporthandle, pwzpath, repfiletype, dwfileflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hreporthandle, pwzpath, repfiletype, dwfileflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hreporthandle;
     (void)pwzpath;
     (void)repfiletype;
     (void)dwfileflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -388,9 +498,16 @@ static Napi::Value windowssys_windows_win32_system_errorreporting_werReportClose
         HMODULE km_h_mod = LoadLibraryA("wer.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WerReportCloseHandle")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hreporthandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hreporthandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hreporthandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -409,12 +526,19 @@ static Napi::Value windowssys_windows_win32_system_errorreporting_werReportCreat
         HMODULE km_h_mod = LoadLibraryA("wer.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WerReportCreate")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pwzeventtype, reptype, preportinformation, phreporthandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pwzeventtype, reptype, preportinformation, phreporthandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pwzeventtype;
     (void)reptype;
     (void)preportinformation;
     (void)phreporthandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -431,10 +555,17 @@ static Napi::Value windowssys_windows_win32_system_errorreporting_werReportHang_
         HMODULE km_h_mod = LoadLibraryA("faultrep.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WerReportHang")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwndhungapp, pwzhungapplicationname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwndhungapp, pwzhungapplicationname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwndhungapp;
     (void)pwzhungapplicationname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -453,12 +584,19 @@ static Napi::Value windowssys_windows_win32_system_errorreporting_werReportSetPa
         HMODULE km_h_mod = LoadLibraryA("wer.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WerReportSetParameter")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hreporthandle, dwparamid, pwzname, pwzvalue) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hreporthandle, dwparamid, pwzname, pwzvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hreporthandle;
     (void)dwparamid;
     (void)pwzname;
     (void)pwzvalue;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -476,11 +614,18 @@ static Napi::Value windowssys_windows_win32_system_errorreporting_werReportSetUI
         HMODULE km_h_mod = LoadLibraryA("wer.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WerReportSetUIOption")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hreporthandle, repuitypeid, pwzvalue) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hreporthandle, repuitypeid, pwzvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hreporthandle;
     (void)repuitypeid;
     (void)pwzvalue;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -499,12 +644,19 @@ static Napi::Value windowssys_windows_win32_system_errorreporting_werReportSubmi
         HMODULE km_h_mod = LoadLibraryA("wer.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WerReportSubmit")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hreporthandle, consent, dwflags, psubmitresult) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hreporthandle, consent, dwflags, psubmitresult);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hreporthandle;
     (void)consent;
     (void)dwflags;
     (void)psubmitresult;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -520,9 +672,16 @@ static Napi::Value windowssys_windows_win32_system_errorreporting_werSetFlags_na
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WerSetFlags")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -538,9 +697,14 @@ static Napi::Value windowssys_windows_win32_system_errorreporting_werStoreClose_
         HMODULE km_h_mod = LoadLibraryA("wer.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WerStoreClose")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(hreportstore);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(hreportstore);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)hreportstore;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -556,10 +720,17 @@ static Napi::Value windowssys_windows_win32_system_errorreporting_werStoreGetFir
         HMODULE km_h_mod = LoadLibraryA("wer.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WerStoreGetFirstReportKey")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hreportstore, ppszreportkey) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hreportstore, ppszreportkey);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hreportstore;
     (void)ppszreportkey;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -576,10 +747,17 @@ static Napi::Value windowssys_windows_win32_system_errorreporting_werStoreGetNex
         HMODULE km_h_mod = LoadLibraryA("wer.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WerStoreGetNextReportKey")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hreportstore, ppszreportkey) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hreportstore, ppszreportkey);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hreportstore;
     (void)ppszreportkey;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -596,10 +774,17 @@ static Napi::Value windowssys_windows_win32_system_errorreporting_werStoreGetRep
         HMODULE km_h_mod = LoadLibraryA("wer.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WerStoreGetReportCount")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hreportstore, pdwreportcount) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hreportstore, pdwreportcount);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hreportstore;
     (void)pdwreportcount;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -616,10 +801,17 @@ static Napi::Value windowssys_windows_win32_system_errorreporting_werStoreGetSiz
         HMODULE km_h_mod = LoadLibraryA("wer.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WerStoreGetSizeOnDisk")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hreportstore, pqwsizeinbytes) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hreportstore, pqwsizeinbytes);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hreportstore;
     (void)pqwsizeinbytes;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -636,10 +828,17 @@ static Napi::Value windowssys_windows_win32_system_errorreporting_werStoreOpen_n
         HMODULE km_h_mod = LoadLibraryA("wer.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WerStoreOpen")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(repstoretype, phreportstore) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(repstoretype, phreportstore);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)repstoretype;
     (void)phreportstore;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -654,8 +853,15 @@ static Napi::Value windowssys_windows_win32_system_errorreporting_werStorePurge_
         HMODULE km_h_mod = LoadLibraryA("wer.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WerStorePurge")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -673,11 +879,18 @@ static Napi::Value windowssys_windows_win32_system_errorreporting_werStoreQueryR
         HMODULE km_h_mod = LoadLibraryA("wer.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WerStoreQueryReportMetadataV1")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hreportstore, pszreportkey, preportmetadata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hreportstore, pszreportkey, preportmetadata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hreportstore;
     (void)pszreportkey;
     (void)preportmetadata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -695,11 +908,18 @@ static Napi::Value windowssys_windows_win32_system_errorreporting_werStoreQueryR
         HMODULE km_h_mod = LoadLibraryA("wer.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WerStoreQueryReportMetadataV2")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hreportstore, pszreportkey, preportmetadata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hreportstore, pszreportkey, preportmetadata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hreportstore;
     (void)pszreportkey;
     (void)preportmetadata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -717,11 +937,18 @@ static Napi::Value windowssys_windows_win32_system_errorreporting_werStoreQueryR
         HMODULE km_h_mod = LoadLibraryA("wer.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WerStoreQueryReportMetadataV3")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hreportstore, pszreportkey, preportmetadata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hreportstore, pszreportkey, preportmetadata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hreportstore;
     (void)pszreportkey;
     (void)preportmetadata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -740,12 +967,19 @@ static Napi::Value windowssys_windows_win32_system_errorreporting_werStoreUpload
         HMODULE km_h_mod = LoadLibraryA("wer.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WerStoreUploadReport")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hreportstore, pszreportkey, dwflags, psubmitresult) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hreportstore, pszreportkey, dwflags, psubmitresult);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hreportstore;
     (void)pszreportkey;
     (void)dwflags;
     (void)psubmitresult;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -761,9 +995,16 @@ static Napi::Value windowssys_windows_win32_system_errorreporting_werUnregisterA
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WerUnregisterAdditionalProcess")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(processid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(processid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)processid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -778,8 +1019,15 @@ static Napi::Value windowssys_windows_win32_system_errorreporting_werUnregisterA
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WerUnregisterAppLocalDump")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -795,9 +1043,16 @@ static Napi::Value windowssys_windows_win32_system_errorreporting_werUnregisterC
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WerUnregisterCustomMetadata")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(key) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(key);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)key;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -813,9 +1068,16 @@ static Napi::Value windowssys_windows_win32_system_errorreporting_werUnregisterE
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WerUnregisterExcludedMemoryBlock")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(address) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(address);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)address;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -831,9 +1093,16 @@ static Napi::Value windowssys_windows_win32_system_errorreporting_werUnregisterF
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WerUnregisterFile")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pwzfilepath) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pwzfilepath);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pwzfilepath;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -849,9 +1118,16 @@ static Napi::Value windowssys_windows_win32_system_errorreporting_werUnregisterM
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WerUnregisterMemoryBlock")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pvaddress) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pvaddress);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pvaddress;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -868,10 +1144,17 @@ static Napi::Value windowssys_windows_win32_system_errorreporting_werUnregisterR
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WerUnregisterRuntimeExceptionModule")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pwszoutofprocesscallbackdll, pcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pwszoutofprocesscallbackdll, pcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pwszoutofprocesscallbackdll;
     (void)pcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

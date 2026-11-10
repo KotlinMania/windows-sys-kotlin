@@ -65,13 +65,20 @@ static Napi::Value windowssys_windows_win32_system_power_callNtPowerInformation_
         HMODULE km_h_mod = LoadLibraryA("powrprof.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CallNtPowerInformation")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(informationlevel, inputbuffer, inputbufferlength, outputbuffer, outputbufferlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(informationlevel, inputbuffer, inputbufferlength, outputbuffer, outputbufferlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)informationlevel;
     (void)inputbuffer;
     (void)inputbufferlength;
     (void)outputbuffer;
     (void)outputbufferlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -86,8 +93,15 @@ static Napi::Value windowssys_windows_win32_system_power_canUserWritePwrScheme_n
         HMODULE km_h_mod = LoadLibraryA("powrprof.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CanUserWritePwrScheme")));
     }
-    bool km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : false;
+    bool km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return Napi::Boolean::New(km_env, km_res);
@@ -103,9 +117,16 @@ static Napi::Value windowssys_windows_win32_system_power_deletePwrScheme_napi(co
         HMODULE km_h_mod = LoadLibraryA("powrprof.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DeletePwrScheme")));
     }
-    bool km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(uiid) : false;
+    bool km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(uiid);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)uiid;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return Napi::Boolean::New(km_env, km_res);
@@ -120,8 +141,15 @@ static Napi::Value windowssys_windows_win32_system_power_devicePowerClose_napi(c
         HMODULE km_h_mod = LoadLibraryA("powrprof.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DevicePowerClose")));
     }
-    bool km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : false;
+    bool km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return Napi::Boolean::New(km_env, km_res);
@@ -141,13 +169,20 @@ static Napi::Value windowssys_windows_win32_system_power_devicePowerEnumDevices_
         HMODULE km_h_mod = LoadLibraryA("powrprof.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DevicePowerEnumDevices")));
     }
-    bool km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(queryindex, queryinterpretationflags, queryflags, preturnbuffer, pbuffersize) : false;
+    bool km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(queryindex, queryinterpretationflags, queryflags, preturnbuffer, pbuffersize);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)queryindex;
     (void)queryinterpretationflags;
     (void)queryflags;
     (void)preturnbuffer;
     (void)pbuffersize;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return Napi::Boolean::New(km_env, km_res);
@@ -163,9 +198,16 @@ static Napi::Value windowssys_windows_win32_system_power_devicePowerOpen_napi(co
         HMODULE km_h_mod = LoadLibraryA("powrprof.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DevicePowerOpen")));
     }
-    bool km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(debugmask) : false;
+    bool km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(debugmask);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)debugmask;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return Napi::Boolean::New(km_env, km_res);
@@ -183,11 +225,18 @@ static Napi::Value windowssys_windows_win32_system_power_devicePowerSetDeviceSta
         HMODULE km_h_mod = LoadLibraryA("powrprof.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DevicePowerSetDeviceState")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(devicedescription, setflags, setdata) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(devicedescription, setflags, setdata);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)devicedescription;
     (void)setflags;
     (void)setdata;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -204,10 +253,17 @@ static Napi::Value windowssys_windows_win32_system_power_enumPwrSchemes_napi(con
         HMODULE km_h_mod = LoadLibraryA("powrprof.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EnumPwrSchemes")));
     }
-    bool km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpfn, lparam) : false;
+    bool km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpfn, lparam);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)lpfn;
     (void)lparam;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return Napi::Boolean::New(km_env, km_res);
@@ -223,9 +279,16 @@ static Napi::Value windowssys_windows_win32_system_power_getActivePwrScheme_napi
         HMODULE km_h_mod = LoadLibraryA("powrprof.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetActivePwrScheme")));
     }
-    bool km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(puiid) : false;
+    bool km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(puiid);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)puiid;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return Napi::Boolean::New(km_env, km_res);
@@ -242,10 +305,17 @@ static Napi::Value windowssys_windows_win32_system_power_getCurrentPowerPolicies
         HMODULE km_h_mod = LoadLibraryA("powrprof.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetCurrentPowerPolicies")));
     }
-    bool km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pglobalpowerpolicy, ppowerpolicy) : false;
+    bool km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pglobalpowerpolicy, ppowerpolicy);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)pglobalpowerpolicy;
     (void)ppowerpolicy;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return Napi::Boolean::New(km_env, km_res);
@@ -262,10 +332,17 @@ static Napi::Value windowssys_windows_win32_system_power_getDevicePowerState_nap
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetDevicePowerState")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hdevice, pfon) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hdevice, pfon);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdevice;
     (void)pfon;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -281,9 +358,16 @@ static Napi::Value windowssys_windows_win32_system_power_getPwrCapabilities_napi
         HMODULE km_h_mod = LoadLibraryA("powrprof.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetPwrCapabilities")));
     }
-    bool km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpspc) : false;
+    bool km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpspc);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)lpspc;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return Napi::Boolean::New(km_env, km_res);
@@ -300,10 +384,17 @@ static Napi::Value windowssys_windows_win32_system_power_getPwrDiskSpindownRange
         HMODULE km_h_mod = LoadLibraryA("powrprof.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetPwrDiskSpindownRange")));
     }
-    bool km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(puimax, puimin) : false;
+    bool km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(puimax, puimin);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)puimax;
     (void)puimin;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return Napi::Boolean::New(km_env, km_res);
@@ -319,9 +410,16 @@ static Napi::Value windowssys_windows_win32_system_power_getSystemPowerStatus_na
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetSystemPowerStatus")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpsystempowerstatus) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpsystempowerstatus);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpsystempowerstatus;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -337,9 +435,16 @@ static Napi::Value windowssys_windows_win32_system_power_isAdminOverrideActive_n
         HMODULE km_h_mod = LoadLibraryA("powrprof.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IsAdminOverrideActive")));
     }
-    bool km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(papp) : false;
+    bool km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(papp);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)papp;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return Napi::Boolean::New(km_env, km_res);
@@ -354,8 +459,15 @@ static Napi::Value windowssys_windows_win32_system_power_isPwrHibernateAllowed_n
         HMODULE km_h_mod = LoadLibraryA("powrprof.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IsPwrHibernateAllowed")));
     }
-    bool km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : false;
+    bool km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return Napi::Boolean::New(km_env, km_res);
@@ -370,8 +482,15 @@ static Napi::Value windowssys_windows_win32_system_power_isPwrShutdownAllowed_na
         HMODULE km_h_mod = LoadLibraryA("powrprof.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IsPwrShutdownAllowed")));
     }
-    bool km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : false;
+    bool km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return Napi::Boolean::New(km_env, km_res);
@@ -386,8 +505,15 @@ static Napi::Value windowssys_windows_win32_system_power_isPwrSuspendAllowed_nap
         HMODULE km_h_mod = LoadLibraryA("powrprof.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IsPwrSuspendAllowed")));
     }
-    bool km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : false;
+    bool km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return Napi::Boolean::New(km_env, km_res);
@@ -402,8 +528,15 @@ static Napi::Value windowssys_windows_win32_system_power_isSystemResumeAutomatic
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IsSystemResumeAutomatic")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -419,9 +552,16 @@ static Napi::Value windowssys_windows_win32_system_power_powerCanRestoreIndividu
         HMODULE km_h_mod = LoadLibraryA("powrprof.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PowerCanRestoreIndividualDefaultPowerScheme")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(schemeguid) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(schemeguid);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)schemeguid;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -438,10 +578,17 @@ static Napi::Value windowssys_windows_win32_system_power_powerClearRequest_napi(
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PowerClearRequest")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(powerrequest, requesttype) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(powerrequest, requesttype);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)powerrequest;
     (void)requesttype;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -460,12 +607,19 @@ static Napi::Value windowssys_windows_win32_system_power_powerCreatePossibleSett
         HMODULE km_h_mod = LoadLibraryA("powrprof.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PowerCreatePossibleSetting")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rootsystempowerkey, subgroupofpowersettingsguid, powersettingguid, possiblesettingindex) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rootsystempowerkey, subgroupofpowersettingsguid, powersettingguid, possiblesettingindex);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rootsystempowerkey;
     (void)subgroupofpowersettingsguid;
     (void)powersettingguid;
     (void)possiblesettingindex;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -481,10 +635,17 @@ static Napi::Value windowssys_windows_win32_system_power_powerCreateRequest_napi
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PowerCreateRequest")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(context) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(context);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)context;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -501,11 +662,18 @@ static Napi::Value windowssys_windows_win32_system_power_powerCreateSetting_napi
         HMODULE km_h_mod = LoadLibraryA("powrprof.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PowerCreateSetting")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rootsystempowerkey, subgroupofpowersettingsguid, powersettingguid) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rootsystempowerkey, subgroupofpowersettingsguid, powersettingguid);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rootsystempowerkey;
     (void)subgroupofpowersettingsguid;
     (void)powersettingguid;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -522,10 +690,17 @@ static Napi::Value windowssys_windows_win32_system_power_powerDeleteScheme_napi(
         HMODULE km_h_mod = LoadLibraryA("powrprof.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PowerDeleteScheme")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rootpowerkey, schemeguid) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rootpowerkey, schemeguid);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rootpowerkey;
     (void)schemeguid;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -540,8 +715,15 @@ static Napi::Value windowssys_windows_win32_system_power_powerDeterminePlatformR
         HMODULE km_h_mod = LoadLibraryA("powrprof.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PowerDeterminePlatformRole")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -557,9 +739,16 @@ static Napi::Value windowssys_windows_win32_system_power_powerDeterminePlatformR
         HMODULE km_h_mod = LoadLibraryA("powrprof.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PowerDeterminePlatformRoleEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(version) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(version);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)version;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -577,11 +766,18 @@ static Napi::Value windowssys_windows_win32_system_power_powerDuplicateScheme_na
         HMODULE km_h_mod = LoadLibraryA("powrprof.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PowerDuplicateScheme")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rootpowerkey, sourceschemeguid, destinationschemeguid) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rootpowerkey, sourceschemeguid, destinationschemeguid);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rootpowerkey;
     (void)sourceschemeguid;
     (void)destinationschemeguid;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -603,7 +799,13 @@ static Napi::Value windowssys_windows_win32_system_power_powerEnumerate_napi(con
         HMODULE km_h_mod = LoadLibraryA("powrprof.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PowerEnumerate")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rootpowerkey, schemeguid, subgroupofpowersettingsguid, accessflags, arg_4_index, buffer, buffersize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rootpowerkey, schemeguid, subgroupofpowersettingsguid, accessflags, arg_4_index, buffer, buffersize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rootpowerkey;
     (void)schemeguid;
@@ -612,6 +814,7 @@ static Napi::Value windowssys_windows_win32_system_power_powerEnumerate_napi(con
     (void)arg_4_index;
     (void)buffer;
     (void)buffersize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -628,10 +831,17 @@ static Napi::Value windowssys_windows_win32_system_power_powerGetActiveScheme_na
         HMODULE km_h_mod = LoadLibraryA("powrprof.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PowerGetActiveScheme")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(userrootpowerkey, activepolicyguid) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(userrootpowerkey, activepolicyguid);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)userrootpowerkey;
     (void)activepolicyguid;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -649,11 +859,18 @@ static Napi::Value windowssys_windows_win32_system_power_powerImportPowerScheme_
         HMODULE km_h_mod = LoadLibraryA("powrprof.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PowerImportPowerScheme")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rootpowerkey, importfilenamepath, destinationschemeguid) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rootpowerkey, importfilenamepath, destinationschemeguid);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rootpowerkey;
     (void)importfilenamepath;
     (void)destinationschemeguid;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -670,10 +887,17 @@ static Napi::Value windowssys_windows_win32_system_power_powerIsSettingRangeDefi
         HMODULE km_h_mod = LoadLibraryA("powrprof.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PowerIsSettingRangeDefined")));
     }
-    bool km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(subkeyguid, settingguid) : false;
+    bool km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(subkeyguid, settingguid);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)subkeyguid;
     (void)settingguid;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return Napi::Boolean::New(km_env, km_res);
@@ -691,11 +915,18 @@ static Napi::Value windowssys_windows_win32_system_power_powerOpenSystemPowerKey
         HMODULE km_h_mod = LoadLibraryA("powrprof.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PowerOpenSystemPowerKey")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(phsystempowerkey, access, openexisting) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(phsystempowerkey, access, openexisting);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)phsystempowerkey;
     (void)access;
     (void)openexisting;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -713,11 +944,18 @@ static Napi::Value windowssys_windows_win32_system_power_powerOpenUserPowerKey_n
         HMODULE km_h_mod = LoadLibraryA("powrprof.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PowerOpenUserPowerKey")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(phuserpowerkey, access, openexisting) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(phuserpowerkey, access, openexisting);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)phuserpowerkey;
     (void)access;
     (void)openexisting;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -737,13 +975,20 @@ static Napi::Value windowssys_windows_win32_system_power_powerReadACDefaultIndex
         HMODULE km_h_mod = LoadLibraryA("powrprof.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PowerReadACDefaultIndex")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rootpowerkey, schemepersonalityguid, subgroupofpowersettingsguid, powersettingguid, acdefaultindex) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rootpowerkey, schemepersonalityguid, subgroupofpowersettingsguid, powersettingguid, acdefaultindex);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rootpowerkey;
     (void)schemepersonalityguid;
     (void)subgroupofpowersettingsguid;
     (void)powersettingguid;
     (void)acdefaultindex;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -765,7 +1010,13 @@ static Napi::Value windowssys_windows_win32_system_power_powerReadACValue_napi(c
         HMODULE km_h_mod = LoadLibraryA("powrprof.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PowerReadACValue")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rootpowerkey, schemeguid, subgroupofpowersettingsguid, powersettingguid, type, buffer, buffersize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rootpowerkey, schemeguid, subgroupofpowersettingsguid, powersettingguid, type, buffer, buffersize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rootpowerkey;
     (void)schemeguid;
@@ -774,6 +1025,7 @@ static Napi::Value windowssys_windows_win32_system_power_powerReadACValue_napi(c
     (void)type;
     (void)buffer;
     (void)buffersize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -793,13 +1045,20 @@ static Napi::Value windowssys_windows_win32_system_power_powerReadACValueIndex_n
         HMODULE km_h_mod = LoadLibraryA("powrprof.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PowerReadACValueIndex")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rootpowerkey, schemeguid, subgroupofpowersettingsguid, powersettingguid, acvalueindex) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rootpowerkey, schemeguid, subgroupofpowersettingsguid, powersettingguid, acvalueindex);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rootpowerkey;
     (void)schemeguid;
     (void)subgroupofpowersettingsguid;
     (void)powersettingguid;
     (void)acvalueindex;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -819,13 +1078,20 @@ static Napi::Value windowssys_windows_win32_system_power_powerReadDCDefaultIndex
         HMODULE km_h_mod = LoadLibraryA("powrprof.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PowerReadDCDefaultIndex")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rootpowerkey, schemepersonalityguid, subgroupofpowersettingsguid, powersettingguid, dcdefaultindex) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rootpowerkey, schemepersonalityguid, subgroupofpowersettingsguid, powersettingguid, dcdefaultindex);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rootpowerkey;
     (void)schemepersonalityguid;
     (void)subgroupofpowersettingsguid;
     (void)powersettingguid;
     (void)dcdefaultindex;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -847,7 +1113,13 @@ static Napi::Value windowssys_windows_win32_system_power_powerReadDCValue_napi(c
         HMODULE km_h_mod = LoadLibraryA("powrprof.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PowerReadDCValue")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rootpowerkey, schemeguid, subgroupofpowersettingsguid, powersettingguid, type, buffer, buffersize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rootpowerkey, schemeguid, subgroupofpowersettingsguid, powersettingguid, type, buffer, buffersize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rootpowerkey;
     (void)schemeguid;
@@ -856,6 +1128,7 @@ static Napi::Value windowssys_windows_win32_system_power_powerReadDCValue_napi(c
     (void)type;
     (void)buffer;
     (void)buffersize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -875,13 +1148,20 @@ static Napi::Value windowssys_windows_win32_system_power_powerReadDCValueIndex_n
         HMODULE km_h_mod = LoadLibraryA("powrprof.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PowerReadDCValueIndex")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rootpowerkey, schemeguid, subgroupofpowersettingsguid, powersettingguid, dcvalueindex) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rootpowerkey, schemeguid, subgroupofpowersettingsguid, powersettingguid, dcvalueindex);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rootpowerkey;
     (void)schemeguid;
     (void)subgroupofpowersettingsguid;
     (void)powersettingguid;
     (void)dcvalueindex;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -902,7 +1182,13 @@ static Napi::Value windowssys_windows_win32_system_power_powerReadDescription_na
         HMODULE km_h_mod = LoadLibraryA("powrprof.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PowerReadDescription")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rootpowerkey, schemeguid, subgroupofpowersettingsguid, powersettingguid, buffer, buffersize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rootpowerkey, schemeguid, subgroupofpowersettingsguid, powersettingguid, buffer, buffersize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rootpowerkey;
     (void)schemeguid;
@@ -910,6 +1196,7 @@ static Napi::Value windowssys_windows_win32_system_power_powerReadDescription_na
     (void)powersettingguid;
     (void)buffer;
     (void)buffersize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -930,7 +1217,13 @@ static Napi::Value windowssys_windows_win32_system_power_powerReadFriendlyName_n
         HMODULE km_h_mod = LoadLibraryA("powrprof.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PowerReadFriendlyName")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rootpowerkey, schemeguid, subgroupofpowersettingsguid, powersettingguid, buffer, buffersize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rootpowerkey, schemeguid, subgroupofpowersettingsguid, powersettingguid, buffer, buffersize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rootpowerkey;
     (void)schemeguid;
@@ -938,6 +1231,7 @@ static Napi::Value windowssys_windows_win32_system_power_powerReadFriendlyName_n
     (void)powersettingguid;
     (void)buffer;
     (void)buffersize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -958,7 +1252,13 @@ static Napi::Value windowssys_windows_win32_system_power_powerReadIconResourceSp
         HMODULE km_h_mod = LoadLibraryA("powrprof.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PowerReadIconResourceSpecifier")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rootpowerkey, schemeguid, subgroupofpowersettingsguid, powersettingguid, buffer, buffersize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rootpowerkey, schemeguid, subgroupofpowersettingsguid, powersettingguid, buffer, buffersize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rootpowerkey;
     (void)schemeguid;
@@ -966,6 +1266,7 @@ static Napi::Value windowssys_windows_win32_system_power_powerReadIconResourceSp
     (void)powersettingguid;
     (void)buffer;
     (void)buffersize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -986,7 +1287,13 @@ static Napi::Value windowssys_windows_win32_system_power_powerReadPossibleDescri
         HMODULE km_h_mod = LoadLibraryA("powrprof.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PowerReadPossibleDescription")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rootpowerkey, subgroupofpowersettingsguid, powersettingguid, possiblesettingindex, buffer, buffersize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rootpowerkey, subgroupofpowersettingsguid, powersettingguid, possiblesettingindex, buffer, buffersize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rootpowerkey;
     (void)subgroupofpowersettingsguid;
@@ -994,6 +1301,7 @@ static Napi::Value windowssys_windows_win32_system_power_powerReadPossibleDescri
     (void)possiblesettingindex;
     (void)buffer;
     (void)buffersize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1014,7 +1322,13 @@ static Napi::Value windowssys_windows_win32_system_power_powerReadPossibleFriend
         HMODULE km_h_mod = LoadLibraryA("powrprof.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PowerReadPossibleFriendlyName")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rootpowerkey, subgroupofpowersettingsguid, powersettingguid, possiblesettingindex, buffer, buffersize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rootpowerkey, subgroupofpowersettingsguid, powersettingguid, possiblesettingindex, buffer, buffersize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rootpowerkey;
     (void)subgroupofpowersettingsguid;
@@ -1022,6 +1336,7 @@ static Napi::Value windowssys_windows_win32_system_power_powerReadPossibleFriend
     (void)possiblesettingindex;
     (void)buffer;
     (void)buffersize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1043,7 +1358,13 @@ static Napi::Value windowssys_windows_win32_system_power_powerReadPossibleValue_
         HMODULE km_h_mod = LoadLibraryA("powrprof.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PowerReadPossibleValue")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rootpowerkey, subgroupofpowersettingsguid, powersettingguid, type, possiblesettingindex, buffer, buffersize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rootpowerkey, subgroupofpowersettingsguid, powersettingguid, type, possiblesettingindex, buffer, buffersize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rootpowerkey;
     (void)subgroupofpowersettingsguid;
@@ -1052,6 +1373,7 @@ static Napi::Value windowssys_windows_win32_system_power_powerReadPossibleValue_
     (void)possiblesettingindex;
     (void)buffer;
     (void)buffersize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1068,10 +1390,17 @@ static Napi::Value windowssys_windows_win32_system_power_powerReadSettingAttribu
         HMODULE km_h_mod = LoadLibraryA("powrprof.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PowerReadSettingAttributes")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(subgroupguid, powersettingguid) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(subgroupguid, powersettingguid);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)subgroupguid;
     (void)powersettingguid;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1090,12 +1419,19 @@ static Napi::Value windowssys_windows_win32_system_power_powerReadValueIncrement
         HMODULE km_h_mod = LoadLibraryA("powrprof.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PowerReadValueIncrement")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rootpowerkey, subgroupofpowersettingsguid, powersettingguid, valueincrement) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rootpowerkey, subgroupofpowersettingsguid, powersettingguid, valueincrement);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rootpowerkey;
     (void)subgroupofpowersettingsguid;
     (void)powersettingguid;
     (void)valueincrement;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1114,12 +1450,19 @@ static Napi::Value windowssys_windows_win32_system_power_powerReadValueMax_napi(
         HMODULE km_h_mod = LoadLibraryA("powrprof.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PowerReadValueMax")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rootpowerkey, subgroupofpowersettingsguid, powersettingguid, valuemaximum) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rootpowerkey, subgroupofpowersettingsguid, powersettingguid, valuemaximum);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rootpowerkey;
     (void)subgroupofpowersettingsguid;
     (void)powersettingguid;
     (void)valuemaximum;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1138,12 +1481,19 @@ static Napi::Value windowssys_windows_win32_system_power_powerReadValueMin_napi(
         HMODULE km_h_mod = LoadLibraryA("powrprof.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PowerReadValueMin")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rootpowerkey, subgroupofpowersettingsguid, powersettingguid, valueminimum) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rootpowerkey, subgroupofpowersettingsguid, powersettingguid, valueminimum);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rootpowerkey;
     (void)subgroupofpowersettingsguid;
     (void)powersettingguid;
     (void)valueminimum;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1163,13 +1513,20 @@ static Napi::Value windowssys_windows_win32_system_power_powerReadValueUnitsSpec
         HMODULE km_h_mod = LoadLibraryA("powrprof.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PowerReadValueUnitsSpecifier")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rootpowerkey, subgroupofpowersettingsguid, powersettingguid, buffer, buffersize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rootpowerkey, subgroupofpowersettingsguid, powersettingguid, buffer, buffersize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rootpowerkey;
     (void)subgroupofpowersettingsguid;
     (void)powersettingguid;
     (void)buffer;
     (void)buffersize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1188,12 +1545,19 @@ static Napi::Value windowssys_windows_win32_system_power_powerRegisterForEffecti
         HMODULE km_h_mod = LoadLibraryA("powrprof.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PowerRegisterForEffectivePowerModeNotifications")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(version, callback, context, registrationhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(version, callback, context, registrationhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)version;
     (void)callback;
     (void)context;
     (void)registrationhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1211,11 +1575,18 @@ static Napi::Value windowssys_windows_win32_system_power_powerRegisterSuspendRes
         HMODULE km_h_mod = LoadLibraryA("powrprof.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PowerRegisterSuspendResumeNotification")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(flags, recipient, registrationhandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(flags, recipient, registrationhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)flags;
     (void)recipient;
     (void)registrationhandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1232,10 +1603,17 @@ static Napi::Value windowssys_windows_win32_system_power_powerRemovePowerSetting
         HMODULE km_h_mod = LoadLibraryA("powrprof.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PowerRemovePowerSetting")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(powersettingsubkeyguid, powersettingguid) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(powersettingsubkeyguid, powersettingguid);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)powersettingsubkeyguid;
     (void)powersettingguid;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1250,8 +1628,15 @@ static Napi::Value windowssys_windows_win32_system_power_powerReplaceDefaultPowe
         HMODULE km_h_mod = LoadLibraryA("powrprof.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PowerReplaceDefaultPowerSchemes")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1267,9 +1652,16 @@ static Napi::Value windowssys_windows_win32_system_power_powerReportThermalEvent
         HMODULE km_h_mod = LoadLibraryA("powrprof.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PowerReportThermalEvent")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(event) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(event);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)event;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1284,8 +1676,15 @@ static Napi::Value windowssys_windows_win32_system_power_powerRestoreDefaultPowe
         HMODULE km_h_mod = LoadLibraryA("powrprof.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PowerRestoreDefaultPowerSchemes")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1301,9 +1700,16 @@ static Napi::Value windowssys_windows_win32_system_power_powerRestoreIndividualD
         HMODULE km_h_mod = LoadLibraryA("powrprof.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PowerRestoreIndividualDefaultPowerScheme")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(schemeguid) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(schemeguid);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)schemeguid;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1320,10 +1726,17 @@ static Napi::Value windowssys_windows_win32_system_power_powerSetActiveScheme_na
         HMODULE km_h_mod = LoadLibraryA("powrprof.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PowerSetActiveScheme")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(userrootpowerkey, schemeguid) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(userrootpowerkey, schemeguid);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)userrootpowerkey;
     (void)schemeguid;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1340,10 +1753,17 @@ static Napi::Value windowssys_windows_win32_system_power_powerSetRequest_napi(co
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PowerSetRequest")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(powerrequest, requesttype) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(powerrequest, requesttype);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)powerrequest;
     (void)requesttype;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1360,10 +1780,17 @@ static Napi::Value windowssys_windows_win32_system_power_powerSettingAccessCheck
         HMODULE km_h_mod = LoadLibraryA("powrprof.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PowerSettingAccessCheck")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(accessflags, powerguid) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(accessflags, powerguid);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)accessflags;
     (void)powerguid;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1381,11 +1808,18 @@ static Napi::Value windowssys_windows_win32_system_power_powerSettingAccessCheck
         HMODULE km_h_mod = LoadLibraryA("powrprof.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PowerSettingAccessCheckEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(accessflags, powerguid, accesstype) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(accessflags, powerguid, accesstype);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)accessflags;
     (void)powerguid;
     (void)accesstype;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1404,12 +1838,19 @@ static Napi::Value windowssys_windows_win32_system_power_powerSettingRegisterNot
         HMODULE km_h_mod = LoadLibraryA("powrprof.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PowerSettingRegisterNotification")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(settingguid, flags, recipient, registrationhandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(settingguid, flags, recipient, registrationhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)settingguid;
     (void)flags;
     (void)recipient;
     (void)registrationhandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1425,9 +1866,16 @@ static Napi::Value windowssys_windows_win32_system_power_powerSettingUnregisterN
         HMODULE km_h_mod = LoadLibraryA("powrprof.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PowerSettingUnregisterNotification")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(registrationhandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(registrationhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)registrationhandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1443,9 +1891,16 @@ static Napi::Value windowssys_windows_win32_system_power_powerUnregisterFromEffe
         HMODULE km_h_mod = LoadLibraryA("powrprof.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PowerUnregisterFromEffectivePowerModeNotifications")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(registrationhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(registrationhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)registrationhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1461,9 +1916,16 @@ static Napi::Value windowssys_windows_win32_system_power_powerUnregisterSuspendR
         HMODULE km_h_mod = LoadLibraryA("powrprof.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PowerUnregisterSuspendResumeNotification")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(registrationhandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(registrationhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)registrationhandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1483,13 +1945,20 @@ static Napi::Value windowssys_windows_win32_system_power_powerWriteACDefaultInde
         HMODULE km_h_mod = LoadLibraryA("powrprof.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PowerWriteACDefaultIndex")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rootsystempowerkey, schemepersonalityguid, subgroupofpowersettingsguid, powersettingguid, defaultacindex) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rootsystempowerkey, schemepersonalityguid, subgroupofpowersettingsguid, powersettingguid, defaultacindex);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rootsystempowerkey;
     (void)schemepersonalityguid;
     (void)subgroupofpowersettingsguid;
     (void)powersettingguid;
     (void)defaultacindex;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1509,13 +1978,20 @@ static Napi::Value windowssys_windows_win32_system_power_powerWriteACValueIndex_
         HMODULE km_h_mod = LoadLibraryA("powrprof.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PowerWriteACValueIndex")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rootpowerkey, schemeguid, subgroupofpowersettingsguid, powersettingguid, acvalueindex) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rootpowerkey, schemeguid, subgroupofpowersettingsguid, powersettingguid, acvalueindex);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rootpowerkey;
     (void)schemeguid;
     (void)subgroupofpowersettingsguid;
     (void)powersettingguid;
     (void)acvalueindex;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1535,13 +2011,20 @@ static Napi::Value windowssys_windows_win32_system_power_powerWriteDCDefaultInde
         HMODULE km_h_mod = LoadLibraryA("powrprof.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PowerWriteDCDefaultIndex")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rootsystempowerkey, schemepersonalityguid, subgroupofpowersettingsguid, powersettingguid, defaultdcindex) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rootsystempowerkey, schemepersonalityguid, subgroupofpowersettingsguid, powersettingguid, defaultdcindex);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rootsystempowerkey;
     (void)schemepersonalityguid;
     (void)subgroupofpowersettingsguid;
     (void)powersettingguid;
     (void)defaultdcindex;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1561,13 +2044,20 @@ static Napi::Value windowssys_windows_win32_system_power_powerWriteDCValueIndex_
         HMODULE km_h_mod = LoadLibraryA("powrprof.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PowerWriteDCValueIndex")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rootpowerkey, schemeguid, subgroupofpowersettingsguid, powersettingguid, dcvalueindex) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rootpowerkey, schemeguid, subgroupofpowersettingsguid, powersettingguid, dcvalueindex);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rootpowerkey;
     (void)schemeguid;
     (void)subgroupofpowersettingsguid;
     (void)powersettingguid;
     (void)dcvalueindex;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1588,7 +2078,13 @@ static Napi::Value windowssys_windows_win32_system_power_powerWriteDescription_n
         HMODULE km_h_mod = LoadLibraryA("powrprof.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PowerWriteDescription")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rootpowerkey, schemeguid, subgroupofpowersettingsguid, powersettingguid, buffer, buffersize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rootpowerkey, schemeguid, subgroupofpowersettingsguid, powersettingguid, buffer, buffersize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rootpowerkey;
     (void)schemeguid;
@@ -1596,6 +2092,7 @@ static Napi::Value windowssys_windows_win32_system_power_powerWriteDescription_n
     (void)powersettingguid;
     (void)buffer;
     (void)buffersize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1616,7 +2113,13 @@ static Napi::Value windowssys_windows_win32_system_power_powerWriteFriendlyName_
         HMODULE km_h_mod = LoadLibraryA("powrprof.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PowerWriteFriendlyName")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rootpowerkey, schemeguid, subgroupofpowersettingsguid, powersettingguid, buffer, buffersize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rootpowerkey, schemeguid, subgroupofpowersettingsguid, powersettingguid, buffer, buffersize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rootpowerkey;
     (void)schemeguid;
@@ -1624,6 +2127,7 @@ static Napi::Value windowssys_windows_win32_system_power_powerWriteFriendlyName_
     (void)powersettingguid;
     (void)buffer;
     (void)buffersize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1644,7 +2148,13 @@ static Napi::Value windowssys_windows_win32_system_power_powerWriteIconResourceS
         HMODULE km_h_mod = LoadLibraryA("powrprof.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PowerWriteIconResourceSpecifier")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rootpowerkey, schemeguid, subgroupofpowersettingsguid, powersettingguid, buffer, buffersize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rootpowerkey, schemeguid, subgroupofpowersettingsguid, powersettingguid, buffer, buffersize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rootpowerkey;
     (void)schemeguid;
@@ -1652,6 +2162,7 @@ static Napi::Value windowssys_windows_win32_system_power_powerWriteIconResourceS
     (void)powersettingguid;
     (void)buffer;
     (void)buffersize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1672,7 +2183,13 @@ static Napi::Value windowssys_windows_win32_system_power_powerWritePossibleDescr
         HMODULE km_h_mod = LoadLibraryA("powrprof.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PowerWritePossibleDescription")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rootpowerkey, subgroupofpowersettingsguid, powersettingguid, possiblesettingindex, buffer, buffersize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rootpowerkey, subgroupofpowersettingsguid, powersettingguid, possiblesettingindex, buffer, buffersize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rootpowerkey;
     (void)subgroupofpowersettingsguid;
@@ -1680,6 +2197,7 @@ static Napi::Value windowssys_windows_win32_system_power_powerWritePossibleDescr
     (void)possiblesettingindex;
     (void)buffer;
     (void)buffersize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1700,7 +2218,13 @@ static Napi::Value windowssys_windows_win32_system_power_powerWritePossibleFrien
         HMODULE km_h_mod = LoadLibraryA("powrprof.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PowerWritePossibleFriendlyName")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rootpowerkey, subgroupofpowersettingsguid, powersettingguid, possiblesettingindex, buffer, buffersize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rootpowerkey, subgroupofpowersettingsguid, powersettingguid, possiblesettingindex, buffer, buffersize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rootpowerkey;
     (void)subgroupofpowersettingsguid;
@@ -1708,6 +2232,7 @@ static Napi::Value windowssys_windows_win32_system_power_powerWritePossibleFrien
     (void)possiblesettingindex;
     (void)buffer;
     (void)buffersize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1729,7 +2254,13 @@ static Napi::Value windowssys_windows_win32_system_power_powerWritePossibleValue
         HMODULE km_h_mod = LoadLibraryA("powrprof.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PowerWritePossibleValue")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rootpowerkey, subgroupofpowersettingsguid, powersettingguid, type, possiblesettingindex, buffer, buffersize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rootpowerkey, subgroupofpowersettingsguid, powersettingguid, type, possiblesettingindex, buffer, buffersize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rootpowerkey;
     (void)subgroupofpowersettingsguid;
@@ -1738,6 +2269,7 @@ static Napi::Value windowssys_windows_win32_system_power_powerWritePossibleValue
     (void)possiblesettingindex;
     (void)buffer;
     (void)buffersize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1755,11 +2287,18 @@ static Napi::Value windowssys_windows_win32_system_power_powerWriteSettingAttrib
         HMODULE km_h_mod = LoadLibraryA("powrprof.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PowerWriteSettingAttributes")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(subgroupguid, powersettingguid, attributes) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(subgroupguid, powersettingguid, attributes);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)subgroupguid;
     (void)powersettingguid;
     (void)attributes;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1778,12 +2317,19 @@ static Napi::Value windowssys_windows_win32_system_power_powerWriteValueIncremen
         HMODULE km_h_mod = LoadLibraryA("powrprof.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PowerWriteValueIncrement")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rootpowerkey, subgroupofpowersettingsguid, powersettingguid, valueincrement) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rootpowerkey, subgroupofpowersettingsguid, powersettingguid, valueincrement);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rootpowerkey;
     (void)subgroupofpowersettingsguid;
     (void)powersettingguid;
     (void)valueincrement;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1802,12 +2348,19 @@ static Napi::Value windowssys_windows_win32_system_power_powerWriteValueMax_napi
         HMODULE km_h_mod = LoadLibraryA("powrprof.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PowerWriteValueMax")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rootpowerkey, subgroupofpowersettingsguid, powersettingguid, valuemaximum) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rootpowerkey, subgroupofpowersettingsguid, powersettingguid, valuemaximum);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rootpowerkey;
     (void)subgroupofpowersettingsguid;
     (void)powersettingguid;
     (void)valuemaximum;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1826,12 +2379,19 @@ static Napi::Value windowssys_windows_win32_system_power_powerWriteValueMin_napi
         HMODULE km_h_mod = LoadLibraryA("powrprof.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PowerWriteValueMin")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rootpowerkey, subgroupofpowersettingsguid, powersettingguid, valueminimum) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rootpowerkey, subgroupofpowersettingsguid, powersettingguid, valueminimum);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rootpowerkey;
     (void)subgroupofpowersettingsguid;
     (void)powersettingguid;
     (void)valueminimum;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1851,13 +2411,20 @@ static Napi::Value windowssys_windows_win32_system_power_powerWriteValueUnitsSpe
         HMODULE km_h_mod = LoadLibraryA("powrprof.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PowerWriteValueUnitsSpecifier")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rootpowerkey, subgroupofpowersettingsguid, powersettingguid, buffer, buffersize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rootpowerkey, subgroupofpowersettingsguid, powersettingguid, buffer, buffersize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)rootpowerkey;
     (void)subgroupofpowersettingsguid;
     (void)powersettingguid;
     (void)buffer;
     (void)buffersize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1873,9 +2440,16 @@ static Napi::Value windowssys_windows_win32_system_power_readGlobalPwrPolicy_nap
         HMODULE km_h_mod = LoadLibraryA("powrprof.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ReadGlobalPwrPolicy")));
     }
-    bool km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pglobalpowerpolicy) : false;
+    bool km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pglobalpowerpolicy);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)pglobalpowerpolicy;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return Napi::Boolean::New(km_env, km_res);
@@ -1892,10 +2466,17 @@ static Napi::Value windowssys_windows_win32_system_power_readProcessorPwrScheme_
         HMODULE km_h_mod = LoadLibraryA("powrprof.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ReadProcessorPwrScheme")));
     }
-    bool km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(uiid, pmachineprocessorpowerpolicy) : false;
+    bool km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(uiid, pmachineprocessorpowerpolicy);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)uiid;
     (void)pmachineprocessorpowerpolicy;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return Napi::Boolean::New(km_env, km_res);
@@ -1912,10 +2493,17 @@ static Napi::Value windowssys_windows_win32_system_power_readPwrScheme_napi(cons
         HMODULE km_h_mod = LoadLibraryA("powrprof.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ReadPwrScheme")));
     }
-    bool km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(uiid, ppowerpolicy) : false;
+    bool km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(uiid, ppowerpolicy);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)uiid;
     (void)ppowerpolicy;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return Napi::Boolean::New(km_env, km_res);
@@ -1933,11 +2521,18 @@ static Napi::Value windowssys_windows_win32_system_power_registerPowerSettingNot
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegisterPowerSettingNotification")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hrecipient, powersettingguid, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hrecipient, powersettingguid, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hrecipient;
     (void)powersettingguid;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1954,10 +2549,17 @@ static Napi::Value windowssys_windows_win32_system_power_registerSuspendResumeNo
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegisterSuspendResumeNotification")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hrecipient, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hrecipient, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hrecipient;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1973,9 +2575,16 @@ static Napi::Value windowssys_windows_win32_system_power_requestWakeupLatency_na
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RequestWakeupLatency")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(latency) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(latency);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)latency;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1993,11 +2602,18 @@ static Napi::Value windowssys_windows_win32_system_power_setActivePwrScheme_napi
         HMODULE km_h_mod = LoadLibraryA("powrprof.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetActivePwrScheme")));
     }
-    bool km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(uiid, pglobalpowerpolicy, ppowerpolicy) : false;
+    bool km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(uiid, pglobalpowerpolicy, ppowerpolicy);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)uiid;
     (void)pglobalpowerpolicy;
     (void)ppowerpolicy;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return Napi::Boolean::New(km_env, km_res);
@@ -2015,11 +2631,18 @@ static Napi::Value windowssys_windows_win32_system_power_setSuspendState_napi(co
         HMODULE km_h_mod = LoadLibraryA("powrprof.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetSuspendState")));
     }
-    bool km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bhibernate, bforce, bwakeupeventsdisabled) : false;
+    bool km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bhibernate, bforce, bwakeupeventsdisabled);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)bhibernate;
     (void)bforce;
     (void)bwakeupeventsdisabled;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return Napi::Boolean::New(km_env, km_res);
@@ -2036,10 +2659,17 @@ static Napi::Value windowssys_windows_win32_system_power_setSystemPowerState_nap
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetSystemPowerState")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(fsuspend, fforce) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(fsuspend, fforce);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)fsuspend;
     (void)fforce;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2055,9 +2685,16 @@ static Napi::Value windowssys_windows_win32_system_power_setThreadExecutionState
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetThreadExecutionState")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(esflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(esflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)esflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2073,9 +2710,16 @@ static Napi::Value windowssys_windows_win32_system_power_unregisterPowerSettingN
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UnregisterPowerSettingNotification")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(handle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(handle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)handle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2091,9 +2735,16 @@ static Napi::Value windowssys_windows_win32_system_power_unregisterSuspendResume
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UnregisterSuspendResumeNotification")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(handle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(handle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)handle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2110,10 +2761,17 @@ static Napi::Value windowssys_windows_win32_system_power_validatePowerPolicies_n
         HMODULE km_h_mod = LoadLibraryA("powrprof.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ValidatePowerPolicies")));
     }
-    bool km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pglobalpowerpolicy, ppowerpolicy) : false;
+    bool km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pglobalpowerpolicy, ppowerpolicy);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)pglobalpowerpolicy;
     (void)ppowerpolicy;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return Napi::Boolean::New(km_env, km_res);
@@ -2129,9 +2787,16 @@ static Napi::Value windowssys_windows_win32_system_power_writeGlobalPwrPolicy_na
         HMODULE km_h_mod = LoadLibraryA("powrprof.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WriteGlobalPwrPolicy")));
     }
-    bool km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pglobalpowerpolicy) : false;
+    bool km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pglobalpowerpolicy);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)pglobalpowerpolicy;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return Napi::Boolean::New(km_env, km_res);
@@ -2148,10 +2813,17 @@ static Napi::Value windowssys_windows_win32_system_power_writeProcessorPwrScheme
         HMODULE km_h_mod = LoadLibraryA("powrprof.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WriteProcessorPwrScheme")));
     }
-    bool km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(uiid, pmachineprocessorpowerpolicy) : false;
+    bool km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(uiid, pmachineprocessorpowerpolicy);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)uiid;
     (void)pmachineprocessorpowerpolicy;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return Napi::Boolean::New(km_env, km_res);
@@ -2170,12 +2842,19 @@ static Napi::Value windowssys_windows_win32_system_power_writePwrScheme_napi(con
         HMODULE km_h_mod = LoadLibraryA("powrprof.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WritePwrScheme")));
     }
-    bool km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(puiid, lpszschemename, lpszdescription, lpscheme) : false;
+    bool km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(puiid, lpszschemename, lpszdescription, lpscheme);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)puiid;
     (void)lpszschemename;
     (void)lpszdescription;
     (void)lpscheme;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return Napi::Boolean::New(km_env, km_res);

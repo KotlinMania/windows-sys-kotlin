@@ -60,8 +60,13 @@ static Napi::Value windowssys_windows_win32_networkmanagement_multicast_mcastApi
         HMODULE km_h_mod = LoadLibraryA("dhcpcsvc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "McastApiCleanup")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr();
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+    }
 #else
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -76,9 +81,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_multicast_mcastApi
         HMODULE km_h_mod = LoadLibraryA("dhcpcsvc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "McastApiStartup")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(version) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(version);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)version;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -98,13 +110,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_multicast_mcastEnu
         HMODULE km_h_mod = LoadLibraryA("dhcpcsvc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "McastEnumerateScopes")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(addrfamily, requery, pscopelist, pscopelen, pscopecount) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(addrfamily, requery, pscopelist, pscopelen, pscopecount);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)addrfamily;
     (void)requery;
     (void)pscopelist;
     (void)pscopelen;
     (void)pscopecount;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -120,9 +139,16 @@ static Napi::Value windowssys_windows_win32_networkmanagement_multicast_mcastGen
         HMODULE km_h_mod = LoadLibraryA("dhcpcsvc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "McastGenUID")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(prequestid) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(prequestid);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)prequestid;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -140,11 +166,18 @@ static Napi::Value windowssys_windows_win32_networkmanagement_multicast_mcastRel
         HMODULE km_h_mod = LoadLibraryA("dhcpcsvc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "McastReleaseAddress")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(addrfamily, prequestid, preleaserequest) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(addrfamily, prequestid, preleaserequest);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)addrfamily;
     (void)prequestid;
     (void)preleaserequest;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -163,12 +196,19 @@ static Napi::Value windowssys_windows_win32_networkmanagement_multicast_mcastRen
         HMODULE km_h_mod = LoadLibraryA("dhcpcsvc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "McastRenewAddress")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(addrfamily, prequestid, prenewrequest, prenewresponse) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(addrfamily, prequestid, prenewrequest, prenewresponse);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)addrfamily;
     (void)prequestid;
     (void)prenewrequest;
     (void)prenewresponse;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -188,13 +228,20 @@ static Napi::Value windowssys_windows_win32_networkmanagement_multicast_mcastReq
         HMODULE km_h_mod = LoadLibraryA("dhcpcsvc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "McastRequestAddress")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(addrfamily, prequestid, pscopectx, paddrrequest, paddrresponse) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(addrfamily, prequestid, pscopectx, paddrrequest, paddrresponse);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)addrfamily;
     (void)prequestid;
     (void)pscopectx;
     (void)paddrrequest;
     (void)paddrresponse;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

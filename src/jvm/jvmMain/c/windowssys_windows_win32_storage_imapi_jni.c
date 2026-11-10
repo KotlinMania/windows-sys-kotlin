@@ -5,6 +5,7 @@
 #include <stdbool.h>
 #include <stddef.h>
 #include <stdint.h>
+#include <stdlib.h>
 #include <errno.h>
 #ifdef _WIN32
 #ifndef WIN32_LEAN_AND_MEAN
@@ -28,9 +29,14 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "CloseIMsgSession");
     }
-    if (km_fn_ptr != NULL) km_fn_ptr((int64_t)lpmsgsess);
+    if (km_fn_ptr != NULL) {
+        km_fn_ptr((int64_t)lpmsgsess);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)lpmsgsess;
+    errno = ENOSYS;
 #endif
 }
 
@@ -44,11 +50,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "GetAttribIMsgOnIStg");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)lpobject, (void*)(uintptr_t)lpproptagarray, (void*)(uintptr_t)lpppropattrarray) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)lpobject, (void*)(uintptr_t)lpproptagarray, (void*)(uintptr_t)lpppropattrarray);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpobject;
     (void)lpproptagarray;
     (void)lpppropattrarray;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -64,9 +77,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "MapStorageSCode");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int32_t)stgscode) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int32_t)stgscode);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)stgscode;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -82,11 +102,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "OpenIMsgSession");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)lpmalloc, (uint32_t)ulflags, (void*)(uintptr_t)lppmsgsess) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)lpmalloc, (uint32_t)ulflags, (void*)(uintptr_t)lppmsgsess);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpmalloc;
     (void)ulflags;
     (void)lppmsgsess;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -102,12 +129,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_stora
         HMODULE km_h_mod = LoadLibraryA("mapi32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SetAttribIMsgOnIStg");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)lpobject, (void*)(uintptr_t)lpproptags, (void*)(uintptr_t)lppropattrs, (void*)(uintptr_t)lpppropproblems) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)lpobject, (void*)(uintptr_t)lpproptags, (void*)(uintptr_t)lppropattrs, (void*)(uintptr_t)lpppropproblems);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpobject;
     (void)lpproptags;
     (void)lppropattrs;
     (void)lpppropproblems;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;

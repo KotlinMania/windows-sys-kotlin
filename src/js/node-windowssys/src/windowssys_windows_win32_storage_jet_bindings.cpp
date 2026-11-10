@@ -67,7 +67,13 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetAddColumnA_napi(const
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetAddColumnA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, tableid, szcolumnname, pcolumndef, pvdefault, cbdefault, pcolumnid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, tableid, szcolumnname, pcolumndef, pvdefault, cbdefault, pcolumnid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)tableid;
@@ -76,6 +82,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetAddColumnA_napi(const
     (void)pvdefault;
     (void)cbdefault;
     (void)pcolumnid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -97,7 +104,13 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetAddColumnW_napi(const
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetAddColumnW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, tableid, szcolumnname, pcolumndef, pvdefault, cbdefault, pcolumnid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, tableid, szcolumnname, pcolumndef, pvdefault, cbdefault, pcolumnid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)tableid;
@@ -106,6 +119,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetAddColumnW_napi(const
     (void)pvdefault;
     (void)cbdefault;
     (void)pcolumnid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -124,12 +138,19 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetAttachDatabase2A_napi
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetAttachDatabase2A")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, szfilename, cpgdatabasesizemax, grbit) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, szfilename, cpgdatabasesizemax, grbit);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)szfilename;
     (void)cpgdatabasesizemax;
     (void)grbit;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -148,12 +169,19 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetAttachDatabase2W_napi
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetAttachDatabase2W")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, szfilename, cpgdatabasesizemax, grbit) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, szfilename, cpgdatabasesizemax, grbit);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)szfilename;
     (void)cpgdatabasesizemax;
     (void)grbit;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -171,11 +199,18 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetAttachDatabaseA_napi(
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetAttachDatabaseA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, szfilename, grbit) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, szfilename, grbit);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)szfilename;
     (void)grbit;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -193,11 +228,18 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetAttachDatabaseW_napi(
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetAttachDatabaseW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, szfilename, grbit) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, szfilename, grbit);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)szfilename;
     (void)grbit;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -215,11 +257,18 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetBackupA_napi(const Na
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetBackupA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szbackuppath, grbit, pfnstatus) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szbackuppath, grbit, pfnstatus);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)szbackuppath;
     (void)grbit;
     (void)pfnstatus;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -238,12 +287,19 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetBackupInstanceA_napi(
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetBackupInstanceA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(instance, szbackuppath, grbit, pfnstatus) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(instance, szbackuppath, grbit, pfnstatus);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)instance;
     (void)szbackuppath;
     (void)grbit;
     (void)pfnstatus;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -262,12 +318,19 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetBackupInstanceW_napi(
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetBackupInstanceW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(instance, szbackuppath, grbit, pfnstatus) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(instance, szbackuppath, grbit, pfnstatus);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)instance;
     (void)szbackuppath;
     (void)grbit;
     (void)pfnstatus;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -285,11 +348,18 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetBackupW_napi(const Na
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetBackupW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szbackuppath, grbit, pfnstatus) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szbackuppath, grbit, pfnstatus);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)szbackuppath;
     (void)grbit;
     (void)pfnstatus;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -305,9 +375,16 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetBeginExternalBackup_n
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetBeginExternalBackup")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(grbit) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(grbit);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)grbit;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -324,10 +401,17 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetBeginExternalBackupIn
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetBeginExternalBackupInstance")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(instance, grbit) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(instance, grbit);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)instance;
     (void)grbit;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -346,12 +430,19 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetBeginSessionA_napi(co
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetBeginSessionA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(instance, psesid, szusername, szpassword) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(instance, psesid, szusername, szpassword);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)instance;
     (void)psesid;
     (void)szusername;
     (void)szpassword;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -370,12 +461,19 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetBeginSessionW_napi(co
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetBeginSessionW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(instance, psesid, szusername, szpassword) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(instance, psesid, szusername, szpassword);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)instance;
     (void)psesid;
     (void)szusername;
     (void)szpassword;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -391,9 +489,16 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetBeginTransaction_napi
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetBeginTransaction")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -410,10 +515,17 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetBeginTransaction2_nap
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetBeginTransaction2")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, grbit) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, grbit);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)grbit;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -431,11 +543,18 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetBeginTransaction3_nap
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetBeginTransaction3")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, trxid, grbit) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, trxid, grbit);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)trxid;
     (void)grbit;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -453,11 +572,18 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetCloseDatabase_napi(co
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetCloseDatabase")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, dbid, grbit) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, dbid, grbit);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)dbid;
     (void)grbit;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -473,9 +599,16 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetCloseFile_napi(const 
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetCloseFile")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hffile) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hffile);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hffile;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -492,10 +625,17 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetCloseFileInstance_nap
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetCloseFileInstance")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(instance, hffile) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(instance, hffile);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)instance;
     (void)hffile;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -512,10 +652,17 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetCloseTable_napi(const
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetCloseTable")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, tableid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, tableid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)tableid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -532,10 +679,17 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetCommitTransaction_nap
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetCommitTransaction")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, grbit) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, grbit);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)grbit;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -554,12 +708,19 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetCommitTransaction2_na
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetCommitTransaction2")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, grbit, cmsecdurablecommit, pcommitid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, grbit, cmsecdurablecommit, pcommitid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)grbit;
     (void)cmsecdurablecommit;
     (void)pcommitid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -580,7 +741,13 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetCompactA_napi(const N
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetCompactA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, szdatabasesrc, szdatabasedest, pfnstatus, pconvert, grbit) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, szdatabasesrc, szdatabasedest, pfnstatus, pconvert, grbit);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)szdatabasesrc;
@@ -588,6 +755,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetCompactA_napi(const N
     (void)pfnstatus;
     (void)pconvert;
     (void)grbit;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -608,7 +776,13 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetCompactW_napi(const N
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetCompactW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, szdatabasesrc, szdatabasedest, pfnstatus, pconvert, grbit) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, szdatabasesrc, szdatabasedest, pfnstatus, pconvert, grbit);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)szdatabasesrc;
@@ -616,6 +790,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetCompactW_napi(const N
     (void)pfnstatus;
     (void)pconvert;
     (void)grbit;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -632,10 +807,17 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetComputeStats_napi(con
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetComputeStats")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, tableid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, tableid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)tableid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -651,9 +833,16 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetConfigureProcessForCr
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetConfigureProcessForCrashDump")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(grbit) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(grbit);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)grbit;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -673,13 +862,20 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetCreateDatabase2A_napi
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetCreateDatabase2A")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, szfilename, cpgdatabasesizemax, pdbid, grbit) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, szfilename, cpgdatabasesizemax, pdbid, grbit);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)szfilename;
     (void)cpgdatabasesizemax;
     (void)pdbid;
     (void)grbit;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -699,13 +895,20 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetCreateDatabase2W_napi
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetCreateDatabase2W")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, szfilename, cpgdatabasesizemax, pdbid, grbit) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, szfilename, cpgdatabasesizemax, pdbid, grbit);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)szfilename;
     (void)cpgdatabasesizemax;
     (void)pdbid;
     (void)grbit;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -725,13 +928,20 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetCreateDatabaseA_napi(
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetCreateDatabaseA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, szfilename, szconnect, pdbid, grbit) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, szfilename, szconnect, pdbid, grbit);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)szfilename;
     (void)szconnect;
     (void)pdbid;
     (void)grbit;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -751,13 +961,20 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetCreateDatabaseW_napi(
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetCreateDatabaseW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, szfilename, szconnect, pdbid, grbit) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, szfilename, szconnect, pdbid, grbit);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)szfilename;
     (void)szconnect;
     (void)pdbid;
     (void)grbit;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -776,12 +993,19 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetCreateIndex2A_napi(co
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetCreateIndex2A")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, tableid, pindexcreate, cindexcreate) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, tableid, pindexcreate, cindexcreate);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)tableid;
     (void)pindexcreate;
     (void)cindexcreate;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -800,12 +1024,19 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetCreateIndex2W_napi(co
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetCreateIndex2W")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, tableid, pindexcreate, cindexcreate) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, tableid, pindexcreate, cindexcreate);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)tableid;
     (void)pindexcreate;
     (void)cindexcreate;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -824,12 +1055,19 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetCreateIndex3A_napi(co
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetCreateIndex3A")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, tableid, pindexcreate, cindexcreate) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, tableid, pindexcreate, cindexcreate);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)tableid;
     (void)pindexcreate;
     (void)cindexcreate;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -848,12 +1086,19 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetCreateIndex3W_napi(co
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetCreateIndex3W")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, tableid, pindexcreate, cindexcreate) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, tableid, pindexcreate, cindexcreate);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)tableid;
     (void)pindexcreate;
     (void)cindexcreate;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -872,12 +1117,19 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetCreateIndex4A_napi(co
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetCreateIndex4A")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, tableid, pindexcreate, cindexcreate) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, tableid, pindexcreate, cindexcreate);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)tableid;
     (void)pindexcreate;
     (void)cindexcreate;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -896,12 +1148,19 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetCreateIndex4W_napi(co
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetCreateIndex4W")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, tableid, pindexcreate, cindexcreate) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, tableid, pindexcreate, cindexcreate);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)tableid;
     (void)pindexcreate;
     (void)cindexcreate;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -923,7 +1182,13 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetCreateIndexA_napi(con
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetCreateIndexA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, tableid, szindexname, grbit, szkey, cbkey, ldensity) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, tableid, szindexname, grbit, szkey, cbkey, ldensity);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)tableid;
@@ -932,6 +1197,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetCreateIndexA_napi(con
     (void)szkey;
     (void)cbkey;
     (void)ldensity;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -953,7 +1219,13 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetCreateIndexW_napi(con
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetCreateIndexW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, tableid, szindexname, grbit, szkey, cbkey, ldensity) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, tableid, szindexname, grbit, szkey, cbkey, ldensity);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)tableid;
@@ -962,6 +1234,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetCreateIndexW_napi(con
     (void)szkey;
     (void)cbkey;
     (void)ldensity;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -980,12 +1253,19 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetCreateInstance2A_napi
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetCreateInstance2A")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pinstance, szinstancename, szdisplayname, grbit) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pinstance, szinstancename, szdisplayname, grbit);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pinstance;
     (void)szinstancename;
     (void)szdisplayname;
     (void)grbit;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1004,12 +1284,19 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetCreateInstance2W_napi
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetCreateInstance2W")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pinstance, szinstancename, szdisplayname, grbit) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pinstance, szinstancename, szdisplayname, grbit);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pinstance;
     (void)szinstancename;
     (void)szdisplayname;
     (void)grbit;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1026,10 +1313,17 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetCreateInstanceA_napi(
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetCreateInstanceA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pinstance, szinstancename) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pinstance, szinstancename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pinstance;
     (void)szinstancename;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1046,10 +1340,17 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetCreateInstanceW_napi(
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetCreateInstanceW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pinstance, szinstancename) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pinstance, szinstancename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pinstance;
     (void)szinstancename;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1070,7 +1371,13 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetCreateTableA_napi(con
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetCreateTableA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, dbid, sztablename, lpages, ldensity, ptableid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, dbid, sztablename, lpages, ldensity, ptableid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)dbid;
@@ -1078,6 +1385,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetCreateTableA_napi(con
     (void)lpages;
     (void)ldensity;
     (void)ptableid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1095,11 +1403,18 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetCreateTableColumnInde
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetCreateTableColumnIndex2A")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, dbid, ptablecreate) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, dbid, ptablecreate);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)dbid;
     (void)ptablecreate;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1117,11 +1432,18 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetCreateTableColumnInde
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetCreateTableColumnIndex2W")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, dbid, ptablecreate) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, dbid, ptablecreate);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)dbid;
     (void)ptablecreate;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1139,11 +1461,18 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetCreateTableColumnInde
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetCreateTableColumnIndex3A")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, dbid, ptablecreate) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, dbid, ptablecreate);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)dbid;
     (void)ptablecreate;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1161,11 +1490,18 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetCreateTableColumnInde
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetCreateTableColumnIndex3W")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, dbid, ptablecreate) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, dbid, ptablecreate);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)dbid;
     (void)ptablecreate;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1183,11 +1519,18 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetCreateTableColumnInde
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetCreateTableColumnIndex4A")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, dbid, ptablecreate) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, dbid, ptablecreate);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)dbid;
     (void)ptablecreate;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1205,11 +1548,18 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetCreateTableColumnInde
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetCreateTableColumnIndex4W")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, dbid, ptablecreate) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, dbid, ptablecreate);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)dbid;
     (void)ptablecreate;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1227,11 +1577,18 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetCreateTableColumnInde
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetCreateTableColumnIndexA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, dbid, ptablecreate) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, dbid, ptablecreate);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)dbid;
     (void)ptablecreate;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1249,11 +1606,18 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetCreateTableColumnInde
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetCreateTableColumnIndexW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, dbid, ptablecreate) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, dbid, ptablecreate);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)dbid;
     (void)ptablecreate;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1274,7 +1638,13 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetCreateTableW_napi(con
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetCreateTableW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, dbid, sztablename, lpages, ldensity, ptableid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, dbid, sztablename, lpages, ldensity, ptableid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)dbid;
@@ -1282,6 +1652,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetCreateTableW_napi(con
     (void)lpages;
     (void)ldensity;
     (void)ptableid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1303,7 +1674,13 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetDefragment2A_napi(con
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetDefragment2A")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, dbid, sztablename, pcpasses, pcseconds, callback, grbit) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, dbid, sztablename, pcpasses, pcseconds, callback, grbit);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)dbid;
@@ -1312,6 +1689,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetDefragment2A_napi(con
     (void)pcseconds;
     (void)callback;
     (void)grbit;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1333,7 +1711,13 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetDefragment2W_napi(con
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetDefragment2W")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, dbid, sztablename, pcpasses, pcseconds, callback, grbit) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, dbid, sztablename, pcpasses, pcseconds, callback, grbit);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)dbid;
@@ -1342,6 +1726,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetDefragment2W_napi(con
     (void)pcseconds;
     (void)callback;
     (void)grbit;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1364,7 +1749,13 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetDefragment3A_napi(con
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetDefragment3A")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, szdatabasename, sztablename, pcpasses, pcseconds, callback, pvcontext, grbit) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, szdatabasename, sztablename, pcpasses, pcseconds, callback, pvcontext, grbit);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)szdatabasename;
@@ -1374,6 +1765,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetDefragment3A_napi(con
     (void)callback;
     (void)pvcontext;
     (void)grbit;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1396,7 +1788,13 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetDefragment3W_napi(con
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetDefragment3W")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, szdatabasename, sztablename, pcpasses, pcseconds, callback, pvcontext, grbit) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, szdatabasename, sztablename, pcpasses, pcseconds, callback, pvcontext, grbit);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)szdatabasename;
@@ -1406,6 +1804,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetDefragment3W_napi(con
     (void)callback;
     (void)pvcontext;
     (void)grbit;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1426,7 +1825,13 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetDefragmentA_napi(cons
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetDefragmentA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, dbid, sztablename, pcpasses, pcseconds, grbit) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, dbid, sztablename, pcpasses, pcseconds, grbit);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)dbid;
@@ -1434,6 +1839,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetDefragmentA_napi(cons
     (void)pcpasses;
     (void)pcseconds;
     (void)grbit;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1454,7 +1860,13 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetDefragmentW_napi(cons
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetDefragmentW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, dbid, sztablename, pcpasses, pcseconds, grbit) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, dbid, sztablename, pcpasses, pcseconds, grbit);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)dbid;
@@ -1462,6 +1874,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetDefragmentW_napi(cons
     (void)pcpasses;
     (void)pcseconds;
     (void)grbit;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1478,10 +1891,17 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetDelete_napi(const Nap
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetDelete")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, tableid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, tableid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)tableid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1500,12 +1920,19 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetDeleteColumn2A_napi(c
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetDeleteColumn2A")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, tableid, szcolumnname, grbit) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, tableid, szcolumnname, grbit);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)tableid;
     (void)szcolumnname;
     (void)grbit;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1524,12 +1951,19 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetDeleteColumn2W_napi(c
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetDeleteColumn2W")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, tableid, szcolumnname, grbit) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, tableid, szcolumnname, grbit);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)tableid;
     (void)szcolumnname;
     (void)grbit;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1547,11 +1981,18 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetDeleteColumnA_napi(co
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetDeleteColumnA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, tableid, szcolumnname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, tableid, szcolumnname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)tableid;
     (void)szcolumnname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1569,11 +2010,18 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetDeleteColumnW_napi(co
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetDeleteColumnW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, tableid, szcolumnname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, tableid, szcolumnname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)tableid;
     (void)szcolumnname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1591,11 +2039,18 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetDeleteIndexA_napi(con
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetDeleteIndexA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, tableid, szindexname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, tableid, szindexname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)tableid;
     (void)szindexname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1613,11 +2068,18 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetDeleteIndexW_napi(con
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetDeleteIndexW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, tableid, szindexname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, tableid, szindexname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)tableid;
     (void)szindexname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1635,11 +2097,18 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetDeleteTableA_napi(con
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetDeleteTableA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, dbid, sztablename) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, dbid, sztablename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)dbid;
     (void)sztablename;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1657,11 +2126,18 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetDeleteTableW_napi(con
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetDeleteTableW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, dbid, sztablename) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, dbid, sztablename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)dbid;
     (void)sztablename;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1679,11 +2155,18 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetDetachDatabase2A_napi
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetDetachDatabase2A")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, szfilename, grbit) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, szfilename, grbit);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)szfilename;
     (void)grbit;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1701,11 +2184,18 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetDetachDatabase2W_napi
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetDetachDatabase2W")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, szfilename, grbit) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, szfilename, grbit);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)szfilename;
     (void)grbit;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1722,10 +2212,17 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetDetachDatabaseA_napi(
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetDetachDatabaseA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, szfilename) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, szfilename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)szfilename;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1742,10 +2239,17 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetDetachDatabaseW_napi(
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetDetachDatabaseW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, szfilename) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, szfilename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)szfilename;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1764,12 +2268,19 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetDupCursor_napi(const 
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetDupCursor")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, tableid, ptableid, grbit) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, tableid, ptableid, grbit);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)tableid;
     (void)ptableid;
     (void)grbit;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1786,10 +2297,17 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetDupSession_napi(const
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetDupSession")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, psesid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, psesid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)psesid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1807,11 +2325,18 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetEnableMultiInstanceA_
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetEnableMultiInstanceA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(psetsysparam, csetsysparam, pcsetsucceed) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(psetsysparam, csetsysparam, pcsetsucceed);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)psetsysparam;
     (void)csetsysparam;
     (void)pcsetsucceed;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1829,11 +2354,18 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetEnableMultiInstanceW_
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetEnableMultiInstanceW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(psetsysparam, csetsysparam, pcsetsucceed) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(psetsysparam, csetsysparam, pcsetsucceed);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)psetsysparam;
     (void)csetsysparam;
     (void)pcsetsucceed;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1848,8 +2380,15 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetEndExternalBackup_nap
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetEndExternalBackup")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1865,9 +2404,16 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetEndExternalBackupInst
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetEndExternalBackupInstance")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(instance) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(instance);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)instance;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1884,10 +2430,17 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetEndExternalBackupInst
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetEndExternalBackupInstance2")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(instance, grbit) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(instance, grbit);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)instance;
     (void)grbit;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1904,10 +2457,17 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetEndSession_napi(const
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetEndSession")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, grbit) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, grbit);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)grbit;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1932,7 +2492,13 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetEnumerateColumns_napi
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetEnumerateColumns")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, tableid, cenumcolumnid, rgenumcolumnid, pcenumcolumn, prgenumcolumn, pfnrealloc, pvrealloccontext, cbdatamost, grbit) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, tableid, cenumcolumnid, rgenumcolumnid, pcenumcolumn, prgenumcolumn, pfnrealloc, pvrealloccontext, cbdatamost, grbit);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)tableid;
@@ -1944,6 +2510,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetEnumerateColumns_napi
     (void)pvrealloccontext;
     (void)cbdatamost;
     (void)grbit;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1967,7 +2534,13 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetEscrowUpdate_napi(con
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetEscrowUpdate")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, tableid, columnid, pv, cbmax, pvold, cboldmax, pcboldactual, grbit) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, tableid, columnid, pv, cbmax, pvold, cboldmax, pcboldactual, grbit);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)tableid;
@@ -1978,6 +2551,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetEscrowUpdate_napi(con
     (void)cboldmax;
     (void)pcboldactual;
     (void)grbit;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2002,7 +2576,13 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetExternalRestore2A_nap
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetExternalRestore2A")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szcheckpointfilepath, szlogpath, rgrstmap, crstfilemap, szbackuplogpath, ploginfo, sztargetinstancename, sztargetinstancelogpath, sztargetinstancecheckpointpath, pfn) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szcheckpointfilepath, szlogpath, rgrstmap, crstfilemap, szbackuplogpath, ploginfo, sztargetinstancename, sztargetinstancelogpath, sztargetinstancecheckpointpath, pfn);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)szcheckpointfilepath;
     (void)szlogpath;
@@ -2014,6 +2594,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetExternalRestore2A_nap
     (void)sztargetinstancelogpath;
     (void)sztargetinstancecheckpointpath;
     (void)pfn;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2038,7 +2619,13 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetExternalRestore2W_nap
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetExternalRestore2W")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szcheckpointfilepath, szlogpath, rgrstmap, crstfilemap, szbackuplogpath, ploginfo, sztargetinstancename, sztargetinstancelogpath, sztargetinstancecheckpointpath, pfn) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szcheckpointfilepath, szlogpath, rgrstmap, crstfilemap, szbackuplogpath, ploginfo, sztargetinstancename, sztargetinstancelogpath, sztargetinstancecheckpointpath, pfn);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)szcheckpointfilepath;
     (void)szlogpath;
@@ -2050,6 +2637,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetExternalRestore2W_nap
     (void)sztargetinstancelogpath;
     (void)sztargetinstancecheckpointpath;
     (void)pfn;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2072,7 +2660,13 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetExternalRestoreA_napi
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetExternalRestoreA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szcheckpointfilepath, szlogpath, rgrstmap, crstfilemap, szbackuplogpath, genlow, genhigh, pfn) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szcheckpointfilepath, szlogpath, rgrstmap, crstfilemap, szbackuplogpath, genlow, genhigh, pfn);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)szcheckpointfilepath;
     (void)szlogpath;
@@ -2082,6 +2676,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetExternalRestoreA_napi
     (void)genlow;
     (void)genhigh;
     (void)pfn;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2104,7 +2699,13 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetExternalRestoreW_napi
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetExternalRestoreW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szcheckpointfilepath, szlogpath, rgrstmap, crstfilemap, szbackuplogpath, genlow, genhigh, pfn) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szcheckpointfilepath, szlogpath, rgrstmap, crstfilemap, szbackuplogpath, genlow, genhigh, pfn);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)szcheckpointfilepath;
     (void)szlogpath;
@@ -2114,6 +2715,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetExternalRestoreW_napi
     (void)genlow;
     (void)genhigh;
     (void)pfn;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2129,9 +2731,16 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetFreeBuffer_napi(const
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetFreeBuffer")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pbbuf) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pbbuf);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pbbuf;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2149,11 +2758,18 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetGetAttachInfoA_napi(c
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetGetAttachInfoA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szzdatabases, cbmax, pcbactual) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szzdatabases, cbmax, pcbactual);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)szzdatabases;
     (void)cbmax;
     (void)pcbactual;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2172,12 +2788,19 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetGetAttachInfoInstance
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetGetAttachInfoInstanceA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(instance, szzdatabases, cbmax, pcbactual) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(instance, szzdatabases, cbmax, pcbactual);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)instance;
     (void)szzdatabases;
     (void)cbmax;
     (void)pcbactual;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2196,12 +2819,19 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetGetAttachInfoInstance
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetGetAttachInfoInstanceW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(instance, szzdatabases, cbmax, pcbactual) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(instance, szzdatabases, cbmax, pcbactual);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)instance;
     (void)szzdatabases;
     (void)cbmax;
     (void)pcbactual;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2219,11 +2849,18 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetGetAttachInfoW_napi(c
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetGetAttachInfoW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(wszzdatabases, cbmax, pcbactual) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(wszzdatabases, cbmax, pcbactual);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)wszzdatabases;
     (void)cbmax;
     (void)pcbactual;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2243,13 +2880,20 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetGetBookmark_napi(cons
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetGetBookmark")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, tableid, pvbookmark, cbmax, pcbactual) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, tableid, pvbookmark, cbmax, pcbactual);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)tableid;
     (void)pvbookmark;
     (void)cbmax;
     (void)pcbactual;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2271,7 +2915,13 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetGetColumnInfoA_napi(c
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetGetColumnInfoA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, dbid, sztablename, pcolumnnameorid, pvresult, cbmax, infolevel) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, dbid, sztablename, pcolumnnameorid, pvresult, cbmax, infolevel);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)dbid;
@@ -2280,6 +2930,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetGetColumnInfoA_napi(c
     (void)pvresult;
     (void)cbmax;
     (void)infolevel;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2301,7 +2952,13 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetGetColumnInfoW_napi(c
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetGetColumnInfoW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, dbid, sztablename, pwcolumnnameorid, pvresult, cbmax, infolevel) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, dbid, sztablename, pwcolumnnameorid, pvresult, cbmax, infolevel);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)dbid;
@@ -2310,6 +2967,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetGetColumnInfoW_napi(c
     (void)pvresult;
     (void)cbmax;
     (void)infolevel;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2328,12 +2986,19 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetGetCurrentIndexA_napi
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetGetCurrentIndexA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, tableid, szindexname, cbindexname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, tableid, szindexname, cbindexname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)tableid;
     (void)szindexname;
     (void)cbindexname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2352,12 +3017,19 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetGetCurrentIndexW_napi
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetGetCurrentIndexW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, tableid, szindexname, cbindexname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, tableid, szindexname, cbindexname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)tableid;
     (void)szindexname;
     (void)cbindexname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2377,13 +3049,20 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetGetCursorInfo_napi(co
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetGetCursorInfo")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, tableid, pvresult, cbmax, infolevel) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, tableid, pvresult, cbmax, infolevel);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)tableid;
     (void)pvresult;
     (void)cbmax;
     (void)infolevel;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2402,12 +3081,19 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetGetDatabaseFileInfoA_
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetGetDatabaseFileInfoA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szdatabasename, pvresult, cbmax, infolevel) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szdatabasename, pvresult, cbmax, infolevel);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)szdatabasename;
     (void)pvresult;
     (void)cbmax;
     (void)infolevel;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2426,12 +3112,19 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetGetDatabaseFileInfoW_
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetGetDatabaseFileInfoW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szdatabasename, pvresult, cbmax, infolevel) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szdatabasename, pvresult, cbmax, infolevel);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)szdatabasename;
     (void)pvresult;
     (void)cbmax;
     (void)infolevel;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2451,13 +3144,20 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetGetDatabaseInfoA_napi
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetGetDatabaseInfoA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, dbid, pvresult, cbmax, infolevel) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, dbid, pvresult, cbmax, infolevel);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)dbid;
     (void)pvresult;
     (void)cbmax;
     (void)infolevel;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2477,13 +3177,20 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetGetDatabaseInfoW_napi
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetGetDatabaseInfoW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, dbid, pvresult, cbmax, infolevel) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, dbid, pvresult, cbmax, infolevel);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)dbid;
     (void)pvresult;
     (void)cbmax;
     (void)infolevel;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2503,13 +3210,20 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetGetErrorInfoW_napi(co
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetGetErrorInfoW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pvcontext, pvresult, cbmax, infolevel, grbit) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pvcontext, pvresult, cbmax, infolevel, grbit);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pvcontext;
     (void)pvresult;
     (void)cbmax;
     (void)infolevel;
     (void)grbit;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2531,7 +3245,13 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetGetIndexInfoA_napi(co
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetGetIndexInfoA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, dbid, sztablename, szindexname, pvresult, cbresult, infolevel) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, dbid, sztablename, szindexname, pvresult, cbresult, infolevel);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)dbid;
@@ -2540,6 +3260,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetGetIndexInfoA_napi(co
     (void)pvresult;
     (void)cbresult;
     (void)infolevel;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2561,7 +3282,13 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetGetIndexInfoW_napi(co
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetGetIndexInfoW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, dbid, sztablename, szindexname, pvresult, cbresult, infolevel) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, dbid, sztablename, szindexname, pvresult, cbresult, infolevel);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)dbid;
@@ -2570,6 +3297,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetGetIndexInfoW_napi(co
     (void)pvresult;
     (void)cbresult;
     (void)infolevel;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2586,10 +3314,17 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetGetInstanceInfoA_napi
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetGetInstanceInfoA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pcinstanceinfo, painstanceinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pcinstanceinfo, painstanceinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pcinstanceinfo;
     (void)painstanceinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2606,10 +3341,17 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetGetInstanceInfoW_napi
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetGetInstanceInfoW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pcinstanceinfo, painstanceinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pcinstanceinfo, painstanceinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pcinstanceinfo;
     (void)painstanceinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2628,12 +3370,19 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetGetInstanceMiscInfo_n
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetGetInstanceMiscInfo")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(instance, pvresult, cbmax, infolevel) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(instance, pvresult, cbmax, infolevel);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)instance;
     (void)pvresult;
     (void)cbmax;
     (void)infolevel;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2652,12 +3401,19 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetGetLS_napi(const Napi
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetGetLS")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, tableid, pls, grbit) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, tableid, pls, grbit);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)tableid;
     (void)pls;
     (void)grbit;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2675,11 +3431,18 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetGetLock_napi(const Na
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetGetLock")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, tableid, grbit) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, tableid, grbit);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)tableid;
     (void)grbit;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2697,11 +3460,18 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetGetLogInfoA_napi(cons
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetGetLogInfoA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szzlogs, cbmax, pcbactual) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szzlogs, cbmax, pcbactual);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)szzlogs;
     (void)cbmax;
     (void)pcbactual;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2721,13 +3491,20 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetGetLogInfoInstance2A_
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetGetLogInfoInstance2A")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(instance, szzlogs, cbmax, pcbactual, ploginfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(instance, szzlogs, cbmax, pcbactual, ploginfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)instance;
     (void)szzlogs;
     (void)cbmax;
     (void)pcbactual;
     (void)ploginfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2747,13 +3524,20 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetGetLogInfoInstance2W_
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetGetLogInfoInstance2W")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(instance, wszzlogs, cbmax, pcbactual, ploginfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(instance, wszzlogs, cbmax, pcbactual, ploginfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)instance;
     (void)wszzlogs;
     (void)cbmax;
     (void)pcbactual;
     (void)ploginfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2772,12 +3556,19 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetGetLogInfoInstanceA_n
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetGetLogInfoInstanceA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(instance, szzlogs, cbmax, pcbactual) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(instance, szzlogs, cbmax, pcbactual);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)instance;
     (void)szzlogs;
     (void)cbmax;
     (void)pcbactual;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2796,12 +3587,19 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetGetLogInfoInstanceW_n
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetGetLogInfoInstanceW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(instance, wszzlogs, cbmax, pcbactual) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(instance, wszzlogs, cbmax, pcbactual);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)instance;
     (void)wszzlogs;
     (void)cbmax;
     (void)pcbactual;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2819,11 +3617,18 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetGetLogInfoW_napi(cons
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetGetLogInfoW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szzlogs, cbmax, pcbactual) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szzlogs, cbmax, pcbactual);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)szzlogs;
     (void)cbmax;
     (void)pcbactual;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2846,7 +3651,13 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetGetObjectInfoA_napi(c
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetGetObjectInfoA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, dbid, objtyp, szcontainername, szobjectname, pvresult, cbmax, infolevel) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, dbid, objtyp, szcontainername, szobjectname, pvresult, cbmax, infolevel);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)dbid;
@@ -2856,6 +3667,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetGetObjectInfoA_napi(c
     (void)pvresult;
     (void)cbmax;
     (void)infolevel;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2878,7 +3690,13 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetGetObjectInfoW_napi(c
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetGetObjectInfoW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, dbid, objtyp, szcontainername, szobjectname, pvresult, cbmax, infolevel) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, dbid, objtyp, szcontainername, szobjectname, pvresult, cbmax, infolevel);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)dbid;
@@ -2888,6 +3706,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetGetObjectInfoW_napi(c
     (void)pvresult;
     (void)cbmax;
     (void)infolevel;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2906,12 +3725,19 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetGetRecordPosition_nap
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetGetRecordPosition")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, tableid, precpos, cbrecpos) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, tableid, precpos, cbrecpos);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)tableid;
     (void)precpos;
     (void)cbrecpos;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2930,12 +3756,19 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetGetRecordSize_napi(co
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetGetRecordSize")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, tableid, precsize, grbit) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, tableid, precsize, grbit);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)tableid;
     (void)precsize;
     (void)grbit;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2954,12 +3787,19 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetGetRecordSize2_napi(c
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetGetRecordSize2")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, tableid, precsize, grbit) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, tableid, precsize, grbit);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)tableid;
     (void)precsize;
     (void)grbit;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2983,7 +3823,13 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetGetSecondaryIndexBook
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetGetSecondaryIndexBookmark")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, tableid, pvsecondarykey, cbsecondarykeymax, pcbsecondarykeyactual, pvprimarybookmark, cbprimarybookmarkmax, pcbprimarybookmarkactual, grbit) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, tableid, pvsecondarykey, cbsecondarykeymax, pcbsecondarykeyactual, pvprimarybookmark, cbprimarybookmarkmax, pcbprimarybookmarkactual, grbit);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)tableid;
@@ -2994,6 +3840,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetGetSecondaryIndexBook
     (void)cbprimarybookmarkmax;
     (void)pcbprimarybookmarkactual;
     (void)grbit;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3013,13 +3860,20 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetGetSessionParameter_n
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetGetSessionParameter")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, sesparamid, pvparam, cbparammax, pcbparamactual) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, sesparamid, pvparam, cbparammax, pcbparamactual);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)sesparamid;
     (void)pvparam;
     (void)cbparammax;
     (void)pcbparamactual;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3040,7 +3894,13 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetGetSystemParameterA_n
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetGetSystemParameterA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(instance, sesid, paramid, plparam, szparam, cbmax) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(instance, sesid, paramid, plparam, szparam, cbmax);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)instance;
     (void)sesid;
@@ -3048,6 +3908,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetGetSystemParameterA_n
     (void)plparam;
     (void)szparam;
     (void)cbmax;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3068,7 +3929,13 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetGetSystemParameterW_n
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetGetSystemParameterW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(instance, sesid, paramid, plparam, szparam, cbmax) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(instance, sesid, paramid, plparam, szparam, cbmax);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)instance;
     (void)sesid;
@@ -3076,6 +3943,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetGetSystemParameterW_n
     (void)plparam;
     (void)szparam;
     (void)cbmax;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3096,7 +3964,13 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetGetTableColumnInfoA_n
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetGetTableColumnInfoA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, tableid, szcolumnname, pvresult, cbmax, infolevel) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, tableid, szcolumnname, pvresult, cbmax, infolevel);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)tableid;
@@ -3104,6 +3978,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetGetTableColumnInfoA_n
     (void)pvresult;
     (void)cbmax;
     (void)infolevel;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3124,7 +3999,13 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetGetTableColumnInfoW_n
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetGetTableColumnInfoW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, tableid, szcolumnname, pvresult, cbmax, infolevel) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, tableid, szcolumnname, pvresult, cbmax, infolevel);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)tableid;
@@ -3132,6 +4013,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetGetTableColumnInfoW_n
     (void)pvresult;
     (void)cbmax;
     (void)infolevel;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3152,7 +4034,13 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetGetTableIndexInfoA_na
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetGetTableIndexInfoA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, tableid, szindexname, pvresult, cbresult, infolevel) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, tableid, szindexname, pvresult, cbresult, infolevel);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)tableid;
@@ -3160,6 +4048,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetGetTableIndexInfoA_na
     (void)pvresult;
     (void)cbresult;
     (void)infolevel;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3180,7 +4069,13 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetGetTableIndexInfoW_na
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetGetTableIndexInfoW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, tableid, szindexname, pvresult, cbresult, infolevel) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, tableid, szindexname, pvresult, cbresult, infolevel);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)tableid;
@@ -3188,6 +4083,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetGetTableIndexInfoW_na
     (void)pvresult;
     (void)cbresult;
     (void)infolevel;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3207,13 +4103,20 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetGetTableInfoA_napi(co
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetGetTableInfoA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, tableid, pvresult, cbmax, infolevel) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, tableid, pvresult, cbmax, infolevel);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)tableid;
     (void)pvresult;
     (void)cbmax;
     (void)infolevel;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3233,13 +4136,20 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetGetTableInfoW_napi(co
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetGetTableInfoW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, tableid, pvresult, cbmax, infolevel) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, tableid, pvresult, cbmax, infolevel);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)tableid;
     (void)pvresult;
     (void)cbmax;
     (void)infolevel;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3256,10 +4166,17 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetGetThreadStats_napi(c
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetGetThreadStats")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pvresult, cbmax) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pvresult, cbmax);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pvresult;
     (void)cbmax;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3278,12 +4195,19 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetGetTruncateLogInfoIns
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetGetTruncateLogInfoInstanceA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(instance, szzlogs, cbmax, pcbactual) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(instance, szzlogs, cbmax, pcbactual);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)instance;
     (void)szzlogs;
     (void)cbmax;
     (void)pcbactual;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3302,12 +4226,19 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetGetTruncateLogInfoIns
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetGetTruncateLogInfoInstanceW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(instance, wszzlogs, cbmax, pcbactual) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(instance, wszzlogs, cbmax, pcbactual);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)instance;
     (void)wszzlogs;
     (void)cbmax;
     (void)pcbactual;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3324,10 +4255,17 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetGetVersion_napi(const
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetGetVersion")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, pwversion) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, pwversion);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)pwversion;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3346,12 +4284,19 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetGotoBookmark_napi(con
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetGotoBookmark")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, tableid, pvbookmark, cbbookmark) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, tableid, pvbookmark, cbbookmark);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)tableid;
     (void)pvbookmark;
     (void)cbbookmark;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3369,11 +4314,18 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetGotoPosition_napi(con
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetGotoPosition")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, tableid, precpos) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, tableid, precpos);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)tableid;
     (void)precpos;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3395,7 +4347,13 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetGotoSecondaryIndexBoo
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetGotoSecondaryIndexBookmark")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, tableid, pvsecondarykey, cbsecondarykey, pvprimarybookmark, cbprimarybookmark, grbit) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, tableid, pvsecondarykey, cbsecondarykey, pvprimarybookmark, cbprimarybookmark, grbit);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)tableid;
@@ -3404,6 +4362,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetGotoSecondaryIndexBoo
     (void)pvprimarybookmark;
     (void)cbprimarybookmark;
     (void)grbit;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3422,12 +4381,19 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetGrowDatabase_napi(con
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetGrowDatabase")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, dbid, cpg, pcpgreal) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, dbid, cpg, pcpgreal);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)dbid;
     (void)cpg;
     (void)pcpgreal;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3444,10 +4410,17 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetIdle_napi(const Napi:
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetIdle")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, grbit) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, grbit);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)grbit;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3466,12 +4439,19 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetIndexRecordCount_napi
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetIndexRecordCount")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, tableid, pcrec, crecmax) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, tableid, pcrec, crecmax);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)tableid;
     (void)pcrec;
     (void)crecmax;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3487,9 +4467,16 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetInit_napi(const Napi:
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetInit")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pinstance) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pinstance);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pinstance;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3506,10 +4493,17 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetInit2_napi(const Napi
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetInit2")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pinstance, grbit) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pinstance, grbit);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pinstance;
     (void)grbit;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3527,11 +4521,18 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetInit3A_napi(const Nap
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetInit3A")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pinstance, prstinfo, grbit) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pinstance, prstinfo, grbit);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pinstance;
     (void)prstinfo;
     (void)grbit;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3549,11 +4550,18 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetInit3W_napi(const Nap
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetInit3W")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pinstance, prstinfo, grbit) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pinstance, prstinfo, grbit);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pinstance;
     (void)prstinfo;
     (void)grbit;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3573,13 +4581,20 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetIntersectIndexes_napi
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetIntersectIndexes")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, rgindexrange, cindexrange, precordlist, grbit) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, rgindexrange, cindexrange, precordlist, grbit);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)rgindexrange;
     (void)cindexrange;
     (void)precordlist;
     (void)grbit;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3599,13 +4614,20 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetMakeKey_napi(const Na
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetMakeKey")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, tableid, pvdata, cbdata, grbit) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, tableid, pvdata, cbdata, grbit);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)tableid;
     (void)pvdata;
     (void)cbdata;
     (void)grbit;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3624,12 +4646,19 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetMove_napi(const Napi:
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetMove")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, tableid, crow, grbit) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, tableid, crow, grbit);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)tableid;
     (void)crow;
     (void)grbit;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3646,10 +4675,17 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetOSSnapshotAbort_napi(
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetOSSnapshotAbort")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(snapid, grbit) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(snapid, grbit);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)snapid;
     (void)grbit;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3666,10 +4702,17 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetOSSnapshotEnd_napi(co
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetOSSnapshotEnd")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(snapid, grbit) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(snapid, grbit);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)snapid;
     (void)grbit;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3688,12 +4731,19 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetOSSnapshotFreezeA_nap
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetOSSnapshotFreezeA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(snapid, pcinstanceinfo, painstanceinfo, grbit) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(snapid, pcinstanceinfo, painstanceinfo, grbit);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)snapid;
     (void)pcinstanceinfo;
     (void)painstanceinfo;
     (void)grbit;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3712,12 +4762,19 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetOSSnapshotFreezeW_nap
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetOSSnapshotFreezeW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(snapid, pcinstanceinfo, painstanceinfo, grbit) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(snapid, pcinstanceinfo, painstanceinfo, grbit);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)snapid;
     (void)pcinstanceinfo;
     (void)painstanceinfo;
     (void)grbit;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3736,12 +4793,19 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetOSSnapshotGetFreezeIn
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetOSSnapshotGetFreezeInfoA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(snapid, pcinstanceinfo, painstanceinfo, grbit) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(snapid, pcinstanceinfo, painstanceinfo, grbit);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)snapid;
     (void)pcinstanceinfo;
     (void)painstanceinfo;
     (void)grbit;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3760,12 +4824,19 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetOSSnapshotGetFreezeIn
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetOSSnapshotGetFreezeInfoW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(snapid, pcinstanceinfo, painstanceinfo, grbit) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(snapid, pcinstanceinfo, painstanceinfo, grbit);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)snapid;
     (void)pcinstanceinfo;
     (void)painstanceinfo;
     (void)grbit;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3782,10 +4853,17 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetOSSnapshotPrepare_nap
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetOSSnapshotPrepare")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(psnapid, grbit) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(psnapid, grbit);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)psnapid;
     (void)grbit;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3803,11 +4881,18 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetOSSnapshotPrepareInst
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetOSSnapshotPrepareInstance")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(snapid, instance, grbit) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(snapid, instance, grbit);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)snapid;
     (void)instance;
     (void)grbit;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3824,10 +4909,17 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetOSSnapshotThaw_napi(c
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetOSSnapshotThaw")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(snapid, grbit) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(snapid, grbit);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)snapid;
     (void)grbit;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3844,10 +4936,17 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetOSSnapshotTruncateLog
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetOSSnapshotTruncateLog")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(snapid, grbit) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(snapid, grbit);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)snapid;
     (void)grbit;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3865,11 +4964,18 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetOSSnapshotTruncateLog
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetOSSnapshotTruncateLogInstance")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(snapid, instance, grbit) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(snapid, instance, grbit);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)snapid;
     (void)instance;
     (void)grbit;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3889,13 +4995,20 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetOpenDatabaseA_napi(co
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetOpenDatabaseA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, szfilename, szconnect, pdbid, grbit) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, szfilename, szconnect, pdbid, grbit);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)szfilename;
     (void)szconnect;
     (void)pdbid;
     (void)grbit;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3915,13 +5028,20 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetOpenDatabaseW_napi(co
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetOpenDatabaseW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, szfilename, szconnect, pdbid, grbit) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, szfilename, szconnect, pdbid, grbit);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)szfilename;
     (void)szconnect;
     (void)pdbid;
     (void)grbit;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3940,12 +5060,19 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetOpenFileA_napi(const 
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetOpenFileA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szfilename, phffile, pulfilesizelow, pulfilesizehigh) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szfilename, phffile, pulfilesizelow, pulfilesizehigh);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)szfilename;
     (void)phffile;
     (void)pulfilesizelow;
     (void)pulfilesizehigh;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3965,13 +5092,20 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetOpenFileInstanceA_nap
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetOpenFileInstanceA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(instance, szfilename, phffile, pulfilesizelow, pulfilesizehigh) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(instance, szfilename, phffile, pulfilesizelow, pulfilesizehigh);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)instance;
     (void)szfilename;
     (void)phffile;
     (void)pulfilesizelow;
     (void)pulfilesizehigh;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -3991,13 +5125,20 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetOpenFileInstanceW_nap
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetOpenFileInstanceW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(instance, szfilename, phffile, pulfilesizelow, pulfilesizehigh) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(instance, szfilename, phffile, pulfilesizelow, pulfilesizehigh);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)instance;
     (void)szfilename;
     (void)phffile;
     (void)pulfilesizelow;
     (void)pulfilesizehigh;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4016,12 +5157,19 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetOpenFileW_napi(const 
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetOpenFileW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szfilename, phffile, pulfilesizelow, pulfilesizehigh) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szfilename, phffile, pulfilesizelow, pulfilesizehigh);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)szfilename;
     (void)phffile;
     (void)pulfilesizelow;
     (void)pulfilesizehigh;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4043,7 +5191,13 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetOpenTableA_napi(const
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetOpenTableA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, dbid, sztablename, pvparameters, cbparameters, grbit, ptableid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, dbid, sztablename, pvparameters, cbparameters, grbit, ptableid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)dbid;
@@ -4052,6 +5206,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetOpenTableA_napi(const
     (void)cbparameters;
     (void)grbit;
     (void)ptableid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4073,7 +5228,13 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetOpenTableW_napi(const
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetOpenTableW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, dbid, sztablename, pvparameters, cbparameters, grbit, ptableid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, dbid, sztablename, pvparameters, cbparameters, grbit, ptableid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)dbid;
@@ -4082,6 +5243,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetOpenTableW_napi(const
     (void)cbparameters;
     (void)grbit;
     (void)ptableid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4102,7 +5264,13 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetOpenTempTable_napi(co
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetOpenTempTable")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, prgcolumndef, ccolumn, grbit, ptableid, prgcolumnid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, prgcolumndef, ccolumn, grbit, ptableid, prgcolumnid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)prgcolumndef;
@@ -4110,6 +5278,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetOpenTempTable_napi(co
     (void)grbit;
     (void)ptableid;
     (void)prgcolumnid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4131,7 +5300,13 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetOpenTempTable2_napi(c
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetOpenTempTable2")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, prgcolumndef, ccolumn, lcid, grbit, ptableid, prgcolumnid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, prgcolumndef, ccolumn, lcid, grbit, ptableid, prgcolumnid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)prgcolumndef;
@@ -4140,6 +5315,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetOpenTempTable2_napi(c
     (void)grbit;
     (void)ptableid;
     (void)prgcolumnid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4161,7 +5337,13 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetOpenTempTable3_napi(c
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetOpenTempTable3")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, prgcolumndef, ccolumn, pidxunicode, grbit, ptableid, prgcolumnid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, prgcolumndef, ccolumn, pidxunicode, grbit, ptableid, prgcolumnid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)prgcolumndef;
@@ -4170,6 +5352,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetOpenTempTable3_napi(c
     (void)grbit;
     (void)ptableid;
     (void)prgcolumnid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4186,10 +5369,17 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetOpenTemporaryTable_na
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetOpenTemporaryTable")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, popentemporarytable) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, popentemporarytable);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)popentemporarytable;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4206,10 +5396,17 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetOpenTemporaryTable2_n
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetOpenTemporaryTable2")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, popentemporarytable) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, popentemporarytable);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)popentemporarytable;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4227,11 +5424,18 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetPrepareUpdate_napi(co
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetPrepareUpdate")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, tableid, prep) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, tableid, prep);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)tableid;
     (void)prep;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4254,7 +5458,13 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetPrereadIndexRanges_na
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetPrereadIndexRanges")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, tableid, rgindexranges, cindexranges, pcrangespreread, rgcolumnidpreread, ccolumnidpreread, grbit) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, tableid, rgindexranges, cindexranges, pcrangespreread, rgcolumnidpreread, ccolumnidpreread, grbit);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)tableid;
@@ -4264,6 +5474,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetPrereadIndexRanges_na
     (void)rgcolumnidpreread;
     (void)ccolumnidpreread;
     (void)grbit;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4285,7 +5496,13 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetPrereadKeys_napi(cons
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetPrereadKeys")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, tableid, rgpvkeys, rgcbkeys, ckeys, pckeyspreread, grbit) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, tableid, rgpvkeys, rgcbkeys, ckeys, pckeyspreread, grbit);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)tableid;
@@ -4294,6 +5511,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetPrereadKeys_napi(cons
     (void)ckeys;
     (void)pckeyspreread;
     (void)grbit;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4312,12 +5530,19 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetReadFile_napi(const N
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetReadFile")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hffile, pv, cb, pcbactual) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hffile, pv, cb, pcbactual);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hffile;
     (void)pv;
     (void)cb;
     (void)pcbactual;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4337,13 +5562,20 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetReadFileInstance_napi
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetReadFileInstance")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(instance, hffile, pv, cb, pcbactual) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(instance, hffile, pv, cb, pcbactual);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)instance;
     (void)hffile;
     (void)pv;
     (void)cb;
     (void)pcbactual;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4364,7 +5596,13 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetRegisterCallback_napi
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetRegisterCallback")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, tableid, cbtyp, pcallback, pvcontext, phcallbackid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, tableid, cbtyp, pcallback, pvcontext, phcallbackid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)tableid;
@@ -4372,6 +5610,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetRegisterCallback_napi
     (void)pcallback;
     (void)pvcontext;
     (void)phcallbackid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4391,13 +5630,20 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetRenameColumnA_napi(co
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetRenameColumnA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, tableid, szname, sznamenew, grbit) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, tableid, szname, sznamenew, grbit);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)tableid;
     (void)szname;
     (void)sznamenew;
     (void)grbit;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4417,13 +5663,20 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetRenameColumnW_napi(co
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetRenameColumnW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, tableid, szname, sznamenew, grbit) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, tableid, szname, sznamenew, grbit);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)tableid;
     (void)szname;
     (void)sznamenew;
     (void)grbit;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4442,12 +5695,19 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetRenameTableA_napi(con
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetRenameTableA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, dbid, szname, sznamenew) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, dbid, szname, sznamenew);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)dbid;
     (void)szname;
     (void)sznamenew;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4466,12 +5726,19 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetRenameTableW_napi(con
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetRenameTableW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, dbid, szname, sznamenew) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, dbid, szname, sznamenew);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)dbid;
     (void)szname;
     (void)sznamenew;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4487,9 +5754,16 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetResetSessionContext_n
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetResetSessionContext")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4507,11 +5781,18 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetResetTableSequential_
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetResetTableSequential")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, tableid, grbit) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, tableid, grbit);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)tableid;
     (void)grbit;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4531,13 +5812,20 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetResizeDatabase_napi(c
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetResizeDatabase")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, dbid, cpgtarget, pcpgactual, grbit) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, dbid, cpgtarget, pcpgactual, grbit);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)dbid;
     (void)cpgtarget;
     (void)pcpgactual;
     (void)grbit;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4555,11 +5843,18 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetRestore2A_napi(const 
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetRestore2A")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sz, szdest, pfn) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sz, szdest, pfn);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sz;
     (void)szdest;
     (void)pfn;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4577,11 +5872,18 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetRestore2W_napi(const 
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetRestore2W")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sz, szdest, pfn) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sz, szdest, pfn);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sz;
     (void)szdest;
     (void)pfn;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4598,10 +5900,17 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetRestoreA_napi(const N
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetRestoreA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szsource, pfn) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szsource, pfn);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)szsource;
     (void)pfn;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4620,12 +5929,19 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetRestoreInstanceA_napi
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetRestoreInstanceA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(instance, sz, szdest, pfn) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(instance, sz, szdest, pfn);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)instance;
     (void)sz;
     (void)szdest;
     (void)pfn;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4644,12 +5960,19 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetRestoreInstanceW_napi
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetRestoreInstanceW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(instance, sz, szdest, pfn) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(instance, sz, szdest, pfn);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)instance;
     (void)sz;
     (void)szdest;
     (void)pfn;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4666,10 +5989,17 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetRestoreW_napi(const N
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetRestoreW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szsource, pfn) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szsource, pfn);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)szsource;
     (void)pfn;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4692,7 +6022,13 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetRetrieveColumn_napi(c
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetRetrieveColumn")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, tableid, columnid, pvdata, cbdata, pcbactual, grbit, pretinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, tableid, columnid, pvdata, cbdata, pcbactual, grbit, pretinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)tableid;
@@ -4702,6 +6038,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetRetrieveColumn_napi(c
     (void)pcbactual;
     (void)grbit;
     (void)pretinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4720,12 +6057,19 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetRetrieveColumns_napi(
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetRetrieveColumns")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, tableid, pretrievecolumn, cretrievecolumn) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, tableid, pretrievecolumn, cretrievecolumn);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)tableid;
     (void)pretrievecolumn;
     (void)cretrievecolumn;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4746,7 +6090,13 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetRetrieveKey_napi(cons
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetRetrieveKey")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, tableid, pvkey, cbmax, pcbactual, grbit) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, tableid, pvkey, cbmax, pcbactual, grbit);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)tableid;
@@ -4754,6 +6104,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetRetrieveKey_napi(cons
     (void)cbmax;
     (void)pcbactual;
     (void)grbit;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4770,10 +6121,17 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetRollback_napi(const N
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetRollback")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, grbit) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, grbit);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)grbit;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4791,11 +6149,18 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetSeek_napi(const Napi:
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetSeek")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, tableid, grbit) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, tableid, grbit);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)tableid;
     (void)grbit;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4817,7 +6182,13 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetSetColumn_napi(const 
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetSetColumn")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, tableid, columnid, pvdata, cbdata, grbit, psetinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, tableid, columnid, pvdata, cbdata, grbit, psetinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)tableid;
@@ -4826,6 +6197,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetSetColumn_napi(const 
     (void)cbdata;
     (void)grbit;
     (void)psetinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4847,7 +6219,13 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetSetColumnDefaultValue
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetSetColumnDefaultValueA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, dbid, sztablename, szcolumnname, pvdata, cbdata, grbit) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, dbid, sztablename, szcolumnname, pvdata, cbdata, grbit);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)dbid;
@@ -4856,6 +6234,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetSetColumnDefaultValue
     (void)pvdata;
     (void)cbdata;
     (void)grbit;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4877,7 +6256,13 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetSetColumnDefaultValue
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetSetColumnDefaultValueW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, dbid, sztablename, szcolumnname, pvdata, cbdata, grbit) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, dbid, sztablename, szcolumnname, pvdata, cbdata, grbit);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)dbid;
@@ -4886,6 +6271,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetSetColumnDefaultValue
     (void)pvdata;
     (void)cbdata;
     (void)grbit;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4904,12 +6290,19 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetSetColumns_napi(const
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetSetColumns")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, tableid, psetcolumn, csetcolumn) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, tableid, psetcolumn, csetcolumn);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)tableid;
     (void)psetcolumn;
     (void)csetcolumn;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4928,12 +6321,19 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetSetCurrentIndex2A_nap
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetSetCurrentIndex2A")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, tableid, szindexname, grbit) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, tableid, szindexname, grbit);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)tableid;
     (void)szindexname;
     (void)grbit;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4952,12 +6352,19 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetSetCurrentIndex2W_nap
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetSetCurrentIndex2W")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, tableid, szindexname, grbit) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, tableid, szindexname, grbit);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)tableid;
     (void)szindexname;
     (void)grbit;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -4977,13 +6384,20 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetSetCurrentIndex3A_nap
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetSetCurrentIndex3A")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, tableid, szindexname, grbit, itagsequence) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, tableid, szindexname, grbit, itagsequence);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)tableid;
     (void)szindexname;
     (void)grbit;
     (void)itagsequence;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5003,13 +6417,20 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetSetCurrentIndex3W_nap
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetSetCurrentIndex3W")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, tableid, szindexname, grbit, itagsequence) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, tableid, szindexname, grbit, itagsequence);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)tableid;
     (void)szindexname;
     (void)grbit;
     (void)itagsequence;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5030,7 +6451,13 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetSetCurrentIndex4A_nap
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetSetCurrentIndex4A")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, tableid, szindexname, pindexid, grbit, itagsequence) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, tableid, szindexname, pindexid, grbit, itagsequence);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)tableid;
@@ -5038,6 +6465,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetSetCurrentIndex4A_nap
     (void)pindexid;
     (void)grbit;
     (void)itagsequence;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5058,7 +6486,13 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetSetCurrentIndex4W_nap
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetSetCurrentIndex4W")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, tableid, szindexname, pindexid, grbit, itagsequence) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, tableid, szindexname, pindexid, grbit, itagsequence);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)tableid;
@@ -5066,6 +6500,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetSetCurrentIndex4W_nap
     (void)pindexid;
     (void)grbit;
     (void)itagsequence;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5083,11 +6518,18 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetSetCurrentIndexA_napi
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetSetCurrentIndexA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, tableid, szindexname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, tableid, szindexname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)tableid;
     (void)szindexname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5105,11 +6547,18 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetSetCurrentIndexW_napi
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetSetCurrentIndexW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, tableid, szindexname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, tableid, szindexname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)tableid;
     (void)szindexname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5129,13 +6578,20 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetSetCursorFilter_napi(
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetSetCursorFilter")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, tableid, rgcolumnfilters, ccolumnfilters, grbit) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, tableid, rgcolumnfilters, ccolumnfilters, grbit);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)tableid;
     (void)rgcolumnfilters;
     (void)ccolumnfilters;
     (void)grbit;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5154,12 +6610,19 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetSetDatabaseSizeA_napi
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetSetDatabaseSizeA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, szdatabasename, cpg, pcpgreal) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, szdatabasename, cpg, pcpgreal);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)szdatabasename;
     (void)cpg;
     (void)pcpgreal;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5178,12 +6641,19 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetSetDatabaseSizeW_napi
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetSetDatabaseSizeW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, szdatabasename, cpg, pcpgreal) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, szdatabasename, cpg, pcpgreal);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)szdatabasename;
     (void)cpg;
     (void)pcpgreal;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5201,11 +6671,18 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetSetIndexRange_napi(co
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetSetIndexRange")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, tableidsrc, grbit) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, tableidsrc, grbit);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)tableidsrc;
     (void)grbit;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5224,12 +6701,19 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetSetLS_napi(const Napi
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetSetLS")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, tableid, ls, grbit) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, tableid, ls, grbit);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)tableid;
     (void)ls;
     (void)grbit;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5246,10 +6730,17 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetSetSessionContext_nap
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetSetSessionContext")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, ulcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, ulcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)ulcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5268,12 +6759,19 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetSetSessionParameter_n
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetSetSessionParameter")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, sesparamid, pvparam, cbparam) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, sesparamid, pvparam, cbparam);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)sesparamid;
     (void)pvparam;
     (void)cbparam;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5293,13 +6791,20 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetSetSystemParameterA_n
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetSetSystemParameterA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pinstance, sesid, paramid, lparam, szparam) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pinstance, sesid, paramid, lparam, szparam);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pinstance;
     (void)sesid;
     (void)paramid;
     (void)lparam;
     (void)szparam;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5319,13 +6824,20 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetSetSystemParameterW_n
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetSetSystemParameterW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pinstance, sesid, paramid, lparam, szparam) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pinstance, sesid, paramid, lparam, szparam);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pinstance;
     (void)sesid;
     (void)paramid;
     (void)lparam;
     (void)szparam;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5343,11 +6855,18 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetSetTableSequential_na
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetSetTableSequential")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, tableid, grbit) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, tableid, grbit);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)tableid;
     (void)grbit;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5362,8 +6881,15 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetStopBackup_napi(const
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetStopBackup")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5379,9 +6905,16 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetStopBackupInstance_na
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetStopBackupInstance")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(instance) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(instance);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)instance;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5396,8 +6929,15 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetStopService_napi(cons
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetStopService")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5413,9 +6953,16 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetStopServiceInstance_n
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetStopServiceInstance")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(instance) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(instance);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)instance;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5432,10 +6979,17 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetStopServiceInstance2_
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetStopServiceInstance2")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(instance, grbit) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(instance, grbit);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)instance;
     (void)grbit;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5451,9 +7005,16 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetTerm_napi(const Napi:
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetTerm")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(instance) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(instance);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)instance;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5470,10 +7031,17 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetTerm2_napi(const Napi
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetTerm2")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(instance, grbit) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(instance, grbit);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)instance;
     (void)grbit;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5488,8 +7056,15 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetTruncateLog_napi(cons
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetTruncateLog")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5505,9 +7080,16 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetTruncateLogInstance_n
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetTruncateLogInstance")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(instance) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(instance);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)instance;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5526,12 +7108,19 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetUnregisterCallback_na
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetUnregisterCallback")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, tableid, cbtyp, hcallbackid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, tableid, cbtyp, hcallbackid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)tableid;
     (void)cbtyp;
     (void)hcallbackid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5551,13 +7140,20 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetUpdate_napi(const Nap
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetUpdate")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, tableid, pvbookmark, cbbookmark, pcbactual) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, tableid, pvbookmark, cbbookmark, pcbactual);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)tableid;
     (void)pvbookmark;
     (void)cbbookmark;
     (void)pcbactual;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -5578,7 +7174,13 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetUpdate2_napi(const Na
         HMODULE km_h_mod = LoadLibraryA("esent.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JetUpdate2")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sesid, tableid, pvbookmark, cbbookmark, pcbactual, grbit) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sesid, tableid, pvbookmark, cbbookmark, pcbactual, grbit);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sesid;
     (void)tableid;
@@ -5586,6 +7188,7 @@ static Napi::Value windowssys_windows_win32_storage_jet_jetUpdate2_napi(const Na
     (void)cbbookmark;
     (void)pcbactual;
     (void)grbit;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

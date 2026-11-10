@@ -64,12 +64,19 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpAddRequest
         HMODULE km_h_mod = LoadLibraryA("winhttp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinHttpAddRequestHeaders")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hrequest, lpszheaders, dwheaderslength, dwmodifiers) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hrequest, lpszheaders, dwheaderslength, dwmodifiers);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hrequest;
     (void)lpszheaders;
     (void)dwheaderslength;
     (void)dwmodifiers;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -90,7 +97,13 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpAddRequest
         HMODULE km_h_mod = LoadLibraryA("winhttp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinHttpAddRequestHeadersEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hrequest, dwmodifiers, ullflags, ullextra, cheaders, pheaders) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hrequest, dwmodifiers, ullflags, ullextra, cheaders, pheaders);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hrequest;
     (void)dwmodifiers;
@@ -98,6 +111,7 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpAddRequest
     (void)ullextra;
     (void)cheaders;
     (void)pheaders;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -112,8 +126,15 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpCheckPlatf
         HMODULE km_h_mod = LoadLibraryA("winhttp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinHttpCheckPlatform")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -129,9 +150,16 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpCloseHandl
         HMODULE km_h_mod = LoadLibraryA("winhttp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinHttpCloseHandle")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hinternet) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hinternet);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hinternet;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -150,13 +178,20 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpConnect_na
         HMODULE km_h_mod = LoadLibraryA("winhttp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinHttpConnect")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hsession, pswzservername, nserverport, dwreserved) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hsession, pswzservername, nserverport, dwreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hsession;
     (void)pswzservername;
     (void)nserverport;
     (void)dwreserved;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -174,12 +209,19 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpCrackUrl_n
         HMODULE km_h_mod = LoadLibraryA("winhttp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinHttpCrackUrl")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pwszurl, dwurllength, dwflags, lpurlcomponents) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pwszurl, dwurllength, dwflags, lpurlcomponents);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pwszurl;
     (void)dwurllength;
     (void)dwflags;
     (void)lpurlcomponents;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -196,10 +238,17 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpCreateProx
         HMODULE km_h_mod = LoadLibraryA("winhttp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinHttpCreateProxyResolver")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hsession, phresolver) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hsession, phresolver);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hsession;
     (void)phresolver;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -218,12 +267,19 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpCreateUrl_
         HMODULE km_h_mod = LoadLibraryA("winhttp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinHttpCreateUrl")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpurlcomponents, dwflags, pwszurl, pdwurllength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpurlcomponents, dwflags, pwszurl, pdwurllength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpurlcomponents;
     (void)dwflags;
     (void)pwszurl;
     (void)pdwurllength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -240,10 +296,17 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpDetectAuto
         HMODULE km_h_mod = LoadLibraryA("winhttp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinHttpDetectAutoProxyConfigUrl")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwautodetectflags, ppwstrautoconfigurl) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwautodetectflags, ppwstrautoconfigurl);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwautodetectflags;
     (void)ppwstrautoconfigurl;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -259,9 +322,14 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpFreeProxyR
         HMODULE km_h_mod = LoadLibraryA("winhttp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinHttpFreeProxyResult")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pproxyresult);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pproxyresult);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pproxyresult;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -276,9 +344,14 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpFreeProxyR
         HMODULE km_h_mod = LoadLibraryA("winhttp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinHttpFreeProxyResultEx")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pproxyresultex);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pproxyresultex);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pproxyresultex;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -293,9 +366,14 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpFreeProxyS
         HMODULE km_h_mod = LoadLibraryA("winhttp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinHttpFreeProxySettings")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pwinhttpproxysettings);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pwinhttpproxysettings);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pwinhttpproxysettings;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -311,10 +389,17 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpFreeProxyS
         HMODULE km_h_mod = LoadLibraryA("winhttp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinHttpFreeProxySettingsEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(proxysettingstype, pproxysettingsex) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(proxysettingstype, pproxysettingsex);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)proxysettingstype;
     (void)pproxysettingsex;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -330,9 +415,14 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpFreeQueryC
         HMODULE km_h_mod = LoadLibraryA("winhttp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinHttpFreeQueryConnectionGroupResult")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(presult);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(presult);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)presult;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -347,9 +437,16 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpGetDefault
         HMODULE km_h_mod = LoadLibraryA("winhttp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinHttpGetDefaultProxyConfiguration")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pproxyinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pproxyinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pproxyinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -365,9 +462,16 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpGetIEProxy
         HMODULE km_h_mod = LoadLibraryA("winhttp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinHttpGetIEProxyConfigForCurrentUser")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pproxyconfig) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pproxyconfig);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pproxyconfig;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -386,12 +490,19 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpGetProxyFo
         HMODULE km_h_mod = LoadLibraryA("winhttp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinHttpGetProxyForUrl")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hsession, lpcwszurl, pautoproxyoptions, pproxyinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hsession, lpcwszurl, pautoproxyoptions, pproxyinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hsession;
     (void)lpcwszurl;
     (void)pautoproxyoptions;
     (void)pproxyinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -410,12 +521,19 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpGetProxyFo
         HMODULE km_h_mod = LoadLibraryA("winhttp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinHttpGetProxyForUrlEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hresolver, pcwszurl, pautoproxyoptions, pcontext) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hresolver, pcwszurl, pautoproxyoptions, pcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hresolver;
     (void)pcwszurl;
     (void)pautoproxyoptions;
     (void)pcontext;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -436,7 +554,13 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpGetProxyFo
         HMODULE km_h_mod = LoadLibraryA("winhttp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinHttpGetProxyForUrlEx2")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hresolver, pcwszurl, pautoproxyoptions, cbinterfaceselectioncontext, pinterfaceselectioncontext, pcontext) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hresolver, pcwszurl, pautoproxyoptions, cbinterfaceselectioncontext, pinterfaceselectioncontext, pcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hresolver;
     (void)pcwszurl;
@@ -444,6 +568,7 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpGetProxyFo
     (void)cbinterfaceselectioncontext;
     (void)pinterfaceselectioncontext;
     (void)pcontext;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -460,10 +585,17 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpGetProxyRe
         HMODULE km_h_mod = LoadLibraryA("winhttp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinHttpGetProxyResult")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hresolver, pproxyresult) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hresolver, pproxyresult);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hresolver;
     (void)pproxyresult;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -480,10 +612,17 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpGetProxyRe
         HMODULE km_h_mod = LoadLibraryA("winhttp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinHttpGetProxyResultEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hresolver, pproxyresultex) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hresolver, pproxyresultex);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hresolver;
     (void)pproxyresultex;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -502,12 +641,19 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpGetProxySe
         HMODULE km_h_mod = LoadLibraryA("winhttp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinHttpGetProxySettingsEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hresolver, proxysettingstype, pproxysettingsparam, pcontext) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hresolver, proxysettingstype, pproxysettingsparam, pcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hresolver;
     (void)proxysettingstype;
     (void)pproxysettingsparam;
     (void)pcontext;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -524,10 +670,17 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpGetProxySe
         HMODULE km_h_mod = LoadLibraryA("winhttp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinHttpGetProxySettingsResultEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hresolver, pproxysettingsex) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hresolver, pproxysettingsex);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hresolver;
     (void)pproxysettingsex;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -544,10 +697,17 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpGetProxySe
         HMODULE km_h_mod = LoadLibraryA("winhttp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinHttpGetProxySettingsVersion")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hsession, pdwproxysettingsversion) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hsession, pdwproxysettingsversion);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hsession;
     (void)pdwproxysettingsversion;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -567,14 +727,21 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpOpen_napi(
         HMODULE km_h_mod = LoadLibraryA("winhttp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinHttpOpen")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszagentw, dwaccesstype, pszproxyw, pszproxybypassw, dwflags) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszagentw, dwaccesstype, pszproxyw, pszproxybypassw, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pszagentw;
     (void)dwaccesstype;
     (void)pszproxyw;
     (void)pszproxybypassw;
     (void)dwflags;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -595,7 +762,13 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpOpenReques
         HMODULE km_h_mod = LoadLibraryA("winhttp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinHttpOpenRequest")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hconnect, pwszverb, pwszobjectname, pwszversion, pwszreferrer, ppwszaccepttypes, dwflags) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hconnect, pwszverb, pwszobjectname, pwszversion, pwszreferrer, ppwszaccepttypes, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hconnect;
     (void)pwszverb;
@@ -604,7 +777,8 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpOpenReques
     (void)pwszreferrer;
     (void)ppwszaccepttypes;
     (void)dwflags;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -622,12 +796,19 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpQueryAuthS
         HMODULE km_h_mod = LoadLibraryA("winhttp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinHttpQueryAuthSchemes")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hrequest, lpdwsupportedschemes, lpdwfirstscheme, pdwauthtarget) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hrequest, lpdwsupportedschemes, lpdwfirstscheme, pdwauthtarget);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hrequest;
     (void)lpdwsupportedschemes;
     (void)lpdwfirstscheme;
     (void)pdwauthtarget;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -646,12 +827,19 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpQueryConne
         HMODULE km_h_mod = LoadLibraryA("winhttp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinHttpQueryConnectionGroup")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hinternet, pguidconnection, ullflags, ppresult) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hinternet, pguidconnection, ullflags, ppresult);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hinternet;
     (void)pguidconnection;
     (void)ullflags;
     (void)ppresult;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -668,10 +856,17 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpQueryDataA
         HMODULE km_h_mod = LoadLibraryA("winhttp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinHttpQueryDataAvailable")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hrequest, lpdwnumberofbytesavailable) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hrequest, lpdwnumberofbytesavailable);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hrequest;
     (void)lpdwnumberofbytesavailable;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -692,7 +887,13 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpQueryHeade
         HMODULE km_h_mod = LoadLibraryA("winhttp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinHttpQueryHeaders")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hrequest, dwinfolevel, pwszname, lpbuffer, lpdwbufferlength, lpdwindex) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hrequest, dwinfolevel, pwszname, lpbuffer, lpdwbufferlength, lpdwindex);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hrequest;
     (void)dwinfolevel;
@@ -700,6 +901,7 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpQueryHeade
     (void)lpbuffer;
     (void)lpdwbufferlength;
     (void)lpdwindex;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -724,7 +926,13 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpQueryHeade
         HMODULE km_h_mod = LoadLibraryA("winhttp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinHttpQueryHeadersEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hrequest, dwinfolevel, ullflags, uicodepage, pdwindex, pheadername, pbuffer, pdwbufferlength, ppheaders, pdwheaderscount) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hrequest, dwinfolevel, ullflags, uicodepage, pdwindex, pheadername, pbuffer, pdwbufferlength, ppheaders, pdwheaderscount);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hrequest;
     (void)dwinfolevel;
@@ -736,6 +944,7 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpQueryHeade
     (void)pdwbufferlength;
     (void)ppheaders;
     (void)pdwheaderscount;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -754,12 +963,19 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpQueryOptio
         HMODULE km_h_mod = LoadLibraryA("winhttp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinHttpQueryOption")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hinternet, dwoption, lpbuffer, lpdwbufferlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hinternet, dwoption, lpbuffer, lpdwbufferlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hinternet;
     (void)dwoption;
     (void)lpbuffer;
     (void)lpdwbufferlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -778,12 +994,19 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpReadData_n
         HMODULE km_h_mod = LoadLibraryA("winhttp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinHttpReadData")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hrequest, lpbuffer, dwnumberofbytestoread, lpdwnumberofbytesread) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hrequest, lpbuffer, dwnumberofbytestoread, lpdwnumberofbytesread);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hrequest;
     (void)lpbuffer;
     (void)dwnumberofbytestoread;
     (void)lpdwnumberofbytesread;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -805,7 +1028,13 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpReadDataEx
         HMODULE km_h_mod = LoadLibraryA("winhttp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinHttpReadDataEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hrequest, lpbuffer, dwnumberofbytestoread, lpdwnumberofbytesread, ullflags, cbproperty, pvproperty) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hrequest, lpbuffer, dwnumberofbytestoread, lpdwnumberofbytesread, ullflags, cbproperty, pvproperty);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hrequest;
     (void)lpbuffer;
@@ -814,6 +1043,7 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpReadDataEx
     (void)ullflags;
     (void)cbproperty;
     (void)pvproperty;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -835,7 +1065,13 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpReadProxyS
         HMODULE km_h_mod = LoadLibraryA("winhttp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinHttpReadProxySettings")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hsession, pcwszconnectionname, ffallbacktodefaultsettings, fsetautodiscoverfordefaultsettings, pdwsettingsversion, pfdefaultsettingsarereturned, pwinhttpproxysettings) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hsession, pcwszconnectionname, ffallbacktodefaultsettings, fsetautodiscoverfordefaultsettings, pdwsettingsversion, pfdefaultsettingsarereturned, pwinhttpproxysettings);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hsession;
     (void)pcwszconnectionname;
@@ -844,6 +1080,7 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpReadProxyS
     (void)pdwsettingsversion;
     (void)pfdefaultsettingsarereturned;
     (void)pwinhttpproxysettings;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -860,10 +1097,17 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpReceiveRes
         HMODULE km_h_mod = LoadLibraryA("winhttp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinHttpReceiveResponse")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hrequest, lpreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hrequest, lpreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hrequest;
     (void)lpreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -882,12 +1126,19 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpRegisterPr
         HMODULE km_h_mod = LoadLibraryA("winhttp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinHttpRegisterProxyChangeNotification")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ullflags, pfncallback, pvcontext, hregistration) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ullflags, pfncallback, pvcontext, hregistration);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ullflags;
     (void)pfncallback;
     (void)pvcontext;
     (void)hregistration;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -904,10 +1155,17 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpResetAutoP
         HMODULE km_h_mod = LoadLibraryA("winhttp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinHttpResetAutoProxy")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hsession, dwflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hsession, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hsession;
     (void)dwflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -929,7 +1187,13 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpSendReques
         HMODULE km_h_mod = LoadLibraryA("winhttp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinHttpSendRequest")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hrequest, lpszheaders, dwheaderslength, lpoptional, dwoptionallength, dwtotallength, dwcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hrequest, lpszheaders, dwheaderslength, lpoptional, dwoptionallength, dwtotallength, dwcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hrequest;
     (void)lpszheaders;
@@ -938,6 +1202,7 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpSendReques
     (void)dwoptionallength;
     (void)dwtotallength;
     (void)dwcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -958,7 +1223,13 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpSetCredent
         HMODULE km_h_mod = LoadLibraryA("winhttp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinHttpSetCredentials")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hrequest, authtargets, authscheme, pwszusername, pwszpassword, pauthparams) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hrequest, authtargets, authscheme, pwszusername, pwszpassword, pauthparams);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hrequest;
     (void)authtargets;
@@ -966,6 +1237,7 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpSetCredent
     (void)pwszusername;
     (void)pwszpassword;
     (void)pauthparams;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -981,9 +1253,16 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpSetDefault
         HMODULE km_h_mod = LoadLibraryA("winhttp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinHttpSetDefaultProxyConfiguration")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pproxyinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pproxyinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pproxyinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1002,12 +1281,19 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpSetOption_
         HMODULE km_h_mod = LoadLibraryA("winhttp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinHttpSetOption")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hinternet, dwoption, lpbuffer, dwbufferlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hinternet, dwoption, lpbuffer, dwbufferlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hinternet;
     (void)dwoption;
     (void)lpbuffer;
     (void)dwbufferlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1023,9 +1309,16 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpSetProxySe
         HMODULE km_h_mod = LoadLibraryA("winhttp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinHttpSetProxySettingsPerUser")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(fproxysettingsperuser) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(fproxysettingsperuser);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)fproxysettingsperuser;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1044,13 +1337,20 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpSetStatusC
         HMODULE km_h_mod = LoadLibraryA("winhttp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinHttpSetStatusCallback")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hinternet, lpfninternetcallback, dwnotificationflags, dwreserved) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hinternet, lpfninternetcallback, dwnotificationflags, dwreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hinternet;
     (void)lpfninternetcallback;
     (void)dwnotificationflags;
     (void)dwreserved;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1069,13 +1369,20 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpSetTimeout
         HMODULE km_h_mod = LoadLibraryA("winhttp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinHttpSetTimeouts")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hinternet, nresolvetimeout, nconnecttimeout, nsendtimeout, nreceivetimeout) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hinternet, nresolvetimeout, nconnecttimeout, nsendtimeout, nreceivetimeout);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hinternet;
     (void)nresolvetimeout;
     (void)nconnecttimeout;
     (void)nsendtimeout;
     (void)nreceivetimeout;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1092,10 +1399,17 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpTimeFromSy
         HMODULE km_h_mod = LoadLibraryA("winhttp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinHttpTimeFromSystemTime")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pst, pwsztime) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pst, pwsztime);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pst;
     (void)pwsztime;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1112,10 +1426,17 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpTimeToSyst
         HMODULE km_h_mod = LoadLibraryA("winhttp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinHttpTimeToSystemTime")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pwsztime, pst) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pwsztime, pst);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pwsztime;
     (void)pst;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1131,9 +1452,16 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpUnregister
         HMODULE km_h_mod = LoadLibraryA("winhttp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinHttpUnregisterProxyChangeNotification")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hregistration) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hregistration);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hregistration;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1152,12 +1480,19 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpWebSocketC
         HMODULE km_h_mod = LoadLibraryA("winhttp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinHttpWebSocketClose")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwebsocket, usstatus, pvreason, dwreasonlength) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwebsocket, usstatus, pvreason, dwreasonlength);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hwebsocket;
     (void)usstatus;
     (void)pvreason;
     (void)dwreasonlength;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1174,11 +1509,18 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpWebSocketC
         HMODULE km_h_mod = LoadLibraryA("winhttp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinHttpWebSocketCompleteUpgrade")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hrequest, pcontext) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hrequest, pcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hrequest;
     (void)pcontext;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1197,13 +1539,20 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpWebSocketQ
         HMODULE km_h_mod = LoadLibraryA("winhttp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinHttpWebSocketQueryCloseStatus")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwebsocket, pusstatus, pvreason, dwreasonlength, pdwreasonlengthconsumed) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwebsocket, pusstatus, pvreason, dwreasonlength, pdwreasonlengthconsumed);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hwebsocket;
     (void)pusstatus;
     (void)pvreason;
     (void)dwreasonlength;
     (void)pdwreasonlengthconsumed;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1223,13 +1572,20 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpWebSocketR
         HMODULE km_h_mod = LoadLibraryA("winhttp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinHttpWebSocketReceive")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwebsocket, pvbuffer, dwbufferlength, pdwbytesread, pebuffertype) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwebsocket, pvbuffer, dwbufferlength, pdwbytesread, pebuffertype);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hwebsocket;
     (void)pvbuffer;
     (void)dwbufferlength;
     (void)pdwbytesread;
     (void)pebuffertype;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1248,12 +1604,19 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpWebSocketS
         HMODULE km_h_mod = LoadLibraryA("winhttp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinHttpWebSocketSend")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwebsocket, ebuffertype, pvbuffer, dwbufferlength) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwebsocket, ebuffertype, pvbuffer, dwbufferlength);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hwebsocket;
     (void)ebuffertype;
     (void)pvbuffer;
     (void)dwbufferlength;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1272,12 +1635,19 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpWebSocketS
         HMODULE km_h_mod = LoadLibraryA("winhttp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinHttpWebSocketShutdown")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwebsocket, usstatus, pvreason, dwreasonlength) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwebsocket, usstatus, pvreason, dwreasonlength);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hwebsocket;
     (void)usstatus;
     (void)pvreason;
     (void)dwreasonlength;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1296,12 +1666,19 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpWriteData_
         HMODULE km_h_mod = LoadLibraryA("winhttp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinHttpWriteData")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hrequest, lpbuffer, dwnumberofbytestowrite, lpdwnumberofbyteswritten) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hrequest, lpbuffer, dwnumberofbytestowrite, lpdwnumberofbyteswritten);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hrequest;
     (void)lpbuffer;
     (void)dwnumberofbytestowrite;
     (void)lpdwnumberofbyteswritten;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1319,11 +1696,18 @@ static Napi::Value windowssys_windows_win32_networking_winhttp_winHttpWriteProxy
         HMODULE km_h_mod = LoadLibraryA("winhttp.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinHttpWriteProxySettings")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hsession, fforceupdate, pwinhttpproxysettings) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hsession, fforceupdate, pwinhttpproxysettings);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hsession;
     (void)fforceupdate;
     (void)pwinhttpproxysettings;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

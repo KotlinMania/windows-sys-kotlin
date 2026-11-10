@@ -62,11 +62,18 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_activateKe
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ActivateKeyboardLayout")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkl, flags) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkl, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hkl;
     (void)flags;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -81,9 +88,16 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_blockInput
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "BlockInput")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(fblockit) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(fblockit);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)fblockit;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -100,10 +114,17 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_enableWind
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EnableWindow")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, benable) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, benable);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)benable;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -118,9 +139,16 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_getActiveW
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetActiveWindow")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -135,9 +163,16 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_getAsyncKe
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetAsyncKeyState")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(vkey) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(vkey);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)vkey;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -152,9 +187,16 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_getCapture
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetCapture")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -168,8 +210,15 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_getDoubleC
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetDoubleClickTime")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -184,9 +233,16 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_getFocus_n
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetFocus")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -200,8 +256,15 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_getKBCodeP
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetKBCodePage")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -219,11 +282,18 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_getKeyName
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetKeyNameTextA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lparam, lpstring, cchsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lparam, lpstring, cchsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lparam;
     (void)lpstring;
     (void)cchsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -241,11 +311,18 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_getKeyName
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetKeyNameTextW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lparam, lpstring, cchsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lparam, lpstring, cchsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lparam;
     (void)lpstring;
     (void)cchsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -261,9 +338,16 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_getKeyStat
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetKeyState")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(nvirtkey) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(nvirtkey);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)nvirtkey;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -279,10 +363,17 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_getKeyboar
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetKeyboardLayout")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(idthread) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(idthread);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)idthread;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -298,10 +389,17 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_getKeyboar
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetKeyboardLayoutList")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(nbuff, lplist) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(nbuff, lplist);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)nbuff;
     (void)lplist;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -317,9 +415,16 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_getKeyboar
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetKeyboardLayoutNameA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pwszklid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pwszklid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pwszklid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -335,9 +440,16 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_getKeyboar
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetKeyboardLayoutNameW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pwszklid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pwszklid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pwszklid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -353,9 +465,16 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_getKeyboar
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetKeyboardState")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpkeystate) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpkeystate);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpkeystate;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -371,9 +490,16 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_getKeyboar
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetKeyboardType")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ntypeflag) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ntypeflag);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ntypeflag;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -389,9 +515,16 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_getLastInp
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetLastInputInfo")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(plii) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(plii);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)plii;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -411,13 +544,20 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_getMouseMo
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetMouseMovePointsEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(cbsize, lppt, lpptbuf, nbufpoints, resolution) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(cbsize, lppt, lpptbuf, nbufpoints, resolution);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)cbsize;
     (void)lppt;
     (void)lpptbuf;
     (void)nbufpoints;
     (void)resolution;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -433,9 +573,16 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_isWindowEn
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IsWindowEnabled")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -452,11 +599,18 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_loadKeyboa
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LoadKeyboardLayoutA")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pwszklid, flags) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pwszklid, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pwszklid;
     (void)flags;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -472,11 +626,18 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_loadKeyboa
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LoadKeyboardLayoutW")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pwszklid, flags) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pwszklid, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pwszklid;
     (void)flags;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -492,10 +653,17 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_mapVirtual
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MapVirtualKeyA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ucode, umaptype) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ucode, umaptype);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ucode;
     (void)umaptype;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -513,11 +681,18 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_mapVirtual
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MapVirtualKeyExA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ucode, umaptype, dwhkl) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ucode, umaptype, dwhkl);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ucode;
     (void)umaptype;
     (void)dwhkl;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -535,11 +710,18 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_mapVirtual
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MapVirtualKeyExW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ucode, umaptype, dwhkl) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ucode, umaptype, dwhkl);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ucode;
     (void)umaptype;
     (void)dwhkl;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -556,10 +738,17 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_mapVirtual
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MapVirtualKeyW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ucode, umaptype) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ucode, umaptype);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ucode;
     (void)umaptype;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -575,9 +764,16 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_oemKeyScan
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OemKeyScan")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(woemchar) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(woemchar);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)woemchar;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -596,12 +792,19 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_registerHo
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegisterHotKey")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, id, fsmodifiers, vk) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, id, fsmodifiers, vk);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)id;
     (void)fsmodifiers;
     (void)vk;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -616,8 +819,15 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_releaseCap
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ReleaseCapture")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -635,11 +845,18 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_sendInput_
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SendInput")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(cinputs, pinputs, cbsize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(cinputs, pinputs, cbsize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)cinputs;
     (void)pinputs;
     (void)cbsize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -655,10 +872,17 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_setActiveW
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetActiveWindow")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hwnd;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -673,10 +897,17 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_setCapture
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetCapture")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hwnd;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -691,9 +922,16 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_setDoubleC
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetDoubleClickTime")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)param0;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -709,10 +947,17 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_setFocus_n
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetFocus")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hwnd;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -727,9 +972,16 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_setKeyboar
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetKeyboardState")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpkeystate) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpkeystate);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpkeystate;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -745,9 +997,16 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_swapMouseB
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SwapMouseButton")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(fswap) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(fswap);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)fswap;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -767,13 +1026,20 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_toAscii_na
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ToAscii")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(uvirtkey, uscancode, lpkeystate, lpchar, uflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(uvirtkey, uscancode, lpkeystate, lpchar, uflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)uvirtkey;
     (void)uscancode;
     (void)lpkeystate;
     (void)lpchar;
     (void)uflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -794,7 +1060,13 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_toAsciiEx_
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ToAsciiEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(uvirtkey, uscancode, lpkeystate, lpchar, uflags, dwhkl) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(uvirtkey, uscancode, lpkeystate, lpchar, uflags, dwhkl);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)uvirtkey;
     (void)uscancode;
@@ -802,6 +1074,7 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_toAsciiEx_
     (void)lpchar;
     (void)uflags;
     (void)dwhkl;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -822,7 +1095,13 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_toUnicode_
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ToUnicode")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(wvirtkey, wscancode, lpkeystate, pwszbuff, cchbuff, wflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(wvirtkey, wscancode, lpkeystate, pwszbuff, cchbuff, wflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)wvirtkey;
     (void)wscancode;
@@ -830,6 +1109,7 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_toUnicode_
     (void)pwszbuff;
     (void)cchbuff;
     (void)wflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -851,7 +1131,13 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_toUnicodeE
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ToUnicodeEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(wvirtkey, wscancode, lpkeystate, pwszbuff, cchbuff, wflags, dwhkl) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(wvirtkey, wscancode, lpkeystate, pwszbuff, cchbuff, wflags, dwhkl);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)wvirtkey;
     (void)wscancode;
@@ -860,6 +1146,7 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_toUnicodeE
     (void)cchbuff;
     (void)wflags;
     (void)dwhkl;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -875,9 +1162,16 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_trackMouse
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TrackMouseEvent")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpeventtrack) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpeventtrack);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpeventtrack;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -893,9 +1187,16 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_unloadKeyb
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UnloadKeyboardLayout")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hkl) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hkl);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hkl;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -912,10 +1213,17 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_unregister
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UnregisterHotKey")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, id) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, id);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)id;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -931,9 +1239,16 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_vkKeyScanA
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "VkKeyScanA")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ch) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ch);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ch;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -950,10 +1265,17 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_vkKeyScanE
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "VkKeyScanExA")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ch, dwhkl) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ch, dwhkl);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ch;
     (void)dwhkl;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -970,10 +1292,17 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_vkKeyScanE
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "VkKeyScanExW")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ch, dwhkl) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ch, dwhkl);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ch;
     (void)dwhkl;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -989,9 +1318,16 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_vkKeyScanW
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "VkKeyScanW")));
     }
-    int16_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ch) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ch);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ch;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1010,12 +1346,17 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_keybdEvent
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "keybd_event")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(bvk, bscan, dwflags, dwextrainfo);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(bvk, bscan, dwflags, dwextrainfo);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)bvk;
     (void)bscan;
     (void)dwflags;
     (void)dwextrainfo;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -1034,13 +1375,18 @@ static Napi::Value windowssys_windows_win32_ui_input_keyboardandmouse_mouseEvent
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "mouse_event")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(dwflags, dx, dy, dwdata, dwextrainfo);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(dwflags, dx, dy, dwdata, dwextrainfo);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)dwflags;
     (void)dx;
     (void)dy;
     (void)dwdata;
     (void)dwextrainfo;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }

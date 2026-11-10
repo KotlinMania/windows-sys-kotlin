@@ -62,10 +62,17 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pSCoerceTo
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PSCoerceToCanonicalValue")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(key, ppropvar) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(key, ppropvar);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)key;
     (void)ppropvar;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -83,11 +90,18 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pSCreateAd
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PSCreateAdapterFromPropertyStore")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pps, riid, ppv) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pps, riid, ppv);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pps;
     (void)riid;
     (void)ppv;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -108,7 +122,13 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pSCreateDe
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PSCreateDelayedMultiplexPropertyStore")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(flags, pdpsf, rgstoreids, cstores, riid, ppv) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(flags, pdpsf, rgstoreids, cstores, riid, ppv);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)flags;
     (void)pdpsf;
@@ -116,6 +136,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pSCreateDe
     (void)cstores;
     (void)riid;
     (void)ppv;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -132,10 +153,17 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pSCreateMe
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PSCreateMemoryPropertyStore")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(riid, ppv) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(riid, ppv);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)riid;
     (void)ppv;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -154,12 +182,19 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pSCreateMu
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PSCreateMultiplexPropertyStore")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(prgpunkstores, cstores, riid, ppv) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(prgpunkstores, cstores, riid, ppv);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)prgpunkstores;
     (void)cstores;
     (void)riid;
     (void)ppv;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -180,7 +215,13 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pSCreatePr
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PSCreatePropertyChangeArray")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rgpropkey, rgflags, rgpropvar, cchanges, riid, ppv) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rgpropkey, rgflags, rgpropvar, cchanges, riid, ppv);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)rgpropkey;
     (void)rgflags;
@@ -188,6 +229,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pSCreatePr
     (void)cchanges;
     (void)riid;
     (void)ppv;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -206,12 +248,19 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pSCreatePr
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PSCreatePropertyStoreFromObject")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(punk, grfmode, riid, ppv) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(punk, grfmode, riid, ppv);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)punk;
     (void)grfmode;
     (void)riid;
     (void)ppv;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -230,12 +279,19 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pSCreatePr
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PSCreatePropertyStoreFromPropertySetStorage")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ppss, grfmode, riid, ppv) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ppss, grfmode, riid, ppv);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ppss;
     (void)grfmode;
     (void)riid;
     (void)ppv;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -255,13 +311,20 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pSCreateSi
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PSCreateSimplePropertyChange")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(flags, key, propvar, riid, ppv) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(flags, key, propvar, riid, ppv);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)flags;
     (void)key;
     (void)propvar;
     (void)riid;
     (void)ppv;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -279,11 +342,18 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pSEnumerat
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PSEnumeratePropertyDescriptions")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(filteron, riid, ppv) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(filteron, riid, ppv);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)filteron;
     (void)riid;
     (void)ppv;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -303,13 +373,20 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pSFormatFo
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PSFormatForDisplay")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(propkey, propvar, pdfflags, pwsztext, cchtext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(propkey, propvar, pdfflags, pwsztext, cchtext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)propkey;
     (void)propvar;
     (void)pdfflags;
     (void)pwsztext;
     (void)cchtext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -328,12 +405,19 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pSFormatFo
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PSFormatForDisplayAlloc")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(key, propvar, pdff, ppszdisplay) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(key, propvar, pdff, ppszdisplay);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)key;
     (void)propvar;
     (void)pdff;
     (void)ppszdisplay;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -352,12 +436,19 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pSFormatPr
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PSFormatPropertyValue")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pps, ppd, pdff, ppszdisplay) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pps, ppd, pdff, ppszdisplay);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pps;
     (void)ppd;
     (void)pdff;
     (void)ppszdisplay;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -375,11 +466,18 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pSGetImage
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PSGetImageReferenceForValue")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(propkey, propvar, ppszimageres) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(propkey, propvar, ppszimageres);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)propkey;
     (void)propvar;
     (void)ppszimageres;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -398,12 +496,19 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pSGetItemP
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PSGetItemPropertyHandler")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(punkitem, freadwrite, riid, ppv) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(punkitem, freadwrite, riid, ppv);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)punkitem;
     (void)freadwrite;
     (void)riid;
     (void)ppv;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -423,13 +528,20 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pSGetItemP
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PSGetItemPropertyHandlerWithCreateObject")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(punkitem, freadwrite, punkcreateobject, riid, ppv) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(punkitem, freadwrite, punkcreateobject, riid, ppv);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)punkitem;
     (void)freadwrite;
     (void)punkcreateobject;
     (void)riid;
     (void)ppv;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -446,10 +558,17 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pSGetNameF
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PSGetNameFromPropertyKey")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(propkey, ppszcanonicalname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(propkey, ppszcanonicalname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)propkey;
     (void)ppszcanonicalname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -468,12 +587,19 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pSGetNamed
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PSGetNamedPropertyFromPropertyStorage")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(psps, cb, pszname, ppropvar) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(psps, cb, pszname, ppropvar);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)psps;
     (void)cb;
     (void)pszname;
     (void)ppropvar;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -491,11 +617,18 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pSGetPrope
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PSGetPropertyDescription")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(propkey, riid, ppv) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(propkey, riid, ppv);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)propkey;
     (void)riid;
     (void)ppv;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -513,11 +646,18 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pSGetPrope
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PSGetPropertyDescriptionByName")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszcanonicalname, riid, ppv) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszcanonicalname, riid, ppv);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszcanonicalname;
     (void)riid;
     (void)ppv;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -535,11 +675,18 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pSGetPrope
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PSGetPropertyDescriptionListFromString")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszproplist, riid, ppv) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszproplist, riid, ppv);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszproplist;
     (void)riid;
     (void)ppv;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -558,12 +705,19 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pSGetPrope
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PSGetPropertyFromPropertyStorage")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(psps, cb, rpkey, ppropvar) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(psps, cb, rpkey, ppropvar);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)psps;
     (void)cb;
     (void)rpkey;
     (void)ppropvar;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -580,10 +734,17 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pSGetPrope
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PSGetPropertyKeyFromName")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszname, ppropkey) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszname, ppropkey);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszname;
     (void)ppropkey;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -600,10 +761,17 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pSGetPrope
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PSGetPropertySystem")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(riid, ppv) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(riid, ppv);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)riid;
     (void)ppv;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -621,11 +789,18 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pSGetPrope
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PSGetPropertyValue")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pps, ppd, ppropvar) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pps, ppd, ppropvar);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pps;
     (void)ppd;
     (void)ppropvar;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -642,10 +817,17 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pSLookupPr
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PSLookupPropertyHandlerCLSID")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszfilepath, pclsid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszfilepath, pclsid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszfilepath;
     (void)pclsid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -662,10 +844,17 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_psproperty
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PSPropertyBag_Delete")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(propbag, propname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(propbag, propname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)propbag;
     (void)propname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -683,11 +872,18 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_psproperty
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PSPropertyBag_ReadBOOL")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(propbag, propname, value) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(propbag, propname, value);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)propbag;
     (void)propname;
     (void)value;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -705,11 +901,18 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_psproperty
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PSPropertyBag_ReadBSTR")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(propbag, propname, value) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(propbag, propname, value);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)propbag;
     (void)propname;
     (void)value;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -727,11 +930,18 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_psproperty
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PSPropertyBag_ReadDWORD")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(propbag, propname, value) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(propbag, propname, value);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)propbag;
     (void)propname;
     (void)value;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -749,11 +959,18 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_psproperty
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PSPropertyBag_ReadGUID")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(propbag, propname, value) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(propbag, propname, value);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)propbag;
     (void)propname;
     (void)value;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -771,11 +988,18 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_psproperty
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PSPropertyBag_ReadInt")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(propbag, propname, value) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(propbag, propname, value);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)propbag;
     (void)propname;
     (void)value;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -793,11 +1017,18 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_psproperty
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PSPropertyBag_ReadLONG")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(propbag, propname, value) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(propbag, propname, value);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)propbag;
     (void)propname;
     (void)value;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -815,11 +1046,18 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_psproperty
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PSPropertyBag_ReadPOINTL")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(propbag, propname, value) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(propbag, propname, value);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)propbag;
     (void)propname;
     (void)value;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -837,11 +1075,18 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_psproperty
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PSPropertyBag_ReadPOINTS")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(propbag, propname, value) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(propbag, propname, value);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)propbag;
     (void)propname;
     (void)value;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -859,11 +1104,18 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_psproperty
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PSPropertyBag_ReadPropertyKey")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(propbag, propname, value) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(propbag, propname, value);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)propbag;
     (void)propname;
     (void)value;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -881,11 +1133,18 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_psproperty
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PSPropertyBag_ReadRECTL")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(propbag, propname, value) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(propbag, propname, value);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)propbag;
     (void)propname;
     (void)value;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -903,11 +1162,18 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_psproperty
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PSPropertyBag_ReadSHORT")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(propbag, propname, value) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(propbag, propname, value);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)propbag;
     (void)propname;
     (void)value;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -926,12 +1192,19 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_psproperty
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PSPropertyBag_ReadStr")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(propbag, propname, value, charactercount) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(propbag, propname, value, charactercount);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)propbag;
     (void)propname;
     (void)value;
     (void)charactercount;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -949,11 +1222,18 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_psproperty
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PSPropertyBag_ReadStrAlloc")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(propbag, propname, value) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(propbag, propname, value);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)propbag;
     (void)propname;
     (void)value;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -971,11 +1251,18 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_psproperty
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PSPropertyBag_ReadStream")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(propbag, propname, value) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(propbag, propname, value);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)propbag;
     (void)propname;
     (void)value;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -994,12 +1281,19 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_psproperty
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PSPropertyBag_ReadType")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(propbag, propname, var, type) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(propbag, propname, var, type);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)propbag;
     (void)propname;
     (void)var;
     (void)type;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1017,11 +1311,18 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_psproperty
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PSPropertyBag_ReadULONGLONG")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(propbag, propname, value) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(propbag, propname, value);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)propbag;
     (void)propname;
     (void)value;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1040,12 +1341,19 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_psproperty
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PSPropertyBag_ReadUnknown")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(propbag, propname, riid, ppv) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(propbag, propname, riid, ppv);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)propbag;
     (void)propname;
     (void)riid;
     (void)ppv;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1063,11 +1371,18 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_psproperty
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PSPropertyBag_WriteBOOL")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(propbag, propname, value) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(propbag, propname, value);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)propbag;
     (void)propname;
     (void)value;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1085,11 +1400,18 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_psproperty
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PSPropertyBag_WriteBSTR")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(propbag, propname, value) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(propbag, propname, value);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)propbag;
     (void)propname;
     (void)value;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1107,11 +1429,18 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_psproperty
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PSPropertyBag_WriteDWORD")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(propbag, propname, value) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(propbag, propname, value);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)propbag;
     (void)propname;
     (void)value;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1129,11 +1458,18 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_psproperty
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PSPropertyBag_WriteGUID")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(propbag, propname, value) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(propbag, propname, value);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)propbag;
     (void)propname;
     (void)value;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1151,11 +1487,18 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_psproperty
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PSPropertyBag_WriteInt")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(propbag, propname, value) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(propbag, propname, value);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)propbag;
     (void)propname;
     (void)value;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1173,11 +1516,18 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_psproperty
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PSPropertyBag_WriteLONG")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(propbag, propname, value) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(propbag, propname, value);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)propbag;
     (void)propname;
     (void)value;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1195,11 +1545,18 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_psproperty
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PSPropertyBag_WritePOINTL")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(propbag, propname, value) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(propbag, propname, value);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)propbag;
     (void)propname;
     (void)value;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1217,11 +1574,18 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_psproperty
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PSPropertyBag_WritePOINTS")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(propbag, propname, value) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(propbag, propname, value);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)propbag;
     (void)propname;
     (void)value;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1239,11 +1603,18 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_psproperty
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PSPropertyBag_WritePropertyKey")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(propbag, propname, value) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(propbag, propname, value);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)propbag;
     (void)propname;
     (void)value;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1261,11 +1632,18 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_psproperty
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PSPropertyBag_WriteRECTL")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(propbag, propname, value) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(propbag, propname, value);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)propbag;
     (void)propname;
     (void)value;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1283,11 +1661,18 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_psproperty
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PSPropertyBag_WriteSHORT")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(propbag, propname, value) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(propbag, propname, value);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)propbag;
     (void)propname;
     (void)value;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1305,11 +1690,18 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_psproperty
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PSPropertyBag_WriteStr")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(propbag, propname, value) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(propbag, propname, value);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)propbag;
     (void)propname;
     (void)value;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1327,11 +1719,18 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_psproperty
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PSPropertyBag_WriteStream")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(propbag, propname, value) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(propbag, propname, value);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)propbag;
     (void)propname;
     (void)value;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1349,11 +1748,18 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_psproperty
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PSPropertyBag_WriteULONGLONG")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(propbag, propname, value) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(propbag, propname, value);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)propbag;
     (void)propname;
     (void)value;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1371,11 +1777,18 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_psproperty
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PSPropertyBag_WriteUnknown")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(propbag, propname, punk) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(propbag, propname, punk);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)propbag;
     (void)propname;
     (void)punk;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1392,10 +1805,17 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pSProperty
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PSPropertyKeyFromString")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszstring, pkey) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszstring, pkey);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszstring;
     (void)pkey;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1410,8 +1830,15 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pSRefreshP
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PSRefreshPropertySchema")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1427,9 +1854,16 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pSRegister
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PSRegisterPropertySchema")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszpath) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszpath);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszpath;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1447,11 +1881,18 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pSSetPrope
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PSSetPropertyValue")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pps, ppd, propvar) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pps, ppd, propvar);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pps;
     (void)ppd;
     (void)propvar;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1469,11 +1910,18 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pSStringFr
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PSStringFromPropertyKey")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pkey, psz, cch) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pkey, psz, cch);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pkey;
     (void)psz;
     (void)cch;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1489,9 +1937,16 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pSUnregist
         HMODULE km_h_mod = LoadLibraryA("propsys.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PSUnregisterPropertySchema")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszpath) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszpath);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszpath;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1508,11 +1963,18 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pifMgrClos
         HMODULE km_h_mod = LoadLibraryA("shell32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PifMgr_CloseProperties")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprops, flopt) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprops, flopt);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hprops;
     (void)flopt;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1531,13 +1993,20 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pifMgrGetP
         HMODULE km_h_mod = LoadLibraryA("shell32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PifMgr_GetProperties")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprops, pszgroup, lpprops, cbprops, flopt) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprops, pszgroup, lpprops, cbprops, flopt);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprops;
     (void)pszgroup;
     (void)lpprops;
     (void)cbprops;
     (void)flopt;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1556,13 +2025,20 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pifMgrOpen
         HMODULE km_h_mod = LoadLibraryA("shell32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PifMgr_OpenProperties")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszapp, pszpif, hinf, flopt) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszapp, pszpif, hinf, flopt);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pszapp;
     (void)pszpif;
     (void)hinf;
     (void)flopt;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1581,13 +2057,20 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_pifMgrSetP
         HMODULE km_h_mod = LoadLibraryA("shell32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PifMgr_SetProperties")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprops, pszgroup, lpprops, cbprops, flopt) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprops, pszgroup, lpprops, cbprops, flopt);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprops;
     (void)pszgroup;
     (void)lpprops;
     (void)cbprops;
     (void)flopt;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1604,10 +2087,17 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_sHAddDefau
         HMODULE km_h_mod = LoadLibraryA("shell32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SHAddDefaultPropertiesByExt")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszext, ppropstore) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszext, ppropstore);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszext;
     (void)ppropstore;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1625,11 +2115,18 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_sHGetPrope
         HMODULE km_h_mod = LoadLibraryA("shell32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SHGetPropertyStoreForWindow")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, riid, ppv) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, riid, ppv);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)riid;
     (void)ppv;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1648,12 +2145,19 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_sHGetPrope
         HMODULE km_h_mod = LoadLibraryA("shell32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SHGetPropertyStoreFromIDList")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pidl, flags, riid, ppv) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pidl, flags, riid, ppv);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pidl;
     (void)flags;
     (void)riid;
     (void)ppv;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1673,13 +2177,20 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_sHGetPrope
         HMODULE km_h_mod = LoadLibraryA("shell32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SHGetPropertyStoreFromParsingName")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszpath, pbc, flags, riid, ppv) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszpath, pbc, flags, riid, ppv);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszpath;
     (void)pbc;
     (void)flags;
     (void)riid;
     (void)ppv;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1702,7 +2213,13 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_sHPropStgC
         HMODULE km_h_mod = LoadLibraryA("shell32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SHPropStgCreate")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(psstg, fmtid, pclsid, grfflags, grfmode, dwdisposition, ppstg, pucodepage) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(psstg, fmtid, pclsid, grfflags, grfmode, dwdisposition, ppstg, pucodepage);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)psstg;
     (void)fmtid;
@@ -1712,6 +2229,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_sHPropStgC
     (void)dwdisposition;
     (void)ppstg;
     (void)pucodepage;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1731,13 +2249,20 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_sHPropStgR
         HMODULE km_h_mod = LoadLibraryA("shell32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SHPropStgReadMultiple")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pps, ucodepage, cpspec, rgpspec, rgvar) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pps, ucodepage, cpspec, rgpspec, rgvar);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pps;
     (void)ucodepage;
     (void)cpspec;
     (void)rgpspec;
     (void)rgvar;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1758,7 +2283,13 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_sHPropStgW
         HMODULE km_h_mod = LoadLibraryA("shell32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SHPropStgWriteMultiple")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pps, pucodepage, cpspec, rgpspec, rgvar, propidnamefirst) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pps, pucodepage, cpspec, rgpspec, rgvar, propidnamefirst);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pps;
     (void)pucodepage;
@@ -1766,6 +2297,7 @@ static Napi::Value windowssys_windows_win32_ui_shell_propertiessystem_sHPropStgW
     (void)rgpspec;
     (void)rgvar;
     (void)propidnamefirst;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

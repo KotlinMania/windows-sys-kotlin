@@ -70,7 +70,13 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_coGetClassObjectFr
         HMODULE km_h_mod = LoadLibraryA("urlmon.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoGetClassObjectFromURL")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rclassid, szcode, dwfileversionms, dwfileversionls, sztype, pbindctx, dwclscontext, pvreserved, riid, ppv) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rclassid, szcode, dwfileversionms, dwfileversionls, sztype, pbindctx, dwclscontext, pvreserved, riid, ppv);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)rclassid;
     (void)szcode;
@@ -82,6 +88,7 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_coGetClassObjectFr
     (void)pvreserved;
     (void)riid;
     (void)ppv;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -101,13 +108,20 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_coInternetCombineI
         HMODULE km_h_mod = LoadLibraryA("urlmon.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoInternetCombineIUri")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pbaseuri, prelativeuri, dwcombineflags, ppcombineduri, dwreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pbaseuri, prelativeuri, dwcombineflags, ppcombineduri, dwreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pbaseuri;
     (void)prelativeuri;
     (void)dwcombineflags;
     (void)ppcombineduri;
     (void)dwreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -129,7 +143,13 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_coInternetCombineU
         HMODULE km_h_mod = LoadLibraryA("urlmon.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoInternetCombineUrl")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pwzbaseurl, pwzrelativeurl, dwcombineflags, pszresult, cchresult, pcchresult, dwreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pwzbaseurl, pwzrelativeurl, dwcombineflags, pszresult, cchresult, pcchresult, dwreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pwzbaseurl;
     (void)pwzrelativeurl;
@@ -138,6 +158,7 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_coInternetCombineU
     (void)cchresult;
     (void)pcchresult;
     (void)dwreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -157,13 +178,20 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_coInternetCombineU
         HMODULE km_h_mod = LoadLibraryA("urlmon.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoInternetCombineUrlEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pbaseuri, pwzrelativeurl, dwcombineflags, ppcombineduri, dwreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pbaseuri, pwzrelativeurl, dwcombineflags, ppcombineduri, dwreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pbaseuri;
     (void)pwzrelativeurl;
     (void)dwcombineflags;
     (void)ppcombineduri;
     (void)dwreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -181,11 +209,18 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_coInternetCompareU
         HMODULE km_h_mod = LoadLibraryA("urlmon.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoInternetCompareUrl")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pwzurl1, pwzurl2, dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pwzurl1, pwzurl2, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pwzurl1;
     (void)pwzurl2;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -203,11 +238,18 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_coInternetCreateSe
         HMODULE km_h_mod = LoadLibraryA("urlmon.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoInternetCreateSecurityManager")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(psp, ppsm, dwreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(psp, ppsm, dwreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)psp;
     (void)ppsm;
     (void)dwreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -225,11 +267,18 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_coInternetCreateZo
         HMODULE km_h_mod = LoadLibraryA("urlmon.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoInternetCreateZoneManager")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(psp, ppzm, dwreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(psp, ppzm, dwreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)psp;
     (void)ppzm;
     (void)dwreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -247,11 +296,18 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_coInternetGetProto
         HMODULE km_h_mod = LoadLibraryA("urlmon.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoInternetGetProtocolFlags")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pwzurl, pdwflags, dwreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pwzurl, pdwflags, dwreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pwzurl;
     (void)pdwflags;
     (void)dwreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -270,12 +326,19 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_coInternetGetSecur
         HMODULE km_h_mod = LoadLibraryA("urlmon.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoInternetGetSecurityUrl")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pwszurl, ppwszsecurl, psuaction, dwreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pwszurl, ppwszsecurl, psuaction, dwreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pwszurl;
     (void)ppwszsecurl;
     (void)psuaction;
     (void)dwreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -294,12 +357,19 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_coInternetGetSecur
         HMODULE km_h_mod = LoadLibraryA("urlmon.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoInternetGetSecurityUrlEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(puri, ppsecuri, psuaction, dwreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(puri, ppsecuri, psuaction, dwreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)puri;
     (void)ppsecuri;
     (void)psuaction;
     (void)dwreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -317,11 +387,18 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_coInternetGetSessi
         HMODULE km_h_mod = LoadLibraryA("urlmon.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoInternetGetSession")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwsessionmode, ppiinternetsession, dwreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwsessionmode, ppiinternetsession, dwreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwsessionmode;
     (void)ppiinternetsession;
     (void)dwreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -338,10 +415,17 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_coInternetIsFeatur
         HMODULE km_h_mod = LoadLibraryA("urlmon.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoInternetIsFeatureEnabled")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(featureentry, dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(featureentry, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)featureentry;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -360,12 +444,19 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_coInternetIsFeatur
         HMODULE km_h_mod = LoadLibraryA("urlmon.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoInternetIsFeatureEnabledForIUri")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(featureentry, dwflags, piuri, psecmgr) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(featureentry, dwflags, piuri, psecmgr);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)featureentry;
     (void)dwflags;
     (void)piuri;
     (void)psecmgr;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -384,12 +475,19 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_coInternetIsFeatur
         HMODULE km_h_mod = LoadLibraryA("urlmon.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoInternetIsFeatureEnabledForUrl")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(featureentry, dwflags, szurl, psecmgr) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(featureentry, dwflags, szurl, psecmgr);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)featureentry;
     (void)dwflags;
     (void)szurl;
     (void)psecmgr;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -408,12 +506,19 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_coInternetIsFeatur
         HMODULE km_h_mod = LoadLibraryA("urlmon.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoInternetIsFeatureZoneElevationEnabled")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szfromurl, sztourl, psecmgr, dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szfromurl, sztourl, psecmgr, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)szfromurl;
     (void)sztourl;
     (void)psecmgr;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -435,7 +540,13 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_coInternetParseIUr
         HMODULE km_h_mod = LoadLibraryA("urlmon.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoInternetParseIUri")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(piuri, parseaction, dwflags, pwzresult, cchresult, pcchresult, dwreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(piuri, parseaction, dwflags, pwzresult, cchresult, pcchresult, dwreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)piuri;
     (void)parseaction;
@@ -444,6 +555,7 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_coInternetParseIUr
     (void)cchresult;
     (void)pcchresult;
     (void)dwreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -465,7 +577,13 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_coInternetParseUrl
         HMODULE km_h_mod = LoadLibraryA("urlmon.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoInternetParseUrl")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pwzurl, parseaction, dwflags, pszresult, cchresult, pcchresult, dwreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pwzurl, parseaction, dwflags, pszresult, cchresult, pcchresult, dwreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pwzurl;
     (void)parseaction;
@@ -474,6 +592,7 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_coInternetParseUrl
     (void)cchresult;
     (void)pcchresult;
     (void)dwreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -495,7 +614,13 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_coInternetQueryInf
         HMODULE km_h_mod = LoadLibraryA("urlmon.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoInternetQueryInfo")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pwzurl, queryoptions, dwqueryflags, pvbuffer, cbbuffer, pcbbuffer, dwreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pwzurl, queryoptions, dwqueryflags, pvbuffer, cbbuffer, pcbbuffer, dwreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pwzurl;
     (void)queryoptions;
@@ -504,6 +629,7 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_coInternetQueryInf
     (void)cbbuffer;
     (void)pcbbuffer;
     (void)dwreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -521,11 +647,18 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_coInternetSetFeatu
         HMODULE km_h_mod = LoadLibraryA("urlmon.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CoInternetSetFeatureEnabled")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(featureentry, dwflags, fenable) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(featureentry, dwflags, fenable);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)featureentry;
     (void)dwflags;
     (void)fenable;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -545,13 +678,20 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_compareSecurityIds
         HMODULE km_h_mod = LoadLibraryA("urlmon.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CompareSecurityIds")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pbsecurityid1, dwlen1, pbsecurityid2, dwlen2, dwreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pbsecurityid1, dwlen1, pbsecurityid2, dwlen2, dwreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pbsecurityid1;
     (void)dwlen1;
     (void)pbsecurityid2;
     (void)dwlen2;
     (void)dwreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -569,11 +709,18 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_compatFlagsFromCls
         HMODULE km_h_mod = LoadLibraryA("urlmon.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CompatFlagsFromClsid")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pclsid, pdwcompatflags, pdwmiscstatusflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pclsid, pdwcompatflags, pdwmiscstatusflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pclsid;
     (void)pdwcompatflags;
     (void)pdwmiscstatusflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -590,10 +737,17 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_copyBindInfo_napi(
         HMODULE km_h_mod = LoadLibraryA("urlmon.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CopyBindInfo")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pcbisrc, pbidest) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pcbisrc, pbidest);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pcbisrc;
     (void)pbidest;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -610,10 +764,17 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_copyStgMedium_napi
         HMODULE km_h_mod = LoadLibraryA("urlmon.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CopyStgMedium")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pcstgmedsrc, pstgmeddest) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pcstgmedsrc, pstgmeddest);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pcstgmedsrc;
     (void)pstgmeddest;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -632,12 +793,19 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_createAsyncBindCtx
         HMODULE km_h_mod = LoadLibraryA("urlmon.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateAsyncBindCtx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(reserved, pbscb, pefetc, ppbc) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(reserved, pbscb, pefetc, ppbc);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)reserved;
     (void)pbscb;
     (void)pefetc;
     (void)ppbc;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -658,7 +826,13 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_createAsyncBindCtx
         HMODULE km_h_mod = LoadLibraryA("urlmon.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateAsyncBindCtxEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pbc, dwoptions, pbscb, penum, ppbc, reserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pbc, dwoptions, pbscb, penum, ppbc, reserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pbc;
     (void)dwoptions;
@@ -666,6 +840,7 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_createAsyncBindCtx
     (void)penum;
     (void)ppbc;
     (void)reserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -683,11 +858,18 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_createFormatEnumer
         HMODULE km_h_mod = LoadLibraryA("urlmon.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateFormatEnumerator")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(cfmtetc, rgfmtetc, ppenumfmtetc) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(cfmtetc, rgfmtetc, ppenumfmtetc);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)cfmtetc;
     (void)rgfmtetc;
     (void)ppenumfmtetc;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -705,11 +887,18 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_createURLMoniker_n
         HMODULE km_h_mod = LoadLibraryA("urlmon.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateURLMoniker")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pmkctx, szurl, ppmk) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pmkctx, szurl, ppmk);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pmkctx;
     (void)szurl;
     (void)ppmk;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -728,12 +917,19 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_createURLMonikerEx
         HMODULE km_h_mod = LoadLibraryA("urlmon.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateURLMonikerEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pmkctx, szurl, ppmk, dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pmkctx, szurl, ppmk, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pmkctx;
     (void)szurl;
     (void)ppmk;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -752,12 +948,19 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_createURLMonikerEx
         HMODULE km_h_mod = LoadLibraryA("urlmon.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateURLMonikerEx2")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pmkctx, puri, ppmk, dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pmkctx, puri, ppmk, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pmkctx;
     (void)puri;
     (void)ppmk;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -776,12 +979,19 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_faultInIEFeature_n
         HMODULE km_h_mod = LoadLibraryA("urlmon.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FaultInIEFeature")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, pclassspec, pquery, dwflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, pclassspec, pquery, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)pclassspec;
     (void)pquery;
     (void)dwflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -798,10 +1008,17 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_findMediaType_napi
         HMODULE km_h_mod = LoadLibraryA("urlmon.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FindMediaType")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(rgsztypes, rgcftypes) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(rgsztypes, rgcftypes);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)rgsztypes;
     (void)rgcftypes;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -820,12 +1037,19 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_findMediaTypeClass
         HMODULE km_h_mod = LoadLibraryA("urlmon.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FindMediaTypeClass")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pbc, sztype, pclsid, reserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pbc, sztype, pclsid, reserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pbc;
     (void)sztype;
     (void)pclsid;
     (void)reserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -848,7 +1072,13 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_findMimeFromData_n
         HMODULE km_h_mod = LoadLibraryA("urlmon.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FindMimeFromData")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pbc, pwzurl, pbuffer, cbsize, pwzmimeproposed, dwmimeflags, ppwzmimeout, dwreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pbc, pwzurl, pbuffer, cbsize, pwzmimeproposed, dwmimeflags, ppwzmimeout, dwreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pbc;
     (void)pwzurl;
@@ -858,6 +1088,7 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_findMimeFromData_n
     (void)dwmimeflags;
     (void)ppwzmimeout;
     (void)dwreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -879,7 +1110,13 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_getClassFileOrMime
         HMODULE km_h_mod = LoadLibraryA("urlmon.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetClassFileOrMime")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pbc, szfilename, pbuffer, cbsize, szmime, dwreserved, pclsid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pbc, szfilename, pbuffer, cbsize, szmime, dwreserved, pclsid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pbc;
     (void)szfilename;
@@ -888,6 +1125,7 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_getClassFileOrMime
     (void)szmime;
     (void)dwreserved;
     (void)pclsid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -904,10 +1142,17 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_getClassURL_napi(c
         HMODULE km_h_mod = LoadLibraryA("urlmon.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetClassURL")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szurl, pclsid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szurl, pclsid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)szurl;
     (void)pclsid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -924,10 +1169,17 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_getComponentIDFrom
         HMODULE km_h_mod = LoadLibraryA("urlmon.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetComponentIDFromCLSSPEC")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pclassspec, ppszcomponentid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pclassspec, ppszcomponentid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pclassspec;
     (void)ppszcomponentid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -944,10 +1196,17 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_getSoftwareUpdateI
         HMODULE km_h_mod = LoadLibraryA("urlmon.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetSoftwareUpdateInfo")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szdistunit, psdi) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szdistunit, psdi);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)szdistunit;
     (void)psdi;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -963,9 +1222,16 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_hlinkGoBack_napi(c
         HMODULE km_h_mod = LoadLibraryA("urlmon.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HlinkGoBack")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(punk) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(punk);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)punk;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -981,9 +1247,16 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_hlinkGoForward_nap
         HMODULE km_h_mod = LoadLibraryA("urlmon.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HlinkGoForward")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(punk) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(punk);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)punk;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1000,10 +1273,17 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_hlinkNavigateMonik
         HMODULE km_h_mod = LoadLibraryA("urlmon.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HlinkNavigateMoniker")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(punk, pmktarget) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(punk, pmktarget);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)punk;
     (void)pmktarget;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1020,10 +1300,17 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_hlinkNavigateStrin
         HMODULE km_h_mod = LoadLibraryA("urlmon.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HlinkNavigateString")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(punk, sztarget) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(punk, sztarget);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)punk;
     (void)sztarget;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1046,7 +1333,13 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_hlinkSimpleNavigat
         HMODULE km_h_mod = LoadLibraryA("urlmon.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HlinkSimpleNavigateToMoniker")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pmktarget, szlocation, sztargetframename, punk, pbc, param5, grfhlnf, dwreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pmktarget, szlocation, sztargetframename, punk, pbc, param5, grfhlnf, dwreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pmktarget;
     (void)szlocation;
@@ -1056,6 +1349,7 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_hlinkSimpleNavigat
     (void)param5;
     (void)grfhlnf;
     (void)dwreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1078,7 +1372,13 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_hlinkSimpleNavigat
         HMODULE km_h_mod = LoadLibraryA("urlmon.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HlinkSimpleNavigateToString")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sztarget, szlocation, sztargetframename, punk, pbc, param5, grfhlnf, dwreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sztarget, szlocation, sztargetframename, punk, pbc, param5, grfhlnf, dwreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sztarget;
     (void)szlocation;
@@ -1088,6 +1388,7 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_hlinkSimpleNavigat
     (void)param5;
     (void)grfhlnf;
     (void)dwreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1102,9 +1403,16 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_iEGetUserPrivateNa
         HMODULE km_h_mod = LoadLibraryA("urlmon.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IEGetUserPrivateNamespaceName")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1119,9 +1427,16 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_iEInstallScope_nap
         HMODULE km_h_mod = LoadLibraryA("urlmon.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IEInstallScope")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pdwscope) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pdwscope);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pdwscope;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1137,9 +1452,16 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_isAsyncMoniker_nap
         HMODULE km_h_mod = LoadLibraryA("urlmon.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IsAsyncMoniker")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pmk) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pmk);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pmk;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1155,9 +1477,16 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_isLoggingEnabledA_
         HMODULE km_h_mod = LoadLibraryA("urlmon.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IsLoggingEnabledA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszurl) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszurl);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszurl;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1173,9 +1502,16 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_isLoggingEnabledW_
         HMODULE km_h_mod = LoadLibraryA("urlmon.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IsLoggingEnabledW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pwszurl) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pwszurl);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pwszurl;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1193,11 +1529,18 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_isValidURL_napi(co
         HMODULE km_h_mod = LoadLibraryA("urlmon.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IsValidURL")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pbc, szurl, dwreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pbc, szurl, dwreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pbc;
     (void)szurl;
     (void)dwreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1216,12 +1559,19 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_mkParseDisplayName
         HMODULE km_h_mod = LoadLibraryA("urlmon.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MkParseDisplayNameEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pbc, szdisplayname, pcheaten, ppmk) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pbc, szdisplayname, pcheaten, ppmk);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pbc;
     (void)szdisplayname;
     (void)pcheaten;
     (void)ppmk;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1239,11 +1589,18 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_obtainUserAgentStr
         HMODULE km_h_mod = LoadLibraryA("urlmon.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ObtainUserAgentString")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwoption, pszuaout, cbsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwoption, pszuaout, cbsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwoption;
     (void)pszuaout;
     (void)cbsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1262,12 +1619,19 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_registerBindStatus
         HMODULE km_h_mod = LoadLibraryA("urlmon.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegisterBindStatusCallback")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pbc, pbscb, ppbscbprev, dwreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pbc, pbscb, ppbscbprev, dwreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pbc;
     (void)pbscb;
     (void)ppbscbprev;
     (void)dwreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1285,11 +1649,18 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_registerFormatEnum
         HMODULE km_h_mod = LoadLibraryA("urlmon.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegisterFormatEnumerator")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pbc, pefetc, reserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pbc, pefetc, reserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pbc;
     (void)pefetc;
     (void)reserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1309,13 +1680,20 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_registerMediaTypeC
         HMODULE km_h_mod = LoadLibraryA("urlmon.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegisterMediaTypeClass")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pbc, ctypes, rgsztypes, rgclsid, reserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pbc, ctypes, rgsztypes, rgclsid, reserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pbc;
     (void)ctypes;
     (void)rgsztypes;
     (void)rgclsid;
     (void)reserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1333,11 +1711,18 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_registerMediaTypes
         HMODULE km_h_mod = LoadLibraryA("urlmon.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegisterMediaTypes")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ctypes, rgsztypes, rgcftypes) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ctypes, rgsztypes, rgcftypes);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ctypes;
     (void)rgsztypes;
     (void)rgcftypes;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1353,9 +1738,14 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_releaseBindInfo_na
         HMODULE km_h_mod = LoadLibraryA("urlmon.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ReleaseBindInfo")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pbindinfo);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pbindinfo);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pbindinfo;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -1371,10 +1761,17 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_revokeBindStatusCa
         HMODULE km_h_mod = LoadLibraryA("urlmon.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RevokeBindStatusCallback")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pbc, pbscb) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pbc, pbscb);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pbc;
     (void)pbscb;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1391,10 +1788,17 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_revokeFormatEnumer
         HMODULE km_h_mod = LoadLibraryA("urlmon.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RevokeFormatEnumerator")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pbc, pefetc) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pbc, pefetc);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pbc;
     (void)pefetc;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1412,11 +1816,18 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_setAccessForIEAppC
         HMODULE km_h_mod = LoadLibraryA("urlmon.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetAccessForIEAppContainer")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hobject, ieobjecttype, dwaccessmask) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hobject, ieobjecttype, dwaccessmask);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hobject;
     (void)ieobjecttype;
     (void)dwaccessmask;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1435,12 +1846,19 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_setSoftwareUpdateA
         HMODULE km_h_mod = LoadLibraryA("urlmon.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetSoftwareUpdateAdvertisementState")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szdistunit, dwadstate, dwadvertisedversionms, dwadvertisedversionls) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szdistunit, dwadstate, dwadvertisedversionms, dwadvertisedversionls);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)szdistunit;
     (void)dwadstate;
     (void)dwadvertisedversionms;
     (void)dwadvertisedversionls;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1461,7 +1879,13 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_uRLDownloadToCache
         HMODULE km_h_mod = LoadLibraryA("urlmon.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "URLDownloadToCacheFileA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2, cchfilename, param4, param5) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2, cchfilename, param4, param5);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)param0;
     (void)param1;
@@ -1469,6 +1893,7 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_uRLDownloadToCache
     (void)cchfilename;
     (void)param4;
     (void)param5;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1489,7 +1914,13 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_uRLDownloadToCache
         HMODULE km_h_mod = LoadLibraryA("urlmon.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "URLDownloadToCacheFileW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2, cchfilename, param4, param5) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2, cchfilename, param4, param5);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)param0;
     (void)param1;
@@ -1497,6 +1928,7 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_uRLDownloadToCache
     (void)cchfilename;
     (void)param4;
     (void)param5;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1516,13 +1948,20 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_uRLDownloadToFileA
         HMODULE km_h_mod = LoadLibraryA("urlmon.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "URLDownloadToFileA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2, param3, param4) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2, param3, param4);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
     (void)param3;
     (void)param4;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1542,13 +1981,20 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_uRLDownloadToFileW
         HMODULE km_h_mod = LoadLibraryA("urlmon.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "URLDownloadToFileW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2, param3, param4) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2, param3, param4);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
     (void)param3;
     (void)param4;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1568,13 +2014,20 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_uRLOpenBlockingStr
         HMODULE km_h_mod = LoadLibraryA("urlmon.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "URLOpenBlockingStreamA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2, param3, param4) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2, param3, param4);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
     (void)param3;
     (void)param4;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1594,13 +2047,20 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_uRLOpenBlockingStr
         HMODULE km_h_mod = LoadLibraryA("urlmon.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "URLOpenBlockingStreamW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2, param3, param4) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2, param3, param4);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
     (void)param3;
     (void)param4;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1619,12 +2079,19 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_uRLOpenPullStreamA
         HMODULE km_h_mod = LoadLibraryA("urlmon.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "URLOpenPullStreamA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2, param3) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2, param3);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
     (void)param3;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1643,12 +2110,19 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_uRLOpenPullStreamW
         HMODULE km_h_mod = LoadLibraryA("urlmon.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "URLOpenPullStreamW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2, param3) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2, param3);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
     (void)param3;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1667,12 +2141,19 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_uRLOpenStreamA_nap
         HMODULE km_h_mod = LoadLibraryA("urlmon.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "URLOpenStreamA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2, param3) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2, param3);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
     (void)param3;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1691,12 +2172,19 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_uRLOpenStreamW_nap
         HMODULE km_h_mod = LoadLibraryA("urlmon.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "URLOpenStreamW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, param1, param2, param3) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, param1, param2, param3);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
     (void)param3;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1716,13 +2204,20 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_urlMkGetSessionOpt
         HMODULE km_h_mod = LoadLibraryA("urlmon.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UrlMkGetSessionOption")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwoption, pbuffer, dwbufferlength, pdwbufferlengthout, dwreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwoption, pbuffer, dwbufferlength, pdwbufferlengthout, dwreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwoption;
     (void)pbuffer;
     (void)dwbufferlength;
     (void)pdwbufferlengthout;
     (void)dwreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1741,12 +2236,19 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_urlMkSetSessionOpt
         HMODULE km_h_mod = LoadLibraryA("urlmon.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UrlMkSetSessionOption")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwoption, pbuffer, dwbufferlength, dwreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwoption, pbuffer, dwbufferlength, dwreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwoption;
     (void)pbuffer;
     (void)dwbufferlength;
     (void)dwreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1762,9 +2264,16 @@ static Napi::Value windowssys_windows_win32_system_com_urlmon_writeHitLogging_na
         HMODULE km_h_mod = LoadLibraryA("urlmon.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WriteHitLogging")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lplogginginfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lplogginginfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lplogginginfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

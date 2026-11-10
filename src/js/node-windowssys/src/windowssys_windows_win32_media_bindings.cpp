@@ -61,9 +61,16 @@ static Napi::Value windowssys_windows_win32_media_timeBeginPeriod_napi(const Nap
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "timeBeginPeriod")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(uperiod) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(uperiod);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)uperiod;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -79,9 +86,16 @@ static Napi::Value windowssys_windows_win32_media_timeEndPeriod_napi(const Napi:
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "timeEndPeriod")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(uperiod) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(uperiod);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)uperiod;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -98,10 +112,17 @@ static Napi::Value windowssys_windows_win32_media_timeGetDevCaps_napi(const Napi
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "timeGetDevCaps")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ptc, cbtc) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ptc, cbtc);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ptc;
     (void)cbtc;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -118,10 +139,17 @@ static Napi::Value windowssys_windows_win32_media_timeGetSystemTime_napi(const N
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "timeGetSystemTime")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pmmt, cbmmt) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pmmt, cbmmt);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pmmt;
     (void)cbmmt;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -136,8 +164,15 @@ static Napi::Value windowssys_windows_win32_media_timeGetTime_napi(const Napi::C
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "timeGetTime")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -153,9 +188,16 @@ static Napi::Value windowssys_windows_win32_media_timeKillEvent_napi(const Napi:
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "timeKillEvent")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(utimerid) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(utimerid);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)utimerid;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -175,13 +217,20 @@ static Napi::Value windowssys_windows_win32_media_timeSetEvent_napi(const Napi::
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "timeSetEvent")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(udelay, uresolution, fptc, dwuser, fuevent) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(udelay, uresolution, fptc, dwuser, fuevent);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)udelay;
     (void)uresolution;
     (void)fptc;
     (void)dwuser;
     (void)fuevent;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

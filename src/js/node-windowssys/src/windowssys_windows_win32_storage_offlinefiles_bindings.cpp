@@ -62,10 +62,17 @@ static Napi::Value windowssys_windows_win32_storage_offlinefiles_offlineFilesEna
         HMODULE km_h_mod = LoadLibraryA("cscapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OfflineFilesEnable")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(benable, pbrebootrequired) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(benable, pbrebootrequired);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)benable;
     (void)pbrebootrequired;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -82,10 +89,17 @@ static Napi::Value windowssys_windows_win32_storage_offlinefiles_offlineFilesQue
         HMODULE km_h_mod = LoadLibraryA("cscapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OfflineFilesQueryStatus")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pbactive, pbenabled) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pbactive, pbenabled);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pbactive;
     (void)pbenabled;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -103,11 +117,18 @@ static Napi::Value windowssys_windows_win32_storage_offlinefiles_offlineFilesQue
         HMODULE km_h_mod = LoadLibraryA("cscapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OfflineFilesQueryStatusEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pbactive, pbenabled, pbavailable) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pbactive, pbenabled, pbavailable);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pbactive;
     (void)pbenabled;
     (void)pbavailable;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -122,8 +143,15 @@ static Napi::Value windowssys_windows_win32_storage_offlinefiles_offlineFilesSta
         HMODULE km_h_mod = LoadLibraryA("cscapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OfflineFilesStart")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

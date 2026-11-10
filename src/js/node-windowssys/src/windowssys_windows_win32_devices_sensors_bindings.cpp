@@ -63,11 +63,18 @@ static Napi::Value windowssys_windows_win32_devices_sensors_collectionsListAlloc
         HMODULE km_h_mod = LoadLibraryA("sensorsutilsv2.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CollectionsListAllocateBufferAndSerialize")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sourcecollection, ptargetbuffersizeinbytes, ptargetbuffer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sourcecollection, ptargetbuffersizeinbytes, ptargetbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sourcecollection;
     (void)ptargetbuffersizeinbytes;
     (void)ptargetbuffer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -84,10 +91,17 @@ static Napi::Value windowssys_windows_win32_devices_sensors_collectionsListCopyA
         HMODULE km_h_mod = LoadLibraryA("sensorsutilsv2.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CollectionsListCopyAndMarshall")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(target, source) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(target, source);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)target;
     (void)source;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -105,11 +119,18 @@ static Napi::Value windowssys_windows_win32_devices_sensors_collectionsListDeser
         HMODULE km_h_mod = LoadLibraryA("sensorsutilsv2.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CollectionsListDeserializeFromBuffer")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sourcebuffersizeinbytes, sourcebuffer, targetcollection) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sourcebuffersizeinbytes, sourcebuffer, targetcollection);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sourcebuffersizeinbytes;
     (void)sourcebuffer;
     (void)targetcollection;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -125,9 +146,16 @@ static Napi::Value windowssys_windows_win32_devices_sensors_collectionsListGetFi
         HMODULE km_h_mod = LoadLibraryA("sensorsutilsv2.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CollectionsListGetFillableCount")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(buffersizebytes) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(buffersizebytes);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)buffersizebytes;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -143,9 +171,16 @@ static Napi::Value windowssys_windows_win32_devices_sensors_collectionsListGetMa
         HMODULE km_h_mod = LoadLibraryA("sensorsutilsv2.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CollectionsListGetMarshalledSize")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(collection) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(collection);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)collection;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -161,9 +196,16 @@ static Napi::Value windowssys_windows_win32_devices_sensors_collectionsListGetMa
         HMODULE km_h_mod = LoadLibraryA("sensorsutilsv2.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CollectionsListGetMarshalledSizeWithoutSerialization")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(collection) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(collection);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)collection;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -179,9 +221,16 @@ static Napi::Value windowssys_windows_win32_devices_sensors_collectionsListGetSe
         HMODULE km_h_mod = LoadLibraryA("sensorsutilsv2.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CollectionsListGetSerializedSize")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(collection) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(collection);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)collection;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -197,9 +246,16 @@ static Napi::Value windowssys_windows_win32_devices_sensors_collectionsListMarsh
         HMODULE km_h_mod = LoadLibraryA("sensorsutilsv2.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CollectionsListMarshall")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(target) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(target);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)target;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -217,11 +273,18 @@ static Napi::Value windowssys_windows_win32_devices_sensors_collectionsListSeria
         HMODULE km_h_mod = LoadLibraryA("sensorsutilsv2.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CollectionsListSerializeToBuffer")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sourcecollection, targetbuffersizeinbytes, targetbuffer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sourcecollection, targetbuffersizeinbytes, targetbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sourcecollection;
     (void)targetbuffersizeinbytes;
     (void)targetbuffer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -238,10 +301,17 @@ static Napi::Value windowssys_windows_win32_devices_sensors_collectionsListSortS
         HMODULE km_h_mod = LoadLibraryA("sensorsutilsv2.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CollectionsListSortSubscribedActivitiesByConfidence")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(thresholds, pcollection) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(thresholds, pcollection);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)thresholds;
     (void)pcollection;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -257,9 +327,16 @@ static Napi::Value windowssys_windows_win32_devices_sensors_collectionsListUpdat
         HMODULE km_h_mod = LoadLibraryA("sensorsutilsv2.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CollectionsListUpdateMarshalledPointer")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(collection) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(collection);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)collection;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -277,11 +354,18 @@ static Napi::Value windowssys_windows_win32_devices_sensors_evaluateActivityThre
         HMODULE km_h_mod = LoadLibraryA("sensorsutilsv2.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EvaluateActivityThresholds")));
     }
-    bool km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(newsample, oldsample, thresholds) : false;
+    bool km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(newsample, oldsample, thresholds);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)newsample;
     (void)oldsample;
     (void)thresholds;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return Napi::Boolean::New(km_env, km_res);
@@ -297,9 +381,16 @@ static Napi::Value windowssys_windows_win32_devices_sensors_getPerformanceTime_n
         HMODULE km_h_mod = LoadLibraryA("sensorsutilsv2.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetPerformanceTime")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(timems) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(timems);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)timems;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -317,11 +408,18 @@ static Napi::Value windowssys_windows_win32_devices_sensors_initPropVariantFromC
         HMODULE km_h_mod = LoadLibraryA("sensorsutilsv2.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InitPropVariantFromCLSIDArray")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(members, size, ppropvar) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(members, size, ppropvar);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)members;
     (void)size;
     (void)ppropvar;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -338,10 +436,17 @@ static Napi::Value windowssys_windows_win32_devices_sensors_initPropVariantFromF
         HMODULE km_h_mod = LoadLibraryA("sensorsutilsv2.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InitPropVariantFromFloat")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(fltval, ppropvar) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(fltval, ppropvar);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)fltval;
     (void)ppropvar;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -358,10 +463,17 @@ static Napi::Value windowssys_windows_win32_devices_sensors_isCollectionListSame
         HMODULE km_h_mod = LoadLibraryA("sensorsutilsv2.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IsCollectionListSame")));
     }
-    bool km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lista, listb) : false;
+    bool km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lista, listb);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)lista;
     (void)listb;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return Napi::Boolean::New(km_env, km_res);
@@ -379,11 +491,18 @@ static Napi::Value windowssys_windows_win32_devices_sensors_isGUIDPresentInList_
         HMODULE km_h_mod = LoadLibraryA("sensorsutilsv2.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IsGUIDPresentInList")));
     }
-    bool km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(guidarray, arraylength, guidelem) : false;
+    bool km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(guidarray, arraylength, guidelem);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)guidarray;
     (void)arraylength;
     (void)guidelem;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return Napi::Boolean::New(km_env, km_res);
@@ -400,10 +519,17 @@ static Napi::Value windowssys_windows_win32_devices_sensors_isKeyPresentInCollec
         HMODULE km_h_mod = LoadLibraryA("sensorsutilsv2.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IsKeyPresentInCollectionList")));
     }
-    bool km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(plist, pkey) : false;
+    bool km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(plist, pkey);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)plist;
     (void)pkey;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return Napi::Boolean::New(km_env, km_res);
@@ -420,10 +546,17 @@ static Napi::Value windowssys_windows_win32_devices_sensors_isKeyPresentInProper
         HMODULE km_h_mod = LoadLibraryA("sensorsutilsv2.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IsKeyPresentInPropertyList")));
     }
-    bool km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(plist, pkey) : false;
+    bool km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(plist, pkey);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)plist;
     (void)pkey;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return Napi::Boolean::New(km_env, km_res);
@@ -441,11 +574,18 @@ static Napi::Value windowssys_windows_win32_devices_sensors_propKeyFindKeyGetBoo
         HMODULE km_h_mod = LoadLibraryA("sensorsutilsv2.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PropKeyFindKeyGetBool")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(plist, pkey, pretvalue) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(plist, pkey, pretvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)plist;
     (void)pkey;
     (void)pretvalue;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -463,11 +603,18 @@ static Napi::Value windowssys_windows_win32_devices_sensors_propKeyFindKeyGetDou
         HMODULE km_h_mod = LoadLibraryA("sensorsutilsv2.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PropKeyFindKeyGetDouble")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(plist, pkey, pretvalue) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(plist, pkey, pretvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)plist;
     (void)pkey;
     (void)pretvalue;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -485,11 +632,18 @@ static Napi::Value windowssys_windows_win32_devices_sensors_propKeyFindKeyGetFil
         HMODULE km_h_mod = LoadLibraryA("sensorsutilsv2.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PropKeyFindKeyGetFileTime")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(plist, pkey, pretvalue) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(plist, pkey, pretvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)plist;
     (void)pkey;
     (void)pretvalue;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -507,11 +661,18 @@ static Napi::Value windowssys_windows_win32_devices_sensors_propKeyFindKeyGetFlo
         HMODULE km_h_mod = LoadLibraryA("sensorsutilsv2.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PropKeyFindKeyGetFloat")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(plist, pkey, pretvalue) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(plist, pkey, pretvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)plist;
     (void)pkey;
     (void)pretvalue;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -529,11 +690,18 @@ static Napi::Value windowssys_windows_win32_devices_sensors_propKeyFindKeyGetGui
         HMODULE km_h_mod = LoadLibraryA("sensorsutilsv2.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PropKeyFindKeyGetGuid")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(plist, pkey, pretvalue) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(plist, pkey, pretvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)plist;
     (void)pkey;
     (void)pretvalue;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -551,11 +719,18 @@ static Napi::Value windowssys_windows_win32_devices_sensors_propKeyFindKeyGetInt
         HMODULE km_h_mod = LoadLibraryA("sensorsutilsv2.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PropKeyFindKeyGetInt32")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(plist, pkey, pretvalue) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(plist, pkey, pretvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)plist;
     (void)pkey;
     (void)pretvalue;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -573,11 +748,18 @@ static Napi::Value windowssys_windows_win32_devices_sensors_propKeyFindKeyGetInt
         HMODULE km_h_mod = LoadLibraryA("sensorsutilsv2.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PropKeyFindKeyGetInt64")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(plist, pkey, pretvalue) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(plist, pkey, pretvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)plist;
     (void)pkey;
     (void)pretvalue;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -596,12 +778,19 @@ static Napi::Value windowssys_windows_win32_devices_sensors_propKeyFindKeyGetNth
         HMODULE km_h_mod = LoadLibraryA("sensorsutilsv2.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PropKeyFindKeyGetNthInt64")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(plist, pkey, occurrence, pretvalue) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(plist, pkey, occurrence, pretvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)plist;
     (void)pkey;
     (void)occurrence;
     (void)pretvalue;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -620,12 +809,19 @@ static Napi::Value windowssys_windows_win32_devices_sensors_propKeyFindKeyGetNth
         HMODULE km_h_mod = LoadLibraryA("sensorsutilsv2.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PropKeyFindKeyGetNthUlong")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(plist, pkey, occurrence, pretvalue) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(plist, pkey, occurrence, pretvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)plist;
     (void)pkey;
     (void)occurrence;
     (void)pretvalue;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -644,12 +840,19 @@ static Napi::Value windowssys_windows_win32_devices_sensors_propKeyFindKeyGetNth
         HMODULE km_h_mod = LoadLibraryA("sensorsutilsv2.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PropKeyFindKeyGetNthUshort")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(plist, pkey, occurrence, pretvalue) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(plist, pkey, occurrence, pretvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)plist;
     (void)pkey;
     (void)occurrence;
     (void)pretvalue;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -668,12 +871,19 @@ static Napi::Value windowssys_windows_win32_devices_sensors_propKeyFindKeyGetPro
         HMODULE km_h_mod = LoadLibraryA("sensorsutilsv2.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PropKeyFindKeyGetPropVariant")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(plist, pkey, typecheck, pvalue) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(plist, pkey, typecheck, pvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)plist;
     (void)pkey;
     (void)typecheck;
     (void)pvalue;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -691,11 +901,18 @@ static Napi::Value windowssys_windows_win32_devices_sensors_propKeyFindKeyGetUlo
         HMODULE km_h_mod = LoadLibraryA("sensorsutilsv2.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PropKeyFindKeyGetUlong")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(plist, pkey, pretvalue) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(plist, pkey, pretvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)plist;
     (void)pkey;
     (void)pretvalue;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -713,11 +930,18 @@ static Napi::Value windowssys_windows_win32_devices_sensors_propKeyFindKeyGetUsh
         HMODULE km_h_mod = LoadLibraryA("sensorsutilsv2.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PropKeyFindKeyGetUshort")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(plist, pkey, pretvalue) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(plist, pkey, pretvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)plist;
     (void)pkey;
     (void)pretvalue;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -736,12 +960,19 @@ static Napi::Value windowssys_windows_win32_devices_sensors_propKeyFindKeySetPro
         HMODULE km_h_mod = LoadLibraryA("sensorsutilsv2.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PropKeyFindKeySetPropVariant")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(plist, pkey, typecheck, pvalue) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(plist, pkey, typecheck, pvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)plist;
     (void)pkey;
     (void)typecheck;
     (void)pvalue;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -761,13 +992,20 @@ static Napi::Value windowssys_windows_win32_devices_sensors_propVariantGetInform
         HMODULE km_h_mod = LoadLibraryA("sensorsutilsv2.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PropVariantGetInformation")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(propvariantvalue, propvariantoffset, propvariantsize, propvariantpointer, remappedtype) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(propvariantvalue, propvariantoffset, propvariantsize, propvariantpointer, remappedtype);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)propvariantvalue;
     (void)propvariantoffset;
     (void)propvariantsize;
     (void)propvariantpointer;
     (void)remappedtype;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -784,10 +1022,17 @@ static Napi::Value windowssys_windows_win32_devices_sensors_propertiesListCopy_n
         HMODULE km_h_mod = LoadLibraryA("sensorsutilsv2.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PropertiesListCopy")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(target, source) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(target, source);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)target;
     (void)source;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -803,9 +1048,16 @@ static Napi::Value windowssys_windows_win32_devices_sensors_propertiesListGetFil
         HMODULE km_h_mod = LoadLibraryA("sensorsutilsv2.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PropertiesListGetFillableCount")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(buffersizebytes) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(buffersizebytes);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)buffersizebytes;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -824,12 +1076,19 @@ static Napi::Value windowssys_windows_win32_devices_sensors_sensorCollectionGetA
         HMODULE km_h_mod = LoadLibraryA("sensorsutilsv2.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SensorCollectionGetAt")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(arg_0_index, psensorslist, pkey, pvalue) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(arg_0_index, psensorslist, pkey, pvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)arg_0_index;
     (void)psensorslist;
     (void)pkey;
     (void)pvalue;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -846,10 +1105,17 @@ static Napi::Value windowssys_windows_win32_devices_sensors_serializationBufferA
         HMODULE km_h_mod = LoadLibraryA("sensorsutilsv2.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SerializationBufferAllocate")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sizeinbytes, pbuffer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sizeinbytes, pbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sizeinbytes;
     (void)pbuffer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -865,9 +1131,14 @@ static Napi::Value windowssys_windows_win32_devices_sensors_serializationBufferF
         HMODULE km_h_mod = LoadLibraryA("sensorsutilsv2.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SerializationBufferFree")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(buffer);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(buffer);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)buffer;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }

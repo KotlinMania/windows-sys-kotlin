@@ -5,6 +5,7 @@
 #include <stdbool.h>
 #include <stddef.h>
 #include <stdint.h>
+#include <stdlib.h>
 #include <errno.h>
 #ifdef _WIN32
 #ifndef WIN32_LEAN_AND_MEAN
@@ -28,7 +29,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("xolehlp.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DtcGetTransactionManager");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)i_pszhost, (void*)(uintptr_t)i_psztmname, (void*)(uintptr_t)i_riid, (uint32_t)i_dwreserved1, (uint16_t)i_wcbreserved2, (void*)(uintptr_t)i_pvreserved2, (void*)(uintptr_t)o_ppvobject) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)i_pszhost, (void*)(uintptr_t)i_psztmname, (void*)(uintptr_t)i_riid, (uint32_t)i_dwreserved1, (uint16_t)i_wcbreserved2, (void*)(uintptr_t)i_pvreserved2, (void*)(uintptr_t)o_ppvobject);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)i_pszhost;
     (void)i_psztmname;
@@ -37,6 +44,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     (void)i_wcbreserved2;
     (void)i_pvreserved2;
     (void)o_ppvobject;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -52,7 +60,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("xolehlp.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DtcGetTransactionManagerC");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)i_pszhost, (void*)(uintptr_t)i_psztmname, (void*)(uintptr_t)i_riid, (uint32_t)i_dwreserved1, (uint16_t)i_wcbreserved2, (void*)(uintptr_t)i_pvreserved2, (void*)(uintptr_t)o_ppvobject) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)i_pszhost, (void*)(uintptr_t)i_psztmname, (void*)(uintptr_t)i_riid, (uint32_t)i_dwreserved1, (uint16_t)i_wcbreserved2, (void*)(uintptr_t)i_pvreserved2, (void*)(uintptr_t)o_ppvobject);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)i_pszhost;
     (void)i_psztmname;
@@ -61,6 +75,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     (void)i_wcbreserved2;
     (void)i_pvreserved2;
     (void)o_ppvobject;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -76,7 +91,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("xolehlp.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DtcGetTransactionManagerExA");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)i_pszhost, (void*)(uintptr_t)i_psztmname, (void*)(uintptr_t)i_riid, (uint32_t)i_grfoptions, (void*)(uintptr_t)i_pvconfigparams, (void*)(uintptr_t)o_ppvobject) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)i_pszhost, (void*)(uintptr_t)i_psztmname, (void*)(uintptr_t)i_riid, (uint32_t)i_grfoptions, (void*)(uintptr_t)i_pvconfigparams, (void*)(uintptr_t)o_ppvobject);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)i_pszhost;
     (void)i_psztmname;
@@ -84,6 +105,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     (void)i_grfoptions;
     (void)i_pvconfigparams;
     (void)o_ppvobject;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -99,7 +121,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("xolehlp.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DtcGetTransactionManagerExW");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)i_pwszhost, (void*)(uintptr_t)i_pwsztmname, (void*)(uintptr_t)i_riid, (uint32_t)i_grfoptions, (void*)(uintptr_t)i_pvconfigparams, (void*)(uintptr_t)o_ppvobject) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)i_pwszhost, (void*)(uintptr_t)i_pwsztmname, (void*)(uintptr_t)i_riid, (uint32_t)i_grfoptions, (void*)(uintptr_t)i_pvconfigparams, (void*)(uintptr_t)o_ppvobject);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)i_pwszhost;
     (void)i_pwsztmname;
@@ -107,6 +135,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
     (void)i_grfoptions;
     (void)i_pvconfigparams;
     (void)o_ppvobject;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;

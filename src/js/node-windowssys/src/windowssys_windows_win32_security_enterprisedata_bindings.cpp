@@ -62,10 +62,17 @@ static Napi::Value windowssys_windows_win32_security_enterprisedata_protectFileT
         HMODULE km_h_mod = LoadLibraryA("efswrt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ProtectFileToEnterpriseIdentity")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(fileorfolderpath, identity) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(fileorfolderpath, identity);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)fileorfolderpath;
     (void)identity;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -81,9 +88,16 @@ static Napi::Value windowssys_windows_win32_security_enterprisedata_srpCloseThre
         HMODULE km_h_mod = LoadLibraryA("srpapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SrpCloseThreadNetworkContext")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(threadnetworkcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(threadnetworkcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)threadnetworkcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -100,10 +114,17 @@ static Napi::Value windowssys_windows_win32_security_enterprisedata_srpCreateThr
         HMODULE km_h_mod = LoadLibraryA("srpapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SrpCreateThreadNetworkContext")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enterpriseid, threadnetworkcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enterpriseid, threadnetworkcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enterpriseid;
     (void)threadnetworkcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -118,8 +139,15 @@ static Napi::Value windowssys_windows_win32_security_enterprisedata_srpDisablePe
         HMODULE km_h_mod = LoadLibraryA("srpapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SrpDisablePermissiveModeFileEncryption")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -136,10 +164,17 @@ static Napi::Value windowssys_windows_win32_security_enterprisedata_srpDoesPolic
         HMODULE km_h_mod = LoadLibraryA("srpapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SrpDoesPolicyAllowAppExecution")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(packageid, isallowed) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(packageid, isallowed);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)packageid;
     (void)isallowed;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -155,9 +190,16 @@ static Napi::Value windowssys_windows_win32_security_enterprisedata_srpEnablePer
         HMODULE km_h_mod = LoadLibraryA("srpapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SrpEnablePermissiveModeFileEncryption")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(enterpriseid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(enterpriseid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)enterpriseid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -176,12 +218,19 @@ static Napi::Value windowssys_windows_win32_security_enterprisedata_srpGetEnterp
         HMODULE km_h_mod = LoadLibraryA("srpapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SrpGetEnterpriseIds")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(tokenhandle, numberofbytes, enterpriseids, enterpriseidcount) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(tokenhandle, numberofbytes, enterpriseids, enterpriseidcount);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)tokenhandle;
     (void)numberofbytes;
     (void)enterpriseids;
     (void)enterpriseidcount;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -198,10 +247,17 @@ static Napi::Value windowssys_windows_win32_security_enterprisedata_srpGetEnterp
         HMODULE km_h_mod = LoadLibraryA("srpapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SrpGetEnterprisePolicy")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(tokenhandle, policyflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(tokenhandle, policyflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)tokenhandle;
     (void)policyflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -220,12 +276,19 @@ static Napi::Value windowssys_windows_win32_security_enterprisedata_srpHostingIn
         HMODULE km_h_mod = LoadLibraryA("srpapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SrpHostingInitialize")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(version, type, pvdata, cbdata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(version, type, pvdata, cbdata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)version;
     (void)type;
     (void)pvdata;
     (void)cbdata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -241,9 +304,14 @@ static Napi::Value windowssys_windows_win32_security_enterprisedata_srpHostingTe
         HMODULE km_h_mod = LoadLibraryA("srpapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SrpHostingTerminate")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(type);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(type);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)type;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -259,10 +327,17 @@ static Napi::Value windowssys_windows_win32_security_enterprisedata_srpIsTokenSe
         HMODULE km_h_mod = LoadLibraryA("srpapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SrpIsTokenService")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(tokenhandle, istokenservice) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(tokenhandle, istokenservice);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)tokenhandle;
     (void)istokenservice;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -279,10 +354,17 @@ static Napi::Value windowssys_windows_win32_security_enterprisedata_srpSetTokenE
         HMODULE km_h_mod = LoadLibraryA("srpapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SrpSetTokenEnterpriseId")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(tokenhandle, enterpriseid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(tokenhandle, enterpriseid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)tokenhandle;
     (void)enterpriseid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -299,10 +381,17 @@ static Napi::Value windowssys_windows_win32_security_enterprisedata_unprotectFil
         HMODULE km_h_mod = LoadLibraryA("efswrt.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UnprotectFile")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(fileorfolderpath, options) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(fileorfolderpath, options);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)fileorfolderpath;
     (void)options;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

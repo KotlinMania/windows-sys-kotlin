@@ -61,9 +61,16 @@ static Napi::Value windowssys_windows_win32_system_grouppolicy_browseForGPO_napi
         HMODULE km_h_mod = LoadLibraryA("gpedit.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "BrowseForGPO")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpbrowseinfo) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpbrowseinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpbrowseinfo;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -81,11 +88,18 @@ static Napi::Value windowssys_windows_win32_system_grouppolicy_commandLineFromMs
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CommandLineFromMsiDescriptor")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(descriptor, commandline, commandlinelength) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(descriptor, commandline, commandlinelength);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)descriptor;
     (void)commandline;
     (void)commandlinelength;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -103,11 +117,18 @@ static Napi::Value windowssys_windows_win32_system_grouppolicy_createGPOLink_nap
         HMODULE km_h_mod = LoadLibraryA("gpedit.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateGPOLink")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpgpo, lpcontainer, fhighpriority) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpgpo, lpcontainer, fhighpriority);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpgpo;
     (void)lpcontainer;
     (void)fhighpriority;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -123,9 +144,16 @@ static Napi::Value windowssys_windows_win32_system_grouppolicy_deleteAllGPOLinks
         HMODULE km_h_mod = LoadLibraryA("gpedit.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DeleteAllGPOLinks")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpcontainer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpcontainer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpcontainer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -142,10 +170,17 @@ static Napi::Value windowssys_windows_win32_system_grouppolicy_deleteGPOLink_nap
         HMODULE km_h_mod = LoadLibraryA("gpedit.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DeleteGPOLink")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpgpo, lpcontainer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpgpo, lpcontainer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpgpo;
     (void)lpcontainer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -161,10 +196,17 @@ static Napi::Value windowssys_windows_win32_system_grouppolicy_enterCriticalPoli
         HMODULE km_h_mod = LoadLibraryA("userenv.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EnterCriticalPolicySection")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bmachine) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)bmachine;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -180,10 +222,17 @@ static Napi::Value windowssys_windows_win32_system_grouppolicy_exportRSoPData_na
         HMODULE km_h_mod = LoadLibraryA("gpedit.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ExportRSoPData")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpnamespace, lpfilename) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpnamespace, lpfilename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpnamespace;
     (void)lpfilename;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -199,9 +248,16 @@ static Napi::Value windowssys_windows_win32_system_grouppolicy_freeGPOListA_napi
         HMODULE km_h_mod = LoadLibraryA("userenv.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FreeGPOListA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pgpolist) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pgpolist);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pgpolist;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -217,9 +273,16 @@ static Napi::Value windowssys_windows_win32_system_grouppolicy_freeGPOListW_napi
         HMODULE km_h_mod = LoadLibraryA("userenv.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FreeGPOListW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pgpolist) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pgpolist);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pgpolist;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -237,11 +300,18 @@ static Napi::Value windowssys_windows_win32_system_grouppolicy_generateGPNotific
         HMODULE km_h_mod = LoadLibraryA("userenv.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GenerateGPNotification")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bmachine, lpwszmgmtproduct, dwmgmtproductoptions) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bmachine, lpwszmgmtproduct, dwmgmtproductoptions);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)bmachine;
     (void)lpwszmgmtproduct;
     (void)dwmgmtproductoptions;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -261,13 +331,20 @@ static Napi::Value windowssys_windows_win32_system_grouppolicy_getAppliedGPOList
         HMODULE km_h_mod = LoadLibraryA("userenv.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetAppliedGPOListA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwflags, pmachinename, psiduser, pguidextension, ppgpolist) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwflags, pmachinename, psiduser, pguidextension, ppgpolist);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dwflags;
     (void)pmachinename;
     (void)psiduser;
     (void)pguidextension;
     (void)ppgpolist;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -287,13 +364,20 @@ static Napi::Value windowssys_windows_win32_system_grouppolicy_getAppliedGPOList
         HMODULE km_h_mod = LoadLibraryA("userenv.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetAppliedGPOListW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwflags, pmachinename, psiduser, pguidextension, ppgpolist) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwflags, pmachinename, psiduser, pguidextension, ppgpolist);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dwflags;
     (void)pmachinename;
     (void)psiduser;
     (void)pguidextension;
     (void)ppgpolist;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -314,7 +398,13 @@ static Napi::Value windowssys_windows_win32_system_grouppolicy_getGPOListA_napi(
         HMODULE km_h_mod = LoadLibraryA("userenv.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetGPOListA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(htoken, lpname, lphostname, lpcomputername, dwflags, pgpolist) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(htoken, lpname, lphostname, lpcomputername, dwflags, pgpolist);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)htoken;
     (void)lpname;
@@ -322,6 +412,7 @@ static Napi::Value windowssys_windows_win32_system_grouppolicy_getGPOListA_napi(
     (void)lpcomputername;
     (void)dwflags;
     (void)pgpolist;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -342,7 +433,13 @@ static Napi::Value windowssys_windows_win32_system_grouppolicy_getGPOListW_napi(
         HMODULE km_h_mod = LoadLibraryA("userenv.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetGPOListW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(htoken, lpname, lphostname, lpcomputername, dwflags, pgpolist) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(htoken, lpname, lphostname, lpcomputername, dwflags, pgpolist);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)htoken;
     (void)lpname;
@@ -350,6 +447,7 @@ static Napi::Value windowssys_windows_win32_system_grouppolicy_getGPOListW_napi(
     (void)lpcomputername;
     (void)dwflags;
     (void)pgpolist;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -367,11 +465,16 @@ static Napi::Value windowssys_windows_win32_system_grouppolicy_getLocalManagedAp
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetLocalManagedApplicationData")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(productcode, displayname, supporturl);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(productcode, displayname, supporturl);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)productcode;
     (void)displayname;
     (void)supporturl;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -388,11 +491,18 @@ static Napi::Value windowssys_windows_win32_system_grouppolicy_getLocalManagedAp
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetLocalManagedApplications")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(buserapps, pdwapps, prglocalapps) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(buserapps, pdwapps, prglocalapps);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)buserapps;
     (void)pdwapps;
     (void)prglocalapps;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -409,10 +519,17 @@ static Napi::Value windowssys_windows_win32_system_grouppolicy_getManagedApplica
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetManagedApplicationCategories")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwreserved, pappcategory) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwreserved, pappcategory);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dwreserved;
     (void)pappcategory;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -432,13 +549,20 @@ static Napi::Value windowssys_windows_win32_system_grouppolicy_getManagedApplica
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetManagedApplications")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pcategory, dwqueryflags, dwinfolevel, pdwapps, prgmanagedapps) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pcategory, dwqueryflags, dwinfolevel, pdwapps, prgmanagedapps);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pcategory;
     (void)dwqueryflags;
     (void)dwinfolevel;
     (void)pdwapps;
     (void)prgmanagedapps;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -455,10 +579,17 @@ static Napi::Value windowssys_windows_win32_system_grouppolicy_importRSoPData_na
         HMODULE km_h_mod = LoadLibraryA("gpedit.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ImportRSoPData")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpnamespace, lpfilename) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpnamespace, lpfilename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpnamespace;
     (void)lpfilename;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -474,9 +605,16 @@ static Napi::Value windowssys_windows_win32_system_grouppolicy_installApplicatio
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InstallApplication")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pinstallinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pinstallinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)pinstallinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -492,9 +630,16 @@ static Napi::Value windowssys_windows_win32_system_grouppolicy_leaveCriticalPoli
         HMODULE km_h_mod = LoadLibraryA("userenv.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LeaveCriticalPolicySection")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hsection) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hsection);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hsection;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -512,11 +657,18 @@ static Napi::Value windowssys_windows_win32_system_grouppolicy_processGroupPolic
         HMODULE km_h_mod = LoadLibraryA("userenv.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ProcessGroupPolicyCompleted")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(extensionid, pasynchandle, dwstatus) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(extensionid, pasynchandle, dwstatus);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)extensionid;
     (void)pasynchandle;
     (void)dwstatus;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -535,12 +687,19 @@ static Napi::Value windowssys_windows_win32_system_grouppolicy_processGroupPolic
         HMODULE km_h_mod = LoadLibraryA("userenv.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ProcessGroupPolicyCompletedEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(extensionid, pasynchandle, dwstatus, rsopstatus) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(extensionid, pasynchandle, dwstatus, rsopstatus);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)extensionid;
     (void)pasynchandle;
     (void)dwstatus;
     (void)rsopstatus;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -556,9 +715,16 @@ static Napi::Value windowssys_windows_win32_system_grouppolicy_refreshPolicy_nap
         HMODULE km_h_mod = LoadLibraryA("userenv.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RefreshPolicy")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bmachine) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bmachine;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -575,10 +741,17 @@ static Napi::Value windowssys_windows_win32_system_grouppolicy_refreshPolicyEx_n
         HMODULE km_h_mod = LoadLibraryA("userenv.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RefreshPolicyEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bmachine, dwoptions) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bmachine, dwoptions);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bmachine;
     (void)dwoptions;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -595,10 +768,17 @@ static Napi::Value windowssys_windows_win32_system_grouppolicy_registerGPNotific
         HMODULE km_h_mod = LoadLibraryA("userenv.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegisterGPNotification")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hevent, bmachine) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hevent, bmachine);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hevent;
     (void)bmachine;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -624,7 +804,13 @@ static Napi::Value windowssys_windows_win32_system_grouppolicy_rsopAccessCheckBy
         HMODULE km_h_mod = LoadLibraryA("userenv.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RsopAccessCheckByType")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(psecuritydescriptor, pprincipalselfsid, prsoptoken, dwdesiredaccessmask, pobjecttypelist, objecttypelistlength, pgenericmapping, pprivilegeset, pdwprivilegesetlength, pdwgrantedaccessmask, pbaccessstatus) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(psecuritydescriptor, pprincipalselfsid, prsoptoken, dwdesiredaccessmask, pobjecttypelist, objecttypelistlength, pgenericmapping, pprivilegeset, pdwprivilegesetlength, pdwgrantedaccessmask, pbaccessstatus);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)psecuritydescriptor;
     (void)pprincipalselfsid;
@@ -637,6 +823,7 @@ static Napi::Value windowssys_windows_win32_system_grouppolicy_rsopAccessCheckBy
     (void)pdwprivilegesetlength;
     (void)pdwgrantedaccessmask;
     (void)pbaccessstatus;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -656,13 +843,20 @@ static Napi::Value windowssys_windows_win32_system_grouppolicy_rsopFileAccessChe
         HMODULE km_h_mod = LoadLibraryA("userenv.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RsopFileAccessCheck")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszfilename, prsoptoken, dwdesiredaccessmask, pdwgrantedaccessmask, pbaccessstatus) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszfilename, prsoptoken, dwdesiredaccessmask, pdwgrantedaccessmask, pbaccessstatus);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszfilename;
     (void)prsoptoken;
     (void)dwdesiredaccessmask;
     (void)pdwgrantedaccessmask;
     (void)pbaccessstatus;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -680,11 +874,18 @@ static Napi::Value windowssys_windows_win32_system_grouppolicy_rsopResetPolicySe
         HMODULE km_h_mod = LoadLibraryA("userenv.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RsopResetPolicySettingStatus")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwflags, pservices, psettinginstance) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwflags, pservices, psettinginstance);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwflags;
     (void)pservices;
     (void)psettinginstance;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -704,13 +905,20 @@ static Napi::Value windowssys_windows_win32_system_grouppolicy_rsopSetPolicySett
         HMODULE km_h_mod = LoadLibraryA("userenv.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RsopSetPolicySettingStatus")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwflags, pservices, psettinginstance, ninfo, pstatus) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwflags, pservices, psettinginstance, ninfo, pstatus);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwflags;
     (void)pservices;
     (void)psettinginstance;
     (void)ninfo;
     (void)pstatus;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -727,10 +935,17 @@ static Napi::Value windowssys_windows_win32_system_grouppolicy_uninstallApplicat
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UninstallApplication")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(productcode, dwstatus) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(productcode, dwstatus);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)productcode;
     (void)dwstatus;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -746,9 +961,16 @@ static Napi::Value windowssys_windows_win32_system_grouppolicy_unregisterGPNotif
         HMODULE km_h_mod = LoadLibraryA("userenv.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UnregisterGPNotification")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hevent) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hevent);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hevent;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

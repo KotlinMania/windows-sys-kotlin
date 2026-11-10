@@ -62,10 +62,17 @@ static Napi::Value windowssys_windows_win32_system_js_jsAddRef_napi(const Napi::
         HMODULE km_h_mod = LoadLibraryA("chakra.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JsAddRef")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ref, count) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ref, count);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ref;
     (void)count;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -82,10 +89,17 @@ static Napi::Value windowssys_windows_win32_system_js_jsBoolToBoolean_napi(const
         HMODULE km_h_mod = LoadLibraryA("chakra.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JsBoolToBoolean")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(value, booleanvalue) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(value, booleanvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)value;
     (void)booleanvalue;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -102,10 +116,17 @@ static Napi::Value windowssys_windows_win32_system_js_jsBooleanToBool_napi(const
         HMODULE km_h_mod = LoadLibraryA("chakra.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JsBooleanToBool")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(value, boolvalue) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(value, boolvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)value;
     (void)boolvalue;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -124,12 +145,19 @@ static Napi::Value windowssys_windows_win32_system_js_jsCallFunction_napi(const 
         HMODULE km_h_mod = LoadLibraryA("chakra.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JsCallFunction")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(function, arguments, argumentcount, result) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(function, arguments, argumentcount, result);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)function;
     (void)arguments;
     (void)argumentcount;
     (void)result;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -145,9 +173,16 @@ static Napi::Value windowssys_windows_win32_system_js_jsCollectGarbage_napi(cons
         HMODULE km_h_mod = LoadLibraryA("chakra.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JsCollectGarbage")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(runtime) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(runtime);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)runtime;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -166,12 +201,19 @@ static Napi::Value windowssys_windows_win32_system_js_jsConstructObject_napi(con
         HMODULE km_h_mod = LoadLibraryA("chakra.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JsConstructObject")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(function, arguments, argumentcount, result) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(function, arguments, argumentcount, result);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)function;
     (void)arguments;
     (void)argumentcount;
     (void)result;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -188,10 +230,17 @@ static Napi::Value windowssys_windows_win32_system_js_jsConvertValueToBoolean_na
         HMODULE km_h_mod = LoadLibraryA("chakra.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JsConvertValueToBoolean")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(value, booleanvalue) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(value, booleanvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)value;
     (void)booleanvalue;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -208,10 +257,17 @@ static Napi::Value windowssys_windows_win32_system_js_jsConvertValueToNumber_nap
         HMODULE km_h_mod = LoadLibraryA("chakra.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JsConvertValueToNumber")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(value, numbervalue) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(value, numbervalue);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)value;
     (void)numbervalue;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -228,10 +284,17 @@ static Napi::Value windowssys_windows_win32_system_js_jsConvertValueToObject_nap
         HMODULE km_h_mod = LoadLibraryA("chakra.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JsConvertValueToObject")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(value, object) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(value, object);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)value;
     (void)object;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -248,10 +311,17 @@ static Napi::Value windowssys_windows_win32_system_js_jsConvertValueToString_nap
         HMODULE km_h_mod = LoadLibraryA("chakra.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JsConvertValueToString")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(value, stringvalue) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(value, stringvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)value;
     (void)stringvalue;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -268,10 +338,17 @@ static Napi::Value windowssys_windows_win32_system_js_jsCreateArray_napi(const N
         HMODULE km_h_mod = LoadLibraryA("chakra.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JsCreateArray")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(length, result) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(length, result);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)length;
     (void)result;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -288,10 +365,17 @@ static Napi::Value windowssys_windows_win32_system_js_jsCreateError_napi(const N
         HMODULE km_h_mod = LoadLibraryA("chakra.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JsCreateError")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(message, error) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(message, error);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)message;
     (void)error;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -309,11 +393,18 @@ static Napi::Value windowssys_windows_win32_system_js_jsCreateExternalObject_nap
         HMODULE km_h_mod = LoadLibraryA("chakra.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JsCreateExternalObject")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(data, finalizecallback, object) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(data, finalizecallback, object);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)data;
     (void)finalizecallback;
     (void)object;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -331,11 +422,18 @@ static Napi::Value windowssys_windows_win32_system_js_jsCreateFunction_napi(cons
         HMODULE km_h_mod = LoadLibraryA("chakra.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JsCreateFunction")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(nativefunction, callbackstate, function) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(nativefunction, callbackstate, function);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)nativefunction;
     (void)callbackstate;
     (void)function;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -351,9 +449,16 @@ static Napi::Value windowssys_windows_win32_system_js_jsCreateObject_napi(const 
         HMODULE km_h_mod = LoadLibraryA("chakra.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JsCreateObject")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(object) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(object);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)object;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -370,10 +475,17 @@ static Napi::Value windowssys_windows_win32_system_js_jsCreateRangeError_napi(co
         HMODULE km_h_mod = LoadLibraryA("chakra.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JsCreateRangeError")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(message, error) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(message, error);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)message;
     (void)error;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -390,10 +502,17 @@ static Napi::Value windowssys_windows_win32_system_js_jsCreateReferenceError_nap
         HMODULE km_h_mod = LoadLibraryA("chakra.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JsCreateReferenceError")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(message, error) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(message, error);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)message;
     (void)error;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -412,12 +531,19 @@ static Napi::Value windowssys_windows_win32_system_js_jsCreateRuntime_napi(const
         HMODULE km_h_mod = LoadLibraryA("chakra.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JsCreateRuntime")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(attributes, runtimeversion, threadservice, runtime) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(attributes, runtimeversion, threadservice, runtime);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)attributes;
     (void)runtimeversion;
     (void)threadservice;
     (void)runtime;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -434,10 +560,17 @@ static Napi::Value windowssys_windows_win32_system_js_jsCreateSyntaxError_napi(c
         HMODULE km_h_mod = LoadLibraryA("chakra.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JsCreateSyntaxError")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(message, error) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(message, error);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)message;
     (void)error;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -454,10 +587,17 @@ static Napi::Value windowssys_windows_win32_system_js_jsCreateTypeError_napi(con
         HMODULE km_h_mod = LoadLibraryA("chakra.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JsCreateTypeError")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(message, error) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(message, error);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)message;
     (void)error;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -474,10 +614,17 @@ static Napi::Value windowssys_windows_win32_system_js_jsCreateURIError_napi(cons
         HMODULE km_h_mod = LoadLibraryA("chakra.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JsCreateURIError")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(message, error) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(message, error);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)message;
     (void)error;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -496,12 +643,19 @@ static Napi::Value windowssys_windows_win32_system_js_jsDefineProperty_napi(cons
         HMODULE km_h_mod = LoadLibraryA("chakra.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JsDefineProperty")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(object, propertyid, propertydescriptor, result) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(object, propertyid, propertydescriptor, result);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)object;
     (void)propertyid;
     (void)propertydescriptor;
     (void)result;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -518,10 +672,17 @@ static Napi::Value windowssys_windows_win32_system_js_jsDeleteIndexedProperty_na
         HMODULE km_h_mod = LoadLibraryA("chakra.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JsDeleteIndexedProperty")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(object, arg_1_index) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(object, arg_1_index);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)object;
     (void)arg_1_index;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -540,12 +701,19 @@ static Napi::Value windowssys_windows_win32_system_js_jsDeleteProperty_napi(cons
         HMODULE km_h_mod = LoadLibraryA("chakra.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JsDeleteProperty")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(object, propertyid, usestrictrules, result) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(object, propertyid, usestrictrules, result);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)object;
     (void)propertyid;
     (void)usestrictrules;
     (void)result;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -561,9 +729,16 @@ static Napi::Value windowssys_windows_win32_system_js_jsDisableRuntimeExecution_
         HMODULE km_h_mod = LoadLibraryA("chakra.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JsDisableRuntimeExecution")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(runtime) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(runtime);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)runtime;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -579,9 +754,16 @@ static Napi::Value windowssys_windows_win32_system_js_jsDisposeRuntime_napi(cons
         HMODULE km_h_mod = LoadLibraryA("chakra.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JsDisposeRuntime")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(runtime) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(runtime);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)runtime;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -598,10 +780,17 @@ static Napi::Value windowssys_windows_win32_system_js_jsDoubleToNumber_napi(cons
         HMODULE km_h_mod = LoadLibraryA("chakra.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JsDoubleToNumber")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(doublevalue, value) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(doublevalue, value);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)doublevalue;
     (void)value;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -617,9 +806,16 @@ static Napi::Value windowssys_windows_win32_system_js_jsEnableRuntimeExecution_n
         HMODULE km_h_mod = LoadLibraryA("chakra.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JsEnableRuntimeExecution")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(runtime) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(runtime);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)runtime;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -637,11 +833,18 @@ static Napi::Value windowssys_windows_win32_system_js_jsEquals_napi(const Napi::
         HMODULE km_h_mod = LoadLibraryA("chakra.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JsEquals")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(object1, object2, result) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(object1, object2, result);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)object1;
     (void)object2;
     (void)result;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -657,9 +860,16 @@ static Napi::Value windowssys_windows_win32_system_js_jsGetAndClearException_nap
         HMODULE km_h_mod = LoadLibraryA("chakra.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JsGetAndClearException")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(exception) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(exception);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)exception;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -675,9 +885,16 @@ static Napi::Value windowssys_windows_win32_system_js_jsGetCurrentContext_napi(c
         HMODULE km_h_mod = LoadLibraryA("chakra.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JsGetCurrentContext")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(currentcontext) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(currentcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)currentcontext;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -694,10 +911,17 @@ static Napi::Value windowssys_windows_win32_system_js_jsGetExtensionAllowed_napi
         HMODULE km_h_mod = LoadLibraryA("chakra.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JsGetExtensionAllowed")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(object, value) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(object, value);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)object;
     (void)value;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -714,10 +938,17 @@ static Napi::Value windowssys_windows_win32_system_js_jsGetExternalData_napi(con
         HMODULE km_h_mod = LoadLibraryA("chakra.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JsGetExternalData")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(object, externaldata) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(object, externaldata);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)object;
     (void)externaldata;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -733,9 +964,16 @@ static Napi::Value windowssys_windows_win32_system_js_jsGetFalseValue_napi(const
         HMODULE km_h_mod = LoadLibraryA("chakra.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JsGetFalseValue")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(falsevalue) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(falsevalue);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)falsevalue;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -751,9 +989,16 @@ static Napi::Value windowssys_windows_win32_system_js_jsGetGlobalObject_napi(con
         HMODULE km_h_mod = LoadLibraryA("chakra.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JsGetGlobalObject")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(globalobject) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(globalobject);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)globalobject;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -771,11 +1016,18 @@ static Napi::Value windowssys_windows_win32_system_js_jsGetIndexedProperty_napi(
         HMODULE km_h_mod = LoadLibraryA("chakra.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JsGetIndexedProperty")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(object, arg_1_index, result) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(object, arg_1_index, result);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)object;
     (void)arg_1_index;
     (void)result;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -791,9 +1043,16 @@ static Napi::Value windowssys_windows_win32_system_js_jsGetNullValue_napi(const 
         HMODULE km_h_mod = LoadLibraryA("chakra.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JsGetNullValue")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(nullvalue) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(nullvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)nullvalue;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -811,11 +1070,18 @@ static Napi::Value windowssys_windows_win32_system_js_jsGetOwnPropertyDescriptor
         HMODULE km_h_mod = LoadLibraryA("chakra.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JsGetOwnPropertyDescriptor")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(object, propertyid, propertydescriptor) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(object, propertyid, propertydescriptor);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)object;
     (void)propertyid;
     (void)propertydescriptor;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -832,10 +1098,17 @@ static Napi::Value windowssys_windows_win32_system_js_jsGetOwnPropertyNames_napi
         HMODULE km_h_mod = LoadLibraryA("chakra.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JsGetOwnPropertyNames")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(object, propertynames) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(object, propertynames);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)object;
     (void)propertynames;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -853,11 +1126,18 @@ static Napi::Value windowssys_windows_win32_system_js_jsGetProperty_napi(const N
         HMODULE km_h_mod = LoadLibraryA("chakra.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JsGetProperty")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(object, propertyid, value) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(object, propertyid, value);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)object;
     (void)propertyid;
     (void)value;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -874,10 +1154,17 @@ static Napi::Value windowssys_windows_win32_system_js_jsGetPropertyIdFromName_na
         HMODULE km_h_mod = LoadLibraryA("chakra.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JsGetPropertyIdFromName")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(name, propertyid) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(name, propertyid);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)name;
     (void)propertyid;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -894,10 +1181,17 @@ static Napi::Value windowssys_windows_win32_system_js_jsGetPropertyNameFromId_na
         HMODULE km_h_mod = LoadLibraryA("chakra.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JsGetPropertyNameFromId")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(propertyid, name) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(propertyid, name);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)propertyid;
     (void)name;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -914,10 +1208,17 @@ static Napi::Value windowssys_windows_win32_system_js_jsGetPrototype_napi(const 
         HMODULE km_h_mod = LoadLibraryA("chakra.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JsGetPrototype")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(object, prototypeobject) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(object, prototypeobject);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)object;
     (void)prototypeobject;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -934,10 +1235,17 @@ static Napi::Value windowssys_windows_win32_system_js_jsGetRuntime_napi(const Na
         HMODULE km_h_mod = LoadLibraryA("chakra.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JsGetRuntime")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(context, runtime) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(context, runtime);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)context;
     (void)runtime;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -954,10 +1262,17 @@ static Napi::Value windowssys_windows_win32_system_js_jsGetRuntimeMemoryLimit_na
         HMODULE km_h_mod = LoadLibraryA("chakra.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JsGetRuntimeMemoryLimit")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(runtime, memorylimit) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(runtime, memorylimit);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)runtime;
     (void)memorylimit;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -974,10 +1289,17 @@ static Napi::Value windowssys_windows_win32_system_js_jsGetRuntimeMemoryUsage_na
         HMODULE km_h_mod = LoadLibraryA("chakra.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JsGetRuntimeMemoryUsage")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(runtime, memoryusage) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(runtime, memoryusage);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)runtime;
     (void)memoryusage;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -994,10 +1316,17 @@ static Napi::Value windowssys_windows_win32_system_js_jsGetStringLength_napi(con
         HMODULE km_h_mod = LoadLibraryA("chakra.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JsGetStringLength")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(stringvalue, length) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(stringvalue, length);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)stringvalue;
     (void)length;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1013,9 +1342,16 @@ static Napi::Value windowssys_windows_win32_system_js_jsGetTrueValue_napi(const 
         HMODULE km_h_mod = LoadLibraryA("chakra.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JsGetTrueValue")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(truevalue) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(truevalue);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)truevalue;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1031,9 +1367,16 @@ static Napi::Value windowssys_windows_win32_system_js_jsGetUndefinedValue_napi(c
         HMODULE km_h_mod = LoadLibraryA("chakra.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JsGetUndefinedValue")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(undefinedvalue) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(undefinedvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)undefinedvalue;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1050,10 +1393,17 @@ static Napi::Value windowssys_windows_win32_system_js_jsGetValueType_napi(const 
         HMODULE km_h_mod = LoadLibraryA("chakra.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JsGetValueType")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(value, type) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(value, type);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)value;
     (void)type;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1069,9 +1419,16 @@ static Napi::Value windowssys_windows_win32_system_js_jsHasException_napi(const 
         HMODULE km_h_mod = LoadLibraryA("chakra.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JsHasException")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hasexception) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hasexception);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hasexception;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1088,10 +1445,17 @@ static Napi::Value windowssys_windows_win32_system_js_jsHasExternalData_napi(con
         HMODULE km_h_mod = LoadLibraryA("chakra.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JsHasExternalData")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(object, value) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(object, value);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)object;
     (void)value;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1109,11 +1473,18 @@ static Napi::Value windowssys_windows_win32_system_js_jsHasIndexedProperty_napi(
         HMODULE km_h_mod = LoadLibraryA("chakra.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JsHasIndexedProperty")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(object, arg_1_index, result) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(object, arg_1_index, result);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)object;
     (void)arg_1_index;
     (void)result;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1131,11 +1502,18 @@ static Napi::Value windowssys_windows_win32_system_js_jsHasProperty_napi(const N
         HMODULE km_h_mod = LoadLibraryA("chakra.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JsHasProperty")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(object, propertyid, hasproperty) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(object, propertyid, hasproperty);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)object;
     (void)propertyid;
     (void)hasproperty;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1151,9 +1529,16 @@ static Napi::Value windowssys_windows_win32_system_js_jsIdle_napi(const Napi::Ca
         HMODULE km_h_mod = LoadLibraryA("chakra.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JsIdle")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(nextidletick) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(nextidletick);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)nextidletick;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1170,10 +1555,17 @@ static Napi::Value windowssys_windows_win32_system_js_jsIntToNumber_napi(const N
         HMODULE km_h_mod = LoadLibraryA("chakra.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JsIntToNumber")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(intvalue, value) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(intvalue, value);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)intvalue;
     (void)value;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1189,9 +1581,16 @@ static Napi::Value windowssys_windows_win32_system_js_jsIsEnumeratingHeap_napi(c
         HMODULE km_h_mod = LoadLibraryA("chakra.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JsIsEnumeratingHeap")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(isenumeratingheap) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(isenumeratingheap);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)isenumeratingheap;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1208,10 +1607,17 @@ static Napi::Value windowssys_windows_win32_system_js_jsIsRuntimeExecutionDisabl
         HMODULE km_h_mod = LoadLibraryA("chakra.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JsIsRuntimeExecutionDisabled")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(runtime, isdisabled) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(runtime, isdisabled);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)runtime;
     (void)isdisabled;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1228,10 +1634,17 @@ static Napi::Value windowssys_windows_win32_system_js_jsNumberToDouble_napi(cons
         HMODULE km_h_mod = LoadLibraryA("chakra.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JsNumberToDouble")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(value, doublevalue) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(value, doublevalue);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)value;
     (void)doublevalue;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1250,12 +1663,19 @@ static Napi::Value windowssys_windows_win32_system_js_jsParseScript_napi(const N
         HMODULE km_h_mod = LoadLibraryA("chakra.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JsParseScript")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(script, sourcecontext, sourceurl, result) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(script, sourcecontext, sourceurl, result);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)script;
     (void)sourcecontext;
     (void)sourceurl;
     (void)result;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1275,13 +1695,20 @@ static Napi::Value windowssys_windows_win32_system_js_jsParseSerializedScript_na
         HMODULE km_h_mod = LoadLibraryA("chakra.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JsParseSerializedScript")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(script, buffer, sourcecontext, sourceurl, result) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(script, buffer, sourcecontext, sourceurl, result);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)script;
     (void)buffer;
     (void)sourcecontext;
     (void)sourceurl;
     (void)result;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1299,11 +1726,18 @@ static Napi::Value windowssys_windows_win32_system_js_jsPointerToString_napi(con
         HMODULE km_h_mod = LoadLibraryA("chakra.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JsPointerToString")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(stringvalue, stringlength, value) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(stringvalue, stringlength, value);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)stringvalue;
     (void)stringlength;
     (void)value;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1319,9 +1753,16 @@ static Napi::Value windowssys_windows_win32_system_js_jsPreventExtension_napi(co
         HMODULE km_h_mod = LoadLibraryA("chakra.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JsPreventExtension")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(object) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(object);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)object;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1338,10 +1779,17 @@ static Napi::Value windowssys_windows_win32_system_js_jsRelease_napi(const Napi:
         HMODULE km_h_mod = LoadLibraryA("chakra.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JsRelease")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ref, count) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ref, count);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)ref;
     (void)count;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1360,12 +1808,19 @@ static Napi::Value windowssys_windows_win32_system_js_jsRunScript_napi(const Nap
         HMODULE km_h_mod = LoadLibraryA("chakra.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JsRunScript")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(script, sourcecontext, sourceurl, result) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(script, sourcecontext, sourceurl, result);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)script;
     (void)sourcecontext;
     (void)sourceurl;
     (void)result;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1385,13 +1840,20 @@ static Napi::Value windowssys_windows_win32_system_js_jsRunSerializedScript_napi
         HMODULE km_h_mod = LoadLibraryA("chakra.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JsRunSerializedScript")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(script, buffer, sourcecontext, sourceurl, result) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(script, buffer, sourcecontext, sourceurl, result);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)script;
     (void)buffer;
     (void)sourcecontext;
     (void)sourceurl;
     (void)result;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1409,11 +1871,18 @@ static Napi::Value windowssys_windows_win32_system_js_jsSerializeScript_napi(con
         HMODULE km_h_mod = LoadLibraryA("chakra.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JsSerializeScript")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(script, buffer, buffersize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(script, buffer, buffersize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)script;
     (void)buffer;
     (void)buffersize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1429,9 +1898,16 @@ static Napi::Value windowssys_windows_win32_system_js_jsSetCurrentContext_napi(c
         HMODULE km_h_mod = LoadLibraryA("chakra.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JsSetCurrentContext")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(context) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(context);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)context;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1447,9 +1923,16 @@ static Napi::Value windowssys_windows_win32_system_js_jsSetException_napi(const 
         HMODULE km_h_mod = LoadLibraryA("chakra.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JsSetException")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(exception) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(exception);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)exception;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1466,10 +1949,17 @@ static Napi::Value windowssys_windows_win32_system_js_jsSetExternalData_napi(con
         HMODULE km_h_mod = LoadLibraryA("chakra.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JsSetExternalData")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(object, externaldata) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(object, externaldata);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)object;
     (void)externaldata;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1487,11 +1977,18 @@ static Napi::Value windowssys_windows_win32_system_js_jsSetIndexedProperty_napi(
         HMODULE km_h_mod = LoadLibraryA("chakra.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JsSetIndexedProperty")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(object, arg_1_index, value) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(object, arg_1_index, value);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)object;
     (void)arg_1_index;
     (void)value;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1510,12 +2007,19 @@ static Napi::Value windowssys_windows_win32_system_js_jsSetProperty_napi(const N
         HMODULE km_h_mod = LoadLibraryA("chakra.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JsSetProperty")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(object, propertyid, value, usestrictrules) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(object, propertyid, value, usestrictrules);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)object;
     (void)propertyid;
     (void)value;
     (void)usestrictrules;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1532,10 +2036,17 @@ static Napi::Value windowssys_windows_win32_system_js_jsSetPrototype_napi(const 
         HMODULE km_h_mod = LoadLibraryA("chakra.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JsSetPrototype")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(object, prototypeobject) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(object, prototypeobject);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)object;
     (void)prototypeobject;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1553,11 +2064,18 @@ static Napi::Value windowssys_windows_win32_system_js_jsSetRuntimeBeforeCollectC
         HMODULE km_h_mod = LoadLibraryA("chakra.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JsSetRuntimeBeforeCollectCallback")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(runtime, callbackstate, beforecollectcallback) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(runtime, callbackstate, beforecollectcallback);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)runtime;
     (void)callbackstate;
     (void)beforecollectcallback;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1575,11 +2093,18 @@ static Napi::Value windowssys_windows_win32_system_js_jsSetRuntimeMemoryAllocati
         HMODULE km_h_mod = LoadLibraryA("chakra.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JsSetRuntimeMemoryAllocationCallback")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(runtime, callbackstate, allocationcallback) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(runtime, callbackstate, allocationcallback);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)runtime;
     (void)callbackstate;
     (void)allocationcallback;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1596,10 +2121,17 @@ static Napi::Value windowssys_windows_win32_system_js_jsSetRuntimeMemoryLimit_na
         HMODULE km_h_mod = LoadLibraryA("chakra.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JsSetRuntimeMemoryLimit")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(runtime, memorylimit) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(runtime, memorylimit);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)runtime;
     (void)memorylimit;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1615,9 +2147,16 @@ static Napi::Value windowssys_windows_win32_system_js_jsStopProfiling_napi(const
         HMODULE km_h_mod = LoadLibraryA("chakra.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JsStopProfiling")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(reason) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(reason);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)reason;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1635,11 +2174,18 @@ static Napi::Value windowssys_windows_win32_system_js_jsStrictEquals_napi(const 
         HMODULE km_h_mod = LoadLibraryA("chakra.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JsStrictEquals")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(object1, object2, result) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(object1, object2, result);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)object1;
     (void)object2;
     (void)result;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1657,11 +2203,18 @@ static Napi::Value windowssys_windows_win32_system_js_jsStringToPointer_napi(con
         HMODULE km_h_mod = LoadLibraryA("chakra.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JsStringToPointer")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(value, stringvalue, stringlength) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(value, stringvalue, stringlength);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)value;
     (void)stringvalue;
     (void)stringlength;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1678,10 +2231,17 @@ static Napi::Value windowssys_windows_win32_system_js_jsValueToVariant_napi(cons
         HMODULE km_h_mod = LoadLibraryA("chakra.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JsValueToVariant")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(object, variant) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(object, variant);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)object;
     (void)variant;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1698,10 +2258,17 @@ static Napi::Value windowssys_windows_win32_system_js_jsVariantToValue_napi(cons
         HMODULE km_h_mod = LoadLibraryA("chakra.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "JsVariantToValue")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(variant, value) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(variant, value);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)variant;
     (void)value;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

@@ -63,11 +63,18 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_accSetRunningUtilit
         HMODULE km_h_mod = LoadLibraryA("oleacc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AccSetRunningUtilityState")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwndapp, dwutilitystatemask, dwutilitystate) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwndapp, dwutilitystatemask, dwutilitystate);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwndapp;
     (void)dwutilitystatemask;
     (void)dwutilitystate;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -87,13 +94,20 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_accessibleChildren_
         HMODULE km_h_mod = LoadLibraryA("oleacc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AccessibleChildren")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pacccontainer, ichildstart, cchildren, rgvarchildren, pcobtained) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pacccontainer, ichildstart, cchildren, rgvarchildren, pcobtained);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pacccontainer;
     (void)ichildstart;
     (void)cchildren;
     (void)rgvarchildren;
     (void)pcobtained;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -113,13 +127,20 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_accessibleObjectFro
         HMODULE km_h_mod = LoadLibraryA("oleacc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AccessibleObjectFromEvent")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, dwid, dwchildid, ppacc, pvarchild) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, dwid, dwchildid, ppacc, pvarchild);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)dwid;
     (void)dwchildid;
     (void)ppacc;
     (void)pvarchild;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -138,12 +159,19 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_accessibleObjectFro
         HMODULE km_h_mod = LoadLibraryA("oleacc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AccessibleObjectFromWindow")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, dwid, riid, ppvobject) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, dwid, riid, ppvobject);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)dwid;
     (void)riid;
     (void)ppvobject;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -162,12 +190,19 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_createStdAccessible
         HMODULE km_h_mod = LoadLibraryA("oleacc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateStdAccessibleObject")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, idobject, riid, ppvobject) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, idobject, riid, ppvobject);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)idobject;
     (void)riid;
     (void)ppvobject;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -187,13 +222,20 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_createStdAccessible
         HMODULE km_h_mod = LoadLibraryA("oleacc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateStdAccessibleProxyA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, pclassname, idobject, riid, ppvobject) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, pclassname, idobject, riid, ppvobject);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)pclassname;
     (void)idobject;
     (void)riid;
     (void)ppvobject;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -213,13 +255,20 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_createStdAccessible
         HMODULE km_h_mod = LoadLibraryA("oleacc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateStdAccessibleProxyW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, pclassname, idobject, riid, ppvobject) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, pclassname, idobject, riid, ppvobject);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)pclassname;
     (void)idobject;
     (void)riid;
     (void)ppvobject;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -236,10 +285,17 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_dockPatternSetDockP
         HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DockPattern_SetDockPosition")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hobj, dockposition) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hobj, dockposition);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hobj;
     (void)dockposition;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -255,9 +311,16 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_expandCollapsePatte
         HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ExpandCollapsePattern_Collapse")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hobj) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hobj);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hobj;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -273,9 +336,16 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_expandCollapsePatte
         HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ExpandCollapsePattern_Expand")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hobj) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hobj);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hobj;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -292,10 +362,15 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_getOleaccVersionInf
         HMODULE km_h_mod = LoadLibraryA("oleacc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetOleaccVersionInfo")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pver, pbuild);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pver, pbuild);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pver;
     (void)pbuild;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -312,11 +387,18 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_getRoleTextA_napi(c
         HMODULE km_h_mod = LoadLibraryA("oleacc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetRoleTextA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lrole, lpszrole, cchrolemax) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lrole, lpszrole, cchrolemax);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lrole;
     (void)lpszrole;
     (void)cchrolemax;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -334,11 +416,18 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_getRoleTextW_napi(c
         HMODULE km_h_mod = LoadLibraryA("oleacc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetRoleTextW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lrole, lpszrole, cchrolemax) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lrole, lpszrole, cchrolemax);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lrole;
     (void)lpszrole;
     (void)cchrolemax;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -356,11 +445,18 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_getStateTextA_napi(
         HMODULE km_h_mod = LoadLibraryA("oleacc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetStateTextA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lstatebit, lpszstate, cchstate) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lstatebit, lpszstate, cchstate);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lstatebit;
     (void)lpszstate;
     (void)cchstate;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -378,11 +474,18 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_getStateTextW_napi(
         HMODULE km_h_mod = LoadLibraryA("oleacc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetStateTextW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lstatebit, lpszstate, cchstate) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lstatebit, lpszstate, cchstate);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lstatebit;
     (void)lpszstate;
     (void)cchstate;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -401,12 +504,19 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_gridPatternGetItem_
         HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GridPattern_GetItem")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hobj, row, column, presult) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hobj, row, column, presult);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hobj;
     (void)row;
     (void)column;
     (void)presult;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -422,9 +532,16 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_invokePatternInvoke
         HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "InvokePattern_Invoke")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hobj) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hobj);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hobj;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -440,9 +557,16 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_isWinEventHookInsta
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IsWinEventHookInstalled")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(event) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(event);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)event;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -458,9 +582,16 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_legacyIaccessiblePa
         HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LegacyIAccessiblePattern_DoDefaultAction")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hobj) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hobj);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hobj;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -477,10 +608,17 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_legacyIaccessiblePa
         HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LegacyIAccessiblePattern_GetIAccessible")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hobj, paccessible) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hobj, paccessible);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hobj;
     (void)paccessible;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -497,10 +635,17 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_legacyIaccessiblePa
         HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LegacyIAccessiblePattern_Select")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hobj, flagsselect) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hobj, flagsselect);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hobj;
     (void)flagsselect;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -517,10 +662,17 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_legacyIaccessiblePa
         HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LegacyIAccessiblePattern_SetValue")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hobj, szvalue) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hobj, szvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hobj;
     (void)szvalue;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -538,11 +690,18 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_lresultFromObject_n
         HMODULE km_h_mod = LoadLibraryA("oleacc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LresultFromObject")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(riid, wparam, punk) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(riid, wparam, punk);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)riid;
     (void)wparam;
     (void)punk;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -560,11 +719,18 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_multipleViewPattern
         HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MultipleViewPattern_GetViewName")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hobj, viewid, ppstr) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hobj, viewid, ppstr);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hobj;
     (void)viewid;
     (void)ppstr;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -581,10 +747,17 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_multipleViewPattern
         HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MultipleViewPattern_SetCurrentView")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hobj, viewid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hobj, viewid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hobj;
     (void)viewid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -603,12 +776,17 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_notifyWinEvent_napi
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NotifyWinEvent")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(event, hwnd, idobject, idchild);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(event, hwnd, idobject, idchild);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)event;
     (void)hwnd;
     (void)idobject;
     (void)idchild;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -626,12 +804,19 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_objectFromLresult_n
         HMODULE km_h_mod = LoadLibraryA("oleacc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ObjectFromLresult")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lresult, riid, wparam, ppvobject) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lresult, riid, wparam, ppvobject);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lresult;
     (void)riid;
     (void)wparam;
     (void)ppvobject;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -648,10 +833,17 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_rangeValuePatternSe
         HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RangeValuePattern_SetValue")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hobj, val) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hobj, val);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hobj;
     (void)val;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -668,10 +860,17 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_registerPointerInpu
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegisterPointerInputTarget")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, pointertype) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, pointertype);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)pointertype;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -689,11 +888,18 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_registerPointerInpu
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegisterPointerInputTargetEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, pointertype, fobserve) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, pointertype, fobserve);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)pointertype;
     (void)fobserve;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -709,9 +915,16 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_scrollItemPatternSc
         HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ScrollItemPattern_ScrollIntoView")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hobj) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hobj);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hobj;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -729,11 +942,18 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_scrollPatternScroll
         HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ScrollPattern_Scroll")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hobj, horizontalamount, verticalamount) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hobj, horizontalamount, verticalamount);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hobj;
     (void)horizontalamount;
     (void)verticalamount;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -751,11 +971,18 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_scrollPatternSetScr
         HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ScrollPattern_SetScrollPercent")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hobj, horizontalpercent, verticalpercent) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hobj, horizontalpercent, verticalpercent);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hobj;
     (void)horizontalpercent;
     (void)verticalpercent;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -771,9 +998,16 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_selectionItemPatter
         HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SelectionItemPattern_AddToSelection")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hobj) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hobj);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hobj;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -789,9 +1023,16 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_selectionItemPatter
         HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SelectionItemPattern_RemoveFromSelection")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hobj) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hobj);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hobj;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -807,9 +1048,16 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_selectionItemPatter
         HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SelectionItemPattern_Select")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hobj) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hobj);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hobj;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -831,7 +1079,13 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_setWinEventHook_nap
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetWinEventHook")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(eventmin, eventmax, hmodwineventproc, pfnwineventproc, idprocess, idthread, dwflags) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(eventmin, eventmax, hmodwineventproc, pfnwineventproc, idprocess, idthread, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)eventmin;
     (void)eventmax;
@@ -840,7 +1094,8 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_setWinEventHook_nap
     (void)idprocess;
     (void)idthread;
     (void)dwflags;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -855,9 +1110,16 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_synchronizedInputPa
         HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SynchronizedInputPattern_Cancel")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hobj) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hobj);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hobj;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -874,10 +1136,17 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_synchronizedInputPa
         HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SynchronizedInputPattern_StartListening")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hobj, inputtype) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hobj, inputtype);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hobj;
     (void)inputtype;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -894,10 +1163,17 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_textPatternGetSelec
         HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TextPattern_GetSelection")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hobj, pretval) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hobj, pretval);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hobj;
     (void)pretval;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -914,10 +1190,17 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_textPatternGetVisib
         HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TextPattern_GetVisibleRanges")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hobj, pretval) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hobj, pretval);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hobj;
     (void)pretval;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -935,11 +1218,18 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_textPatternRangeFro
         HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TextPattern_RangeFromChild")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hobj, hnodechild, pretval) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hobj, hnodechild, pretval);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hobj;
     (void)hnodechild;
     (void)pretval;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -956,10 +1246,17 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_textPatternGetDocum
         HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TextPattern_get_DocumentRange")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hobj, pretval) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hobj, pretval);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hobj;
     (void)pretval;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -976,10 +1273,17 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_textPatternGetSuppo
         HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TextPattern_get_SupportedTextSelection")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hobj, pretval) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hobj, pretval);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hobj;
     (void)pretval;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -995,9 +1299,16 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_textRangeAddToSelec
         HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TextRange_AddToSelection")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hobj) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hobj);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hobj;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1014,10 +1325,17 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_textRangeClone_napi
         HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TextRange_Clone")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hobj, pretval) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hobj, pretval);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hobj;
     (void)pretval;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1035,11 +1353,18 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_textRangeCompare_na
         HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TextRange_Compare")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hobj, range, pretval) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hobj, range, pretval);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hobj;
     (void)range;
     (void)pretval;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1059,13 +1384,20 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_textRangeCompareEnd
         HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TextRange_CompareEndpoints")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hobj, endpoint, targetrange, targetendpoint, pretval) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hobj, endpoint, targetrange, targetendpoint, pretval);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hobj;
     (void)endpoint;
     (void)targetrange;
     (void)targetendpoint;
     (void)pretval;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1082,10 +1414,17 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_textRangeExpandToEn
         HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TextRange_ExpandToEnclosingUnit")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hobj, unit) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hobj, unit);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hobj;
     (void)unit;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1105,13 +1444,20 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_textRangeFindText_n
         HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TextRange_FindText")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hobj, text, backward, ignorecase, pretval) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hobj, text, backward, ignorecase, pretval);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hobj;
     (void)text;
     (void)backward;
     (void)ignorecase;
     (void)pretval;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1129,11 +1475,18 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_textRangeGetAttribu
         HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TextRange_GetAttributeValue")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hobj, attributeid, pretval) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hobj, attributeid, pretval);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hobj;
     (void)attributeid;
     (void)pretval;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1150,10 +1503,17 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_textRangeGetBoundin
         HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TextRange_GetBoundingRectangles")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hobj, pretval) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hobj, pretval);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hobj;
     (void)pretval;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1170,10 +1530,17 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_textRangeGetChildre
         HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TextRange_GetChildren")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hobj, pretval) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hobj, pretval);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hobj;
     (void)pretval;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1190,10 +1557,17 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_textRangeGetEnclosi
         HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TextRange_GetEnclosingElement")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hobj, pretval) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hobj, pretval);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hobj;
     (void)pretval;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1211,11 +1585,18 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_textRangeGetText_na
         HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TextRange_GetText")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hobj, maxlength, pretval) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hobj, maxlength, pretval);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hobj;
     (void)maxlength;
     (void)pretval;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1234,12 +1615,19 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_textRangeMove_napi(
         HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TextRange_Move")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hobj, unit, count, pretval) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hobj, unit, count, pretval);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hobj;
     (void)unit;
     (void)count;
     (void)pretval;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1258,12 +1646,19 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_textRangeMoveEndpoi
         HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TextRange_MoveEndpointByRange")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hobj, endpoint, targetrange, targetendpoint) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hobj, endpoint, targetrange, targetendpoint);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hobj;
     (void)endpoint;
     (void)targetrange;
     (void)targetendpoint;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1283,13 +1678,20 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_textRangeMoveEndpoi
         HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TextRange_MoveEndpointByUnit")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hobj, endpoint, unit, count, pretval) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hobj, endpoint, unit, count, pretval);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hobj;
     (void)endpoint;
     (void)unit;
     (void)count;
     (void)pretval;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1305,9 +1707,16 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_textRangeRemoveFrom
         HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TextRange_RemoveFromSelection")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hobj) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hobj);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hobj;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1324,10 +1733,17 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_textRangeScrollInto
         HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TextRange_ScrollIntoView")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hobj, aligntotop) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hobj, aligntotop);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hobj;
     (void)aligntotop;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1343,9 +1759,16 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_textRangeSelect_nap
         HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TextRange_Select")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hobj) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hobj);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hobj;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1361,9 +1784,16 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_togglePatternToggle
         HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TogglePattern_Toggle")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hobj) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hobj);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hobj;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1381,11 +1811,18 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_transformPatternMov
         HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TransformPattern_Move")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hobj, x, y) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hobj, x, y);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hobj;
     (void)x;
     (void)y;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1403,11 +1840,18 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_transformPatternRes
         HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TransformPattern_Resize")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hobj, width, height) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hobj, width, height);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hobj;
     (void)width;
     (void)height;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1424,10 +1868,17 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_transformPatternRot
         HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "TransformPattern_Rotate")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hobj, degrees) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hobj, degrees);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hobj;
     (void)degrees;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1450,7 +1901,13 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_uiaAddEvent_napi(co
         HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UiaAddEvent")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hnode, eventid, pcallback, scope, pproperties, cproperties, prequest, phevent) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hnode, eventid, pcallback, scope, pproperties, cproperties, prequest, phevent);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hnode;
     (void)eventid;
@@ -1460,6 +1917,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_uiaAddEvent_napi(co
     (void)cproperties;
     (void)prequest;
     (void)phevent;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1474,8 +1932,15 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_uiaClientsAreListen
         HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UiaClientsAreListening")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1490,8 +1955,15 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_uiaDisconnectAllPro
         HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UiaDisconnectAllProviders")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1507,9 +1979,16 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_uiaDisconnectProvid
         HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UiaDisconnectProvider")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pprovider) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pprovider);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pprovider;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1526,10 +2005,17 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_uiaEventAddWindow_n
         HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UiaEventAddWindow")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hevent, hwnd) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hevent, hwnd);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hevent;
     (void)hwnd;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1546,10 +2032,17 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_uiaEventRemoveWindo
         HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UiaEventRemoveWindow")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hevent, hwnd) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hevent, hwnd);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hevent;
     (void)hwnd;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1570,7 +2063,13 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_uiaFind_napi(const 
         HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UiaFind")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hnode, pparams, prequest, pprequesteddata, ppoffsets, pptreestructures) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hnode, pparams, prequest, pprequesteddata, ppoffsets, pptreestructures);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hnode;
     (void)pparams;
@@ -1578,6 +2077,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_uiaFind_napi(const 
     (void)pprequesteddata;
     (void)ppoffsets;
     (void)pptreestructures;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1593,9 +2093,16 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_uiaGetErrorDescript
         HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UiaGetErrorDescription")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pdescription) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pdescription);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pdescription;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1613,11 +2120,18 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_uiaGetPatternProvid
         HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UiaGetPatternProvider")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hnode, patternid, phobj) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hnode, patternid, phobj);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hnode;
     (void)patternid;
     (void)phobj;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1635,11 +2149,18 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_uiaGetPropertyValue
         HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UiaGetPropertyValue")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hnode, propertyid, pvalue) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hnode, propertyid, pvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hnode;
     (void)propertyid;
     (void)pvalue;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1655,9 +2176,16 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_uiaGetReservedMixed
         HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UiaGetReservedMixedAttributeValue")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(punkmixedattributevalue) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(punkmixedattributevalue);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)punkmixedattributevalue;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1673,9 +2201,16 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_uiaGetReservedNotSu
         HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UiaGetReservedNotSupportedValue")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(punknotsupportedvalue) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(punknotsupportedvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)punknotsupportedvalue;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1691,9 +2226,16 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_uiaGetRootNode_napi
         HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UiaGetRootNode")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(phnode) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(phnode);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)phnode;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1710,10 +2252,17 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_uiaGetRuntimeId_nap
         HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UiaGetRuntimeId")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hnode, pruntimeid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hnode, pruntimeid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hnode;
     (void)pruntimeid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1734,7 +2283,13 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_uiaGetUpdatedCache_
         HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UiaGetUpdatedCache")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hnode, prequest, normalizestate, pnormalizecondition, pprequesteddata, pptreestructure) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hnode, prequest, normalizestate, pnormalizecondition, pprequesteddata, pptreestructure);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hnode;
     (void)prequest;
@@ -1742,6 +2297,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_uiaGetUpdatedCache_
     (void)pnormalizecondition;
     (void)pprequesteddata;
     (void)pptreestructure;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1758,10 +2314,17 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_uiaHPatternObjectFr
         HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UiaHPatternObjectFromVariant")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pvar, phobj) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pvar, phobj);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pvar;
     (void)phobj;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1778,10 +2341,17 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_uiaHTextRangeFromVa
         HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UiaHTextRangeFromVariant")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pvar, phtextrange) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pvar, phtextrange);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pvar;
     (void)phtextrange;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1798,10 +2368,17 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_uiaHUiaNodeFromVari
         HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UiaHUiaNodeFromVariant")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pvar, phnode) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pvar, phnode);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pvar;
     (void)phnode;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1817,9 +2394,16 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_uiaHasServerSidePro
         HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UiaHasServerSideProvider")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1836,10 +2420,17 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_uiaHostProviderFrom
         HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UiaHostProviderFromHwnd")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, ppprovider) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, ppprovider);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)ppprovider;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1858,12 +2449,19 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_uiaIAccessibleFromP
         HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UiaIAccessibleFromProvider")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pprovider, dwflags, ppaccessible, pvarchild) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pprovider, dwflags, ppaccessible, pvarchild);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pprovider;
     (void)dwflags;
     (void)ppaccessible;
     (void)pvarchild;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1880,10 +2478,17 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_uiaLookupId_napi(co
         HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UiaLookupId")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(type, pguid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(type, pguid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)type;
     (void)pguid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1904,7 +2509,13 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_uiaNavigate_napi(co
         HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UiaNavigate")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hnode, direction, pcondition, prequest, pprequesteddata, pptreestructure) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hnode, direction, pcondition, prequest, pprequesteddata, pptreestructure);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hnode;
     (void)direction;
@@ -1912,6 +2523,7 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_uiaNavigate_napi(co
     (void)prequest;
     (void)pprequesteddata;
     (void)pptreestructure;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1929,11 +2541,18 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_uiaNodeFromFocus_na
         HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UiaNodeFromFocus")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(prequest, pprequesteddata, pptreestructure) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(prequest, pprequesteddata, pptreestructure);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)prequest;
     (void)pprequesteddata;
     (void)pptreestructure;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1950,10 +2569,17 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_uiaNodeFromHandle_n
         HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UiaNodeFromHandle")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, phnode) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, phnode);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)phnode;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1973,13 +2599,20 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_uiaNodeFromPoint_na
         HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UiaNodeFromPoint")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(x, y, prequest, pprequesteddata, pptreestructure) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(x, y, prequest, pprequesteddata, pptreestructure);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)x;
     (void)y;
     (void)prequest;
     (void)pprequesteddata;
     (void)pptreestructure;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1996,10 +2629,17 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_uiaNodeFromProvider
         HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UiaNodeFromProvider")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pprovider, phnode) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pprovider, phnode);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pprovider;
     (void)phnode;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2015,9 +2655,16 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_uiaNodeRelease_napi
         HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UiaNodeRelease")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hnode) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hnode);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hnode;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2033,9 +2680,16 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_uiaPatternRelease_n
         HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UiaPatternRelease")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hobj) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hobj);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hobj;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2054,12 +2708,19 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_uiaProviderForNonCl
         HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UiaProviderForNonClient")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, idobject, idchild, ppprovider) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, idobject, idchild, ppprovider);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)idobject;
     (void)idchild;
     (void)ppprovider;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2078,12 +2739,19 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_uiaProviderFromIAcc
         HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UiaProviderFromIAccessible")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(paccessible, idchild, dwflags, ppprovider) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(paccessible, idchild, dwflags, ppprovider);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)paccessible;
     (void)idchild;
     (void)dwflags;
     (void)ppprovider;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2100,10 +2768,17 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_uiaRaiseActiveTextP
         HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UiaRaiseActiveTextPositionChangedEvent")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(provider, textrange) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(provider, textrange);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)provider;
     (void)textrange;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2121,11 +2796,18 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_uiaRaiseAsyncConten
         HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UiaRaiseAsyncContentLoadedEvent")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pprovider, asynccontentloadedstate, percentcomplete) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pprovider, asynccontentloadedstate, percentcomplete);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pprovider;
     (void)asynccontentloadedstate;
     (void)percentcomplete;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2142,10 +2824,17 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_uiaRaiseAutomationE
         HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UiaRaiseAutomationEvent")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pprovider, id) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pprovider, id);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pprovider;
     (void)id;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2163,11 +2852,18 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_uiaRaiseChangesEven
         HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UiaRaiseChangesEvent")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pprovider, eventidcount, puiachanges) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pprovider, eventidcount, puiachanges);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pprovider;
     (void)eventidcount;
     (void)puiachanges;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2187,13 +2883,20 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_uiaRaiseNotificatio
         HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UiaRaiseNotificationEvent")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(provider, notificationkind, notificationprocessing, displaystring, activityid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(provider, notificationkind, notificationprocessing, displaystring, activityid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)provider;
     (void)notificationkind;
     (void)notificationprocessing;
     (void)displaystring;
     (void)activityid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2212,12 +2915,19 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_uiaRaiseStructureCh
         HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UiaRaiseStructureChangedEvent")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pprovider, structurechangetype, pruntimeid, cruntimeidlen) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pprovider, structurechangetype, pruntimeid, cruntimeidlen);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pprovider;
     (void)structurechangetype;
     (void)pruntimeid;
     (void)cruntimeidlen;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2235,11 +2945,18 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_uiaRaiseTextEditTex
         HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UiaRaiseTextEditTextChangedEvent")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pprovider, texteditchangetype, pchangeddata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pprovider, texteditchangetype, pchangeddata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pprovider;
     (void)texteditchangetype;
     (void)pchangeddata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2255,9 +2972,14 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_uiaRegisterProvider
         HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UiaRegisterProviderCallback")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pcallback);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pcallback);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pcallback;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -2272,9 +2994,16 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_uiaRemoveEvent_napi
         HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UiaRemoveEvent")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hevent) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hevent);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hevent;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2293,12 +3022,19 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_uiaReturnRawElement
         HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UiaReturnRawElementProvider")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, wparam, lparam, el) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, wparam, lparam, el);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)wparam;
     (void)lparam;
     (void)el;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -2314,9 +3050,16 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_uiaSetFocus_napi(co
         HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UiaSetFocus")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hnode) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hnode);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hnode;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2332,9 +3075,16 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_uiaTextRangeRelease
         HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UiaTextRangeRelease")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hobj) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hobj);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hobj;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2350,9 +3100,16 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_unhookWinEvent_napi
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UnhookWinEvent")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwineventhook) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwineventhook);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwineventhook;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2369,10 +3126,17 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_unregisterPointerIn
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UnregisterPointerInputTarget")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, pointertype) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, pointertype);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)pointertype;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2389,10 +3153,17 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_unregisterPointerIn
         HMODULE km_h_mod = LoadLibraryA("user32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UnregisterPointerInputTargetEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hwnd, pointertype) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hwnd, pointertype);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hwnd;
     (void)pointertype;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2409,10 +3180,17 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_valuePatternSetValu
         HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ValuePattern_SetValue")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hobj, pval) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hobj, pval);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hobj;
     (void)pval;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2428,9 +3206,16 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_virtualizedItemPatt
         HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "VirtualizedItemPattern_Realize")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hobj) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hobj);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hobj;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2447,10 +3232,17 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_windowFromAccessibl
         HMODULE km_h_mod = LoadLibraryA("oleacc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WindowFromAccessibleObject")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(param0, phwnd) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(param0, phwnd);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)param0;
     (void)phwnd;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2466,9 +3258,16 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_windowPatternClose_
         HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WindowPattern_Close")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hobj) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hobj);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hobj;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2485,10 +3284,17 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_windowPatternSetWin
         HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WindowPattern_SetWindowVisualState")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hobj, state) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hobj, state);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hobj;
     (void)state;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2506,11 +3312,18 @@ static Napi::Value windowssys_windows_win32_ui_accessibility_windowPatternWaitFo
         HMODULE km_h_mod = LoadLibraryA("uiautomationcore.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WindowPattern_WaitForInputIdle")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hobj, milliseconds, presult) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hobj, milliseconds, presult);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hobj;
     (void)milliseconds;
     (void)presult;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

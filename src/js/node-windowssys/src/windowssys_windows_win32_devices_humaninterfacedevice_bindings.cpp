@@ -65,13 +65,20 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_directI
         HMODULE km_h_mod = LoadLibraryA("dinput8.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DirectInput8Create")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hinst, dwversion, riidltf, ppvout, punkouter) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hinst, dwversion, riidltf, ppvout, punkouter);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hinst;
     (void)dwversion;
     (void)riidltf;
     (void)ppvout;
     (void)punkouter;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -87,9 +94,16 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidDFlu
         HMODULE km_h_mod = LoadLibraryA("hid.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HidD_FlushQueue")));
     }
-    bool km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hiddeviceobject) : false;
+    bool km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hiddeviceobject);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)hiddeviceobject;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return Napi::Boolean::New(km_env, km_res);
@@ -105,9 +119,16 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidDFre
         HMODULE km_h_mod = LoadLibraryA("hid.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HidD_FreePreparsedData")));
     }
-    bool km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(preparseddata) : false;
+    bool km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(preparseddata);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)preparseddata;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return Napi::Boolean::New(km_env, km_res);
@@ -124,10 +145,17 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidDGet
         HMODULE km_h_mod = LoadLibraryA("hid.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HidD_GetAttributes")));
     }
-    bool km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hiddeviceobject, attributes) : false;
+    bool km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hiddeviceobject, attributes);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)hiddeviceobject;
     (void)attributes;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return Napi::Boolean::New(km_env, km_res);
@@ -145,11 +173,18 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidDGet
         HMODULE km_h_mod = LoadLibraryA("hid.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HidD_GetConfiguration")));
     }
-    bool km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hiddeviceobject, configuration, configurationlength) : false;
+    bool km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hiddeviceobject, configuration, configurationlength);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)hiddeviceobject;
     (void)configuration;
     (void)configurationlength;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return Napi::Boolean::New(km_env, km_res);
@@ -167,11 +202,18 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidDGet
         HMODULE km_h_mod = LoadLibraryA("hid.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HidD_GetFeature")));
     }
-    bool km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hiddeviceobject, reportbuffer, reportbufferlength) : false;
+    bool km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hiddeviceobject, reportbuffer, reportbufferlength);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)hiddeviceobject;
     (void)reportbuffer;
     (void)reportbufferlength;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return Napi::Boolean::New(km_env, km_res);
@@ -187,9 +229,14 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidDGet
         HMODULE km_h_mod = LoadLibraryA("hid.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HidD_GetHidGuid")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(hidguid);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(hidguid);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)hidguid;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -207,12 +254,19 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidDGet
         HMODULE km_h_mod = LoadLibraryA("hid.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HidD_GetIndexedString")));
     }
-    bool km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hiddeviceobject, stringindex, buffer, bufferlength) : false;
+    bool km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hiddeviceobject, stringindex, buffer, bufferlength);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)hiddeviceobject;
     (void)stringindex;
     (void)buffer;
     (void)bufferlength;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return Napi::Boolean::New(km_env, km_res);
@@ -230,11 +284,18 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidDGet
         HMODULE km_h_mod = LoadLibraryA("hid.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HidD_GetInputReport")));
     }
-    bool km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hiddeviceobject, reportbuffer, reportbufferlength) : false;
+    bool km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hiddeviceobject, reportbuffer, reportbufferlength);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)hiddeviceobject;
     (void)reportbuffer;
     (void)reportbufferlength;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return Napi::Boolean::New(km_env, km_res);
@@ -252,11 +313,18 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidDGet
         HMODULE km_h_mod = LoadLibraryA("hid.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HidD_GetManufacturerString")));
     }
-    bool km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hiddeviceobject, buffer, bufferlength) : false;
+    bool km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hiddeviceobject, buffer, bufferlength);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)hiddeviceobject;
     (void)buffer;
     (void)bufferlength;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return Napi::Boolean::New(km_env, km_res);
@@ -274,11 +342,18 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidDGet
         HMODULE km_h_mod = LoadLibraryA("hid.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HidD_GetMsGenreDescriptor")));
     }
-    bool km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hiddeviceobject, buffer, bufferlength) : false;
+    bool km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hiddeviceobject, buffer, bufferlength);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)hiddeviceobject;
     (void)buffer;
     (void)bufferlength;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return Napi::Boolean::New(km_env, km_res);
@@ -295,10 +370,17 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidDGet
         HMODULE km_h_mod = LoadLibraryA("hid.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HidD_GetNumInputBuffers")));
     }
-    bool km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hiddeviceobject, numberbuffers) : false;
+    bool km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hiddeviceobject, numberbuffers);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)hiddeviceobject;
     (void)numberbuffers;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return Napi::Boolean::New(km_env, km_res);
@@ -316,11 +398,18 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidDGet
         HMODULE km_h_mod = LoadLibraryA("hid.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HidD_GetPhysicalDescriptor")));
     }
-    bool km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hiddeviceobject, buffer, bufferlength) : false;
+    bool km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hiddeviceobject, buffer, bufferlength);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)hiddeviceobject;
     (void)buffer;
     (void)bufferlength;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return Napi::Boolean::New(km_env, km_res);
@@ -337,10 +426,17 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidDGet
         HMODULE km_h_mod = LoadLibraryA("hid.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HidD_GetPreparsedData")));
     }
-    bool km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hiddeviceobject, preparseddata) : false;
+    bool km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hiddeviceobject, preparseddata);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)hiddeviceobject;
     (void)preparseddata;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return Napi::Boolean::New(km_env, km_res);
@@ -358,11 +454,18 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidDGet
         HMODULE km_h_mod = LoadLibraryA("hid.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HidD_GetProductString")));
     }
-    bool km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hiddeviceobject, buffer, bufferlength) : false;
+    bool km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hiddeviceobject, buffer, bufferlength);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)hiddeviceobject;
     (void)buffer;
     (void)bufferlength;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return Napi::Boolean::New(km_env, km_res);
@@ -380,11 +483,18 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidDGet
         HMODULE km_h_mod = LoadLibraryA("hid.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HidD_GetSerialNumberString")));
     }
-    bool km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hiddeviceobject, buffer, bufferlength) : false;
+    bool km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hiddeviceobject, buffer, bufferlength);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)hiddeviceobject;
     (void)buffer;
     (void)bufferlength;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return Napi::Boolean::New(km_env, km_res);
@@ -402,11 +512,18 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidDSet
         HMODULE km_h_mod = LoadLibraryA("hid.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HidD_SetConfiguration")));
     }
-    bool km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hiddeviceobject, configuration, configurationlength) : false;
+    bool km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hiddeviceobject, configuration, configurationlength);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)hiddeviceobject;
     (void)configuration;
     (void)configurationlength;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return Napi::Boolean::New(km_env, km_res);
@@ -424,11 +541,18 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidDSet
         HMODULE km_h_mod = LoadLibraryA("hid.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HidD_SetFeature")));
     }
-    bool km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hiddeviceobject, reportbuffer, reportbufferlength) : false;
+    bool km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hiddeviceobject, reportbuffer, reportbufferlength);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)hiddeviceobject;
     (void)reportbuffer;
     (void)reportbufferlength;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return Napi::Boolean::New(km_env, km_res);
@@ -445,10 +569,17 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidDSet
         HMODULE km_h_mod = LoadLibraryA("hid.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HidD_SetNumInputBuffers")));
     }
-    bool km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hiddeviceobject, numberbuffers) : false;
+    bool km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hiddeviceobject, numberbuffers);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)hiddeviceobject;
     (void)numberbuffers;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return Napi::Boolean::New(km_env, km_res);
@@ -466,11 +597,18 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidDSet
         HMODULE km_h_mod = LoadLibraryA("hid.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HidD_SetOutputReport")));
     }
-    bool km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hiddeviceobject, reportbuffer, reportbufferlength) : false;
+    bool km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hiddeviceobject, reportbuffer, reportbufferlength);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)hiddeviceobject;
     (void)reportbuffer;
     (void)reportbufferlength;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return Napi::Boolean::New(km_env, km_res);
@@ -494,7 +632,13 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidPGet
         HMODULE km_h_mod = LoadLibraryA("hid.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HidP_GetButtonArray")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(reporttype, usagepage, linkcollection, usage, buttondata, buttondatalength, preparseddata, report, reportlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(reporttype, usagepage, linkcollection, usage, buttondata, buttondatalength, preparseddata, report, reportlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)reporttype;
     (void)usagepage;
@@ -505,6 +649,7 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidPGet
     (void)preparseddata;
     (void)report;
     (void)reportlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -523,12 +668,19 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidPGet
         HMODULE km_h_mod = LoadLibraryA("hid.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HidP_GetButtonCaps")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(reporttype, buttoncaps, buttoncapslength, preparseddata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(reporttype, buttoncaps, buttoncapslength, preparseddata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)reporttype;
     (void)buttoncaps;
     (void)buttoncapslength;
     (void)preparseddata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -545,10 +697,17 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidPGet
         HMODULE km_h_mod = LoadLibraryA("hid.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HidP_GetCaps")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(preparseddata, capabilities) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(preparseddata, capabilities);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)preparseddata;
     (void)capabilities;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -569,7 +728,13 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidPGet
         HMODULE km_h_mod = LoadLibraryA("hid.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HidP_GetData")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(reporttype, datalist, datalength, preparseddata, report, reportlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(reporttype, datalist, datalength, preparseddata, report, reportlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)reporttype;
     (void)datalist;
@@ -577,6 +742,7 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidPGet
     (void)preparseddata;
     (void)report;
     (void)reportlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -596,13 +762,20 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidPGet
         HMODULE km_h_mod = LoadLibraryA("hid.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HidP_GetExtendedAttributes")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(reporttype, dataindex, preparseddata, attributes, lengthattributes) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(reporttype, dataindex, preparseddata, attributes, lengthattributes);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)reporttype;
     (void)dataindex;
     (void)preparseddata;
     (void)attributes;
     (void)lengthattributes;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -620,11 +793,18 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidPGet
         HMODULE km_h_mod = LoadLibraryA("hid.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HidP_GetLinkCollectionNodes")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(linkcollectionnodes, linkcollectionnodeslength, preparseddata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(linkcollectionnodes, linkcollectionnodeslength, preparseddata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)linkcollectionnodes;
     (void)linkcollectionnodeslength;
     (void)preparseddata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -647,7 +827,13 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidPGet
         HMODULE km_h_mod = LoadLibraryA("hid.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HidP_GetScaledUsageValue")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(reporttype, usagepage, linkcollection, usage, usagevalue, preparseddata, report, reportlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(reporttype, usagepage, linkcollection, usage, usagevalue, preparseddata, report, reportlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)reporttype;
     (void)usagepage;
@@ -657,6 +843,7 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidPGet
     (void)preparseddata;
     (void)report;
     (void)reportlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -678,7 +865,13 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidPGet
         HMODULE km_h_mod = LoadLibraryA("hid.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HidP_GetSpecificButtonCaps")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(reporttype, usagepage, linkcollection, usage, buttoncaps, buttoncapslength, preparseddata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(reporttype, usagepage, linkcollection, usage, buttoncaps, buttoncapslength, preparseddata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)reporttype;
     (void)usagepage;
@@ -687,6 +880,7 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidPGet
     (void)buttoncaps;
     (void)buttoncapslength;
     (void)preparseddata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -708,7 +902,13 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidPGet
         HMODULE km_h_mod = LoadLibraryA("hid.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HidP_GetSpecificValueCaps")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(reporttype, usagepage, linkcollection, usage, valuecaps, valuecapslength, preparseddata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(reporttype, usagepage, linkcollection, usage, valuecaps, valuecapslength, preparseddata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)reporttype;
     (void)usagepage;
@@ -717,6 +917,7 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidPGet
     (void)valuecaps;
     (void)valuecapslength;
     (void)preparseddata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -739,7 +940,13 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidPGet
         HMODULE km_h_mod = LoadLibraryA("hid.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HidP_GetUsageValue")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(reporttype, usagepage, linkcollection, usage, usagevalue, preparseddata, report, reportlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(reporttype, usagepage, linkcollection, usage, usagevalue, preparseddata, report, reportlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)reporttype;
     (void)usagepage;
@@ -749,6 +956,7 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidPGet
     (void)preparseddata;
     (void)report;
     (void)reportlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -772,7 +980,13 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidPGet
         HMODULE km_h_mod = LoadLibraryA("hid.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HidP_GetUsageValueArray")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(reporttype, usagepage, linkcollection, usage, usagevalue, usagevaluebytelength, preparseddata, report, reportlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(reporttype, usagepage, linkcollection, usage, usagevalue, usagevaluebytelength, preparseddata, report, reportlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)reporttype;
     (void)usagepage;
@@ -783,6 +997,7 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidPGet
     (void)preparseddata;
     (void)report;
     (void)reportlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -805,7 +1020,13 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidPGet
         HMODULE km_h_mod = LoadLibraryA("hid.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HidP_GetUsages")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(reporttype, usagepage, linkcollection, usagelist, usagelength, preparseddata, report, reportlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(reporttype, usagepage, linkcollection, usagelist, usagelength, preparseddata, report, reportlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)reporttype;
     (void)usagepage;
@@ -815,6 +1036,7 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidPGet
     (void)preparseddata;
     (void)report;
     (void)reportlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -836,7 +1058,13 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidPGet
         HMODULE km_h_mod = LoadLibraryA("hid.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HidP_GetUsagesEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(reporttype, linkcollection, buttonlist, usagelength, preparseddata, report, reportlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(reporttype, linkcollection, buttonlist, usagelength, preparseddata, report, reportlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)reporttype;
     (void)linkcollection;
@@ -845,6 +1073,7 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidPGet
     (void)preparseddata;
     (void)report;
     (void)reportlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -863,12 +1092,19 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidPGet
         HMODULE km_h_mod = LoadLibraryA("hid.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HidP_GetValueCaps")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(reporttype, valuecaps, valuecapslength, preparseddata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(reporttype, valuecaps, valuecapslength, preparseddata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)reporttype;
     (void)valuecaps;
     (void)valuecapslength;
     (void)preparseddata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -888,13 +1124,20 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidPIni
         HMODULE km_h_mod = LoadLibraryA("hid.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HidP_InitializeReportForID")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(reporttype, reportid, preparseddata, report, reportlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(reporttype, reportid, preparseddata, report, reportlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)reporttype;
     (void)reportid;
     (void)preparseddata;
     (void)report;
     (void)reportlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -911,10 +1154,17 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidPMax
         HMODULE km_h_mod = LoadLibraryA("hid.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HidP_MaxDataListLength")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(reporttype, preparseddata) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(reporttype, preparseddata);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)reporttype;
     (void)preparseddata;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -932,11 +1182,18 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidPMax
         HMODULE km_h_mod = LoadLibraryA("hid.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HidP_MaxUsageListLength")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(reporttype, usagepage, preparseddata) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(reporttype, usagepage, preparseddata);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)reporttype;
     (void)usagepage;
     (void)preparseddata;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -960,7 +1217,13 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidPSet
         HMODULE km_h_mod = LoadLibraryA("hid.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HidP_SetButtonArray")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(reporttype, usagepage, linkcollection, usage, buttondata, buttondatalength, preparseddata, report, reportlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(reporttype, usagepage, linkcollection, usage, buttondata, buttondatalength, preparseddata, report, reportlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)reporttype;
     (void)usagepage;
@@ -971,6 +1234,7 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidPSet
     (void)preparseddata;
     (void)report;
     (void)reportlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -991,7 +1255,13 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidPSet
         HMODULE km_h_mod = LoadLibraryA("hid.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HidP_SetData")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(reporttype, datalist, datalength, preparseddata, report, reportlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(reporttype, datalist, datalength, preparseddata, report, reportlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)reporttype;
     (void)datalist;
@@ -999,6 +1269,7 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidPSet
     (void)preparseddata;
     (void)report;
     (void)reportlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1021,7 +1292,13 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidPSet
         HMODULE km_h_mod = LoadLibraryA("hid.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HidP_SetScaledUsageValue")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(reporttype, usagepage, linkcollection, usage, usagevalue, preparseddata, report, reportlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(reporttype, usagepage, linkcollection, usage, usagevalue, preparseddata, report, reportlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)reporttype;
     (void)usagepage;
@@ -1031,6 +1308,7 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidPSet
     (void)preparseddata;
     (void)report;
     (void)reportlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1053,7 +1331,13 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidPSet
         HMODULE km_h_mod = LoadLibraryA("hid.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HidP_SetUsageValue")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(reporttype, usagepage, linkcollection, usage, usagevalue, preparseddata, report, reportlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(reporttype, usagepage, linkcollection, usage, usagevalue, preparseddata, report, reportlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)reporttype;
     (void)usagepage;
@@ -1063,6 +1347,7 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidPSet
     (void)preparseddata;
     (void)report;
     (void)reportlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1086,7 +1371,13 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidPSet
         HMODULE km_h_mod = LoadLibraryA("hid.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HidP_SetUsageValueArray")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(reporttype, usagepage, linkcollection, usage, usagevalue, usagevaluebytelength, preparseddata, report, reportlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(reporttype, usagepage, linkcollection, usage, usagevalue, usagevaluebytelength, preparseddata, report, reportlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)reporttype;
     (void)usagepage;
@@ -1097,6 +1388,7 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidPSet
     (void)preparseddata;
     (void)report;
     (void)reportlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1119,7 +1411,13 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidPSet
         HMODULE km_h_mod = LoadLibraryA("hid.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HidP_SetUsages")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(reporttype, usagepage, linkcollection, usagelist, usagelength, preparseddata, report, reportlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(reporttype, usagepage, linkcollection, usagelist, usagelength, preparseddata, report, reportlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)reporttype;
     (void)usagepage;
@@ -1129,6 +1427,7 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidPSet
     (void)preparseddata;
     (void)report;
     (void)reportlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1149,7 +1448,13 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidPTra
         HMODULE km_h_mod = LoadLibraryA("hid.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HidP_TranslateUsagesToI8042ScanCodes")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(changedusagelist, usagelistlength, keyaction, modifierstate, insertcodesprocedure, insertcodescontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(changedusagelist, usagelistlength, keyaction, modifierstate, insertcodesprocedure, insertcodescontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)changedusagelist;
     (void)usagelistlength;
@@ -1157,6 +1462,7 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidPTra
     (void)modifierstate;
     (void)insertcodesprocedure;
     (void)insertcodescontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1179,7 +1485,13 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidPUns
         HMODULE km_h_mod = LoadLibraryA("hid.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HidP_UnsetUsages")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(reporttype, usagepage, linkcollection, usagelist, usagelength, preparseddata, report, reportlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(reporttype, usagepage, linkcollection, usagelist, usagelength, preparseddata, report, reportlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)reporttype;
     (void)usagepage;
@@ -1189,6 +1501,7 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidPUns
     (void)preparseddata;
     (void)report;
     (void)reportlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1208,13 +1521,20 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_hidPUsa
         HMODULE km_h_mod = LoadLibraryA("hid.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HidP_UsageListDifference")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(previoususagelist, currentusagelist, breakusagelist, makeusagelist, usagelistlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(previoususagelist, currentusagelist, breakusagelist, makeusagelist, usagelistlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)previoususagelist;
     (void)currentusagelist;
     (void)breakusagelist;
     (void)makeusagelist;
     (void)usagelistlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1230,9 +1550,16 @@ static Napi::Value windowssys_windows_win32_devices_humaninterfacedevice_joyConf
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "joyConfigChanged")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dwflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

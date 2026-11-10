@@ -60,8 +60,15 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioAcq
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinBioAcquireFocus")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -78,10 +85,17 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioAsy
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinBioAsyncEnumBiometricUnits")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(frameworkhandle, factor) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(frameworkhandle, factor);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)frameworkhandle;
     (void)factor;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -98,10 +112,17 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioAsy
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinBioAsyncEnumDatabases")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(frameworkhandle, factor) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(frameworkhandle, factor);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)frameworkhandle;
     (void)factor;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -118,10 +139,17 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioAsy
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinBioAsyncEnumServiceProviders")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(frameworkhandle, factor) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(frameworkhandle, factor);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)frameworkhandle;
     (void)factor;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -138,10 +166,17 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioAsy
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinBioAsyncMonitorFrameworkChanges")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(frameworkhandle, changetypes) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(frameworkhandle, changetypes);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)frameworkhandle;
     (void)changetypes;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -163,7 +198,13 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioAsy
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinBioAsyncOpenFramework")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(notificationmethod, targetwindow, messagecode, callbackroutine, userdata, asynchronousopen, frameworkhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(notificationmethod, targetwindow, messagecode, callbackroutine, userdata, asynchronousopen, frameworkhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)notificationmethod;
     (void)targetwindow;
@@ -172,6 +213,7 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioAsy
     (void)userdata;
     (void)asynchronousopen;
     (void)frameworkhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -199,7 +241,13 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioAsy
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinBioAsyncOpenSession")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(factor, pooltype, flags, unitarray, unitcount, databaseid, notificationmethod, targetwindow, messagecode, callbackroutine, userdata, asynchronousopen, sessionhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(factor, pooltype, flags, unitarray, unitcount, databaseid, notificationmethod, targetwindow, messagecode, callbackroutine, userdata, asynchronousopen, sessionhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)factor;
     (void)pooltype;
@@ -214,6 +262,7 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioAsy
     (void)userdata;
     (void)asynchronousopen;
     (void)sessionhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -229,9 +278,16 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioCan
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinBioCancel")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sessionhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sessionhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sessionhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -253,7 +309,13 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioCap
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinBioCaptureSample")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sessionhandle, purpose, flags, unitid, sample, samplesize, rejectdetail) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sessionhandle, purpose, flags, unitid, sample, samplesize, rejectdetail);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sessionhandle;
     (void)purpose;
@@ -262,6 +324,7 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioCap
     (void)sample;
     (void)samplesize;
     (void)rejectdetail;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -281,13 +344,20 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioCap
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinBioCaptureSampleWithCallback")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sessionhandle, purpose, flags, capturecallback, capturecallbackcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sessionhandle, purpose, flags, capturecallback, capturecallbackcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sessionhandle;
     (void)purpose;
     (void)flags;
     (void)capturecallback;
     (void)capturecallbackcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -303,9 +373,16 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioClo
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinBioCloseFramework")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(frameworkhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(frameworkhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)frameworkhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -321,9 +398,16 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioClo
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinBioCloseSession")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sessionhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sessionhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sessionhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -348,7 +432,13 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioCon
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinBioControlUnit")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sessionhandle, unitid, component, controlcode, sendbuffer, sendbuffersize, receivebuffer, receivebuffersize, receivedatasize, operationstatus) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sessionhandle, unitid, component, controlcode, sendbuffer, sendbuffersize, receivebuffer, receivebuffersize, receivedatasize, operationstatus);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sessionhandle;
     (void)unitid;
@@ -360,6 +450,7 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioCon
     (void)receivebuffersize;
     (void)receivedatasize;
     (void)operationstatus;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -384,7 +475,13 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioCon
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinBioControlUnitPrivileged")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sessionhandle, unitid, component, controlcode, sendbuffer, sendbuffersize, receivebuffer, receivebuffersize, receivedatasize, operationstatus) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sessionhandle, unitid, component, controlcode, sendbuffer, sendbuffersize, receivebuffer, receivebuffersize, receivedatasize, operationstatus);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sessionhandle;
     (void)unitid;
@@ -396,6 +493,7 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioCon
     (void)receivebuffersize;
     (void)receivedatasize;
     (void)operationstatus;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -414,12 +512,19 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioDel
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinBioDeleteTemplate")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sessionhandle, unitid, identity, subfactor) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sessionhandle, unitid, identity, subfactor);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sessionhandle;
     (void)unitid;
     (void)identity;
     (void)subfactor;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -437,11 +542,18 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioEnr
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinBioEnrollBegin")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sessionhandle, subfactor, unitid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sessionhandle, subfactor, unitid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sessionhandle;
     (void)subfactor;
     (void)unitid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -458,10 +570,17 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioEnr
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinBioEnrollCapture")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sessionhandle, rejectdetail) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sessionhandle, rejectdetail);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sessionhandle;
     (void)rejectdetail;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -479,11 +598,18 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioEnr
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinBioEnrollCaptureWithCallback")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sessionhandle, enrollcallback, enrollcallbackcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sessionhandle, enrollcallback, enrollcallbackcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sessionhandle;
     (void)enrollcallback;
     (void)enrollcallbackcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -501,11 +627,18 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioEnr
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinBioEnrollCommit")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sessionhandle, identity, isnewtemplate) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sessionhandle, identity, isnewtemplate);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sessionhandle;
     (void)identity;
     (void)isnewtemplate;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -521,9 +654,16 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioEnr
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinBioEnrollDiscard")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sessionhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sessionhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sessionhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -540,10 +680,17 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioEnr
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinBioEnrollSelect")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sessionhandle, selectorvalue) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sessionhandle, selectorvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sessionhandle;
     (void)selectorvalue;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -561,11 +708,18 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioEnu
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinBioEnumBiometricUnits")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(factor, unitschemaarray, unitcount) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(factor, unitschemaarray, unitcount);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)factor;
     (void)unitschemaarray;
     (void)unitcount;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -583,11 +737,18 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioEnu
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinBioEnumDatabases")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(factor, storageschemaarray, storagecount) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(factor, storageschemaarray, storagecount);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)factor;
     (void)storageschemaarray;
     (void)storagecount;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -607,13 +768,20 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioEnu
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinBioEnumEnrollments")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sessionhandle, unitid, identity, subfactorarray, subfactorcount) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sessionhandle, unitid, identity, subfactorarray, subfactorcount);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sessionhandle;
     (void)unitid;
     (void)identity;
     (void)subfactorarray;
     (void)subfactorcount;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -631,11 +799,18 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioEnu
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinBioEnumServiceProviders")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(factor, bspschemaarray, bspcount) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(factor, bspschemaarray, bspcount);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)factor;
     (void)bspschemaarray;
     (void)bspcount;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -651,9 +826,16 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioFre
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinBioFree")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(address) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(address);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)address;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -670,10 +852,15 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioGet
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinBioGetDomainLogonSetting")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(value, source);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(value, source);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)value;
     (void)source;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -689,10 +876,15 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioGet
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinBioGetEnabledSetting")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(value, source);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(value, source);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)value;
     (void)source;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -708,10 +900,17 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioGet
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinBioGetEnrolledFactors")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(accountowner, enrolledfactors) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(accountowner, enrolledfactors);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)accountowner;
     (void)enrolledfactors;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -728,10 +927,15 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioGet
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinBioGetLogonSetting")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(value, source);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(value, source);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)value;
     (void)source;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -753,7 +957,13 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioGet
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinBioGetProperty")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sessionhandle, propertytype, propertyid, unitid, identity, subfactor, propertybuffer, propertybuffersize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sessionhandle, propertytype, propertyid, unitid, identity, subfactor, propertybuffer, propertybuffersize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sessionhandle;
     (void)propertytype;
@@ -763,6 +973,7 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioGet
     (void)subfactor;
     (void)propertybuffer;
     (void)propertybuffersize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -782,13 +993,20 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioIde
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinBioIdentify")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sessionhandle, unitid, identity, subfactor, rejectdetail) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sessionhandle, unitid, identity, subfactor, rejectdetail);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sessionhandle;
     (void)unitid;
     (void)identity;
     (void)subfactor;
     (void)rejectdetail;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -806,11 +1024,18 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioIde
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinBioIdentifyWithCallback")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sessionhandle, identifycallback, identifycallbackcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sessionhandle, identifycallback, identifycallbackcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sessionhandle;
     (void)identifycallback;
     (void)identifycallbackcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -827,10 +1052,17 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioImp
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinBioImproveBegin")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sessionhandle, unitid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sessionhandle, unitid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sessionhandle;
     (void)unitid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -846,9 +1078,16 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioImp
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinBioImproveEnd")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sessionhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sessionhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sessionhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -865,10 +1104,17 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioLoc
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinBioLocateSensor")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sessionhandle, unitid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sessionhandle, unitid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sessionhandle;
     (void)unitid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -886,11 +1132,18 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioLoc
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinBioLocateSensorWithCallback")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sessionhandle, locatecallback, locatecallbackcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sessionhandle, locatecallback, locatecallbackcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sessionhandle;
     (void)locatecallback;
     (void)locatecallbackcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -907,10 +1160,17 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioLoc
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinBioLockUnit")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sessionhandle, unitid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sessionhandle, unitid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sessionhandle;
     (void)unitid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -926,9 +1186,16 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioLog
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinBioLogonIdentifiedUser")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sessionhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sessionhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sessionhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -945,10 +1212,17 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioMon
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinBioMonitorPresence")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sessionhandle, unitid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sessionhandle, unitid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sessionhandle;
     (void)unitid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -970,7 +1244,13 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioOpe
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinBioOpenSession")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(factor, pooltype, flags, unitarray, unitcount, databaseid, sessionhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(factor, pooltype, flags, unitarray, unitcount, databaseid, sessionhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)factor;
     (void)pooltype;
@@ -979,6 +1259,7 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioOpe
     (void)unitcount;
     (void)databaseid;
     (void)sessionhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -997,12 +1278,19 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioReg
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinBioRegisterEventMonitor")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sessionhandle, eventmask, eventcallback, eventcallbackcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sessionhandle, eventmask, eventcallback, eventcallbackcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sessionhandle;
     (void)eventmask;
     (void)eventcallback;
     (void)eventcallbackcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1017,8 +1305,15 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioRel
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinBioReleaseFocus")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1033,8 +1328,15 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioRem
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinBioRemoveAllCredentials")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1049,8 +1351,15 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioRem
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinBioRemoveAllDomainCredentials")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1069,12 +1378,19 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioSet
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinBioSetCredential")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(type, credential, credentialsize, format) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(type, credential, credentialsize, format);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)type;
     (void)credential;
     (void)credentialsize;
     (void)format;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1097,7 +1413,13 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioSet
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinBioSetProperty")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sessionhandle, propertytype, propertyid, unitid, identity, subfactor, propertybuffer, propertybuffersize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sessionhandle, propertytype, propertyid, unitid, identity, subfactor, propertybuffer, propertybuffersize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sessionhandle;
     (void)propertytype;
@@ -1107,6 +1429,7 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioSet
     (void)subfactor;
     (void)propertybuffer;
     (void)propertybuffersize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1123,10 +1446,17 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioUnl
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinBioUnlockUnit")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sessionhandle, unitid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sessionhandle, unitid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sessionhandle;
     (void)unitid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1142,9 +1472,16 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioUnr
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinBioUnregisterEventMonitor")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sessionhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sessionhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sessionhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1165,7 +1502,13 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioVer
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinBioVerify")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sessionhandle, identity, subfactor, unitid, match, rejectdetail) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sessionhandle, identity, subfactor, unitid, match, rejectdetail);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sessionhandle;
     (void)identity;
@@ -1173,6 +1516,7 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioVer
     (void)unitid;
     (void)match;
     (void)rejectdetail;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1192,13 +1536,20 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioVer
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinBioVerifyWithCallback")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sessionhandle, identity, subfactor, verifycallback, verifycallbackcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sessionhandle, identity, subfactor, verifycallback, verifycallbackcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sessionhandle;
     (void)identity;
     (void)subfactor;
     (void)verifycallback;
     (void)verifycallbackcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1214,9 +1565,16 @@ static Napi::Value windowssys_windows_win32_devices_biometricframework_winBioWai
         HMODULE km_h_mod = LoadLibraryA("winbio.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WinBioWait")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sessionhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sessionhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sessionhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

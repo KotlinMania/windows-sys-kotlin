@@ -61,9 +61,14 @@ static Napi::Value windowssys_windows_win32_devices_enumeration_pnp_swDeviceClos
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SwDeviceClose")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(hswdevice);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(hswdevice);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)hswdevice;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -85,7 +90,13 @@ static Napi::Value windowssys_windows_win32_devices_enumeration_pnp_swDeviceCrea
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SwDeviceCreate")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszenumeratorname, pszparentdeviceinstance, pcreateinfo, cpropertycount, pproperties, pcallback, pcontext, phswdevice) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszenumeratorname, pszparentdeviceinstance, pcreateinfo, cpropertycount, pproperties, pcallback, pcontext, phswdevice);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszenumeratorname;
     (void)pszparentdeviceinstance;
@@ -95,6 +106,7 @@ static Napi::Value windowssys_windows_win32_devices_enumeration_pnp_swDeviceCrea
     (void)pcallback;
     (void)pcontext;
     (void)phswdevice;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -111,10 +123,17 @@ static Napi::Value windowssys_windows_win32_devices_enumeration_pnp_swDeviceGetL
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SwDeviceGetLifetime")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hswdevice, plifetime) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hswdevice, plifetime);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hswdevice;
     (void)plifetime;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -133,12 +152,19 @@ static Napi::Value windowssys_windows_win32_devices_enumeration_pnp_swDeviceInte
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SwDeviceInterfacePropertySet")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hswdevice, pszdeviceinterfaceid, cpropertycount, pproperties) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hswdevice, pszdeviceinterfaceid, cpropertycount, pproperties);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hswdevice;
     (void)pszdeviceinterfaceid;
     (void)cpropertycount;
     (void)pproperties;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -160,7 +186,13 @@ static Napi::Value windowssys_windows_win32_devices_enumeration_pnp_swDeviceInte
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SwDeviceInterfaceRegister")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hswdevice, pinterfaceclassguid, pszreferencestring, cpropertycount, pproperties, fenabled, ppszdeviceinterfaceid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hswdevice, pinterfaceclassguid, pszreferencestring, cpropertycount, pproperties, fenabled, ppszdeviceinterfaceid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hswdevice;
     (void)pinterfaceclassguid;
@@ -169,6 +201,7 @@ static Napi::Value windowssys_windows_win32_devices_enumeration_pnp_swDeviceInte
     (void)pproperties;
     (void)fenabled;
     (void)ppszdeviceinterfaceid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -186,11 +219,18 @@ static Napi::Value windowssys_windows_win32_devices_enumeration_pnp_swDeviceInte
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SwDeviceInterfaceSetState")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hswdevice, pszdeviceinterfaceid, fenabled) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hswdevice, pszdeviceinterfaceid, fenabled);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hswdevice;
     (void)pszdeviceinterfaceid;
     (void)fenabled;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -208,11 +248,18 @@ static Napi::Value windowssys_windows_win32_devices_enumeration_pnp_swDeviceProp
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SwDevicePropertySet")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hswdevice, cpropertycount, pproperties) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hswdevice, cpropertycount, pproperties);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hswdevice;
     (void)cpropertycount;
     (void)pproperties;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -229,10 +276,17 @@ static Napi::Value windowssys_windows_win32_devices_enumeration_pnp_swDeviceSetL
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SwDeviceSetLifetime")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hswdevice, lifetime) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hswdevice, lifetime);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hswdevice;
     (void)lifetime;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -248,9 +302,14 @@ static Napi::Value windowssys_windows_win32_devices_enumeration_pnp_swMemFree_na
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SwMemFree")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pmem);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pmem);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pmem;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }

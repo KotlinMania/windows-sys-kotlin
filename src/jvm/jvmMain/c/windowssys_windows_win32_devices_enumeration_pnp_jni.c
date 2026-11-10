@@ -5,6 +5,7 @@
 #include <stdbool.h>
 #include <stddef.h>
 #include <stdint.h>
+#include <stdlib.h>
 #include <errno.h>
 #ifdef _WIN32
 #ifndef WIN32_LEAN_AND_MEAN
@@ -28,9 +29,14 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SwDeviceClose");
     }
-    if (km_fn_ptr != NULL) km_fn_ptr((void*)(uintptr_t)hswdevice);
+    if (km_fn_ptr != NULL) {
+        km_fn_ptr((void*)(uintptr_t)hswdevice);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)hswdevice;
+    errno = ENOSYS;
 #endif
 }
 
@@ -44,7 +50,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SwDeviceCreate");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pszenumeratorname, (void*)(uintptr_t)pszparentdeviceinstance, (void*)(uintptr_t)pcreateinfo, (uint32_t)cpropertycount, (void*)(uintptr_t)pproperties, (void*)(uintptr_t)pcallback, (void*)(uintptr_t)pcontext, (void*)(uintptr_t)phswdevice) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pszenumeratorname, (void*)(uintptr_t)pszparentdeviceinstance, (void*)(uintptr_t)pcreateinfo, (uint32_t)cpropertycount, (void*)(uintptr_t)pproperties, (void*)(uintptr_t)pcallback, (void*)(uintptr_t)pcontext, (void*)(uintptr_t)phswdevice);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszenumeratorname;
     (void)pszparentdeviceinstance;
@@ -54,6 +66,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     (void)pcallback;
     (void)pcontext;
     (void)phswdevice;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -69,10 +82,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SwDeviceGetLifetime");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hswdevice, (void*)(uintptr_t)plifetime) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hswdevice, (void*)(uintptr_t)plifetime);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hswdevice;
     (void)plifetime;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -88,12 +108,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SwDeviceInterfacePropertySet");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hswdevice, (void*)(uintptr_t)pszdeviceinterfaceid, (uint32_t)cpropertycount, (void*)(uintptr_t)pproperties) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hswdevice, (void*)(uintptr_t)pszdeviceinterfaceid, (uint32_t)cpropertycount, (void*)(uintptr_t)pproperties);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hswdevice;
     (void)pszdeviceinterfaceid;
     (void)cpropertycount;
     (void)pproperties;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -109,7 +136,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SwDeviceInterfaceRegister");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hswdevice, (void*)(uintptr_t)pinterfaceclassguid, (void*)(uintptr_t)pszreferencestring, (uint32_t)cpropertycount, (void*)(uintptr_t)pproperties, (int32_t)fenabled, (void*)(uintptr_t)ppszdeviceinterfaceid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hswdevice, (void*)(uintptr_t)pinterfaceclassguid, (void*)(uintptr_t)pszreferencestring, (uint32_t)cpropertycount, (void*)(uintptr_t)pproperties, (int32_t)fenabled, (void*)(uintptr_t)ppszdeviceinterfaceid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hswdevice;
     (void)pinterfaceclassguid;
@@ -118,6 +151,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     (void)pproperties;
     (void)fenabled;
     (void)ppszdeviceinterfaceid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -133,11 +167,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SwDeviceInterfaceSetState");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hswdevice, (void*)(uintptr_t)pszdeviceinterfaceid, (int32_t)fenabled) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hswdevice, (void*)(uintptr_t)pszdeviceinterfaceid, (int32_t)fenabled);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hswdevice;
     (void)pszdeviceinterfaceid;
     (void)fenabled;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -153,11 +194,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SwDevicePropertySet");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hswdevice, (uint32_t)cpropertycount, (void*)(uintptr_t)pproperties) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hswdevice, (uint32_t)cpropertycount, (void*)(uintptr_t)pproperties);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hswdevice;
     (void)cpropertycount;
     (void)pproperties;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -173,10 +221,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SwDeviceSetLifetime");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hswdevice, (int32_t)lifetime) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hswdevice, (int32_t)lifetime);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hswdevice;
     (void)lifetime;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -192,9 +247,14 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("cfgmgr32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SwMemFree");
     }
-    if (km_fn_ptr != NULL) km_fn_ptr((void*)(uintptr_t)pmem);
+    if (km_fn_ptr != NULL) {
+        km_fn_ptr((void*)(uintptr_t)pmem);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pmem;
+    errno = ENOSYS;
 #endif
 }
 

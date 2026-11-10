@@ -61,9 +61,16 @@ static Napi::Value windowssys_windows_win32_system_memory_addSecureMemoryCacheCa
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AddSecureMemoryCacheCallback")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pfncallback) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pfncallback);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pfncallback;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -81,11 +88,18 @@ static Napi::Value windowssys_windows_win32_system_memory_allocateUserPhysicalPa
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AllocateUserPhysicalPages")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, numberofpages, pagearray) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, numberofpages, pagearray);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)numberofpages;
     (void)pagearray;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -105,13 +119,20 @@ static Napi::Value windowssys_windows_win32_system_memory_allocateUserPhysicalPa
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-core-memory-l1-1-8.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AllocateUserPhysicalPages2")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(objecthandle, numberofpages, pagearray, extendedparameters, extendedparametercount) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(objecthandle, numberofpages, pagearray, extendedparameters, extendedparametercount);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)objecthandle;
     (void)numberofpages;
     (void)pagearray;
     (void)extendedparameters;
     (void)extendedparametercount;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -130,12 +151,19 @@ static Napi::Value windowssys_windows_win32_system_memory_allocateUserPhysicalPa
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AllocateUserPhysicalPagesNuma")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, numberofpages, pagearray, nndpreferred) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, numberofpages, pagearray, nndpreferred);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)numberofpages;
     (void)pagearray;
     (void)nndpreferred;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -159,7 +187,13 @@ static Napi::Value windowssys_windows_win32_system_memory_createFileMapping2_nap
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-core-memory-l1-1-7.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateFileMapping2")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(file, securityattributes, desiredaccess, pageprotection, allocationattributes, maximumsize, name, extendedparameters, parametercount) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(file, securityattributes, desiredaccess, pageprotection, allocationattributes, maximumsize, name, extendedparameters, parametercount);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)file;
     (void)securityattributes;
@@ -170,7 +204,8 @@ static Napi::Value windowssys_windows_win32_system_memory_createFileMapping2_nap
     (void)name;
     (void)extendedparameters;
     (void)parametercount;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -190,7 +225,13 @@ static Napi::Value windowssys_windows_win32_system_memory_createFileMappingA_nap
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateFileMappingA")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hfile, lpfilemappingattributes, flprotect, dwmaximumsizehigh, dwmaximumsizelow, lpname) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hfile, lpfilemappingattributes, flprotect, dwmaximumsizehigh, dwmaximumsizelow, lpname);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hfile;
     (void)lpfilemappingattributes;
@@ -198,7 +239,8 @@ static Napi::Value windowssys_windows_win32_system_memory_createFileMappingA_nap
     (void)dwmaximumsizehigh;
     (void)dwmaximumsizelow;
     (void)lpname;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -217,14 +259,21 @@ static Napi::Value windowssys_windows_win32_system_memory_createFileMappingFromA
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateFileMappingFromApp")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hfile, securityattributes, pageprotection, maximumsize, name) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hfile, securityattributes, pageprotection, maximumsize, name);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hfile;
     (void)securityattributes;
     (void)pageprotection;
     (void)maximumsize;
     (void)name;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -245,7 +294,13 @@ static Napi::Value windowssys_windows_win32_system_memory_createFileMappingNumaA
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateFileMappingNumaA")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hfile, lpfilemappingattributes, flprotect, dwmaximumsizehigh, dwmaximumsizelow, lpname, nndpreferred) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hfile, lpfilemappingattributes, flprotect, dwmaximumsizehigh, dwmaximumsizelow, lpname, nndpreferred);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hfile;
     (void)lpfilemappingattributes;
@@ -254,7 +309,8 @@ static Napi::Value windowssys_windows_win32_system_memory_createFileMappingNumaA
     (void)dwmaximumsizelow;
     (void)lpname;
     (void)nndpreferred;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -275,7 +331,13 @@ static Napi::Value windowssys_windows_win32_system_memory_createFileMappingNumaW
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateFileMappingNumaW")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hfile, lpfilemappingattributes, flprotect, dwmaximumsizehigh, dwmaximumsizelow, lpname, nndpreferred) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hfile, lpfilemappingattributes, flprotect, dwmaximumsizehigh, dwmaximumsizelow, lpname, nndpreferred);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hfile;
     (void)lpfilemappingattributes;
@@ -284,7 +346,8 @@ static Napi::Value windowssys_windows_win32_system_memory_createFileMappingNumaW
     (void)dwmaximumsizelow;
     (void)lpname;
     (void)nndpreferred;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -304,7 +367,13 @@ static Napi::Value windowssys_windows_win32_system_memory_createFileMappingW_nap
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateFileMappingW")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hfile, lpfilemappingattributes, flprotect, dwmaximumsizehigh, dwmaximumsizelow, lpname) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hfile, lpfilemappingattributes, flprotect, dwmaximumsizehigh, dwmaximumsizelow, lpname);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hfile;
     (void)lpfilemappingattributes;
@@ -312,7 +381,8 @@ static Napi::Value windowssys_windows_win32_system_memory_createFileMappingW_nap
     (void)dwmaximumsizehigh;
     (void)dwmaximumsizelow;
     (void)lpname;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -327,10 +397,17 @@ static Napi::Value windowssys_windows_win32_system_memory_createMemoryResourceNo
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CreateMemoryResourceNotification")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(notificationtype) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(notificationtype);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)notificationtype;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -346,10 +423,17 @@ static Napi::Value windowssys_windows_win32_system_memory_discardVirtualMemory_n
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DiscardVirtualMemory")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(virtualaddress, size) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(virtualaddress, size);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)virtualaddress;
     (void)size;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -366,10 +450,17 @@ static Napi::Value windowssys_windows_win32_system_memory_flushViewOfFile_napi(c
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FlushViewOfFile")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpbaseaddress, dwnumberofbytestoflush) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpbaseaddress, dwnumberofbytestoflush);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpbaseaddress;
     (void)dwnumberofbytestoflush;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -387,11 +478,18 @@ static Napi::Value windowssys_windows_win32_system_memory_freeUserPhysicalPages_
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FreeUserPhysicalPages")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, numberofpages, pagearray) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, numberofpages, pagearray);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)numberofpages;
     (void)pagearray;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -406,8 +504,15 @@ static Napi::Value windowssys_windows_win32_system_memory_getLargePageMinimum_na
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetLargePageMinimum")));
     }
-    uint64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : 0;
+    uint64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
+    errno = ENOSYS;
     uint64_t km_res = 0;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
@@ -423,9 +528,16 @@ static Napi::Value windowssys_windows_win32_system_memory_getMemoryErrorHandling
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetMemoryErrorHandlingCapabilities")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(capabilities) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(capabilities);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)capabilities;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -440,9 +552,16 @@ static Napi::Value windowssys_windows_win32_system_memory_getProcessHeap_napi(co
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetProcessHeap")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -458,10 +577,17 @@ static Napi::Value windowssys_windows_win32_system_memory_getProcessHeaps_napi(c
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetProcessHeaps")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(numberofheaps, processheaps) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(numberofheaps, processheaps);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)numberofheaps;
     (void)processheaps;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -480,12 +606,19 @@ static Napi::Value windowssys_windows_win32_system_memory_getProcessWorkingSetSi
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetProcessWorkingSetSizeEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, lpminimumworkingsetsize, lpmaximumworkingsetsize, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, lpminimumworkingsetsize, lpmaximumworkingsetsize, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)lpminimumworkingsetsize;
     (void)lpmaximumworkingsetsize;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -503,11 +636,18 @@ static Napi::Value windowssys_windows_win32_system_memory_getSystemFileCacheSize
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetSystemFileCacheSize")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpminimumfilecachesize, lpmaximumfilecachesize, lpflags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpminimumfilecachesize, lpmaximumfilecachesize, lpflags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpminimumfilecachesize;
     (void)lpmaximumfilecachesize;
     (void)lpflags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -528,7 +668,13 @@ static Napi::Value windowssys_windows_win32_system_memory_getWriteWatch_napi(con
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetWriteWatch")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwflags, lpbaseaddress, dwregionsize, lpaddresses, lpdwcount, lpdwgranularity) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwflags, lpbaseaddress, dwregionsize, lpaddresses, lpdwcount, lpdwgranularity);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dwflags;
     (void)lpbaseaddress;
@@ -536,6 +682,7 @@ static Napi::Value windowssys_windows_win32_system_memory_getWriteWatch_napi(con
     (void)lpaddresses;
     (void)lpdwcount;
     (void)lpdwgranularity;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -552,11 +699,18 @@ static Napi::Value windowssys_windows_win32_system_memory_globalAlloc_napi(const
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GlobalAlloc")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(uflags, dwbytes) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(uflags, dwbytes);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)uflags;
     (void)dwbytes;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -571,9 +725,16 @@ static Napi::Value windowssys_windows_win32_system_memory_globalFlags_napi(const
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GlobalFlags")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmem) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmem);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmem;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -589,10 +750,17 @@ static Napi::Value windowssys_windows_win32_system_memory_globalHandle_napi(cons
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GlobalHandle")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pmem) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pmem);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pmem;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -607,10 +775,17 @@ static Napi::Value windowssys_windows_win32_system_memory_globalLock_napi(const 
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GlobalLock")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmem) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmem);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hmem;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -627,12 +802,19 @@ static Napi::Value windowssys_windows_win32_system_memory_globalReAlloc_napi(con
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GlobalReAlloc")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmem, dwbytes, uflags) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmem, dwbytes, uflags);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hmem;
     (void)dwbytes;
     (void)uflags;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -647,9 +829,16 @@ static Napi::Value windowssys_windows_win32_system_memory_globalSize_napi(const 
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GlobalSize")));
     }
-    uint64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmem) : 0;
+    uint64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmem);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmem;
+    errno = ENOSYS;
     uint64_t km_res = 0;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
@@ -665,9 +854,16 @@ static Napi::Value windowssys_windows_win32_system_memory_globalUnlock_napi(cons
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GlobalUnlock")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmem) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmem);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hmem;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -685,12 +881,19 @@ static Napi::Value windowssys_windows_win32_system_memory_heapAlloc_napi(const N
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HeapAlloc")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hheap, dwflags, dwbytes) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hheap, dwflags, dwbytes);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hheap;
     (void)dwflags;
     (void)dwbytes;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -706,10 +909,17 @@ static Napi::Value windowssys_windows_win32_system_memory_heapCompact_napi(const
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HeapCompact")));
     }
-    uint64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hheap, dwflags) : 0;
+    uint64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hheap, dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hheap;
     (void)dwflags;
+    errno = ENOSYS;
     uint64_t km_res = 0;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
@@ -727,12 +937,19 @@ static Napi::Value windowssys_windows_win32_system_memory_heapCreate_napi(const 
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HeapCreate")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(floptions, dwinitialsize, dwmaximumsize) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(floptions, dwinitialsize, dwmaximumsize);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)floptions;
     (void)dwinitialsize;
     (void)dwmaximumsize;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -747,9 +964,16 @@ static Napi::Value windowssys_windows_win32_system_memory_heapDestroy_napi(const
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HeapDestroy")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hheap) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hheap);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hheap;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -767,11 +991,18 @@ static Napi::Value windowssys_windows_win32_system_memory_heapFree_napi(const Na
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HeapFree")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hheap, dwflags, lpmem) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hheap, dwflags, lpmem);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hheap;
     (void)dwflags;
     (void)lpmem;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -787,9 +1018,16 @@ static Napi::Value windowssys_windows_win32_system_memory_heapLock_napi(const Na
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HeapLock")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hheap) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hheap);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hheap;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -809,13 +1047,20 @@ static Napi::Value windowssys_windows_win32_system_memory_heapQueryInformation_n
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HeapQueryInformation")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(heaphandle, heapinformationclass, heapinformation, heapinformationlength, returnlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(heaphandle, heapinformationclass, heapinformation, heapinformationlength, returnlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)heaphandle;
     (void)heapinformationclass;
     (void)heapinformation;
     (void)heapinformationlength;
     (void)returnlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -834,13 +1079,20 @@ static Napi::Value windowssys_windows_win32_system_memory_heapReAlloc_napi(const
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HeapReAlloc")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hheap, dwflags, lpmem, dwbytes) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hheap, dwflags, lpmem, dwbytes);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hheap;
     (void)dwflags;
     (void)lpmem;
     (void)dwbytes;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -858,12 +1110,19 @@ static Napi::Value windowssys_windows_win32_system_memory_heapSetInformation_nap
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HeapSetInformation")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(heaphandle, heapinformationclass, heapinformation, heapinformationlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(heaphandle, heapinformationclass, heapinformation, heapinformationlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)heaphandle;
     (void)heapinformationclass;
     (void)heapinformation;
     (void)heapinformationlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -881,11 +1140,18 @@ static Napi::Value windowssys_windows_win32_system_memory_heapSize_napi(const Na
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HeapSize")));
     }
-    uint64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hheap, dwflags, lpmem) : 0;
+    uint64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hheap, dwflags, lpmem);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hheap;
     (void)dwflags;
     (void)lpmem;
+    errno = ENOSYS;
     uint64_t km_res = 0;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
@@ -903,11 +1169,18 @@ static Napi::Value windowssys_windows_win32_system_memory_heapSummary_napi(const
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HeapSummary")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hheap, dwflags, lpsummary) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hheap, dwflags, lpsummary);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hheap;
     (void)dwflags;
     (void)lpsummary;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -923,9 +1196,16 @@ static Napi::Value windowssys_windows_win32_system_memory_heapUnlock_napi(const 
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HeapUnlock")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hheap) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hheap);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hheap;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -943,11 +1223,18 @@ static Napi::Value windowssys_windows_win32_system_memory_heapValidate_napi(cons
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HeapValidate")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hheap, dwflags, lpmem) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hheap, dwflags, lpmem);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hheap;
     (void)dwflags;
     (void)lpmem;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -964,10 +1251,17 @@ static Napi::Value windowssys_windows_win32_system_memory_heapWalk_napi(const Na
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "HeapWalk")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hheap, lpentry) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hheap, lpentry);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hheap;
     (void)lpentry;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -984,10 +1278,17 @@ static Napi::Value windowssys_windows_win32_system_memory_isBadReadPtr_napi(cons
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IsBadReadPtr")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lp, ucb) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lp, ucb);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lp;
     (void)ucb;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1004,10 +1305,17 @@ static Napi::Value windowssys_windows_win32_system_memory_isBadStringPtrA_napi(c
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IsBadStringPtrA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpsz, ucchmax) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpsz, ucchmax);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpsz;
     (void)ucchmax;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1024,10 +1332,17 @@ static Napi::Value windowssys_windows_win32_system_memory_isBadStringPtrW_napi(c
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IsBadStringPtrW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpsz, ucchmax) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpsz, ucchmax);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpsz;
     (void)ucchmax;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1044,10 +1359,17 @@ static Napi::Value windowssys_windows_win32_system_memory_isBadWritePtr_napi(con
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "IsBadWritePtr")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lp, ucb) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lp, ucb);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lp;
     (void)ucb;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1064,11 +1386,18 @@ static Napi::Value windowssys_windows_win32_system_memory_localAlloc_napi(const 
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LocalAlloc")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(uflags, ubytes) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(uflags, ubytes);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)uflags;
     (void)ubytes;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1083,9 +1412,16 @@ static Napi::Value windowssys_windows_win32_system_memory_localFlags_napi(const 
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LocalFlags")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmem) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmem);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmem;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1101,10 +1437,17 @@ static Napi::Value windowssys_windows_win32_system_memory_localHandle_napi(const
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LocalHandle")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pmem) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pmem);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pmem;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1119,10 +1462,17 @@ static Napi::Value windowssys_windows_win32_system_memory_localLock_napi(const N
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LocalLock")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmem) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmem);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hmem;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1139,12 +1489,19 @@ static Napi::Value windowssys_windows_win32_system_memory_localReAlloc_napi(cons
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LocalReAlloc")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmem, ubytes, uflags) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmem, ubytes, uflags);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hmem;
     (void)ubytes;
     (void)uflags;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1159,9 +1516,16 @@ static Napi::Value windowssys_windows_win32_system_memory_localSize_napi(const N
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LocalSize")));
     }
-    uint64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmem) : 0;
+    uint64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmem);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hmem;
+    errno = ENOSYS;
     uint64_t km_res = 0;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
@@ -1177,9 +1541,16 @@ static Napi::Value windowssys_windows_win32_system_memory_localUnlock_napi(const
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LocalUnlock")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hmem) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hmem);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hmem;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1197,11 +1568,18 @@ static Napi::Value windowssys_windows_win32_system_memory_mapUserPhysicalPages_n
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MapUserPhysicalPages")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(virtualaddress, numberofpages, pagearray) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(virtualaddress, numberofpages, pagearray);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)virtualaddress;
     (void)numberofpages;
     (void)pagearray;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1219,11 +1597,18 @@ static Napi::Value windowssys_windows_win32_system_memory_mapUserPhysicalPagesSc
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "MapUserPhysicalPagesScatter")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(virtualaddresses, numberofpages, pagearray) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(virtualaddresses, numberofpages, pagearray);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)virtualaddresses;
     (void)numberofpages;
     (void)pagearray;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1241,11 +1626,18 @@ static Napi::Value windowssys_windows_win32_system_memory_offerVirtualMemory_nap
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OfferVirtualMemory")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(virtualaddress, size, priority) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(virtualaddress, size, priority);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)virtualaddress;
     (void)size;
     (void)priority;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1264,13 +1656,20 @@ static Napi::Value windowssys_windows_win32_system_memory_openDedicatedMemoryPar
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-core-memory-l1-1-8.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OpenDedicatedMemoryPartition")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(partition, dedicatedmemorytypeid, desiredaccess, inherithandle) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(partition, dedicatedmemorytypeid, desiredaccess, inherithandle);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)partition;
     (void)dedicatedmemorytypeid;
     (void)desiredaccess;
     (void)inherithandle;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1287,12 +1686,19 @@ static Napi::Value windowssys_windows_win32_system_memory_openFileMappingA_napi(
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OpenFileMappingA")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwdesiredaccess, binherithandle, lpname) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwdesiredaccess, binherithandle, lpname);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)dwdesiredaccess;
     (void)binherithandle;
     (void)lpname;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1309,12 +1715,19 @@ static Napi::Value windowssys_windows_win32_system_memory_openFileMappingFromApp
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-core-memory-l1-1-3.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OpenFileMappingFromApp")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(desiredaccess, inherithandle, name) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(desiredaccess, inherithandle, name);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)desiredaccess;
     (void)inherithandle;
     (void)name;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1331,12 +1744,19 @@ static Napi::Value windowssys_windows_win32_system_memory_openFileMappingW_napi(
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OpenFileMappingW")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwdesiredaccess, binherithandle, lpname) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwdesiredaccess, binherithandle, lpname);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)dwdesiredaccess;
     (void)binherithandle;
     (void)lpname;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1354,12 +1774,19 @@ static Napi::Value windowssys_windows_win32_system_memory_prefetchVirtualMemory_
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "PrefetchVirtualMemory")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, numberofentries, virtualaddresses, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, numberofentries, virtualaddresses, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)numberofentries;
     (void)virtualaddresses;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1376,10 +1803,17 @@ static Napi::Value windowssys_windows_win32_system_memory_queryMemoryResourceNot
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "QueryMemoryResourceNotification")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(resourcenotificationhandle, resourcestate) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(resourcenotificationhandle, resourcestate);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)resourcenotificationhandle;
     (void)resourcestate;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1398,12 +1832,19 @@ static Napi::Value windowssys_windows_win32_system_memory_queryPartitionInformat
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-core-memory-l1-1-8.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "QueryPartitionInformation")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(partition, partitioninformationclass, partitioninformation, partitioninformationlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(partition, partitioninformationclass, partitioninformation, partitioninformationlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)partition;
     (void)partitioninformationclass;
     (void)partitioninformation;
     (void)partitioninformationlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1424,7 +1865,13 @@ static Napi::Value windowssys_windows_win32_system_memory_queryVirtualMemoryInfo
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-core-memory-l1-1-4.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "QueryVirtualMemoryInformation")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(process, virtualaddress, memoryinformationclass, memoryinformation, memoryinformationsize, returnsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(process, virtualaddress, memoryinformationclass, memoryinformation, memoryinformationsize, returnsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)process;
     (void)virtualaddress;
@@ -1432,6 +1879,7 @@ static Napi::Value windowssys_windows_win32_system_memory_queryVirtualMemoryInfo
     (void)memoryinformation;
     (void)memoryinformationsize;
     (void)returnsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1448,10 +1896,17 @@ static Napi::Value windowssys_windows_win32_system_memory_reclaimVirtualMemory_n
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ReclaimVirtualMemory")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(virtualaddress, size) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(virtualaddress, size);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)virtualaddress;
     (void)size;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1467,10 +1922,17 @@ static Napi::Value windowssys_windows_win32_system_memory_registerBadMemoryNotif
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegisterBadMemoryNotification")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(callback) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(callback);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)callback;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1485,9 +1947,16 @@ static Napi::Value windowssys_windows_win32_system_memory_removeSecureMemoryCach
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RemoveSecureMemoryCacheCallback")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pfncallback) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pfncallback);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pfncallback;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1504,10 +1973,17 @@ static Napi::Value windowssys_windows_win32_system_memory_resetWriteWatch_napi(c
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ResetWriteWatch")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpbaseaddress, dwregionsize) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpbaseaddress, dwregionsize);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpbaseaddress;
     (void)dwregionsize;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1525,11 +2001,18 @@ static Napi::Value windowssys_windows_win32_system_memory_rtlCompareMemory_napi(
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtlCompareMemory")));
     }
-    uint64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(source1, source2, length) : 0;
+    uint64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(source1, source2, length);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)source1;
     (void)source2;
     (void)length;
+    errno = ENOSYS;
     uint64_t km_res = 0;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
@@ -1547,11 +2030,18 @@ static Napi::Value windowssys_windows_win32_system_memory_rtlCrc32_napi(const Na
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtlCrc32")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(buffer, size, initialcrc) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(buffer, size, initialcrc);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)buffer;
     (void)size;
     (void)initialcrc;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1569,11 +2059,18 @@ static Napi::Value windowssys_windows_win32_system_memory_rtlCrc64_napi(const Na
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtlCrc64")));
     }
-    uint64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(buffer, size, initialcrc) : 0;
+    uint64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(buffer, size, initialcrc);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)buffer;
     (void)size;
     (void)initialcrc;
+    errno = ENOSYS;
     uint64_t km_res = 0;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
@@ -1590,10 +2087,17 @@ static Napi::Value windowssys_windows_win32_system_memory_rtlIsZeroMemory_napi(c
         HMODULE km_h_mod = LoadLibraryA("ntdll.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RtlIsZeroMemory")));
     }
-    bool km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(buffer, length) : false;
+    bool km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(buffer, length);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)buffer;
     (void)length;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return Napi::Boolean::New(km_env, km_res);
@@ -1613,13 +2117,20 @@ static Napi::Value windowssys_windows_win32_system_memory_setProcessValidCallTar
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-core-memory-l1-1-3.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetProcessValidCallTargets")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, virtualaddress, regionsize, numberofoffsets, offsetinformation) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, virtualaddress, regionsize, numberofoffsets, offsetinformation);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)virtualaddress;
     (void)regionsize;
     (void)numberofoffsets;
     (void)offsetinformation;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1641,7 +2152,13 @@ static Napi::Value windowssys_windows_win32_system_memory_setProcessValidCallTar
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-core-memory-l1-1-7.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetProcessValidCallTargetsForMappedView")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(process, virtualaddress, regionsize, numberofoffsets, offsetinformation, section, expectedfileoffset) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(process, virtualaddress, regionsize, numberofoffsets, offsetinformation, section, expectedfileoffset);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)process;
     (void)virtualaddress;
@@ -1650,6 +2167,7 @@ static Napi::Value windowssys_windows_win32_system_memory_setProcessValidCallTar
     (void)offsetinformation;
     (void)section;
     (void)expectedfileoffset;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1668,12 +2186,19 @@ static Napi::Value windowssys_windows_win32_system_memory_setProcessWorkingSetSi
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetProcessWorkingSetSizeEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, dwminimumworkingsetsize, dwmaximumworkingsetsize, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, dwminimumworkingsetsize, dwmaximumworkingsetsize, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)dwminimumworkingsetsize;
     (void)dwmaximumworkingsetsize;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1691,11 +2216,18 @@ static Napi::Value windowssys_windows_win32_system_memory_setSystemFileCacheSize
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetSystemFileCacheSize")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(minimumfilecachesize, maximumfilecachesize, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(minimumfilecachesize, maximumfilecachesize, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)minimumfilecachesize;
     (void)maximumfilecachesize;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1711,9 +2243,16 @@ static Napi::Value windowssys_windows_win32_system_memory_unregisterBadMemoryNot
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "UnregisterBadMemoryNotification")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(registrationhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(registrationhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)registrationhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1732,13 +2271,20 @@ static Napi::Value windowssys_windows_win32_system_memory_virtualAlloc_napi(cons
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "VirtualAlloc")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpaddress, dwsize, flallocationtype, flprotect) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpaddress, dwsize, flallocationtype, flprotect);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)lpaddress;
     (void)dwsize;
     (void)flallocationtype;
     (void)flprotect;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1759,7 +2305,13 @@ static Napi::Value windowssys_windows_win32_system_memory_virtualAlloc2_napi(con
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-core-memory-l1-1-6.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "VirtualAlloc2")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(process, baseaddress, size, allocationtype, pageprotection, extendedparameters, parametercount) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(process, baseaddress, size, allocationtype, pageprotection, extendedparameters, parametercount);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)process;
     (void)baseaddress;
@@ -1768,7 +2320,8 @@ static Napi::Value windowssys_windows_win32_system_memory_virtualAlloc2_napi(con
     (void)pageprotection;
     (void)extendedparameters;
     (void)parametercount;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1789,7 +2342,13 @@ static Napi::Value windowssys_windows_win32_system_memory_virtualAlloc2FromApp_n
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-core-memory-l1-1-6.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "VirtualAlloc2FromApp")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(process, baseaddress, size, allocationtype, pageprotection, extendedparameters, parametercount) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(process, baseaddress, size, allocationtype, pageprotection, extendedparameters, parametercount);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)process;
     (void)baseaddress;
@@ -1798,7 +2357,8 @@ static Napi::Value windowssys_windows_win32_system_memory_virtualAlloc2FromApp_n
     (void)pageprotection;
     (void)extendedparameters;
     (void)parametercount;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1817,14 +2377,21 @@ static Napi::Value windowssys_windows_win32_system_memory_virtualAllocEx_napi(co
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "VirtualAllocEx")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, lpaddress, dwsize, flallocationtype, flprotect) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, lpaddress, dwsize, flallocationtype, flprotect);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hprocess;
     (void)lpaddress;
     (void)dwsize;
     (void)flallocationtype;
     (void)flprotect;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1844,7 +2411,13 @@ static Napi::Value windowssys_windows_win32_system_memory_virtualAllocExNuma_nap
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "VirtualAllocExNuma")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, lpaddress, dwsize, flallocationtype, flprotect, nndpreferred) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, lpaddress, dwsize, flallocationtype, flprotect, nndpreferred);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)hprocess;
     (void)lpaddress;
@@ -1852,7 +2425,8 @@ static Napi::Value windowssys_windows_win32_system_memory_virtualAllocExNuma_nap
     (void)flallocationtype;
     (void)flprotect;
     (void)nndpreferred;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1870,13 +2444,20 @@ static Napi::Value windowssys_windows_win32_system_memory_virtualAllocFromApp_na
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-core-memory-l1-1-3.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "VirtualAllocFromApp")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(baseaddress, size, allocationtype, protection) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(baseaddress, size, allocationtype, protection);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)baseaddress;
     (void)size;
     (void)allocationtype;
     (void)protection;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1893,11 +2474,18 @@ static Napi::Value windowssys_windows_win32_system_memory_virtualFree_napi(const
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "VirtualFree")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpaddress, dwsize, dwfreetype) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpaddress, dwsize, dwfreetype);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpaddress;
     (void)dwsize;
     (void)dwfreetype;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1916,12 +2504,19 @@ static Napi::Value windowssys_windows_win32_system_memory_virtualFreeEx_napi(con
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "VirtualFreeEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, lpaddress, dwsize, dwfreetype) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, lpaddress, dwsize, dwfreetype);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)lpaddress;
     (void)dwsize;
     (void)dwfreetype;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1938,10 +2533,17 @@ static Napi::Value windowssys_windows_win32_system_memory_virtualLock_napi(const
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "VirtualLock")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpaddress, dwsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpaddress, dwsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpaddress;
     (void)dwsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1960,12 +2562,19 @@ static Napi::Value windowssys_windows_win32_system_memory_virtualProtect_napi(co
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "VirtualProtect")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpaddress, dwsize, flnewprotect, lpfloldprotect) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpaddress, dwsize, flnewprotect, lpfloldprotect);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpaddress;
     (void)dwsize;
     (void)flnewprotect;
     (void)lpfloldprotect;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1985,13 +2594,20 @@ static Napi::Value windowssys_windows_win32_system_memory_virtualProtectEx_napi(
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "VirtualProtectEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, lpaddress, dwsize, flnewprotect, lpfloldprotect) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, lpaddress, dwsize, flnewprotect, lpfloldprotect);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hprocess;
     (void)lpaddress;
     (void)dwsize;
     (void)flnewprotect;
     (void)lpfloldprotect;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2010,12 +2626,19 @@ static Napi::Value windowssys_windows_win32_system_memory_virtualProtectFromApp_
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-core-memory-l1-1-3.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "VirtualProtectFromApp")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(address, size, newprotection, oldprotection) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(address, size, newprotection, oldprotection);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)address;
     (void)size;
     (void)newprotection;
     (void)oldprotection;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2033,11 +2656,18 @@ static Napi::Value windowssys_windows_win32_system_memory_virtualQuery_napi(cons
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "VirtualQuery")));
     }
-    uint64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpaddress, lpbuffer, dwlength) : 0;
+    uint64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpaddress, lpbuffer, dwlength);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)lpaddress;
     (void)lpbuffer;
     (void)dwlength;
+    errno = ENOSYS;
     uint64_t km_res = 0;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
@@ -2056,12 +2686,19 @@ static Napi::Value windowssys_windows_win32_system_memory_virtualQueryEx_napi(co
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "VirtualQueryEx")));
     }
-    uint64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hprocess, lpaddress, lpbuffer, dwlength) : 0;
+    uint64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hprocess, lpaddress, lpbuffer, dwlength);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)hprocess;
     (void)lpaddress;
     (void)lpbuffer;
     (void)dwlength;
+    errno = ENOSYS;
     uint64_t km_res = 0;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<uint64_t>(km_res)));
@@ -2078,10 +2715,17 @@ static Napi::Value windowssys_windows_win32_system_memory_virtualUnlock_napi(con
         HMODULE km_h_mod = LoadLibraryA("kernel32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "VirtualUnlock")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpaddress, dwsize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpaddress, dwsize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpaddress;
     (void)dwsize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -2099,11 +2743,18 @@ static Napi::Value windowssys_windows_win32_system_memory_virtualUnlockEx_napi(c
         HMODULE km_h_mod = LoadLibraryA("api-ms-win-core-memory-l1-1-5.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "VirtualUnlockEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(process, address, size) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(process, address, size);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)process;
     (void)address;
     (void)size;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

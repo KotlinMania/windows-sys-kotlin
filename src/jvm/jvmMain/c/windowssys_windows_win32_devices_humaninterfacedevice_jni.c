@@ -5,6 +5,7 @@
 #include <stdbool.h>
 #include <stddef.h>
 #include <stdint.h>
+#include <stdlib.h>
 #include <errno.h>
 #ifdef _WIN32
 #ifndef WIN32_LEAN_AND_MEAN
@@ -28,13 +29,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("dinput8.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "DirectInput8Create");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hinst, (uint32_t)dwversion, (void*)(uintptr_t)riidltf, (void*)(uintptr_t)ppvout, (void*)(uintptr_t)punkouter) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hinst, (uint32_t)dwversion, (void*)(uintptr_t)riidltf, (void*)(uintptr_t)ppvout, (void*)(uintptr_t)punkouter);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hinst;
     (void)dwversion;
     (void)riidltf;
     (void)ppvout;
     (void)punkouter;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -50,9 +58,16 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_d
         HMODULE km_h_mod = LoadLibraryA("hid.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HidD_FlushQueue");
     }
-    bool km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hiddeviceobject) : false;
+    bool km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hiddeviceobject);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)hiddeviceobject;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return (jboolean)km_res;
@@ -68,9 +83,16 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_d
         HMODULE km_h_mod = LoadLibraryA("hid.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HidD_FreePreparsedData");
     }
-    bool km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)preparseddata) : false;
+    bool km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int64_t)preparseddata);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)preparseddata;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return (jboolean)km_res;
@@ -86,10 +108,17 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_d
         HMODULE km_h_mod = LoadLibraryA("hid.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HidD_GetAttributes");
     }
-    bool km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hiddeviceobject, (void*)(uintptr_t)attributes) : false;
+    bool km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hiddeviceobject, (void*)(uintptr_t)attributes);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)hiddeviceobject;
     (void)attributes;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return (jboolean)km_res;
@@ -105,11 +134,18 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_d
         HMODULE km_h_mod = LoadLibraryA("hid.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HidD_GetConfiguration");
     }
-    bool km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hiddeviceobject, (void*)(uintptr_t)configuration, (uint32_t)configurationlength) : false;
+    bool km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hiddeviceobject, (void*)(uintptr_t)configuration, (uint32_t)configurationlength);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)hiddeviceobject;
     (void)configuration;
     (void)configurationlength;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return (jboolean)km_res;
@@ -125,11 +161,18 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_d
         HMODULE km_h_mod = LoadLibraryA("hid.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HidD_GetFeature");
     }
-    bool km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hiddeviceobject, (void*)(uintptr_t)reportbuffer, (uint32_t)reportbufferlength) : false;
+    bool km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hiddeviceobject, (void*)(uintptr_t)reportbuffer, (uint32_t)reportbufferlength);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)hiddeviceobject;
     (void)reportbuffer;
     (void)reportbufferlength;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return (jboolean)km_res;
@@ -145,9 +188,14 @@ JNIEXPORT void JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("hid.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HidD_GetHidGuid");
     }
-    if (km_fn_ptr != NULL) km_fn_ptr((void*)(uintptr_t)hidguid);
+    if (km_fn_ptr != NULL) {
+        km_fn_ptr((void*)(uintptr_t)hidguid);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)hidguid;
+    errno = ENOSYS;
 #endif
 }
 
@@ -161,12 +209,19 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_d
         HMODULE km_h_mod = LoadLibraryA("hid.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HidD_GetIndexedString");
     }
-    bool km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hiddeviceobject, (uint32_t)stringindex, (void*)(uintptr_t)buffer, (uint32_t)bufferlength) : false;
+    bool km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hiddeviceobject, (uint32_t)stringindex, (void*)(uintptr_t)buffer, (uint32_t)bufferlength);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)hiddeviceobject;
     (void)stringindex;
     (void)buffer;
     (void)bufferlength;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return (jboolean)km_res;
@@ -182,11 +237,18 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_d
         HMODULE km_h_mod = LoadLibraryA("hid.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HidD_GetInputReport");
     }
-    bool km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hiddeviceobject, (void*)(uintptr_t)reportbuffer, (uint32_t)reportbufferlength) : false;
+    bool km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hiddeviceobject, (void*)(uintptr_t)reportbuffer, (uint32_t)reportbufferlength);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)hiddeviceobject;
     (void)reportbuffer;
     (void)reportbufferlength;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return (jboolean)km_res;
@@ -202,11 +264,18 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_d
         HMODULE km_h_mod = LoadLibraryA("hid.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HidD_GetManufacturerString");
     }
-    bool km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hiddeviceobject, (void*)(uintptr_t)buffer, (uint32_t)bufferlength) : false;
+    bool km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hiddeviceobject, (void*)(uintptr_t)buffer, (uint32_t)bufferlength);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)hiddeviceobject;
     (void)buffer;
     (void)bufferlength;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return (jboolean)km_res;
@@ -222,11 +291,18 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_d
         HMODULE km_h_mod = LoadLibraryA("hid.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HidD_GetMsGenreDescriptor");
     }
-    bool km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hiddeviceobject, (void*)(uintptr_t)buffer, (uint32_t)bufferlength) : false;
+    bool km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hiddeviceobject, (void*)(uintptr_t)buffer, (uint32_t)bufferlength);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)hiddeviceobject;
     (void)buffer;
     (void)bufferlength;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return (jboolean)km_res;
@@ -242,10 +318,17 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_d
         HMODULE km_h_mod = LoadLibraryA("hid.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HidD_GetNumInputBuffers");
     }
-    bool km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hiddeviceobject, (void*)(uintptr_t)numberbuffers) : false;
+    bool km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hiddeviceobject, (void*)(uintptr_t)numberbuffers);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)hiddeviceobject;
     (void)numberbuffers;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return (jboolean)km_res;
@@ -261,11 +344,18 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_d
         HMODULE km_h_mod = LoadLibraryA("hid.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HidD_GetPhysicalDescriptor");
     }
-    bool km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hiddeviceobject, (void*)(uintptr_t)buffer, (uint32_t)bufferlength) : false;
+    bool km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hiddeviceobject, (void*)(uintptr_t)buffer, (uint32_t)bufferlength);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)hiddeviceobject;
     (void)buffer;
     (void)bufferlength;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return (jboolean)km_res;
@@ -281,10 +371,17 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_d
         HMODULE km_h_mod = LoadLibraryA("hid.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HidD_GetPreparsedData");
     }
-    bool km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hiddeviceobject, (void*)(uintptr_t)preparseddata) : false;
+    bool km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hiddeviceobject, (void*)(uintptr_t)preparseddata);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)hiddeviceobject;
     (void)preparseddata;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return (jboolean)km_res;
@@ -300,11 +397,18 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_d
         HMODULE km_h_mod = LoadLibraryA("hid.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HidD_GetProductString");
     }
-    bool km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hiddeviceobject, (void*)(uintptr_t)buffer, (uint32_t)bufferlength) : false;
+    bool km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hiddeviceobject, (void*)(uintptr_t)buffer, (uint32_t)bufferlength);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)hiddeviceobject;
     (void)buffer;
     (void)bufferlength;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return (jboolean)km_res;
@@ -320,11 +424,18 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_d
         HMODULE km_h_mod = LoadLibraryA("hid.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HidD_GetSerialNumberString");
     }
-    bool km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hiddeviceobject, (void*)(uintptr_t)buffer, (uint32_t)bufferlength) : false;
+    bool km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hiddeviceobject, (void*)(uintptr_t)buffer, (uint32_t)bufferlength);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)hiddeviceobject;
     (void)buffer;
     (void)bufferlength;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return (jboolean)km_res;
@@ -340,11 +451,18 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_d
         HMODULE km_h_mod = LoadLibraryA("hid.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HidD_SetConfiguration");
     }
-    bool km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hiddeviceobject, (void*)(uintptr_t)configuration, (uint32_t)configurationlength) : false;
+    bool km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hiddeviceobject, (void*)(uintptr_t)configuration, (uint32_t)configurationlength);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)hiddeviceobject;
     (void)configuration;
     (void)configurationlength;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return (jboolean)km_res;
@@ -360,11 +478,18 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_d
         HMODULE km_h_mod = LoadLibraryA("hid.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HidD_SetFeature");
     }
-    bool km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hiddeviceobject, (void*)(uintptr_t)reportbuffer, (uint32_t)reportbufferlength) : false;
+    bool km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hiddeviceobject, (void*)(uintptr_t)reportbuffer, (uint32_t)reportbufferlength);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)hiddeviceobject;
     (void)reportbuffer;
     (void)reportbufferlength;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return (jboolean)km_res;
@@ -380,10 +505,17 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_d
         HMODULE km_h_mod = LoadLibraryA("hid.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HidD_SetNumInputBuffers");
     }
-    bool km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hiddeviceobject, (uint32_t)numberbuffers) : false;
+    bool km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hiddeviceobject, (uint32_t)numberbuffers);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)hiddeviceobject;
     (void)numberbuffers;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return (jboolean)km_res;
@@ -399,11 +531,18 @@ JNIEXPORT jboolean JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_d
         HMODULE km_h_mod = LoadLibraryA("hid.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HidD_SetOutputReport");
     }
-    bool km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hiddeviceobject, (void*)(uintptr_t)reportbuffer, (uint32_t)reportbufferlength) : false;
+    bool km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hiddeviceobject, (void*)(uintptr_t)reportbuffer, (uint32_t)reportbufferlength);
+    } else {
+        errno = ENOSYS;
+        km_res = false;
+    }
 #else
     (void)hiddeviceobject;
     (void)reportbuffer;
     (void)reportbufferlength;
+    errno = ENOSYS;
     bool km_res = false;
 #endif
     return (jboolean)km_res;
@@ -419,7 +558,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("hid.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HidP_GetButtonArray");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int32_t)reporttype, (uint16_t)usagepage, (uint16_t)linkcollection, (uint16_t)usage, (void*)(uintptr_t)buttondata, (void*)(uintptr_t)buttondatalength, (int64_t)preparseddata, (void*)(uintptr_t)report, (uint32_t)reportlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int32_t)reporttype, (uint16_t)usagepage, (uint16_t)linkcollection, (uint16_t)usage, (void*)(uintptr_t)buttondata, (void*)(uintptr_t)buttondatalength, (int64_t)preparseddata, (void*)(uintptr_t)report, (uint32_t)reportlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)reporttype;
     (void)usagepage;
@@ -430,6 +575,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     (void)preparseddata;
     (void)report;
     (void)reportlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -445,12 +591,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("hid.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HidP_GetButtonCaps");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int32_t)reporttype, (void*)(uintptr_t)buttoncaps, (void*)(uintptr_t)buttoncapslength, (int64_t)preparseddata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int32_t)reporttype, (void*)(uintptr_t)buttoncaps, (void*)(uintptr_t)buttoncapslength, (int64_t)preparseddata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)reporttype;
     (void)buttoncaps;
     (void)buttoncapslength;
     (void)preparseddata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -466,10 +619,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("hid.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HidP_GetCaps");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int64_t)preparseddata, (void*)(uintptr_t)capabilities) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int64_t)preparseddata, (void*)(uintptr_t)capabilities);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)preparseddata;
     (void)capabilities;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -485,7 +645,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("hid.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HidP_GetData");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int32_t)reporttype, (void*)(uintptr_t)datalist, (void*)(uintptr_t)datalength, (int64_t)preparseddata, (void*)(uintptr_t)report, (uint32_t)reportlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int32_t)reporttype, (void*)(uintptr_t)datalist, (void*)(uintptr_t)datalength, (int64_t)preparseddata, (void*)(uintptr_t)report, (uint32_t)reportlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)reporttype;
     (void)datalist;
@@ -493,6 +659,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     (void)preparseddata;
     (void)report;
     (void)reportlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -508,13 +675,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("hid.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HidP_GetExtendedAttributes");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int32_t)reporttype, (uint16_t)dataindex, (int64_t)preparseddata, (void*)(uintptr_t)attributes, (void*)(uintptr_t)lengthattributes) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int32_t)reporttype, (uint16_t)dataindex, (int64_t)preparseddata, (void*)(uintptr_t)attributes, (void*)(uintptr_t)lengthattributes);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)reporttype;
     (void)dataindex;
     (void)preparseddata;
     (void)attributes;
     (void)lengthattributes;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -530,11 +704,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("hid.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HidP_GetLinkCollectionNodes");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)linkcollectionnodes, (void*)(uintptr_t)linkcollectionnodeslength, (int64_t)preparseddata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)linkcollectionnodes, (void*)(uintptr_t)linkcollectionnodeslength, (int64_t)preparseddata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)linkcollectionnodes;
     (void)linkcollectionnodeslength;
     (void)preparseddata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -550,7 +731,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("hid.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HidP_GetScaledUsageValue");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int32_t)reporttype, (uint16_t)usagepage, (uint16_t)linkcollection, (uint16_t)usage, (void*)(uintptr_t)usagevalue, (int64_t)preparseddata, (void*)(uintptr_t)report, (uint32_t)reportlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int32_t)reporttype, (uint16_t)usagepage, (uint16_t)linkcollection, (uint16_t)usage, (void*)(uintptr_t)usagevalue, (int64_t)preparseddata, (void*)(uintptr_t)report, (uint32_t)reportlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)reporttype;
     (void)usagepage;
@@ -560,6 +747,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     (void)preparseddata;
     (void)report;
     (void)reportlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -575,7 +763,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("hid.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HidP_GetSpecificButtonCaps");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int32_t)reporttype, (uint16_t)usagepage, (uint16_t)linkcollection, (uint16_t)usage, (void*)(uintptr_t)buttoncaps, (void*)(uintptr_t)buttoncapslength, (int64_t)preparseddata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int32_t)reporttype, (uint16_t)usagepage, (uint16_t)linkcollection, (uint16_t)usage, (void*)(uintptr_t)buttoncaps, (void*)(uintptr_t)buttoncapslength, (int64_t)preparseddata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)reporttype;
     (void)usagepage;
@@ -584,6 +778,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     (void)buttoncaps;
     (void)buttoncapslength;
     (void)preparseddata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -599,7 +794,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("hid.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HidP_GetSpecificValueCaps");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int32_t)reporttype, (uint16_t)usagepage, (uint16_t)linkcollection, (uint16_t)usage, (void*)(uintptr_t)valuecaps, (void*)(uintptr_t)valuecapslength, (int64_t)preparseddata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int32_t)reporttype, (uint16_t)usagepage, (uint16_t)linkcollection, (uint16_t)usage, (void*)(uintptr_t)valuecaps, (void*)(uintptr_t)valuecapslength, (int64_t)preparseddata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)reporttype;
     (void)usagepage;
@@ -608,6 +809,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     (void)valuecaps;
     (void)valuecapslength;
     (void)preparseddata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -623,7 +825,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("hid.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HidP_GetUsageValue");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int32_t)reporttype, (uint16_t)usagepage, (uint16_t)linkcollection, (uint16_t)usage, (void*)(uintptr_t)usagevalue, (int64_t)preparseddata, (void*)(uintptr_t)report, (uint32_t)reportlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int32_t)reporttype, (uint16_t)usagepage, (uint16_t)linkcollection, (uint16_t)usage, (void*)(uintptr_t)usagevalue, (int64_t)preparseddata, (void*)(uintptr_t)report, (uint32_t)reportlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)reporttype;
     (void)usagepage;
@@ -633,6 +841,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     (void)preparseddata;
     (void)report;
     (void)reportlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -648,7 +857,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("hid.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HidP_GetUsageValueArray");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int32_t)reporttype, (uint16_t)usagepage, (uint16_t)linkcollection, (uint16_t)usage, (void*)(uintptr_t)usagevalue, (uint16_t)usagevaluebytelength, (int64_t)preparseddata, (void*)(uintptr_t)report, (uint32_t)reportlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int32_t)reporttype, (uint16_t)usagepage, (uint16_t)linkcollection, (uint16_t)usage, (void*)(uintptr_t)usagevalue, (uint16_t)usagevaluebytelength, (int64_t)preparseddata, (void*)(uintptr_t)report, (uint32_t)reportlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)reporttype;
     (void)usagepage;
@@ -659,6 +874,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     (void)preparseddata;
     (void)report;
     (void)reportlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -674,7 +890,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("hid.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HidP_GetUsages");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int32_t)reporttype, (uint16_t)usagepage, (uint16_t)linkcollection, (void*)(uintptr_t)usagelist, (void*)(uintptr_t)usagelength, (int64_t)preparseddata, (void*)(uintptr_t)report, (uint32_t)reportlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int32_t)reporttype, (uint16_t)usagepage, (uint16_t)linkcollection, (void*)(uintptr_t)usagelist, (void*)(uintptr_t)usagelength, (int64_t)preparseddata, (void*)(uintptr_t)report, (uint32_t)reportlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)reporttype;
     (void)usagepage;
@@ -684,6 +906,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     (void)preparseddata;
     (void)report;
     (void)reportlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -699,7 +922,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("hid.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HidP_GetUsagesEx");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int32_t)reporttype, (uint16_t)linkcollection, (void*)(uintptr_t)buttonlist, (void*)(uintptr_t)usagelength, (int64_t)preparseddata, (void*)(uintptr_t)report, (uint32_t)reportlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int32_t)reporttype, (uint16_t)linkcollection, (void*)(uintptr_t)buttonlist, (void*)(uintptr_t)usagelength, (int64_t)preparseddata, (void*)(uintptr_t)report, (uint32_t)reportlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)reporttype;
     (void)linkcollection;
@@ -708,6 +937,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     (void)preparseddata;
     (void)report;
     (void)reportlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -723,12 +953,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("hid.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HidP_GetValueCaps");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int32_t)reporttype, (void*)(uintptr_t)valuecaps, (void*)(uintptr_t)valuecapslength, (int64_t)preparseddata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int32_t)reporttype, (void*)(uintptr_t)valuecaps, (void*)(uintptr_t)valuecapslength, (int64_t)preparseddata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)reporttype;
     (void)valuecaps;
     (void)valuecapslength;
     (void)preparseddata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -744,13 +981,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("hid.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HidP_InitializeReportForID");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int32_t)reporttype, (uint8_t)reportid, (int64_t)preparseddata, (void*)(uintptr_t)report, (uint32_t)reportlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int32_t)reporttype, (uint8_t)reportid, (int64_t)preparseddata, (void*)(uintptr_t)report, (uint32_t)reportlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)reporttype;
     (void)reportid;
     (void)preparseddata;
     (void)report;
     (void)reportlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -766,10 +1010,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("hid.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HidP_MaxDataListLength");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int32_t)reporttype, (int64_t)preparseddata) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int32_t)reporttype, (int64_t)preparseddata);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)reporttype;
     (void)preparseddata;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -785,11 +1036,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("hid.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HidP_MaxUsageListLength");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int32_t)reporttype, (uint16_t)usagepage, (int64_t)preparseddata) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int32_t)reporttype, (uint16_t)usagepage, (int64_t)preparseddata);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)reporttype;
     (void)usagepage;
     (void)preparseddata;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -805,7 +1063,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("hid.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HidP_SetButtonArray");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int32_t)reporttype, (uint16_t)usagepage, (uint16_t)linkcollection, (uint16_t)usage, (void*)(uintptr_t)buttondata, (uint16_t)buttondatalength, (int64_t)preparseddata, (void*)(uintptr_t)report, (uint32_t)reportlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int32_t)reporttype, (uint16_t)usagepage, (uint16_t)linkcollection, (uint16_t)usage, (void*)(uintptr_t)buttondata, (uint16_t)buttondatalength, (int64_t)preparseddata, (void*)(uintptr_t)report, (uint32_t)reportlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)reporttype;
     (void)usagepage;
@@ -816,6 +1080,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     (void)preparseddata;
     (void)report;
     (void)reportlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -831,7 +1096,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("hid.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HidP_SetData");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int32_t)reporttype, (void*)(uintptr_t)datalist, (void*)(uintptr_t)datalength, (int64_t)preparseddata, (void*)(uintptr_t)report, (uint32_t)reportlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int32_t)reporttype, (void*)(uintptr_t)datalist, (void*)(uintptr_t)datalength, (int64_t)preparseddata, (void*)(uintptr_t)report, (uint32_t)reportlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)reporttype;
     (void)datalist;
@@ -839,6 +1110,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     (void)preparseddata;
     (void)report;
     (void)reportlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -854,7 +1126,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("hid.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HidP_SetScaledUsageValue");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int32_t)reporttype, (uint16_t)usagepage, (uint16_t)linkcollection, (uint16_t)usage, (int32_t)usagevalue, (int64_t)preparseddata, (void*)(uintptr_t)report, (uint32_t)reportlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int32_t)reporttype, (uint16_t)usagepage, (uint16_t)linkcollection, (uint16_t)usage, (int32_t)usagevalue, (int64_t)preparseddata, (void*)(uintptr_t)report, (uint32_t)reportlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)reporttype;
     (void)usagepage;
@@ -864,6 +1142,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     (void)preparseddata;
     (void)report;
     (void)reportlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -879,7 +1158,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("hid.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HidP_SetUsageValue");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int32_t)reporttype, (uint16_t)usagepage, (uint16_t)linkcollection, (uint16_t)usage, (uint32_t)usagevalue, (int64_t)preparseddata, (void*)(uintptr_t)report, (uint32_t)reportlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int32_t)reporttype, (uint16_t)usagepage, (uint16_t)linkcollection, (uint16_t)usage, (uint32_t)usagevalue, (int64_t)preparseddata, (void*)(uintptr_t)report, (uint32_t)reportlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)reporttype;
     (void)usagepage;
@@ -889,6 +1174,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     (void)preparseddata;
     (void)report;
     (void)reportlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -904,7 +1190,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("hid.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HidP_SetUsageValueArray");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int32_t)reporttype, (uint16_t)usagepage, (uint16_t)linkcollection, (uint16_t)usage, (void*)(uintptr_t)usagevalue, (uint16_t)usagevaluebytelength, (int64_t)preparseddata, (void*)(uintptr_t)report, (uint32_t)reportlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int32_t)reporttype, (uint16_t)usagepage, (uint16_t)linkcollection, (uint16_t)usage, (void*)(uintptr_t)usagevalue, (uint16_t)usagevaluebytelength, (int64_t)preparseddata, (void*)(uintptr_t)report, (uint32_t)reportlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)reporttype;
     (void)usagepage;
@@ -915,6 +1207,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     (void)preparseddata;
     (void)report;
     (void)reportlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -930,7 +1223,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("hid.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HidP_SetUsages");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int32_t)reporttype, (uint16_t)usagepage, (uint16_t)linkcollection, (void*)(uintptr_t)usagelist, (void*)(uintptr_t)usagelength, (int64_t)preparseddata, (void*)(uintptr_t)report, (uint32_t)reportlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int32_t)reporttype, (uint16_t)usagepage, (uint16_t)linkcollection, (void*)(uintptr_t)usagelist, (void*)(uintptr_t)usagelength, (int64_t)preparseddata, (void*)(uintptr_t)report, (uint32_t)reportlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)reporttype;
     (void)usagepage;
@@ -940,6 +1239,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     (void)preparseddata;
     (void)report;
     (void)reportlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -955,7 +1255,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("hid.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HidP_TranslateUsagesToI8042ScanCodes");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)changedusagelist, (uint32_t)usagelistlength, (int32_t)keyaction, (void*)(uintptr_t)modifierstate, (void*)(uintptr_t)insertcodesprocedure, (void*)(uintptr_t)insertcodescontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)changedusagelist, (uint32_t)usagelistlength, (int32_t)keyaction, (void*)(uintptr_t)modifierstate, (void*)(uintptr_t)insertcodesprocedure, (void*)(uintptr_t)insertcodescontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)changedusagelist;
     (void)usagelistlength;
@@ -963,6 +1269,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     (void)modifierstate;
     (void)insertcodesprocedure;
     (void)insertcodescontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -978,7 +1285,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("hid.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HidP_UnsetUsages");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int32_t)reporttype, (uint16_t)usagepage, (uint16_t)linkcollection, (void*)(uintptr_t)usagelist, (void*)(uintptr_t)usagelength, (int64_t)preparseddata, (void*)(uintptr_t)report, (uint32_t)reportlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int32_t)reporttype, (uint16_t)usagepage, (uint16_t)linkcollection, (void*)(uintptr_t)usagelist, (void*)(uintptr_t)usagelength, (int64_t)preparseddata, (void*)(uintptr_t)report, (uint32_t)reportlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)reporttype;
     (void)usagepage;
@@ -988,6 +1301,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
     (void)preparseddata;
     (void)report;
     (void)reportlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1003,13 +1317,20 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("hid.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "HidP_UsageListDifference");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)previoususagelist, (void*)(uintptr_t)currentusagelist, (void*)(uintptr_t)breakusagelist, (void*)(uintptr_t)makeusagelist, (uint32_t)usagelistlength) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)previoususagelist, (void*)(uintptr_t)currentusagelist, (void*)(uintptr_t)breakusagelist, (void*)(uintptr_t)makeusagelist, (uint32_t)usagelistlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)previoususagelist;
     (void)currentusagelist;
     (void)breakusagelist;
     (void)makeusagelist;
     (void)usagelistlength;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -1025,9 +1346,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_devic
         HMODULE km_h_mod = LoadLibraryA("winmm.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "joyConfigChanged");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwflags) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwflags);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)dwflags;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;

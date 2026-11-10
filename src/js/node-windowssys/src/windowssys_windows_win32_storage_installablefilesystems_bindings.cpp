@@ -65,13 +65,20 @@ static Napi::Value windowssys_windows_win32_storage_installablefilesystems_filte
         HMODULE km_h_mod = LoadLibraryA("fltlib.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FilterAttach")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpfiltername, lpvolumename, lpinstancename, dwcreatedinstancenamelength, lpcreatedinstancename) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpfiltername, lpvolumename, lpinstancename, dwcreatedinstancenamelength, lpcreatedinstancename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpfiltername;
     (void)lpvolumename;
     (void)lpinstancename;
     (void)dwcreatedinstancenamelength;
     (void)lpcreatedinstancename;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -92,7 +99,13 @@ static Napi::Value windowssys_windows_win32_storage_installablefilesystems_filte
         HMODULE km_h_mod = LoadLibraryA("fltlib.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FilterAttachAtAltitude")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpfiltername, lpvolumename, lpaltitude, lpinstancename, dwcreatedinstancenamelength, lpcreatedinstancename) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpfiltername, lpvolumename, lpaltitude, lpinstancename, dwcreatedinstancenamelength, lpcreatedinstancename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpfiltername;
     (void)lpvolumename;
@@ -100,6 +113,7 @@ static Napi::Value windowssys_windows_win32_storage_installablefilesystems_filte
     (void)lpinstancename;
     (void)dwcreatedinstancenamelength;
     (void)lpcreatedinstancename;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -115,9 +129,16 @@ static Napi::Value windowssys_windows_win32_storage_installablefilesystems_filte
         HMODULE km_h_mod = LoadLibraryA("fltlib.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FilterClose")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hfilter) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hfilter);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hfilter;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -138,7 +159,13 @@ static Napi::Value windowssys_windows_win32_storage_installablefilesystems_filte
         HMODULE km_h_mod = LoadLibraryA("fltlib.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FilterConnectCommunicationPort")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpportname, dwoptions, lpcontext, wsizeofcontext, lpsecurityattributes, hport) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpportname, dwoptions, lpcontext, wsizeofcontext, lpsecurityattributes, hport);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpportname;
     (void)dwoptions;
@@ -146,6 +173,7 @@ static Napi::Value windowssys_windows_win32_storage_installablefilesystems_filte
     (void)wsizeofcontext;
     (void)lpsecurityattributes;
     (void)hport;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -162,10 +190,17 @@ static Napi::Value windowssys_windows_win32_storage_installablefilesystems_filte
         HMODULE km_h_mod = LoadLibraryA("fltlib.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FilterCreate")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpfiltername, hfilter) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpfiltername, hfilter);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpfiltername;
     (void)hfilter;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -183,11 +218,18 @@ static Napi::Value windowssys_windows_win32_storage_installablefilesystems_filte
         HMODULE km_h_mod = LoadLibraryA("fltlib.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FilterDetach")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpfiltername, lpvolumename, lpinstancename) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpfiltername, lpvolumename, lpinstancename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpfiltername;
     (void)lpvolumename;
     (void)lpinstancename;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -203,9 +245,16 @@ static Napi::Value windowssys_windows_win32_storage_installablefilesystems_filte
         HMODULE km_h_mod = LoadLibraryA("fltlib.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FilterFindClose")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hfilterfind) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hfilterfind);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hfilterfind;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -225,13 +274,20 @@ static Napi::Value windowssys_windows_win32_storage_installablefilesystems_filte
         HMODULE km_h_mod = LoadLibraryA("fltlib.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FilterFindFirst")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwinformationclass, lpbuffer, dwbuffersize, lpbytesreturned, lpfilterfind) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwinformationclass, lpbuffer, dwbuffersize, lpbytesreturned, lpfilterfind);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwinformationclass;
     (void)lpbuffer;
     (void)dwbuffersize;
     (void)lpbytesreturned;
     (void)lpfilterfind;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -251,13 +307,20 @@ static Napi::Value windowssys_windows_win32_storage_installablefilesystems_filte
         HMODULE km_h_mod = LoadLibraryA("fltlib.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FilterFindNext")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hfilterfind, dwinformationclass, lpbuffer, dwbuffersize, lpbytesreturned) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hfilterfind, dwinformationclass, lpbuffer, dwbuffersize, lpbytesreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hfilterfind;
     (void)dwinformationclass;
     (void)lpbuffer;
     (void)dwbuffersize;
     (void)lpbytesreturned;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -275,11 +338,18 @@ static Napi::Value windowssys_windows_win32_storage_installablefilesystems_filte
         HMODULE km_h_mod = LoadLibraryA("fltlib.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FilterGetDosName")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpvolumename, lpdosname, dwdosnamebuffersize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpvolumename, lpdosname, dwdosnamebuffersize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpvolumename;
     (void)lpdosname;
     (void)dwdosnamebuffersize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -299,13 +369,20 @@ static Napi::Value windowssys_windows_win32_storage_installablefilesystems_filte
         HMODULE km_h_mod = LoadLibraryA("fltlib.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FilterGetInformation")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hfilter, dwinformationclass, lpbuffer, dwbuffersize, lpbytesreturned) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hfilter, dwinformationclass, lpbuffer, dwbuffersize, lpbytesreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hfilter;
     (void)dwinformationclass;
     (void)lpbuffer;
     (void)dwbuffersize;
     (void)lpbytesreturned;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -324,12 +401,19 @@ static Napi::Value windowssys_windows_win32_storage_installablefilesystems_filte
         HMODULE km_h_mod = LoadLibraryA("fltlib.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FilterGetMessage")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hport, lpmessagebuffer, dwmessagebuffersize, lpoverlapped) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hport, lpmessagebuffer, dwmessagebuffersize, lpoverlapped);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hport;
     (void)lpmessagebuffer;
     (void)dwmessagebuffersize;
     (void)lpoverlapped;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -345,9 +429,16 @@ static Napi::Value windowssys_windows_win32_storage_installablefilesystems_filte
         HMODULE km_h_mod = LoadLibraryA("fltlib.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FilterInstanceClose")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hinstance) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hinstance);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hinstance;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -366,12 +457,19 @@ static Napi::Value windowssys_windows_win32_storage_installablefilesystems_filte
         HMODULE km_h_mod = LoadLibraryA("fltlib.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FilterInstanceCreate")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpfiltername, lpvolumename, lpinstancename, hinstance) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpfiltername, lpvolumename, lpinstancename, hinstance);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpfiltername;
     (void)lpvolumename;
     (void)lpinstancename;
     (void)hinstance;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -387,9 +485,16 @@ static Napi::Value windowssys_windows_win32_storage_installablefilesystems_filte
         HMODULE km_h_mod = LoadLibraryA("fltlib.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FilterInstanceFindClose")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hfilterinstancefind) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hfilterinstancefind);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hfilterinstancefind;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -410,7 +515,13 @@ static Napi::Value windowssys_windows_win32_storage_installablefilesystems_filte
         HMODULE km_h_mod = LoadLibraryA("fltlib.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FilterInstanceFindFirst")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpfiltername, dwinformationclass, lpbuffer, dwbuffersize, lpbytesreturned, lpfilterinstancefind) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpfiltername, dwinformationclass, lpbuffer, dwbuffersize, lpbytesreturned, lpfilterinstancefind);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpfiltername;
     (void)dwinformationclass;
@@ -418,6 +529,7 @@ static Napi::Value windowssys_windows_win32_storage_installablefilesystems_filte
     (void)dwbuffersize;
     (void)lpbytesreturned;
     (void)lpfilterinstancefind;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -437,13 +549,20 @@ static Napi::Value windowssys_windows_win32_storage_installablefilesystems_filte
         HMODULE km_h_mod = LoadLibraryA("fltlib.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FilterInstanceFindNext")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hfilterinstancefind, dwinformationclass, lpbuffer, dwbuffersize, lpbytesreturned) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hfilterinstancefind, dwinformationclass, lpbuffer, dwbuffersize, lpbytesreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hfilterinstancefind;
     (void)dwinformationclass;
     (void)lpbuffer;
     (void)dwbuffersize;
     (void)lpbytesreturned;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -463,13 +582,20 @@ static Napi::Value windowssys_windows_win32_storage_installablefilesystems_filte
         HMODULE km_h_mod = LoadLibraryA("fltlib.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FilterInstanceGetInformation")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hinstance, dwinformationclass, lpbuffer, dwbuffersize, lpbytesreturned) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hinstance, dwinformationclass, lpbuffer, dwbuffersize, lpbytesreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hinstance;
     (void)dwinformationclass;
     (void)lpbuffer;
     (void)dwbuffersize;
     (void)lpbytesreturned;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -485,9 +611,16 @@ static Napi::Value windowssys_windows_win32_storage_installablefilesystems_filte
         HMODULE km_h_mod = LoadLibraryA("fltlib.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FilterLoad")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpfiltername) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpfiltername);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpfiltername;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -505,11 +638,18 @@ static Napi::Value windowssys_windows_win32_storage_installablefilesystems_filte
         HMODULE km_h_mod = LoadLibraryA("fltlib.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FilterReplyMessage")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hport, lpreplybuffer, dwreplybuffersize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hport, lpreplybuffer, dwreplybuffersize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hport;
     (void)lpreplybuffer;
     (void)dwreplybuffersize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -530,7 +670,13 @@ static Napi::Value windowssys_windows_win32_storage_installablefilesystems_filte
         HMODULE km_h_mod = LoadLibraryA("fltlib.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FilterSendMessage")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hport, lpinbuffer, dwinbuffersize, lpoutbuffer, dwoutbuffersize, lpbytesreturned) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hport, lpinbuffer, dwinbuffersize, lpoutbuffer, dwoutbuffersize, lpbytesreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hport;
     (void)lpinbuffer;
@@ -538,6 +684,7 @@ static Napi::Value windowssys_windows_win32_storage_installablefilesystems_filte
     (void)lpoutbuffer;
     (void)dwoutbuffersize;
     (void)lpbytesreturned;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -553,9 +700,16 @@ static Napi::Value windowssys_windows_win32_storage_installablefilesystems_filte
         HMODULE km_h_mod = LoadLibraryA("fltlib.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FilterUnload")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpfiltername) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpfiltername);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpfiltername;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -571,9 +725,16 @@ static Napi::Value windowssys_windows_win32_storage_installablefilesystems_filte
         HMODULE km_h_mod = LoadLibraryA("fltlib.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FilterVolumeFindClose")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hvolumefind) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hvolumefind);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hvolumefind;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -593,13 +754,20 @@ static Napi::Value windowssys_windows_win32_storage_installablefilesystems_filte
         HMODULE km_h_mod = LoadLibraryA("fltlib.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FilterVolumeFindFirst")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwinformationclass, lpbuffer, dwbuffersize, lpbytesreturned, lpvolumefind) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwinformationclass, lpbuffer, dwbuffersize, lpbytesreturned, lpvolumefind);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwinformationclass;
     (void)lpbuffer;
     (void)dwbuffersize;
     (void)lpbytesreturned;
     (void)lpvolumefind;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -619,13 +787,20 @@ static Napi::Value windowssys_windows_win32_storage_installablefilesystems_filte
         HMODULE km_h_mod = LoadLibraryA("fltlib.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FilterVolumeFindNext")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hvolumefind, dwinformationclass, lpbuffer, dwbuffersize, lpbytesreturned) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hvolumefind, dwinformationclass, lpbuffer, dwbuffersize, lpbytesreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hvolumefind;
     (void)dwinformationclass;
     (void)lpbuffer;
     (void)dwbuffersize;
     (void)lpbytesreturned;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -641,9 +816,16 @@ static Napi::Value windowssys_windows_win32_storage_installablefilesystems_filte
         HMODULE km_h_mod = LoadLibraryA("fltlib.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FilterVolumeInstanceFindClose")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hvolumeinstancefind) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hvolumeinstancefind);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hvolumeinstancefind;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -664,7 +846,13 @@ static Napi::Value windowssys_windows_win32_storage_installablefilesystems_filte
         HMODULE km_h_mod = LoadLibraryA("fltlib.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FilterVolumeInstanceFindFirst")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpvolumename, dwinformationclass, lpbuffer, dwbuffersize, lpbytesreturned, lpvolumeinstancefind) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpvolumename, dwinformationclass, lpbuffer, dwbuffersize, lpbytesreturned, lpvolumeinstancefind);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)lpvolumename;
     (void)dwinformationclass;
@@ -672,6 +860,7 @@ static Napi::Value windowssys_windows_win32_storage_installablefilesystems_filte
     (void)dwbuffersize;
     (void)lpbytesreturned;
     (void)lpvolumeinstancefind;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -691,13 +880,20 @@ static Napi::Value windowssys_windows_win32_storage_installablefilesystems_filte
         HMODULE km_h_mod = LoadLibraryA("fltlib.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "FilterVolumeInstanceFindNext")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hvolumeinstancefind, dwinformationclass, lpbuffer, dwbuffersize, lpbytesreturned) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hvolumeinstancefind, dwinformationclass, lpbuffer, dwbuffersize, lpbytesreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hvolumeinstancefind;
     (void)dwinformationclass;
     (void)lpbuffer;
     (void)dwbuffersize;
     (void)lpbytesreturned;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

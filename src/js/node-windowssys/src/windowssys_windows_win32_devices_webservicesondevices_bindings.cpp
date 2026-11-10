@@ -62,11 +62,18 @@ static Napi::Value windowssys_windows_win32_devices_webservicesondevices_wSDAllo
         HMODULE km_h_mod = LoadLibraryA("wsdapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSDAllocateLinkedMemory")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pparent, cbsize) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pparent, cbsize);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)pparent;
     (void)cbsize;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -82,10 +89,15 @@ static Napi::Value windowssys_windows_win32_devices_webservicesondevices_wSDAtta
         HMODULE km_h_mod = LoadLibraryA("wsdapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSDAttachLinkedMemory")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pparent, pchild);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pparent, pchild);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pparent;
     (void)pchild;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -102,11 +114,18 @@ static Napi::Value windowssys_windows_win32_devices_webservicesondevices_wSDCrea
         HMODULE km_h_mod = LoadLibraryA("wsdapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSDCreateDeviceHost")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszlocalid, pcontext, ppdevicehost) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszlocalid, pcontext, ppdevicehost);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszlocalid;
     (void)pcontext;
     (void)ppdevicehost;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -126,13 +145,20 @@ static Napi::Value windowssys_windows_win32_devices_webservicesondevices_wSDCrea
         HMODULE km_h_mod = LoadLibraryA("wsdapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSDCreateDeviceHost2")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszlocalid, pcontext, pconfigparams, dwconfigparamcount, ppdevicehost) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszlocalid, pcontext, pconfigparams, dwconfigparamcount, ppdevicehost);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszlocalid;
     (void)pcontext;
     (void)pconfigparams;
     (void)dwconfigparamcount;
     (void)ppdevicehost;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -152,13 +178,20 @@ static Napi::Value windowssys_windows_win32_devices_webservicesondevices_wSDCrea
         HMODULE km_h_mod = LoadLibraryA("wsdapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSDCreateDeviceHostAdvanced")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszlocalid, pcontext, pphostaddresses, dwhostaddresscount, ppdevicehost) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszlocalid, pcontext, pphostaddresses, dwhostaddresscount, ppdevicehost);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszlocalid;
     (void)pcontext;
     (void)pphostaddresses;
     (void)dwhostaddresscount;
     (void)ppdevicehost;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -177,12 +210,19 @@ static Napi::Value windowssys_windows_win32_devices_webservicesondevices_wSDCrea
         HMODULE km_h_mod = LoadLibraryA("wsdapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSDCreateDeviceProxy")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszdeviceid, pszlocalid, pcontext, ppdeviceproxy) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszdeviceid, pszlocalid, pcontext, ppdeviceproxy);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszdeviceid;
     (void)pszlocalid;
     (void)pcontext;
     (void)ppdeviceproxy;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -203,7 +243,13 @@ static Napi::Value windowssys_windows_win32_devices_webservicesondevices_wSDCrea
         HMODULE km_h_mod = LoadLibraryA("wsdapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSDCreateDeviceProxy2")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszdeviceid, pszlocalid, pcontext, pconfigparams, dwconfigparamcount, ppdeviceproxy) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszdeviceid, pszlocalid, pcontext, pconfigparams, dwconfigparamcount, ppdeviceproxy);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszdeviceid;
     (void)pszlocalid;
@@ -211,6 +257,7 @@ static Napi::Value windowssys_windows_win32_devices_webservicesondevices_wSDCrea
     (void)pconfigparams;
     (void)dwconfigparamcount;
     (void)ppdeviceproxy;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -230,13 +277,20 @@ static Napi::Value windowssys_windows_win32_devices_webservicesondevices_wSDCrea
         HMODULE km_h_mod = LoadLibraryA("wsdapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSDCreateDeviceProxyAdvanced")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszdeviceid, pdeviceaddress, pszlocalid, pcontext, ppdeviceproxy) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszdeviceid, pdeviceaddress, pszlocalid, pcontext, ppdeviceproxy);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszdeviceid;
     (void)pdeviceaddress;
     (void)pszlocalid;
     (void)pcontext;
     (void)ppdeviceproxy;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -253,10 +307,17 @@ static Napi::Value windowssys_windows_win32_devices_webservicesondevices_wSDCrea
         HMODULE km_h_mod = LoadLibraryA("wsdapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSDCreateDiscoveryProvider")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pcontext, ppprovider) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pcontext, ppprovider);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pcontext;
     (void)ppprovider;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -275,12 +336,19 @@ static Napi::Value windowssys_windows_win32_devices_webservicesondevices_wSDCrea
         HMODULE km_h_mod = LoadLibraryA("wsdapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSDCreateDiscoveryProvider2")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pcontext, pconfigparams, dwconfigparamcount, ppprovider) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pcontext, pconfigparams, dwconfigparamcount, ppprovider);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pcontext;
     (void)pconfigparams;
     (void)dwconfigparamcount;
     (void)ppprovider;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -297,10 +365,17 @@ static Napi::Value windowssys_windows_win32_devices_webservicesondevices_wSDCrea
         HMODULE km_h_mod = LoadLibraryA("wsdapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSDCreateDiscoveryPublisher")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pcontext, pppublisher) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pcontext, pppublisher);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pcontext;
     (void)pppublisher;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -319,12 +394,19 @@ static Napi::Value windowssys_windows_win32_devices_webservicesondevices_wSDCrea
         HMODULE km_h_mod = LoadLibraryA("wsdapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSDCreateDiscoveryPublisher2")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pcontext, pconfigparams, dwconfigparamcount, pppublisher) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pcontext, pconfigparams, dwconfigparamcount, pppublisher);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pcontext;
     (void)pconfigparams;
     (void)dwconfigparamcount;
     (void)pppublisher;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -340,9 +422,16 @@ static Napi::Value windowssys_windows_win32_devices_webservicesondevices_wSDCrea
         HMODULE km_h_mod = LoadLibraryA("wsdapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSDCreateHttpAddress")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ppaddress) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ppaddress);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ppaddress;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -358,9 +447,16 @@ static Napi::Value windowssys_windows_win32_devices_webservicesondevices_wSDCrea
         HMODULE km_h_mod = LoadLibraryA("wsdapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSDCreateHttpMessageParameters")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pptxparams) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pptxparams);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pptxparams;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -376,9 +472,16 @@ static Napi::Value windowssys_windows_win32_devices_webservicesondevices_wSDCrea
         HMODULE km_h_mod = LoadLibraryA("wsdapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSDCreateOutboundAttachment")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ppattachment) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ppattachment);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ppattachment;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -394,9 +497,16 @@ static Napi::Value windowssys_windows_win32_devices_webservicesondevices_wSDCrea
         HMODULE km_h_mod = LoadLibraryA("wsdapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSDCreateUdpAddress")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ppaddress) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ppaddress);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ppaddress;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -412,9 +522,16 @@ static Napi::Value windowssys_windows_win32_devices_webservicesondevices_wSDCrea
         HMODULE km_h_mod = LoadLibraryA("wsdapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSDCreateUdpMessageParameters")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pptxparams) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pptxparams);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pptxparams;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -430,9 +547,14 @@ static Napi::Value windowssys_windows_win32_devices_webservicesondevices_wSDDeta
         HMODULE km_h_mod = LoadLibraryA("wsdapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSDDetachLinkedMemory")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pvoid);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pvoid);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pvoid;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -447,9 +569,14 @@ static Napi::Value windowssys_windows_win32_devices_webservicesondevices_wSDFree
         HMODULE km_h_mod = LoadLibraryA("wsdapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSDFreeLinkedMemory")));
     }
-    if (km_fn_ptr != nullptr) km_fn_ptr(pvoid);
+    if (km_fn_ptr != nullptr) {
+        km_fn_ptr(pvoid);
+    } else {
+        errno = ENOSYS;
+    }
 #else
     (void)pvoid;
+    errno = ENOSYS;
 #endif
     return km_env.Undefined();
 }
@@ -469,7 +596,13 @@ static Napi::Value windowssys_windows_win32_devices_webservicesondevices_wSDGene
         HMODULE km_h_mod = LoadLibraryA("wsdapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSDGenerateFault")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pszcode, pszsubcode, pszreason, pszdetail, pcontext, ppfault) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pszcode, pszsubcode, pszreason, pszdetail, pcontext, ppfault);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pszcode;
     (void)pszsubcode;
@@ -477,6 +610,7 @@ static Napi::Value windowssys_windows_win32_devices_webservicesondevices_wSDGene
     (void)pszdetail;
     (void)pcontext;
     (void)ppfault;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -496,13 +630,20 @@ static Napi::Value windowssys_windows_win32_devices_webservicesondevices_wSDGene
         HMODULE km_h_mod = LoadLibraryA("wsdapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSDGenerateFaultEx")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pcode, psubcode, preasons, pszdetail, ppfault) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pcode, psubcode, preasons, pszdetail, ppfault);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pcode;
     (void)psubcode;
     (void)preasons;
     (void)pszdetail;
     (void)ppfault;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -520,11 +661,18 @@ static Napi::Value windowssys_windows_win32_devices_webservicesondevices_wSDGetC
         HMODULE km_h_mod = LoadLibraryA("wsdapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSDGetConfigurationOption")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwoption, pvoid, cboutbuffer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwoption, pvoid, cboutbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwoption;
     (void)pvoid;
     (void)cboutbuffer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -542,11 +690,18 @@ static Napi::Value windowssys_windows_win32_devices_webservicesondevices_wSDSetC
         HMODULE km_h_mod = LoadLibraryA("wsdapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSDSetConfigurationOption")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwoption, pvoid, cbinbuffer) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwoption, pvoid, cbinbuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwoption;
     (void)pvoid;
     (void)cbinbuffer;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -565,12 +720,19 @@ static Napi::Value windowssys_windows_win32_devices_webservicesondevices_wSDUriD
         HMODULE km_h_mod = LoadLibraryA("wsdapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSDUriDecode")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(source, cchsource, destout, cchdestout) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(source, cchsource, destout, cchdestout);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)source;
     (void)cchsource;
     (void)destout;
     (void)cchdestout;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -589,12 +751,19 @@ static Napi::Value windowssys_windows_win32_devices_webservicesondevices_wSDUriE
         HMODULE km_h_mod = LoadLibraryA("wsdapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSDUriEncode")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(source, cchsource, destout, cchdestout) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(source, cchsource, destout, cchdestout);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)source;
     (void)cchsource;
     (void)destout;
     (void)cchdestout;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -611,10 +780,17 @@ static Napi::Value windowssys_windows_win32_devices_webservicesondevices_wSDXMLA
         HMODULE km_h_mod = LoadLibraryA("wsdapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSDXMLAddChild")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pparent, pchild) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pparent, pchild);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pparent;
     (void)pchild;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -631,10 +807,17 @@ static Napi::Value windowssys_windows_win32_devices_webservicesondevices_wSDXMLA
         HMODULE km_h_mod = LoadLibraryA("wsdapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSDXMLAddSibling")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pfirst, psecond) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pfirst, psecond);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pfirst;
     (void)psecond;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -652,11 +835,18 @@ static Napi::Value windowssys_windows_win32_devices_webservicesondevices_wSDXMLB
         HMODULE km_h_mod = LoadLibraryA("wsdapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSDXMLBuildAnyForSingleElement")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pelementname, psztext, ppany) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pelementname, psztext, ppany);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pelementname;
     (void)psztext;
     (void)ppany;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -672,9 +862,16 @@ static Napi::Value windowssys_windows_win32_devices_webservicesondevices_wSDXMLC
         HMODULE km_h_mod = LoadLibraryA("wsdapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSDXMLCleanupElement")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pany) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pany);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pany;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -690,9 +887,16 @@ static Napi::Value windowssys_windows_win32_devices_webservicesondevices_wSDXMLC
         HMODULE km_h_mod = LoadLibraryA("wsdapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSDXMLCreateContext")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(ppcontext) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(ppcontext);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)ppcontext;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -710,11 +914,18 @@ static Napi::Value windowssys_windows_win32_devices_webservicesondevices_wSDXMLG
         HMODULE km_h_mod = LoadLibraryA("wsdapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSDXMLGetNameFromBuiltinNamespace")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(psznamespace, pszname, ppname) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(psznamespace, pszname, ppname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)psznamespace;
     (void)pszname;
     (void)ppname;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -733,12 +944,19 @@ static Napi::Value windowssys_windows_win32_devices_webservicesondevices_wSDXMLG
         HMODULE km_h_mod = LoadLibraryA("wsdapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "WSDXMLGetValueFromAny")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(psznamespace, pszname, pany, ppszvalue) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(psznamespace, pszname, pany, ppszvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)psznamespace;
     (void)pszname;
     (void)pany;
     (void)ppszvalue;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

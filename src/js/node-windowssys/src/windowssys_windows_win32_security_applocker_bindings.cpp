@@ -61,9 +61,16 @@ static Napi::Value windowssys_windows_win32_security_applocker_saferCloseLevel_n
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SaferCloseLevel")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hlevelhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hlevelhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hlevelhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -83,13 +90,20 @@ static Napi::Value windowssys_windows_win32_security_applocker_saferComputeToken
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SaferComputeTokenFromLevel")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(levelhandle, inaccesstoken, outaccesstoken, dwflags, lpreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(levelhandle, inaccesstoken, outaccesstoken, dwflags, lpreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)levelhandle;
     (void)inaccesstoken;
     (void)outaccesstoken;
     (void)dwflags;
     (void)lpreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -109,13 +123,20 @@ static Napi::Value windowssys_windows_win32_security_applocker_saferCreateLevel_
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SaferCreateLevel")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwscopeid, dwlevelid, openflags, plevelhandle, lpreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwscopeid, dwlevelid, openflags, plevelhandle, lpreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwscopeid;
     (void)dwlevelid;
     (void)openflags;
     (void)plevelhandle;
     (void)lpreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -135,13 +156,20 @@ static Napi::Value windowssys_windows_win32_security_applocker_saferGetLevelInfo
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SaferGetLevelInformation")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(levelhandle, dwinfotype, lpquerybuffer, dwinbuffersize, lpdwoutbuffersize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(levelhandle, dwinfotype, lpquerybuffer, dwinbuffersize, lpdwoutbuffersize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)levelhandle;
     (void)dwinfotype;
     (void)lpquerybuffer;
     (void)dwinbuffersize;
     (void)lpdwoutbuffersize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -162,7 +190,13 @@ static Napi::Value windowssys_windows_win32_security_applocker_saferGetPolicyInf
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SaferGetPolicyInformation")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwscopeid, saferpolicyinfoclass, infobuffersize, infobuffer, infobufferretsize, lpreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwscopeid, saferpolicyinfoclass, infobuffersize, infobuffer, infobufferretsize, lpreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwscopeid;
     (void)saferpolicyinfoclass;
@@ -170,6 +204,7 @@ static Napi::Value windowssys_windows_win32_security_applocker_saferGetPolicyInf
     (void)infobuffer;
     (void)infobufferretsize;
     (void)lpreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -188,12 +223,19 @@ static Napi::Value windowssys_windows_win32_security_applocker_saferIdentifyLeve
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SaferIdentifyLevel")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwnumproperties, pcodeproperties, plevelhandle, lpreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwnumproperties, pcodeproperties, plevelhandle, lpreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwnumproperties;
     (void)pcodeproperties;
     (void)plevelhandle;
     (void)lpreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -211,11 +253,18 @@ static Napi::Value windowssys_windows_win32_security_applocker_saferRecordEventL
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SaferRecordEventLogEntry")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hlevel, sztargetpath, lpreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hlevel, sztargetpath, lpreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hlevel;
     (void)sztargetpath;
     (void)lpreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -234,12 +283,19 @@ static Napi::Value windowssys_windows_win32_security_applocker_saferSetLevelInfo
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SaferSetLevelInformation")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(levelhandle, dwinfotype, lpquerybuffer, dwinbuffersize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(levelhandle, dwinfotype, lpquerybuffer, dwinbuffersize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)levelhandle;
     (void)dwinfotype;
     (void)lpquerybuffer;
     (void)dwinbuffersize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -259,13 +315,20 @@ static Napi::Value windowssys_windows_win32_security_applocker_saferSetPolicyInf
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SaferSetPolicyInformation")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(dwscopeid, saferpolicyinfoclass, infobuffersize, infobuffer, lpreserved) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(dwscopeid, saferpolicyinfoclass, infobuffersize, infobuffer, lpreserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwscopeid;
     (void)saferpolicyinfoclass;
     (void)infobuffersize;
     (void)infobuffer;
     (void)lpreserved;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -282,10 +345,17 @@ static Napi::Value windowssys_windows_win32_security_applocker_saferiIsExecutabl
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SaferiIsExecutableFileType")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(szfullpathname, bfromshellexecute) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(szfullpathname, bfromshellexecute);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)szfullpathname;
     (void)bfromshellexecute;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

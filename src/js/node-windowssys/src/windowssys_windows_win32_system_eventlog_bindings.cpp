@@ -62,10 +62,17 @@ static Napi::Value windowssys_windows_win32_system_eventlog_backupEventLogA_napi
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "BackupEventLogA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(heventlog, lpbackupfilename) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(heventlog, lpbackupfilename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)heventlog;
     (void)lpbackupfilename;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -82,10 +89,17 @@ static Napi::Value windowssys_windows_win32_system_eventlog_backupEventLogW_napi
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "BackupEventLogW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(heventlog, lpbackupfilename) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(heventlog, lpbackupfilename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)heventlog;
     (void)lpbackupfilename;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -102,10 +116,17 @@ static Napi::Value windowssys_windows_win32_system_eventlog_clearEventLogA_napi(
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClearEventLogA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(heventlog, lpbackupfilename) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(heventlog, lpbackupfilename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)heventlog;
     (void)lpbackupfilename;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -122,10 +143,17 @@ static Napi::Value windowssys_windows_win32_system_eventlog_clearEventLogW_napi(
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClearEventLogW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(heventlog, lpbackupfilename) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(heventlog, lpbackupfilename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)heventlog;
     (void)lpbackupfilename;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -141,9 +169,16 @@ static Napi::Value windowssys_windows_win32_system_eventlog_closeEventLog_napi(c
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CloseEventLog")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(heventlog) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(heventlog);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)heventlog;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -159,9 +194,16 @@ static Napi::Value windowssys_windows_win32_system_eventlog_deregisterEventSourc
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DeregisterEventSource")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(heventlog) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(heventlog);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)heventlog;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -180,12 +222,19 @@ static Napi::Value windowssys_windows_win32_system_eventlog_evtArchiveExportedLo
         HMODULE km_h_mod = LoadLibraryA("wevtapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EvtArchiveExportedLog")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(session, logfilepath, locale, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(session, logfilepath, locale, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)session;
     (void)logfilepath;
     (void)locale;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -201,9 +250,16 @@ static Napi::Value windowssys_windows_win32_system_eventlog_evtCancel_napi(const
         HMODULE km_h_mod = LoadLibraryA("wevtapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EvtCancel")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(object) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(object);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)object;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -222,12 +278,19 @@ static Napi::Value windowssys_windows_win32_system_eventlog_evtClearLog_napi(con
         HMODULE km_h_mod = LoadLibraryA("wevtapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EvtClearLog")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(session, channelpath, targetfilepath, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(session, channelpath, targetfilepath, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)session;
     (void)channelpath;
     (void)targetfilepath;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -243,9 +306,16 @@ static Napi::Value windowssys_windows_win32_system_eventlog_evtClose_napi(const 
         HMODULE km_h_mod = LoadLibraryA("wevtapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EvtClose")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(object) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(object);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)object;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -261,9 +331,16 @@ static Napi::Value windowssys_windows_win32_system_eventlog_evtCreateBookmark_na
         HMODULE km_h_mod = LoadLibraryA("wevtapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EvtCreateBookmark")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bookmarkxml) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bookmarkxml);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bookmarkxml;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -281,11 +358,18 @@ static Napi::Value windowssys_windows_win32_system_eventlog_evtCreateRenderConte
         HMODULE km_h_mod = LoadLibraryA("wevtapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EvtCreateRenderContext")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(valuepathscount, valuepaths, flags) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(valuepathscount, valuepaths, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)valuepathscount;
     (void)valuepaths;
     (void)flags;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -305,13 +389,20 @@ static Napi::Value windowssys_windows_win32_system_eventlog_evtExportLog_napi(co
         HMODULE km_h_mod = LoadLibraryA("wevtapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EvtExportLog")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(session, path, query, targetfilepath, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(session, path, query, targetfilepath, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)session;
     (void)path;
     (void)query;
     (void)targetfilepath;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -335,7 +426,13 @@ static Napi::Value windowssys_windows_win32_system_eventlog_evtFormatMessage_nap
         HMODULE km_h_mod = LoadLibraryA("wevtapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EvtFormatMessage")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(publishermetadata, event, messageid, valuecount, values, flags, buffersize, buffer, bufferused) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(publishermetadata, event, messageid, valuecount, values, flags, buffersize, buffer, bufferused);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)publishermetadata;
     (void)event;
@@ -346,6 +443,7 @@ static Napi::Value windowssys_windows_win32_system_eventlog_evtFormatMessage_nap
     (void)buffersize;
     (void)buffer;
     (void)bufferused;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -366,7 +464,13 @@ static Napi::Value windowssys_windows_win32_system_eventlog_evtGetChannelConfigP
         HMODULE km_h_mod = LoadLibraryA("wevtapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EvtGetChannelConfigProperty")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(channelconfig, propertyid, flags, propertyvaluebuffersize, propertyvaluebuffer, propertyvaluebufferused) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(channelconfig, propertyid, flags, propertyvaluebuffersize, propertyvaluebuffer, propertyvaluebufferused);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)channelconfig;
     (void)propertyid;
@@ -374,6 +478,7 @@ static Napi::Value windowssys_windows_win32_system_eventlog_evtGetChannelConfigP
     (void)propertyvaluebuffersize;
     (void)propertyvaluebuffer;
     (void)propertyvaluebufferused;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -393,13 +498,20 @@ static Napi::Value windowssys_windows_win32_system_eventlog_evtGetEventInfo_napi
         HMODULE km_h_mod = LoadLibraryA("wevtapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EvtGetEventInfo")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(event, propertyid, propertyvaluebuffersize, propertyvaluebuffer, propertyvaluebufferused) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(event, propertyid, propertyvaluebuffersize, propertyvaluebuffer, propertyvaluebufferused);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)event;
     (void)propertyid;
     (void)propertyvaluebuffersize;
     (void)propertyvaluebuffer;
     (void)propertyvaluebufferused;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -420,7 +532,13 @@ static Napi::Value windowssys_windows_win32_system_eventlog_evtGetEventMetadataP
         HMODULE km_h_mod = LoadLibraryA("wevtapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EvtGetEventMetadataProperty")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(eventmetadata, propertyid, flags, eventmetadatapropertybuffersize, eventmetadatapropertybuffer, eventmetadatapropertybufferused) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(eventmetadata, propertyid, flags, eventmetadatapropertybuffersize, eventmetadatapropertybuffer, eventmetadatapropertybufferused);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)eventmetadata;
     (void)propertyid;
@@ -428,6 +546,7 @@ static Napi::Value windowssys_windows_win32_system_eventlog_evtGetEventMetadataP
     (void)eventmetadatapropertybuffersize;
     (void)eventmetadatapropertybuffer;
     (void)eventmetadatapropertybufferused;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -445,11 +564,18 @@ static Napi::Value windowssys_windows_win32_system_eventlog_evtGetExtendedStatus
         HMODULE km_h_mod = LoadLibraryA("wevtapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EvtGetExtendedStatus")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(buffersize, buffer, bufferused) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(buffersize, buffer, bufferused);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)buffersize;
     (void)buffer;
     (void)bufferused;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -469,13 +595,20 @@ static Napi::Value windowssys_windows_win32_system_eventlog_evtGetLogInfo_napi(c
         HMODULE km_h_mod = LoadLibraryA("wevtapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EvtGetLogInfo")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(arg_0_log, propertyid, propertyvaluebuffersize, propertyvaluebuffer, propertyvaluebufferused) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(arg_0_log, propertyid, propertyvaluebuffersize, propertyvaluebuffer, propertyvaluebufferused);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)arg_0_log;
     (void)propertyid;
     (void)propertyvaluebuffersize;
     (void)propertyvaluebuffer;
     (void)propertyvaluebufferused;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -497,7 +630,13 @@ static Napi::Value windowssys_windows_win32_system_eventlog_evtGetObjectArrayPro
         HMODULE km_h_mod = LoadLibraryA("wevtapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EvtGetObjectArrayProperty")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(objectarray, propertyid, arrayindex, flags, propertyvaluebuffersize, propertyvaluebuffer, propertyvaluebufferused) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(objectarray, propertyid, arrayindex, flags, propertyvaluebuffersize, propertyvaluebuffer, propertyvaluebufferused);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)objectarray;
     (void)propertyid;
@@ -506,6 +645,7 @@ static Napi::Value windowssys_windows_win32_system_eventlog_evtGetObjectArrayPro
     (void)propertyvaluebuffersize;
     (void)propertyvaluebuffer;
     (void)propertyvaluebufferused;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -522,10 +662,17 @@ static Napi::Value windowssys_windows_win32_system_eventlog_evtGetObjectArraySiz
         HMODULE km_h_mod = LoadLibraryA("wevtapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EvtGetObjectArraySize")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(objectarray, objectarraysize) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(objectarray, objectarraysize);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)objectarray;
     (void)objectarraysize;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -546,7 +693,13 @@ static Napi::Value windowssys_windows_win32_system_eventlog_evtGetPublisherMetad
         HMODULE km_h_mod = LoadLibraryA("wevtapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EvtGetPublisherMetadataProperty")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(publishermetadata, propertyid, flags, publishermetadatapropertybuffersize, publishermetadatapropertybuffer, publishermetadatapropertybufferused) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(publishermetadata, propertyid, flags, publishermetadatapropertybuffersize, publishermetadatapropertybuffer, publishermetadatapropertybufferused);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)publishermetadata;
     (void)propertyid;
@@ -554,6 +707,7 @@ static Napi::Value windowssys_windows_win32_system_eventlog_evtGetPublisherMetad
     (void)publishermetadatapropertybuffersize;
     (void)publishermetadatapropertybuffer;
     (void)publishermetadatapropertybufferused;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -573,13 +727,20 @@ static Napi::Value windowssys_windows_win32_system_eventlog_evtGetQueryInfo_napi
         HMODULE km_h_mod = LoadLibraryA("wevtapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EvtGetQueryInfo")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(queryorsubscription, propertyid, propertyvaluebuffersize, propertyvaluebuffer, propertyvaluebufferused) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(queryorsubscription, propertyid, propertyvaluebuffersize, propertyvaluebuffer, propertyvaluebufferused);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)queryorsubscription;
     (void)propertyid;
     (void)propertyvaluebuffersize;
     (void)propertyvaluebuffer;
     (void)propertyvaluebufferused;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -600,7 +761,13 @@ static Napi::Value windowssys_windows_win32_system_eventlog_evtNext_napi(const N
         HMODULE km_h_mod = LoadLibraryA("wevtapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EvtNext")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(resultset, eventssize, events, timeout, flags, returned) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(resultset, eventssize, events, timeout, flags, returned);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)resultset;
     (void)eventssize;
@@ -608,6 +775,7 @@ static Napi::Value windowssys_windows_win32_system_eventlog_evtNext_napi(const N
     (void)timeout;
     (void)flags;
     (void)returned;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -626,12 +794,19 @@ static Napi::Value windowssys_windows_win32_system_eventlog_evtNextChannelPath_n
         HMODULE km_h_mod = LoadLibraryA("wevtapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EvtNextChannelPath")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(channelenum, channelpathbuffersize, channelpathbuffer, channelpathbufferused) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(channelenum, channelpathbuffersize, channelpathbuffer, channelpathbufferused);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)channelenum;
     (void)channelpathbuffersize;
     (void)channelpathbuffer;
     (void)channelpathbufferused;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -648,10 +823,17 @@ static Napi::Value windowssys_windows_win32_system_eventlog_evtNextEventMetadata
         HMODULE km_h_mod = LoadLibraryA("wevtapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EvtNextEventMetadata")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(eventmetadataenum, flags) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(eventmetadataenum, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)eventmetadataenum;
     (void)flags;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -670,12 +852,19 @@ static Napi::Value windowssys_windows_win32_system_eventlog_evtNextPublisherId_n
         HMODULE km_h_mod = LoadLibraryA("wevtapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EvtNextPublisherId")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(publisherenum, publisheridbuffersize, publisheridbuffer, publisheridbufferused) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(publisherenum, publisheridbuffersize, publisheridbuffer, publisheridbufferused);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)publisherenum;
     (void)publisheridbuffersize;
     (void)publisheridbuffer;
     (void)publisheridbufferused;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -693,11 +882,18 @@ static Napi::Value windowssys_windows_win32_system_eventlog_evtOpenChannelConfig
         HMODULE km_h_mod = LoadLibraryA("wevtapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EvtOpenChannelConfig")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(session, channelpath, flags) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(session, channelpath, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)session;
     (void)channelpath;
     (void)flags;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -714,10 +910,17 @@ static Napi::Value windowssys_windows_win32_system_eventlog_evtOpenChannelEnum_n
         HMODULE km_h_mod = LoadLibraryA("wevtapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EvtOpenChannelEnum")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(session, flags) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(session, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)session;
     (void)flags;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -734,10 +937,17 @@ static Napi::Value windowssys_windows_win32_system_eventlog_evtOpenEventMetadata
         HMODULE km_h_mod = LoadLibraryA("wevtapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EvtOpenEventMetadataEnum")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(publishermetadata, flags) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(publishermetadata, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)publishermetadata;
     (void)flags;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -755,11 +965,18 @@ static Napi::Value windowssys_windows_win32_system_eventlog_evtOpenLog_napi(cons
         HMODULE km_h_mod = LoadLibraryA("wevtapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EvtOpenLog")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(session, path, flags) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(session, path, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)session;
     (void)path;
     (void)flags;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -776,10 +993,17 @@ static Napi::Value windowssys_windows_win32_system_eventlog_evtOpenPublisherEnum
         HMODULE km_h_mod = LoadLibraryA("wevtapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EvtOpenPublisherEnum")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(session, flags) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(session, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)session;
     (void)flags;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -799,13 +1023,20 @@ static Napi::Value windowssys_windows_win32_system_eventlog_evtOpenPublisherMeta
         HMODULE km_h_mod = LoadLibraryA("wevtapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EvtOpenPublisherMetadata")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(session, publisherid, logfilepath, locale, flags) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(session, publisherid, logfilepath, locale, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)session;
     (void)publisherid;
     (void)logfilepath;
     (void)locale;
     (void)flags;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -824,12 +1055,19 @@ static Napi::Value windowssys_windows_win32_system_eventlog_evtOpenSession_napi(
         HMODULE km_h_mod = LoadLibraryA("wevtapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EvtOpenSession")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(loginclass, login, timeout, flags) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(loginclass, login, timeout, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)loginclass;
     (void)login;
     (void)timeout;
     (void)flags;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -848,12 +1086,19 @@ static Napi::Value windowssys_windows_win32_system_eventlog_evtQuery_napi(const 
         HMODULE km_h_mod = LoadLibraryA("wevtapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EvtQuery")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(session, path, query, flags) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(session, path, query, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)session;
     (void)path;
     (void)query;
     (void)flags;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -875,7 +1120,13 @@ static Napi::Value windowssys_windows_win32_system_eventlog_evtRender_napi(const
         HMODULE km_h_mod = LoadLibraryA("wevtapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EvtRender")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(context, fragment, flags, buffersize, buffer, bufferused, propertycount) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(context, fragment, flags, buffersize, buffer, bufferused, propertycount);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)context;
     (void)fragment;
@@ -884,6 +1135,7 @@ static Napi::Value windowssys_windows_win32_system_eventlog_evtRender_napi(const
     (void)buffer;
     (void)bufferused;
     (void)propertycount;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -900,10 +1152,17 @@ static Napi::Value windowssys_windows_win32_system_eventlog_evtSaveChannelConfig
         HMODULE km_h_mod = LoadLibraryA("wevtapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EvtSaveChannelConfig")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(channelconfig, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(channelconfig, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)channelconfig;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -923,13 +1182,20 @@ static Napi::Value windowssys_windows_win32_system_eventlog_evtSeek_napi(const N
         HMODULE km_h_mod = LoadLibraryA("wevtapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EvtSeek")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(resultset, position, bookmark, timeout, flags) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(resultset, position, bookmark, timeout, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)resultset;
     (void)position;
     (void)bookmark;
     (void)timeout;
     (void)flags;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -948,12 +1214,19 @@ static Napi::Value windowssys_windows_win32_system_eventlog_evtSetChannelConfigP
         HMODULE km_h_mod = LoadLibraryA("wevtapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EvtSetChannelConfigProperty")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(channelconfig, propertyid, flags, propertyvalue) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(channelconfig, propertyid, flags, propertyvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)channelconfig;
     (void)propertyid;
     (void)flags;
     (void)propertyvalue;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -976,7 +1249,13 @@ static Napi::Value windowssys_windows_win32_system_eventlog_evtSubscribe_napi(co
         HMODULE km_h_mod = LoadLibraryA("wevtapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EvtSubscribe")));
     }
-    int64_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(session, signalevent, channelpath, query, bookmark, context, callback, flags) : -1;
+    int64_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(session, signalevent, channelpath, query, bookmark, context, callback, flags);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)session;
     (void)signalevent;
@@ -986,6 +1265,7 @@ static Napi::Value windowssys_windows_win32_system_eventlog_evtSubscribe_napi(co
     (void)context;
     (void)callback;
     (void)flags;
+    errno = ENOSYS;
     int64_t km_res = -1;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(km_res)));
@@ -1002,10 +1282,17 @@ static Napi::Value windowssys_windows_win32_system_eventlog_evtUpdateBookmark_na
         HMODULE km_h_mod = LoadLibraryA("wevtapi.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "EvtUpdateBookmark")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(bookmark, event) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(bookmark, event);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)bookmark;
     (void)event;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1025,13 +1312,20 @@ static Napi::Value windowssys_windows_win32_system_eventlog_getEventLogInformati
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetEventLogInformation")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(heventlog, dwinfolevel, lpbuffer, cbbufsize, pcbbytesneeded) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(heventlog, dwinfolevel, lpbuffer, cbbufsize, pcbbytesneeded);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)heventlog;
     (void)dwinfolevel;
     (void)lpbuffer;
     (void)cbbufsize;
     (void)pcbbytesneeded;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1048,10 +1342,17 @@ static Napi::Value windowssys_windows_win32_system_eventlog_getNumberOfEventLogR
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetNumberOfEventLogRecords")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(heventlog, numberofrecords) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(heventlog, numberofrecords);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)heventlog;
     (void)numberofrecords;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1068,10 +1369,17 @@ static Napi::Value windowssys_windows_win32_system_eventlog_getOldestEventLogRec
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetOldestEventLogRecord")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(heventlog, oldestrecord) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(heventlog, oldestrecord);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)heventlog;
     (void)oldestrecord;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1088,10 +1396,17 @@ static Napi::Value windowssys_windows_win32_system_eventlog_notifyChangeEventLog
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "NotifyChangeEventLog")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(heventlog, hevent) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(heventlog, hevent);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)heventlog;
     (void)hevent;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1108,11 +1423,18 @@ static Napi::Value windowssys_windows_win32_system_eventlog_openBackupEventLogA_
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OpenBackupEventLogA")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpuncservername, lpfilename) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpuncservername, lpfilename);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)lpuncservername;
     (void)lpfilename;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1128,11 +1450,18 @@ static Napi::Value windowssys_windows_win32_system_eventlog_openBackupEventLogW_
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OpenBackupEventLogW")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpuncservername, lpfilename) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpuncservername, lpfilename);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)lpuncservername;
     (void)lpfilename;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1148,11 +1477,18 @@ static Napi::Value windowssys_windows_win32_system_eventlog_openEventLogA_napi(c
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OpenEventLogA")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpuncservername, lpsourcename) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpuncservername, lpsourcename);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)lpuncservername;
     (void)lpsourcename;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1168,11 +1504,18 @@ static Napi::Value windowssys_windows_win32_system_eventlog_openEventLogW_napi(c
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "OpenEventLogW")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpuncservername, lpsourcename) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpuncservername, lpsourcename);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)lpuncservername;
     (void)lpsourcename;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1193,7 +1536,13 @@ static Napi::Value windowssys_windows_win32_system_eventlog_readEventLogA_napi(c
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ReadEventLogA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(heventlog, dwreadflags, dwrecordoffset, lpbuffer, nnumberofbytestoread, pnbytesread, pnminnumberofbytesneeded) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(heventlog, dwreadflags, dwrecordoffset, lpbuffer, nnumberofbytestoread, pnbytesread, pnminnumberofbytesneeded);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)heventlog;
     (void)dwreadflags;
@@ -1202,6 +1551,7 @@ static Napi::Value windowssys_windows_win32_system_eventlog_readEventLogA_napi(c
     (void)nnumberofbytestoread;
     (void)pnbytesread;
     (void)pnminnumberofbytesneeded;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1223,7 +1573,13 @@ static Napi::Value windowssys_windows_win32_system_eventlog_readEventLogW_napi(c
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ReadEventLogW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(heventlog, dwreadflags, dwrecordoffset, lpbuffer, nnumberofbytestoread, pnbytesread, pnminnumberofbytesneeded) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(heventlog, dwreadflags, dwrecordoffset, lpbuffer, nnumberofbytestoread, pnbytesread, pnminnumberofbytesneeded);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)heventlog;
     (void)dwreadflags;
@@ -1232,6 +1588,7 @@ static Napi::Value windowssys_windows_win32_system_eventlog_readEventLogW_napi(c
     (void)nnumberofbytestoread;
     (void)pnbytesread;
     (void)pnminnumberofbytesneeded;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1248,11 +1605,18 @@ static Napi::Value windowssys_windows_win32_system_eventlog_registerEventSourceA
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegisterEventSourceA")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpuncservername, lpsourcename) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpuncservername, lpsourcename);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)lpuncservername;
     (void)lpsourcename;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1268,11 +1632,18 @@ static Napi::Value windowssys_windows_win32_system_eventlog_registerEventSourceW
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegisterEventSourceW")));
     }
-    void* km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(lpuncservername, lpsourcename) : NULL;
+    void* km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(lpuncservername, lpsourcename);
+    } else {
+        errno = ENOSYS;
+        km_res = nullptr;
+    }
 #else
     (void)lpuncservername;
     (void)lpsourcename;
-    void* km_res = NULL;
+    errno = ENOSYS;
+    void* km_res = nullptr;
 #endif
     return Napi::String::New(km_env, std::to_string(static_cast<int64_t>(reinterpret_cast<uintptr_t>(km_res))));
 }
@@ -1295,7 +1666,13 @@ static Napi::Value windowssys_windows_win32_system_eventlog_reportEventA_napi(co
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ReportEventA")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(heventlog, wtype, wcategory, dweventid, lpusersid, wnumstrings, dwdatasize, lpstrings, lprawdata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(heventlog, wtype, wcategory, dweventid, lpusersid, wnumstrings, dwdatasize, lpstrings, lprawdata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)heventlog;
     (void)wtype;
@@ -1306,6 +1683,7 @@ static Napi::Value windowssys_windows_win32_system_eventlog_reportEventA_napi(co
     (void)dwdatasize;
     (void)lpstrings;
     (void)lprawdata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1329,7 +1707,13 @@ static Napi::Value windowssys_windows_win32_system_eventlog_reportEventW_napi(co
         HMODULE km_h_mod = LoadLibraryA("advapi32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ReportEventW")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(heventlog, wtype, wcategory, dweventid, lpusersid, wnumstrings, dwdatasize, lpstrings, lprawdata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(heventlog, wtype, wcategory, dweventid, lpusersid, wnumstrings, dwdatasize, lpstrings, lprawdata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)heventlog;
     (void)wtype;
@@ -1340,6 +1724,7 @@ static Napi::Value windowssys_windows_win32_system_eventlog_reportEventW_napi(co
     (void)dwdatasize;
     (void)lpstrings;
     (void)lprawdata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

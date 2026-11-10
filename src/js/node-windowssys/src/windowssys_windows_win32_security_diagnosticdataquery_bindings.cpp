@@ -61,9 +61,16 @@ static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqCanc
         HMODULE km_h_mod = LoadLibraryA("diagnosticdataquery.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DdqCancelDiagnosticRecordOperation")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hsession) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hsession);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hsession;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -79,9 +86,16 @@ static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqClos
         HMODULE km_h_mod = LoadLibraryA("diagnosticdataquery.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DdqCloseSession")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hsession) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hsession);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hsession;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -98,10 +112,17 @@ static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqCrea
         HMODULE km_h_mod = LoadLibraryA("diagnosticdataquery.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DdqCreateSession")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(accesslevel, hsession) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(accesslevel, hsession);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)accesslevel;
     (void)hsession;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -120,12 +141,19 @@ static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqExtr
         HMODULE km_h_mod = LoadLibraryA("diagnosticdataquery.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DdqExtractDiagnosticReport")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hsession, reportstoretype, reportkey, destinationpath) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hsession, reportstoretype, reportkey, destinationpath);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hsession;
     (void)reportstoretype;
     (void)reportkey;
     (void)destinationpath;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -141,9 +169,16 @@ static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqFree
         HMODULE km_h_mod = LoadLibraryA("diagnosticdataquery.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DdqFreeDiagnosticRecordLocaleTags")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(htagdescription) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(htagdescription);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)htagdescription;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -159,9 +194,16 @@ static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqFree
         HMODULE km_h_mod = LoadLibraryA("diagnosticdataquery.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DdqFreeDiagnosticRecordPage")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hrecord) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hrecord);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hrecord;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -177,9 +219,16 @@ static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqFree
         HMODULE km_h_mod = LoadLibraryA("diagnosticdataquery.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DdqFreeDiagnosticRecordProducerCategories")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcategorydescription) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcategorydescription);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcategorydescription;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -195,9 +244,16 @@ static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqFree
         HMODULE km_h_mod = LoadLibraryA("diagnosticdataquery.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DdqFreeDiagnosticRecordProducers")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hproducerdescription) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hproducerdescription);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hproducerdescription;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -213,9 +269,16 @@ static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqFree
         HMODULE km_h_mod = LoadLibraryA("diagnosticdataquery.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DdqFreeDiagnosticReport")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hreport) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hreport);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hreport;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -231,9 +294,16 @@ static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqGetD
         HMODULE km_h_mod = LoadLibraryA("diagnosticdataquery.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DdqGetDiagnosticDataAccessLevelAllowed")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(accesslevel) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(accesslevel);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)accesslevel;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -251,11 +321,18 @@ static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqGetD
         HMODULE km_h_mod = LoadLibraryA("diagnosticdataquery.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DdqGetDiagnosticRecordAtIndex")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hrecord, arg_1_index, record) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hrecord, arg_1_index, record);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hrecord;
     (void)arg_1_index;
     (void)record;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -276,7 +353,13 @@ static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqGetD
         HMODULE km_h_mod = LoadLibraryA("diagnosticdataquery.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DdqGetDiagnosticRecordBinaryDistribution")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hsession, producernames, producernamecount, topnbinaries, binarystats, statcount) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hsession, producernames, producernamecount, topnbinaries, binarystats, statcount);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hsession;
     (void)producernames;
@@ -284,6 +367,7 @@ static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqGetD
     (void)topnbinaries;
     (void)binarystats;
     (void)statcount;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -301,11 +385,18 @@ static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqGetD
         HMODULE km_h_mod = LoadLibraryA("diagnosticdataquery.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DdqGetDiagnosticRecordCategoryAtIndex")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcategorydescription, arg_1_index, categorydescription) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcategorydescription, arg_1_index, categorydescription);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcategorydescription;
     (void)arg_1_index;
     (void)categorydescription;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -322,10 +413,17 @@ static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqGetD
         HMODULE km_h_mod = LoadLibraryA("diagnosticdataquery.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DdqGetDiagnosticRecordCategoryCount")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hcategorydescription, categorydescriptioncount) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hcategorydescription, categorydescriptioncount);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hcategorydescription;
     (void)categorydescriptioncount;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -342,10 +440,17 @@ static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqGetD
         HMODULE km_h_mod = LoadLibraryA("diagnosticdataquery.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DdqGetDiagnosticRecordCount")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hrecord, recordcount) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hrecord, recordcount);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hrecord;
     (void)recordcount;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -363,11 +468,18 @@ static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqGetD
         HMODULE km_h_mod = LoadLibraryA("diagnosticdataquery.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DdqGetDiagnosticRecordLocaleTagAtIndex")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(htagdescription, arg_1_index, tagdescription) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(htagdescription, arg_1_index, tagdescription);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)htagdescription;
     (void)arg_1_index;
     (void)tagdescription;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -384,10 +496,17 @@ static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqGetD
         HMODULE km_h_mod = LoadLibraryA("diagnosticdataquery.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DdqGetDiagnosticRecordLocaleTagCount")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(htagdescription, tagdescriptioncount) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(htagdescription, tagdescriptioncount);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)htagdescription;
     (void)tagdescriptioncount;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -405,11 +524,18 @@ static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqGetD
         HMODULE km_h_mod = LoadLibraryA("diagnosticdataquery.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DdqGetDiagnosticRecordLocaleTags")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hsession, locale, htagdescription) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hsession, locale, htagdescription);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hsession;
     (void)locale;
     (void)htagdescription;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -430,7 +556,13 @@ static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqGetD
         HMODULE km_h_mod = LoadLibraryA("diagnosticdataquery.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DdqGetDiagnosticRecordPage")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hsession, searchcriteria, offset, pagerecordcount, baserowid, hrecord) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hsession, searchcriteria, offset, pagerecordcount, baserowid, hrecord);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hsession;
     (void)searchcriteria;
@@ -438,6 +570,7 @@ static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqGetD
     (void)pagerecordcount;
     (void)baserowid;
     (void)hrecord;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -455,11 +588,18 @@ static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqGetD
         HMODULE km_h_mod = LoadLibraryA("diagnosticdataquery.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DdqGetDiagnosticRecordPayload")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hsession, rowid, payload) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hsession, rowid, payload);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hsession;
     (void)rowid;
     (void)payload;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -477,11 +617,18 @@ static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqGetD
         HMODULE km_h_mod = LoadLibraryA("diagnosticdataquery.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DdqGetDiagnosticRecordProducerAtIndex")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hproducerdescription, arg_1_index, producerdescription) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hproducerdescription, arg_1_index, producerdescription);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hproducerdescription;
     (void)arg_1_index;
     (void)producerdescription;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -499,11 +646,18 @@ static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqGetD
         HMODULE km_h_mod = LoadLibraryA("diagnosticdataquery.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DdqGetDiagnosticRecordProducerCategories")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hsession, producername, hcategorydescription) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hsession, producername, hcategorydescription);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hsession;
     (void)producername;
     (void)hcategorydescription;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -520,10 +674,17 @@ static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqGetD
         HMODULE km_h_mod = LoadLibraryA("diagnosticdataquery.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DdqGetDiagnosticRecordProducerCount")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hproducerdescription, producerdescriptioncount) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hproducerdescription, producerdescriptioncount);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hproducerdescription;
     (void)producerdescriptioncount;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -540,10 +701,17 @@ static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqGetD
         HMODULE km_h_mod = LoadLibraryA("diagnosticdataquery.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DdqGetDiagnosticRecordProducers")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hsession, hproducerdescription) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hsession, hproducerdescription);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hsession;
     (void)hproducerdescription;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -563,13 +731,20 @@ static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqGetD
         HMODULE km_h_mod = LoadLibraryA("diagnosticdataquery.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DdqGetDiagnosticRecordStats")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hsession, searchcriteria, recordcount, minrowid, maxrowid) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hsession, searchcriteria, recordcount, minrowid, maxrowid);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hsession;
     (void)searchcriteria;
     (void)recordcount;
     (void)minrowid;
     (void)maxrowid;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -588,12 +763,19 @@ static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqGetD
         HMODULE km_h_mod = LoadLibraryA("diagnosticdataquery.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DdqGetDiagnosticRecordSummary")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hsession, producernames, producernamecount, generalstats) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hsession, producernames, producernamecount, generalstats);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hsession;
     (void)producernames;
     (void)producernamecount;
     (void)generalstats;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -613,13 +795,20 @@ static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqGetD
         HMODULE km_h_mod = LoadLibraryA("diagnosticdataquery.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DdqGetDiagnosticRecordTagDistribution")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hsession, producernames, producernamecount, tagstats, statcount) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hsession, producernames, producernamecount, tagstats, statcount);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hsession;
     (void)producernames;
     (void)producernamecount;
     (void)tagstats;
     (void)statcount;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -637,11 +826,18 @@ static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqGetD
         HMODULE km_h_mod = LoadLibraryA("diagnosticdataquery.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DdqGetDiagnosticReport")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hsession, reportstoretype, hreport) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hsession, reportstoretype, hreport);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hsession;
     (void)reportstoretype;
     (void)hreport;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -659,11 +855,18 @@ static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqGetD
         HMODULE km_h_mod = LoadLibraryA("diagnosticdataquery.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DdqGetDiagnosticReportAtIndex")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hreport, arg_1_index, report) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hreport, arg_1_index, report);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hreport;
     (void)arg_1_index;
     (void)report;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -680,10 +883,17 @@ static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqGetD
         HMODULE km_h_mod = LoadLibraryA("diagnosticdataquery.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DdqGetDiagnosticReportCount")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hreport, reportcount) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hreport, reportcount);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hreport;
     (void)reportcount;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -701,11 +911,18 @@ static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqGetD
         HMODULE km_h_mod = LoadLibraryA("diagnosticdataquery.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DdqGetDiagnosticReportStoreReportCount")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hsession, reportstoretype, reportcount) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hsession, reportstoretype, reportcount);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hsession;
     (void)reportstoretype;
     (void)reportcount;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -722,10 +939,17 @@ static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqGetS
         HMODULE km_h_mod = LoadLibraryA("diagnosticdataquery.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DdqGetSessionAccessLevel")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hsession, accesslevel) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hsession, accesslevel);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hsession;
     (void)accesslevel;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -742,10 +966,17 @@ static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqGetT
         HMODULE km_h_mod = LoadLibraryA("diagnosticdataquery.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DdqGetTranscriptConfiguration")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hsession, currentconfig) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hsession, currentconfig);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hsession;
     (void)currentconfig;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -769,7 +1000,13 @@ static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqIsDi
         HMODULE km_h_mod = LoadLibraryA("diagnosticdataquery.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DdqIsDiagnosticRecordSampledIn")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hsession, providergroup, providerid, providername, eventid, eventname, eventversion, eventkeywords, issampledin) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hsession, providergroup, providerid, providername, eventid, eventname, eventversion, eventkeywords, issampledin);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hsession;
     (void)providergroup;
@@ -780,6 +1017,7 @@ static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqIsDi
     (void)eventversion;
     (void)eventkeywords;
     (void)issampledin;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -796,10 +1034,17 @@ static Napi::Value windowssys_windows_win32_security_diagnosticdataquery_ddqSetT
         HMODULE km_h_mod = LoadLibraryA("diagnosticdataquery.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "DdqSetTranscriptConfiguration")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(hsession, desiredconfig) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(hsession, desiredconfig);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hsession;
     (void)desiredconfig;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

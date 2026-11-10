@@ -5,6 +5,7 @@
 #include <stdbool.h>
 #include <stddef.h>
 #include <stdint.h>
+#include <stdlib.h>
 #include <errno.h>
 #ifdef _WIN32
 #ifndef WIN32_LEAN_AND_MEAN
@@ -28,8 +29,15 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ODBCGetTryWaitValue");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr() : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -45,9 +53,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "ODBCSetTryWaitValue");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((uint32_t)dwvalue) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((uint32_t)dwvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)dwvalue;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -63,10 +78,17 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLAllocConnect");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)environmenthandle, (void*)(uintptr_t)connectionhandle) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)environmenthandle, (void*)(uintptr_t)connectionhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)environmenthandle;
     (void)connectionhandle;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -82,9 +104,16 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLAllocEnv");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)environmenthandle) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)environmenthandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)environmenthandle;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -100,11 +129,18 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLAllocHandle");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int16_t)handletype, (void*)(uintptr_t)inputhandle, (void*)(uintptr_t)outputhandle) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int16_t)handletype, (void*)(uintptr_t)inputhandle, (void*)(uintptr_t)outputhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)handletype;
     (void)inputhandle;
     (void)outputhandle;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -120,11 +156,18 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLAllocHandleStd");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int16_t)fhandletype, (void*)(uintptr_t)hinput, (void*)(uintptr_t)phoutput) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int16_t)fhandletype, (void*)(uintptr_t)hinput, (void*)(uintptr_t)phoutput);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)fhandletype;
     (void)hinput;
     (void)phoutput;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -140,10 +183,17 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLAllocStmt");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)connectionhandle, (void*)(uintptr_t)statementhandle) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)connectionhandle, (void*)(uintptr_t)statementhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)connectionhandle;
     (void)statementhandle;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -159,7 +209,13 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLBindCol");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)statementhandle, (uint16_t)columnnumber, (int16_t)targettype, (void*)(uintptr_t)targetvalue, (int64_t)bufferlength, (void*)(uintptr_t)strlen_or_ind) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)statementhandle, (uint16_t)columnnumber, (int16_t)targettype, (void*)(uintptr_t)targetvalue, (int64_t)bufferlength, (void*)(uintptr_t)strlen_or_ind);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)statementhandle;
     (void)columnnumber;
@@ -167,6 +223,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     (void)targetvalue;
     (void)bufferlength;
     (void)strlen_or_ind;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -182,7 +239,13 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLBindParam");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)statementhandle, (uint16_t)parameternumber, (int16_t)valuetype, (int16_t)parametertype, (uint64_t)lengthprecision, (int16_t)parameterscale, (void*)(uintptr_t)parametervalue, (void*)(uintptr_t)strlen_or_ind) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)statementhandle, (uint16_t)parameternumber, (int16_t)valuetype, (int16_t)parametertype, (uint64_t)lengthprecision, (int16_t)parameterscale, (void*)(uintptr_t)parametervalue, (void*)(uintptr_t)strlen_or_ind);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)statementhandle;
     (void)parameternumber;
@@ -192,6 +255,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     (void)parameterscale;
     (void)parametervalue;
     (void)strlen_or_ind;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -207,7 +271,13 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLBindParameter");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hstmt, (uint16_t)ipar, (int16_t)fparamtype, (int16_t)fctype, (int16_t)fsqltype, (uint64_t)cbcoldef, (int16_t)ibscale, (void*)(uintptr_t)rgbvalue, (int64_t)cbvaluemax, (void*)(uintptr_t)pcbvalue) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hstmt, (uint16_t)ipar, (int16_t)fparamtype, (int16_t)fctype, (int16_t)fsqltype, (uint64_t)cbcoldef, (int16_t)ibscale, (void*)(uintptr_t)rgbvalue, (int64_t)cbvaluemax, (void*)(uintptr_t)pcbvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)ipar;
@@ -219,6 +289,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     (void)rgbvalue;
     (void)cbvaluemax;
     (void)pcbvalue;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -234,7 +305,13 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLBrowseConnect");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hdbc, (void*)(uintptr_t)szconnstrin, (int16_t)cchconnstrin, (void*)(uintptr_t)szconnstrout, (int16_t)cchconnstroutmax, (void*)(uintptr_t)pcchconnstrout) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hdbc, (void*)(uintptr_t)szconnstrin, (int16_t)cchconnstrin, (void*)(uintptr_t)szconnstrout, (int16_t)cchconnstroutmax, (void*)(uintptr_t)pcchconnstrout);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdbc;
     (void)szconnstrin;
@@ -242,6 +319,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     (void)szconnstrout;
     (void)cchconnstroutmax;
     (void)pcchconnstrout;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -257,7 +335,13 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLBrowseConnectA");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hdbc, (void*)(uintptr_t)szconnstrin, (int16_t)cbconnstrin, (void*)(uintptr_t)szconnstrout, (int16_t)cbconnstroutmax, (void*)(uintptr_t)pcbconnstrout) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hdbc, (void*)(uintptr_t)szconnstrin, (int16_t)cbconnstrin, (void*)(uintptr_t)szconnstrout, (int16_t)cbconnstroutmax, (void*)(uintptr_t)pcbconnstrout);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdbc;
     (void)szconnstrin;
@@ -265,6 +349,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     (void)szconnstrout;
     (void)cbconnstroutmax;
     (void)pcbconnstrout;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -280,7 +365,13 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLBrowseConnectW");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hdbc, (void*)(uintptr_t)szconnstrin, (int16_t)cchconnstrin, (void*)(uintptr_t)szconnstrout, (int16_t)cchconnstroutmax, (void*)(uintptr_t)pcchconnstrout) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hdbc, (void*)(uintptr_t)szconnstrin, (int16_t)cchconnstrin, (void*)(uintptr_t)szconnstrout, (int16_t)cchconnstroutmax, (void*)(uintptr_t)pcchconnstrout);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdbc;
     (void)szconnstrin;
@@ -288,6 +379,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     (void)szconnstrout;
     (void)cchconnstroutmax;
     (void)pcchconnstrout;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -303,10 +395,17 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLBulkOperations");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)statementhandle, (int16_t)operation) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)statementhandle, (int16_t)operation);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)statementhandle;
     (void)operation;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -322,9 +421,16 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLCancel");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)statementhandle) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)statementhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)statementhandle;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -340,10 +446,17 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLCancelHandle");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int16_t)handletype, (void*)(uintptr_t)inputhandle) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int16_t)handletype, (void*)(uintptr_t)inputhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)handletype;
     (void)inputhandle;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -359,9 +472,16 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLCloseCursor");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)statementhandle) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)statementhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)statementhandle;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -377,9 +497,16 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbcbcp.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLCloseEnumServers");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)henumhandle) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)henumhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)henumhandle;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -395,7 +522,13 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLColAttribute");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)statementhandle, (uint16_t)columnnumber, (uint16_t)fieldidentifier, (void*)(uintptr_t)characterattribute, (int16_t)bufferlength, (void*)(uintptr_t)stringlength, (void*)(uintptr_t)numericattribute) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)statementhandle, (uint16_t)columnnumber, (uint16_t)fieldidentifier, (void*)(uintptr_t)characterattribute, (int16_t)bufferlength, (void*)(uintptr_t)stringlength, (void*)(uintptr_t)numericattribute);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)statementhandle;
     (void)columnnumber;
@@ -404,6 +537,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     (void)bufferlength;
     (void)stringlength;
     (void)numericattribute;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -419,7 +553,13 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLColAttributeA");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hstmt, (int16_t)icol, (int16_t)ifield, (void*)(uintptr_t)pcharattr, (int16_t)cbcharattrmax, (void*)(uintptr_t)pcbcharattr, (void*)(uintptr_t)pnumattr) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hstmt, (int16_t)icol, (int16_t)ifield, (void*)(uintptr_t)pcharattr, (int16_t)cbcharattrmax, (void*)(uintptr_t)pcbcharattr, (void*)(uintptr_t)pnumattr);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)icol;
@@ -428,6 +568,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     (void)cbcharattrmax;
     (void)pcbcharattr;
     (void)pnumattr;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -443,7 +584,13 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLColAttributeW");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hstmt, (uint16_t)icol, (uint16_t)ifield, (void*)(uintptr_t)pcharattr, (int16_t)cbdescmax, (void*)(uintptr_t)pcbcharattr, (void*)(uintptr_t)pnumattr) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hstmt, (uint16_t)icol, (uint16_t)ifield, (void*)(uintptr_t)pcharattr, (int16_t)cbdescmax, (void*)(uintptr_t)pcbcharattr, (void*)(uintptr_t)pnumattr);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)icol;
@@ -452,6 +599,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     (void)cbdescmax;
     (void)pcbcharattr;
     (void)pnumattr;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -467,7 +615,13 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLColAttributes");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hstmt, (uint16_t)icol, (uint16_t)fdesctype, (void*)(uintptr_t)rgbdesc, (int16_t)cbdescmax, (void*)(uintptr_t)pcbdesc, (void*)(uintptr_t)pfdesc) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hstmt, (uint16_t)icol, (uint16_t)fdesctype, (void*)(uintptr_t)rgbdesc, (int16_t)cbdescmax, (void*)(uintptr_t)pcbdesc, (void*)(uintptr_t)pfdesc);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)icol;
@@ -476,6 +630,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     (void)cbdescmax;
     (void)pcbdesc;
     (void)pfdesc;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -491,7 +646,13 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLColAttributesA");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hstmt, (uint16_t)icol, (uint16_t)fdesctype, (void*)(uintptr_t)rgbdesc, (int16_t)cbdescmax, (void*)(uintptr_t)pcbdesc, (void*)(uintptr_t)pfdesc) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hstmt, (uint16_t)icol, (uint16_t)fdesctype, (void*)(uintptr_t)rgbdesc, (int16_t)cbdescmax, (void*)(uintptr_t)pcbdesc, (void*)(uintptr_t)pfdesc);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)icol;
@@ -500,6 +661,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     (void)cbdescmax;
     (void)pcbdesc;
     (void)pfdesc;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -515,7 +677,13 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLColAttributesW");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hstmt, (uint16_t)icol, (uint16_t)fdesctype, (void*)(uintptr_t)rgbdesc, (int16_t)cbdescmax, (void*)(uintptr_t)pcbdesc, (void*)(uintptr_t)pfdesc) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hstmt, (uint16_t)icol, (uint16_t)fdesctype, (void*)(uintptr_t)rgbdesc, (int16_t)cbdescmax, (void*)(uintptr_t)pcbdesc, (void*)(uintptr_t)pfdesc);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)icol;
@@ -524,6 +692,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     (void)cbdescmax;
     (void)pcbdesc;
     (void)pfdesc;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -539,7 +708,13 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLColumnPrivileges");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hstmt, (void*)(uintptr_t)szcatalogname, (int16_t)cchcatalogname, (void*)(uintptr_t)szschemaname, (int16_t)cchschemaname, (void*)(uintptr_t)sztablename, (int16_t)cchtablename, (void*)(uintptr_t)szcolumnname, (int16_t)cchcolumnname) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hstmt, (void*)(uintptr_t)szcatalogname, (int16_t)cchcatalogname, (void*)(uintptr_t)szschemaname, (int16_t)cchschemaname, (void*)(uintptr_t)sztablename, (int16_t)cchtablename, (void*)(uintptr_t)szcolumnname, (int16_t)cchcolumnname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)szcatalogname;
@@ -550,6 +725,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     (void)cchtablename;
     (void)szcolumnname;
     (void)cchcolumnname;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -565,7 +741,13 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLColumnPrivilegesA");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hstmt, (void*)(uintptr_t)szcatalogname, (int16_t)cbcatalogname, (void*)(uintptr_t)szschemaname, (int16_t)cbschemaname, (void*)(uintptr_t)sztablename, (int16_t)cbtablename, (void*)(uintptr_t)szcolumnname, (int16_t)cbcolumnname) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hstmt, (void*)(uintptr_t)szcatalogname, (int16_t)cbcatalogname, (void*)(uintptr_t)szschemaname, (int16_t)cbschemaname, (void*)(uintptr_t)sztablename, (int16_t)cbtablename, (void*)(uintptr_t)szcolumnname, (int16_t)cbcolumnname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)szcatalogname;
@@ -576,6 +758,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     (void)cbtablename;
     (void)szcolumnname;
     (void)cbcolumnname;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -591,7 +774,13 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLColumnPrivilegesW");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hstmt, (void*)(uintptr_t)szcatalogname, (int16_t)cchcatalogname, (void*)(uintptr_t)szschemaname, (int16_t)cchschemaname, (void*)(uintptr_t)sztablename, (int16_t)cchtablename, (void*)(uintptr_t)szcolumnname, (int16_t)cchcolumnname) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hstmt, (void*)(uintptr_t)szcatalogname, (int16_t)cchcatalogname, (void*)(uintptr_t)szschemaname, (int16_t)cchschemaname, (void*)(uintptr_t)sztablename, (int16_t)cchtablename, (void*)(uintptr_t)szcolumnname, (int16_t)cchcolumnname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)szcatalogname;
@@ -602,6 +791,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     (void)cchtablename;
     (void)szcolumnname;
     (void)cchcolumnname;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -617,7 +807,13 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLColumns");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)statementhandle, (void*)(uintptr_t)catalogname, (int16_t)namelength1, (void*)(uintptr_t)schemaname, (int16_t)namelength2, (void*)(uintptr_t)tablename, (int16_t)namelength3, (void*)(uintptr_t)columnname, (int16_t)namelength4) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)statementhandle, (void*)(uintptr_t)catalogname, (int16_t)namelength1, (void*)(uintptr_t)schemaname, (int16_t)namelength2, (void*)(uintptr_t)tablename, (int16_t)namelength3, (void*)(uintptr_t)columnname, (int16_t)namelength4);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)statementhandle;
     (void)catalogname;
@@ -628,6 +824,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     (void)namelength3;
     (void)columnname;
     (void)namelength4;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -643,7 +840,13 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLColumnsA");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hstmt, (void*)(uintptr_t)szcatalogname, (int16_t)cbcatalogname, (void*)(uintptr_t)szschemaname, (int16_t)cbschemaname, (void*)(uintptr_t)sztablename, (int16_t)cbtablename, (void*)(uintptr_t)szcolumnname, (int16_t)cbcolumnname) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hstmt, (void*)(uintptr_t)szcatalogname, (int16_t)cbcatalogname, (void*)(uintptr_t)szschemaname, (int16_t)cbschemaname, (void*)(uintptr_t)sztablename, (int16_t)cbtablename, (void*)(uintptr_t)szcolumnname, (int16_t)cbcolumnname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)szcatalogname;
@@ -654,6 +857,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     (void)cbtablename;
     (void)szcolumnname;
     (void)cbcolumnname;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -669,7 +873,13 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLColumnsW");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hstmt, (void*)(uintptr_t)szcatalogname, (int16_t)cchcatalogname, (void*)(uintptr_t)szschemaname, (int16_t)cchschemaname, (void*)(uintptr_t)sztablename, (int16_t)cchtablename, (void*)(uintptr_t)szcolumnname, (int16_t)cchcolumnname) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hstmt, (void*)(uintptr_t)szcatalogname, (int16_t)cchcatalogname, (void*)(uintptr_t)szschemaname, (int16_t)cchschemaname, (void*)(uintptr_t)sztablename, (int16_t)cchtablename, (void*)(uintptr_t)szcolumnname, (int16_t)cchcolumnname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)szcatalogname;
@@ -680,6 +890,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     (void)cchtablename;
     (void)szcolumnname;
     (void)cchcolumnname;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -695,11 +906,18 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLCompleteAsync");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int16_t)handletype, (void*)(uintptr_t)handle, (void*)(uintptr_t)asyncretcodeptr) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int16_t)handletype, (void*)(uintptr_t)handle, (void*)(uintptr_t)asyncretcodeptr);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)handletype;
     (void)handle;
     (void)asyncretcodeptr;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -715,7 +933,13 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLConnect");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)connectionhandle, (void*)(uintptr_t)servername, (int16_t)namelength1, (void*)(uintptr_t)username, (int16_t)namelength2, (void*)(uintptr_t)authentication, (int16_t)namelength3) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)connectionhandle, (void*)(uintptr_t)servername, (int16_t)namelength1, (void*)(uintptr_t)username, (int16_t)namelength2, (void*)(uintptr_t)authentication, (int16_t)namelength3);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)connectionhandle;
     (void)servername;
@@ -724,6 +948,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     (void)namelength2;
     (void)authentication;
     (void)namelength3;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -739,7 +964,13 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLConnectA");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hdbc, (void*)(uintptr_t)szdsn, (int16_t)cbdsn, (void*)(uintptr_t)szuid, (int16_t)cbuid, (void*)(uintptr_t)szauthstr, (int16_t)cbauthstr) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hdbc, (void*)(uintptr_t)szdsn, (int16_t)cbdsn, (void*)(uintptr_t)szuid, (int16_t)cbuid, (void*)(uintptr_t)szauthstr, (int16_t)cbauthstr);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdbc;
     (void)szdsn;
@@ -748,6 +979,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     (void)cbuid;
     (void)szauthstr;
     (void)cbauthstr;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -763,7 +995,13 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLConnectW");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hdbc, (void*)(uintptr_t)szdsn, (int16_t)cchdsn, (void*)(uintptr_t)szuid, (int16_t)cchuid, (void*)(uintptr_t)szauthstr, (int16_t)cchauthstr) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hdbc, (void*)(uintptr_t)szdsn, (int16_t)cchdsn, (void*)(uintptr_t)szuid, (int16_t)cchuid, (void*)(uintptr_t)szauthstr, (int16_t)cchauthstr);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdbc;
     (void)szdsn;
@@ -772,6 +1010,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     (void)cchuid;
     (void)szauthstr;
     (void)cchauthstr;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -787,10 +1026,17 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLCopyDesc");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)sourcedeschandle, (void*)(uintptr_t)targetdeschandle) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)sourcedeschandle, (void*)(uintptr_t)targetdeschandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)sourcedeschandle;
     (void)targetdeschandle;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -806,7 +1052,13 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLDataSources");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)environmenthandle, (uint16_t)direction, (void*)(uintptr_t)servername, (int16_t)bufferlength1, (void*)(uintptr_t)namelength1ptr, (void*)(uintptr_t)description, (int16_t)bufferlength2, (void*)(uintptr_t)namelength2ptr) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)environmenthandle, (uint16_t)direction, (void*)(uintptr_t)servername, (int16_t)bufferlength1, (void*)(uintptr_t)namelength1ptr, (void*)(uintptr_t)description, (int16_t)bufferlength2, (void*)(uintptr_t)namelength2ptr);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)environmenthandle;
     (void)direction;
@@ -816,6 +1068,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     (void)description;
     (void)bufferlength2;
     (void)namelength2ptr;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -831,7 +1084,13 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLDataSourcesA");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)henv, (uint16_t)fdirection, (void*)(uintptr_t)szdsn, (int16_t)cbdsnmax, (void*)(uintptr_t)pcbdsn, (void*)(uintptr_t)szdescription, (int16_t)cbdescriptionmax, (void*)(uintptr_t)pcbdescription) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)henv, (uint16_t)fdirection, (void*)(uintptr_t)szdsn, (int16_t)cbdsnmax, (void*)(uintptr_t)pcbdsn, (void*)(uintptr_t)szdescription, (int16_t)cbdescriptionmax, (void*)(uintptr_t)pcbdescription);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)henv;
     (void)fdirection;
@@ -841,6 +1100,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     (void)szdescription;
     (void)cbdescriptionmax;
     (void)pcbdescription;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -856,7 +1116,13 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLDataSourcesW");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)henv, (uint16_t)fdirection, (void*)(uintptr_t)szdsn, (int16_t)cchdsnmax, (void*)(uintptr_t)pcchdsn, (void*)(uintptr_t)wszdescription, (int16_t)cchdescriptionmax, (void*)(uintptr_t)pcchdescription) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)henv, (uint16_t)fdirection, (void*)(uintptr_t)szdsn, (int16_t)cchdsnmax, (void*)(uintptr_t)pcchdsn, (void*)(uintptr_t)wszdescription, (int16_t)cchdescriptionmax, (void*)(uintptr_t)pcchdescription);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)henv;
     (void)fdirection;
@@ -866,6 +1132,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     (void)wszdescription;
     (void)cchdescriptionmax;
     (void)pcchdescription;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -881,7 +1148,13 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLDescribeCol");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)statementhandle, (uint16_t)columnnumber, (void*)(uintptr_t)columnname, (int16_t)bufferlength, (void*)(uintptr_t)namelength, (void*)(uintptr_t)datatype, (void*)(uintptr_t)columnsize, (void*)(uintptr_t)decimaldigits, (void*)(uintptr_t)nullable) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)statementhandle, (uint16_t)columnnumber, (void*)(uintptr_t)columnname, (int16_t)bufferlength, (void*)(uintptr_t)namelength, (void*)(uintptr_t)datatype, (void*)(uintptr_t)columnsize, (void*)(uintptr_t)decimaldigits, (void*)(uintptr_t)nullable);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)statementhandle;
     (void)columnnumber;
@@ -892,6 +1165,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     (void)columnsize;
     (void)decimaldigits;
     (void)nullable;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -907,7 +1181,13 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLDescribeColA");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hstmt, (uint16_t)icol, (void*)(uintptr_t)szcolname, (int16_t)cbcolnamemax, (void*)(uintptr_t)pcbcolname, (void*)(uintptr_t)pfsqltype, (void*)(uintptr_t)pcbcoldef, (void*)(uintptr_t)pibscale, (void*)(uintptr_t)pfnullable) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hstmt, (uint16_t)icol, (void*)(uintptr_t)szcolname, (int16_t)cbcolnamemax, (void*)(uintptr_t)pcbcolname, (void*)(uintptr_t)pfsqltype, (void*)(uintptr_t)pcbcoldef, (void*)(uintptr_t)pibscale, (void*)(uintptr_t)pfnullable);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)icol;
@@ -918,6 +1198,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     (void)pcbcoldef;
     (void)pibscale;
     (void)pfnullable;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -933,7 +1214,13 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLDescribeColW");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hstmt, (uint16_t)icol, (void*)(uintptr_t)szcolname, (int16_t)cchcolnamemax, (void*)(uintptr_t)pcchcolname, (void*)(uintptr_t)pfsqltype, (void*)(uintptr_t)pcbcoldef, (void*)(uintptr_t)pibscale, (void*)(uintptr_t)pfnullable) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hstmt, (uint16_t)icol, (void*)(uintptr_t)szcolname, (int16_t)cchcolnamemax, (void*)(uintptr_t)pcchcolname, (void*)(uintptr_t)pfsqltype, (void*)(uintptr_t)pcbcoldef, (void*)(uintptr_t)pibscale, (void*)(uintptr_t)pfnullable);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)icol;
@@ -944,6 +1231,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     (void)pcbcoldef;
     (void)pibscale;
     (void)pfnullable;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -959,7 +1247,13 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLDescribeParam");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hstmt, (uint16_t)ipar, (void*)(uintptr_t)pfsqltype, (void*)(uintptr_t)pcbparamdef, (void*)(uintptr_t)pibscale, (void*)(uintptr_t)pfnullable) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hstmt, (uint16_t)ipar, (void*)(uintptr_t)pfsqltype, (void*)(uintptr_t)pcbparamdef, (void*)(uintptr_t)pibscale, (void*)(uintptr_t)pfnullable);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)ipar;
@@ -967,6 +1261,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     (void)pcbparamdef;
     (void)pibscale;
     (void)pfnullable;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -982,9 +1277,16 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLDisconnect");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)connectionhandle) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)connectionhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)connectionhandle;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -1000,7 +1302,13 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLDriverConnect");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hdbc, (int64_t)hwnd, (void*)(uintptr_t)szconnstrin, (int16_t)cchconnstrin, (void*)(uintptr_t)szconnstrout, (int16_t)cchconnstroutmax, (void*)(uintptr_t)pcchconnstrout, (uint16_t)fdrivercompletion) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hdbc, (int64_t)hwnd, (void*)(uintptr_t)szconnstrin, (int16_t)cchconnstrin, (void*)(uintptr_t)szconnstrout, (int16_t)cchconnstroutmax, (void*)(uintptr_t)pcchconnstrout, (uint16_t)fdrivercompletion);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdbc;
     (void)hwnd;
@@ -1010,6 +1318,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     (void)cchconnstroutmax;
     (void)pcchconnstrout;
     (void)fdrivercompletion;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -1025,7 +1334,13 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLDriverConnectA");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hdbc, (int64_t)hwnd, (void*)(uintptr_t)szconnstrin, (int16_t)cbconnstrin, (void*)(uintptr_t)szconnstrout, (int16_t)cbconnstroutmax, (void*)(uintptr_t)pcbconnstrout, (uint16_t)fdrivercompletion) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hdbc, (int64_t)hwnd, (void*)(uintptr_t)szconnstrin, (int16_t)cbconnstrin, (void*)(uintptr_t)szconnstrout, (int16_t)cbconnstroutmax, (void*)(uintptr_t)pcbconnstrout, (uint16_t)fdrivercompletion);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdbc;
     (void)hwnd;
@@ -1035,6 +1350,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     (void)cbconnstroutmax;
     (void)pcbconnstrout;
     (void)fdrivercompletion;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -1050,7 +1366,13 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLDriverConnectW");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hdbc, (int64_t)hwnd, (void*)(uintptr_t)szconnstrin, (int16_t)cchconnstrin, (void*)(uintptr_t)szconnstrout, (int16_t)cchconnstroutmax, (void*)(uintptr_t)pcchconnstrout, (uint16_t)fdrivercompletion) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hdbc, (int64_t)hwnd, (void*)(uintptr_t)szconnstrin, (int16_t)cchconnstrin, (void*)(uintptr_t)szconnstrout, (int16_t)cchconnstroutmax, (void*)(uintptr_t)pcchconnstrout, (uint16_t)fdrivercompletion);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdbc;
     (void)hwnd;
@@ -1060,6 +1382,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     (void)cchconnstroutmax;
     (void)pcchconnstrout;
     (void)fdrivercompletion;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -1075,7 +1398,13 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLDrivers");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)henv, (uint16_t)fdirection, (void*)(uintptr_t)szdriverdesc, (int16_t)cchdriverdescmax, (void*)(uintptr_t)pcchdriverdesc, (void*)(uintptr_t)szdriverattributes, (int16_t)cchdrvrattrmax, (void*)(uintptr_t)pcchdrvrattr) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)henv, (uint16_t)fdirection, (void*)(uintptr_t)szdriverdesc, (int16_t)cchdriverdescmax, (void*)(uintptr_t)pcchdriverdesc, (void*)(uintptr_t)szdriverattributes, (int16_t)cchdrvrattrmax, (void*)(uintptr_t)pcchdrvrattr);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)henv;
     (void)fdirection;
@@ -1085,6 +1414,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     (void)szdriverattributes;
     (void)cchdrvrattrmax;
     (void)pcchdrvrattr;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -1100,7 +1430,13 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLDriversA");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)henv, (uint16_t)fdirection, (void*)(uintptr_t)szdriverdesc, (int16_t)cbdriverdescmax, (void*)(uintptr_t)pcbdriverdesc, (void*)(uintptr_t)szdriverattributes, (int16_t)cbdrvrattrmax, (void*)(uintptr_t)pcbdrvrattr) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)henv, (uint16_t)fdirection, (void*)(uintptr_t)szdriverdesc, (int16_t)cbdriverdescmax, (void*)(uintptr_t)pcbdriverdesc, (void*)(uintptr_t)szdriverattributes, (int16_t)cbdrvrattrmax, (void*)(uintptr_t)pcbdrvrattr);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)henv;
     (void)fdirection;
@@ -1110,6 +1446,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     (void)szdriverattributes;
     (void)cbdrvrattrmax;
     (void)pcbdrvrattr;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -1125,7 +1462,13 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLDriversW");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)henv, (uint16_t)fdirection, (void*)(uintptr_t)szdriverdesc, (int16_t)cchdriverdescmax, (void*)(uintptr_t)pcchdriverdesc, (void*)(uintptr_t)szdriverattributes, (int16_t)cchdrvrattrmax, (void*)(uintptr_t)pcchdrvrattr) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)henv, (uint16_t)fdirection, (void*)(uintptr_t)szdriverdesc, (int16_t)cchdriverdescmax, (void*)(uintptr_t)pcchdriverdesc, (void*)(uintptr_t)szdriverattributes, (int16_t)cchdrvrattrmax, (void*)(uintptr_t)pcchdrvrattr);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)henv;
     (void)fdirection;
@@ -1135,6 +1478,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     (void)szdriverattributes;
     (void)cchdrvrattrmax;
     (void)pcchdrvrattr;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -1150,11 +1494,18 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLEndTran");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int16_t)handletype, (void*)(uintptr_t)handle, (int16_t)completiontype) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int16_t)handletype, (void*)(uintptr_t)handle, (int16_t)completiontype);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)handletype;
     (void)handle;
     (void)completiontype;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -1170,7 +1521,13 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLError");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)environmenthandle, (void*)(uintptr_t)connectionhandle, (void*)(uintptr_t)statementhandle, (void*)(uintptr_t)sqlstate, (void*)(uintptr_t)nativeerror, (void*)(uintptr_t)messagetext, (int16_t)bufferlength, (void*)(uintptr_t)textlength) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)environmenthandle, (void*)(uintptr_t)connectionhandle, (void*)(uintptr_t)statementhandle, (void*)(uintptr_t)sqlstate, (void*)(uintptr_t)nativeerror, (void*)(uintptr_t)messagetext, (int16_t)bufferlength, (void*)(uintptr_t)textlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)environmenthandle;
     (void)connectionhandle;
@@ -1180,6 +1537,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     (void)messagetext;
     (void)bufferlength;
     (void)textlength;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -1195,7 +1553,13 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLErrorA");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)henv, (void*)(uintptr_t)hdbc, (void*)(uintptr_t)hstmt, (void*)(uintptr_t)szsqlstate, (void*)(uintptr_t)pfnativeerror, (void*)(uintptr_t)szerrormsg, (int16_t)cberrormsgmax, (void*)(uintptr_t)pcberrormsg) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)henv, (void*)(uintptr_t)hdbc, (void*)(uintptr_t)hstmt, (void*)(uintptr_t)szsqlstate, (void*)(uintptr_t)pfnativeerror, (void*)(uintptr_t)szerrormsg, (int16_t)cberrormsgmax, (void*)(uintptr_t)pcberrormsg);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)henv;
     (void)hdbc;
@@ -1205,6 +1569,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     (void)szerrormsg;
     (void)cberrormsgmax;
     (void)pcberrormsg;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -1220,7 +1585,13 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLErrorW");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)henv, (void*)(uintptr_t)hdbc, (void*)(uintptr_t)hstmt, (void*)(uintptr_t)wszsqlstate, (void*)(uintptr_t)pfnativeerror, (void*)(uintptr_t)wszerrormsg, (int16_t)ccherrormsgmax, (void*)(uintptr_t)pccherrormsg) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)henv, (void*)(uintptr_t)hdbc, (void*)(uintptr_t)hstmt, (void*)(uintptr_t)wszsqlstate, (void*)(uintptr_t)pfnativeerror, (void*)(uintptr_t)wszerrormsg, (int16_t)ccherrormsgmax, (void*)(uintptr_t)pccherrormsg);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)henv;
     (void)hdbc;
@@ -1230,6 +1601,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     (void)wszerrormsg;
     (void)ccherrormsgmax;
     (void)pccherrormsg;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -1245,11 +1617,18 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLExecDirect");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)statementhandle, (void*)(uintptr_t)statementtext, (int32_t)textlength) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)statementhandle, (void*)(uintptr_t)statementtext, (int32_t)textlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)statementhandle;
     (void)statementtext;
     (void)textlength;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -1265,11 +1644,18 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLExecDirectA");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hstmt, (void*)(uintptr_t)szsqlstr, (int32_t)cbsqlstr) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hstmt, (void*)(uintptr_t)szsqlstr, (int32_t)cbsqlstr);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)szsqlstr;
     (void)cbsqlstr;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -1285,11 +1671,18 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLExecDirectW");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hstmt, (void*)(uintptr_t)szsqlstr, (int32_t)textlength) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hstmt, (void*)(uintptr_t)szsqlstr, (int32_t)textlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)szsqlstr;
     (void)textlength;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -1305,9 +1698,16 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLExecute");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)statementhandle) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)statementhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)statementhandle;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -1323,13 +1723,20 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLExtendedFetch");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hstmt, (uint16_t)ffetchtype, (int64_t)irow, (void*)(uintptr_t)pcrow, (void*)(uintptr_t)rgfrowstatus) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hstmt, (uint16_t)ffetchtype, (int64_t)irow, (void*)(uintptr_t)pcrow, (void*)(uintptr_t)rgfrowstatus);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)ffetchtype;
     (void)irow;
     (void)pcrow;
     (void)rgfrowstatus;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -1345,9 +1752,16 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLFetch");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)statementhandle) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)statementhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)statementhandle;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -1363,11 +1777,18 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLFetchScroll");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)statementhandle, (int16_t)fetchorientation, (int64_t)fetchoffset) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)statementhandle, (int16_t)fetchorientation, (int64_t)fetchoffset);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)statementhandle;
     (void)fetchorientation;
     (void)fetchoffset;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -1383,7 +1804,13 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLForeignKeys");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hstmt, (void*)(uintptr_t)szpkcatalogname, (int16_t)cchpkcatalogname, (void*)(uintptr_t)szpkschemaname, (int16_t)cchpkschemaname, (void*)(uintptr_t)szpktablename, (int16_t)cchpktablename, (void*)(uintptr_t)szfkcatalogname, (int16_t)cchfkcatalogname, (void*)(uintptr_t)szfkschemaname, (int16_t)cchfkschemaname, (void*)(uintptr_t)szfktablename, (int16_t)cchfktablename) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hstmt, (void*)(uintptr_t)szpkcatalogname, (int16_t)cchpkcatalogname, (void*)(uintptr_t)szpkschemaname, (int16_t)cchpkschemaname, (void*)(uintptr_t)szpktablename, (int16_t)cchpktablename, (void*)(uintptr_t)szfkcatalogname, (int16_t)cchfkcatalogname, (void*)(uintptr_t)szfkschemaname, (int16_t)cchfkschemaname, (void*)(uintptr_t)szfktablename, (int16_t)cchfktablename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)szpkcatalogname;
@@ -1398,6 +1825,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     (void)cchfkschemaname;
     (void)szfktablename;
     (void)cchfktablename;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -1413,7 +1841,13 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLForeignKeysA");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hstmt, (void*)(uintptr_t)szpkcatalogname, (int16_t)cbpkcatalogname, (void*)(uintptr_t)szpkschemaname, (int16_t)cbpkschemaname, (void*)(uintptr_t)szpktablename, (int16_t)cbpktablename, (void*)(uintptr_t)szfkcatalogname, (int16_t)cbfkcatalogname, (void*)(uintptr_t)szfkschemaname, (int16_t)cbfkschemaname, (void*)(uintptr_t)szfktablename, (int16_t)cbfktablename) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hstmt, (void*)(uintptr_t)szpkcatalogname, (int16_t)cbpkcatalogname, (void*)(uintptr_t)szpkschemaname, (int16_t)cbpkschemaname, (void*)(uintptr_t)szpktablename, (int16_t)cbpktablename, (void*)(uintptr_t)szfkcatalogname, (int16_t)cbfkcatalogname, (void*)(uintptr_t)szfkschemaname, (int16_t)cbfkschemaname, (void*)(uintptr_t)szfktablename, (int16_t)cbfktablename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)szpkcatalogname;
@@ -1428,6 +1862,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     (void)cbfkschemaname;
     (void)szfktablename;
     (void)cbfktablename;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -1443,7 +1878,13 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLForeignKeysW");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hstmt, (void*)(uintptr_t)szpkcatalogname, (int16_t)cchpkcatalogname, (void*)(uintptr_t)szpkschemaname, (int16_t)cchpkschemaname, (void*)(uintptr_t)szpktablename, (int16_t)cchpktablename, (void*)(uintptr_t)szfkcatalogname, (int16_t)cchfkcatalogname, (void*)(uintptr_t)szfkschemaname, (int16_t)cchfkschemaname, (void*)(uintptr_t)szfktablename, (int16_t)cchfktablename) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hstmt, (void*)(uintptr_t)szpkcatalogname, (int16_t)cchpkcatalogname, (void*)(uintptr_t)szpkschemaname, (int16_t)cchpkschemaname, (void*)(uintptr_t)szpktablename, (int16_t)cchpktablename, (void*)(uintptr_t)szfkcatalogname, (int16_t)cchfkcatalogname, (void*)(uintptr_t)szfkschemaname, (int16_t)cchfkschemaname, (void*)(uintptr_t)szfktablename, (int16_t)cchfktablename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)szpkcatalogname;
@@ -1458,6 +1899,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     (void)cchfkschemaname;
     (void)szfktablename;
     (void)cchfktablename;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -1473,9 +1915,16 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLFreeConnect");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)connectionhandle) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)connectionhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)connectionhandle;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -1491,9 +1940,16 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLFreeEnv");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)environmenthandle) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)environmenthandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)environmenthandle;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -1509,10 +1965,17 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLFreeHandle");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int16_t)handletype, (void*)(uintptr_t)handle) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int16_t)handletype, (void*)(uintptr_t)handle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)handletype;
     (void)handle;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -1528,10 +1991,17 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLFreeStmt");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)statementhandle, (uint16_t)option) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)statementhandle, (uint16_t)option);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)statementhandle;
     (void)option;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -1547,13 +2017,20 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLGetConnectAttr");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)connectionhandle, (int32_t)attribute, (void*)(uintptr_t)value, (int32_t)bufferlength, (void*)(uintptr_t)stringlengthptr) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)connectionhandle, (int32_t)attribute, (void*)(uintptr_t)value, (int32_t)bufferlength, (void*)(uintptr_t)stringlengthptr);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)connectionhandle;
     (void)attribute;
     (void)value;
     (void)bufferlength;
     (void)stringlengthptr;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -1569,13 +2046,20 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLGetConnectAttrA");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hdbc, (int32_t)fattribute, (void*)(uintptr_t)rgbvalue, (int32_t)cbvaluemax, (void*)(uintptr_t)pcbvalue) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hdbc, (int32_t)fattribute, (void*)(uintptr_t)rgbvalue, (int32_t)cbvaluemax, (void*)(uintptr_t)pcbvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdbc;
     (void)fattribute;
     (void)rgbvalue;
     (void)cbvaluemax;
     (void)pcbvalue;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -1591,13 +2075,20 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLGetConnectAttrW");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hdbc, (int32_t)fattribute, (void*)(uintptr_t)rgbvalue, (int32_t)cbvaluemax, (void*)(uintptr_t)pcbvalue) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hdbc, (int32_t)fattribute, (void*)(uintptr_t)rgbvalue, (int32_t)cbvaluemax, (void*)(uintptr_t)pcbvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdbc;
     (void)fattribute;
     (void)rgbvalue;
     (void)cbvaluemax;
     (void)pcbvalue;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -1613,11 +2104,18 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLGetConnectOption");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)connectionhandle, (uint16_t)option, (void*)(uintptr_t)value) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)connectionhandle, (uint16_t)option, (void*)(uintptr_t)value);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)connectionhandle;
     (void)option;
     (void)value;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -1633,11 +2131,18 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLGetConnectOptionA");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hdbc, (uint16_t)foption, (void*)(uintptr_t)pvparam) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hdbc, (uint16_t)foption, (void*)(uintptr_t)pvparam);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdbc;
     (void)foption;
     (void)pvparam;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -1653,11 +2158,18 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLGetConnectOptionW");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hdbc, (uint16_t)foption, (void*)(uintptr_t)pvparam) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hdbc, (uint16_t)foption, (void*)(uintptr_t)pvparam);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdbc;
     (void)foption;
     (void)pvparam;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -1673,12 +2185,19 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLGetCursorName");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)statementhandle, (void*)(uintptr_t)cursorname, (int16_t)bufferlength, (void*)(uintptr_t)namelengthptr) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)statementhandle, (void*)(uintptr_t)cursorname, (int16_t)bufferlength, (void*)(uintptr_t)namelengthptr);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)statementhandle;
     (void)cursorname;
     (void)bufferlength;
     (void)namelengthptr;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -1694,12 +2213,19 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLGetCursorNameA");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hstmt, (void*)(uintptr_t)szcursor, (int16_t)cbcursormax, (void*)(uintptr_t)pcbcursor) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hstmt, (void*)(uintptr_t)szcursor, (int16_t)cbcursormax, (void*)(uintptr_t)pcbcursor);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)szcursor;
     (void)cbcursormax;
     (void)pcbcursor;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -1715,12 +2241,19 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLGetCursorNameW");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hstmt, (void*)(uintptr_t)szcursor, (int16_t)cchcursormax, (void*)(uintptr_t)pcchcursor) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hstmt, (void*)(uintptr_t)szcursor, (int16_t)cchcursormax, (void*)(uintptr_t)pcchcursor);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)szcursor;
     (void)cchcursormax;
     (void)pcchcursor;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -1736,7 +2269,13 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLGetData");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)statementhandle, (uint16_t)columnnumber, (int16_t)targettype, (void*)(uintptr_t)targetvalue, (int64_t)bufferlength, (void*)(uintptr_t)strlen_or_indptr) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)statementhandle, (uint16_t)columnnumber, (int16_t)targettype, (void*)(uintptr_t)targetvalue, (int64_t)bufferlength, (void*)(uintptr_t)strlen_or_indptr);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)statementhandle;
     (void)columnnumber;
@@ -1744,6 +2283,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     (void)targetvalue;
     (void)bufferlength;
     (void)strlen_or_indptr;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -1759,7 +2299,13 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLGetDescField");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)descriptorhandle, (int16_t)recnumber, (int16_t)fieldidentifier, (void*)(uintptr_t)value, (int32_t)bufferlength, (void*)(uintptr_t)stringlength) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)descriptorhandle, (int16_t)recnumber, (int16_t)fieldidentifier, (void*)(uintptr_t)value, (int32_t)bufferlength, (void*)(uintptr_t)stringlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)descriptorhandle;
     (void)recnumber;
@@ -1767,6 +2313,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     (void)value;
     (void)bufferlength;
     (void)stringlength;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -1782,7 +2329,13 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLGetDescFieldA");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hdesc, (int16_t)irecord, (int16_t)ifield, (void*)(uintptr_t)rgbvalue, (int32_t)cbbufferlength, (void*)(uintptr_t)stringlength) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hdesc, (int16_t)irecord, (int16_t)ifield, (void*)(uintptr_t)rgbvalue, (int32_t)cbbufferlength, (void*)(uintptr_t)stringlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdesc;
     (void)irecord;
@@ -1790,6 +2343,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     (void)rgbvalue;
     (void)cbbufferlength;
     (void)stringlength;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -1805,7 +2359,13 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLGetDescFieldW");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hdesc, (int16_t)irecord, (int16_t)ifield, (void*)(uintptr_t)rgbvalue, (int32_t)cbbufferlength, (void*)(uintptr_t)stringlength) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hdesc, (int16_t)irecord, (int16_t)ifield, (void*)(uintptr_t)rgbvalue, (int32_t)cbbufferlength, (void*)(uintptr_t)stringlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdesc;
     (void)irecord;
@@ -1813,6 +2373,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     (void)rgbvalue;
     (void)cbbufferlength;
     (void)stringlength;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -1828,7 +2389,13 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLGetDescRec");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)descriptorhandle, (int16_t)recnumber, (void*)(uintptr_t)name, (int16_t)bufferlength, (void*)(uintptr_t)stringlengthptr, (void*)(uintptr_t)typeptr, (void*)(uintptr_t)subtypeptr, (void*)(uintptr_t)lengthptr, (void*)(uintptr_t)precisionptr, (void*)(uintptr_t)scaleptr, (void*)(uintptr_t)nullableptr) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)descriptorhandle, (int16_t)recnumber, (void*)(uintptr_t)name, (int16_t)bufferlength, (void*)(uintptr_t)stringlengthptr, (void*)(uintptr_t)typeptr, (void*)(uintptr_t)subtypeptr, (void*)(uintptr_t)lengthptr, (void*)(uintptr_t)precisionptr, (void*)(uintptr_t)scaleptr, (void*)(uintptr_t)nullableptr);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)descriptorhandle;
     (void)recnumber;
@@ -1841,6 +2408,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     (void)precisionptr;
     (void)scaleptr;
     (void)nullableptr;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -1856,7 +2424,13 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLGetDescRecA");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hdesc, (int16_t)irecord, (void*)(uintptr_t)szname, (int16_t)cbnamemax, (void*)(uintptr_t)pcbname, (void*)(uintptr_t)pftype, (void*)(uintptr_t)pfsubtype, (void*)(uintptr_t)plength, (void*)(uintptr_t)pprecision, (void*)(uintptr_t)pscale, (void*)(uintptr_t)pnullable) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hdesc, (int16_t)irecord, (void*)(uintptr_t)szname, (int16_t)cbnamemax, (void*)(uintptr_t)pcbname, (void*)(uintptr_t)pftype, (void*)(uintptr_t)pfsubtype, (void*)(uintptr_t)plength, (void*)(uintptr_t)pprecision, (void*)(uintptr_t)pscale, (void*)(uintptr_t)pnullable);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdesc;
     (void)irecord;
@@ -1869,6 +2443,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     (void)pprecision;
     (void)pscale;
     (void)pnullable;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -1884,7 +2459,13 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLGetDescRecW");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hdesc, (int16_t)irecord, (void*)(uintptr_t)szname, (int16_t)cchnamemax, (void*)(uintptr_t)pcchname, (void*)(uintptr_t)pftype, (void*)(uintptr_t)pfsubtype, (void*)(uintptr_t)plength, (void*)(uintptr_t)pprecision, (void*)(uintptr_t)pscale, (void*)(uintptr_t)pnullable) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hdesc, (int16_t)irecord, (void*)(uintptr_t)szname, (int16_t)cchnamemax, (void*)(uintptr_t)pcchname, (void*)(uintptr_t)pftype, (void*)(uintptr_t)pfsubtype, (void*)(uintptr_t)plength, (void*)(uintptr_t)pprecision, (void*)(uintptr_t)pscale, (void*)(uintptr_t)pnullable);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdesc;
     (void)irecord;
@@ -1897,6 +2478,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     (void)pprecision;
     (void)pscale;
     (void)pnullable;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -1912,7 +2494,13 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLGetDiagField");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int16_t)handletype, (void*)(uintptr_t)handle, (int16_t)recnumber, (int16_t)diagidentifier, (void*)(uintptr_t)diaginfo, (int16_t)bufferlength, (void*)(uintptr_t)stringlength) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int16_t)handletype, (void*)(uintptr_t)handle, (int16_t)recnumber, (int16_t)diagidentifier, (void*)(uintptr_t)diaginfo, (int16_t)bufferlength, (void*)(uintptr_t)stringlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)handletype;
     (void)handle;
@@ -1921,6 +2509,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     (void)diaginfo;
     (void)bufferlength;
     (void)stringlength;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -1936,7 +2525,13 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLGetDiagFieldA");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int16_t)fhandletype, (void*)(uintptr_t)handle, (int16_t)irecord, (int16_t)fdiagfield, (void*)(uintptr_t)rgbdiaginfo, (int16_t)cbdiaginfomax, (void*)(uintptr_t)pcbdiaginfo) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int16_t)fhandletype, (void*)(uintptr_t)handle, (int16_t)irecord, (int16_t)fdiagfield, (void*)(uintptr_t)rgbdiaginfo, (int16_t)cbdiaginfomax, (void*)(uintptr_t)pcbdiaginfo);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)fhandletype;
     (void)handle;
@@ -1945,6 +2540,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     (void)rgbdiaginfo;
     (void)cbdiaginfomax;
     (void)pcbdiaginfo;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -1960,7 +2556,13 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLGetDiagFieldW");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int16_t)fhandletype, (void*)(uintptr_t)handle, (int16_t)irecord, (int16_t)fdiagfield, (void*)(uintptr_t)rgbdiaginfo, (int16_t)cbbufferlength, (void*)(uintptr_t)pcbstringlength) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int16_t)fhandletype, (void*)(uintptr_t)handle, (int16_t)irecord, (int16_t)fdiagfield, (void*)(uintptr_t)rgbdiaginfo, (int16_t)cbbufferlength, (void*)(uintptr_t)pcbstringlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)fhandletype;
     (void)handle;
@@ -1969,6 +2571,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     (void)rgbdiaginfo;
     (void)cbbufferlength;
     (void)pcbstringlength;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -1984,7 +2587,13 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLGetDiagRec");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int16_t)handletype, (void*)(uintptr_t)handle, (int16_t)recnumber, (void*)(uintptr_t)sqlstate, (void*)(uintptr_t)nativeerror, (void*)(uintptr_t)messagetext, (int16_t)bufferlength, (void*)(uintptr_t)textlength) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int16_t)handletype, (void*)(uintptr_t)handle, (int16_t)recnumber, (void*)(uintptr_t)sqlstate, (void*)(uintptr_t)nativeerror, (void*)(uintptr_t)messagetext, (int16_t)bufferlength, (void*)(uintptr_t)textlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)handletype;
     (void)handle;
@@ -1994,6 +2603,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     (void)messagetext;
     (void)bufferlength;
     (void)textlength;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -2009,7 +2619,13 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLGetDiagRecA");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int16_t)fhandletype, (void*)(uintptr_t)handle, (int16_t)irecord, (void*)(uintptr_t)szsqlstate, (void*)(uintptr_t)pfnativeerror, (void*)(uintptr_t)szerrormsg, (int16_t)cberrormsgmax, (void*)(uintptr_t)pcberrormsg) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int16_t)fhandletype, (void*)(uintptr_t)handle, (int16_t)irecord, (void*)(uintptr_t)szsqlstate, (void*)(uintptr_t)pfnativeerror, (void*)(uintptr_t)szerrormsg, (int16_t)cberrormsgmax, (void*)(uintptr_t)pcberrormsg);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)fhandletype;
     (void)handle;
@@ -2019,6 +2635,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     (void)szerrormsg;
     (void)cberrormsgmax;
     (void)pcberrormsg;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -2034,7 +2651,13 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLGetDiagRecW");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int16_t)fhandletype, (void*)(uintptr_t)handle, (int16_t)irecord, (void*)(uintptr_t)szsqlstate, (void*)(uintptr_t)pfnativeerror, (void*)(uintptr_t)szerrormsg, (int16_t)ccherrormsgmax, (void*)(uintptr_t)pccherrormsg) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int16_t)fhandletype, (void*)(uintptr_t)handle, (int16_t)irecord, (void*)(uintptr_t)szsqlstate, (void*)(uintptr_t)pfnativeerror, (void*)(uintptr_t)szerrormsg, (int16_t)ccherrormsgmax, (void*)(uintptr_t)pccherrormsg);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)fhandletype;
     (void)handle;
@@ -2044,6 +2667,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     (void)szerrormsg;
     (void)ccherrormsgmax;
     (void)pccherrormsg;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -2059,13 +2683,20 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLGetEnvAttr");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)environmenthandle, (int32_t)attribute, (void*)(uintptr_t)value, (int32_t)bufferlength, (void*)(uintptr_t)stringlength) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)environmenthandle, (int32_t)attribute, (void*)(uintptr_t)value, (int32_t)bufferlength, (void*)(uintptr_t)stringlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)environmenthandle;
     (void)attribute;
     (void)value;
     (void)bufferlength;
     (void)stringlength;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -2081,11 +2712,18 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLGetFunctions");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)connectionhandle, (uint16_t)functionid, (void*)(uintptr_t)supported) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)connectionhandle, (uint16_t)functionid, (void*)(uintptr_t)supported);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)connectionhandle;
     (void)functionid;
     (void)supported;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -2101,13 +2739,20 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLGetInfo");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)connectionhandle, (uint16_t)infotype, (void*)(uintptr_t)infovalue, (int16_t)bufferlength, (void*)(uintptr_t)stringlengthptr) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)connectionhandle, (uint16_t)infotype, (void*)(uintptr_t)infovalue, (int16_t)bufferlength, (void*)(uintptr_t)stringlengthptr);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)connectionhandle;
     (void)infotype;
     (void)infovalue;
     (void)bufferlength;
     (void)stringlengthptr;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -2123,13 +2768,20 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLGetInfoA");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hdbc, (uint16_t)finfotype, (void*)(uintptr_t)rgbinfovalue, (int16_t)cbinfovaluemax, (void*)(uintptr_t)pcbinfovalue) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hdbc, (uint16_t)finfotype, (void*)(uintptr_t)rgbinfovalue, (int16_t)cbinfovaluemax, (void*)(uintptr_t)pcbinfovalue);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdbc;
     (void)finfotype;
     (void)rgbinfovalue;
     (void)cbinfovaluemax;
     (void)pcbinfovalue;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -2145,13 +2797,20 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLGetInfoW");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hdbc, (uint16_t)finfotype, (void*)(uintptr_t)rgbinfovalue, (int16_t)cbinfovaluemax, (void*)(uintptr_t)pcbinfovalue) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hdbc, (uint16_t)finfotype, (void*)(uintptr_t)rgbinfovalue, (int16_t)cbinfovaluemax, (void*)(uintptr_t)pcbinfovalue);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdbc;
     (void)finfotype;
     (void)rgbinfovalue;
     (void)cbinfovaluemax;
     (void)pcbinfovalue;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -2167,11 +2826,18 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbcbcp.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLGetNextEnumeration");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)henumhandle, (void*)(uintptr_t)prgenumdata, (void*)(uintptr_t)pienumlength) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)henumhandle, (void*)(uintptr_t)prgenumdata, (void*)(uintptr_t)pienumlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)henumhandle;
     (void)prgenumdata;
     (void)pienumlength;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -2187,13 +2853,20 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLGetStmtAttr");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)statementhandle, (int32_t)attribute, (void*)(uintptr_t)value, (int32_t)bufferlength, (void*)(uintptr_t)stringlength) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)statementhandle, (int32_t)attribute, (void*)(uintptr_t)value, (int32_t)bufferlength, (void*)(uintptr_t)stringlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)statementhandle;
     (void)attribute;
     (void)value;
     (void)bufferlength;
     (void)stringlength;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -2209,13 +2882,20 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLGetStmtAttrA");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hstmt, (int32_t)fattribute, (void*)(uintptr_t)rgbvalue, (int32_t)cbvaluemax, (void*)(uintptr_t)pcbvalue) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hstmt, (int32_t)fattribute, (void*)(uintptr_t)rgbvalue, (int32_t)cbvaluemax, (void*)(uintptr_t)pcbvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)fattribute;
     (void)rgbvalue;
     (void)cbvaluemax;
     (void)pcbvalue;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -2231,13 +2911,20 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLGetStmtAttrW");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hstmt, (int32_t)fattribute, (void*)(uintptr_t)rgbvalue, (int32_t)cbvaluemax, (void*)(uintptr_t)pcbvalue) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hstmt, (int32_t)fattribute, (void*)(uintptr_t)rgbvalue, (int32_t)cbvaluemax, (void*)(uintptr_t)pcbvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)fattribute;
     (void)rgbvalue;
     (void)cbvaluemax;
     (void)pcbvalue;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -2253,11 +2940,18 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLGetStmtOption");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)statementhandle, (uint16_t)option, (void*)(uintptr_t)value) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)statementhandle, (uint16_t)option, (void*)(uintptr_t)value);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)statementhandle;
     (void)option;
     (void)value;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -2273,10 +2967,17 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLGetTypeInfo");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)statementhandle, (int16_t)datatype) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)statementhandle, (int16_t)datatype);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)statementhandle;
     (void)datatype;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -2292,10 +2993,17 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLGetTypeInfoA");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)statementhandle, (int16_t)datatype) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)statementhandle, (int16_t)datatype);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)statementhandle;
     (void)datatype;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -2311,10 +3019,17 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLGetTypeInfoW");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)statementhandle, (int16_t)datatype) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)statementhandle, (int16_t)datatype);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)statementhandle;
     (void)datatype;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -2330,10 +3045,17 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
         HMODULE km_h_mod = LoadLibraryA("odbcbcp.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLInitEnumServers");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)pwchservername, (void*)(uintptr_t)pwchinstancename) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)pwchservername, (void*)(uintptr_t)pwchinstancename);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)pwchservername;
     (void)pwchinstancename;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -2349,11 +3071,18 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbcbcp.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLLinkedCatalogsA");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)param0, (void*)(uintptr_t)param1, (int16_t)param2) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)param0, (void*)(uintptr_t)param1, (int16_t)param2);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -2369,11 +3098,18 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbcbcp.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLLinkedCatalogsW");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)param0, (void*)(uintptr_t)param1, (int16_t)param2) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)param0, (void*)(uintptr_t)param1, (int16_t)param2);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -2389,9 +3125,16 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbcbcp.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLLinkedServers");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)param0) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)param0);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)param0;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -2407,9 +3150,16 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLMoreResults");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hstmt) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hstmt);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -2425,7 +3175,13 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLNativeSql");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hdbc, (void*)(uintptr_t)szsqlstrin, (int32_t)cchsqlstrin, (void*)(uintptr_t)szsqlstr, (int32_t)cchsqlstrmax, (void*)(uintptr_t)pcbsqlstr) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hdbc, (void*)(uintptr_t)szsqlstrin, (int32_t)cchsqlstrin, (void*)(uintptr_t)szsqlstr, (int32_t)cchsqlstrmax, (void*)(uintptr_t)pcbsqlstr);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdbc;
     (void)szsqlstrin;
@@ -2433,6 +3189,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     (void)szsqlstr;
     (void)cchsqlstrmax;
     (void)pcbsqlstr;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -2448,7 +3205,13 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLNativeSqlA");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hdbc, (void*)(uintptr_t)szsqlstrin, (int32_t)cbsqlstrin, (void*)(uintptr_t)szsqlstr, (int32_t)cbsqlstrmax, (void*)(uintptr_t)pcbsqlstr) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hdbc, (void*)(uintptr_t)szsqlstrin, (int32_t)cbsqlstrin, (void*)(uintptr_t)szsqlstr, (int32_t)cbsqlstrmax, (void*)(uintptr_t)pcbsqlstr);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdbc;
     (void)szsqlstrin;
@@ -2456,6 +3219,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     (void)szsqlstr;
     (void)cbsqlstrmax;
     (void)pcbsqlstr;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -2471,7 +3235,13 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLNativeSqlW");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hdbc, (void*)(uintptr_t)szsqlstrin, (int32_t)cchsqlstrin, (void*)(uintptr_t)szsqlstr, (int32_t)cchsqlstrmax, (void*)(uintptr_t)pcchsqlstr) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hdbc, (void*)(uintptr_t)szsqlstrin, (int32_t)cchsqlstrin, (void*)(uintptr_t)szsqlstr, (int32_t)cchsqlstrmax, (void*)(uintptr_t)pcchsqlstr);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdbc;
     (void)szsqlstrin;
@@ -2479,6 +3249,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     (void)szsqlstr;
     (void)cchsqlstrmax;
     (void)pcchsqlstr;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -2494,10 +3265,17 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLNumParams");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hstmt, (void*)(uintptr_t)pcpar) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hstmt, (void*)(uintptr_t)pcpar);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)pcpar;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -2513,10 +3291,17 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLNumResultCols");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)statementhandle, (void*)(uintptr_t)columncount) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)statementhandle, (void*)(uintptr_t)columncount);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)statementhandle;
     (void)columncount;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -2532,10 +3317,17 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLParamData");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)statementhandle, (void*)(uintptr_t)value) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)statementhandle, (void*)(uintptr_t)value);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)statementhandle;
     (void)value;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -2551,11 +3343,18 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLParamOptions");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hstmt, (uint64_t)crow, (void*)(uintptr_t)pirow) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hstmt, (uint64_t)crow, (void*)(uintptr_t)pirow);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)crow;
     (void)pirow;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -2571,11 +3370,18 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLPrepare");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)statementhandle, (void*)(uintptr_t)statementtext, (int32_t)textlength) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)statementhandle, (void*)(uintptr_t)statementtext, (int32_t)textlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)statementhandle;
     (void)statementtext;
     (void)textlength;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -2591,11 +3397,18 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLPrepareA");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hstmt, (void*)(uintptr_t)szsqlstr, (int32_t)cbsqlstr) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hstmt, (void*)(uintptr_t)szsqlstr, (int32_t)cbsqlstr);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)szsqlstr;
     (void)cbsqlstr;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -2611,11 +3424,18 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLPrepareW");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hstmt, (void*)(uintptr_t)szsqlstr, (int32_t)cchsqlstr) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hstmt, (void*)(uintptr_t)szsqlstr, (int32_t)cchsqlstr);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)szsqlstr;
     (void)cchsqlstr;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -2631,7 +3451,13 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLPrimaryKeys");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hstmt, (void*)(uintptr_t)szcatalogname, (int16_t)cchcatalogname, (void*)(uintptr_t)szschemaname, (int16_t)cchschemaname, (void*)(uintptr_t)sztablename, (int16_t)cchtablename) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hstmt, (void*)(uintptr_t)szcatalogname, (int16_t)cchcatalogname, (void*)(uintptr_t)szschemaname, (int16_t)cchschemaname, (void*)(uintptr_t)sztablename, (int16_t)cchtablename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)szcatalogname;
@@ -2640,6 +3466,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     (void)cchschemaname;
     (void)sztablename;
     (void)cchtablename;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -2655,7 +3482,13 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLPrimaryKeysA");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hstmt, (void*)(uintptr_t)szcatalogname, (int16_t)cbcatalogname, (void*)(uintptr_t)szschemaname, (int16_t)cbschemaname, (void*)(uintptr_t)sztablename, (int16_t)cbtablename) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hstmt, (void*)(uintptr_t)szcatalogname, (int16_t)cbcatalogname, (void*)(uintptr_t)szschemaname, (int16_t)cbschemaname, (void*)(uintptr_t)sztablename, (int16_t)cbtablename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)szcatalogname;
@@ -2664,6 +3497,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     (void)cbschemaname;
     (void)sztablename;
     (void)cbtablename;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -2679,7 +3513,13 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLPrimaryKeysW");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hstmt, (void*)(uintptr_t)szcatalogname, (int16_t)cchcatalogname, (void*)(uintptr_t)szschemaname, (int16_t)cchschemaname, (void*)(uintptr_t)sztablename, (int16_t)cchtablename) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hstmt, (void*)(uintptr_t)szcatalogname, (int16_t)cchcatalogname, (void*)(uintptr_t)szschemaname, (int16_t)cchschemaname, (void*)(uintptr_t)sztablename, (int16_t)cchtablename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)szcatalogname;
@@ -2688,6 +3528,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     (void)cchschemaname;
     (void)sztablename;
     (void)cchtablename;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -2703,7 +3544,13 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLProcedureColumns");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hstmt, (void*)(uintptr_t)szcatalogname, (int16_t)cchcatalogname, (void*)(uintptr_t)szschemaname, (int16_t)cchschemaname, (void*)(uintptr_t)szprocname, (int16_t)cchprocname, (void*)(uintptr_t)szcolumnname, (int16_t)cchcolumnname) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hstmt, (void*)(uintptr_t)szcatalogname, (int16_t)cchcatalogname, (void*)(uintptr_t)szschemaname, (int16_t)cchschemaname, (void*)(uintptr_t)szprocname, (int16_t)cchprocname, (void*)(uintptr_t)szcolumnname, (int16_t)cchcolumnname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)szcatalogname;
@@ -2714,6 +3561,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     (void)cchprocname;
     (void)szcolumnname;
     (void)cchcolumnname;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -2729,7 +3577,13 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLProcedureColumnsA");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hstmt, (void*)(uintptr_t)szcatalogname, (int16_t)cbcatalogname, (void*)(uintptr_t)szschemaname, (int16_t)cbschemaname, (void*)(uintptr_t)szprocname, (int16_t)cbprocname, (void*)(uintptr_t)szcolumnname, (int16_t)cbcolumnname) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hstmt, (void*)(uintptr_t)szcatalogname, (int16_t)cbcatalogname, (void*)(uintptr_t)szschemaname, (int16_t)cbschemaname, (void*)(uintptr_t)szprocname, (int16_t)cbprocname, (void*)(uintptr_t)szcolumnname, (int16_t)cbcolumnname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)szcatalogname;
@@ -2740,6 +3594,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     (void)cbprocname;
     (void)szcolumnname;
     (void)cbcolumnname;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -2755,7 +3610,13 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLProcedureColumnsW");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hstmt, (void*)(uintptr_t)szcatalogname, (int16_t)cchcatalogname, (void*)(uintptr_t)szschemaname, (int16_t)cchschemaname, (void*)(uintptr_t)szprocname, (int16_t)cchprocname, (void*)(uintptr_t)szcolumnname, (int16_t)cchcolumnname) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hstmt, (void*)(uintptr_t)szcatalogname, (int16_t)cchcatalogname, (void*)(uintptr_t)szschemaname, (int16_t)cchschemaname, (void*)(uintptr_t)szprocname, (int16_t)cchprocname, (void*)(uintptr_t)szcolumnname, (int16_t)cchcolumnname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)szcatalogname;
@@ -2766,6 +3627,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     (void)cchprocname;
     (void)szcolumnname;
     (void)cchcolumnname;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -2781,7 +3643,13 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLProcedures");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hstmt, (void*)(uintptr_t)szcatalogname, (int16_t)cchcatalogname, (void*)(uintptr_t)szschemaname, (int16_t)cchschemaname, (void*)(uintptr_t)szprocname, (int16_t)cchprocname) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hstmt, (void*)(uintptr_t)szcatalogname, (int16_t)cchcatalogname, (void*)(uintptr_t)szschemaname, (int16_t)cchschemaname, (void*)(uintptr_t)szprocname, (int16_t)cchprocname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)szcatalogname;
@@ -2790,6 +3658,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     (void)cchschemaname;
     (void)szprocname;
     (void)cchprocname;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -2805,7 +3674,13 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLProceduresA");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hstmt, (void*)(uintptr_t)szcatalogname, (int16_t)cbcatalogname, (void*)(uintptr_t)szschemaname, (int16_t)cbschemaname, (void*)(uintptr_t)szprocname, (int16_t)cbprocname) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hstmt, (void*)(uintptr_t)szcatalogname, (int16_t)cbcatalogname, (void*)(uintptr_t)szschemaname, (int16_t)cbschemaname, (void*)(uintptr_t)szprocname, (int16_t)cbprocname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)szcatalogname;
@@ -2814,6 +3689,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     (void)cbschemaname;
     (void)szprocname;
     (void)cbprocname;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -2829,7 +3705,13 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLProceduresW");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hstmt, (void*)(uintptr_t)szcatalogname, (int16_t)cchcatalogname, (void*)(uintptr_t)szschemaname, (int16_t)cchschemaname, (void*)(uintptr_t)szprocname, (int16_t)cchprocname) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hstmt, (void*)(uintptr_t)szcatalogname, (int16_t)cchcatalogname, (void*)(uintptr_t)szschemaname, (int16_t)cchschemaname, (void*)(uintptr_t)szprocname, (int16_t)cchprocname);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)szcatalogname;
@@ -2838,6 +3720,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     (void)cchschemaname;
     (void)szprocname;
     (void)cchprocname;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -2853,11 +3736,18 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLPutData");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)statementhandle, (void*)(uintptr_t)data, (int64_t)strlen_or_ind) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)statementhandle, (void*)(uintptr_t)data, (int64_t)strlen_or_ind);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)statementhandle;
     (void)data;
     (void)strlen_or_ind;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -2873,10 +3763,17 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLRowCount");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)statementhandle, (void*)(uintptr_t)rowcount) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)statementhandle, (void*)(uintptr_t)rowcount);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)statementhandle;
     (void)rowcount;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -2892,12 +3789,19 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLSetConnectAttr");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)connectionhandle, (int32_t)attribute, (void*)(uintptr_t)value, (int32_t)stringlength) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)connectionhandle, (int32_t)attribute, (void*)(uintptr_t)value, (int32_t)stringlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)connectionhandle;
     (void)attribute;
     (void)value;
     (void)stringlength;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -2913,12 +3817,19 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLSetConnectAttrA");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hdbc, (int32_t)fattribute, (void*)(uintptr_t)rgbvalue, (int32_t)cbvalue) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hdbc, (int32_t)fattribute, (void*)(uintptr_t)rgbvalue, (int32_t)cbvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdbc;
     (void)fattribute;
     (void)rgbvalue;
     (void)cbvalue;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -2934,12 +3845,19 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLSetConnectAttrW");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hdbc, (int32_t)fattribute, (void*)(uintptr_t)rgbvalue, (int32_t)cbvalue) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hdbc, (int32_t)fattribute, (void*)(uintptr_t)rgbvalue, (int32_t)cbvalue);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdbc;
     (void)fattribute;
     (void)rgbvalue;
     (void)cbvalue;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -2955,11 +3873,18 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLSetConnectOption");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)connectionhandle, (uint16_t)option, (uint64_t)value) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)connectionhandle, (uint16_t)option, (uint64_t)value);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)connectionhandle;
     (void)option;
     (void)value;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -2975,11 +3900,18 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLSetConnectOptionA");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hdbc, (uint16_t)foption, (uint64_t)vparam) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hdbc, (uint16_t)foption, (uint64_t)vparam);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdbc;
     (void)foption;
     (void)vparam;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -2995,11 +3927,18 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLSetConnectOptionW");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hdbc, (uint16_t)foption, (uint64_t)vparam) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hdbc, (uint16_t)foption, (uint64_t)vparam);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hdbc;
     (void)foption;
     (void)vparam;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -3015,11 +3954,18 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLSetCursorName");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)statementhandle, (void*)(uintptr_t)cursorname, (int16_t)namelength) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)statementhandle, (void*)(uintptr_t)cursorname, (int16_t)namelength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)statementhandle;
     (void)cursorname;
     (void)namelength;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -3035,11 +3981,18 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLSetCursorNameA");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hstmt, (void*)(uintptr_t)szcursor, (int16_t)cbcursor) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hstmt, (void*)(uintptr_t)szcursor, (int16_t)cbcursor);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)szcursor;
     (void)cbcursor;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -3055,11 +4008,18 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLSetCursorNameW");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hstmt, (void*)(uintptr_t)szcursor, (int16_t)cchcursor) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hstmt, (void*)(uintptr_t)szcursor, (int16_t)cchcursor);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)szcursor;
     (void)cchcursor;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -3075,13 +4035,20 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLSetDescField");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)descriptorhandle, (int16_t)recnumber, (int16_t)fieldidentifier, (void*)(uintptr_t)value, (int32_t)bufferlength) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)descriptorhandle, (int16_t)recnumber, (int16_t)fieldidentifier, (void*)(uintptr_t)value, (int32_t)bufferlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)descriptorhandle;
     (void)recnumber;
     (void)fieldidentifier;
     (void)value;
     (void)bufferlength;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -3097,13 +4064,20 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLSetDescFieldW");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)descriptorhandle, (int16_t)recnumber, (int16_t)fieldidentifier, (void*)(uintptr_t)value, (int32_t)bufferlength) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)descriptorhandle, (int16_t)recnumber, (int16_t)fieldidentifier, (void*)(uintptr_t)value, (int32_t)bufferlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)descriptorhandle;
     (void)recnumber;
     (void)fieldidentifier;
     (void)value;
     (void)bufferlength;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -3119,7 +4093,13 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLSetDescRec");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)descriptorhandle, (int16_t)recnumber, (int16_t)type, (int16_t)subtype, (int64_t)length, (int16_t)precision, (int16_t)scale, (void*)(uintptr_t)data, (void*)(uintptr_t)stringlength, (void*)(uintptr_t)indicator) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)descriptorhandle, (int16_t)recnumber, (int16_t)type, (int16_t)subtype, (int64_t)length, (int16_t)precision, (int16_t)scale, (void*)(uintptr_t)data, (void*)(uintptr_t)stringlength, (void*)(uintptr_t)indicator);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)descriptorhandle;
     (void)recnumber;
@@ -3131,6 +4111,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     (void)data;
     (void)stringlength;
     (void)indicator;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -3146,12 +4127,19 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLSetEnvAttr");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)environmenthandle, (int32_t)attribute, (void*)(uintptr_t)value, (int32_t)stringlength) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)environmenthandle, (int32_t)attribute, (void*)(uintptr_t)value, (int32_t)stringlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)environmenthandle;
     (void)attribute;
     (void)value;
     (void)stringlength;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -3167,7 +4155,13 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLSetParam");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)statementhandle, (uint16_t)parameternumber, (int16_t)valuetype, (int16_t)parametertype, (uint64_t)lengthprecision, (int16_t)parameterscale, (void*)(uintptr_t)parametervalue, (void*)(uintptr_t)strlen_or_ind) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)statementhandle, (uint16_t)parameternumber, (int16_t)valuetype, (int16_t)parametertype, (uint64_t)lengthprecision, (int16_t)parameterscale, (void*)(uintptr_t)parametervalue, (void*)(uintptr_t)strlen_or_ind);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)statementhandle;
     (void)parameternumber;
@@ -3177,6 +4171,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     (void)parameterscale;
     (void)parametervalue;
     (void)strlen_or_ind;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -3192,12 +4187,19 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLSetPos");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hstmt, (uint64_t)irow, (uint16_t)foption, (uint16_t)flock) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hstmt, (uint64_t)irow, (uint16_t)foption, (uint16_t)flock);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)irow;
     (void)foption;
     (void)flock;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -3213,12 +4215,19 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLSetScrollOptions");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hstmt, (uint16_t)fconcurrency, (int64_t)crowkeyset, (uint16_t)crowrowset) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hstmt, (uint16_t)fconcurrency, (int64_t)crowkeyset, (uint16_t)crowrowset);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)fconcurrency;
     (void)crowkeyset;
     (void)crowrowset;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -3234,12 +4243,19 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLSetStmtAttr");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)statementhandle, (int32_t)attribute, (void*)(uintptr_t)value, (int32_t)stringlength) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)statementhandle, (int32_t)attribute, (void*)(uintptr_t)value, (int32_t)stringlength);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)statementhandle;
     (void)attribute;
     (void)value;
     (void)stringlength;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -3255,12 +4271,19 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLSetStmtAttrW");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hstmt, (int32_t)fattribute, (void*)(uintptr_t)rgbvalue, (int32_t)cbvaluemax) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hstmt, (int32_t)fattribute, (void*)(uintptr_t)rgbvalue, (int32_t)cbvaluemax);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)fattribute;
     (void)rgbvalue;
     (void)cbvaluemax;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -3276,11 +4299,18 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLSetStmtOption");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)statementhandle, (uint16_t)option, (uint64_t)value) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)statementhandle, (uint16_t)option, (uint64_t)value);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)statementhandle;
     (void)option;
     (void)value;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -3296,7 +4326,13 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLSpecialColumns");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)statementhandle, (uint16_t)identifiertype, (void*)(uintptr_t)catalogname, (int16_t)namelength1, (void*)(uintptr_t)schemaname, (int16_t)namelength2, (void*)(uintptr_t)tablename, (int16_t)namelength3, (uint16_t)scope, (uint16_t)nullable) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)statementhandle, (uint16_t)identifiertype, (void*)(uintptr_t)catalogname, (int16_t)namelength1, (void*)(uintptr_t)schemaname, (int16_t)namelength2, (void*)(uintptr_t)tablename, (int16_t)namelength3, (uint16_t)scope, (uint16_t)nullable);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)statementhandle;
     (void)identifiertype;
@@ -3308,6 +4344,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     (void)namelength3;
     (void)scope;
     (void)nullable;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -3323,7 +4360,13 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLSpecialColumnsA");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hstmt, (uint16_t)fcoltype, (void*)(uintptr_t)szcatalogname, (int16_t)cbcatalogname, (void*)(uintptr_t)szschemaname, (int16_t)cbschemaname, (void*)(uintptr_t)sztablename, (int16_t)cbtablename, (uint16_t)fscope, (uint16_t)fnullable) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hstmt, (uint16_t)fcoltype, (void*)(uintptr_t)szcatalogname, (int16_t)cbcatalogname, (void*)(uintptr_t)szschemaname, (int16_t)cbschemaname, (void*)(uintptr_t)sztablename, (int16_t)cbtablename, (uint16_t)fscope, (uint16_t)fnullable);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)fcoltype;
@@ -3335,6 +4378,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     (void)cbtablename;
     (void)fscope;
     (void)fnullable;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -3350,7 +4394,13 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLSpecialColumnsW");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hstmt, (uint16_t)fcoltype, (void*)(uintptr_t)szcatalogname, (int16_t)cchcatalogname, (void*)(uintptr_t)szschemaname, (int16_t)cchschemaname, (void*)(uintptr_t)sztablename, (int16_t)cchtablename, (uint16_t)fscope, (uint16_t)fnullable) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hstmt, (uint16_t)fcoltype, (void*)(uintptr_t)szcatalogname, (int16_t)cchcatalogname, (void*)(uintptr_t)szschemaname, (int16_t)cchschemaname, (void*)(uintptr_t)sztablename, (int16_t)cchtablename, (uint16_t)fscope, (uint16_t)fnullable);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)fcoltype;
@@ -3362,6 +4412,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     (void)cchtablename;
     (void)fscope;
     (void)fnullable;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -3377,7 +4428,13 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLStatistics");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)statementhandle, (void*)(uintptr_t)catalogname, (int16_t)namelength1, (void*)(uintptr_t)schemaname, (int16_t)namelength2, (void*)(uintptr_t)tablename, (int16_t)namelength3, (uint16_t)unique, (uint16_t)reserved) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)statementhandle, (void*)(uintptr_t)catalogname, (int16_t)namelength1, (void*)(uintptr_t)schemaname, (int16_t)namelength2, (void*)(uintptr_t)tablename, (int16_t)namelength3, (uint16_t)unique, (uint16_t)reserved);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)statementhandle;
     (void)catalogname;
@@ -3388,6 +4445,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     (void)namelength3;
     (void)unique;
     (void)reserved;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -3403,7 +4461,13 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLStatisticsA");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hstmt, (void*)(uintptr_t)szcatalogname, (int16_t)cbcatalogname, (void*)(uintptr_t)szschemaname, (int16_t)cbschemaname, (void*)(uintptr_t)sztablename, (int16_t)cbtablename, (uint16_t)funique, (uint16_t)faccuracy) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hstmt, (void*)(uintptr_t)szcatalogname, (int16_t)cbcatalogname, (void*)(uintptr_t)szschemaname, (int16_t)cbschemaname, (void*)(uintptr_t)sztablename, (int16_t)cbtablename, (uint16_t)funique, (uint16_t)faccuracy);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)szcatalogname;
@@ -3414,6 +4478,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     (void)cbtablename;
     (void)funique;
     (void)faccuracy;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -3429,7 +4494,13 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLStatisticsW");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hstmt, (void*)(uintptr_t)szcatalogname, (int16_t)cchcatalogname, (void*)(uintptr_t)szschemaname, (int16_t)cchschemaname, (void*)(uintptr_t)sztablename, (int16_t)cchtablename, (uint16_t)funique, (uint16_t)faccuracy) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hstmt, (void*)(uintptr_t)szcatalogname, (int16_t)cchcatalogname, (void*)(uintptr_t)szschemaname, (int16_t)cchschemaname, (void*)(uintptr_t)sztablename, (int16_t)cchtablename, (uint16_t)funique, (uint16_t)faccuracy);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)szcatalogname;
@@ -3440,6 +4511,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     (void)cchtablename;
     (void)funique;
     (void)faccuracy;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -3455,7 +4527,13 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLTablePrivileges");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hstmt, (void*)(uintptr_t)szcatalogname, (int16_t)cchcatalogname, (void*)(uintptr_t)szschemaname, (int16_t)cchschemaname, (void*)(uintptr_t)sztablename, (int16_t)cchtablename) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hstmt, (void*)(uintptr_t)szcatalogname, (int16_t)cchcatalogname, (void*)(uintptr_t)szschemaname, (int16_t)cchschemaname, (void*)(uintptr_t)sztablename, (int16_t)cchtablename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)szcatalogname;
@@ -3464,6 +4542,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     (void)cchschemaname;
     (void)sztablename;
     (void)cchtablename;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -3479,7 +4558,13 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLTablePrivilegesA");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hstmt, (void*)(uintptr_t)szcatalogname, (int16_t)cbcatalogname, (void*)(uintptr_t)szschemaname, (int16_t)cbschemaname, (void*)(uintptr_t)sztablename, (int16_t)cbtablename) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hstmt, (void*)(uintptr_t)szcatalogname, (int16_t)cbcatalogname, (void*)(uintptr_t)szschemaname, (int16_t)cbschemaname, (void*)(uintptr_t)sztablename, (int16_t)cbtablename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)szcatalogname;
@@ -3488,6 +4573,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     (void)cbschemaname;
     (void)sztablename;
     (void)cbtablename;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -3503,7 +4589,13 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLTablePrivilegesW");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hstmt, (void*)(uintptr_t)szcatalogname, (int16_t)cchcatalogname, (void*)(uintptr_t)szschemaname, (int16_t)cchschemaname, (void*)(uintptr_t)sztablename, (int16_t)cchtablename) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hstmt, (void*)(uintptr_t)szcatalogname, (int16_t)cchcatalogname, (void*)(uintptr_t)szschemaname, (int16_t)cchschemaname, (void*)(uintptr_t)sztablename, (int16_t)cchtablename);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)szcatalogname;
@@ -3512,6 +4604,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     (void)cchschemaname;
     (void)sztablename;
     (void)cchtablename;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -3527,7 +4620,13 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLTables");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)statementhandle, (void*)(uintptr_t)catalogname, (int16_t)namelength1, (void*)(uintptr_t)schemaname, (int16_t)namelength2, (void*)(uintptr_t)tablename, (int16_t)namelength3, (void*)(uintptr_t)tabletype, (int16_t)namelength4) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)statementhandle, (void*)(uintptr_t)catalogname, (int16_t)namelength1, (void*)(uintptr_t)schemaname, (int16_t)namelength2, (void*)(uintptr_t)tablename, (int16_t)namelength3, (void*)(uintptr_t)tabletype, (int16_t)namelength4);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)statementhandle;
     (void)catalogname;
@@ -3538,6 +4637,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     (void)namelength3;
     (void)tabletype;
     (void)namelength4;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -3553,7 +4653,13 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLTablesA");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hstmt, (void*)(uintptr_t)szcatalogname, (int16_t)cbcatalogname, (void*)(uintptr_t)szschemaname, (int16_t)cbschemaname, (void*)(uintptr_t)sztablename, (int16_t)cbtablename, (void*)(uintptr_t)sztabletype, (int16_t)cbtabletype) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hstmt, (void*)(uintptr_t)szcatalogname, (int16_t)cbcatalogname, (void*)(uintptr_t)szschemaname, (int16_t)cbschemaname, (void*)(uintptr_t)sztablename, (int16_t)cbtablename, (void*)(uintptr_t)sztabletype, (int16_t)cbtabletype);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)szcatalogname;
@@ -3564,6 +4670,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     (void)cbtablename;
     (void)sztabletype;
     (void)cbtabletype;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -3579,7 +4686,13 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLTablesW");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)hstmt, (void*)(uintptr_t)szcatalogname, (int16_t)cchcatalogname, (void*)(uintptr_t)szschemaname, (int16_t)cchschemaname, (void*)(uintptr_t)sztablename, (int16_t)cchtablename, (void*)(uintptr_t)sztabletype, (int16_t)cchtabletype) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)hstmt, (void*)(uintptr_t)szcatalogname, (int16_t)cchcatalogname, (void*)(uintptr_t)szschemaname, (int16_t)cchschemaname, (void*)(uintptr_t)sztablename, (int16_t)cchtablename, (void*)(uintptr_t)sztabletype, (int16_t)cchtabletype);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)hstmt;
     (void)szcatalogname;
@@ -3590,6 +4703,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     (void)cchtablename;
     (void)sztabletype;
     (void)cchtabletype;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -3605,11 +4719,18 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbc32.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "SQLTransact");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)environmenthandle, (void*)(uintptr_t)connectionhandle, (uint16_t)completiontype) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)environmenthandle, (void*)(uintptr_t)connectionhandle, (uint16_t)completiontype);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)environmenthandle;
     (void)connectionhandle;
     (void)completiontype;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -3625,9 +4746,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("odbcbcp.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "bcp_batch");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)param0) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)param0);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)param0;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -3643,7 +4771,13 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbcbcp.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "bcp_bind");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)param0, (void*)(uintptr_t)param1, (int32_t)param2, (int32_t)param3, (void*)(uintptr_t)param4, (int32_t)param5, (int32_t)param6, (int32_t)param7) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)param0, (void*)(uintptr_t)param1, (int32_t)param2, (int32_t)param3, (void*)(uintptr_t)param4, (int32_t)param5, (int32_t)param6, (int32_t)param7);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)param0;
     (void)param1;
@@ -3653,6 +4787,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     (void)param5;
     (void)param6;
     (void)param7;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -3668,7 +4803,13 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbcbcp.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "bcp_colfmt");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)param0, (int32_t)param1, (uint8_t)param2, (int32_t)param3, (int32_t)param4, (void*)(uintptr_t)param5, (int32_t)param6, (int32_t)param7) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)param0, (int32_t)param1, (uint8_t)param2, (int32_t)param3, (int32_t)param4, (void*)(uintptr_t)param5, (int32_t)param6, (int32_t)param7);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)param0;
     (void)param1;
@@ -3678,6 +4819,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     (void)param5;
     (void)param6;
     (void)param7;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -3693,11 +4835,18 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbcbcp.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "bcp_collen");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)param0, (int32_t)param1, (int32_t)param2) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)param0, (int32_t)param1, (int32_t)param2);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -3713,11 +4862,18 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbcbcp.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "bcp_colptr");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)param0, (void*)(uintptr_t)param1, (int32_t)param2) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)param0, (void*)(uintptr_t)param1, (int32_t)param2);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -3733,10 +4889,17 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbcbcp.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "bcp_columns");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)param0, (int32_t)param1) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)param0, (int32_t)param1);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)param0;
     (void)param1;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -3752,11 +4915,18 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbcbcp.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "bcp_control");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)param0, (int32_t)param1, (void*)(uintptr_t)param2) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)param0, (int32_t)param1, (void*)(uintptr_t)param2);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -3772,9 +4942,16 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syste
         HMODULE km_h_mod = LoadLibraryA("odbcbcp.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "bcp_done");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)param0) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)param0);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)param0;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -3790,10 +4967,17 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbcbcp.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "bcp_exec");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)param0, (void*)(uintptr_t)param1) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)param0, (void*)(uintptr_t)param1);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)param0;
     (void)param1;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -3809,7 +4993,13 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbcbcp.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "bcp_getcolfmt");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)param0, (int32_t)param1, (int32_t)param2, (void*)(uintptr_t)param3, (int32_t)param4, (void*)(uintptr_t)param5) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)param0, (int32_t)param1, (int32_t)param2, (void*)(uintptr_t)param3, (int32_t)param4, (void*)(uintptr_t)param5);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)param0;
     (void)param1;
@@ -3817,6 +5007,7 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
     (void)param3;
     (void)param4;
     (void)param5;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -3832,13 +5023,20 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbcbcp.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "bcp_initA");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)param0, (void*)(uintptr_t)param1, (void*)(uintptr_t)param2, (void*)(uintptr_t)param3, (int32_t)param4) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)param0, (void*)(uintptr_t)param1, (void*)(uintptr_t)param2, (void*)(uintptr_t)param3, (int32_t)param4);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
     (void)param3;
     (void)param4;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -3854,13 +5052,20 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbcbcp.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "bcp_initW");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)param0, (void*)(uintptr_t)param1, (void*)(uintptr_t)param2, (void*)(uintptr_t)param3, (int32_t)param4) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)param0, (void*)(uintptr_t)param1, (void*)(uintptr_t)param2, (void*)(uintptr_t)param3, (int32_t)param4);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
     (void)param3;
     (void)param4;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -3876,11 +5081,18 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbcbcp.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "bcp_moretext");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)param0, (int32_t)param1, (void*)(uintptr_t)param2) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)param0, (int32_t)param1, (void*)(uintptr_t)param2);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -3896,10 +5108,17 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbcbcp.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "bcp_readfmtA");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)param0, (void*)(uintptr_t)param1) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)param0, (void*)(uintptr_t)param1);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)param0;
     (void)param1;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -3915,10 +5134,17 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbcbcp.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "bcp_readfmtW");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)param0, (void*)(uintptr_t)param1) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)param0, (void*)(uintptr_t)param1);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)param0;
     (void)param1;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -3934,9 +5160,16 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbcbcp.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "bcp_sendrow");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)param0) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)param0);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)param0;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -3952,13 +5185,20 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbcbcp.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "bcp_setcolfmt");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)param0, (int32_t)param1, (int32_t)param2, (void*)(uintptr_t)param3, (int32_t)param4) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)param0, (int32_t)param1, (int32_t)param2, (void*)(uintptr_t)param3, (int32_t)param4);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)param0;
     (void)param1;
     (void)param2;
     (void)param3;
     (void)param4;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -3974,10 +5214,17 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbcbcp.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "bcp_writefmtA");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)param0, (void*)(uintptr_t)param1) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)param0, (void*)(uintptr_t)param1);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)param0;
     (void)param1;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -3993,10 +5240,17 @@ JNIEXPORT jshort JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_sys
         HMODULE km_h_mod = LoadLibraryA("odbcbcp.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "bcp_writefmtW");
     }
-    int16_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)param0, (void*)(uintptr_t)param1) : -1;
+    int16_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)param0, (void*)(uintptr_t)param1);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)param0;
     (void)param1;
+    errno = ENOSYS;
     int16_t km_res = -1;
 #endif
     return (jshort)km_res;
@@ -4012,9 +5266,16 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
         HMODULE km_h_mod = LoadLibraryA("odbcbcp.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "dbprtypeA");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int32_t)param0) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int32_t)param0);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)param0;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;
@@ -4030,9 +5291,16 @@ JNIEXPORT jlong JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_syst
         HMODULE km_h_mod = LoadLibraryA("odbcbcp.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "dbprtypeW");
     }
-    void* km_res = (km_fn_ptr != NULL) ? km_fn_ptr((int32_t)param0) : NULL;
+    void* km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((int32_t)param0);
+    } else {
+        errno = ENOSYS;
+        km_res = NULL;
+    }
 #else
     (void)param0;
+    errno = ENOSYS;
     void* km_res = NULL;
 #endif
     return (jlong)(uintptr_t)km_res;

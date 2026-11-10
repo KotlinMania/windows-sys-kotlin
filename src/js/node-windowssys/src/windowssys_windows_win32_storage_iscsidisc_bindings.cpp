@@ -61,9 +61,16 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_addISNSServerA_nap
         HMODULE km_h_mod = LoadLibraryA("iscsidsc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AddISNSServerA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(address) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(address);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)address;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -79,9 +86,16 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_addISNSServerW_nap
         HMODULE km_h_mod = LoadLibraryA("iscsidsc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AddISNSServerW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(address) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(address);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)address;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -105,7 +119,13 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_addIScsiConnection
         HMODULE km_h_mod = LoadLibraryA("iscsidsc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AddIScsiConnectionA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(uniquesessionid, reserved, initiatorportnumber, targetportal, securityflags, loginoptions, keysize, key, connectionid) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(uniquesessionid, reserved, initiatorportnumber, targetportal, securityflags, loginoptions, keysize, key, connectionid);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)uniquesessionid;
     (void)reserved;
@@ -116,6 +136,7 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_addIScsiConnection
     (void)keysize;
     (void)key;
     (void)connectionid;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -139,7 +160,13 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_addIScsiConnection
         HMODULE km_h_mod = LoadLibraryA("iscsidsc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AddIScsiConnectionW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(uniquesessionid, reserved, initiatorportnumber, targetportal, securityflags, loginoptions, keysize, key, connectionid) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(uniquesessionid, reserved, initiatorportnumber, targetportal, securityflags, loginoptions, keysize, key, connectionid);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)uniquesessionid;
     (void)reserved;
@@ -150,6 +177,7 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_addIScsiConnection
     (void)keysize;
     (void)key;
     (void)connectionid;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -169,13 +197,20 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_addIScsiSendTarget
         HMODULE km_h_mod = LoadLibraryA("iscsidsc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AddIScsiSendTargetPortalA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(initiatorinstance, initiatorportnumber, loginoptions, securityflags, portal) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(initiatorinstance, initiatorportnumber, loginoptions, securityflags, portal);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)initiatorinstance;
     (void)initiatorportnumber;
     (void)loginoptions;
     (void)securityflags;
     (void)portal;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -195,13 +230,20 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_addIScsiSendTarget
         HMODULE km_h_mod = LoadLibraryA("iscsidsc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AddIScsiSendTargetPortalW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(initiatorinstance, initiatorportnumber, loginoptions, securityflags, portal) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(initiatorinstance, initiatorportnumber, loginoptions, securityflags, portal);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)initiatorinstance;
     (void)initiatorportnumber;
     (void)loginoptions;
     (void)securityflags;
     (void)portal;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -223,7 +265,13 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_addIScsiStaticTarg
         HMODULE km_h_mod = LoadLibraryA("iscsidsc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AddIScsiStaticTargetA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(targetname, targetalias, targetflags, persist, mappings, loginoptions, portalgroup) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(targetname, targetalias, targetflags, persist, mappings, loginoptions, portalgroup);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)targetname;
     (void)targetalias;
@@ -232,6 +280,7 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_addIScsiStaticTarg
     (void)mappings;
     (void)loginoptions;
     (void)portalgroup;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -253,7 +302,13 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_addIScsiStaticTarg
         HMODULE km_h_mod = LoadLibraryA("iscsidsc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AddIScsiStaticTargetW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(targetname, targetalias, targetflags, persist, mappings, loginoptions, portalgroup) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(targetname, targetalias, targetflags, persist, mappings, loginoptions, portalgroup);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)targetname;
     (void)targetalias;
@@ -262,6 +317,7 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_addIScsiStaticTarg
     (void)mappings;
     (void)loginoptions;
     (void)portalgroup;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -277,9 +333,16 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_addPersistentIScsi
         HMODULE km_h_mod = LoadLibraryA("iscsidsc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AddPersistentIScsiDeviceA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(devicepath) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(devicepath);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)devicepath;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -295,9 +358,16 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_addPersistentIScsi
         HMODULE km_h_mod = LoadLibraryA("iscsidsc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AddPersistentIScsiDeviceW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(devicepath) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(devicepath);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)devicepath;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -313,9 +383,16 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_addRadiusServerA_n
         HMODULE km_h_mod = LoadLibraryA("iscsidsc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AddRadiusServerA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(address) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(address);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)address;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -331,9 +408,16 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_addRadiusServerW_n
         HMODULE km_h_mod = LoadLibraryA("iscsidsc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "AddRadiusServerW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(address) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(address);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)address;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -348,8 +432,15 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_clearPersistentISc
         HMODULE km_h_mod = LoadLibraryA("iscsidsc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ClearPersistentIScsiDevices")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -367,11 +458,18 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_getDevicesForIScsi
         HMODULE km_h_mod = LoadLibraryA("iscsidsc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetDevicesForIScsiSessionA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(uniquesessionid, devicecount, devices) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(uniquesessionid, devicecount, devices);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)uniquesessionid;
     (void)devicecount;
     (void)devices;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -389,11 +487,18 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_getDevicesForIScsi
         HMODULE km_h_mod = LoadLibraryA("iscsidsc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetDevicesForIScsiSessionW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(uniquesessionid, devicecount, devices) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(uniquesessionid, devicecount, devices);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)uniquesessionid;
     (void)devicecount;
     (void)devices;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -412,12 +517,19 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_getIScsiIKEInfoA_n
         HMODULE km_h_mod = LoadLibraryA("iscsidsc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetIScsiIKEInfoA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(initiatorname, initiatorportnumber, reserved, authinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(initiatorname, initiatorportnumber, reserved, authinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)initiatorname;
     (void)initiatorportnumber;
     (void)reserved;
     (void)authinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -436,12 +548,19 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_getIScsiIKEInfoW_n
         HMODULE km_h_mod = LoadLibraryA("iscsidsc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetIScsiIKEInfoW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(initiatorname, initiatorportnumber, reserved, authinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(initiatorname, initiatorportnumber, reserved, authinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)initiatorname;
     (void)initiatorportnumber;
     (void)reserved;
     (void)authinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -457,9 +576,16 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_getIScsiInitiatorN
         HMODULE km_h_mod = LoadLibraryA("iscsidsc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetIScsiInitiatorNodeNameA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(initiatornodename) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(initiatornodename);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)initiatornodename;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -475,9 +601,16 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_getIScsiInitiatorN
         HMODULE km_h_mod = LoadLibraryA("iscsidsc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetIScsiInitiatorNodeNameW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(initiatornodename) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(initiatornodename);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)initiatornodename;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -495,11 +628,18 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_getIScsiSessionLis
         HMODULE km_h_mod = LoadLibraryA("iscsidsc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetIScsiSessionListA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(buffersize, sessioncount, sessioninfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(buffersize, sessioncount, sessioninfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)buffersize;
     (void)sessioncount;
     (void)sessioninfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -517,11 +657,18 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_getIScsiSessionLis
         HMODULE km_h_mod = LoadLibraryA("iscsidsc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetIScsiSessionListEx")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(buffersize, sessioncountptr, sessioninfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(buffersize, sessioncountptr, sessioninfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)buffersize;
     (void)sessioncountptr;
     (void)sessioninfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -539,11 +686,18 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_getIScsiSessionLis
         HMODULE km_h_mod = LoadLibraryA("iscsidsc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetIScsiSessionListW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(buffersize, sessioncount, sessioninfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(buffersize, sessioncount, sessioninfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)buffersize;
     (void)sessioncount;
     (void)sessioninfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -563,13 +717,20 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_getIScsiTargetInfo
         HMODULE km_h_mod = LoadLibraryA("iscsidsc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetIScsiTargetInformationA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(targetname, discoverymechanism, infoclass, buffersize, buffer) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(targetname, discoverymechanism, infoclass, buffersize, buffer);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)targetname;
     (void)discoverymechanism;
     (void)infoclass;
     (void)buffersize;
     (void)buffer;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -589,13 +750,20 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_getIScsiTargetInfo
         HMODULE km_h_mod = LoadLibraryA("iscsidsc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetIScsiTargetInformationW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(targetname, discoverymechanism, infoclass, buffersize, buffer) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(targetname, discoverymechanism, infoclass, buffersize, buffer);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)targetname;
     (void)discoverymechanism;
     (void)infoclass;
     (void)buffersize;
     (void)buffer;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -611,9 +779,16 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_getIScsiVersionInf
         HMODULE km_h_mod = LoadLibraryA("iscsidsc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "GetIScsiVersionInformation")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(versioninfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(versioninfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)versioninfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -641,7 +816,13 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_loginIScsiTargetA_
         HMODULE km_h_mod = LoadLibraryA("iscsidsc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LoginIScsiTargetA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(targetname, isinformationalsession, initiatorinstance, initiatorportnumber, targetportal, securityflags, mappings, loginoptions, keysize, key, ispersistent, uniquesessionid, uniqueconnectionid) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(targetname, isinformationalsession, initiatorinstance, initiatorportnumber, targetportal, securityflags, mappings, loginoptions, keysize, key, ispersistent, uniquesessionid, uniqueconnectionid);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)targetname;
     (void)isinformationalsession;
@@ -656,6 +837,7 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_loginIScsiTargetA_
     (void)ispersistent;
     (void)uniquesessionid;
     (void)uniqueconnectionid;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -683,7 +865,13 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_loginIScsiTargetW_
         HMODULE km_h_mod = LoadLibraryA("iscsidsc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LoginIScsiTargetW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(targetname, isinformationalsession, initiatorinstance, initiatorportnumber, targetportal, securityflags, mappings, loginoptions, keysize, key, ispersistent, uniquesessionid, uniqueconnectionid) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(targetname, isinformationalsession, initiatorinstance, initiatorportnumber, targetportal, securityflags, mappings, loginoptions, keysize, key, ispersistent, uniquesessionid, uniqueconnectionid);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)targetname;
     (void)isinformationalsession;
@@ -698,6 +886,7 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_loginIScsiTargetW_
     (void)ispersistent;
     (void)uniquesessionid;
     (void)uniqueconnectionid;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -713,9 +902,16 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_logoutIScsiTarget_
         HMODULE km_h_mod = LoadLibraryA("iscsidsc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "LogoutIScsiTarget")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(uniquesessionid) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(uniquesessionid);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)uniquesessionid;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -731,9 +927,16 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_refreshISNSServerA
         HMODULE km_h_mod = LoadLibraryA("iscsidsc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RefreshISNSServerA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(address) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(address);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)address;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -749,9 +952,16 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_refreshISNSServerW
         HMODULE km_h_mod = LoadLibraryA("iscsidsc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RefreshISNSServerW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(address) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(address);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)address;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -769,11 +979,18 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_refreshIScsiSendTa
         HMODULE km_h_mod = LoadLibraryA("iscsidsc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RefreshIScsiSendTargetPortalA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(initiatorinstance, initiatorportnumber, portal) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(initiatorinstance, initiatorportnumber, portal);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)initiatorinstance;
     (void)initiatorportnumber;
     (void)portal;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -791,11 +1008,18 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_refreshIScsiSendTa
         HMODULE km_h_mod = LoadLibraryA("iscsidsc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RefreshIScsiSendTargetPortalW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(initiatorinstance, initiatorportnumber, portal) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(initiatorinstance, initiatorportnumber, portal);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)initiatorinstance;
     (void)initiatorportnumber;
     (void)portal;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -811,9 +1035,16 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_removeISNSServerA_
         HMODULE km_h_mod = LoadLibraryA("iscsidsc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RemoveISNSServerA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(address) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(address);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)address;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -829,9 +1060,16 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_removeISNSServerW_
         HMODULE km_h_mod = LoadLibraryA("iscsidsc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RemoveISNSServerW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(address) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(address);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)address;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -848,10 +1086,17 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_removeIScsiConnect
         HMODULE km_h_mod = LoadLibraryA("iscsidsc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RemoveIScsiConnection")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(uniquesessionid, connectionid) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(uniquesessionid, connectionid);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)uniquesessionid;
     (void)connectionid;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -870,12 +1115,19 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_removeIScsiPersist
         HMODULE km_h_mod = LoadLibraryA("iscsidsc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RemoveIScsiPersistentTargetA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(initiatorinstance, initiatorportnumber, targetname, portal) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(initiatorinstance, initiatorportnumber, targetname, portal);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)initiatorinstance;
     (void)initiatorportnumber;
     (void)targetname;
     (void)portal;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -894,12 +1146,19 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_removeIScsiPersist
         HMODULE km_h_mod = LoadLibraryA("iscsidsc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RemoveIScsiPersistentTargetW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(initiatorinstance, initiatorportnumber, targetname, portal) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(initiatorinstance, initiatorportnumber, targetname, portal);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)initiatorinstance;
     (void)initiatorportnumber;
     (void)targetname;
     (void)portal;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -917,11 +1176,18 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_removeIScsiSendTar
         HMODULE km_h_mod = LoadLibraryA("iscsidsc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RemoveIScsiSendTargetPortalA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(initiatorinstance, initiatorportnumber, portal) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(initiatorinstance, initiatorportnumber, portal);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)initiatorinstance;
     (void)initiatorportnumber;
     (void)portal;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -939,11 +1205,18 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_removeIScsiSendTar
         HMODULE km_h_mod = LoadLibraryA("iscsidsc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RemoveIScsiSendTargetPortalW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(initiatorinstance, initiatorportnumber, portal) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(initiatorinstance, initiatorportnumber, portal);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)initiatorinstance;
     (void)initiatorportnumber;
     (void)portal;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -959,9 +1232,16 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_removeIScsiStaticT
         HMODULE km_h_mod = LoadLibraryA("iscsidsc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RemoveIScsiStaticTargetA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(targetname) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(targetname);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)targetname;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -977,9 +1257,16 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_removeIScsiStaticT
         HMODULE km_h_mod = LoadLibraryA("iscsidsc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RemoveIScsiStaticTargetW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(targetname) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(targetname);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)targetname;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -995,9 +1282,16 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_removePersistentIS
         HMODULE km_h_mod = LoadLibraryA("iscsidsc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RemovePersistentIScsiDeviceA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(devicepath) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(devicepath);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)devicepath;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1013,9 +1307,16 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_removePersistentIS
         HMODULE km_h_mod = LoadLibraryA("iscsidsc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RemovePersistentIScsiDeviceW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(devicepath) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(devicepath);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)devicepath;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1031,9 +1332,16 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_removeRadiusServer
         HMODULE km_h_mod = LoadLibraryA("iscsidsc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RemoveRadiusServerA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(address) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(address);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)address;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1049,9 +1357,16 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_removeRadiusServer
         HMODULE km_h_mod = LoadLibraryA("iscsidsc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RemoveRadiusServerW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(address) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(address);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)address;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1069,11 +1384,18 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_reportActiveIScsiT
         HMODULE km_h_mod = LoadLibraryA("iscsidsc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ReportActiveIScsiTargetMappingsA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(buffersize, mappingcount, mappings) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(buffersize, mappingcount, mappings);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)buffersize;
     (void)mappingcount;
     (void)mappings;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1091,11 +1413,18 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_reportActiveIScsiT
         HMODULE km_h_mod = LoadLibraryA("iscsidsc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ReportActiveIScsiTargetMappingsW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(buffersize, mappingcount, mappings) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(buffersize, mappingcount, mappings);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)buffersize;
     (void)mappingcount;
     (void)mappings;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1112,10 +1441,17 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_reportISNSServerLi
         HMODULE km_h_mod = LoadLibraryA("iscsidsc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ReportISNSServerListA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(buffersizeinchar, buffer) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(buffersizeinchar, buffer);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)buffersizeinchar;
     (void)buffer;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1132,10 +1468,17 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_reportISNSServerLi
         HMODULE km_h_mod = LoadLibraryA("iscsidsc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ReportISNSServerListW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(buffersizeinchar, buffer) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(buffersizeinchar, buffer);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)buffersizeinchar;
     (void)buffer;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1152,10 +1495,17 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_reportIScsiInitiat
         HMODULE km_h_mod = LoadLibraryA("iscsidsc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ReportIScsiInitiatorListA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(buffersize, buffer) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(buffersize, buffer);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)buffersize;
     (void)buffer;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1172,10 +1522,17 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_reportIScsiInitiat
         HMODULE km_h_mod = LoadLibraryA("iscsidsc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ReportIScsiInitiatorListW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(buffersize, buffer) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(buffersize, buffer);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)buffersize;
     (void)buffer;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1193,11 +1550,18 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_reportIScsiPersist
         HMODULE km_h_mod = LoadLibraryA("iscsidsc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ReportIScsiPersistentLoginsA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(count, persistentlogininfo, buffersizeinbytes) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(count, persistentlogininfo, buffersizeinbytes);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)count;
     (void)persistentlogininfo;
     (void)buffersizeinbytes;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1215,11 +1579,18 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_reportIScsiPersist
         HMODULE km_h_mod = LoadLibraryA("iscsidsc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ReportIScsiPersistentLoginsW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(count, persistentlogininfo, buffersizeinbytes) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(count, persistentlogininfo, buffersizeinbytes);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)count;
     (void)persistentlogininfo;
     (void)buffersizeinbytes;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1236,10 +1607,17 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_reportIScsiSendTar
         HMODULE km_h_mod = LoadLibraryA("iscsidsc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ReportIScsiSendTargetPortalsA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(portalcount, portalinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(portalcount, portalinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)portalcount;
     (void)portalinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1257,11 +1635,18 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_reportIScsiSendTar
         HMODULE km_h_mod = LoadLibraryA("iscsidsc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ReportIScsiSendTargetPortalsExA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(portalcount, portalinfosize, portalinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(portalcount, portalinfosize, portalinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)portalcount;
     (void)portalinfosize;
     (void)portalinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1279,11 +1664,18 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_reportIScsiSendTar
         HMODULE km_h_mod = LoadLibraryA("iscsidsc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ReportIScsiSendTargetPortalsExW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(portalcount, portalinfosize, portalinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(portalcount, portalinfosize, portalinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)portalcount;
     (void)portalinfosize;
     (void)portalinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1300,10 +1692,17 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_reportIScsiSendTar
         HMODULE km_h_mod = LoadLibraryA("iscsidsc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ReportIScsiSendTargetPortalsW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(portalcount, portalinfo) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(portalcount, portalinfo);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)portalcount;
     (void)portalinfo;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1323,13 +1722,20 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_reportIScsiTargetP
         HMODULE km_h_mod = LoadLibraryA("iscsidsc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ReportIScsiTargetPortalsA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(initiatorname, targetname, targetportaltag, elementcount, portals) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(initiatorname, targetname, targetportaltag, elementcount, portals);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)initiatorname;
     (void)targetname;
     (void)targetportaltag;
     (void)elementcount;
     (void)portals;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1349,13 +1755,20 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_reportIScsiTargetP
         HMODULE km_h_mod = LoadLibraryA("iscsidsc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ReportIScsiTargetPortalsW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(initiatorname, targetname, targetportaltag, elementcount, portals) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(initiatorname, targetname, targetportaltag, elementcount, portals);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)initiatorname;
     (void)targetname;
     (void)targetportaltag;
     (void)elementcount;
     (void)portals;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1373,11 +1786,18 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_reportIScsiTargets
         HMODULE km_h_mod = LoadLibraryA("iscsidsc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ReportIScsiTargetsA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(forceupdate, buffersize, buffer) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(forceupdate, buffersize, buffer);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)forceupdate;
     (void)buffersize;
     (void)buffer;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1395,11 +1815,18 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_reportIScsiTargets
         HMODULE km_h_mod = LoadLibraryA("iscsidsc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ReportIScsiTargetsW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(forceupdate, buffersize, buffer) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(forceupdate, buffersize, buffer);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)forceupdate;
     (void)buffersize;
     (void)buffer;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1416,10 +1843,17 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_reportPersistentIS
         HMODULE km_h_mod = LoadLibraryA("iscsidsc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ReportPersistentIScsiDevicesA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(buffersizeinchar, buffer) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(buffersizeinchar, buffer);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)buffersizeinchar;
     (void)buffer;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1436,10 +1870,17 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_reportPersistentIS
         HMODULE km_h_mod = LoadLibraryA("iscsidsc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ReportPersistentIScsiDevicesW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(buffersizeinchar, buffer) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(buffersizeinchar, buffer);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)buffersizeinchar;
     (void)buffer;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1456,10 +1897,17 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_reportRadiusServer
         HMODULE km_h_mod = LoadLibraryA("iscsidsc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ReportRadiusServerListA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(buffersizeinchar, buffer) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(buffersizeinchar, buffer);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)buffersizeinchar;
     (void)buffer;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1476,10 +1924,17 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_reportRadiusServer
         HMODULE km_h_mod = LoadLibraryA("iscsidsc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ReportRadiusServerListW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(buffersizeinchar, buffer) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(buffersizeinchar, buffer);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)buffersizeinchar;
     (void)buffer;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1503,7 +1958,13 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_sendScsiInquiry_na
         HMODULE km_h_mod = LoadLibraryA("iscsidsc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SendScsiInquiry")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(uniquesessionid, lun, evpdcmddt, pagecode, scsistatus, responsesize, responsebuffer, sensesize, sensebuffer) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(uniquesessionid, lun, evpdcmddt, pagecode, scsistatus, responsesize, responsebuffer, sensesize, sensebuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)uniquesessionid;
     (void)lun;
@@ -1514,6 +1975,7 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_sendScsiInquiry_na
     (void)responsebuffer;
     (void)sensesize;
     (void)sensebuffer;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1535,7 +1997,13 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_sendScsiReadCapaci
         HMODULE km_h_mod = LoadLibraryA("iscsidsc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SendScsiReadCapacity")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(uniquesessionid, lun, scsistatus, responsesize, responsebuffer, sensesize, sensebuffer) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(uniquesessionid, lun, scsistatus, responsesize, responsebuffer, sensesize, sensebuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)uniquesessionid;
     (void)lun;
@@ -1544,6 +2012,7 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_sendScsiReadCapaci
     (void)responsebuffer;
     (void)sensesize;
     (void)sensebuffer;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1564,7 +2033,13 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_sendScsiReportLuns
         HMODULE km_h_mod = LoadLibraryA("iscsidsc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SendScsiReportLuns")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(uniquesessionid, scsistatus, responsesize, responsebuffer, sensesize, sensebuffer) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(uniquesessionid, scsistatus, responsesize, responsebuffer, sensesize, sensebuffer);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)uniquesessionid;
     (void)scsistatus;
@@ -1572,6 +2047,7 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_sendScsiReportLuns
     (void)responsebuffer;
     (void)sensesize;
     (void)sensebuffer;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1589,11 +2065,18 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_setIScsiGroupPresh
         HMODULE km_h_mod = LoadLibraryA("iscsidsc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetIScsiGroupPresharedKey")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(keylength, key, persist) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(keylength, key, persist);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)keylength;
     (void)key;
     (void)persist;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1612,12 +2095,19 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_setIScsiIKEInfoA_n
         HMODULE km_h_mod = LoadLibraryA("iscsidsc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetIScsiIKEInfoA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(initiatorname, initiatorportnumber, authinfo, persist) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(initiatorname, initiatorportnumber, authinfo, persist);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)initiatorname;
     (void)initiatorportnumber;
     (void)authinfo;
     (void)persist;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1636,12 +2126,19 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_setIScsiIKEInfoW_n
         HMODULE km_h_mod = LoadLibraryA("iscsidsc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetIScsiIKEInfoW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(initiatorname, initiatorportnumber, authinfo, persist) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(initiatorname, initiatorportnumber, authinfo, persist);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)initiatorname;
     (void)initiatorportnumber;
     (void)authinfo;
     (void)persist;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1658,10 +2155,17 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_setIScsiInitiatorC
         HMODULE km_h_mod = LoadLibraryA("iscsidsc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetIScsiInitiatorCHAPSharedSecret")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sharedsecretlength, sharedsecret) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sharedsecretlength, sharedsecret);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)sharedsecretlength;
     (void)sharedsecret;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1677,9 +2181,16 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_setIScsiInitiatorN
         HMODULE km_h_mod = LoadLibraryA("iscsidsc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetIScsiInitiatorNodeNameA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(initiatornodename) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(initiatornodename);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)initiatornodename;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1695,9 +2206,16 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_setIScsiInitiatorN
         HMODULE km_h_mod = LoadLibraryA("iscsidsc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetIScsiInitiatorNodeNameW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(initiatornodename) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(initiatornodename);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)initiatornodename;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1714,10 +2232,17 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_setIScsiInitiatorR
         HMODULE km_h_mod = LoadLibraryA("iscsidsc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetIScsiInitiatorRADIUSSharedSecret")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(sharedsecretlength, sharedsecret) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(sharedsecretlength, sharedsecret);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)sharedsecretlength;
     (void)sharedsecret;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1737,13 +2262,20 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_setIScsiTunnelMode
         HMODULE km_h_mod = LoadLibraryA("iscsidsc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetIScsiTunnelModeOuterAddressA")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(initiatorname, initiatorportnumber, destinationaddress, outermodeaddress, persist) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(initiatorname, initiatorportnumber, destinationaddress, outermodeaddress, persist);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)initiatorname;
     (void)initiatorportnumber;
     (void)destinationaddress;
     (void)outermodeaddress;
     (void)persist;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1763,13 +2295,20 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_setIScsiTunnelMode
         HMODULE km_h_mod = LoadLibraryA("iscsidsc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetIScsiTunnelModeOuterAddressW")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(initiatorname, initiatorportnumber, destinationaddress, outermodeaddress, persist) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(initiatorname, initiatorportnumber, destinationaddress, outermodeaddress, persist);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)initiatorname;
     (void)initiatorportnumber;
     (void)destinationaddress;
     (void)outermodeaddress;
     (void)persist;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1784,8 +2323,15 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_setupPersistentISc
         HMODULE km_h_mod = LoadLibraryA("iscsidsc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupPersistentIScsiDevices")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -1800,8 +2346,15 @@ static Napi::Value windowssys_windows_win32_storage_iscsidisc_setupPersistentISc
         HMODULE km_h_mod = LoadLibraryA("iscsidsc.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "SetupPersistentIScsiVolumes")));
     }
-    uint32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr() : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr();
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

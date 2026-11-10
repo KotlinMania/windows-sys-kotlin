@@ -61,9 +61,16 @@ static Napi::Value windowssys_windows_win32_security_cryptography_sip_cryptSIPAd
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CryptSIPAddProvider")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(psnewprov) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(psnewprov);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)psnewprov;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -81,11 +88,18 @@ static Napi::Value windowssys_windows_win32_security_cryptography_sip_cryptSIPCr
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CryptSIPCreateIndirectData")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(psubjectinfo, pcbindirectdata, pindirectdata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(psubjectinfo, pcbindirectdata, pindirectdata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)psubjectinfo;
     (void)pcbindirectdata;
     (void)pindirectdata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -102,10 +116,17 @@ static Napi::Value windowssys_windows_win32_security_cryptography_sip_cryptSIPGe
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CryptSIPGetCaps")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(psubjinfo, pcaps) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(psubjinfo, pcaps);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)psubjinfo;
     (void)pcaps;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -125,13 +146,20 @@ static Napi::Value windowssys_windows_win32_security_cryptography_sip_cryptSIPGe
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CryptSIPGetSealedDigest")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(psubjectinfo, psig, dwsig, pbdigest, pcbdigest) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(psubjectinfo, psig, dwsig, pbdigest, pcbdigest);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)psubjectinfo;
     (void)psig;
     (void)dwsig;
     (void)pbdigest;
     (void)pcbdigest;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -151,13 +179,20 @@ static Napi::Value windowssys_windows_win32_security_cryptography_sip_cryptSIPGe
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CryptSIPGetSignedDataMsg")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(psubjectinfo, pdwencodingtype, dwindex, pcbsigneddatamsg, pbsigneddatamsg) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(psubjectinfo, pdwencodingtype, dwindex, pcbsigneddatamsg, pbsigneddatamsg);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)psubjectinfo;
     (void)pdwencodingtype;
     (void)dwindex;
     (void)pcbsigneddatamsg;
     (void)pbsigneddatamsg;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -175,11 +210,18 @@ static Napi::Value windowssys_windows_win32_security_cryptography_sip_cryptSIPLo
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CryptSIPLoad")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pgsubject, dwflags, psipdispatch) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pgsubject, dwflags, psipdispatch);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pgsubject;
     (void)dwflags;
     (void)psipdispatch;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -199,13 +241,20 @@ static Napi::Value windowssys_windows_win32_security_cryptography_sip_cryptSIPPu
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CryptSIPPutSignedDataMsg")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(psubjectinfo, dwencodingtype, pdwindex, cbsigneddatamsg, pbsigneddatamsg) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(psubjectinfo, dwencodingtype, pdwindex, cbsigneddatamsg, pbsigneddatamsg);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)psubjectinfo;
     (void)dwencodingtype;
     (void)pdwindex;
     (void)cbsigneddatamsg;
     (void)pbsigneddatamsg;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -221,9 +270,16 @@ static Napi::Value windowssys_windows_win32_security_cryptography_sip_cryptSIPRe
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CryptSIPRemoveProvider")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(pgprov) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(pgprov);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)pgprov;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -240,10 +296,17 @@ static Napi::Value windowssys_windows_win32_security_cryptography_sip_cryptSIPRe
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CryptSIPRemoveSignedDataMsg")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(psubjectinfo, dwindex) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(psubjectinfo, dwindex);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)psubjectinfo;
     (void)dwindex;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -261,11 +324,18 @@ static Napi::Value windowssys_windows_win32_security_cryptography_sip_cryptSIPRe
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CryptSIPRetrieveSubjectGuid")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(filename, hfilein, pgsubject) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(filename, hfilein, pgsubject);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)filename;
     (void)hfilein;
     (void)pgsubject;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -283,11 +353,18 @@ static Napi::Value windowssys_windows_win32_security_cryptography_sip_cryptSIPRe
         HMODULE km_h_mod = LoadLibraryA("crypt32.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CryptSIPRetrieveSubjectGuidForCatalogFile")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(filename, hfilein, pgsubject) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(filename, hfilein, pgsubject);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)filename;
     (void)hfilein;
     (void)pgsubject;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -304,10 +381,17 @@ static Napi::Value windowssys_windows_win32_security_cryptography_sip_cryptSIPVe
         HMODULE km_h_mod = LoadLibraryA("wintrust.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "CryptSIPVerifyIndirectData")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(psubjectinfo, pindirectdata) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(psubjectinfo, pindirectdata);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)psubjectinfo;
     (void)pindirectdata;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));

@@ -5,6 +5,7 @@
 #include <stdbool.h>
 #include <stddef.h>
 #include <stdint.h>
+#include <stdlib.h>
 #include <errno.h>
 #ifdef _WIN32
 #ifndef WIN32_LEAN_AND_MEAN
@@ -28,11 +29,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
         HMODULE km_h_mod = LoadLibraryA("ksuser.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "KsCreateAllocator");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)connectionhandle, (void*)(uintptr_t)allocatorframing, (void*)(uintptr_t)allocatorhandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)connectionhandle, (void*)(uintptr_t)allocatorframing, (void*)(uintptr_t)allocatorhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)connectionhandle;
     (void)allocatorframing;
     (void)allocatorhandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -48,11 +56,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
         HMODULE km_h_mod = LoadLibraryA("ksuser.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "KsCreateAllocator2");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)connectionhandle, (void*)(uintptr_t)allocatorframing, (void*)(uintptr_t)allocatorhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)connectionhandle, (void*)(uintptr_t)allocatorframing, (void*)(uintptr_t)allocatorhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)connectionhandle;
     (void)allocatorframing;
     (void)allocatorhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -68,11 +83,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
         HMODULE km_h_mod = LoadLibraryA("ksuser.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "KsCreateClock");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)connectionhandle, (void*)(uintptr_t)clockcreate, (void*)(uintptr_t)clockhandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)connectionhandle, (void*)(uintptr_t)clockcreate, (void*)(uintptr_t)clockhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)connectionhandle;
     (void)clockcreate;
     (void)clockhandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -88,11 +110,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
         HMODULE km_h_mod = LoadLibraryA("ksuser.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "KsCreateClock2");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)connectionhandle, (void*)(uintptr_t)clockcreate, (void*)(uintptr_t)clockhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)connectionhandle, (void*)(uintptr_t)clockcreate, (void*)(uintptr_t)clockhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)connectionhandle;
     (void)clockcreate;
     (void)clockhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -108,12 +137,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
         HMODULE km_h_mod = LoadLibraryA("ksuser.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "KsCreatePin");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)filterhandle, (void*)(uintptr_t)arg_1_connect, (uint32_t)desiredaccess, (void*)(uintptr_t)connectionhandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)filterhandle, (void*)(uintptr_t)arg_1_connect, (uint32_t)desiredaccess, (void*)(uintptr_t)connectionhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)filterhandle;
     (void)arg_1_connect;
     (void)desiredaccess;
     (void)connectionhandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -129,12 +165,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
         HMODULE km_h_mod = LoadLibraryA("ksuser.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "KsCreatePin2");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)filterhandle, (void*)(uintptr_t)arg_1_connect, (uint32_t)desiredaccess, (void*)(uintptr_t)connectionhandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)filterhandle, (void*)(uintptr_t)arg_1_connect, (uint32_t)desiredaccess, (void*)(uintptr_t)connectionhandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)filterhandle;
     (void)arg_1_connect;
     (void)desiredaccess;
     (void)connectionhandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -150,12 +193,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
         HMODULE km_h_mod = LoadLibraryA("ksuser.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "KsCreateTopologyNode");
     }
-    uint32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)parenthandle, (void*)(uintptr_t)nodecreate, (uint32_t)desiredaccess, (void*)(uintptr_t)nodehandle) : 0;
+    uint32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)parenthandle, (void*)(uintptr_t)nodecreate, (uint32_t)desiredaccess, (void*)(uintptr_t)nodehandle);
+    } else {
+        errno = ENOSYS;
+        km_res = 0;
+    }
 #else
     (void)parenthandle;
     (void)nodecreate;
     (void)desiredaccess;
     (void)nodehandle;
+    errno = ENOSYS;
     uint32_t km_res = 0;
 #endif
     return (jint)km_res;
@@ -171,12 +221,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
         HMODULE km_h_mod = LoadLibraryA("ksuser.dll");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "KsCreateTopologyNode2");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)parenthandle, (void*)(uintptr_t)nodecreate, (uint32_t)desiredaccess, (void*)(uintptr_t)nodehandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)parenthandle, (void*)(uintptr_t)nodecreate, (uint32_t)desiredaccess, (void*)(uintptr_t)nodehandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)parenthandle;
     (void)nodecreate;
     (void)desiredaccess;
     (void)nodehandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -192,11 +249,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
         HMODULE km_h_mod = LoadLibraryA("ksproxy.ax");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "KsGetMediaTypeCount");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)filterhandle, (uint32_t)pinfactoryid, (void*)(uintptr_t)mediatypecount) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)filterhandle, (uint32_t)pinfactoryid, (void*)(uintptr_t)mediatypecount);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)filterhandle;
     (void)pinfactoryid;
     (void)mediatypecount;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -212,12 +276,19 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
         HMODULE km_h_mod = LoadLibraryA("ksproxy.ax");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "KsGetMultiplePinFactoryItems");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)filterhandle, (uint32_t)pinfactoryid, (uint32_t)propertyid, (void*)(uintptr_t)items) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)filterhandle, (uint32_t)pinfactoryid, (uint32_t)propertyid, (void*)(uintptr_t)items);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)filterhandle;
     (void)pinfactoryid;
     (void)propertyid;
     (void)items;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -233,11 +304,18 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
         HMODULE km_h_mod = LoadLibraryA("ksproxy.ax");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "KsOpenDefaultDevice");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)category, (uint32_t)access, (void*)(uintptr_t)devicehandle) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)category, (uint32_t)access, (void*)(uintptr_t)devicehandle);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)category;
     (void)access;
     (void)devicehandle;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -253,10 +331,17 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
         HMODULE km_h_mod = LoadLibraryA("ksproxy.ax");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "KsResolveRequiredAttributes");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)datarange, (void*)(uintptr_t)attributes) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)datarange, (void*)(uintptr_t)attributes);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)datarange;
     (void)attributes;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;
@@ -272,7 +357,13 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
         HMODULE km_h_mod = LoadLibraryA("ksproxy.ax");
         if (km_h_mod != NULL) km_fn_ptr = (km_fn_t)(void*)GetProcAddress(km_h_mod, "KsSynchronousDeviceControl");
     }
-    int32_t km_res = (km_fn_ptr != NULL) ? km_fn_ptr((void*)(uintptr_t)handle, (uint32_t)iocontrol, (void*)(uintptr_t)inbuffer, (uint32_t)inlength, (void*)(uintptr_t)outbuffer, (uint32_t)outlength, (void*)(uintptr_t)bytesreturned) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != NULL) {
+        km_res = km_fn_ptr((void*)(uintptr_t)handle, (uint32_t)iocontrol, (void*)(uintptr_t)inbuffer, (uint32_t)inlength, (void*)(uintptr_t)outbuffer, (uint32_t)outlength, (void*)(uintptr_t)bytesreturned);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)handle;
     (void)iocontrol;
@@ -281,6 +372,7 @@ JNIEXPORT jint JNICALL Java_io_github_kotlinmania_windowssys_windows_win32_media
     (void)outbuffer;
     (void)outlength;
     (void)bytesreturned;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return (jint)km_res;

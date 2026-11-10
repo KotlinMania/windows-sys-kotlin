@@ -63,11 +63,18 @@ static Napi::Value windowssys_windows_win32_security_licenseprotection_registerL
         HMODULE km_h_mod = LoadLibraryA("licenseprotection.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "RegisterLicenseKeyWithExpiration")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(licensekey, validityindays, status) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(licensekey, validityindays, status);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)licensekey;
     (void)validityindays;
     (void)status;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
@@ -86,12 +93,19 @@ static Napi::Value windowssys_windows_win32_security_licenseprotection_validateL
         HMODULE km_h_mod = LoadLibraryA("licenseprotection.dll");
         if (km_h_mod != nullptr) km_fn_ptr = reinterpret_cast<km_fn_t>(reinterpret_cast<void*>(GetProcAddress(km_h_mod, "ValidateLicenseKeyProtection")));
     }
-    int32_t km_res = (km_fn_ptr != nullptr) ? km_fn_ptr(licensekey, notvalidbefore, notvalidafter, status) : -1;
+    int32_t km_res;
+    if (km_fn_ptr != nullptr) {
+        km_res = km_fn_ptr(licensekey, notvalidbefore, notvalidafter, status);
+    } else {
+        errno = ENOSYS;
+        km_res = -1;
+    }
 #else
     (void)licensekey;
     (void)notvalidbefore;
     (void)notvalidafter;
     (void)status;
+    errno = ENOSYS;
     int32_t km_res = -1;
 #endif
     return Napi::Number::New(km_env, static_cast<int32_t>(km_res));
